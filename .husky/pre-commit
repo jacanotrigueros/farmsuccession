@@ -1,0 +1,9 @@
+# Formats the staged files before they are committed. Fast on purpose: a slow
+# pre-commit hook is a hook people bypass with --no-verify.
+if ! command -v npx >/dev/null 2>&1; then
+  echo "pre-commit: Node.js is not on PATH in this shell, so the staged-file checks cannot run." >&2
+  echo "pre-commit: install the Node version in .nvmrc for the environment you commit from." >&2
+  exit 1
+fi
+
+npx lint-staged

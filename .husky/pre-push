@@ -1,0 +1,9 @@
+# Runs the full check before anything leaves the machine. Slower than
+# pre-commit by design: this is the last gate before a branch is shared.
+if ! command -v npm >/dev/null 2>&1; then
+  echo "pre-push: Node.js is not on PATH in this shell, so the checks cannot run." >&2
+  echo "pre-push: install the Node version in .nvmrc for the environment you push from." >&2
+  exit 1
+fi
+
+npm run check
