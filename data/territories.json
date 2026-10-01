@@ -1,0 +1,315 @@
+{
+  "schemaVersion": "1.0.0",
+  "frozenOn": "2026-09-07",
+  "principle": "Territory is a canonical dimension independent from yearly documentary editions. Hubs exist for reader navigation, SEO and aggregation. Regions are agronomic documentary leaves: the smallest stable territories to which research coverage and documentary records are assigned. A hub may contain one or several leaves. A hub of several leaves may carry its own optional documentary layer (data/editions/<year>/hubs/<iso>/<hub>.json) for instruments shown to apply to every one of its leaves, which inherit it; a hub of one leaf is that leaf and never carries records of its own.",
+  "jurisdictions": {
+    "EU": {
+      "name": "European Union",
+      "lang": "en",
+      "hubLabel": "European Union",
+      "leafLevel": "supranational",
+      "leafLabel": "European Union",
+      "sources": [],
+      "rationale": "The EU is the supranational inherited layer and has no subnational FarmSuccession territory.",
+      "hubs": [],
+      "regions": []
+    },
+    "ES": {
+      "name": "España",
+      "lang": "es",
+      "hubLabel": "Comunidades autónomas",
+      "leafLevel": "agronomicDocumentaryTerritory",
+      "leafLabel": "Territorios agrarios documentales",
+      "sources": [
+        {
+          "url": "https://www.mapa.gob.es/es/pac/pac-2023-2027/plan-estrategico-pac",
+          "authority": "Ministerio de Agricultura, Pesca y Alimentación",
+          "purpose": "PAC governance"
+        },
+        {
+          "url": "https://www.euskadi.eus/web01-a2pac/es/contenidos/informacion/pac2327_intervenciones_dr2026/es_def/index.shtml",
+          "authority": "Gobierno Vasco",
+          "purpose": "Basque foral agricultural implementation"
+        },
+        {
+          "url": "https://www.gobiernodecanarias.org/agricultura/pepac",
+          "authority": "Gobierno de Canarias",
+          "purpose": "Canary agricultural governance"
+        }
+      ],
+      "rationale": "Las 17 comunidades autónomas son los hubs principales de navegación y SEO. País Vasco, Canarias e Illes Balears bajan a territorios hoja porque la gobernanza agraria, las competencias forales/insulares, las convocatorias o la realidad documental exigen investigación separada. El resto de hubs coincide con una sola hoja.",
+      "hubs": [
+        {
+          "slug": "andalucia",
+          "name": "Andalucía",
+          "members": ["andalucia"]
+        },
+        {
+          "slug": "aragon",
+          "name": "Aragón",
+          "members": ["aragon"]
+        },
+        {
+          "slug": "asturias",
+          "name": "Principado de Asturias",
+          "members": ["asturias"]
+        },
+        {
+          "slug": "illes-balears",
+          "name": "Illes Balears",
+          "members": ["mallorca", "menorca", "eivissa", "formentera"]
+        },
+        {
+          "slug": "canarias",
+          "name": "Canarias",
+          "members": ["el-hierro", "fuerteventura", "gran-canaria", "la-gomera", "lanzarote", "la-palma", "tenerife"]
+        },
+        {
+          "slug": "cantabria",
+          "name": "Cantabria",
+          "members": ["cantabria"]
+        },
+        {
+          "slug": "castilla-la-mancha",
+          "name": "Castilla-La Mancha",
+          "members": ["castilla-la-mancha"]
+        },
+        {
+          "slug": "castilla-y-leon",
+          "name": "Castilla y León",
+          "members": ["castilla-y-leon"]
+        },
+        {
+          "slug": "cataluna",
+          "name": "Cataluña",
+          "members": ["cataluna"]
+        },
+        {
+          "slug": "comunitat-valenciana",
+          "name": "Comunitat Valenciana",
+          "members": ["comunitat-valenciana"]
+        },
+        {
+          "slug": "extremadura",
+          "name": "Extremadura",
+          "members": ["extremadura"]
+        },
+        {
+          "slug": "galicia",
+          "name": "Galicia",
+          "members": ["galicia"]
+        },
+        {
+          "slug": "comunidad-de-madrid",
+          "name": "Comunidad de Madrid",
+          "members": ["comunidad-de-madrid"]
+        },
+        {
+          "slug": "region-de-murcia",
+          "name": "Región de Murcia",
+          "members": ["region-de-murcia"]
+        },
+        {
+          "slug": "navarra",
+          "name": "Comunidad Foral de Navarra",
+          "members": ["navarra"]
+        },
+        {
+          "slug": "pais-vasco",
+          "name": "País Vasco / Euskadi",
+          "members": ["araba-alava", "bizkaia", "gipuzkoa"]
+        },
+        {
+          "slug": "la-rioja",
+          "name": "La Rioja",
+          "members": ["la-rioja"]
+        }
+      ],
+      "regions": [
+        {
+          "slug": "andalucia",
+          "name": "Andalucía",
+          "inPhrase": "en Andalucía",
+          "parentHub": "andalucia"
+        },
+        {
+          "slug": "aragon",
+          "name": "Aragón",
+          "inPhrase": "en Aragón",
+          "parentHub": "aragon"
+        },
+        {
+          "slug": "asturias",
+          "name": "Principado de Asturias",
+          "inPhrase": "en el Principado de Asturias",
+          "parentHub": "asturias"
+        },
+        {
+          "slug": "mallorca",
+          "name": "Mallorca",
+          "inPhrase": "en Mallorca",
+          "parentHub": "illes-balears",
+          "kind": "island"
+        },
+        {
+          "slug": "menorca",
+          "name": "Menorca",
+          "inPhrase": "en Menorca",
+          "parentHub": "illes-balears",
+          "kind": "island"
+        },
+        {
+          "slug": "eivissa",
+          "name": "Eivissa / Ibiza",
+          "inPhrase": "en Eivissa / Ibiza",
+          "parentHub": "illes-balears",
+          "kind": "island"
+        },
+        {
+          "slug": "formentera",
+          "name": "Formentera",
+          "inPhrase": "en Formentera",
+          "parentHub": "illes-balears",
+          "kind": "island"
+        },
+        {
+          "slug": "el-hierro",
+          "name": "El Hierro",
+          "inPhrase": "en El Hierro",
+          "parentHub": "canarias",
+          "kind": "island"
+        },
+        {
+          "slug": "fuerteventura",
+          "name": "Fuerteventura",
+          "inPhrase": "en Fuerteventura",
+          "parentHub": "canarias",
+          "kind": "island"
+        },
+        {
+          "slug": "gran-canaria",
+          "name": "Gran Canaria",
+          "inPhrase": "en Gran Canaria",
+          "parentHub": "canarias",
+          "kind": "island"
+        },
+        {
+          "slug": "la-gomera",
+          "name": "La Gomera",
+          "inPhrase": "en La Gomera",
+          "parentHub": "canarias",
+          "kind": "island"
+        },
+        {
+          "slug": "lanzarote",
+          "name": "Lanzarote",
+          "inPhrase": "en Lanzarote",
+          "parentHub": "canarias",
+          "kind": "island",
+          "note": "Incluye La Graciosa a efectos del catálogo documental."
+        },
+        {
+          "slug": "la-palma",
+          "name": "La Palma",
+          "inPhrase": "en La Palma",
+          "parentHub": "canarias",
+          "kind": "island"
+        },
+        {
+          "slug": "tenerife",
+          "name": "Tenerife",
+          "inPhrase": "en Tenerife",
+          "parentHub": "canarias",
+          "kind": "island"
+        },
+        {
+          "slug": "cantabria",
+          "name": "Cantabria",
+          "inPhrase": "en Cantabria",
+          "parentHub": "cantabria"
+        },
+        {
+          "slug": "castilla-la-mancha",
+          "name": "Castilla-La Mancha",
+          "inPhrase": "en Castilla-La Mancha",
+          "parentHub": "castilla-la-mancha"
+        },
+        {
+          "slug": "castilla-y-leon",
+          "name": "Castilla y León",
+          "inPhrase": "en Castilla y León",
+          "parentHub": "castilla-y-leon"
+        },
+        {
+          "slug": "cataluna",
+          "name": "Cataluña",
+          "inPhrase": "en Cataluña",
+          "parentHub": "cataluna"
+        },
+        {
+          "slug": "comunitat-valenciana",
+          "name": "Comunitat Valenciana",
+          "inPhrase": "en la Comunitat Valenciana",
+          "parentHub": "comunitat-valenciana"
+        },
+        {
+          "slug": "extremadura",
+          "name": "Extremadura",
+          "inPhrase": "en Extremadura",
+          "parentHub": "extremadura"
+        },
+        {
+          "slug": "galicia",
+          "name": "Galicia",
+          "inPhrase": "en Galicia",
+          "parentHub": "galicia"
+        },
+        {
+          "slug": "comunidad-de-madrid",
+          "name": "Comunidad de Madrid",
+          "inPhrase": "en la Comunidad de Madrid",
+          "parentHub": "comunidad-de-madrid"
+        },
+        {
+          "slug": "region-de-murcia",
+          "name": "Región de Murcia",
+          "inPhrase": "en la Región de Murcia",
+          "parentHub": "region-de-murcia"
+        },
+        {
+          "slug": "navarra",
+          "name": "Comunidad Foral de Navarra",
+          "inPhrase": "en la Comunidad Foral de Navarra",
+          "parentHub": "navarra"
+        },
+        {
+          "slug": "araba-alava",
+          "name": "Araba / Álava",
+          "inPhrase": "en Araba / Álava",
+          "parentHub": "pais-vasco",
+          "kind": "historical-territory"
+        },
+        {
+          "slug": "bizkaia",
+          "name": "Bizkaia",
+          "inPhrase": "en Bizkaia",
+          "parentHub": "pais-vasco",
+          "kind": "historical-territory"
+        },
+        {
+          "slug": "gipuzkoa",
+          "name": "Gipuzkoa",
+          "inPhrase": "en Gipuzkoa",
+          "parentHub": "pais-vasco",
+          "kind": "historical-territory"
+        },
+        {
+          "slug": "la-rioja",
+          "name": "La Rioja",
+          "inPhrase": "en La Rioja",
+          "parentHub": "la-rioja"
+        }
+      ]
+    }
+  }
+}

@@ -36,6 +36,15 @@ Three schemas are settled: `territories.schema.json` (the catalogue),
 `research-brief.schema.json` (the research memory of a territory). They stay at
 `schemaVersion` `1.0.0` until the first public release.
 
+`data/territories.json` is the catalogue, keyed by ISO code plus `EU`. It
+carries the EU layer and Spain: the model is proved on one country before more
+are added. `src/layers.ts` is the one implementation of the territorial tree —
+anything that needs to know what a page shows asks it, so a reader and a
+validator cannot disagree. `src/territories.ts` loads the catalogue and also
+enforces the rules the schema cannot express: a region belongs to exactly one
+hub, a hub of one region reuses that region's slug, and a hub of several never
+takes a region's slug.
+
 ## Commands
 
 Node.js 24.
