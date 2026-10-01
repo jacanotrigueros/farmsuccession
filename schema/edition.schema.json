@@ -1,0 +1,851 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://farmsuccession.eu/schema/edition-1.0.0.json",
+  "title": "EditionSnapshot",
+  "description": "One edition file: what was documented for one territory in one year. Four kinds share the same body and differ only in which territory they identify, discriminated by schemaId. Rules that JSON Schema cannot express are enforced in code: dates ordered against the publication date, every figure and contact traced to one of the resource's own sources, identifiers unique across the edition, and each unit fitting its measure.",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/euSnapshot"
+    },
+    {
+      "$ref": "#/$defs/countrySnapshot"
+    },
+    {
+      "$ref": "#/$defs/hubSnapshot"
+    },
+    {
+      "$ref": "#/$defs/regionalSnapshot"
+    }
+  ],
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "isoDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "httpsUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "resourceKind": {
+      "title": "ResourceKind",
+      "description": "What a documented thing is. LAND_BANK: a land or holding bank, exchange or register. SUCCESSION_SERVICE: transfer, succession or matching support. FINANCIAL_SUPPORT: aid, loan or guarantee. TRAINING and ADVICE: teaching and advisory services. OFFICIAL_PORTAL: an entry point that hosts others. POLICY: a framework or rule rather than a service. NETWORK: an association or network. The research brief reuses this vocabulary, and a test keeps the two lists in step.",
+      "enum": [
+        "LAND_BANK",
+        "SUCCESSION_SERVICE",
+        "FINANCIAL_SUPPORT",
+        "TRAINING",
+        "ADVICE",
+        "OFFICIAL_PORTAL",
+        "POLICY",
+        "NETWORK",
+        "OTHER"
+      ]
+    },
+    "snapshotBase": {
+      "title": "SnapshotBase",
+      "description": "The body every edition file shares, whatever territory it is about. Deliberately not closed with additionalProperties: each snapshot kind adds its own identity through allOf and closes the object with unevaluatedProperties, which is the only form that accounts for both halves.",
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "edition",
+        "officialName",
+        "published",
+        "summary",
+        "coverage",
+        "review",
+        "metadata",
+        "resources",
+        "news",
+        "limitations"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "1.0.0"
+        },
+        "edition": {
+          "description": "Edition year, matching the directory the file sits in.",
+          "type": "string",
+          "pattern": "^[0-9]{4}$"
+        },
+        "officialName": {
+          "description": "The territory's name exactly as the territory catalogue gives it.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "published": {
+          "description": "Date this file was last published. Every consultation and review date is on or before it.",
+          "$ref": "#/$defs/isoDate"
+        },
+        "summary": {
+          "description": "One or two plain-language sentences on what this territory offers, written for a reader who is not a specialist.",
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "coverage": {
+          "$ref": "#/$defs/coverage"
+        },
+        "review": {
+          "$ref": "#/$defs/review"
+        },
+        "metadata": {
+          "$ref": "#/$defs/metadata"
+        },
+        "resources": {
+          "description": "Everything documented for this territory at this layer. A resource that also applies to a wider territory lives in that wider file instead, never in both.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/resource"
+          }
+        },
+        "news": {
+          "description": "Dated events of this edition year that change the picture for a reader: announcements, launches, calls opening or closing, rules, discontinuations.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/newsItem"
+          }
+        },
+        "limitations": {
+          "description": "Known gaps and documented absences, in plain language. A documented absence is a finding, not a blank: say that no operating regional land bank was found rather than leaving the reader to guess.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 2000
+          }
+        }
+      }
+    },
+    "euSnapshot": {
+      "title": "EuSnapshot",
+      "description": "The EU layer: resources of EU scope only. Every country inherits it.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/snapshotBase"
+        }
+      ],
+      "unevaluatedProperties": false,
+      "required": ["schemaId"],
+      "properties": {
+        "schemaId": {
+          "const": "eu-snapshot"
+        }
+      }
+    },
+    "countrySnapshot": {
+      "title": "CountrySnapshot",
+      "description": "A country: resources of national scope only. Regional and local resources belong to a region file.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/snapshotBase"
+        }
+      ],
+      "unevaluatedProperties": false,
+      "required": ["schemaId", "country"],
+      "properties": {
+        "schemaId": {
+          "const": "country-snapshot"
+        },
+        "country": {
+          "description": "ISO 3166-1 alpha-2, uppercase.",
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        }
+      }
+    },
+    "hubSnapshot": {
+      "title": "HubSnapshot",
+      "description": "A hub grouping several regions of one country: only instruments whose sources show they apply to every region of the hub, which all of them inherit. A hub of a single region never has a file of its own.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/snapshotBase"
+        }
+      ],
+      "unevaluatedProperties": false,
+      "required": ["schemaId", "country", "hub"],
+      "properties": {
+        "schemaId": {
+          "const": "hub-snapshot"
+        },
+        "country": {
+          "description": "ISO 3166-1 alpha-2, uppercase.",
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "hub": {
+          "description": "Hub slug exactly as the territory catalogue gives it. The hub must group more than one region.",
+          "$ref": "#/$defs/slug"
+        }
+      }
+    },
+    "regionalSnapshot": {
+      "title": "RegionalSnapshot",
+      "description": "A region of a country: its regional, subregional and local resources.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/snapshotBase"
+        }
+      ],
+      "unevaluatedProperties": false,
+      "required": ["schemaId", "country", "region"],
+      "properties": {
+        "schemaId": {
+          "const": "regional-snapshot"
+        },
+        "country": {
+          "description": "ISO 3166-1 alpha-2, uppercase.",
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "region": {
+          "description": "Region slug exactly as the territory catalogue gives it.",
+          "$ref": "#/$defs/slug"
+        }
+      }
+    },
+    "coverage": {
+      "title": "Coverage",
+      "description": "How far discovery went, so a later edition can repeat or extend it. Never a claim of exhaustiveness.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "note", "methods"],
+      "properties": {
+        "status": {
+          "description": "NOT_STARTED: nothing searched. PARTIAL: some methods run and known gaps remain. SEARCHED: every listed method was run, which still does not mean nothing was missed.",
+          "enum": ["NOT_STARTED", "PARTIAL", "SEARCHED"]
+        },
+        "note": {
+          "description": "What was and was not covered, in plain language.",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        },
+        "methods": {
+          "description": "How resources were looked for. A NOT_STARTED coverage carries none; any other status needs at least one.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coverageMethod"
+          }
+        }
+      }
+    },
+    "coverageMethod": {
+      "title": "CoverageMethod",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "detail"],
+      "properties": {
+        "method": {
+          "description": "The kind of search that was run. KNOWN_SOURCE is a page already on record, OPEN_DATA_API and OFFICIAL_GAZETTE are machine-readable listings, PREVIOUS_EDITION is last year's file, and MANUAL_SUBMISSION is something a person brought in.",
+          "enum": [
+            "KNOWN_SOURCE",
+            "OFFICIAL_PORTAL",
+            "OPEN_DATA_API",
+            "OFFICIAL_GAZETTE",
+            "SITEMAP",
+            "RSS",
+            "WEB_SEARCH",
+            "PREVIOUS_EDITION",
+            "MANUAL_SUBMISSION"
+          ]
+        },
+        "detail": {
+          "description": "The portal, API query, feed, search query or document actually used, concrete enough to run again.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 1000
+        }
+      }
+    },
+    "review": {
+      "title": "Review",
+      "description": "The one review state of the file. A DRAFT has not been checked by a person, and only a person sets REVIEWED.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "description": "DRAFT until a person has checked the file against its sources. An agent never sets REVIEWED, whatever checks it ran.",
+          "enum": ["DRAFT", "REVIEWED"]
+        },
+        "reviewedBy": {
+          "description": "Who carried out the review. A person, never a tool.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "reviewedOn": {
+          "description": "The date the person reviewed it, on or before the file's publication date.",
+          "$ref": "#/$defs/isoDate"
+        }
+      },
+      "if": {
+        "type": "object",
+        "required": ["status"],
+        "properties": {
+          "status": {
+            "const": "REVIEWED"
+          }
+        }
+      },
+      "then": {
+        "description": "A review nobody signed and nobody dated is not a review, so claiming REVIEWED requires both.",
+        "type": "object",
+        "required": ["reviewedBy", "reviewedOn"],
+        "properties": {
+          "reviewedBy": true,
+          "reviewedOn": true
+        }
+      },
+      "else": {
+        "description": "A draft carries no reviewer and no review date, so a half-filled review can never read as a finished one.",
+        "type": "object",
+        "properties": {
+          "reviewedBy": false,
+          "reviewedOn": false
+        }
+      }
+    },
+    "metadata": {
+      "title": "Metadata",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["language", "sourcePolicy", "generatedBy"],
+      "properties": {
+        "language": {
+          "description": "ISO 639-1 language of every free-text field in this file, which is the territory's own language. Quotes stay in the language of the page they were copied from.",
+          "type": "string",
+          "pattern": "^[a-z]{2}$"
+        },
+        "sourcePolicy": {
+          "description": "Only public sources are ever used. The value is fixed so the rule cannot quietly change per file.",
+          "const": "PUBLIC_SOURCES_ONLY"
+        },
+        "generatedBy": {
+          "description": "Everyone and everything that produced records in this file, so any record can be traced back to who wrote it and the instructions they followed.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/generator"
+          }
+        }
+      }
+    },
+    "generator": {
+      "title": "Generator",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "tool"],
+      "properties": {
+        "id": {
+          "description": "Identifier for this generator within this file, referenced by a resource's or news item's generatorId.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "tool": {
+          "description": "What did the work. Recorded plainly, because a reader is entitled to know whether a person or an assistant drafted a record, and neither is published without passing the same checks.",
+          "enum": ["CHATGPT", "CLAUDE", "GEMINI", "PERSON", "OTHER"]
+        },
+        "promptVersion": {
+          "description": "Version of the research prompt that was followed, so a record can be read against the instructions of its time.",
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "model": {
+          "description": "Model identifier where a tool has one.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "processedAt": {
+          "$ref": "#/$defs/isoDate"
+        }
+      }
+    },
+    "source": {
+      "title": "Source",
+      "description": "A public page that establishes a claim, with quotes a later check re-finds on the live page. No source, no entry.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "title", "consultedOn", "quotes"],
+      "properties": {
+        "url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "title": {
+          "description": "The page's own title, so a reader recognises it before following the link.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "consultedOn": {
+          "description": "The date the page was read. Every claim drawn from it is a claim about the page on that date, not about today.",
+          "$ref": "#/$defs/isoDate"
+        },
+        "quotes": {
+          "description": "Short strings copied character for character from the page, keeping its own apostrophes and spacing, and avoiding words a PDF splits across lines. They are in the page's language, which today is always this file's language; a source in another language would need that language recorded before it could be quoted safely.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 600
+          }
+        }
+      }
+    },
+    "contactPoint": {
+      "title": "ContactPoint",
+      "description": "A public institutional or role-based channel for using the resource. Never a named person's direct details.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "label", "value", "sourceUrl"],
+      "properties": {
+        "channel": {
+          "description": "Which kind of channel the value is, which also decides how it is validated: an email address, a telephone number, an HTTPS form or a physical office address.",
+          "enum": ["EMAIL", "PHONE", "FORM", "OFFICE"]
+        },
+        "label": {
+          "description": "The institution, office or service responsible for the channel; never a person's name.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "value": {
+          "description": "The published email, telephone, form URL or office address, copied from the cited source.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 300
+        },
+        "sourceUrl": {
+          "description": "The one source of this resource that publishes the contact.",
+          "$ref": "#/$defs/httpsUrl"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "channel": {
+                "const": "EMAIL"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "string",
+                "format": "email"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "channel": {
+                "const": "FORM"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "$ref": "#/$defs/httpsUrl"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "channel": {
+                "const": "PHONE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "string",
+                "pattern": "^(?:[+0-9]|\\([0-9])[0-9 .()/\\-]{4,29}$"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "scope": {
+      "title": "Scope",
+      "description": "How far the resource reaches. EU, NATIONAL and REGIONAL match the level of the file itself, REGIONAL covering both a hub and a region file.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level"],
+      "properties": {
+        "level": {
+          "description": "SUBREGIONAL sits between region and municipality (province, département, provincia, island, comarca, county). LOCAL is a municipality or a group of them.",
+          "enum": ["EU", "NATIONAL", "REGIONAL", "SUBREGIONAL", "LOCAL"]
+        },
+        "area": {
+          "description": "The area served, named as the source names it, for example \"Comarca de la Sierra Norte\", \"Département du Gers\" or \"Comune di Siena\".",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        }
+      },
+      "if": {
+        "type": "object",
+        "required": ["level"],
+        "properties": {
+          "level": {
+            "enum": ["SUBREGIONAL", "LOCAL"]
+          }
+        }
+      },
+      "then": {
+        "description": "Below region level the served area has to be named, or the reader cannot tell which municipality or province is meant.",
+        "type": "object",
+        "required": ["area"],
+        "properties": {
+          "area": true
+        }
+      },
+      "else": {
+        "description": "At EU, national and regional level the file itself already says which territory this is, so naming an area again would invite contradicting it.",
+        "type": "object",
+        "properties": {
+          "area": false
+        }
+      }
+    },
+    "call": {
+      "title": "Call",
+      "description": "One application period. The programme stays a single resource and its calls are listed here, so a closed call never makes the programme itself look gone.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "state", "sourceUrl"],
+      "properties": {
+        "name": {
+          "description": "How the source names the call, for example \"Convocatoria 2026\".",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "state": {
+          "description": "Judged against the consultation date of its source, never against today. UPCOMING: opens after it. OPEN: open on it. CLOSED: already closed. NOT_PUBLISHED: the programme exists but no period is published.",
+          "enum": ["UPCOMING", "OPEN", "CLOSED", "NOT_PUBLISHED"]
+        },
+        "opens": {
+          "$ref": "#/$defs/isoDate"
+        },
+        "closes": {
+          "$ref": "#/$defs/isoDate"
+        },
+        "sourceUrl": {
+          "description": "The one source of this resource that shows the period.",
+          "$ref": "#/$defs/httpsUrl"
+        }
+      }
+    },
+    "metric": {
+      "title": "Metric",
+      "description": "A published figure. The measure comes from a closed list so figures stay comparable across territories, and the unit has to fit the measure.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["measure", "label", "value", "unit", "asOf", "sourceUrl"],
+      "properties": {
+        "measure": {
+          "description": "BUDGET_TOTAL is the total budget of a plan, programme or call, never what one beneficiary receives. The AID_ and LOAN_PER_BENEFICIARY measures are what one beneficiary can get.",
+          "enum": [
+            "BUDGET_TOTAL",
+            "AID_PER_BENEFICIARY_BASE",
+            "AID_PER_BENEFICIARY_MIN",
+            "AID_PER_BENEFICIARY_MAX",
+            "LOAN_PER_BENEFICIARY_MIN",
+            "LOAN_PER_BENEFICIARY_MAX",
+            "LAND_LISTINGS",
+            "LAND_AREA",
+            "LAND_ANNOUNCED",
+            "PEOPLE_TRAINED",
+            "TRAINING_HOURS",
+            "OTHER"
+          ]
+        },
+        "label": {
+          "description": "What the figure is, in the territory's language, carrying any detail the measure leaves out.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 300
+        },
+        "value": {
+          "description": "The figure itself, as the page states it. Never negative: there is no negative budget, area or headcount, so a minus sign means the figure was misread.",
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "description": "EUR for money, HOURS for training time, HECTARES for area, and a counting unit for counts.",
+          "enum": ["EUR", "HECTARES", "PARCELS", "OFFERS", "PROPERTIES", "HOLDINGS", "PEOPLE", "HOURS"]
+        },
+        "asOf": {
+          "description": "The date the figure refers to, as the page gives it.",
+          "$ref": "#/$defs/isoDate"
+        },
+        "sourceUrl": {
+          "description": "The one source of this resource that publishes the figure.",
+          "$ref": "#/$defs/httpsUrl"
+        }
+      }
+    },
+    "resource": {
+      "title": "Resource",
+      "description": "One documented thing a reader can use or needs to know about: a land bank, a succession service, financial support, training, advice, a portal, a policy or a network.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "kind", "status", "scope", "operator", "operatorType", "whatItOffers", "accessUrl", "sources"],
+      "properties": {
+        "id": {
+          "description": "Stable slug, unique across the edition. The same resource keeps the same id in every edition, which is how progress from one year to the next is read.",
+          "$ref": "#/$defs/slug"
+        },
+        "generatorId": {
+          "description": "The generator in this file's metadata that produced this resource.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "name": {
+          "description": "The resource's name as its operator gives it.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "kind": {
+          "$ref": "#/$defs/resourceKind"
+        },
+        "status": {
+          "description": "Existence is not availability. ACTIVE: the page shows current operation. ANNOUNCED_NOT_OPERATING: announced or in law, with no operation shown. HISTORICAL: ran in the past. DISCONTINUED: shown as ended. UNKNOWN: the sources do not say.",
+          "enum": ["ACTIVE", "ANNOUNCED_NOT_OPERATING", "HISTORICAL", "DISCONTINUED", "UNKNOWN"]
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "operator": {
+          "description": "The body that runs it, named as it names itself.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "operatorType": {
+          "description": "What kind of body runs it, so a reader can weigh a public register against a private listing. UNKNOWN where the sources do not make it clear, never a guess.",
+          "enum": ["PUBLIC", "NONPROFIT", "PRIVATE", "MIXED", "UNKNOWN"]
+        },
+        "whatItOffers": {
+          "description": "What the resource actually does for a reader, in plain language and in the territory's own words.",
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "whoCanUseIt": {
+          "description": "Who it is for, only as the source states it.",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        },
+        "howToAccess": {
+          "description": "What a reader does next, only as the source states it.",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        },
+        "accessUrl": {
+          "description": "The link shown to readers: the operator's own stable page for the resource, and one of its cited sources.",
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "contactPoints": {
+          "description": "Public institutional channels that let a reader act without reopening every source. Omit rather than guess one.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contactPoint"
+          }
+        },
+        "assetTypes": {
+          "description": "What a land-access or succession resource actually handles. Omit where the source does not say.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["PLOTS", "WHOLE_HOLDINGS"]
+          }
+        },
+        "sectors": {
+          "description": "Sectors the source explicitly covers. Omit rather than infer one from the resource's name.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["AGRICULTURE", "LIVESTOCK", "FORESTRY"]
+          }
+        },
+        "instrumentType": {
+          "description": "The financial mechanism. Financial support only.",
+          "enum": ["GRANT", "LOAN", "GUARANTEE", "INTEREST_SUBSIDY", "OTHER"]
+        },
+        "purposes": {
+          "description": "What the support pays for or enables. Financial support only.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["FIRST_ESTABLISHMENT", "INVESTMENT", "LAND_ACQUISITION", "TRANSFER", "RETIREMENT_SUCCESSION", "OTHER"]
+          }
+        },
+        "trainingFormats": {
+          "description": "How training is delivered. Training only.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["IN_PERSON", "ONLINE", "HYBRID", "OTHER"]
+          }
+        },
+        "qualifiesForEstablishmentAid": {
+          "description": "Whether completing this training formally satisfies a training requirement for first-establishment aid. Only where a source says so.",
+          "type": "boolean"
+        },
+        "calls": {
+          "description": "Every application period documented for this resource, past and future. Keeping them here is what stops a closed call from making the programme itself look gone.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/call"
+          }
+        },
+        "accessCostType": {
+          "description": "Whether using the resource costs the reader anything. NOT_APPLICABLE for something that is not accessed at all, such as a policy framework.",
+          "enum": ["FREE", "FEE_REQUIRED", "NOT_APPLICABLE", "UNKNOWN"]
+        },
+        "languages": {
+          "description": "ISO 639-1 languages the resource itself is available in, where the source says. Distinct from the language this file is written in.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z]{2}$"
+          }
+        },
+        "targetProfiles": {
+          "description": "Who the resource is aimed at, only as the source states it. GENERAL where it is open to anyone rather than to a named profile.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR", "LANDOWNER", "LAND_SEEKER", "GENERAL"]
+          }
+        },
+        "lastEvidenceDate": {
+          "description": "The latest date the page itself shows, not the date it was consulted. It is what tells a reader how fresh the resource is, so it is never filled from the consultation date.",
+          "$ref": "#/$defs/isoDate"
+        },
+        "metrics": {
+          "description": "Published figures about this resource, each tied to the source that states it.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          }
+        },
+        "sources": {
+          "description": "The public pages this record rests on. At least one, because no source means no entry, and accessUrl has to be among them.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "notes": {
+          "description": "Anything a reader needs that no other field holds.",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        }
+      }
+    },
+    "newsItem": {
+      "title": "NewsItem",
+      "description": "A dated event of the edition year, for example a government announcing a state land bank or a call closing earlier than published.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "date", "type", "headline", "summary", "sources"],
+      "properties": {
+        "id": {
+          "description": "Slug unique across the edition.",
+          "$ref": "#/$defs/slug"
+        },
+        "generatorId": {
+          "description": "The generator in this file's metadata that produced this item.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "date": {
+          "description": "Date of the event, or of its first publication, within the edition year.",
+          "$ref": "#/$defs/isoDate"
+        },
+        "type": {
+          "description": "ANNOUNCEMENT: a plan or intention made public. LAUNCH: a resource starts operating. CALL_OPENED and CALL_CLOSED: an application period. LAW_OR_REGULATION: a rule adopted or published. CHANGE: a material change to a resource. DISCONTINUATION: it ends. FIGURE: a published number worth recording.",
+          "enum": [
+            "ANNOUNCEMENT",
+            "LAUNCH",
+            "CALL_OPENED",
+            "CALL_CLOSED",
+            "LAW_OR_REGULATION",
+            "CHANGE",
+            "DISCONTINUATION",
+            "FIGURE",
+            "OTHER"
+          ]
+        },
+        "headline": {
+          "description": "One line a reader can scan, in the territory's language, saying what happened.",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 200
+        },
+        "summary": {
+          "description": "What happened and what it means for a reader, without going beyond the sources.",
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "resourceIds": {
+          "description": "Resources this event is about, in this file or in a layer it inherits. An event about nothing documented here carries none.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
+        },
+        "sources": {
+          "description": "The public pages that report the event. At least one, on the same terms as any other claim.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        }
+      }
+    }
+  }
+}

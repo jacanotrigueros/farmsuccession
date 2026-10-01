@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://farmsuccession.eu/schema/territories-1.0.0.json",
+  "title": "Territories",
+  "description": "The territorial catalogue: the EU layer and, per jurisdiction, the navigation hubs and the regions (leaves) that edition files are written for. Territory is a canonical dimension, independent from the yearly editions. Three structural rules cannot be expressed here and are enforced in code: every region belongs to exactly one hub, a hub of a single region reuses that region's slug, and every hub member is a declared region of the same jurisdiction.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "frozenOn", "principle", "jurisdictions"],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "frozenOn": {
+      "description": "Date the catalogue was last settled. Territory changes rarely and deliberately, unlike the yearly editions.",
+      "type": "string",
+      "format": "date"
+    },
+    "principle": {
+      "description": "The territorial model in prose, kept with the data so it cannot drift from it.",
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 2000
+    },
+    "jurisdictions": {
+      "description": "Keyed by ISO 3166-1 alpha-2 code, plus EU for the supranational layer. Not called countries because EU is not one.",
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^([A-Z]{2}|EU)$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/jurisdiction"
+      }
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "jurisdiction": {
+      "title": "Jurisdiction",
+      "description": "A country, or the EU layer. The EU declares no hubs and no regions: it is inherited by every country and has no territory of its own here.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "lang", "hubLabel", "leafLevel", "leafLabel", "sources", "rationale", "hubs", "regions"],
+      "properties": {
+        "name": {
+          "description": "The jurisdiction's name in its own language, as it names itself.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "lang": {
+          "description": "ISO 639-1 language the edition files of this jurisdiction are written in.",
+          "type": "string",
+          "pattern": "^[a-z]{2}$"
+        },
+        "hubLabel": {
+          "description": "What this jurisdiction calls its hubs, in its own language and vocabulary.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "leafLevel": {
+          "description": "The administrative or statistical level a leaf corresponds to, in this jurisdiction's own terms. Deliberately not a closed list: each jurisdiction names its own level.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "leafLabel": {
+          "description": "What this jurisdiction calls its leaves, in its own language.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "sources": {
+          "description": "Public pages that justify how this jurisdiction is divided. Empty only where there is no subnational territory to justify.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/territorySource"
+          }
+        },
+        "rationale": {
+          "description": "Why the division is drawn this way, in the jurisdiction's own language. A reader must be able to tell a documentary decision from an administrative fact.",
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "hubs": {
+          "description": "Every navigation grouping of this jurisdiction. Empty for the EU layer, which has no territory of its own.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/hub"
+          }
+        },
+        "regions": {
+          "description": "Every documentary leaf of this jurisdiction, each belonging to exactly one of the hubs above.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/region"
+          }
+        }
+      }
+    },
+    "territorySource": {
+      "title": "TerritorySource",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "authority", "purpose"],
+      "properties": {
+        "url": {
+          "description": "The public page itself, over HTTPS.",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "authority": {
+          "description": "The body that publishes the page, named as it names itself.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "purpose": {
+          "description": "What this source establishes about the division.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        }
+      }
+    },
+    "hub": {
+      "title": "Hub",
+      "description": "A navigation grouping. A hub of several regions may carry its own edition layer, which all its members inherit; a hub of one region is that region and never carries records of its own.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slug", "name", "members"],
+      "properties": {
+        "slug": {
+          "description": "Identifier of the hub, used in its URL and in the path of its edition file.",
+          "$ref": "#/$defs/slug"
+        },
+        "name": {
+          "description": "The hub's name in the jurisdiction's language, as readers see it.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "members": {
+          "description": "Slugs of the regions in this hub. A single-member hub repeats that region's slug as its own.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
+        }
+      }
+    },
+    "region": {
+      "title": "Region",
+      "description": "A documentary leaf: the smallest stable territory research coverage and records are assigned to.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slug", "name", "inPhrase", "parentHub"],
+      "properties": {
+        "slug": {
+          "description": "Identifier of the region, used in its URL and in the path of its edition and brief files.",
+          "$ref": "#/$defs/slug"
+        },
+        "name": {
+          "description": "The region's name in the jurisdiction's language, as readers see it.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "inPhrase": {
+          "description": "The region's name as it reads inside a sentence in its own language, where that differs from the bare name.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "parentHub": {
+          "description": "Slug of the one hub this region belongs to.",
+          "$ref": "#/$defs/slug"
+        },
+        "kind": {
+          "description": "Kind of territory where the region is not the jurisdiction's ordinary unit. In use: island, outre-mer, city-state, historical-territory, autonomous-region, autonomous-province. Open on purpose, because a further jurisdiction will bring its own kinds.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "seoName": {
+          "description": "Longer name for page titles where the short name is ambiguous.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "note": {
+          "description": "Anything a researcher or reader needs to know about this region that no other field holds, such as why its boundary differs from the administrative one.",
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 1000
+        }
+      }
+    }
+  }
+}

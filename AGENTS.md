@@ -13,22 +13,40 @@ published as **yearly editions** of JSON files per EU / country / region.
 
 ## Where things go
 
-| Path        | Purpose                                                                        |
-| ----------- | ------------------------------------------------------------------------------ |
-| `schema/`   | JSON Schemas (Draft 2020-12): the single source of truth for data shapes       |
-| `data/`     | The territory catalogue and the yearly editions                                |
-| `research/` | One research brief per territory                                               |
-| `prompts/`  | The standard research process, used by any assistant or person                 |
-| `config/`   | Pinned public TLS intermediates for portals with incomplete certificate chains |
-| `src/`      | Production code only                                                           |
-| `scripts/`  | Development tooling                                                            |
-| `frontend/` | The Astro static site                                                          |
-| `test/`     | `node:test` suites and fictional fixtures                                      |
+| Path         | Purpose                                                                        |
+| ------------ | ------------------------------------------------------------------------------ |
+| `schema/`    | JSON Schemas (Draft 2020-12): the single source of truth for data shapes       |
+| `data/`      | The territory catalogue and the yearly editions                                |
+| `research/`  | One research brief per territory                                               |
+| `prompts/`   | The standard research process, used by any assistant or person                 |
+| `config/`    | Pinned public TLS intermediates for portals with incomplete certificate chains |
+| `src/`       | Production code only                                                           |
+| `src/types/` | Types generated from `schema/`, never edited by hand                           |
+| `scripts/`   | Development tooling                                                            |
+| `frontend/`  | The Astro static site                                                          |
+| `test/`      | `node:test` suites and fictional fixtures                                      |
 
 Every directory listed here exists, and each is empty until the milestone that
 needs it. That milestone adds its file layout, its commands and their rules to
 this file in the same change, so nothing here ever describes something the
 repository does not have.
+
+Three schemas are settled: `territories.schema.json` (the catalogue),
+`edition.schema.json` (one territory in one year) and
+`research-brief.schema.json` (the research memory of a territory). They stay at
+`schemaVersion` `1.0.0` until the first public release.
+
+## Commands
+
+Node.js 24.
+
+```bash
+npm install            # also installs the git hooks
+npm run check          # type-check, lint, formatting, generated types and tests
+npm run types          # regenerate src/types from schema/
+npm run types:check    # fail if a committed generated file is stale
+npm run format         # format with Prettier
+```
 
 ## Non-negotiable data rules
 
@@ -62,7 +80,9 @@ the other way round.
   with `tsc`, linted with oxlint (type-aware), formatted with Prettier, tested
   with `node:test`. No bundler and no build step.
 - A data shape changes in `schema/` first; everything generated from it follows,
-  never the other way round.
+  never the other way round. Read what it generated before committing: a schema
+  can be valid, strict and pass every test while producing a type nobody can
+  read.
 - No AI agent runtime in the pipeline. Discovery and drafting may use any
   practical means (scripts, open-data APIs, sitemaps, search, manual additions,
   ChatGPT, Claude), but what gets published is decided by deterministic checks.

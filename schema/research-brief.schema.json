@@ -1,0 +1,534 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://farmsuccession.eu/schema/research-brief-1.0.0.json",
+  "title": "ResearchBrief",
+  "description": "The research memory of one territory, independent of any tool or person: where to look, what to search for, what was already found or rejected and why, and the pitfalls learnt. Knowledge that is not written here is lost for the next researcher, whoever or whatever that is.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "territory", "language", "updatedOn", "context", "portals", "openData", "queries", "leads", "log"],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "territory": {
+      "$ref": "#/$defs/briefTerritory"
+    },
+    "language": {
+      "description": "ISO 639-1 language of the brief's notes and queries, which is the territory's own language.",
+      "type": "string",
+      "pattern": "^[a-z]{2}$"
+    },
+    "updatedOn": {
+      "$ref": "#/$defs/isoDate"
+    },
+    "context": {
+      "description": "What a researcher must know before starting: how competences are split, which administrative levels exist, and the recurring traps of this territory.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 10,
+        "maxLength": 2000
+      }
+    },
+    "portals": {
+      "description": "Official entry points to review in every edition.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/portal"
+      }
+    },
+    "openData": {
+      "description": "Machine-readable sources that list candidates without searching: grant databases, gazette APIs, feeds.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/openDataSource"
+      }
+    },
+    "queries": {
+      "description": "Search queries in the territory's language. A country brief may use {region} as a placeholder filled with each region's name.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/query"
+      }
+    },
+    "leads": {
+      "description": "Every candidate ever considered for this territory, so nobody evaluates the same thing twice without knowing the previous answer. A rejection with its reason is as valuable as an admission.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/lead"
+      }
+    },
+    "expectedInstruments": {
+      "description": "Instruments every regional pass of this country must look for and answer explicitly, because they usually exist but are published differently in each region. Only a country brief carries them.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/expectedInstrument"
+      }
+    },
+    "instrumentChecks": {
+      "description": "The answer to every expected instrument of the country brief, for this region. Only a region brief carries them.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/instrumentCheck"
+      }
+    },
+    "log": {
+      "description": "One line per research pass, newest last.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/logEntry"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "description": "Expected instruments belong to a country brief and nowhere else.",
+      "if": {
+        "type": "object",
+        "required": ["territory"],
+        "properties": {
+          "territory": {
+            "type": "object",
+            "required": ["level"],
+            "properties": {
+              "level": {
+                "const": "COUNTRY"
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "type": "object",
+        "properties": {
+          "expectedInstruments": false
+        }
+      }
+    },
+    {
+      "description": "Instrument checks answer a country brief, so only a region brief carries them.",
+      "if": {
+        "type": "object",
+        "required": ["territory"],
+        "properties": {
+          "territory": {
+            "type": "object",
+            "required": ["level"],
+            "properties": {
+              "level": {
+                "const": "REGION"
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "type": "object",
+        "properties": {
+          "instrumentChecks": false
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "isoDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "httpsUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "leadKind": {
+      "title": "LeadKind",
+      "description": "A resource kind of the edition schema, or NEWS for a lead that is an event rather than a resource. Kept in step with the edition schema's ResourceKind by a test.",
+      "enum": [
+        "LAND_BANK",
+        "SUCCESSION_SERVICE",
+        "FINANCIAL_SUPPORT",
+        "TRAINING",
+        "ADVICE",
+        "OFFICIAL_PORTAL",
+        "POLICY",
+        "NETWORK",
+        "OTHER",
+        "NEWS"
+      ]
+    },
+    "briefTerritory": {
+      "title": "BriefTerritory",
+      "description": "Which territory this brief is the memory of.",
+      "type": "object",
+      "required": ["level"],
+      "oneOf": [
+        {
+          "title": "EuTerritory",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["level"],
+          "properties": {
+            "level": {
+              "const": "EU"
+            }
+          }
+        },
+        {
+          "title": "CountryTerritory",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["level", "country"],
+          "properties": {
+            "level": {
+              "const": "COUNTRY"
+            },
+            "country": {
+              "description": "ISO 3166-1 alpha-2 of the country this brief is about, uppercase.",
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            }
+          }
+        },
+        {
+          "title": "HubTerritory",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["level", "country", "hub"],
+          "properties": {
+            "level": {
+              "const": "HUB"
+            },
+            "country": {
+              "description": "ISO 3166-1 alpha-2 of the country the hub belongs to, uppercase.",
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            },
+            "hub": {
+              "description": "Slug of the hub, as the territory catalogue gives it.",
+              "$ref": "#/$defs/slug"
+            }
+          }
+        },
+        {
+          "title": "RegionTerritory",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["level", "country", "region"],
+          "properties": {
+            "level": {
+              "const": "REGION"
+            },
+            "country": {
+              "description": "ISO 3166-1 alpha-2 of the country the region belongs to, uppercase.",
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            },
+            "region": {
+              "description": "Slug of the region, as the territory catalogue gives it.",
+              "$ref": "#/$defs/slug"
+            }
+          }
+        }
+      ]
+    },
+    "portal": {
+      "title": "Portal",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "what"],
+      "properties": {
+        "name": {
+          "description": "The portal's name as it calls itself, so a researcher recognises it next time.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "what": {
+          "description": "What this portal publishes that is worth reviewing.",
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 600
+        }
+      }
+    },
+    "openDataSource": {
+      "title": "OpenDataSource",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "how"],
+      "properties": {
+        "name": {
+          "description": "The dataset or service name as its publisher gives it.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "how": {
+          "description": "How to query it for this territory, concrete enough to run again.",
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 1000
+        }
+      }
+    },
+    "query": {
+      "title": "Query",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kinds", "query"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/slug"
+        },
+        "kinds": {
+          "description": "What this query is meant to surface.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/leadKind"
+          }
+        },
+        "query": {
+          "description": "The query itself, in the territory's language.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 300
+        },
+        "note": {
+          "description": "What this query is good or bad at, so the next researcher does not relearn it: which results it floods, which wording works better locally.",
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 600
+        }
+      }
+    },
+    "lead": {
+      "title": "Lead",
+      "description": "A candidate that was considered. Local land banks, municipal aid and the services of farmers' organisations are leads like any regional programme: the operator does not decide admission, the service does.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "kind", "status"],
+      "properties": {
+        "id": {
+          "description": "Identifier of the lead within this brief, stable across passes so a later one can see it was already judged.",
+          "$ref": "#/$defs/slug"
+        },
+        "name": {
+          "description": "The candidate's name as its own page gives it, even when the lead is later rejected.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "url": {
+          "description": "The page that prompted the lead, where there is one. A lead can exist without it, from a mention elsewhere.",
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "kind": {
+          "description": "What the candidate would be if admitted.",
+          "$ref": "#/$defs/leadKind"
+        },
+        "area": {
+          "description": "Municipality, province, comarca or grouping, where the lead sits below region level.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "status": {
+          "description": "TO_CHECK: not yet evaluated, and it says what blocked it and what to do next. ADMITTED: published, and resourceId points at it. REJECTED: evaluated and left out, with the reason.",
+          "enum": ["TO_CHECK", "ADMITTED", "REJECTED"]
+        },
+        "resourceId": {
+          "description": "The published resource this lead became, in this territory's edition files or in a layer it inherits.",
+          "$ref": "#/$defs/slug"
+        },
+        "reason": {
+          "description": "Why it was admitted or rejected, or what remains to verify. In the territory's language.",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        },
+        "foundBy": {
+          "description": "The query id, portal, open-data source or person that surfaced it.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "checkedOn": {
+          "$ref": "#/$defs/isoDate"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "type": "object",
+            "required": ["status"],
+            "properties": {
+              "status": {
+                "const": "ADMITTED"
+              }
+            }
+          },
+          "then": {
+            "description": "An admitted lead became a published resource, so it has to say which one. Without it nobody can tell an admission from a claim.",
+            "type": "object",
+            "required": ["resourceId"],
+            "properties": {
+              "resourceId": true
+            }
+          },
+          "else": {
+            "description": "A lead that was not admitted points at no published resource.",
+            "type": "object",
+            "properties": {
+              "resourceId": false
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "required": ["status"],
+            "properties": {
+              "status": {
+                "const": "REJECTED"
+              }
+            }
+          },
+          "then": {
+            "description": "A rejection's reason is the only record of why the candidate was left out, and the only thing stopping the next pass from evaluating it again from scratch. An admission needs none: it names the resource it became, and that resource carries its own sources.",
+            "type": "object",
+            "required": ["reason"],
+            "properties": {
+              "reason": true
+            }
+          }
+        }
+      ]
+    },
+    "expectedInstrument": {
+      "title": "ExpectedInstrument",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "kinds", "lookFor"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/slug"
+        },
+        "name": {
+          "description": "Phrased as what to verify, never as a claim that it exists.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "kinds": {
+          "description": "What kinds of thing would answer this check, so a region knows what it is looking for.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/leadKind"
+          }
+        },
+        "lookFor": {
+          "description": "What to search for in each region and how to recognise it: local names, usual operators, where it tends to be published.",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 1000
+        }
+      }
+    },
+    "instrumentCheck": {
+      "title": "InstrumentCheck",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["expectedId", "status", "checkedOn"],
+      "properties": {
+        "expectedId": {
+          "description": "The expected instrument of the country brief being answered.",
+          "$ref": "#/$defs/slug"
+        },
+        "status": {
+          "description": "FOUND: an admitted lead of this brief represents it, named in leadId. NOT_FOUND: searched and not found, with what was searched in reason. NOT_APPLICABLE: it cannot apply here, with why.",
+          "enum": ["FOUND", "NOT_FOUND", "NOT_APPLICABLE"]
+        },
+        "leadId": {
+          "description": "The admitted lead of this brief that represents it.",
+          "$ref": "#/$defs/slug"
+        },
+        "reason": {
+          "description": "What was searched and what was concluded. For NOT_FOUND this is the documented absence a reader is entitled to, not an empty space.",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 1000
+        },
+        "checkedOn": {
+          "description": "The date this answer was established. An answer with no date cannot be told from a stale one.",
+          "$ref": "#/$defs/isoDate"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "type": "object",
+            "required": ["status"],
+            "properties": {
+              "status": {
+                "const": "FOUND"
+              }
+            }
+          },
+          "then": {
+            "description": "A found instrument names the lead that represents it, or the claim cannot be checked.",
+            "type": "object",
+            "required": ["leadId"],
+            "properties": {
+              "leadId": true
+            }
+          },
+          "else": {
+            "description": "Nothing was found, so there is no lead to point at, and the reason has to say what was searched.",
+            "type": "object",
+            "required": ["reason"],
+            "properties": {
+              "leadId": false,
+              "reason": true
+            }
+          }
+        }
+      ]
+    },
+    "logEntry": {
+      "title": "LogEntry",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "by", "summary"],
+      "properties": {
+        "date": {
+          "$ref": "#/$defs/isoDate"
+        },
+        "by": {
+          "description": "The tool or person that ran the pass.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "summary": {
+          "description": "What the pass did and what it changed.",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        }
+      }
+    }
+  }
+}
