@@ -55,3 +55,6 @@ until then the command is run against that directory and the records say so.
 | [008](008-complete-a-tls-chain.md)                      | Complete a TLS chain; never disable verification              |
 | [009](009-no-silent-failures.md)                        | A caught error never becomes a value that reads as success    |
 | [010](010-the-brief-is-the-trace.md)                    | Every published record traces back to an admitted lead        |
+| [011](011-every-prompt-version-is-kept.md)              | Every version of the research process is kept whole           |
+| [012](012-ingestion-writes-and-never-merges.md)         | Ingestion writes what an answer said and never merges         |
+| [013](013-a-diff-is-what-a-reader-would-notice.md)      | A diff between editions is what a reader would notice         |

@@ -13,9 +13,11 @@
  * It says how many files it checked, so a run over nothing cannot read as a clean run.
  */
 import { checkBrief, listBriefFiles, loadBriefs, RESEARCH_DIR } from "./briefs.ts";
+import { continuityWarnings, diffEditions } from "./diff.ts";
 import { EDITIONS_DIR, listEditionFiles, loadSnapshots, type LoadedSnapshot } from "./editions.ts";
 import { damageInFile, damageInTree, type JsonDamage } from "./json-damage.ts";
 import { isEntryPoint, runMain } from "./paths.ts";
+import { checkPromptVersion, knownPromptVersions } from "./prompt-version.ts";
 import { loadTerritories, TERRITORIES_PATH } from "./territories.ts";
 import { checkEdition, checkSemantics, type Finding } from "./validate-edition.ts";
 
@@ -57,20 +59,31 @@ export function validateEditions(
   const { snapshots, problems } = loadSnapshots({ editionsDir, edition: options.edition });
   errors.push(...problems);
 
+  const known = knownPromptVersions();
   const byEdition = new Map<string, LoadedSnapshot[]>();
   for (const snapshot of snapshots) {
     const report = checkSemantics(snapshot.file, snapshot.data, territories, today);
     errors.push(...report.errors);
+    errors.push(...checkPromptVersion(snapshot.data, known).map((message) => ({ file: snapshot.file, message })));
     warnings.push(...report.warnings);
     const edition = editionOf(snapshot.file);
     byEdition.set(edition, [...(byEdition.get(edition) ?? []), snapshot]);
   }
 
-  for (const group of byEdition.values()) {
+  const years = [...byEdition.keys()].toSorted();
+  for (const [position, year] of years.entries()) {
+    const group = byEdition.get(year) ?? [];
     const report = checkEdition(group, territories);
     errors.push(...report.errors);
     warnings.push(...report.warnings);
     reviews.push(...report.reviews);
+
+    // What a reader of two editions can no longer follow. A warning, because only a person can say
+    // whether a record ended or was renamed by mistake.
+    const earlier = years[position - 1];
+    if (earlier !== undefined) {
+      warnings.push(...continuityWarnings(diffEditions(earlier, byEdition.get(earlier) ?? [], year, group)));
+    }
   }
 
   // Briefs are checked against every edition, not only the one asked for: a lead admitted in 2026 points

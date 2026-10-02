@@ -68,6 +68,9 @@ npm run types          # regenerate src/types from schema/
 npm run types:check    # fail if a committed generated file is stale
 npm run format         # format with Prettier
 npm run measure -- figures | units | language [editionsDir]
+npm run prompt -- <year> eu | <iso> | <iso>/<region or hub> [--compact]
+npm run ingest -- <saved answer.md>
+npm run diff -- <from year> <to year>
 ```
 
 `validate` reaches no network, which is why it runs on every push. It prints how
@@ -97,6 +100,14 @@ FAIL or UNCHECKED, and the third is not a softer failure: it means this run coul
 not read the page — no response, a bot challenge, a server error, a page a browser
 would have to render — so it proves nothing either way. Never report an UNCHECKED
 page as verified, and never "fix" one by removing the quote.
+
+One research pass is one territory in one edition: `npm run prompt` builds the
+instructions for it, the pass produces that territory's edition file and its
+brief, and `npm run check:territory` decides whether it is finished. An assistant
+that can run commands works in the repository and checks its own work; one that
+cannot delivers the two files as fenced JSON blocks and `npm run ingest` writes
+them. Either way the same checks judge the result, which is the reason the process
+does not care who did the research.
 
 ## Non-negotiable data rules
 
@@ -149,6 +160,13 @@ the other way round.
 - A check that could not read something says so. UNCHECKED, a skipped file and a
   warning are answers; an empty result over nothing is not a clean run, and a
   caught error must never become a value a caller reports as success.
+- The research process is versioned, and every version is kept whole in
+  `prompts/versions/`. Changing `prompts/research-territory.md` means raising the
+  version in its own `Prompt version:` line, keeping the superseded text as a
+  snapshot and saying in `prompts/VERSIONS.md` what changed and why. Never edit a
+  superseded version: a record says which version it followed, and rewriting that
+  version turns the account of what a pass was told into what we now wish it had
+  been told.
 - `npm run check` must pass before a commit, and never claim a check passed
   without running it.
 - `npm install` installs the git hooks: `pre-commit` formats the staged files,

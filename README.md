@@ -34,7 +34,8 @@ than describing what it intends to be.
 | Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                             |
 | Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                               |
 | Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`        |
-| The research prompt and the ingest command                   | Not in this repository yet                                       |
+| The research process, with every version of it kept          | `prompts/`, currently 1.11.0                                     |
+| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                               |
 | Published data                                               | None yet: `data/` holds the territory catalogue and nothing else |
 | The site                                                     | Not built yet, so there is nothing to visit                      |
 
@@ -68,7 +69,14 @@ read as a clean run.
    a higher one offers. Records keep stable ids across editions, so what
    changed from one year to the next can be read.
 
-4. **Deterministic checks decide what is publishable.** No model and no
+4. **Anybody can research a territory** by following
+   [`prompts/research-territory.md`](prompts/research-territory.md): a person, or
+   an assistant of any kind. `npm run prompt` fills it with the briefs, the
+   current data and the schemas; an assistant that can run commands checks its own
+   work, and one that cannot delivers the two files as text for `npm run ingest`
+   to write. Every version of that process is kept, and each record says which one
+   it followed, so old work can be read against the instructions it actually had.
+5. **Deterministic checks decide what is publishable.** No model and no
    judgement call sits between the evidence and what gets published; see below.
 
 ## What the checks guarantee, and what they cannot
@@ -126,6 +134,9 @@ with `tsc`, linted with oxlint, formatted with Prettier, tested with
 npm install            # also installs the git hooks
 npm run check          # type-check, lint, formatting, generated types, tests and validate
 npm run validate       # the catalogue, every edition file and every brief
+npm run prompt -- <year> eu | <iso> | <iso>/<region or hub> [--compact]
+npm run ingest -- <saved answer.md>   # write the files an answer delivered, then validate them
+npm run diff -- <from year> <to year> # what changed between two editions
 npm run check:sources  # live: re-read every cited page and look for its quotes
 npm run check:links    # live: ask every address the repository points at whether it answers
 npm run check:territory -- <year> eu | <iso> | <iso>/<region or hub>

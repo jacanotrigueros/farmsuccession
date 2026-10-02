@@ -69,8 +69,23 @@ release.
 - `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md` and this
   file.
 
+### The research pipeline
+
+- `prompts/research-territory.md` is the standard process, and every version it
+  went through is kept whole in `prompts/versions/`. A record says which version it
+  followed, and the gate refuses a version the repository cannot show, so old work
+  can be read against the instructions it actually had.
+- `npm run prompt -- <year> <territory>` fills that process with the briefs, the
+  resources of the layers above, the current file and the schemas. `--compact`
+  names the shared files by path for an assistant that can open them.
+- `npm run ingest -- <answer.md>` writes the files an answer delivered as fenced
+  JSON blocks and then runs the whole gate, so an assistant with access to nothing
+  can take part in the research.
+- `npm run diff -- <from> <to>` says what changed between two editions, and the
+  gate warns about the two ways continuity breaks: a record that vanishes instead
+  of being kept as discontinued, and the same page returning under a new id.
+
 ### Not here yet
 
 - Any published data: `data/` holds the territory catalogue and nothing else.
-- The research prompt and the ingest command.
 - The site, and therefore anything to visit.
