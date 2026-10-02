@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://farmsuccession.eu/schema/edition-1.0.0.json",
   "title": "EditionSnapshot",
-  "description": "One edition file: what was documented for one territory in one year. Four kinds share the same body and differ only in which territory they identify, discriminated by schemaId. Rules that JSON Schema cannot express are enforced in code: dates ordered against the publication date, every figure and contact traced to one of the resource's own sources, identifiers unique across the edition, and each unit fitting its measure.",
+  "description": "One edition file: what was documented for one territory in one year. Four kinds share the same body and differ only in which territory they identify, discriminated by schemaId. Rules this schema does not state are enforced in code, where the message can explain them instead of pointing at a field: dates ordered against the publication date, every figure and contact traced to one of the resource's own sources, identifiers unique across the edition, and each unit fitting its measure.",
   "type": "object",
   "oneOf": [
     {
@@ -780,7 +780,65 @@
           "minLength": 10,
           "maxLength": 2000
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "type": "object",
+            "required": ["kind"],
+            "properties": {
+              "kind": {
+                "enum": ["LAND_BANK", "SUCCESSION_SERVICE"]
+              }
+            }
+          },
+          "else": {
+            "description": "Only a land bank or a succession service hands over plots or holdings; anywhere else the field would describe nothing.",
+            "type": "object",
+            "properties": {
+              "assetTypes": false
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "required": ["kind"],
+            "properties": {
+              "kind": {
+                "const": "FINANCIAL_SUPPORT"
+              }
+            }
+          },
+          "else": {
+            "description": "A mechanism and a purpose are what make support financial; on another kind they would promise money that is not there.",
+            "type": "object",
+            "properties": {
+              "instrumentType": false,
+              "purposes": false
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "required": ["kind"],
+            "properties": {
+              "kind": {
+                "const": "TRAINING"
+              }
+            }
+          },
+          "else": {
+            "description": "A delivery format, and formally qualifying for establishment aid, only mean something for training.",
+            "type": "object",
+            "properties": {
+              "trainingFormats": false,
+              "qualifiesForEstablishmentAid": false
+            }
+          }
+        }
+      ]
     },
     "newsItem": {
       "title": "NewsItem",

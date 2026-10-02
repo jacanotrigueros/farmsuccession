@@ -6,6 +6,7 @@
  * This is the only implementation of the tree. Anything that needs to know what a page shows asks
  * here, so a reader and a validator can never disagree about what a territory inherits.
  */
+import type { EditionSnapshot } from "./types/edition.ts";
 import type { BriefTerritory } from "./types/research-brief.ts";
 import type { Hub, Territories } from "./types/territories.ts";
 
@@ -19,6 +20,40 @@ export const layerRegion = (layer: Layer): string | undefined => (layer.level ==
 /** A stable string for comparing layers: "EU", "COUNTRY/ES", "HUB/ES/canarias", "REGION/ES/tenerife". */
 export function layerKey(layer: Layer): string {
   return [layer.level, layerCountry(layer), layerHub(layer) ?? layerRegion(layer)].filter(Boolean).join("/");
+}
+
+/**
+ * The layer a person means when they type `eu`, `es` or `es/galicia` on the command line.
+ *
+ * A slug that names a hub of several regions is that hub; a slug that names a hub of one region is the
+ * region, because the hub and the region are the same territory. Anything the catalogue does not know
+ * throws, so a mistyped territory stops a command instead of letting it report nothing to fix.
+ */
+export function layerFromSpec(spec: string, territories: Territories): Layer {
+  const [place, slug, extra] = spec.toLowerCase().split("/");
+  if (!place || extra !== undefined) throw new Error(`"${spec}" is not a territory: use eu, <iso> or <iso>/<region or hub>`);
+  if (place === "eu") {
+    if (slug !== undefined) throw new Error(`"${spec}" is not a territory: the EU layer has no regions`);
+    return { level: "EU" };
+  }
+  const country = place.toUpperCase();
+  const entry = territories.jurisdictions[country];
+  if (!entry) throw new Error(`"${place}" is not a jurisdiction in the territory catalogue`);
+  if (slug === undefined) return { level: "COUNTRY", country };
+  if (documentaryHub(territories, country, slug)) return { level: "HUB", country, hub: slug };
+  if (entry.regions.some((region) => region.slug === slug)) return { level: "REGION", country, region: slug };
+  throw new Error(`"${slug}" is neither a region nor a hub of ${country} in the territory catalogue`);
+}
+
+/**
+ * The layer an edition file documents, which is how a file joins the tree. Its own `schemaId` says
+ * which layer it is, so nothing has to be inferred from where the file sits.
+ */
+export function snapshotLayer(data: EditionSnapshot): Layer {
+  if (data.schemaId === "eu-snapshot") return { level: "EU" };
+  if (data.schemaId === "country-snapshot") return { level: "COUNTRY", country: data.country };
+  if (data.schemaId === "hub-snapshot") return { level: "HUB", country: data.country, hub: data.hub };
+  return { level: "REGION", country: data.country, region: data.region };
 }
 
 /**

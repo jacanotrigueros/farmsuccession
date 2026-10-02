@@ -5,3 +5,8 @@ node_modules/
 # Claude Code personal overrides: launch.json holds machine-specific paths.
 .claude/settings.local.json
 .claude/launch.json
+
+# The live checks write their full result here. That is output, not a record:
+# what was verified lives in the edition files, not in the run that verified it.
+reports/*
+!reports/.gitkeep

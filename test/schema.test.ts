@@ -106,7 +106,28 @@ test("instrument checks belong to a region brief and to no other level", () => {
   }
 });
 
-const snapshot = (scope: Record<string, unknown>): Record<string, unknown> => ({
+const resource = (scope: Record<string, unknown>, extra: Record<string, unknown>): Record<string, unknown> => ({
+  id: "banco-de-terras",
+  name: "Banco de Terras de Galicia",
+  kind: "LAND_BANK",
+  status: "ACTIVE",
+  scope,
+  operator: "Xunta de Galicia",
+  operatorType: "PUBLIC",
+  whatItOffers: "Pon en contacto a quen cede terras con quen as precisa.",
+  accessUrl: "https://example.gal/banco",
+  sources: [
+    {
+      url: "https://example.gal/banco",
+      title: "Banco de Terras",
+      consultedOn: "2026-10-01",
+      quotes: ["O Banco de Terras de Galicia"],
+    },
+  ],
+  ...extra,
+});
+
+const snapshot = (scope: Record<string, unknown>, resourceExtra: Record<string, unknown> = {}): Record<string, unknown> => ({
   schemaId: "regional-snapshot",
   schemaVersion: "1.0.0",
   country: "ES",
@@ -118,27 +139,7 @@ const snapshot = (scope: Record<string, unknown>): Record<string, unknown> => ({
   coverage: { status: "PARTIAL", note: "Revisados los portales principales.", methods: [] },
   review: { status: "DRAFT" },
   metadata: { language: "gl", sourcePolicy: "PUBLIC_SOURCES_ONLY", generatedBy: [{ id: "person-1", tool: "PERSON" }] },
-  resources: [
-    {
-      id: "banco-de-terras",
-      name: "Banco de Terras de Galicia",
-      kind: "LAND_BANK",
-      status: "ACTIVE",
-      scope,
-      operator: "Xunta de Galicia",
-      operatorType: "PUBLIC",
-      whatItOffers: "Pon en contacto a quen cede terras con quen as precisa.",
-      accessUrl: "https://example.gal/banco",
-      sources: [
-        {
-          url: "https://example.gal/banco",
-          title: "Banco de Terras",
-          consultedOn: "2026-10-01",
-          quotes: ["O Banco de Terras de Galicia"],
-        },
-      ],
-    },
-  ],
+  resources: [resource(scope, resourceExtra)],
   news: [],
   limitations: ["Non se revisaron as ordenanzas municipais."],
 });
@@ -155,6 +156,29 @@ test("a served area is named below region level, and never above it", () => {
     !validate(snapshot({ level: "REGIONAL", area: "Concello de Lugo" })),
     "an area above region level could contradict the territory the file is already about",
   );
+});
+
+test("a field that describes one kind of resource cannot appear on another", () => {
+  const validate = compile("edition.schema.json");
+  const regional = { level: "REGIONAL" };
+  const accepts = (extra: Record<string, unknown>): boolean => validate(snapshot(regional, extra));
+  assert.ok(accepts({ assetTypes: ["PLOTS"] }), `a land bank hands over plots: ${JSON.stringify(validate.errors)}`);
+  assert.ok(
+    !accepts({ kind: "TRAINING", assetTypes: ["PLOTS"] }),
+    "a training course handing over plots is a field filled by habit, not a fact about the course",
+  );
+  assert.ok(
+    accepts({ kind: "FINANCIAL_SUPPORT", instrumentType: "GRANT", purposes: ["FIRST_ESTABLISHMENT"] }),
+    `financial support carries its mechanism and purpose: ${JSON.stringify(validate.errors)}`,
+  );
+  assert.ok(!accepts({ instrumentType: "GRANT" }), "a land bank with a financial mechanism promises money it does not hand out");
+  assert.ok(!accepts({ purposes: ["INVESTMENT"] }), "a purpose belongs to the support that pays for it");
+  assert.ok(
+    accepts({ kind: "TRAINING", trainingFormats: ["ONLINE"], qualifiesForEstablishmentAid: true }),
+    `training carries its format: ${JSON.stringify(validate.errors)}`,
+  );
+  assert.ok(!accepts({ trainingFormats: ["ONLINE"] }), "a land bank has no delivery format");
+  assert.ok(!accepts({ qualifiesForEstablishmentAid: false }), "only a course can satisfy a training requirement for establishment aid");
 });
 
 const withReview = (review: Record<string, unknown>): Record<string, unknown> => ({

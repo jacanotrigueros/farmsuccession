@@ -20,6 +20,7 @@ published as **yearly editions** of JSON files per EU / country / region.
 | `research/`  | One research brief per territory                                               |
 | `prompts/`   | The standard research process, used by any assistant or person                 |
 | `config/`    | Pinned public TLS intermediates for portals with incomplete certificate chains |
+| `reports/`   | Where the live checks write their full result; output, never committed         |
 | `src/`       | Production code only                                                           |
 | `src/types/` | Types generated from `schema/`, never edited by hand                           |
 | `scripts/`   | Development tooling                                                            |
@@ -31,10 +32,12 @@ needs it. That milestone adds its file layout, its commands and their rules to
 this file in the same change, so nothing here ever describes something the
 repository does not have.
 
-Three schemas are settled: `territories.schema.json` (the catalogue),
+Three data schemas are settled: `territories.schema.json` (the catalogue),
 `edition.schema.json` (one territory in one year) and
 `research-brief.schema.json` (the research memory of a territory). They stay at
 `schemaVersion` `1.0.0` until the first public release.
+`tls-intermediates.schema.json` describes the one piece of configuration in
+`config/` and carries no version, because nothing publishes it.
 
 `data/territories.json` is the catalogue, keyed by ISO code plus `EU`. It
 carries the EU layer and Spain: the model is proved on one country before more
@@ -45,17 +48,53 @@ enforces the rules the schema cannot express: a region belongs to exactly one
 hub, a hub of one region reuses that region's slug, and a hub of several never
 takes a region's slug.
 
+A research brief under `research/` is the memory of how a territory was
+searched: its portals, its queries, and every lead with what became of it. It is
+not a draft of an edition file, and it is what makes a published record
+re-verifiable rather than merely sourced — every resource in an edition file has
+to trace back to a lead the brief admitted, and a lead that claims to have
+become a resource has to name one a reader of that territory can actually see.
+
 ## Commands
 
 Node.js 24.
 
 ```bash
 npm install            # also installs the git hooks
-npm run check          # type-check, lint, formatting, generated types and tests
+npm run check          # everything below plus type-check, lint, formatting and tests
+npm run validate       # the catalogue, every edition file and every brief; -- <year> for one edition
 npm run types          # regenerate src/types from schema/
 npm run types:check    # fail if a committed generated file is stale
 npm run format         # format with Prettier
 ```
+
+`validate` reaches no network, which is why it runs on every push. It prints how
+many files it checked, so a run over nothing cannot be read as a clean run. An
+error means something cannot be true and fails; a warning and a suspected
+duplicate ask a person to look and do not.
+
+The live checks do reach the network, and therefore never gate a commit:
+
+```bash
+npm run check:sources  # re-read every cited page and look for its quotes
+npm run check:links    # ask every address the repository points at whether it answers
+npm run check:territory -- <year> eu | <iso> | <iso>/<region or hub>
+```
+
+`check:territory` is the gate for finishing one territory, and it is stricter
+than the others on purpose: for that territory's edition file and brief, a
+warning fails it too, a region has to answer every instrument its country brief
+expects, and every cited page has to give its quotes back. Passing means nothing
+in the territory contradicts itself, nothing published is untraceable and every
+quote was found again today — not that coverage is exhaustive, not that what is
+described still operates, and not that a person has reviewed it.
+
+Both take `-- <year>` for one edition, visit one host at a time with a pause
+between requests, and write their full result to `reports/`. They answer PASS,
+FAIL or UNCHECKED, and the third is not a softer failure: it means this run could
+not read the page — no response, a bot challenge, a server error, a page a browser
+would have to render — so it proves nothing either way. Never report an UNCHECKED
+page as verified, and never "fix" one by removing the quote.
 
 ## Non-negotiable data rules
 
@@ -98,7 +137,12 @@ the other way round.
 - The published site is cookie-free, has no analytics and makes no third-party
   requests.
 - Every rule that decides what is publishable ships with the test that proves
-  it, in the same change.
+  it, in the same change. A rule the schema can state belongs in the schema; a
+  rule that needs a sentence to explain itself belongs in
+  `src/validate-edition.ts`, where the message can say it.
+- A check that could not read something says so. UNCHECKED, a skipped file and a
+  warning are answers; an empty result over nothing is not a clean run, and a
+  caught error must never become a value a caller reports as success.
 - `npm run check` must pass before a commit, and never claim a check passed
   without running it.
 - `npm install` installs the git hooks: `pre-commit` formats the staged files,
