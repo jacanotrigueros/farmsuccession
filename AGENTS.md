@@ -18,6 +18,7 @@ published as **yearly editions** of JSON files per EU / country / region.
 | `schema/`    | JSON Schemas (Draft 2020-12): the single source of truth for data shapes       |
 | `data/`      | The territory catalogue and the yearly editions                                |
 | `research/`  | One research brief per territory                                               |
+| `decisions/` | Why each rule is the way it is, and the evidence that decided it               |
 | `prompts/`   | The standard research process, used by any assistant or person                 |
 | `config/`    | Pinned public TLS intermediates for portals with incomplete certificate chains |
 | `reports/`   | Where the live checks write their full result; output, never committed         |
@@ -66,6 +67,7 @@ npm run validate       # the catalogue, every edition file and every brief; -- <
 npm run types          # regenerate src/types from schema/
 npm run types:check    # fail if a committed generated file is stale
 npm run format         # format with Prettier
+npm run measure -- figures | units | language [editionsDir]
 ```
 
 `validate` reaches no network, which is why it runs on every push. It prints how
@@ -140,6 +142,10 @@ the other way round.
   it, in the same change. A rule the schema can state belongs in the schema; a
   rule that needs a sentence to explain itself belongs in
   `src/validate-edition.ts`, where the message can say it.
+- A threshold is measured against the corpus with `npm run measure`, and what it
+  measured is recorded in `decisions/`. A number chosen because it looked right
+  is a number nobody can defend, and the records are where the reasoning lives
+  that no test can hold.
 - A check that could not read something says so. UNCHECKED, a skipped file and a
   warning are answers; an empty result over nothing is not a clean run, and a
   caught error must never become a value a caller reports as success.

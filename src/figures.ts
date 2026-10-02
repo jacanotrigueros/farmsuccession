@@ -1,3 +1,4 @@
+import { RESOURCE_TEXT_FIELDS } from "./reader-text.ts";
 import type { EditionSnapshot, Metric, Resource } from "./types/edition.ts";
 
 /**
@@ -237,8 +238,6 @@ function resourceEvidence(resources: readonly Resource[], extra: readonly Figure
   }
   return evidenceOf(figures);
 }
-
-const RESOURCE_TEXT_FIELDS = ["name", "whatItOffers", "whoCanUseIt", "howToAccess", "notes"] as const;
 
 /**
  * Figures written in free text that nothing in the file supports. An invented amount, deadline or

@@ -34,10 +34,15 @@ const CODES = [
 ];
 const CODE = new RegExp(`(?<![\\p{L}\\d_])(?:${CODES.join("|")})(?![\\p{L}\\d_])`, "gu");
 
-const RESOURCE_TEXT_FIELDS = ["name", "whatItOffers", "whoCanUseIt", "howToAccess", "notes"] as const;
+/**
+ * The fields of a resource the site shows as prose. Defined once and used by every check that judges
+ * reader-facing text, so adding a field to the schema cannot leave one check looking at four fields
+ * while another looks at five.
+ */
+export const RESOURCE_TEXT_FIELDS = ["name", "whatItOffers", "whoCanUseIt", "howToAccess", "notes"] as const;
 
 /** Every text of an edition file the site shows as prose, each with a label for the message. */
-function readerTexts(data: EditionSnapshot): Array<[label: string, text: string]> {
+export function readerTexts(data: EditionSnapshot): Array<[label: string, text: string]> {
   const texts: Array<[string, string | undefined]> = [];
   for (const resource of data.resources) {
     for (const field of RESOURCE_TEXT_FIELDS) texts.push([`resource "${resource.id}": ${field}`, resource[field]]);

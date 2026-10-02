@@ -63,7 +63,7 @@ function words(list: string): ReadonlySet<string> {
  * first value above the noise, and the margin is one word, which is why the particles of official
  * names are taken out below before counting.
  */
-const FOREIGN_WORDS_LIMIT = 2;
+export const FOREIGN_WORDS_LIMIT = 2;
 
 /** The property names that hold a URL. There is no `httpsUrl` property: that is the schema's type. */
 const URL_KEYS = new Set(["url", "accessUrl", "sourceUrl"]);
@@ -153,21 +153,24 @@ function stringProblems(text: string, key: string, inQuote: boolean, language: s
 
 const codePoint = (char: string): string => (char.codePointAt(0) ?? 0).toString(16).toUpperCase().padStart(4, "0");
 
+export type ForeignWords = { language: string; words: string[] };
+
 /**
- * The catalogue language `text` slips into, judged by its function words: at least
- * `FOREIGN_WORDS_LIMIT` distinct words of that language that are not words of `language`, and the
- * language with the most of them when several qualify. Undefined when the text reads as its own
- * language, or when `language` has no word list.
+ * For each other catalogue language, the distinct function words of that language in `text` that are
+ * not words of `language`, most first. Empty when `language` has no word list.
  *
- * What this cannot do, and no threshold would fix: tell Galician or Catalan from Spanish. They share
- * most of their function words with it, so a paragraph left in the language of a Spanish region reads
- * as Spanish here. The check is for a text left in another of the catalogue's six languages, which is
- * the mistake that actually happens when one researcher works through several countries.
+ * The threshold is applied by `foreignLanguage`, not here, so `npm run measure -- language` can report
+ * the whole distribution — including the counts below the threshold, which are what justify it. The
+ * check and the measurement therefore read the same code and cannot drift apart.
+ *
+ * `keepNameParticles` exists only for that measurement, to show what removing them costs. The check
+ * always removes them: see decisions/006.
  */
-export function foreignLanguage(text: string, language: string): { language: string; words: string[] } | undefined {
+export function foreignWordCounts(text: string, language: string, options: { keepNameParticles?: boolean } = {}): ForeignWords[] {
   const own = FUNCTION_WORDS[language];
-  if (!own) return undefined;
-  const prose = text.replaceAll(NOT_OWN_WORDS, " ").replaceAll(NAME_PARTICLE, " ");
+  if (!own) return [];
+  const withoutQuoted = text.replaceAll(NOT_OWN_WORDS, " ");
+  const prose = options.keepNameParticles ? withoutQuoted : withoutQuoted.replaceAll(NAME_PARTICLE, " ");
   const tokens = new Set(
     (prose.match(WORD) ?? [])
       // Codes and acronyms in capitals (TO_CHECK, UPA, SRE01) are not words of any language.
@@ -175,11 +178,25 @@ export function foreignLanguage(text: string, language: string): { language: str
       .map((token) => token.toLowerCase())
       .filter((token) => token.length > 1 && !own.has(token)),
   );
-  let best: { language: string; words: string[] } | undefined;
+  const counts: ForeignWords[] = [];
   for (const [other, list] of Object.entries(FUNCTION_WORDS)) {
     if (other === language) continue;
     const found = [...tokens].filter((token) => list.has(token));
-    if (found.length >= FOREIGN_WORDS_LIMIT && found.length > (best?.words.length ?? 0)) best = { language: other, words: found };
+    if (found.length) counts.push({ language: other, words: found });
   }
-  return best;
+  return counts.toSorted((a, b) => b.words.length - a.words.length);
+}
+
+/**
+ * The catalogue language `text` slips into: the language with the most foreign function words, once at
+ * least `FOREIGN_WORDS_LIMIT` of them are present. Undefined when the text reads as its own language.
+ *
+ * What this cannot do, and no threshold would fix: tell Galician or Catalan from Spanish. They share
+ * most of their function words with it, so a paragraph left in the language of a Spanish region reads
+ * as Spanish here. The check is for a text left in another of the catalogue's six languages, which is
+ * the mistake that actually happens when one researcher works through several countries.
+ */
+export function foreignLanguage(text: string, language: string): ForeignWords | undefined {
+  const [best] = foreignWordCounts(text, language);
+  return best && best.words.length >= FOREIGN_WORDS_LIMIT ? best : undefined;
 }
