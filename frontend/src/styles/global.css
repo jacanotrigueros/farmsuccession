@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/**
+ * The tokens. Everything visual comes from here, so a change lands everywhere at once and a page cannot
+ * quietly invent its own sizes or colours.
+ *
+ * The sizes are a constraint, not a preference: the audience is farmers roughly 20 to 65, often on a
+ * phone, and small chrome is what fails them first. Body text is 17px, nothing functional goes below
+ * 16px, metadata never below 15px, and anything tappable is at least 44px.
+ */
+@theme {
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
+
+  --text-meta: 0.9375rem; /* 15px — dates, source lists, the smallest text the site may use */
+  --text-meta--line-height: 1.5;
+  --text-base: 1.0625rem; /* 17px — body */
+  --text-base--line-height: 1.65;
+  --text-lead: 1.1875rem; /* 19px — the opening paragraph of a page */
+  --text-lead--line-height: 1.6;
+
+  --spacing-tap: 2.75rem; /* 44px — the floor for anything a finger has to find */
+  --container-measure: 38rem; /* a readable column, roughly 70 characters */
+
+  /* Ink on paper, warmed slightly so a long page is not a glare. Contrast with --color-paper is
+     AA or better for every pair used on text. */
+  --color-paper: oklch(99% 0.004 95);
+  --color-paper-sunk: oklch(96.5% 0.006 95);
+  --color-ink: oklch(24% 0.012 250);
+  --color-ink-soft: oklch(44% 0.014 250);
+  --color-line: oklch(88% 0.008 250);
+
+  /* One accent, from the land rather than from a brand: links, focus, the active territory. */
+  --color-accent: oklch(44% 0.09 155);
+  --color-accent-strong: oklch(34% 0.09 155);
+  --color-accent-wash: oklch(95% 0.03 155);
+
+  /* The three answers the data gives about itself, and the one warning it owes a reader. */
+  --color-verified: oklch(45% 0.08 150);
+  --color-unknown: oklch(48% 0.02 250);
+  --color-caution: oklch(52% 0.11 70);
+  --color-caution-wash: oklch(96% 0.04 85);
+}
+
+/**
+ * Dark is the same site with the variables redefined, never a second set of utilities.
+ *
+ * It has to be a plain `:root` block: `@theme` inside a media query is hoisted out of it, so the night
+ * colours would apply in daylight — which is exactly what happened, and what looking at the page in a
+ * light browser caught.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: oklch(19% 0.012 250);
+    --color-paper-sunk: oklch(23% 0.014 250);
+    --color-ink: oklch(94% 0.006 95);
+    --color-ink-soft: oklch(76% 0.012 250);
+    --color-line: oklch(33% 0.012 250);
+
+    --color-accent: oklch(78% 0.11 155);
+    --color-accent-strong: oklch(88% 0.09 155);
+    --color-accent-wash: oklch(27% 0.04 155);
+
+    --color-verified: oklch(80% 0.11 150);
+    --color-unknown: oklch(72% 0.02 250);
+    --color-caution: oklch(82% 0.12 80);
+    --color-caution-wash: oklch(29% 0.05 80);
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: light dark;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--color-ink);
+    font-weight: 650;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+
+  a {
+    color: var(--color-accent-strong);
+    text-decoration-line: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.18em;
+  }
+
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* Visible, and the same shape everywhere: a keyboard reader has to be able to see where they are. */
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

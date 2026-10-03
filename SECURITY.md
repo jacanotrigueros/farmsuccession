@@ -45,7 +45,18 @@ Stated so a reviewer can see where the lines are:
   host at a time with a pause between requests.
 - **Dependencies are pinned to exact versions** and kept few on purpose. The
   production dependencies are a JSON Schema validator, its format package, an HTML
-  entity decoder and a PDF text extractor.
+  entity decoder and a PDF text extractor; the site adds Astro and Tailwind.
+- **One advisory is open and will stay open: `npm audit` reports two highs in
+  `frontend/`.** Both are CVE-2026-93748 in `http-cache-semantics`, which arrives as a
+  dependency of Astro. No patched release of that library exists, and the fix `npm audit`
+  offers is Astro five major versions back, which patches nothing and swaps a library
+  nobody can reach here for an unmaintained framework. Astro imports it in exactly one
+  file, the build-time cache for images fetched from other hosts, and this site fetches
+  none: `image.domains` and `image.remotePatterns` are empty, a test keeps them empty,
+  and nothing of it reaches the published pages.
+  [`decisions/017`](decisions/017-an-advisory-with-no-patch.md) has the full reading and
+  what would change it. If you find a path that makes it reachable, that is exactly the
+  kind of report this policy wants.
 - **The published site is cookie-free**, carries no analytics, and makes no
   third-party requests. A change that introduced one would be a bug of the same
   seriousness as a security defect.

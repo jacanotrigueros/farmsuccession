@@ -1,0 +1,25 @@
+---
+/**
+ * What is on this page, for a reader who wants one section of a long one. It appears only where there is
+ * room for it, because on a phone an index of a page you are already on is a second page to scroll past.
+ */
+import { words } from "../lib/words.ts";
+
+type Props = { sections: ReadonlyArray<{ id: string; label: string; count?: number }>; language: string };
+const { sections, language } = Astro.props;
+const text = words(language);
+---
+
+<nav aria-label={text.onThisPage} class="text-meta">
+  <h2 class="font-semibold tracking-wide text-ink-soft uppercase">{text.onThisPage}</h2>
+  <ul class="mt-2">
+    {sections.map(({ id, label, count }) => (
+      <li>
+        <a href={`#${id}`} class="flex min-h-tap items-center justify-between gap-3 no-underline">
+          <span class="text-ink-soft hover:text-ink">{label}</span>
+          {count !== undefined && <span class="text-ink-soft">{count}</span>}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

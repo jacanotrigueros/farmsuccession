@@ -1,0 +1,116 @@
+---
+/**
+ * The European layer, which is what every reader of this site shares, and therefore the home.
+ *
+ * It opens with what the site is and where to look, rather than with the data model: the first version of
+ * this site opened on a grid of nine record kinds — Financial support, Land bank, Policy framework — which
+ * is the right structure for the data and the wrong first thing to show somebody deciding whether the site
+ * is for them. The situations a reader comes with are on the territory pages, where there is something to
+ * answer them: at this layer the honest first step is choosing where you farm.
+ */
+import DraftNotice from "../components/DraftNotice.astro";
+import Illustration from "../components/Illustration.astro";
+import ResourceRow from "../components/ResourceRow.astro";
+import TerritoryLayout from "../layouts/TerritoryLayout.astro";
+import { countryTerritories, currentEdition, euTerritory, href, isDraft, languageOf, regionsOf } from "../lib/corpus.ts";
+import { counted, words } from "../lib/words.ts";
+
+const europe = euTerritory();
+if (!europe) {
+  throw new Error(`no European layer in edition ${currentEdition}: the home page has nothing to be about`);
+}
+
+const language = languageOf(europe);
+const text = words(language);
+const countries = countryTerritories();
+
+const sections = [
+  { id: "where", label: text.whereToLook, count: countries.length },
+  { id: "eu-records", label: text.appliesHere, count: europe.data.resources.length },
+  { id: "limits", label: text.limits },
+];
+---
+
+<TerritoryLayout
+  title={`${text.siteName} — ${text.tagline}`}
+  description="Land banks, succession services, establishment aid, training and advice for taking over or starting a farm in Europe, each entry traceable to a public page, the date it was read and the words that were on it."
+  language={language}
+  current="/"
+  sections={sections}
+>
+  <section class="grid items-center gap-8 py-10 md:grid-cols-[1.3fr_1fr] md:py-14">
+    <div>
+      <h1 class="text-3xl leading-tight sm:text-4xl">Taking over or starting a farm in Europe</h1>
+      <p class="mt-4 max-w-measure text-lead">
+        Land banks, help with taking over a holding, establishment aid, training and advice — collected from the public pages of the bodies
+        that run them, and published as one edition a year.
+      </p>
+      <p class="mt-3 max-w-measure">
+        Every entry names the page it came from, the day that page was read and the words that were on it. Nothing here is inferred, rounded
+        or remembered, and an instrument that exists is never presented as one you can apply for today.
+      </p>
+    </div>
+    <div class="overflow-hidden rounded-sm md:order-last">
+      <Illustration />
+    </div>
+  </section>
+
+  {isDraft(europe) && (
+    <div class="pb-8">
+      <DraftNotice language={language} />
+    </div>
+  )}
+
+  <section class="border-t border-line py-10" aria-labelledby="where">
+    <h2 id="where" class="scroll-mt-6 text-2xl">
+      {text.whereToLook}
+    </h2>
+    <p class="mt-2 max-w-measure text-ink-soft">
+      What applies to you is cumulative: the European framework, then your country, then your region. A region page shows all three, so you
+      never have to visit two pages to find out what you can use.
+    </p>
+    <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+      {countries.map((country) => {
+        const regions = regionsOf(country.layer.level === "EU" ? "" : country.layer.country);
+        return (
+          <li class="rounded-sm border border-line bg-paper-sunk">
+            <a href={href(country.layer)} class="flex min-h-tap flex-col justify-center gap-1 px-4 py-4 no-underline">
+              <span class="text-lead font-semibold text-ink">{country.data.officialName}</span>
+              <span class="text-meta text-ink-soft">
+                {counted(country.data.resources.length, text.record)} · {counted(regions.length, text.territory)}
+              </span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+
+  <section class="border-t border-line py-10" aria-labelledby="eu-records">
+    <h2 id="eu-records" class="scroll-mt-6 text-2xl">
+      What applies everywhere in the EU
+    </h2>
+    <p class="mt-2 max-w-measure text-ink-soft">{europe.data.summary}</p>
+    <div class="mt-6">
+      {europe.data.resources.map((resource) => (
+        <ResourceRow resource={resource} language={language} />
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-line py-10" aria-labelledby="limits">
+    <h2 id="limits" class="scroll-mt-6 text-2xl">
+      {text.limits}
+    </h2>
+    <ul class="mt-3 max-w-measure list-disc space-y-2 ps-5">
+      {europe.data.limitations.map((limitation) => (
+        <li>{limitation}</li>
+      ))}
+    </ul>
+    <h3 class="mt-6 text-lead">{text.coverageNote}</h3>
+    <p class="mt-2 max-w-measure text-ink-soft">{europe.data.coverage.note}</p>
+    <p class="mt-6 text-meta text-ink-soft">
+      {currentEdition} {text.edition} · {text.publishedOn} <time datetime={europe.data.published}>{europe.data.published}</time>
+    </p>
+  </section>
+</TerritoryLayout>

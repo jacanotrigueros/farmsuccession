@@ -17,7 +17,8 @@ function documents(dir = ROOT): string[] {
   });
 }
 
-const EMAIL = /[\w.+-]+@[\w-]+\.[\w.-]+/gu;
+/** A domain ends in letters, which is what tells an address from a package version such as `astro@2.10.9`. */
+const EMAIL = /[\w.+-]+@[\w-]+\.[\w.-]*[a-z]{2,}\b/giu;
 const PROJECT_DOMAIN = "@farmsuccession.eu";
 
 test("a document names a project address, never a personal one", () => {

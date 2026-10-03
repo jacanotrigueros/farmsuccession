@@ -31,7 +31,7 @@ published as **yearly editions** of JSON files per EU / country / region.
 Every directory listed here exists, and each stays empty until the milestone that
 needs it. That milestone adds its file layout, its commands and their rules to
 this file in the same change, so nothing here ever describes something the
-repository does not have. `frontend/` is the one still waiting.
+repository does not have.
 
 `data/editions/2026` and `research/` hold the first real data: the European layer,
 Spain, its three groupings of several regions and its 28 regional territories, with
@@ -39,6 +39,59 @@ one research brief each. France, Italy, Portugal and Germany are researched and 
 not here yet, so the catalogue carries the EU layer and Spain and nothing else: a
 file whose country the catalogue does not define is an error, not a file waiting for
 its country.
+
+## The site
+
+`frontend/` is an Astro site with its own `package.json`, built from `data/` and
+nothing else. It has one job — showing what the gate already judged — and it decides
+nothing about what is publishable.
+
+```bash
+cd frontend
+npm install
+npm run dev            # http://localhost:4321
+npm run check          # type-check, build, and the tests over what was built
+npm run build          # writes frontend/dist, which is output and is not committed
+```
+
+| Path                    | What is in it                                                        |
+| ----------------------- | -------------------------------------------------------------------- |
+| `src/pages/`            | One route per surface; `[...territory].astro` builds every territory |
+| `src/layouts/`          | The one shell every page uses                                        |
+| `src/components/`       | Presentation only: no data loading, no rules                         |
+| `src/lib/corpus.ts`     | The only place the site reads data                                   |
+| `src/lib/words.ts`      | The site's own words, per language                                   |
+| `src/styles/global.css` | The tokens: every colour and size comes from here                    |
+| `test/`                 | Tests over the built HTML in `dist/`                                 |
+
+The rules, which are requirements rather than preferences:
+
+- **The published pages ship no JavaScript, make no third-party request and store
+  nothing in the reader's browser.** The audience is often on a phone on a rural
+  connection. Tests over `dist/` enforce all three, and a search box later is the one
+  thing that may add script — as progressive enhancement, never as a requirement for
+  reading.
+- **The site reads data only through `src/lib/corpus.ts`**, which loads the
+  repository's own modules from the repository rather than bundling them: they resolve
+  the schemas and the data from their own location, which stops being true the moment a
+  bundler copies them. `astro.config.mjs` injects the repository root, and it is the
+  only file in a position to know it.
+- **No code a reader never sees.** The data says `ANNOUNCED_NOT_OPERATING`; a page says
+  what that means, from `words.ts`, in the territory's language. A language with no
+  words there throws at build time instead of rendering English chrome around text in
+  another language.
+- **Sizes are a constraint**: 17px body, nothing functional under 16px, metadata never
+  under 15px, anything tappable at least 44px, and the page works at 320px wide. The
+  readers are farmers, often older, often on a phone.
+- **No imagery beyond one illustration in the home hero.** The schema has no image
+  field; operator emblems are protected marks; a grid that is mostly placeholder reads
+  as broken. Every asset is first-party and committed, and `image.domains` and
+  `image.remotePatterns` stay empty — which is also what keeps the one open advisory in
+  the dependency tree unreachable (`decisions/017`).
+- **`astro check` is not used**: it does not support TypeScript 7, which this repository
+  is on. `npm run typecheck` runs `tsc` over `src/**/*.ts` and `test/`, so the type
+  coupling to `schema/` is checked, and `.astro` files are not type-checked at all.
+  Keep logic in `.ts` where the compiler can see it, and keep `.astro` files to markup.
 
 Three data schemas are settled: `territories.schema.json` (the catalogue),
 `edition.schema.json` (one territory in one year) and
