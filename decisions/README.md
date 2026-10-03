@@ -68,3 +68,4 @@ number says which of the two it came from.
 | [014](014-a-file-may-use-the-evidence-it-inherits.md)   | A file's own voice may use the evidence it inherits            |
 | [015](015-a-record-whose-source-dies.md)                | A record whose only source dies becomes UNKNOWN, not gone      |
 | [016](016-a-pass-is-a-dated-snapshot.md)                | A finished pass is a dated snapshot; a correction only removes |
+| [017](017-an-advisory-with-no-patch.md)                 | An advisory with no patch is assessed, not silenced            |
