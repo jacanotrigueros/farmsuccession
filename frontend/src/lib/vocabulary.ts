@@ -11,7 +11,7 @@
  * regenerated breaks this file at type-check time, instead of printing a code at a reader.
  */
 import type { Call, ContactPoint, Metric, NewsItem, Resource, Scope } from "../../../src/types/edition.ts";
-import { asLanguage, moneyIn, numberIn, type Language } from "./language.ts";
+import { asLanguage, listIn, moneyIn, numberIn, type Language } from "./language.ts";
 
 /**
  * One translated vocabulary: a complete table per language, read by key. Missing a key in either language
@@ -197,6 +197,24 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
     GENERAL: "cualquier persona",
   },
 });
+
+/** What "anyone" becomes once the source has also named somebody: an addition, not the whole answer. */
+const anyoneElse = vocabulary<"else">({ en: { else: "anyone else" }, es: { else: "cualquier otra persona" } });
+
+/**
+ * Who a record is for, read out as one answer.
+ *
+ * A source can perfectly well open something to anyone and still say who it has in mind — courses open to
+ * everybody over 18, with a note about who needs the certificate — and the data records both. Printed as a
+ * flat list that ends in "anyone", that reads as a contradiction; printed as the named profiles and then
+ * "anyone else", it reads as what the page actually said. Never narrower than the source is the rule the
+ * data follows, and this is the sentence that keeps it true out loud.
+ */
+export function audience(profiles: readonly NonNullable<Resource["targetProfiles"]>[number][], language: string): string {
+  const named = profiles.filter((profile) => profile !== "GENERAL").map((profile) => profileLabel(profile, language));
+  if (named.length === 0) return profileLabel("GENERAL", language);
+  return listIn(profiles.includes("GENERAL") ? [...named, anyoneElse("else", language)] : named, language);
+}
 
 /**
  * The state of an application period, which the data judges against the date its source was read and never

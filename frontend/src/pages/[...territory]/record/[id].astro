@@ -20,6 +20,7 @@ import { currentEdition, href, isDraft, languageOf, newsAbout, records, view, ty
 import { dateIn, listIn } from "../../../lib/language.ts";
 import {
   assetLabel,
+  audience,
   channelLabel,
   costLabel,
   formatLabel,
@@ -28,7 +29,6 @@ import {
   languageName,
   newsTypeLabel,
   operatorTypeLabel,
-  profileLabel,
   purposeLabel,
   quantity,
   reachLabel,
@@ -115,17 +115,7 @@ const facts: Array<{ label: string; value: string; datetime?: string }> = [
   ...(resource.qualifiesForEstablishmentAid === undefined
     ? []
     : [{ label: text.qualifiesRow, value: resource.qualifiesForEstablishmentAid ? text.yes : text.no }]),
-  ...(resource.targetProfiles
-    ? [
-        {
-          label: text.forRow,
-          value: listIn(
-            resource.targetProfiles.map((profile) => profileLabel(profile, language)),
-            language,
-          ),
-        },
-      ]
-    : []),
+  ...(resource.targetProfiles ? [{ label: text.forRow, value: audience(resource.targetProfiles, language) }] : []),
   ...(resource.languages
     ? [
         {
