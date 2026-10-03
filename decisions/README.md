@@ -69,3 +69,8 @@ number says which of the two it came from.
 | [015](015-a-record-whose-source-dies.md)                | A record whose only source dies becomes UNKNOWN, not gone      |
 | [016](016-a-pass-is-a-dated-snapshot.md)                | A finished pass is a dated snapshot; a correction only removes |
 | [017](017-an-advisory-with-no-patch.md)                 | An advisory with no patch is assessed, not silenced            |
+| [018](018-a-record-has-one-address.md)                  | A record has one address, under the territory that recorded it |
+| [019](019-a-period-is-what-a-page-said-on-a-day.md)     | A period is what a page said on a day, not a claim about today |
+| [020](020-a-reader-gets-words-a-check-gets-codes.md)    | A reader gets words; the codes exist for the checks            |
+| [021](021-a-layout-asks-its-own-column.md)              | A layout asks the column it sits in, not the window            |
+| [022](022-never-narrower-than-the-source.md)            | A record is never narrower than its source                     |

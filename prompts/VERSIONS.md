@@ -88,9 +88,25 @@ spacing and avoid a word a PDF splits across lines; lead reasons are in the
 territory's language; every resource of an edition file needs an ADMITTED lead,
 and an `instrumentChecks` answer may not contradict the resources published.
 
+### 1.13.0 — never narrower than the source
+
+Current version. Building the record pages showed what the corpus had been saying
+quietly: 11 of 132 records were aimed at "anyone" and at named profiles at once, which
+the schema's wording made a contradiction, and in eight of them both halves were true
+— the source opened the thing to anyone and also said who it had in mind. Two of the
+rest named no audience anywhere, because a policy plan and an announced observatory
+have nothing to apply for.
+
+The rule the prompt was missing is larger than that one field: **never record a limit
+the source does not state**. A reader turned away by an invented restriction never
+finds out they were eligible, which makes it worse than an invented instrument —
+nothing contradicts it later. Where a page sets no age, no sector, no fee and no
+profile, the record sets none; where it opens the door and also names who it expects,
+both go in; where it names no audience at all, the field is left out.
+
 ### 1.12.0 — what the first published edition taught
 
-Current version. Both changes come from running the gate over 33 real files instead
+Both changes come from running the gate over 33 real files instead
 of over fixtures, and both are in the paragraph about figures in the file's own
 voice:
 
@@ -148,6 +164,8 @@ what stops it:
    match the machine.
 7. **1.12.0** — the first published edition, which found the two places where the
    rule was asking the wrong file.
+8. **1.13.0** — the first published pages, which found the project recording limits
+   its sources had not set.
 
 ## Comparing versions
 

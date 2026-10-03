@@ -1,0 +1,30 @@
+---
+/**
+ * The structured facts of a record: one row each, label on the left, value on the right.
+ *
+ * This replaces a panel of boxed fields. The boxes made four facts look like four separate things a reader
+ * had to deal with, when they are one list of answers to one question — what is this, who runs it, where
+ * does it apply, what does it cost. It is the summary-list pattern a public service uses for exactly this
+ * data, and it degrades to a readable definition list at any width.
+ *
+ * A row is only here when the data has it. A label with "unknown" beside it adds a line without adding an
+ * answer, and the record already says what it does not know in its own words.
+ *
+ * It splits into two columns against the width of the column it sits in, not the width of the window. On a
+ * wide screen with both rails open, the middle column is about 450px, and a fixed label column there would
+ * leave the answers in a ribbon four words wide.
+ */
+type Row = { label: string; value: string; datetime?: string };
+
+type Props = { rows: readonly Row[] };
+const { rows } = Astro.props;
+---
+
+<dl class="mt-4">
+  {rows.map(({ label, value, datetime }) => (
+    <div class="grid gap-x-6 border-t border-line py-3 @lg:grid-cols-[14rem_minmax(0,1fr)]">
+      <dt class="text-ink-soft">{label}</dt>
+      <dd class="mt-0.5 @lg:mt-0">{datetime ? <time datetime={datetime}>{value}</time> : value}</dd>
+    </div>
+  ))}
+</dl>

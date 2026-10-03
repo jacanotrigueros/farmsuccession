@@ -1,6 +1,6 @@
 # FarmSuccession — research one territory
 
-Prompt version: 1.12.0
+Prompt version: 1.13.0
 
 You are researching **{{territoryName}}** ({{territoryLabel}}) for the **{{edition}}**
 edition of FarmSuccession. Today is {{today}}. The result is two JSON files that
@@ -184,6 +184,21 @@ itself establishes an instrument of the families above.
      uses `instrumentType` and `purposes`; training uses `trainingFormats` and
      `qualifiesForEstablishmentAid`. Omit an unknown facet instead of guessing
      or using `OTHER` as a substitute for missing evidence.
+   - **Never record a limit the source does not state.** Inventing a restriction
+     is as serious as inventing an instrument, and worse for the reader it turns
+     away: somebody who was eligible and does not apply never finds out. If the
+     page sets no age, no sector, no territory within the territory, no fee and
+     no profile, the record sets none either. If it opens something to anyone
+     and also names who it has in mind, record both: `targetProfiles` carries
+     `GENERAL` **alongside** the named profiles, because dropping the open door
+     to make a tidier list narrows the resource in the reader's eyes, and
+     dropping the named profiles loses what the source actually said. If the
+     page names no audience at all — a policy framework, an announced
+     instrument, a knowledge hub — leave `targetProfiles` out: a resource with
+     nothing to apply for has no applicants, and a guessed audience is a limit
+     too. The same holds for every other facet: where the source is open, the
+     record stays open, and a condition goes in only with the words that state
+     it.
    - Audit existing entries for useful missing details, not just new resources:
      beneficiary and age conditions, geographical restrictions, application
      route and prerequisites, fees or membership requirements, current call,

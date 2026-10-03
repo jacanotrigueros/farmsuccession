@@ -1,0 +1,52 @@
+---
+/**
+ * The pages a record rests on, numbered, with the words that were on them.
+ *
+ * Nothing here is folded away behind a toggle. A reader who is right to be wary of aid information found
+ * online — and that is most of this audience — is not served by a page that asks them to take its word and
+ * offers the proof on request. The quote is the proof: it was copied character for character, so anyone can
+ * open the page, search for those words, and see for themselves whether they are still there. That is also
+ * exactly what the repository's own source check does every year, and it is the reason a claim whose page
+ * has changed can be found rather than quietly inherited.
+ *
+ * The date is the date the page was read, not today. Every claim drawn from a page is a claim about that
+ * page on that day.
+ */
+import type { Source } from "../lib/corpus.ts";
+import { dateIn } from "../lib/language.ts";
+import { words } from "../lib/words.ts";
+
+type Props = { sources: readonly Source[]; language: string };
+const { sources, language } = Astro.props;
+const text = words(language);
+---
+
+<p class="max-w-measure text-ink-soft">{text.quotesExplained}</p>
+
+<ol class="mt-5 space-y-6">
+  {sources.map((source, index) => (
+    <li id={`source-${index + 1}`} class="scroll-mt-6 grid grid-cols-[2.5rem_minmax(0,1fr)]">
+      <span class="text-ink-soft" aria-hidden="true">
+        [{index + 1}]
+      </span>
+      <div>
+        <p>
+          <a href={source.url} rel="noopener" class="inline-flex min-h-tap items-center">
+            {source.title}
+          </a>
+        </p>
+        <p class="text-meta break-words text-ink-soft">{source.url}</p>
+        <p class="text-meta text-ink-soft">
+          {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, language)}</time>
+        </p>
+        <ul class="mt-2 space-y-2">
+          {source.quotes.map((quote) => (
+            <li>
+              <blockquote class="border-s-2 border-line ps-3 text-ink-soft italic">{quote}</blockquote>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </li>
+  ))}
+</ol>
