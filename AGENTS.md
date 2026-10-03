@@ -54,15 +54,17 @@ npm run check          # type-check, build, and the tests over what was built
 npm run build          # writes frontend/dist, which is output and is not committed
 ```
 
-| Path                    | What is in it                                                        |
-| ----------------------- | -------------------------------------------------------------------- |
-| `src/pages/`            | One route per surface; `[...territory].astro` builds every territory |
-| `src/layouts/`          | The one shell every page uses                                        |
-| `src/components/`       | Presentation only: no data loading, no rules                         |
-| `src/lib/corpus.ts`     | The only place the site reads data                                   |
-| `src/lib/words.ts`      | The site's own words, per language                                   |
-| `src/styles/global.css` | The tokens: every colour and size comes from here                    |
-| `test/`                 | Tests over the built HTML in `dist/`                                 |
+| Path                    | What is in it                                                       |
+| ----------------------- | ------------------------------------------------------------------- |
+| `src/pages/`            | One route per surface: every territory, and every record            |
+| `src/layouts/`          | The one shell every page uses                                       |
+| `src/components/`       | Presentation only: no data loading, no rules                        |
+| `src/lib/corpus.ts`     | The only place the site reads data                                  |
+| `src/lib/words.ts`      | The site's own words, per language                                  |
+| `src/lib/vocabulary.ts` | The words for the codes the data holds, per language                |
+| `src/lib/language.ts`   | Dates, figures and lists, written the way each language writes them |
+| `src/styles/global.css` | The tokens: every colour and size comes from here                   |
+| `test/`                 | Tests over the built HTML in `dist/`                                |
 
 The rules, which are requirements rather than preferences:
 
@@ -77,9 +79,23 @@ The rules, which are requirements rather than preferences:
   bundler copies them. `astro.config.mjs` injects the repository root, and it is the
   only file in a position to know it.
 - **No code a reader never sees.** The data says `ANNOUNCED_NOT_OPERATING`; a page says
-  what that means, from `words.ts`, in the territory's language. A language with no
+  what that means, from `vocabulary.ts`, in the territory's language. A language with no
   words there throws at build time instead of rendering English chrome around text in
-  another language.
+  another language, and a test reads `schema/` and fails on any of its codes found in a
+  built page. Dates and figures go the same way: a reader never meets `2026-09-28`, and
+  `20405` is written in their own convention, because 20.405 and 20,405 are different
+  numbers depending on who is reading.
+- **A record has one page**, under the territory whose file holds it; every territory that
+  inherits it links there rather than carrying a copy (`decisions/018`).
+- **An application period is printed as a dated statement about a page**, never as a
+  verdict about today, and a test fails a page that states one without the date its source
+  was read (`decisions/019`). A site published once a year cannot know what a page says
+  this afternoon; the official link can, which is why it is the most prominent thing on a
+  record page.
+- **The evidence is never folded away.** Numbered sources, with their addresses, the date
+  each was read and its quotes in full. A test fails if a quote on a page is not character
+  for character the quote in the data: shortened to fit a layout, it stops being something
+  a reader can search the live page for.
 - **Sizes are a constraint**: 17px body, nothing functional under 16px, metadata never
   under 15px, anything tappable at least 44px, and the page works at 320px wide. The
   readers are farmers, often older, often on a phone.
