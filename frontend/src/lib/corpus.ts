@@ -133,13 +133,14 @@ export const records = (edition = currentEdition): RecordedResource[] =>
   territoriesOf(edition).flatMap((territory) => territory.data.resources.map((resource) => ({ resource, territory })));
 
 /**
- * Where a record lives: under its own territory, behind a segment of its own.
+ * Where a record lives: one address, naming the record and nothing else.
  *
- * The segment is what keeps the two routes apart by construction rather than by luck — a record id and a
- * region slug are both slugs, and nothing in the schema stops a national record from being called
- * `galicia`.
+ * The identifier is unique across the edition and already begins with its territory, so the path would
+ * only repeat what the slug says, and a reader arriving from a search engine lands on the same address
+ * however they got there. It also survives a record changing layer between editions, which a territorial
+ * path would not.
  */
-export const recordHref = (layer: Layer, id: string): string => `${href(layer)}record/${id}/`;
+export const recordHref = (id: string): string => `/resources/${id}/`;
 
 /**
  * This edition's news about one record, wherever it was reported.

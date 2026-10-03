@@ -29,25 +29,40 @@ test("the build produced pages at all, so an empty run cannot pass as a clean on
 });
 
 /**
- * The site ships one script, and this is the whole of its licence: on the search page, that one file, from
- * this host, deferred, and never written into the page. A page somebody reads that acquires a script has
- * broken the promise; so has an inline one, which cannot be read before it runs or audited afterwards.
+ * The whole licence the site gives JavaScript: two files, each on the one kind of page that needs it,
+ * from this host, deferred, and never written into the page.
+ *
+ * `/search.js` filters a list that is already complete. `/apply.js` answers "can I apply now?" again for
+ * the reader's own day, from dates that are already on the page. Both only re-say something the HTML
+ * already said; neither is how anything gets read. An inline script would break the other half of the
+ * promise, because it cannot be read before it runs or audited afterwards.
  */
-test("the only pages that ship JavaScript are the search pages, and only that one file", () => {
+const ALLOWED = new Map([
+  [path.join("search", "index.html"), "/search.js"],
+  [`resources${path.sep}`, "/apply.js"],
+]);
+
+test("only two kinds of page ship JavaScript, and only their own file", () => {
   for (const { file, html } of pages) {
     const tags = [...html.matchAll(/<script\b[^>]*>/giu)].map(([tag]) => tag);
-    if (!file.endsWith(path.join("search", "index.html"))) {
-      assert.equal(tags.length, 0, `${file} carries a script: every page but the search page is read without JavaScript`);
+    const allowed = [...ALLOWED].find(([where]) => (where.endsWith(path.sep) ? file.startsWith(where) : file.endsWith(where)))?.[1];
+
+    if (!allowed) {
+      assert.equal(tags.length, 0, `${file} carries a script: a page that is only read is read without JavaScript`);
       continue;
     }
-    assert.equal(tags.length, 1, `${file} carries ${tags.length} scripts; the search page is allowed exactly one`);
-    assert.match(
-      tags[0] ?? "",
-      /src="\/search\.js"/u,
-      `${file} loads something other than /search.js: the enhancement is one first-party file, served as it was written`,
-    );
+    assert.ok(tags.length <= 1, `${file} carries ${tags.length} scripts; one page may load one file`);
+    if (tags.length === 1) {
+      assert.ok(
+        tags[0]?.includes(`src="${allowed}"`),
+        `${file} loads something other than ${allowed}: each enhancement is one first-party file, served as it was written`,
+      );
+    }
     const written = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/giu)].map(([, body]) => (body ?? "").trim());
-    assert.deepEqual(written, [""], `${file} has an inline script, which cannot be read before it runs or audited afterwards`);
+    assert.ok(
+      written.every((body) => body === ""),
+      `${file} has an inline script, which cannot be read before it runs or audited afterwards`,
+    );
   }
 });
 

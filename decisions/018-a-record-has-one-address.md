@@ -1,6 +1,6 @@
-# 018 — A record has one address, under the territory that recorded it
+# 018 — A record has one address
 
-Decided 2026-10-03, milestone 07.
+Decided 2026-10-03, milestone 07. **Revised 2026-10-04**: the address is flat.
 
 ## The question
 
@@ -31,34 +31,45 @@ regions, holding 132 records between them:
 - So 376 of those 508 pages would be copies, and a reader arriving from a search engine
   would land on whichever copy it had indexed, with no way to tell it apart from the other 32.
 
-The second question the count raised is where that single page sits. A record id and a
-region slug are both slugs, and nothing in the schema stops a national record from being
-called `galicia`: `/es/galicia/` would then be a region page and a record page at once, and
-which one the build wrote would be luck.
-
 ## The decision
 
-A record has exactly one page, under the territory whose file holds it, behind a segment
-of its own: `/es/galicia/record/galicia-banco-tierras/`, `/es/record/<id>/` for a national
-record, `/record/<id>/` for a European one. Every territory that inherits the record links
-there.
+A record has exactly one page, at `/resources/<id>/`, and every territory that inherits it
+links there.
 
-The segment is not decoration. It makes the two routes impossible to confuse by
-construction rather than by hoping no id ever collides with a slug, and it keeps the
-territory in the address, which is what tells a reader — and a search engine — which layer
-recorded the thing they are reading.
+The half of this that has not changed is the half the count settled: one record, one page,
+never a copy per territory. What changed the next day is the shape of the address.
+
+The first version put the territory in the path — `/es/galicia/record/<id>/` — because the
+layer a record belongs to is not a technicality, and because a record id and a region slug
+are both slugs, so nothing in the schema stopped a national record from being called
+`galicia` and colliding with a region page. **Both arguments survive the reversal and
+neither carries it.**
+
+- The address is read by people looking for a thing, not by somebody studying the corpus,
+  and the owner of the project is the one who answers for whether it is found at all:
+  _"tú piensas en un sitio documental, yo pienso en qué buscan los usuarios en la web"_.
+  That is a goal this record has no standing to overrule.
+- Nothing is lost, because **the identifier already begins with its territory**:
+  `galicia-banco-tierras` says Galicia as plainly as a path segment would, and the page
+  says it again in its breadcrumb and its facts.
+- A flat address is **stable across editions**. A record that changes layer — a regional
+  scheme taken over nationally — keeps its address instead of leaving a dead one behind,
+  and a URL that never moves is worth more, to a reader and to a search engine, than a URL
+  that reads prettily.
+- The collision goes away with the path: `/resources/` is a namespace of its own, and
+  nothing else is ever published inside it.
 
 ## What it costs
 
-A reader on the Galicia page who opens a national programme ends up at `/es/record/…`, a
-layer up from where they were. They have left the page they were on, and if they had not
-noticed that the record was inherited, the breadcrumb is the first thing that tells them.
+A reader who looks at the address alone cannot tell which layer recorded the thing: a
+European framework and a municipal land bank sit at paths of the same shape. The page says
+it in the breadcrumb, in its facts and in the row that led there, but a list of bare links
+no longer does.
 
-That is the real price, and it is paid at the right moment: the layer a record was
-recorded at is not a technicality, it is the difference between a national scheme and a
-regional one, and between the page you should watch for changes and one that merely
-repeats it. The list row that led there already says the record is inherited and from
-where, so the move is announced before it happens rather than explained after.
+It also costs this record its first answer one day after it was written, which is worth
+leaving visible rather than tidying away: the measurement that settled the real question —
+one page or 508 — was sound, and the part that got reversed was the part decided on taste
+rather than on evidence.
 
 ## What would overturn it
 

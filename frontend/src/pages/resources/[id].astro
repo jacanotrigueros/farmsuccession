@@ -7,18 +7,20 @@
  * pages all of it came from. The question a farmer actually arrives with — "can I still apply?" — used to
  * be at the bottom, below the figures; it is second now, which is the whole point of this page's ordering.
  *
- * A record has exactly one page, under the territory whose file holds it. Every territory below that one
- * inherits it and links here, rather than carrying a copy of the same evidence at an address of its own.
+ * A record has exactly one page, and its address says only which record it is: the identifier is unique
+ * across the edition and already carries its territory. Every territory that inherits the record links
+ * here rather than carrying a copy of the evidence at an address of its own.
  */
-import CallWindows from "../../../components/CallWindows.astro";
-import DraftNotice from "../../../components/DraftNotice.astro";
-import Evidence from "../../../components/Evidence.astro";
-import FactList from "../../../components/FactList.astro";
-import SourceRef from "../../../components/SourceRef.astro";
-import TerritoryLayout from "../../../layouts/TerritoryLayout.astro";
-import { currentEdition, href, isDraft, languageOf, newsAbout, records, view, type RecordedResource } from "../../../lib/corpus.ts";
-import { goalOf } from "../../../lib/goals.ts";
-import { dateIn, listIn } from "../../../lib/language.ts";
+import ApplyNow from "../../components/ApplyNow.astro";
+import CallWindows from "../../components/CallWindows.astro";
+import DraftNotice from "../../components/DraftNotice.astro";
+import Evidence from "../../components/Evidence.astro";
+import FactList from "../../components/FactList.astro";
+import SourceRef from "../../components/SourceRef.astro";
+import TerritoryLayout from "../../layouts/TerritoryLayout.astro";
+import { currentEdition, href, isDraft, languageOf, newsAbout, records, view, type RecordedResource } from "../../lib/corpus.ts";
+import { goalOf } from "../../lib/goals.ts";
+import { dateIn, listIn } from "../../lib/language.ts";
 import {
   assetLabel,
   audience,
@@ -35,16 +37,11 @@ import {
   reachLabel,
   sectorLabel,
   stateLabel,
-} from "../../../lib/vocabulary.ts";
-import { counted, editionNamed, words } from "../../../lib/words.ts";
+} from "../../lib/vocabulary.ts";
+import { counted, editionNamed, words } from "../../lib/words.ts";
 
 export function getStaticPaths() {
-  // Spelled out here because Astro lifts this function into a module of its own, where anything declared
-  // beside it does not exist. An empty territory path is the European layer, whose records sit at the root.
-  return records().map(({ resource, territory }: RecordedResource) => ({
-    params: { territory: href(territory.layer).slice(1, -1) || undefined, id: resource.id },
-    props: { resource, territory },
-  }));
+  return records().map(({ resource, territory }: RecordedResource) => ({ params: { id: resource.id }, props: { resource, territory } }));
 }
 
 const { resource, territory } = Astro.props;
@@ -135,7 +132,7 @@ const facts: Array<{ label: string; value: string; datetime?: string }> = [
 
 const sections = [
   { id: "offers", label: text.offersTitle },
-  { id: "dates", label: text.datesTitle, count: resource.calls?.length },
+  ...(resource.calls && resource.calls.length > 0 ? [{ id: "dates", label: text.periodsTitle, count: resource.calls.length }] : []),
   { id: "access", label: text.accessTitle },
   ...(resource.whoCanUseIt ? [{ id: "who", label: text.whoTitle }] : []),
   { id: "facts", label: text.factsTitle, count: facts.length },
@@ -216,16 +213,19 @@ const trail = view(territory).layers;
       <p class="mt-3 max-w-3xl text-lg" data-pagefind-meta="summary">
         {resource.whatItOffers}
       </p>
+      <ApplyNow resource={resource} language={language} />
     </section>
 
-    <section class="border-t border-line py-8" aria-labelledby="dates">
-      <h2 id="dates" class="scroll-mt-6 text-2xl font-bold">
-        {text.datesTitle}
-      </h2>
-      <div class="mt-4">
-        <CallWindows calls={resource.calls ?? []} sources={resource.sources} language={language} />
-      </div>
-    </section>
+    {resource.calls && resource.calls.length > 0 && (
+      <section class="border-t border-line py-8" aria-labelledby="dates">
+        <h2 id="dates" class="scroll-mt-6 text-2xl font-bold">
+          {text.periodsTitle}
+        </h2>
+        <div class="mt-4">
+          <CallWindows calls={resource.calls} sources={resource.sources} language={language} />
+        </div>
+      </section>
+    )}
 
     <section class="border-t border-line py-8" aria-labelledby="access">
       <h2 id="access" class="scroll-mt-6 text-2xl font-bold">

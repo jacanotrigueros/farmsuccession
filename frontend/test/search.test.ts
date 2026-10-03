@@ -98,7 +98,7 @@ test("a search page is complete before any search runs", () => {
     const html = pageAt(at(snapshot));
     for (const resource of snapshot.resources) {
       assert.ok(
-        html.includes(`/record/${resource.id}/`),
+        html.includes(`/resources/${resource.id}/`),
         `the search page of ${at(snapshot)} does not list ${resource.id}. Without the enhancement this list is the whole answer.`,
       );
     }
@@ -109,7 +109,7 @@ test("the European search page lists every record of the edition", () => {
   const html = pageAt("/");
   for (const snapshot of all) {
     for (const resource of snapshot.resources) {
-      assert.ok(html.includes(`/record/${resource.id}/`), `the European search page does not list ${resource.id}`);
+      assert.ok(html.includes(`/resources/${resource.id}/`), `the European search page does not list ${resource.id}`);
     }
   }
 });

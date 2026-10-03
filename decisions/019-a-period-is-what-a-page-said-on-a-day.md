@@ -1,6 +1,6 @@
 # 019 — A period is what a page said on a day, not a claim about today
 
-Decided 2026-10-03, milestone 07.
+Decided 2026-10-03, milestone 07. **Revised 2026-10-04**: the dates answer, in the reader's own day.
 
 ## The question
 
@@ -62,6 +62,36 @@ thing that can answer for this afternoon. A record with no period recorded says 
 than leaving a gap a reader cannot tell from an omission.
 
 A test keeps it: a page that states a period without the date its source was read fails.
+
+## Revised 2026-10-04: the dates answer, and they answer again for the reader's day
+
+The rule above is right and the wording it produced was not the best way to keep it. The
+previous generation of this site had already solved it, measured and closed, and the answer
+it found is better than refusing to answer:
+
+- The page does answer the question, in a sentence, under the summary: "Sí, la convocatoria
+  está abierta", "No: el plazo terminó el 9 de abril de 2026", "No se ha podido confirmar".
+- **The answer is derived from the dates the sources published, not from the state a page
+  was in.** Past a documented closing date it is no, whatever the source said when it was
+  read. Inside a documented period of a call last seen as upcoming it is "yes, according to
+  the dates published" — a claim about the source, not about the counter at the other end.
+  A call that should have opened and publishes no closing date cannot be confirmed, and
+  says exactly that.
+- **The same rule runs again in the reader's browser, for the reader's own day.** A static
+  page outlives the deadline it was built before; `/apply.js` re-answers from the dates
+  already on the page. Nothing is re-consulted and no date moves: the day the source was
+  read is printed beside the answer, because that is what the answer rests on.
+- A record that operates and documents no call gets **no block at all**, because inventing
+  a yes or a no there would claim more than the sources show.
+
+What survives unchanged: a period is still printed as a dated statement about a page, in
+the section below, with the number of the source that published it. The answer at the top
+is derived from those dates and never from a state that has quietly aged.
+
+The one claim that can still outlive its evidence is a call a source showed as open with no
+closing date — Galicia's year-round MR711G. There the page says the source said so, and on
+what day, which is the most anybody can say about an open-ended period without reading the
+page again.
 
 ## What it costs
 
