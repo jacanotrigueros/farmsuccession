@@ -28,9 +28,26 @@ test("the build produced pages at all, so an empty run cannot pass as a clean on
   assert.ok(pages.length > 0, "no HTML in dist/: run npm run build before the tests");
 });
 
-test("no page ships JavaScript", () => {
+/**
+ * The site ships one script, and this is the whole of its licence: on the search page, that one file, from
+ * this host, deferred, and never written into the page. A page somebody reads that acquires a script has
+ * broken the promise; so has an inline one, which cannot be read before it runs or audited afterwards.
+ */
+test("the only pages that ship JavaScript are the search pages, and only that one file", () => {
   for (const { file, html } of pages) {
-    assert.doesNotMatch(html, /<script/iu, `${file} carries a script: the site is read without JavaScript, by design`);
+    const tags = [...html.matchAll(/<script\b[^>]*>/giu)].map(([tag]) => tag);
+    if (!file.endsWith(path.join("search", "index.html"))) {
+      assert.equal(tags.length, 0, `${file} carries a script: every page but the search page is read without JavaScript`);
+      continue;
+    }
+    assert.equal(tags.length, 1, `${file} carries ${tags.length} scripts; the search page is allowed exactly one`);
+    assert.match(
+      tags[0] ?? "",
+      /src="\/search\.js"/u,
+      `${file} loads something other than /search.js: the enhancement is one first-party file, served as it was written`,
+    );
+    const written = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/giu)].map(([, body]) => (body ?? "").trim());
+    assert.deepEqual(written, [""], `${file} has an inline script, which cannot be read before it runs or audited afterwards`);
   }
 });
 
@@ -53,9 +70,38 @@ test("no page asks the reader's browser for anything from another host", () => {
   }
 });
 
+const STORAGE = /document\.cookie|localStorage|sessionStorage|indexedDB/u;
+
 test("no page stores anything in the reader's browser", () => {
   for (const { file, html } of pages) {
-    assert.doesNotMatch(html, /document\.cookie|localStorage|sessionStorage|indexedDB/u, `${file} touches browser storage`);
+    assert.doesNotMatch(html, STORAGE, `${file} touches browser storage`);
+  }
+});
+
+/**
+ * The promise now has to survive a dependency. The search engine is somebody else's code running in the
+ * reader's browser, so what it may do is checked rather than assumed — and checked in `dist/`, which is
+ * what a reader would receive, not in the package it was built from.
+ */
+test("nothing the site ships to a browser stores anything there", () => {
+  const scripts = (function walk(dir: string): string[] {
+    return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) return walk(full);
+      return entry.name.endsWith(".js") ? [full] : [];
+    });
+  })(DIST);
+
+  assert.ok(
+    scripts.some((file) => path.basename(file) === "search.js"),
+    "no search.js in dist/: the enhancement is missing, and this check would pass without checking anything",
+  );
+  for (const file of scripts) {
+    assert.doesNotMatch(
+      readFileSync(file, "utf8"),
+      STORAGE,
+      `${path.relative(DIST, file)} touches browser storage. Nothing a reader is sent may keep anything on their machine, this project's own code or anybody else's.`,
+    );
   }
 });
 

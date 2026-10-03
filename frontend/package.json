@@ -6,7 +6,7 @@
   "description": "The static site: it renders the editions the gate has already judged, and decides nothing about what is publishable.",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/build-index.ts",
     "preview": "astro preview",
     "typecheck": "tsc --project tsconfig.check.json",
     "test": "node --test \"test/**/*.test.ts\"",
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.3.3",
+    "pagefind": "1.5.2",
     "tailwindcss": "4.3.3"
   }
 }

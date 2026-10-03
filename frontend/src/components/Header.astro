@@ -4,7 +4,10 @@
  * and the territories right, so switching from Europe to Spain never moves what a reader was aiming at.
  *
  * Every link is a real link — there is no menu to open, nothing to toggle and no JavaScript — because a
- * navigation that needs a script is a navigation that fails first on a bad connection.
+ * navigation that needs a script is a navigation that fails first on a bad connection. That includes the
+ * way in to searching: it leads to the search page of the territory the reader is on, which is a page that
+ * is complete before anything is typed, and which is written in the same language as the page they came
+ * from.
  */
 import { countryTerritories, href } from "../lib/corpus.ts";
 import { words } from "../lib/words.ts";
@@ -48,5 +51,12 @@ const places = [
         ))}
       </ul>
     </nav>
+    <a href={`${current ?? "/"}search/`} class="flex min-h-tap items-center gap-1.5 text-ink-soft no-underline hover:text-ink">
+      <svg viewBox="0 0 24 24" class="size-4 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="m20 20-3.5-3.5" stroke-linecap="round"></path>
+      </svg>
+      {text.searchAction}
+    </a>
   </div>
 </header>

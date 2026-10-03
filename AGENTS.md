@@ -68,11 +68,16 @@ npm run build          # writes frontend/dist, which is output and is not commit
 
 The rules, which are requirements rather than preferences:
 
-- **The published pages ship no JavaScript, make no third-party request and store
-  nothing in the reader's browser.** The audience is often on a phone on a rural
-  connection. Tests over `dist/` enforce all three, and a search box later is the one
-  thing that may add script — as progressive enhancement, never as a requirement for
-  reading.
+- **The published pages make no third-party request and store nothing in the reader's
+  browser, and the only one that ships JavaScript is the search page.** The audience is
+  often on a phone on a rural connection. Tests over `dist/` enforce all three: no page
+  but a search page may carry a script, that script is `/search.js` and nothing else,
+  and nothing shipped to a browser — this project's code or the search engine's — may
+  touch a cookie or any kind of storage.
+- **The search is an enhancement over a page that is already complete.** Every record
+  in scope is in the HTML before anything runs, the field stays hidden until the index
+  answers, and a reader whose browser never gets there loses the typing, not the
+  answer. A control that cannot do anything is worse than no control.
 - **The site reads data only through `src/lib/corpus.ts`**, which loads the
   repository's own modules from the repository rather than bundling them: they resolve
   the schemas and the data from their own location, which stops being true the moment a

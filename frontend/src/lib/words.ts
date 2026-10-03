@@ -79,6 +79,23 @@ const EN = {
   latestPageDateRow: "Latest date the page itself shows",
   yes: "Yes",
   no: "No",
+
+  // The search page.
+  searchHere: "Search in {where}",
+  searchEverywhere: "Search the whole catalogue",
+  searchLabel: "What are you looking for?",
+  searchAction: "Search",
+  searchScoped: "Everything that applies in {where} is searched: the European layer, the country, and the territory itself.",
+  searchWhole: "Every record of the edition is searched, wherever it was recorded. Each result says which territory it applies in.",
+  searchNeedsScript:
+    "Filtering as you type needs JavaScript, which this browser is not running. Everything in scope is listed below, in full.",
+  result: ["result", "results"],
+  nothingMatched: "Nothing matched what you typed. Everything in scope is still listed below.",
+  narrowDown: "Narrow it down",
+  clearFilters: "Clear the filters",
+  everythingHere: "Everything that applies here",
+  searchFailed:
+    "The search index could not be loaded, so the list below is all of it. Nothing is missing from the page; only the typing is.",
 } as const;
 
 /**
@@ -153,6 +170,22 @@ const ES = {
   latestPageDateRow: "Fecha más reciente que muestra la página",
   yes: "Sí",
   no: "No",
+
+  searchHere: "Buscar en {where}",
+  searchEverywhere: "Buscar en todo el catálogo",
+  searchLabel: "¿Qué estás buscando?",
+  searchAction: "Buscar",
+  searchScoped: "Se busca en todo lo que se aplica en {where}: la capa europea, el país y el propio territorio.",
+  searchWhole: "Se busca en todas las fichas de la edición, estén recogidas donde estén. Cada resultado dice en qué territorio se aplica.",
+  searchNeedsScript:
+    "Filtrar mientras escribes necesita JavaScript, que este navegador no está ejecutando. Debajo está, entera, la lista de lo que entra en la búsqueda.",
+  result: ["resultado", "resultados"],
+  nothingMatched: "Nada coincide con lo que has escrito. Debajo sigue estando todo lo que entra en la búsqueda.",
+  narrowDown: "Acotar",
+  clearFilters: "Quitar los filtros",
+  everythingHere: "Todo lo que se aplica aquí",
+  searchFailed:
+    "No se ha podido cargar el índice de búsqueda, así que la lista de abajo es todo lo que hay. A la página no le falta nada; sólo le falta poder escribir.",
 } as const satisfies Record<keyof typeof EN, string | readonly [string, string]>;
 
 const WORDS = { en: EN, es: ES };
