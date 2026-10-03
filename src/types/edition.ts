@@ -262,7 +262,7 @@ export interface Resource {
    */
   languages?: [string, ...string[]];
   /**
-   * Who the resource is aimed at, only as the source states it. GENERAL where it is open to anyone rather than to a named profile.
+   * Who the resource is aimed at, only as the source states it and never narrower than the source: an invented restriction turns away a reader who was eligible, and nothing later contradicts it. GENERAL where the source opens it to anyone — on its own when nobody in particular is named, and alongside the named profiles when the source does both. Omitted entirely where the source names no audience, as a policy framework or an announced instrument does not.
    *
    * @minItems 1
    */

@@ -195,6 +195,13 @@ the other way round.
   was consulted and verbatim quotes copied from the page. No source, no entry.
 - Never invent a fact, URL, amount, date or deadline. Unknown stays unknown:
   leave it out rather than guess.
+- **Never record a limit the source does not state** (`decisions/022`). Where a page
+  sets no age, no sector, no fee, no territory within the territory and no profile,
+  the record sets none; where it opens something to anyone and also names who it has
+  in mind, both go in; where it names no audience at all, the field is left out. An
+  invented restriction is worse than an invented instrument: the reader it turns away
+  never applies, never learns they were eligible, and never produces the complaint
+  that would have corrected it, so nothing in the system contradicts it.
 - Existence is not availability. An announced or legal-only instrument is never
   presented as operating, and a closed application period is never presented as
   open.
