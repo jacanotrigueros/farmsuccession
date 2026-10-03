@@ -22,6 +22,7 @@ const EN = {
   edition: "{year} edition",
   whatThisIs: "What this is",
   whereToLook: "Where to look",
+  siteNav: "Pages of this site",
   whereYouAre: "Where you are",
   inherited: "Applies here from",
   limits: "What this page does not cover",
@@ -40,6 +41,9 @@ const EN = {
   sharedLayers: "Groupings with a layer of their own",
   inheritedFromAbove: "Everything above also applies here, and is listed with it.",
   notAService: "This is a directory of verified references, not a replacement for the official services.",
+  trust:
+    "Every record comes from a public administration or the body that runs the service, and carries its own sources and the dates they were read.",
+  optOut: "If your organisation does not want to appear in the inventory, ask for it to be taken out:",
   licence: "Data, site and code under CC BY 4.0. The quoted excerpts belong to the public bodies that published them.",
 
   // The record page, in the order a reader needs it.
@@ -129,6 +133,7 @@ const ES = {
   edition: "edición {year}",
   whatThisIs: "Qué es esto",
   whereToLook: "Dónde mirar",
+  siteNav: "Páginas de este sitio",
   whereYouAre: "Dónde estás",
   inherited: "Se aplica aquí desde",
   limits: "Qué no cubre esta página",
@@ -147,6 +152,9 @@ const ES = {
   sharedLayers: "Agrupaciones con capa propia",
   inheritedFromAbove: "Todo lo de las capas superiores se aplica también aquí, y aparece en la misma lista.",
   notAService: "Es un directorio de referencias verificadas, no un sustituto de los servicios oficiales.",
+  trust:
+    "Cada ficha procede de una administración pública o de la entidad que gestiona el servicio, y lleva sus propias fuentes y las fechas en que se leyeron.",
+  optOut: "Si tu entidad no quiere aparecer en el inventario, solicita su retirada:",
   licence: "Datos, sitio y código con licencia CC BY 4.0. Las citas pertenecen a los organismos públicos que las publicaron.",
 
   offersTitle: "Qué ofrece",

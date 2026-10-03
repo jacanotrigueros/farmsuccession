@@ -15,6 +15,7 @@
  * municipal one, and because it tells them which page to watch for changes.
  */
 import DraftNotice from "../components/DraftNotice.astro";
+import Needs from "../components/Needs.astro";
 import ResourceRow from "../components/ResourceRow.astro";
 import TerritoryLayout from "../layouts/TerritoryLayout.astro";
 import {
@@ -102,23 +103,8 @@ const trail = layers.slice(0, -1);
   )}
 
   <section class="border-t border-line py-8" aria-labelledby="needs">
-    <h2 id="needs" class="text-2xl font-bold">
-      {text.whatDoYouNeed}
-    </h2>
-    <p class="mt-2 max-w-3xl text-muted">{text.inheritedFromAbove}</p>
-    <ul class="mt-5 grid gap-3 sm:grid-cols-2">
-      {answered.map(({ goal, found }) => (
-        <li class="rounded-sm border border-line bg-card">
-          <a href={`#${goal.id}`} class="flex min-h-(--spacing-target) flex-col justify-center gap-0.5 px-4 py-3 no-underline">
-            <span class="font-semibold text-ink">
-              {situation(goal.id, language).title}{" "}
-              <span class="text-meta font-normal text-muted">{counted(found.length, text.record)}</span>
-            </span>
-            <span class="text-meta text-muted">{situation(goal.id, language).hint}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
+    <Needs resources={resources.map(({ resource }) => resource)} language={language} hrefFor={(goal) => `#${goal}`} />
+    <p class="meta mt-6 max-w-3xl">{text.inheritedFromAbove}</p>
   </section>
 
   {(children.length > 0 || groupings.length > 0) && (

@@ -19,6 +19,10 @@ test("the site is static, and says so where it cannot drift", () => {
 });
 
 test("nothing adds a client runtime", () => {
-  assert.deepEqual(config.integrations ?? [], [], "an integration is the usual way framework JavaScript arrives on a page");
+  // An integration is the usual way framework JavaScript arrives on a page, so the list is named rather
+  // than merely counted: astro-icon writes each icon into the markup while the site is built and leaves
+  // nothing behind it. Whatever is added here next has to be read the same way before it is allowed in.
+  const names = (config.integrations ?? []).flat(9).map((integration) => (integration ? integration.name : ""));
+  assert.deepEqual(names, ["astro-icon"], "an integration is the usual way framework JavaScript arrives on a page");
   assert.equal(config.prefetch ?? false, false, "prefetching spends a rural connection on pages nobody asked for");
 });

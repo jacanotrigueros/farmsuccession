@@ -1,0 +1,91 @@
+---
+/**
+ * What somebody came to sort out, as four cards with their own illustration, and then everything else by
+ * kind.
+ *
+ * The four are the situations most readers arrive with — find land, hand a holding over or take one on,
+ * pay for starting out, learn or be advised — and they are illustrated because they are the entry to the
+ * page. What is left is context rather than something to apply for: the rules, the networks, the official
+ * portals. Those get a line each with their kind's icon, not a card, because nobody arrives looking for a
+ * policy framework.
+ *
+ * A situation with nothing behind it is shown and not linked, so a card never leads to an empty page.
+ */
+import { Icon } from "astro-icon/components";
+import type { Resource } from "../lib/corpus.ts";
+import { GOALS, goalOf, type GoalId } from "../lib/goals.ts";
+import { ICON, kindIcon } from "../lib/icons.ts";
+import { kindLabel } from "../lib/vocabulary.ts";
+import { counted, situation, words } from "../lib/words.ts";
+
+type Props = { resources: readonly Resource[]; language: string; hrefFor: (goal: GoalId) => string };
+const { resources, language, hrefFor } = Astro.props;
+const text = words(language);
+
+/** One illustration per situation, kept to the four a reader arrives with. */
+const ILLUSTRATION: Partial<Record<GoalId, string>> = {
+  land: "need-find-land",
+  handover: "need-transfer-farm",
+  money: "need-start-farming",
+  learn: "need-training-aid",
+};
+
+const goals = GOALS.filter((goal) => goal.id in ILLUSTRATION).map((goal) => ({
+  id: goal.id,
+  ...situation(goal.id, language),
+  image: ILLUSTRATION[goal.id],
+  found: resources.filter((resource) => goalOf(resource.kind) === goal.id).length,
+}));
+
+/** Everything that is context rather than an answer, counted by kind and in the order the data gives. */
+const others = [...new Set(resources.filter((resource) => goalOf(resource.kind) === "context").map((resource) => resource.kind))]
+  .map((kind) => ({ kind, count: resources.filter((resource) => resource.kind === kind).length }))
+  .toSorted((a, b) => b.count - a.count);
+---
+
+<h2 id="needs" class="scroll-mt-6 text-2xl font-bold">
+  {text.whatDoYouNeed}
+</h2>
+
+<ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  {goals.map((goal) => (
+    <li class:list={["card relative flex items-start gap-3 p-5", goal.found > 0 ? "card-link" : "opacity-70"]}>
+      <img src={`/img/${goal.image}.webp`} alt="" width="160" height="160" class="size-14 shrink-0" />
+      <div class="min-w-0 flex-1">
+        {goal.found > 0 ? (
+          <a href={hrefFor(goal.id)} class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
+            {goal.title}
+          </a>
+        ) : (
+          <span class="font-bold text-ink">{goal.title}</span>
+        )}
+        <p class="meta mt-1">{goal.hint}</p>
+        <p class:list={["mt-2 text-meta font-bold tabular-nums", goal.found > 0 ? "text-brand" : "text-muted"]}>
+          {counted(goal.found, text.record)}
+        </p>
+      </div>
+      {goal.found > 0 && <Icon name={ICON.chevron} aria-hidden="true" class="mt-1 size-5 shrink-0 text-muted" />}
+    </li>
+  ))}
+</ul>
+
+{others.length > 0 && (
+  <>
+    <h3 class="mt-10 text-lg font-bold">{situation("context", language).title}</h3>
+    <ul class="mt-2 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
+      {others.map(({ kind, count }) => (
+        <li class="relative flex items-start gap-3 border-b border-line py-4" data-kind={kind}>
+          <span class="tag-kind inline-flex size-9 shrink-0 items-center justify-center rounded-lg">
+            <Icon name={kindIcon(kind)} aria-hidden="true" class="size-5" />
+          </span>
+          <p class="flex min-w-0 flex-1 items-baseline justify-between gap-3">
+            <a href={hrefFor("context")} class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
+              {kindLabel(kind, language)}
+            </a>
+            <span class="meta tabular-nums">{count}</span>
+          </p>
+        </li>
+      ))}
+    </ul>
+  </>
+)}

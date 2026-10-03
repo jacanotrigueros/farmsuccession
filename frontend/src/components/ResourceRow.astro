@@ -15,7 +15,8 @@
  */
 import { recordHref, type Resource, type Territory } from "../lib/corpus.ts";
 import { dateIn } from "../lib/language.ts";
-import { kindLabel, stateLabel } from "../lib/vocabulary.ts";
+import KindTag from "./KindTag.astro";
+import StatusTag from "./StatusTag.astro";
 import { counted, words } from "../lib/words.ts";
 
 type Props = { resource: Resource; language: string; recordedIn: Territory; inherited?: boolean; showKind?: boolean };
@@ -37,12 +38,8 @@ const from = recordedIn.layer.level === "EU" ? text.europe : recordedIn.data.off
         {resource.name}
       </a>
     </h3>
-    {showKind && (
-      <span class="rounded-full bg-brand-tint px-2.5 py-0.5 text-meta font-medium text-brand-strong">
-        {kindLabel(resource.kind, language)}
-      </span>
-    )}
-    {resource.status !== "ACTIVE" && <span class="text-meta font-medium text-accent">{stateLabel(resource.status, language)}</span>}
+    {showKind && <KindTag kind={resource.kind} language={language} />}
+    <StatusTag status={resource.status} language={language} />
   </div>
 
   <p class="mt-1 text-meta text-muted">

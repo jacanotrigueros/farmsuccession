@@ -49,6 +49,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <main id="content" class="flex-1">
       <slot />
     </main>
-    <Footer language={language} />
+    <Footer language={language} current={current} />
   </body>
 </html>

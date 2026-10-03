@@ -1,19 +1,58 @@
 ---
 /**
- * What the site is not, and who the words belong to. Both sentences are load-bearing: a reader deciding
- * whether to trust this needs to know it points at the official services rather than replacing them, and
- * the quoted excerpts are other people's.
+ * What the site is, how current it is, who the words belong to, and how to be taken out of it.
+ *
+ * The last of those is not politeness. The inventory is built from what public bodies publish about
+ * themselves, without asking them first, so the page that says so is also the page that has to say how to
+ * ask for a record to be removed — and it has to say it where somebody would go looking.
+ *
+ * The columns of pages the previous generation's footer carries — about, method, privacy, the history of
+ * the project — are not here yet, because those pages are not here yet. A footer link to a page that does
+ * not exist is worse than a shorter footer.
  */
-import { words } from "../lib/words.ts";
+import { countryTerritories, currentEdition, href } from "../lib/corpus.ts";
+import { editionNamed, words } from "../lib/words.ts";
 
-type Props = { language: string };
-const { language } = Astro.props;
+type Props = { language: string; current?: string };
+const { language, current = "/" } = Astro.props;
 const text = words(language);
+
+const places = [
+  { href: "/", label: text.europe },
+  ...countryTerritories().map((territory) => ({ href: href(territory.layer), label: territory.data.officialName })),
+];
 ---
 
 <footer class="mt-16 border-t border-line bg-card">
-  <div class="mx-auto max-w-5xl px-4 py-8 text-meta text-muted sm:px-6">
-    <p class="max-w-3xl">{text.notAService}</p>
-    <p class="mt-3 max-w-3xl">{text.licence}</p>
+  <div class="wrap grid gap-8 py-10 md:grid-cols-[2fr_1fr_1fr]">
+    <div>
+      <a href="/" class="text-lg font-bold text-brand-strong no-underline">
+        {text.siteName}
+      </a>
+      <p class="meta mt-2 max-w-3xl">{text.trust}</p>
+      <p class="meta mt-3">{editionNamed(currentEdition, language)}</p>
+      <p class="meta mt-3">
+        {text.optOut}{" "}
+        <a class="underline" href="mailto:contact@farmsuccession.eu">
+          contact@farmsuccession.eu
+        </a>
+      </p>
+    </div>
+
+    <nav aria-label={text.siteNav} class="grid content-start">
+      {places.map((place) => (
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={place.href}>
+          {place.label}
+        </a>
+      ))}
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${current}search/`}>
+        {text.searchAction}
+      </a>
+    </nav>
+
+    <div class="grid content-start">
+      <p class="meta">{text.notAService}</p>
+      <p class="meta mt-3">{text.licence}</p>
+    </div>
   </div>
 </footer>

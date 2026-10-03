@@ -1,0 +1,21 @@
+---
+/**
+ * What a record says about itself: operating, or something else.
+ *
+ * It is printed even when the answer is the expected one, because the whole point of this project is that
+ * "this exists" and "you can apply today" are different claims — and this tag only ever answers the first
+ * of them. The second is answered on the record's own page, from the dates its sources published.
+ *
+ * Green for operating and slate for everything else, with the word beside it: the colour is never the only
+ * thing carrying the difference.
+ */
+import type { Resource } from "../lib/corpus.ts";
+import { stateLabel } from "../lib/vocabulary.ts";
+
+type Props = { status: Resource["status"]; language: string };
+const { status, language } = Astro.props;
+---
+
+<span class="tag tag-status" data-status={status}>
+  {stateLabel(status, language)}
+</span>
