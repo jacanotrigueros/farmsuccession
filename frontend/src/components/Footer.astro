@@ -1,0 +1,19 @@
+---
+/**
+ * What the site is not, and who the words belong to. Both sentences are load-bearing: a reader deciding
+ * whether to trust this needs to know it points at the official services rather than replacing them, and
+ * the quoted excerpts are other people's.
+ */
+import { words } from "../lib/words.ts";
+
+type Props = { language: string };
+const { language } = Astro.props;
+const text = words(language);
+---
+
+<footer class="mt-16 border-t border-line bg-paper-sunk">
+  <div class="mx-auto max-w-5xl px-4 py-8 text-meta text-ink-soft sm:px-6">
+    <p class="max-w-measure">{text.notAService}</p>
+    <p class="mt-3 max-w-measure">{text.licence}</p>
+  </div>
+</footer>

@@ -1,0 +1,68 @@
+---
+/**
+ * One record, as a reader meets it in a list: what it is called, who runs it, what it offers, and whether
+ * it is operating. No image — the schema has no image field and a grid that is mostly placeholder reads as
+ * broken — and no box, so a list of twenty stays lighter than a grid of twenty.
+ *
+ * The state is always printed, even when it is the expected one, because the whole point of this project
+ * is that "this exists" and "you can apply today" are different claims.
+ */
+import type { Resource } from "../lib/corpus.ts";
+import { counted, kindLabel, stateLabel, words } from "../lib/words.ts";
+
+type Props = { resource: Resource; language: string; from?: string; showKind?: boolean };
+const { resource, language, from, showKind = true } = Astro.props;
+const text = words(language);
+
+const consulted = resource.sources
+  .map((source) => source.consultedOn)
+  .toSorted()
+  .at(-1);
+const host = new URL(resource.accessUrl).host.replace(/^www\./u, "");
+---
+
+<article class="border-t border-line py-5 first:border-t-0">
+  <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+    <h3 class="text-lead font-semibold">
+      <a href={resource.accessUrl} rel="noopener" class="inline-flex min-h-tap items-center gap-1.5">
+        {resource.name}
+        <svg viewBox="0 0 24 24" class="size-4 shrink-0 self-center" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 4h6v6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M20 4 10 14" stroke-linecap="round"></path>
+          <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span class="sr-only">({text.opensOfficialPage})</span>
+      </a>
+    </h3>
+    {showKind && (
+      <span class="rounded-full bg-accent-wash px-2.5 py-0.5 text-meta font-medium text-accent-strong">
+        {kindLabel(resource.kind, language)}
+      </span>
+    )}
+    {resource.status !== "ACTIVE" && <span class="text-meta font-medium text-caution">{stateLabel(resource.status, language)}</span>}
+  </div>
+
+  <p class="mt-1 text-meta text-ink-soft">
+    {resource.operator}
+    {from && (
+      <>
+        {" "}
+        · {text.inherited} {from}
+      </>
+    )}
+  </p>
+
+  <p class="mt-2 max-w-measure">{resource.whatItOffers}</p>
+
+  <p class="mt-2 text-meta text-ink-soft">
+    {host}
+    {" · "}
+    {counted(resource.sources.length, text.source)}
+    {consulted && (
+      <>
+        {", "}
+        {text.readOn} <time datetime={consulted}>{consulted}</time>
+      </>
+    )}
+  </p>
+</article>

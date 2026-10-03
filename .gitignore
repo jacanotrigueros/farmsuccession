@@ -10,3 +10,10 @@ node_modules/
 # what was verified lives in the edition files, not in the run that verified it.
 reports/*
 !reports/.gitkeep
+
+# The built site and Astros
+
+# The built site and Astro own working directory. The site is generated from the data, so committing it
+# would commit a second copy of what the gate already judged.
+frontend/dist/
+frontend/.astro/

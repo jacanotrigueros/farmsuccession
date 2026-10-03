@@ -1,0 +1,53 @@
+---
+/**
+ * Every page of the site. It ships no JavaScript, makes no third-party request and sets no cookie, and
+ * those three are requirements rather than preferences: the reader may be on a phone on a rural
+ * connection, and nothing here is worth a byte they did not ask for.
+ *
+ * The page's language is the language its territory's text is written in, which is data rather than a
+ * site-wide setting — the European layer is written in English, Spain's in Spanish.
+ */
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+type Props = {
+  title: string;
+  description: string;
+  language: string;
+  /** The page a reader is on, so the header can say so without a page having to tell it twice. */
+  current?: string;
+};
+
+const { title, description, language, current } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang={language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-10 focus:m-3 focus:rounded-sm focus:bg-paper focus:px-4 focus:py-3 focus:text-accent-strong"
+    >
+      Skip to the content
+    </a>
+    <Header current={current} language={language} />
+    <main id="content" class="flex-1">
+      <slot />
+    </main>
+    <Footer language={language} />
+  </body>
+</html>

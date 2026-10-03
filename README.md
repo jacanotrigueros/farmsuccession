@@ -38,7 +38,7 @@ than describing what it intends to be.
 | The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                   |
 | Published data                                               | The 2026 edition of the EU layer and Spain: 33 files, 132 records    |
 | The rest of Europe                                           | Researched, not published here yet: France, Italy, Portugal, Germany |
-| The site                                                     | Not built yet, so there is nothing to visit                          |
+| The site                                                     | Builds from the data, 33 pages, no JavaScript; not published yet     |
 
 ## What is published today
 

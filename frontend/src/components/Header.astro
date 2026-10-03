@@ -1,0 +1,52 @@
+---
+/**
+ * The same shell on every page. The geometry does not change between languages: the wordmark sits left
+ * and the territories right, so switching from Europe to Spain never moves what a reader was aiming at.
+ *
+ * Every link is a real link — there is no menu to open, nothing to toggle and no JavaScript — because a
+ * navigation that needs a script is a navigation that fails first on a bad connection.
+ */
+import { countryTerritories, href } from "../lib/corpus.ts";
+import { words } from "../lib/words.ts";
+
+type Props = { current?: string; language: string };
+const { current, language } = Astro.props;
+const text = words(language);
+
+const places = [
+  { href: "/", label: text.europe },
+  ...countryTerritories().map((territory) => ({ href: href(territory.layer), label: territory.data.officialName })),
+];
+---
+
+<header class="border-b border-line bg-paper">
+  <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 px-4 sm:px-6">
+    <a href="/" class="flex min-h-tap items-center gap-2 font-semibold tracking-tight no-underline" aria-label={text.siteName}>
+      <svg viewBox="0 0 24 24" class="size-6 text-accent" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M12 21V9" stroke-linecap="round"></path>
+        <path d="M12 9c0-3 2-5 5-5 0 3-2 5-5 5Z" stroke-linejoin="round"></path>
+        <path d="M12 13c0-3-2-5-5-5 0 3 2 5 5 5Z" stroke-linejoin="round"></path>
+        <path d="M4 21h16" stroke-linecap="round"></path>
+      </svg>
+      <span>{text.siteName}</span>
+    </a>
+    <nav aria-label={text.whereToLook}>
+      <ul class="flex flex-wrap items-center gap-x-5">
+        {places.map(({ href: to, label }) => (
+          <li>
+            <a
+              href={to}
+              aria-current={current === to ? "page" : undefined}
+              class:list={[
+                "flex min-h-tap items-center no-underline",
+                current === to ? "font-semibold text-ink" : "text-ink-soft hover:text-ink",
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
