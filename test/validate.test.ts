@@ -77,6 +77,40 @@ test("news may link only what a reader of that file can see", () => {
   );
 });
 
+test("a file may describe a figure of a layer it inherits, and only of a layer it inherits", () => {
+  // The country's aid, quoted in the country's file. A region may not copy that fact into its own file,
+  // so checking its summary against its own file alone would leave it nothing true to say.
+  const aid = fakeCountryEdition({
+    resources: [
+      fakeResource({
+        id: "terra-nostra-establishment-aid",
+        name: "Establishment aid",
+        kind: "FINANCIAL_SUPPORT",
+        scope: { level: "NATIONAL" },
+        accessUrl: "https://example.test/establishment-aid",
+        sources: [fakeSource({ url: "https://example.test/establishment-aid", quotes: ["The base payment is 25.000 euros."] })],
+      }),
+    ],
+  });
+  const summary = "North Isle inherits the national establishment aid, whose base payment is 25.000 euros.";
+  const inheriting = edition([FAKE_COUNTRY_FILE, aid], [FAKE_EDITION_FILE, fakeEdition({ summary })]);
+  assert.equal(messages(checkEdition(inheriting, territories).errors), "", "a region reads what it inherits");
+
+  const alone = edition([FAKE_EDITION_FILE, fakeEdition({ summary })]);
+  assert.match(
+    messages(checkEdition(alone, territories).errors),
+    /summary states 25\.000 euros, which no quote, metric, date or URL of this file or of a layer it inherits supports/u,
+    "without the country file the figure has no evidence anywhere a reader of this file can see",
+  );
+
+  const fromSibling = edition([SOUTH_ISLE_FILE, southIsle({ resources: aid.resources })], [FAKE_EDITION_FILE, fakeEdition({ summary })]);
+  assert.match(
+    messages(checkEdition(fromSibling, territories).errors),
+    /summary states 25\.000 euros/u,
+    "a sibling region is a different territory, so its evidence proves nothing here",
+  );
+});
+
 test("the same access page in two files is listed for review, never failed", () => {
   const sharedWithCountry = edition(
     [FAKE_COUNTRY_FILE, fakeCountryEdition()],
@@ -118,52 +152,59 @@ test("prose that names an identifier a reader cannot use is an error", () => {
 });
 
 /** Writes a catalogue and some edition files to a temporary tree, the way the command finds them. */
-function repository(files: Array<[string, EditionSnapshot]>): { editionsDir: string; territoriesFile: string } {
+/**
+ * A repository of its own for one test, every directory of it: naming only the editions would leave the
+ * research briefs defaulting to the real `research/`, so the test would quietly judge the project's own
+ * data and pass or fail on what the repository happens to hold that day.
+ */
+function repository(files: Array<[string, EditionSnapshot]>): { editionsDir: string; researchDir: string; territoriesFile: string } {
   const root = mkdtempSync(path.join(tmpdir(), "farmsuccession-validate-"));
   const territoriesFile = path.join(root, "territories.json");
   writeFileSync(territoriesFile, JSON.stringify(fakeTerritories()));
   const editionsDir = path.join(root, "editions");
+  const researchDir = path.join(root, "research");
+  mkdirSync(researchDir, { recursive: true });
   for (const [file, data] of files) {
     const target = path.join(editionsDir, file);
     mkdirSync(path.dirname(target), { recursive: true });
     writeFileSync(target, JSON.stringify(data));
   }
-  return { editionsDir, territoriesFile };
+  return { editionsDir, researchDir, territoriesFile };
 }
 
 test("the gate reports how many files it checked, so a run over nothing is not a clean run", () => {
-  const { editionsDir, territoriesFile } = repository([
+  const { editionsDir, researchDir, territoriesFile } = repository([
     [FAKE_COUNTRY_FILE, fakeCountryEdition()],
     [FAKE_EDITION_FILE, fakeEdition()],
   ]);
-  const result = validateEditions({ editionsDir, territoriesFile, today: "2026-10-02" });
+  const result = validateEditions({ editionsDir, researchDir, territoriesFile, today: "2026-10-02" });
   assert.equal(result.files, 2);
   assert.deepEqual(result.errors, [], messages(result.errors));
   assert.deepEqual(result.warnings, []);
 });
 
 test("the gate reports a file the layout does not define instead of ignoring it", () => {
-  const { editionsDir, territoriesFile } = repository([["2026/notes.json", fakeEdition()]]);
-  const result = validateEditions({ editionsDir, territoriesFile, today: "2026-10-02" });
+  const { editionsDir, researchDir, territoriesFile } = repository([["2026/notes.json", fakeEdition()]]);
+  const result = validateEditions({ editionsDir, researchDir, territoriesFile, today: "2026-10-02" });
   assert.equal(result.files, 1);
   assert.match(messages(result.errors), /is not in a place the edition layout defines/u);
 });
 
 test("the gate finds the damage the parser hides before reading anything as data", () => {
-  const { editionsDir, territoriesFile } = repository([[FAKE_EDITION_FILE, fakeEdition()]]);
+  const { editionsDir, researchDir, territoriesFile } = repository([[FAKE_EDITION_FILE, fakeEdition()]]);
   // A second "summary" key: JSON.parse keeps the last and the first is lost, with nothing failing.
   const damaged = JSON.stringify(fakeEdition()).replace(/^\{/u, '{"summary": "The text somebody actually wrote.",');
   writeFileSync(path.join(editionsDir, FAKE_EDITION_FILE), damaged);
-  const result = validateEditions({ editionsDir, territoriesFile, today: "2026-10-02" });
+  const result = validateEditions({ editionsDir, researchDir, territoriesFile, today: "2026-10-02" });
   assert.match(messages(result.errors), /\[duplicate-key\].*key "summary" is repeated/u);
 });
 
 test("the gate runs the rules of one file and of the whole edition together", () => {
-  const { editionsDir, territoriesFile } = repository([
+  const { editionsDir, researchDir, territoriesFile } = repository([
     [FAKE_EDITION_FILE, fakeEdition({ officialName: "Northern Isle" })],
     [SOUTH_ISLE_FILE, southIsle({ resources: fakeEdition().resources })],
   ]);
-  const result = validateEditions({ editionsDir, territoriesFile, today: "2026-10-02" });
+  const result = validateEditions({ editionsDir, researchDir, territoriesFile, today: "2026-10-02" });
   assert.match(messages(result.errors), /officialName "Northern Isle" must be "North Isle"/u, "a rule about one file");
   assert.match(messages(result.errors), /is already used in/u, "and a rule about the edition");
 });

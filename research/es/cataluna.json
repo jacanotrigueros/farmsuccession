@@ -1,0 +1,331 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "cataluna"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Las fuentes oficiales están mayoritariamente en catalán: agricultura.gencat.cat y Ruralcat publican programas, formación y noticias; tramits.gencat.cat es la referencia para plazos y solicitud.",
+    "La ficha estática antigua de primera instalación todavía mostraba 22.000 euros, pero el documento PEPAC actualizado el 28/04/2026 fija una prima base de 30.000 euros y un máximo de 100.000 euros. Para 2026 debe prevalecer la evidencia actualizada.",
+    "La ayuda a la cooperación para la sucesión y a la transmisión de conocimientos tuvo convocatoria 2026 del 19 de mayo al 20 de julio, con 10 millones de euros entre ambas líneas.",
+    "La Llei 1/2025 del Fons Agrari i Ramader es un fondo financiero para políticas agrarias y ganaderas; no es un banco de tierras y no debe clasificarse como LAND_BANK.",
+    "El acceso a tierra no se limita a la provincia de Barcelona: se verifican bancos con vía de uso pública en Priorat, Baix Camp, Garrigues, Ripollès, Riba-roja d'Ebre y el ámbito Segarra-Garrigues.",
+    "Los espacios test deben validarse por convocatoria y fecha. La página de Gandesa mantiene el rótulo 'TERMINI OBERT', pero Ruralcat demuestra que la segunda convocatoria cerró el 4 de noviembre de 2025; no se interpreta como una convocatoria 2026.",
+    "JARC publica un servicio específico de acompañamiento a la incorporación de jóvenes y en 2026 ofreció acompañamiento también para la ayuda de sucesión; esto responde al instrumento de asesoramiento de organizaciones agrarias."
+  ],
+  "portals": [
+    {
+      "name": "Departament d'Agricultura, Ramaderia, Pesca i Alimentació",
+      "url": "https://agricultura.gencat.cat/ca/inici/",
+      "what": "Ayudas PEPAC, formación agraria, Catifa Vermella y comunicados."
+    },
+    {
+      "name": "Tràmits Gencat",
+      "url": "https://tramits.gencat.cat/ca/",
+      "what": "Convocatorias, plazos, requisitos y solicitudes electrónicas."
+    },
+    {
+      "name": "Ruralcat — El Planter",
+      "url": "https://ruralcat.gencat.cat/web/guest/el_planter",
+      "what": "Información para nueva pagesia, relevo, espacios test y actualidad."
+    },
+    {
+      "name": "Banc de Terres — Diputació de Barcelona",
+      "url": "https://bancdeterres.cat/",
+      "what": "Red de bancos de tierras, oferta, demanda y relevo de la provincia de Barcelona."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "cat-joves",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "gencat ajuts primera instal·lació joves agricultors 2026 30000 100000"
+    },
+    {
+      "id": "cat-successio",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "agricultura.gencat.cat ajut successió explotacions agràries 2026 10 milions"
+    },
+    {
+      "id": "cat-terres",
+      "kinds": ["LAND_BANK"],
+      "query": "Catalunya banc de terres agràries Barcelona Girona Lleida Tarragona relleu 2026"
+    },
+    {
+      "id": "cat-terres-local",
+      "kinds": ["LAND_BANK"],
+      "query": "banc de terres Priorat Baix Camp Garrigues Ripollès Riba-roja Segarra-Garrigues"
+    },
+    {
+      "id": "cat-formacio",
+      "kinds": ["TRAINING", "ADVICE"],
+      "query": "incorporació empresa agrària Catalunya itinerari formatiu mentoria 2026"
+    },
+    {
+      "id": "cat-espais-test-2026",
+      "kinds": ["ADVICE", "TRAINING", "LAND_BANK"],
+      "query": "Catalunya Espai Test Agrari Gandesa Sant Martí de Riucorb convocatòria 2026"
+    },
+    {
+      "id": "cat-organitzacions",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Catalunya JARC Unió de Pagesos assessorament incorporació joves relleu successió 2026"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Cataluña\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Cataluña jóvenes agricultores ayudas"
+    }
+  ],
+  "leads": [
+    {
+      "id": "cat-primera-installacio",
+      "name": "Primera instal·lació de persones joves agricultores",
+      "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/2228-Ajuts-per-a-la-primera-installacio-de-joves-agricultors-i-agricultores?moda=1",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-primera-instalacion-jovenes-agricultores",
+      "reason": "Convocatoria 2026 cerrada el 15/05/2026 y documento PEPAC actualizado el 28/04/2026 con prima base de 30.000 euros y máximo de 100.000 euros.",
+      "foundBy": "cat-joves",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-successio-transmissio",
+      "name": "Ajut a la successió agrària i transmissió de coneixements",
+      "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/24587-ajut-cooperacio-successio-explotacions-agraries?moda=1",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-cooperacion-sucesion-transmision-conocimientos",
+      "reason": "Trámite oficial con convocatoria 19/05-20/07/2026, proyecto de cooperación entre cedente y cesionario y dotación global de 10 millones de euros.",
+      "foundBy": "cat-successio",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-itinerari-formatiu",
+      "name": "Incorporació a l'empresa agrària",
+      "url": "https://agricultura.gencat.cat/ca/ambits/formacio-innovacio/formacio-agraria/incorporacio-empresa-agraria/",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-itinerario-formativo-incorporacion",
+      "reason": "Itinerario oficial personalizado; la justificación de la ayuda de primera instalación exige completar el itinerario formativo cuando corresponda.",
+      "foundBy": "cat-formacio",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-mentoria",
+      "name": "Programa de Mentoria",
+      "url": "https://agricultura.gencat.cat/ca/ambits/formacio-innovacio/formacio-agraria/mentoria/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-mentoria-jovenes-agricultores",
+      "reason": "Programa público de acompañamiento práctico para jóvenes de primera instalación y Mentoria Oberta para proyectos viables de personas de 18 a 65 años.",
+      "foundBy": "cat-formacio",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-banc-terres-diba",
+      "name": "Bancs de terres de la Diputació de Barcelona",
+      "url": "https://bancdeterres.cat/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-bancos-tierras-diputacion-barcelona",
+      "reason": "Red operativa con rutas diferenciadas para solicitar tierras, ofrecerlas y buscar relevo agrario.",
+      "foundBy": "cat-terres",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-banc-terres-priorat",
+      "name": "Banc de Terres del Priorat",
+      "url": "https://www.priorat.cat/que-es-el-consell-comarcal-del-priorat/banc-de-terres-del-priorat",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-banco-tierras-priorat",
+      "reason": "Servicio comarcal de mediación y acceso a tierra con apoyo jurídico y vía pública para usuarios.",
+      "foundBy": "cat-terres-local",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-banc-terres-baix-camp",
+      "name": "Banc de Terres i de Recursos Agraris del Baix Camp",
+      "url": "https://www.baixcamp.cat/serveis-al-municipis/servei-de-promocio-economica/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-banco-tierras-baix-camp",
+      "reason": "Servicio comarcal de mediación que contempla propietarios, titulares que dejan el oficio y nueva pagesia, con acceso mediante Campviu y asistencia técnica.",
+      "foundBy": "cat-terres-local",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-banc-terres-garrigues",
+      "name": "Banc de Terres de les Garrigues",
+      "url": "https://www.garriguesaltes.cat/banc-de-terres",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-banco-tierras-garrigues",
+      "reason": "Servicio público y gratuito de intermediación de Garrigues Altes con acompañamiento a proyectos agrarios.",
+      "foundBy": "cat-terres-local",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-banc-terres-ripolles",
+      "name": "Banc de Terres del Ripollès",
+      "url": "https://www.ripollesdesenvolupament.com/serveis/empresa/borsa-de-terres-per-a-us-agricola/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-banco-tierras-ripolles",
+      "reason": "Servicio público actual con formularios separados para propietarios y demandantes y asesoramiento al proyecto agrario o ganadero.",
+      "foundBy": "cat-terres-local",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-banc-terres-riba-roja",
+      "name": "Banc de Terres de Riba-roja d'Ebre",
+      "url": "https://riba-roja.cat/promocio-economica/banc-de-terres/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "El 30/09/2026 la dirección https://riba-roja.cat/promocio-economica/banc-de-terres/ redirige a la imagen banc-de-terres.png, también al abrirla en un navegador; el formulario de alta ya no se ve. Siguiente paso: localizar la página actual del banco de tierras en la web municipal o confirmar su funcionamiento con el Ajuntament antes de volver a admitirlo.",
+      "foundBy": "cat-terres-local",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "cat-banc-terres-segarra-garrigues",
+      "name": "Banc de terres del Sistema Segarra-Garrigues",
+      "url": "https://www.aiguessegarragarrigues.cat/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-banco-tierras-segarra-garrigues",
+      "reason": "Servicio gratuito de oferta y demanda de fincas del ámbito del sistema de regadío Segarra-Garrigues.",
+      "foundBy": "cat-terres-local",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-espais-test",
+      "name": "Espacios test agrarios de Cataluña",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pista genérica se resuelve en recursos locales concretos. No se crea una red catalana genérica duplicada sin una única vía de acceso común.",
+      "foundBy": "cat-espais-test-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-espai-test-gandesa",
+      "name": "Espai Test Agrari de Gandesa",
+      "url": "https://escoladepastorsdecatalunya.cat/espai-test-agrari-gandesa/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-espai-test-agrari-gandesa",
+      "reason": "El dispositivo opera con finca, rebaño y acompañamiento. La página del operador conserva un rótulo 'TERMINI OBERT' desactualizado: Ruralcat fecha la segunda convocatoria en 2025 y su cierre el 4/11/2025, por lo que no se registra una admisión abierta en 2026.",
+      "foundBy": "cat-espais-test-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-espai-test-sant-marti",
+      "name": "Espai Test Agroramader de Sant Martí de Riucorb",
+      "url": "https://escoladepastorsdecatalunya.cat/espai-test-agrari-de-sant-marti-de-riucorb/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-espai-test-sant-marti-riucorb",
+      "reason": "Convocatoria 2026 verificada hasta el 30 de junio y servicio con cobertura legal, finca, rebaño y acompañamiento. Al no encontrarse confirmación posterior del inicio efectivo previsto para septiembre, la edición lo mantiene UNKNOWN.",
+      "foundBy": "cat-espais-test-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-organitzacions-agraries",
+      "name": "Servicios de relevo e incorporación de organizaciones agrarias",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pista genérica se resuelve mediante el servicio específico de JARC. No se crea un recurso agregado para organizaciones distintas sin una única prestación común.",
+      "foundBy": "cat-organitzacions",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-jarc-incorporacio",
+      "name": "Acompanyament i assessorament per a la incorporació de joves — JARC",
+      "url": "https://jarc.cat/assessorament-tecnic/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-jarc-acompanamiento-incorporacion-jovenes",
+      "reason": "JARC publica un servicio especializado durante todo el proceso de incorporación y una red de oficinas/formulario; en junio de 2026 publicó también acompañamiento a cedentes y jóvenes para la ayuda de sucesión.",
+      "foundBy": "cat-organitzacions",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cat-govern-nota-successio",
+      "name": "Nota de prensa de Govern sobre relevo agrario",
+      "url": "https://govern.cat/gov/notes-premsa/825440/el-departament-d-agricultura-activa-10-milions-d-euros-per-garantir-el-relleu-generacional-agrari-a-catalunya",
+      "kind": "NEWS",
+      "status": "REJECTED",
+      "reason": "Duplica información disponible en Tràmits Gencat y el comunicado del Departament; además ha dado 403 al verificador en pasadas previas.",
+      "foundBy": "cat-successio",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "cat-primera-installacio",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "FOUND",
+      "leadId": "cat-successio-transmissio",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "cat-banc-terres-diba",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "FOUND",
+      "leadId": "cat-itinerari-formatiu",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "FOUND",
+      "leadId": "cat-jarc-incorporacio",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada con el checklist nacional: admitidas la primera instalación de jóvenes, la ayuda a la sucesión y transmisión de conocimientos, el itinerario formativo, la mentoría y los bancos de tierras de la Diputació de Barcelona."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25 como descubrimiento, sin cambiar estados ni afirmar exhaustividad."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada 1.9.0 completada: actualizada la primera instalación a 30.000-100.000 euros y plazo 2026; confirmada la ayuda de sucesión, el itinerario formativo y la mentoría; ampliado el acceso a tierra con seis bancos fuera de la red barcelonesa; incorporados dos espacios test y el servicio de JARC. La falsa apariencia de convocatoria 2026 abierta en Gandesa se corrigió usando el cierre oficial de 4/11/2025."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: la ficha de Tràmits Gencat de la ayuda a la cooperación para la sucesión ya no publica la dirección cge.agricultura@gencat.cat; se retiran la cita y el punto de contacto que dependía de ella. El resto de citas sigue en la página."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: la página del Banc de Terres de Riba-roja d'Ebre redirige a una imagen; el recurso sale de la edición y su pista vuelve a TO_CHECK con el siguiente paso."
+    }
+  ]
+}

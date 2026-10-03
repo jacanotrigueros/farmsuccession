@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "asturias"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "La sede miPrincipado concentra las fichas actuales de ayudas agrarias y muestra plazos, finalidad, beneficiarios y tramitación.",
+    "El Banco de Tierras del Principado gestiona Arrendalia, las permutas voluntarias y la ayuda a la cooperación para la sucesión; cada instrumento debe evaluarse por separado.",
+    "El plan Incorpórate al Agro incluye en 2026 tanto personas jóvenes como nuevos agricultores y ganaderos; la convocatoria AYUD0518T01 cerró el 13 de julio tras ampliación.",
+    "Existe un procedimiento abierto todo el año para acreditar la Cualificación Profesional Suficiente mediante cursos de incorporación a la empresa agraria. La ficha define contenidos y destinatarios, pero no sustituye la comprobación de una edición concreta de un proveedor."
+  ],
+  "portals": [
+    {
+      "name": "Banco de Tierras del Principado de Asturias",
+      "url": "https://www.asturias.es/temas/agricultura-gestion-forestal/banco-tierras",
+      "what": "Arrendalia, permutas y sucesión de explotaciones."
+    },
+    {
+      "name": "miPrincipado",
+      "url": "https://miprincipado.asturias.es/",
+      "what": "Fichas de servicios y ayudas agrarias con plazos, requisitos y tramitación."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "ast-jovenes",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Principado de Asturias ayudas primera instalación jóvenes agricultores 2026 sede asturias.es Incorpórate al agro"
+    },
+    {
+      "id": "ast-sucesion",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "Banco de Tierras Asturias ayudas sucesión explotaciones agrarias convocatoria 2026"
+    },
+    {
+      "id": "ast-tierras",
+      "kinds": ["LAND_BANK"],
+      "query": "\"banco de tierras\" Asturias sede.asturias.es procedimiento arrendamiento fincas propietarios inscripción oficial"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Principado de Asturias relevo generacional agricultura ayudas incorporación banco tierras asesoramiento"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Principado de Asturias jóvenes agricultores ayudas"
+    },
+    {
+      "id": "ast-formacion-2026",
+      "kinds": ["TRAINING"],
+      "query": "Asturias formación incorporación empresa agraria jóvenes agricultores curso 2026"
+    },
+    {
+      "id": "ast-organizaciones-2026",
+      "kinds": ["ADVICE", "TRAINING"],
+      "query": "Asturias UCA COAG ASAJA asesoramiento incorporación jóvenes agricultores relevo"
+    }
+  ],
+  "leads": [
+    {
+      "id": "ast-establecimiento-jovenes",
+      "name": "Ayudas para personas jóvenes agricultoras, nuevos agricultores y ganaderos",
+      "url": "https://miprincipado.asturias.es/ast/-/dboid-6269000216071719207573",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "asturias-establecimiento-jovenes-nuevos-agricultores",
+      "reason": "Ficha oficial AYUD0518T01 con convocatoria 2026, beneficiarios, finalidad y ampliación hasta el 13 de julio.",
+      "foundBy": "ast-jovenes",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ast-cooperacion-sucesion",
+      "name": "Ayudas a la cooperación para la sucesión de explotaciones agrícolas (AYUD0505T01)",
+      "url": "https://miprincipado.asturias.es/ast/-/dboid-6269000173263536107573",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "asturias-cooperacion-sucesion-explotaciones",
+      "reason": "Ficha 2026 con plazo, finalidad y beneficiarios que cesan y ceden la explotación a un sucesor.",
+      "foundBy": "ast-sucesion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ast-banco-tierras",
+      "name": "Bolsa de fincas rústicas del Banco de Tierras (programa Arrendalia)",
+      "url": "https://www.asturias.es/temas/agricultura-gestion-forestal/banco-tierras",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "asturias-banco-tierras-arrendalia",
+      "reason": "Portal actual del Banco de Tierras mantiene la bolsa Arrendalia para arrendamiento garantizado.",
+      "foundBy": "ast-tierras",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ast-permutas-fincas",
+      "name": "Programa de autorización administrativa de permuta de fincas rústicas",
+      "url": "https://www.asturias.es/temas/agricultura-gestion-forestal/banco-tierras/programa-autorizacion-administrativa-permuta-fincas-rusticas",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Programa real y activo, pero su finalidad es reestructurar y mejorar la base territorial de explotaciones existentes; no funciona como oferta/demanda o acceso a tierra para nuevos entrantes y no se inventaría como LAND_BANK separado.",
+      "foundBy": "ast-tierras",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ast-cualificacion-incorporacion",
+      "name": "Acreditación de la Cualificación Profesional Suficiente mediante cursos de incorporación",
+      "url": "https://miprincipado.asturias.es/ast/-/dboid-6269000025113613907573",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "asturias-cualificacion-curso-incorporacion",
+      "reason": "Procedimiento oficial abierto todo el año, dirigido a quienes quieren incorporarse al sector y basado en un curso de incorporación con contenidos mínimos definidos.",
+      "foundBy": "ast-formacion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ast-coag-curso-incorporacion",
+      "name": "Curso de Incorporación a la Empresa Agraria - COAG Asturias",
+      "url": "https://www.coagasturias.es/curso-de-incorporacion-a-la-empresa-agraria",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La página accesible indica que el curso comienza un 2 de septiembre y que la inscripción está abierta, pero no publica año. A 28 de septiembre de 2026 no permite demostrar que sea una edición vigente de 2026; se conserva como discovery, no como evidencia de oferta actual.",
+      "foundBy": "ast-organizaciones-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "ast-establecimiento-jovenes",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "FOUND",
+      "leadId": "ast-cooperacion-sucesion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "ast-banco-tierras",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "FOUND",
+      "leadId": "ast-cualificacion-incorporacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "NOT_FOUND",
+      "reason": "Se revisaron COAG/UCA/ASAJA y resultados de relevo. No se verificó un servicio permanente y específicamente dedicado a incorporación o relevo con una ruta actual demostrada; la página de curso de COAG no fecha su edición.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada con el checklist nacional: admitidas la ayuda al establecimiento, la ayuda a la cooperación para la sucesión y la bolsa de fincas rústicas del Banco de Tierras."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revisión regional 1.9.0 completa: convocatoria 2026 de Incorpórate al Agro actualizada, sucesión y Arrendalia revalidadas, vía oficial de cualificación mediante curso de incorporación añadida; permutas descartadas como LAND_BANK separado y oferta COAG sin año no usada como vigente."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: la página del Banco de Tierras se sirve ahora en castellano y no en asturiano; la cita de Arrendalia se copia del texto castellano."
+    }
+  ]
+}

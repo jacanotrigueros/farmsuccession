@@ -1,0 +1,265 @@
+{
+  "schemaId": "regional-snapshot",
+  "schemaVersion": "1.0.0",
+  "edition": "2026",
+  "country": "ES",
+  "region": "region-de-murcia",
+  "officialName": "Región de Murcia",
+  "published": "2026-09-30",
+  "summary": "La Región de Murcia mantiene ayudas a la creación de empresas agrarias por jóvenes, con una convocatoria 2026 ya cerrada, y dispone de formación agraria pública a través de los CIFEA. No se ha verificado un banco de tierras regional, pero siguen operativos bancos de tierras municipales en Murcia y Molina de Segura.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Pasada regional 1.9.0 sobre incorporación, sucesión/cese, acceso a tierra, formación y asesoramiento. Se revalidó la convocatoria 2026 de primera instalación directamente en la sede CARM, los bancos municipales de Murcia y Molina de Segura y la red CIFEA. No se verificó una medida regional de sucesión/cese ni un servicio permanente de una organización agraria o cooperativa específicamente dedicado a incorporación o relevo.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.murcia.es/web/urbanismo/banco-de-tierras"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://medioambiente.molinadesegura.es/banco-de-tierras/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.carm.es/web/pagina?IDCONTENIDO=1539&IDTIPO=221&RASTRO=c2889%24m58554%2C59787"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Región de Murcia sucesión cese explotación agraria relevo generacional 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Murcia COAG ASAJA UPA asesoramiento incorporación jóvenes agricultores relevo 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Murcia bancos de tierras Ceutí Bullas Cehegín 2026 ayuntamiento"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "es",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "murcia-creacion-empresas-jovenes-agricultores",
+      "name": "Ayudas a la creación de empresas agrarias por jóvenes agricultores",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Dirección General de Agricultura y Política Agraria Común, Comunidad Autónoma de la Región de Murcia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ayuda a tanto alzado para la primera instalación de jóvenes como titulares de explotación, con un módulo básico de 27.500 euros que puede incrementarse hasta 67.000 euros según el plan empresarial.",
+      "whoCanUseIt": "Personas jóvenes de al menos 18 años que no cumplan 41 años en el año natural de presentación y que no se hayan establecido como titulares de explotación más de 30 meses antes de solicitar la ayuda.",
+      "howToAccess": "Presentar la solicitud electrónica en la sede de la CARM mediante el procedimiento 3125. La convocatoria 2026 estuvo abierta del 8 de marzo al 28 de mayo de 2026 y está cerrada.",
+      "accessUrl": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "calls": [
+        {
+          "name": "Convocatoria 2026",
+          "state": "CLOSED",
+          "opens": "2026-03-08",
+          "closes": "2026-05-28",
+          "sourceUrl": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288"
+        }
+      ],
+      "accessCostType": "FREE",
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Módulo básico por persona joven instalada",
+          "value": 27500,
+          "unit": "EUR",
+          "asOf": "2026-09-28",
+          "sourceUrl": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Importe máximo por persona joven",
+          "value": 67000,
+          "unit": "EUR",
+          "asOf": "2026-09-28",
+          "sourceUrl": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288"
+        }
+      ],
+      "lastEvidenceDate": "2026-05-28",
+      "sources": [
+        {
+          "url": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288",
+          "title": "Ayudas a la creación de empresas agrarias por jóvenes agricultores - CARM",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Plazo de Presentación: Cerrado",
+            "Fuera de plazo: 08-03-2026",
+            "El importe de la ayuda será de 27.500 euros (módulo básico) por persona joven instalada",
+            "hasta alcanzar un máximo de 67.000 euros por joven",
+            "no cumplir los 41 años en el año natural de presentación de la solicitud",
+            "con anterioridad a los 30 meses previos a la solicitud de ayuda",
+            "Tener entre 18 años y 40 años de edad inclusive, en el momento de presentar la solicitud de ayuda"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "murcia-banco-tierras-huerta",
+      "name": "Banco de Tierras para la Huerta de Murcia",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Murcia"
+      },
+      "operator": "Ayuntamiento de Murcia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro municipal que facilita el arrendamiento de parcelas de la Huerta de Murcia mediante modelos de alta para propietarios y demandantes, encargo de intermediación y documentación contractual.",
+      "whoCanUseIt": "Propietarios de terrenos no cultivados de la Huerta de Murcia y personas interesadas en arrendarlos para cultivarlos.",
+      "howToAccess": "Utilizar los modelos de alta de arrendador o arrendatario y el encargo de intermediación publicados en el portal municipal.",
+      "accessUrl": "https://www.murcia.es/web/urbanismo/banco-de-tierras",
+      "accessCostType": "FREE",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "languages": ["es"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.murcia.es/web/urbanismo/banco-de-tierras",
+          "title": "Banco de tierras - Ayuntamiento de Murcia",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Banco de Tierras para la Huerta de Murcia",
+            "Modelo 1a - Alta de arrendador",
+            "Modelo 1b - Alta de arrendatario",
+            "Modelo 3 - Encargo de intermediación"
+          ]
+        },
+        {
+          "url": "https://huertademurcia.murcia.es/huertamurcia/banco-de-tierras/",
+          "title": "Banco de Tierras - Huerta de Murcia",
+          "consultedOn": "2026-09-28",
+          "quotes": ["con el fin de buscar posibles arrendatarios que estén dispuestos a cultivar sus tierras"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "molina-de-segura-banco-tierras",
+      "name": "Banco de Tierras de Molina de Segura",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Molina de Segura"
+      },
+      "operator": "Ayuntamiento de Molina de Segura, Concejalía de Medio Ambiente",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro administrativo municipal que facilita el contacto entre propietarios de parcelas cultivables y personas interesadas en cultivarlas.",
+      "whoCanUseIt": "Propietarios de parcelas cultivables del municipio y personas interesadas en acceder a tierra para cultivo.",
+      "howToAccess": "Los propietarios pueden solicitar la inscripción de parcelas y las personas interesadas pueden solicitar consultar el registro; el Ayuntamiento comunica las solicitudes a los propietarios para facilitar el contacto directo.",
+      "accessUrl": "https://medioambiente.molinadesegura.es/banco-de-tierras/",
+      "accessCostType": "FREE",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "languages": ["es"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER"],
+      "lastEvidenceDate": "2026-04-28",
+      "sources": [
+        {
+          "url": "https://medioambiente.molinadesegura.es/banco-de-tierras/",
+          "title": "Banco de Tierras - Concejalía de Medio Ambiente de Molina de Segura",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "tiene el objetivo de informar y facilitar el contacto entre propietarios de parcelas cultivables de nuestro municipio y personas interesadas en el cultivo de tierras",
+            "se configura a modo de registro administrativo de carácter público",
+            "se solicitará por cualquier persona interesada en cultivo de parcela",
+            "el Ayuntamiento comunicará las solicitudes formalizadas por terceros interesados sobre parcela/s, a los correspondientes propietarios"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "murcia-cifea-formacion-incorporacion",
+      "name": "Centros Integrados de Formación y Experiencias Agrarias (CIFEA)",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Comunidad Autónoma de la Región de Murcia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Red pública de centros de formación agroalimentaria que imparte Formación Profesional y otras acciones formativas orientadas a la incorporación y capacitación del sector agrario, con atención especial a jóvenes agricultores y nuevos perfiles.",
+      "whoCanUseIt": "Alumnado de Formación Profesional agraria y personas que necesitan formación para incorporarse o mejorar su capacitación en el sector agroalimentario, según los requisitos de cada acción.",
+      "howToAccess": "Consultar la oferta de los CIFEA de Jumilla, Lorca, Molina de Segura y Torre Pacheco y los procedimientos de admisión o inscripción publicados por la CARM para cada ciclo o acción formativa.",
+      "accessUrl": "https://www.carm.es/web/pagina?IDCONTENIDO=1539&IDTIPO=221&RASTRO=c2889%24m58554%2C59787",
+      "trainingFormats": ["IN_PERSON"],
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notes": "La fuente oficial del CIFEA de Jumilla describe de forma expresa acciones orientadas a la incorporación al sector agrario, especialmente de agricultores jóvenes. Las jornadas informativas de 2026 sobre ayudas de incorporación se trataron como eventos y no como un recurso separado.",
+      "sources": [
+        {
+          "url": "https://www.carm.es/web/pagina?IDCONTENIDO=1539&IDTIPO=221&RASTRO=c2889%24m58554%2C59787",
+          "title": "CARM - CIFEA Jumilla",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Desarrollar acciones formativas orientadas a la incorporación, al sector agrario",
+            "en especial de los agricultores jóvenes"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [
+    {
+      "id": "murcia-2026-convocatoria-jovenes",
+      "date": "2026-03-08",
+      "type": "CALL_OPENED",
+      "headline": "Abre la convocatoria 2026 de ayudas a la creación de empresas agrarias por jóvenes",
+      "summary": "La CARM abrió el 8 de marzo de 2026 la convocatoria de primera instalación, que cerró el 28 de mayo.",
+      "resourceIds": ["murcia-creacion-empresas-jovenes-agricultores"],
+      "sources": [
+        {
+          "url": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288",
+          "title": "Ayudas a la creación de empresas agrarias por jóvenes agricultores",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Fuera de plazo: 08-03-2026"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "limitations": [
+    "No se ha verificado un banco de tierras regional; los mecanismos de acceso a tierra confirmados son municipales.",
+    "Ceutí, Bullas y Cehegín cuentan con ordenanzas o reglamentos históricos de banco de tierras, pero no se ha localizado en esta revisión una vía municipal actual que demuestre funcionamiento operativo.",
+    "No se ha verificado una ayuda o servicio regional específico para sucesión, cese o transmisión de explotaciones.",
+    "No se ha verificado un servicio permanente de COAG, ASAJA, UPA u otra organización agraria o cooperativa específicamente dedicado a incorporación o relevo con una ruta actual demostrada."
+  ]
+}

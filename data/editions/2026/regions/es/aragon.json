@@ -1,0 +1,557 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "ES",
+  "region": "aragon",
+  "officialName": "Aragón",
+  "published": "2026-09-30",
+  "summary": "Aragón combina ayudas al establecimiento de jóvenes —con un tramo específico cuando integran explotaciones que cesan—, préstamos garantizados, adjudicación permanente de tierras del patrimonio agrario, formación de incorporación y servicios de asesoramiento. Zaragoza mantiene además un banco municipal de tierras para horticultura agroecológica.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Pasada regional 1.9.0 completada sobre ayudas, tierra, formación, asesoramiento y relevo. El banco de tierras autonómico previsto legalmente sigue sin una ruta propia de servicio demostrada; se distingue del procedimiento operativo de adjudicación del patrimonio agrario. No se localizaron otros bancos locales operativos con evidencia suficiente.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.aragon.es/-/modernizacion-de-explotaciones-agrarias-e-instalacion-de-jovenes-agricultores"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.aragon.es/-/instrumento-financiero-de-gestion-centralizada"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.aragon.es/-/patrimonio-agrario"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.aragon.es/tramitador/-/tramite/adjudicacion-bienes-patrimonio-agrario-comunidad-autonoma-aragon"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/formacion-en-agricultura-ganaderia-y-alimentacion"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/asesoramiento-sector-agrario"
+      },
+      {
+        "method": "OFFICIAL_GAZETTE",
+        "detail": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1432649890303"
+      },
+      {
+        "method": "OFFICIAL_GAZETTE",
+        "detail": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1430587370505"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.zaragoza.es/sede/portal/medioambiente/alimentacion-sostenible/servicio/tramite/28100"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.escueladepastoreo.com/formacion/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.asajahuesca.es/info/ayudas-para-incorporacion-a-la-agricultura-y-modernizacion"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "banco de tierras Aragón comarca ayuntamiento agricultura 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "relevo generacional agrario Aragón 2026 jóvenes agricultores sucesión explotaciones"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "organizaciones agrarias Aragón incorporación jóvenes asesoramiento UAGA UPA ASAJA ARAGA 2026"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "es",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "aragon-establecimiento-jovenes-agricultores",
+      "name": "Subvención para el establecimiento de jóvenes agricultores",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Aragón",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ayuda a tanto alzado para jóvenes que se establecen como responsables de una explotación agraria. Las bases de 2026 prevén un incremento de hasta 30.000 euros al integrar explotaciones que cesan; su aplicación está sujeta a la aprobación de la modificación del PEPAC por la Comisión Europea.",
+      "whoCanUseIt": "Personas físicas mayores de edad que no hayan cumplido 41 años en el año natural de la primera solicitud subvencionable y que se establezcan por primera vez como responsables de una explotación agraria, conforme a las bases.",
+      "howToAccess": "Solicitar en la convocatoria anual del Gobierno de Aragón. La convocatoria 2026 está cerrada; consultar el tramitador para futuras convocatorias.",
+      "accessUrl": "https://www.aragon.es/tramitador/-/tramite/subvencion-para-el-establecimiento-de-jovenes-agricultores-en-el-marco-pepac-2023-2027",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT", "TRANSFER", "RETIREMENT_SUCCESSION"],
+      "calls": [
+        {
+          "name": "Convocatoria 2026",
+          "state": "CLOSED",
+          "opens": "2026-01-29",
+          "closes": "2026-04-09",
+          "sourceUrl": "https://www.aragon.es/tramitador/-/tramite/subvencion-para-el-establecimiento-de-jovenes-agricultores-en-el-marco-pepac-2023-2027/convocatoria-2026"
+        }
+      ],
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-01-28",
+      "notes": "El tramo por cese no es una ayuda separada al titular que abandona: forma parte de la subvención del joven que integra los efectivos productivos de la explotación cedida. Antes de contar con este incremento hay que confirmar la aprobación europea y los requisitos de la convocatoria.",
+      "sources": [
+        {
+          "url": "https://www.aragon.es/tramitador/-/tramite/subvencion-para-el-establecimiento-de-jovenes-agricultores-en-el-marco-pepac-2023-2027",
+          "title": "Subvención para el establecimiento de jóvenes agricultores - Gobierno de Aragón",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "Subvención para el establecimiento de jóvenes agricultores, en el marco PEPAC 2023-2027",
+            "están dirigidas a jóvenes que pretendan ejercer la actividad agraria como agricultores profesionales en explotaciones agrarias prioritarias"
+          ]
+        },
+        {
+          "url": "https://www.aragon.es/tramitador/-/tramite/subvencion-para-el-establecimiento-de-jovenes-agricultores-en-el-marco-pepac-2023-2027/convocatoria-2026",
+          "title": "Convocatoria 2026 - Establecimiento de jóvenes agricultores - Gobierno de Aragón",
+          "consultedOn": "2026-09-14",
+          "quotes": ["Fuera de plazo - Del 29/01/2026 al 09/04/2026", "El plazo de presentación terminó el 09 abril 2026"]
+        },
+        {
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1317697620404",
+          "title": "Orden AGA/157/2024, bases de establecimiento de jóvenes agricultores",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "persona física mayor de edad que no haya cumplido 41 años en el año natural de la primera solicitud subvencionable de esta ayuda"
+          ]
+        },
+        {
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1432649890303",
+          "title": "Orden AGA/92/2026, modificación de las bases de establecimiento de jóvenes",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Estos tramos adicionales de subvención no podrán aplicarse hasta que se haya aprobado la modificación del PEPAC 2023-2027 por Decisión de la Comisión Europea.",
+            "Por integrar en la nueva explotación una o varias explotaciones que cesan en la actividad agraria: hasta 30.000€.",
+            "Este pago mínimo podrá incrementarse por las características sociales y agronómicas de la explotación de instalación y por las características personales del beneficiario hasta un máximo de 85.000 euros"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "aragon-ifgc-prestamos-jovenes",
+      "name": "Préstamos garantizados IFGC para jóvenes agricultores",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Aragón / SAECA",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Préstamos con garantía pública para financiar inversiones y necesidades de circulante de jóvenes agricultores y titulares de explotaciones agrarias.",
+      "howToAccess": "La solicitud se tramita a través de entidades financieras colaboradoras y SAECA, según las condiciones publicadas por el Gobierno de Aragón.",
+      "accessUrl": "https://www.aragon.es/-/instrumento-financiero-de-gestion-centralizada",
+      "instrumentType": "GUARANTEE",
+      "purposes": ["FIRST_ESTABLISHMENT", "INVESTMENT"],
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "GENERAL"],
+      "sources": [
+        {
+          "url": "https://www.aragon.es/-/instrumento-financiero-de-gestion-centralizada",
+          "title": "Instrumento Financiero de Gestión Centralizada - Gobierno de Aragón",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "Instrumento Financiero de Gestión Centralizada",
+            "es un mecanismo de financiación en condiciones favorables incluido en el Plan Estratégico de la Política Agraria Común (PEPAC) y cofinanciado con recursos FEADER, que garantiza, mediante avales públicos, los prestamos",
+            "Promover un acceso más fácil al crédito a jóvenes"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "aragon-banco-tierras-ley-6-2023",
+      "name": "Banco de tierras previsto en la Ley 6/2023",
+      "kind": "LAND_BANK",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Aragón",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "La Ley 6/2023 fija como objetivo configurar un banco de tierras basado en el Patrimonio Agrario de la Comunidad Autónoma para favorecer el modelo social y familiar.",
+      "accessUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2023-7735",
+      "assetTypes": ["PLOTS"],
+      "languages": ["es"],
+      "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER"],
+      "notes": "No se ha verificado una página de servicio propia de ese banco ni un registro de oferta y demanda. Esto no significa que el Patrimonio Agrario esté inactivo: existe un procedimiento distinto y permanente para solicitar la adjudicación de tierras públicas, registrado como recurso separado.",
+      "sources": [
+        {
+          "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2023-7735",
+          "title": "Ley 6/2023 de protección y modernización de la agricultura social y familiar y del patrimonio agrario de Aragón",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Configurar un banco de tierras que permita concentrar, en favor del modelo social y familiar, el Patrimonio Agrario de la Comunidad Autónoma",
+            "Favorecer el relevo generacional y la incorporación de la mujer al sector agrario, en el marco del modelo familiar."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "zaragoza-banco-tierras-huertas-km0",
+      "name": "Banco de Tierras Huertas Km 0 de Zaragoza",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Zaragoza"
+      },
+      "operator": "Ayuntamiento de Zaragoza",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro público de parcelas de regadío ofrecidas para alquiler, venta o cesión, con intermediación municipal entre propietarios y personas interesadas en desarrollar horticultura agroecológica profesional.",
+      "whoCanUseIt": "Personas físicas interesadas en cultivar parcelas de la huerta de Zaragoza y propietarios que quieran incorporar terrenos al registro, conforme a las bases del banco.",
+      "howToAccess": "La página mantiene formularios para solicitar información sobre parcelas, altas y bajas. El Ayuntamiento publica teléfono y correo del banco para tramitar o consultar el acceso.",
+      "accessUrl": "https://www.zaragoza.es/sede/portal/medioambiente/alimentacion-sostenible/servicio/tramite/28100",
+      "assetTypes": ["PLOTS"],
+      "languages": ["es"],
+      "targetProfiles": ["LAND_SEEKER", "LANDOWNER", "NEW_ENTRANT"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Banco de Tierras Huertas Km 0 de Zaragoza",
+          "value": "huertaskm0-tierras@zaragoza.es",
+          "sourceUrl": "https://www.zaragoza.es/sede/portal/medioambiente/alimentacion-sostenible/servicio/tramite/28100"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.zaragoza.es/sede/portal/medioambiente/alimentacion-sostenible/servicio/tramite/28100",
+          "title": "Banco de Tierras Huertas Km 0 para la horticultura ecológica de proximidad - Ayuntamiento de Zaragoza",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "El Banco de Tierras km 0 de Zaragoza ( BTHZ) es un registro administrativo de carácter público",
+            "El objetivo del BTHZ es facilitar el acceso a tierras a personas que quieran poner en marcha una actividad agraria profesional, con un enfoque agroecológico.",
+            "Banco de Tierras Huertas Km 0 de Zaragoza: Solicitud de acceso a la información de parcelas inscritas en el registro del BTHZ",
+            "huertaskm0-tierras@zaragoza.es",
+            "Última actualización: 2023-11-17"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1",
+      "notes": "La página del trámite municipal dejó de responder y la página municipal de la huerta ya no menciona el registro, por lo que no se puede confirmar que siga en funcionamiento. El correo que publicó el Ayuntamiento es la vía para preguntar por su estado antes de contar con él."
+    },
+    {
+      "id": "aragon-adjudicacion-patrimonio-agrario",
+      "name": "Adjudicación de bienes del Patrimonio Agrario de Aragón",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Aragón",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Procedimiento permanente para solicitar la adjudicación de tierras de titularidad de la Comunidad Autónoma. La política de patrimonio agrario declara como objetivos facilitar el acceso a tierra y favorecer especialmente la incorporación de jóvenes y el relevo generacional.",
+      "whoCanUseIt": "Personas mayores de edad y menores emancipados que cumplan los requisitos del procedimiento y del pliego aplicable, entre ellos el compromiso de explotar directamente los bienes adjudicados.",
+      "howToAccess": "Presentar el formulario y la documentación mediante el Registro Electrónico General de Aragón o presencialmente. El trámite figura en plazo permanente; cada adjudicación queda sujeta al pliego y requisitos concretos.",
+      "accessUrl": "https://www.aragon.es/tramitador/-/tramite/adjudicacion-bienes-patrimonio-agrario-comunidad-autonoma-aragon",
+      "assetTypes": ["PLOTS"],
+      "languages": ["es"],
+      "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-09-08",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Trámites de patrimonio agrario - Gobierno de Aragón",
+          "value": "tramites.agma.sir@aragon.es",
+          "sourceUrl": "https://www.aragon.es/tramitador/-/tramite/adjudicacion-bienes-patrimonio-agrario-comunidad-autonoma-aragon"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.aragon.es/tramitador/-/tramite/adjudicacion-bienes-patrimonio-agrario-comunidad-autonoma-aragon",
+          "title": "Adjudicación de bienes del patrimonio agrario de la Comunidad Autónoma de Aragón",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "A través de este trámite, se puede solicitar la adjudicación de tierras de titularidad de la Comunidad Autónoma de Aragón",
+            "En plazo permanente",
+            "Compromiso formal de explotar los bienes adjudicados directa y personalmente.",
+            "tramites.agma.sir@aragon.es"
+          ]
+        },
+        {
+          "url": "https://www.aragon.es/-/patrimonio-agrario",
+          "title": "Patrimonio agrario - Gobierno de Aragón",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Estos bienes constituyen una herramienta pública para facilitar el acceso a la tierra, apoyar a las explotaciones agrarias y contribuir al desarrollo sostenible del medio rural aragonés.",
+            "La incorporación de jóvenes agricultores y agricultoras.",
+            "El relevo generacional en las explotaciones agrarias.",
+            "Tarifas de contratos de cultivos provisionales para la campaña 2026-2027"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "aragon-formacion-incorporacion-empresa-agraria",
+      "name": "Cursos de incorporación a la empresa agraria de Aragón",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Aragón y entidades formadoras",
+      "operatorType": "MIXED",
+      "whatItOffers": "Programa de cursos para la incorporación a la empresa agraria dentro de las actividades formativas del sector. Las bases de la ayuda a jóvenes reconocen como capacitación un curso de incorporación de al menos 150 horas homologado o validado por una comunidad autónoma o por el Ministerio.",
+      "whoCanUseIt": "Profesionales del sector agroalimentario y medioambiental aragonés, con especial incidencia en jóvenes que se incorporan; para la ayuda de establecimiento deben cumplirse los requisitos de capacitación de sus bases.",
+      "howToAccess": "Consultar la base de datos oficial de actividades formativas y contactar con la entidad promotora del curso para información e inscripción. Verificar que el curso concreto es de incorporación y cumple la homologación o validación exigida.",
+      "accessUrl": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/formacion-en-agricultura-ganaderia-y-alimentacion",
+      "trainingFormats": ["IN_PERSON", "ONLINE", "HYBRID"],
+      "qualifiesForEstablishmentAid": true,
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-01-16",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Servicio de Innovación y Transferencia Agroalimentaria",
+          "value": "programasformativos@aragon.es",
+          "sourceUrl": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/formacion-en-agricultura-ganaderia-y-alimentacion"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/formacion-en-agricultura-ganaderia-y-alimentacion",
+          "title": "Formación en agricultura, ganadería y alimentación - Gobierno de Aragón",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "La formación para la incorporación a la empresa agraria.",
+            "Dirigidas y abiertas a todos los profesionales del sector agroalimentario y medio ambiental aragonés, con especial incidencia en el colectivo de jóvenes que se incorporen al sector.",
+            "Las personas interesadas deben contactar con la entidad promotora de cada una de las actividades y/o coordinador de la misma, para mayor información e inscripción.",
+            "programasformativos@aragon.es"
+          ]
+        },
+        {
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1317697620404",
+          "title": "Orden AGA/157/2024, bases de establecimiento de jóvenes agricultores",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Curso de incorporación: haber realizado el curso de incorporación a la empresa agraria de una duración no inferior a 150 horas, homologado o validado por una Comunidad Autónoma o por el Ministerio de Agricultura, Pesca y Alimentación."
+          ]
+        },
+        {
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1430587370505",
+          "title": "Orden AGA/1907/2025, convocatoria de actividades formativas para 2026",
+          "consultedOn": "2026-09-27",
+          "quotes": ["Cursos de incorporación a la empresa agraria, según lo establecido en el anexo V."]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "aragon-la-estiva-escuela-pastoreo",
+      "name": "La Estiva - Escuela de Pastoreo de Aragón",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Valle de Chistau (Huesca)"
+      },
+      "operator": "Ayuntamiento de San Juan de Plan / La Estiva",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Formación profesional y práctica en ganadería extensiva y de montaña. La promoción 2026 tuvo 860 horas, con teoría, prácticas en explotaciones del valle y manejo de ganado en puerto; la web mantiene un formulario para personas interesadas en futuras formaciones.",
+      "whoCanUseIt": "Personas que quieran acercarse profesionalmente al sector agroganadero, ya sea para emprender un proyecto propio o buscar empleo en ganadería y pastoreo.",
+      "howToAccess": "La promoción 2026 se desarrolló del 24 de febrero al 4 de septiembre. Para nuevas ediciones, usar el formulario de interés publicado por la Escuela y confirmar calendario y plazas antes de inscribirse.",
+      "accessUrl": "https://www.escueladepastoreo.com/formacion/",
+      "trainingFormats": ["IN_PERSON"],
+      "qualifiesForEstablishmentAid": true,
+      "sectors": ["LIVESTOCK"],
+      "languages": ["es"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-09-04",
+      "notes": "La edición 2026 ya finalizó. La web de la Escuela afirma que el diploma aporta los requisitos formativos exigidos para el acceso e incorporación al sector; el proyecto está promovido por el Ayuntamiento de San Juan de Plan y cuenta con apoyo del Gobierno de Aragón.",
+      "sources": [
+        {
+          "url": "https://www.escueladepastoreo.com/formacion/",
+          "title": "Formación - La Estiva Escuela de Pastoreo de Aragón",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "PROMOCIÓN 2026 DE LA ESTIVA-ESCUELA DE PASTOREO DE ARAGÓN",
+            "Del 24 de febrero al 4 de septiembre de 2026",
+            "Se certifican un total de 860 horas que se reparten proporcionadamente entre formación teórica",
+            "El Diploma está avalado por el Dpto. de Agricultura, Ganadería y Medio Ambiente del Gobierno de Aragón y aporta todos los requisitos formativos exigidos por la administración para el acceso y la incorporación al sector.",
+            "La formación de La Estiva se dirige principalmente a todas aquellas personas que quieran acercarse al sector agroganadero con un planteamiento profesional"
+          ]
+        },
+        {
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1416340781212",
+          "title": "Convenio de apoyo del Gobierno de Aragón a la Escuela de Pastoreo La Estiva",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Convenio de colaboración entre el Departamento de Agricultura, Ganadería y Alimentación del Gobierno de Aragón y el Ayuntamiento de San Juan de Plan",
+            "apoyo a la Escuela de Pastoreo de Aragón \"La Estiva\""
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "aragon-asesoramiento-agrario-pepac",
+      "name": "Servicios de asesoramiento agrario PEPAC en Aragón",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Aragón y entidades de asesoramiento seleccionadas",
+      "operatorType": "MIXED",
+      "whatItOffers": "Servicios de asesoramiento prestados por entidades seleccionadas para el periodo PEPAC 2023-2027. La convocatoria 2026 incluye expresamente a jóvenes que se incorporan a la actividad y prevé que su asesoramiento se refiera al plan empresarial de una explotación en Aragón.",
+      "whoCanUseIt": "Titulares de explotaciones agrarias en Aragón, incluidos jóvenes que se incorporan a la actividad y otros gestores de tierras, conforme a la selección anual de usuarios.",
+      "howToAccess": "La selección de usuarios de 2026 está cerrada. Consultar una de las entidades de asesoramiento vigentes o el portal del Gobierno de Aragón para la siguiente convocatoria; no se presume acceso subvencionado fuera del periodo anual.",
+      "accessUrl": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/asesoramiento-sector-agrario",
+      "calls": [
+        {
+          "name": "Convocatoria 2026",
+          "state": "CLOSED",
+          "opens": "2026-01-16",
+          "closes": "2026-02-12",
+          "sourceUrl": "https://www.aragon.es/tramitador/-/tramite/subvenciones-para-la-prestacion-de-servicios-de-asesoramiento-agrario-para-aragon-PEPAC-2023-2027/convocatoria-2026"
+        }
+      ],
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "GENERAL"],
+      "lastEvidenceDate": "2026-04-27",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Asesoramiento agrario - Gobierno de Aragón",
+          "value": "asesoramientoagrario@aragon.es",
+          "sourceUrl": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/asesoramiento-sector-agrario"
+        }
+      ],
+      "notes": "Las entidades seleccionadas incluyen, entre otras, UAGA, UPA, ASAJA Huesca, ARAGA y varias cooperativas. El cierre de la convocatoria 2026 afecta a la selección anual/subvención, no implica que las entidades hayan dejado de prestar el servicio durante el periodo PEPAC.",
+      "sources": [
+        {
+          "url": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/asesoramiento-sector-agrario",
+          "title": "Asesoramiento para el sector agrario - Gobierno de Aragón",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "En una segunda fase, con carácter anual, se convocará la selección de las personas usuarias de los servicios de asesoramiento",
+            "se seleccionaron 14 entidades. Tras la renuncia de dos de ellas, el listado de entidades de asesoramiento vigente es el siguiente",
+            "asesoramientoagrario@aragon.es"
+          ]
+        },
+        {
+          "url": "https://www.aragon.es/tramitador/-/tramite/subvenciones-para-la-prestacion-de-servicios-de-asesoramiento-agrario-para-aragon-PEPAC-2023-2027/convocatoria-2026",
+          "title": "Convocatoria 2026 de servicios de asesoramiento agrario - Gobierno de Aragón",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Fuera de plazo - Del 16/01/2026 al 12/02/2026",
+            "Serán usuarias del servicios de asesoramiento, las personas físicas o jurídicas titulares de explotaciones agrarias, incluidos los jóvenes que se incorporan a la actividad y otros gestores de tierras",
+            "Los servicios de asesoramiento destinados a jóvenes agricultores que se incorporen a la actividad, el plan empresarial estará referido a una explotación que vaya a ubicarse en dicho territorio"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "aragon-asaja-huesca-incorporacion",
+      "name": "Asesoramiento de ASAJA Huesca para incorporación a la agricultura",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Huesca"
+      },
+      "operator": "ASAJA Huesca",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Acompañamiento especializado en ayudas de incorporación y modernización: análisis del proyecto, estudios de viabilidad y planes de explotación, tramitación de la solicitud y asistencia durante el procedimiento.",
+      "whoCanUseIt": "Jóvenes y otras personas interesadas en iniciar una actividad agraria en la provincia de Huesca y tramitar las ayudas de incorporación, sujeto a las condiciones del servicio de ASAJA Huesca.",
+      "howToAccess": "Contactar con el Departamento de Asesoramiento de ASAJA Huesca. La página no publica tarifa del servicio; conviene confirmar previamente coste y condiciones de afiliación.",
+      "accessUrl": "https://www.asajahuesca.es/info/ayudas-para-incorporacion-a-la-agricultura-y-modernizacion",
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Departamento de Asesoramiento de ASAJA Huesca",
+          "value": "correo@asajahuesca.es",
+          "sourceUrl": "https://www.asajahuesca.es/info/ayudas-para-incorporacion-a-la-agricultura-y-modernizacion"
+        }
+      ],
+      "notes": "Servicio provincial de acompañamiento, distinto de la ayuda autonómica que tramita. La página de ventajas para socios publica descuentos en servicios, pero la página específica no establece una tarifa ni afirma que el servicio sea gratuito.",
+      "sources": [
+        {
+          "url": "https://www.asajahuesca.es/info/ayudas-para-incorporacion-a-la-agricultura-y-modernizacion",
+          "title": "Ayudas para incorporación a la agricultura y modernización - ASAJA Huesca",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "En ASAJA Huesca tenemos un equipo especialista en tramitación de ayudas y subvenciones que te ayudará y te guiará en todo el proceso",
+            "El equipo técnico realizará los estudios de viabilidad y planes de explotación necesarios para la solicitud.",
+            "correo@asajahuesca.es"
+          ]
+        },
+        {
+          "url": "https://www.asajahuesca.es/info/ventajas-para-los-socios/",
+          "title": "Ventajas para los socios - ASAJA Huesca",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Somos el mejor acompañamiento a la hora de solicitar y tramitar las ayudad de incorporación para Jóvenes Agricultores, y las ayudas de Modernización de explotaciones.",
+            "Descuentos especiales en todos los servicios ofertados por tener la condición socio."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [
+    {
+      "id": "aragon-modificacion-bases-jovenes-2026",
+      "date": "2026-01-28",
+      "type": "CHANGE",
+      "headline": "Aragón prevé un tramo de hasta 30.000 euros por integrar explotaciones que cesan",
+      "summary": "La Orden AGA/92/2026 modificó las bases para prever un incremento de hasta 30.000 euros cuando la nueva explotación integra explotaciones que cesan. Su aplicación requiere la aprobación de la modificación del PEPAC por la Comisión Europea.",
+      "resourceIds": ["aragon-establecimiento-jovenes-agricultores"],
+      "sources": [
+        {
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1432649890303",
+          "title": "Orden AGA/92/2026",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "ORDEN AGA/92/2026, de 23 de enero, por la que se modifica la Orden",
+            "Por integrar en la nueva explotación una o varias explotaciones que cesan en la actividad agraria: hasta 30.000€.",
+            "Estos tramos adicionales de subvención no podrán aplicarse hasta que se haya aprobado la modificación del PEPAC 2023-2027 por Decisión de la Comisión Europea."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "limitations": [
+    "El Banco de Tierras autonómico previsto en la Ley 6/2023 no tiene una página de servicio, inventario o registro de oferta y demanda verificado; no debe confundirse con la adjudicación operativa de bienes del Patrimonio Agrario.",
+    "No se localizaron otros bancos de tierras comarcales o municipales de Aragón con operación actual suficientemente demostrada además del Banco Huertas Km 0 de Zaragoza.",
+    "La edición 2026 de La Estiva ya finalizó y no se ha verificado una convocatoria posterior; se conserva como programa activo porque la escuela mantiene su página y formulario de interés.",
+    "La convocatoria 2026 del asesoramiento PEPAC está cerrada; el recurso documenta el esquema vigente y las entidades seleccionadas, sin afirmar que exista una nueva admisión subvencionada abierta en septiembre.",
+    "El tramo de hasta 30.000 euros por integración de explotaciones que cesan beneficia al joven que se establece; no se encontró una ayuda autonómica separada pagada al titular cedente."
+  ]
+}

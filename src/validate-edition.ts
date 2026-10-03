@@ -7,7 +7,7 @@ import {
   snapshotRegion,
 } from "./editions.ts";
 import { errorMessage } from "./errors.ts";
-import { unsupportedFigures } from "./figures.ts";
+import { unsupportedFileFigures, unsupportedResourceFigures } from "./figures.ts";
 import { ancestorLayers, layerKey, snapshotLayer } from "./layers.ts";
 import { internalReferencesInText, schemaCodesInText } from "./reader-text.ts";
 import { jurisdiction } from "./territories.ts";
@@ -95,7 +95,7 @@ export function checkSemantics(file: string, data: EditionSnapshot, territories:
   }
   checkNews(data, found);
 
-  for (const message of [...unsupportedFigures(data), ...schemaCodesInText(data), ...textProblems(data, data.metadata.language)]) {
+  for (const message of [...unsupportedResourceFigures(data), ...schemaCodesInText(data), ...textProblems(data, data.metadata.language)]) {
     found.error(message);
   }
   return {
@@ -357,6 +357,8 @@ const LAYER_ORDER = { "eu-snapshot": 0, "country-snapshot": 1, "hub-snapshot": 2
  *   two records with one id cannot both be linked;
  * - news may link only to resources the reader of that file can see, which is its own file and the
  *   layers above it, never a sibling region;
+ * - a figure in the file's own voice — its summary, its limitations, its news — is supported by the
+ *   evidence of that same view, because a lower layer never repeats what it inherits;
  * - reader-facing text names no resource id, territory slug or repository path;
  * - a resource whose access page already belongs to a resource in a higher layer, or in a sibling file
  *   of the same country at the same level, is listed for review.
@@ -415,6 +417,15 @@ export function checkEdition(snapshots: readonly LoadedSnapshot[], territories: 
           errors.push({ file, message: `news "${item.id}" links resource "${id}", which is not in this file or a higher layer` });
         }
       }
+    }
+
+    // The file's own voice is checked against the view a reader of it has, for the same reason: a region
+    // that may not repeat the national aid it inherits still has to be able to describe it.
+    for (const message of unsupportedFileFigures(
+      data,
+      higher.map(({ data: above }) => above),
+    )) {
+      errors.push({ file, message });
     }
   }
 

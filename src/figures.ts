@@ -239,28 +239,35 @@ function resourceEvidence(resources: readonly Resource[], extra: readonly Figure
   return evidenceOf(figures);
 }
 
-/**
- * Figures written in free text that nothing in the file supports. An invented amount, deadline or
- * percentage in a paraphrase is as serious as an invented quote, and harder to spot: the quote is
- * checked against the page, the paraphrase is not.
- *
- * A resource's own text may use its own evidence. News may use its own sources and date plus any
- * evidence in the file. The summary and the limitations may use any evidence in the file. The edition
- * year and the publication date are always allowed.
- */
-export function unsupportedFigures(data: EditionSnapshot): string[] {
-  const problems: string[] = [];
-  const always = [...figuresIn(data.edition), ...dateFigures([data.published])];
-  const report = (label: string, text: string, evidence: EvidenceFigures): void => {
+/** Reports a figure in free text that the evidence given does not state. */
+function reporter(problems: string[], where: string) {
+  return (label: string, text: string, evidence: EvidenceFigures): void => {
     const missing = new Map<string, string>();
     for (const figure of figuresIn(text)) {
       if (!isSupported(evidence, figure)) missing.set(comparison(figure).group, figure.text);
     }
     if (missing.size) {
-      problems.push(`${label} states ${[...missing.values()].join(", ")}, which no quote, metric, date or URL of the file supports`);
+      problems.push(`${label} states ${[...missing.values()].join(", ")}, which no quote, metric, date or URL ${where} supports`);
     }
   };
+}
 
+/** The edition year and the publication date are always allowed: every sentence of the file may say them. */
+const alwaysAllowed = (data: EditionSnapshot): Figure[] => [...figuresIn(data.edition), ...dateFigures([data.published])];
+
+/**
+ * Figures in a resource's own text that its own evidence does not state. An invented amount, deadline or
+ * percentage in a paraphrase is as serious as an invented quote, and harder to spot: the quote is checked
+ * against the page, the paraphrase is not.
+ *
+ * This is the strictest form of the rule and stays that way: a record describes one instrument, and the
+ * quotes, metrics, dates and URLs of that record are what it is allowed to describe it with. Reaching for
+ * another record's evidence would mean the paraphrase is about something else.
+ */
+export function unsupportedResourceFigures(data: EditionSnapshot): string[] {
+  const problems: string[] = [];
+  const report = reporter(problems, "of the resource");
+  const always = alwaysAllowed(data);
   for (const resource of data.resources) {
     const evidence = resourceEvidence([resource], always);
     for (const field of RESOURCE_TEXT_FIELDS) {
@@ -268,7 +275,25 @@ export function unsupportedFigures(data: EditionSnapshot): string[] {
       if (text) report(`resource "${resource.id}": ${field}`, text, evidence);
     }
   }
+  return problems;
+}
 
+/**
+ * Figures in the file's own voice — its summary, its limitations and its news — that no evidence a reader
+ * of this territory can see supports.
+ *
+ * That reader's view is cumulative, and a fact is recorded once at the widest territory it applies to and
+ * never repeated lower down. So a region writing about the national aid it inherits is describing evidence
+ * that, by design, is in the country's file and may not be copied into its own. Checking that sentence
+ * against this file alone would leave an author two ways out, both wrong: duplicate the fact, or write
+ * something vaguer than what the evidence actually says.
+ *
+ * `inherited` is therefore the layers above this one in the same edition — never a sibling region, another
+ * hub or another country, which are different territories whose evidence proves nothing here.
+ */
+export function unsupportedFileFigures(data: EditionSnapshot, inherited: readonly EditionSnapshot[]): string[] {
+  const problems: string[] = [];
+  const report = reporter(problems, "of this file or of a layer it inherits");
   const newsEvidence = data.news.flatMap((item) => [
     ...dateFigures([item.date]),
     ...item.sources.flatMap((source) => [
@@ -277,12 +302,15 @@ export function unsupportedFigures(data: EditionSnapshot): string[] {
       ...dateFigures([source.consultedOn]),
     ]),
   ]);
-  const fileEvidence = resourceEvidence(data.resources, [...always, ...newsEvidence]);
+  const evidence = resourceEvidence(
+    [...data.resources, ...inherited.flatMap((above) => above.resources)],
+    [...alwaysAllowed(data), ...newsEvidence],
+  );
   for (const item of data.news) {
-    report(`news "${item.id}": headline`, item.headline, fileEvidence);
-    report(`news "${item.id}": summary`, item.summary, fileEvidence);
+    report(`news "${item.id}": headline`, item.headline, evidence);
+    report(`news "${item.id}": summary`, item.summary, evidence);
   }
-  report("summary", data.summary, fileEvidence);
-  for (const limitation of data.limitations) report("limitations", limitation, fileEvidence);
+  report("summary", data.summary, evidence);
+  for (const limitation of data.limitations) report("limitations", limitation, evidence);
   return problems;
 }

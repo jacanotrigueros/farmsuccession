@@ -38,6 +38,9 @@ const DEFINITION_BY_SCHEMA_ID: Record<SchemaId, string> = {
   "regional-snapshot": "regionalSnapshot",
 };
 
+/** The edition a file belongs to, which its path says and nothing else decides. */
+export const editionOf = (relativePath: string): string => relativePath.slice(0, 4);
+
 /**
  * The identity a snapshot must carry, read from its path relative to `data/editions`:
  * `<year>/eu.json`, `<year>/countries/<iso>.json`, `<year>/hubs/<iso>/<hub>.json` or

@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "COUNTRY",
+    "country": "ES"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-25",
+  "context": [
+    "Agricultura es competencia autonómica: las ayudas a la incorporación de jóvenes y nuevos agricultores del Plan Estratégico de la PAC se convocan y tramitan en cada comunidad autónoma. El Ministerio coordina y mantiene programas estatales como CULTIVA.",
+    "Los bancos de tierras existen a varios niveles: autonómico (Galicia), municipal (Zaragoza, Murcia, Molina de Segura) e intermunicipal (Red TERRAE). Busca siempre por debajo del nivel regional: diputaciones, comarcas, mancomunidades, cabildos, consells y ayuntamientos.",
+    "Una ordenanza o reglamento municipal publicado en un boletín no demuestra que el banco de tierras funcione: busca la página del operador con formularios, contacto o listado.",
+    "Existencia no es disponibilidad: una ley que prevé un banco de tierras, un plan que lo anuncia o una convocatoria con el plazo vencido no son servicios en los que se pueda participar hoy.",
+    "No son recursos separados: noticias de ayuntamientos o grupos LEADER que difunden una convocatoria autonómica, programas estatales difundidos localmente (CULTIVA), catálogos de proveedores privados del curso de incorporación a la empresa agraria o prensa sobre un instrumento que tiene su propia página oficial.",
+    "El curso de incorporación a la empresa agraria lo imparten entidades reconocidas; cita la página oficial de la comunidad que lo regula u organiza, no el catálogo de un proveedor.",
+    "Muchas sedes electrónicas se generan con JavaScript y no devuelven texto legible; algunos portales bloquean robots o envían cadenas TLS incompletas. Anótalo en el brief de la región y cita otra página oficial con texto.",
+    "Los ficheros BOCM, BOE o diarios autonómicos en PDF sí se pueden verificar, pero evita citas que crucen un salto de línea con guion.",
+    "Algunos portales (carm.es, sede.carm.es) redirigen a un desafío antibots a partir de la segunda petición: el comprobador lo marca como UNCHECKED; revisa esas páginas a mano antes de darlas por caídas."
+  ],
+  "portals": [
+    {
+      "name": "Relevo generacional (Ministerio de Agricultura)",
+      "url": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/",
+      "what": "Portal estatal: juventud agraria, CULTIVA, guía de incorporación, acceso a la tierra y medidas PAC."
+    },
+    {
+      "name": "Acceso a la tierra (Ministerio de Agricultura)",
+      "url": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/acceso-tierra",
+      "what": "Grupos de trabajo sobre tierras infrautilizadas y avances de la plataforma nacional de acceso a la tierra."
+    },
+    {
+      "name": "Programa CULTIVA",
+      "url": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/visitas-formativas",
+      "what": "Convocatoria anual de estancias formativas de jóvenes en explotaciones modelo."
+    },
+    {
+      "name": "Notas de prensa del Ministerio de Agricultura",
+      "url": "https://www.mapa.gob.es/es/prensa/ultimas-noticias/",
+      "what": "Anuncios estatales del año (Tierra Joven, reformas, convocatorias)."
+    },
+    {
+      "name": "Líneas de financiación del Ministerio de Agricultura",
+      "url": "https://www.mapa.gob.es/es/ministerio/servicios/analisis-y-prospectiva/financiacion-fiscalidad-costes-energia/medidas-apoyo-subvenciones-financiacion/lineas-financiacion/linea-jovenes",
+      "what": "Línea ICO-MAPA-SAECA Jóvenes y otras ayudas a la financiación."
+    }
+  ],
+  "openData": [
+    {
+      "name": "Base de Datos Nacional de Subvenciones (BDNS)",
+      "url": "https://www.infosubvenciones.es/bdnstrans/api/convocatorias/busqueda?page=0&pageSize=1",
+      "how": "Endpoint JSON paginado de convocatorias (parámetros page y pageSize; el resto de filtros en https://www.infosubvenciones.es/bdnstrans/doc/swagger). Buscar convocatorias del año con texto jóvenes agricultores, incorporación, nuevos agricultores, relevo generacional o sucesión y quedarse con las de la región; cada convocatoria indica el órgano convocante, incluidos ayuntamientos y diputaciones."
+    },
+    {
+      "name": "Datos abiertos del BOE",
+      "url": "https://www.boe.es/datosabiertos/api/api.php",
+      "how": "Consultar el sumario diario o buscar disposiciones sobre bancos de tierras, relevo generacional o agricultura familiar para detectar leyes y reales decretos del año."
+    }
+  ],
+  "queries": [
+    {
+      "id": "land-municipal",
+      "kinds": ["LAND_BANK"],
+      "query": "\"banco de tierras\" municipal ayuntamiento {region}"
+    },
+    {
+      "id": "land-supramunicipal",
+      "kinds": ["LAND_BANK"],
+      "query": "\"banco de tierras\" comarca OR mancomunidad OR diputación {region}"
+    },
+    {
+      "id": "land-red-terrae",
+      "kinds": ["LAND_BANK", "NETWORK"],
+      "query": "\"Red TERRAE\" {region}"
+    },
+    {
+      "id": "aid-regional",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "ayuda \"incorporación de jóvenes agricultores\" OR \"creación de empresas agrarias\" {region}"
+    },
+    {
+      "id": "aid-local",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "ayuda \"jóvenes agricultores\" OR \"relevo generacional\" ayuntamiento OR diputación OR comarca {region}"
+    },
+    {
+      "id": "aid-leader",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "\"grupo de acción local\" LEADER \"jóvenes agricultores\" OR \"relevo generacional\" {region}"
+    },
+    {
+      "id": "training-entry-course",
+      "kinds": ["TRAINING"],
+      "query": "curso \"incorporación a la empresa agraria\" {region}"
+    },
+    {
+      "id": "training-local",
+      "kinds": ["TRAINING", "ADVICE"],
+      "query": "formación OR mentoría OR incubadora \"jóvenes agricultores\" OR \"nuevos agricultores\" ayuntamiento OR diputación OR comarca {region}"
+    },
+    {
+      "id": "advice-shepherds",
+      "kinds": ["TRAINING", "ADVICE"],
+      "query": "asesoramiento OR \"escuela de pastores\" OR \"relevo generacional\" explotación agraria {region}"
+    },
+    {
+      "id": "succession-service",
+      "kinds": ["SUCCESSION_SERVICE"],
+      "query": "\"banco de explotaciones\" OR \"sucesión de explotaciones\" OR \"transmisión de explotaciones\" {region}"
+    },
+    {
+      "id": "news-year",
+      "kinds": ["NEWS"],
+      "query": "\"relevo generacional\" agrario {region} 2026"
+    },
+    {
+      "id": "news-tierra-joven",
+      "kinds": ["NEWS", "LAND_BANK"],
+      "query": "\"Tierra Joven\" plataforma tierras agrarias",
+      "note": "Seguir la puesta en marcha del real decreto y de la plataforma."
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "España relevo generacional agricultura ayudas incorporación banco tierras asesoramiento"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "España jóvenes agricultores ayudas"
+    }
+  ],
+  "leads": [
+    {
+      "id": "es-tierra-joven",
+      "name": "Tierra Joven, Plataforma de Información y Movilización de Tierras Agrarias",
+      "url": "https://www.mapa.gob.es/es/prensa/ultimas-noticias/detalle_noticias/pedro-s-nchez-anuncia-un-paquete-de-medidas-para-impulsar-el-relevo-generacional-en-la-agricultura/a2e88faf-65e3-44d7-ac4f-1d287c7771ab",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "es-tierra-joven",
+      "reason": "Anunciada el 14 de enero de 2026; registrada como no operativa hasta que exista la plataforma.",
+      "checkedOn": "2026-09-14",
+      "foundBy": "news-tierra-joven"
+    },
+    {
+      "id": "es-red-terrae-banco-tierras",
+      "name": "Banco de Tierras Agroecológicas de la Red TERRAE",
+      "url": "https://bancode.tierrasagroecologicas.es/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "es-red-terrae-banco-tierras",
+      "reason": "Plataforma de una red de municipios de varias comunidades; se registra una vez a escala estatal con estado UNKNOWN porque sus contadores públicos están a cero.",
+      "checkedOn": "2026-09-14",
+      "foundBy": "land-red-terrae"
+    },
+    {
+      "id": "es-medidas-pac-relevo-generacional",
+      "name": "Medidas PAC de relevo generacional",
+      "url": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/medidas-pac/",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "resourceId": "es-medidas-pac-relevo-generacional",
+      "checkedOn": "2026-09-14",
+      "foundBy": "portal"
+    },
+    {
+      "id": "es-programa-cultiva",
+      "name": "Programa CULTIVA",
+      "url": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/visitas-formativas",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "es-programa-cultiva",
+      "reason": "Programa estatal; las difusiones autonómicas o municipales no son recursos separados. Corrección del 25 de septiembre: leídas la página del programa, la resolución del 14 de septiembre y la sede de la fase de jóvenes; plazo ampliado al 20 de septiembre, ya vencido. Se añade contacto institucional y se deja el coste sin confirmar.",
+      "checkedOn": "2026-09-25",
+      "foundBy": "portal"
+    },
+    {
+      "id": "es-guia-tierra-firme",
+      "name": "Tierra firme: guía para empezar en el sector agrario",
+      "url": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/guia-incorporacion-sector-agrario",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "es-guia-tierra-firme",
+      "checkedOn": "2026-09-14",
+      "foundBy": "portal"
+    },
+    {
+      "id": "es-portal-relevo-generacional",
+      "name": "Portal de relevo generacional del Ministerio",
+      "url": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "es-portal-relevo-generacional",
+      "checkedOn": "2026-09-14",
+      "foundBy": "portal"
+    },
+    {
+      "id": "es-saeca-avales-jovenes",
+      "name": "Avales de SAECA para jóvenes agricultores",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "reason": "Línea estatal con página del Ministerio: bonificación de préstamos avalados por SAECA para menores de 41 años.",
+      "resourceId": "es-linea-ico-mapa-saeca-jovenes",
+      "url": "https://www.mapa.gob.es/es/ministerio/servicios/analisis-y-prospectiva/financiacion-fiscalidad-costes-energia/medidas-apoyo-subvenciones-financiacion/lineas-financiacion/linea-jovenes",
+      "checkedOn": "2026-09-14"
+    },
+    {
+      "id": "es-ifgc-prestamos-feader",
+      "name": "Instrumento Financiero de Gestión Centralizada (IFGC)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "reason": "Página estatal con las diez comunidades participantes; la oferta concreta se registra además en cada comunidad que la publica (Aragón).",
+      "resourceId": "es-ifgc-garantia-cartera",
+      "url": "https://www.mapa.gob.es/es/pac/instrumentos-financieros/gestion-centralizada/ifgc",
+      "checkedOn": "2026-09-14"
+    },
+    {
+      "id": "es-ley-agricultura-familiar",
+      "name": "Futura Ley de Agricultura Familiar y Oficina de Información y Transmisión de tierras agrarias",
+      "kind": "POLICY",
+      "status": "REJECTED",
+      "reason": "A 25 de junio de 2026 no hay anteproyecto publicado: el ministro confía en tener un texto según avance la PAC. Revisar en la próxima edición.",
+      "url": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/agricultura/Paginas/2026/250626-planas-agricultura-familiar.aspx",
+      "checkedOn": "2026-09-14"
+    },
+    {
+      "id": "es-foro-alto-nivel-relevo",
+      "name": "Foro de Alto Nivel sobre Relevo Generacional",
+      "kind": "NETWORK",
+      "status": "REJECTED",
+      "reason": "Evento institucional celebrado en Pamplona el 3 de julio de 2024: contexto, no un recurso para agricultores.",
+      "url": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/foro-alto-nivel",
+      "checkedOn": "2026-09-14"
+    }
+  ],
+  "expectedInstruments": [
+    {
+      "id": "es-incorporacion-jovenes",
+      "name": "Ayuda autonómica a la incorporación de jóvenes agricultores",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "lookFor": "Intervención de establecimiento de jóvenes agricultores del Plan Estratégico de la PAC gestionada por la consejería de agricultura: página de la ayuda con beneficiarios e importes, y convocatoria en la sede electrónica o el boletín autonómico."
+    },
+    {
+      "id": "es-sucesion-cese",
+      "name": "Ayuda a la sucesión o al cese de la actividad agraria",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "lookFor": "Intervención de cooperación para la sucesión de explotaciones u otras ayudas autonómicas a titulares que ceden su explotación. No todas las comunidades la programan: si no existe, responder NOT_FOUND con lo buscado."
+    },
+    {
+      "id": "es-banco-tierras",
+      "name": "Banco o bolsa de tierras autonómico, comarcal o municipal",
+      "kinds": ["LAND_BANK"],
+      "lookFor": "Bancos de tierras de la comunidad, consejos comarcales, diputaciones o ayuntamientos con inventario, buscador o procedimiento de alta. Distinguir los operativos de los solo anunciados."
+    },
+    {
+      "id": "es-formacion-incorporacion",
+      "name": "Curso de incorporación a la empresa agraria",
+      "kinds": ["TRAINING"],
+      "lookFor": "Formación reconocida como capacitación para la ayuda a jóvenes (cursos de incorporación a la empresa agraria, escuelas de pastores) en centros de formación agraria o entidades homologadas."
+    },
+    {
+      "id": "es-organizaciones-asesoramiento",
+      "name": "Asesoramiento de organizaciones agrarias y cooperativas para la incorporación o el relevo",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "lookFor": "Servicios concretos de organizaciones profesionales agrarias, cooperativas o entidades sin ánimo de lucro de la comunidad (oficinas de incorporación, programas de relevo, mentorías), con una página que describa el servicio y cómo acceder."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada estatal: portal de relevo generacional del Ministerio, notas de prensa de enero y febrero de 2026 sobre Tierra Joven y plataforma de la Red TERRAE. Seis recursos y tres noticias; quedan pendientes los instrumentos financieros y la futura ley."
+    },
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Resueltas las cuatro pistas pendientes: línea ICO-MAPA-SAECA Jóvenes e IFGC admitidos; futura Ley de Agricultura Familiar (sin texto publicado) y Foro de Alto Nivel (evento de 2024) descartados."
+    },
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Corregida la URL de la API de BDNS (la raíz devolvía 404) tras la primera ejecución de check:links."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Corrección puntual con prompt 1.9.0: CULTIVA pasa a convocatoria cerrada con cierre ampliado al 20 de septiembre, fuente de la resolución y contacto institucional. Se preservan los identificadores y las fechas de consulta de los demás recursos, sin afirmar una revisión completa."
+    }
+  ]
+}

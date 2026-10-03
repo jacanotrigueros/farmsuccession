@@ -28,21 +28,61 @@ Two consequences that shape the whole design:
 This repository is being built in milestones, and it says where it is rather
 than describing what it intends to be.
 
-| Area                                                         | State                                                            |
-| ------------------------------------------------------------ | ---------------------------------------------------------------- |
-| Data contracts (`schema/`) and the types generated from them | Settled at `schemaVersion` 1.0.0                                 |
-| Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                             |
-| Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                               |
-| Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`        |
-| The research process, with every version of it kept          | `prompts/`, currently 1.11.0                                     |
-| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                               |
-| Published data                                               | None yet: `data/` holds the territory catalogue and nothing else |
-| The site                                                     | Not built yet, so there is nothing to visit                      |
+| Area                                                         | State                                                                |
+| ------------------------------------------------------------ | -------------------------------------------------------------------- |
+| Data contracts (`schema/`) and the types generated from them | Settled at `schemaVersion` 1.0.0                                     |
+| Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                                 |
+| Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                                   |
+| Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`            |
+| The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                         |
+| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                   |
+| Published data                                               | The 2026 edition of the EU layer and Spain: 33 files, 132 records    |
+| The rest of Europe                                           | Researched, not published here yet: France, Italy, Portugal, Germany |
+| The site                                                     | Not built yet, so there is nothing to visit                          |
 
-`npm run validate` therefore reports `0 edition file(s) and 0 research brief(s)
-checked` today. That is the honest output of a check over an empty dataset, and
-it is deliberately said out loud: a check that passes over nothing must never
-read as a clean run.
+## What is published today
+
+The 2026 edition covers the European layer, Spain, its three multi-island and
+multi-province groupings, and its 28 regional territories: **132 records**, each
+with the page it came from, the date that page was read and the words that were on
+it — 231 sources, 651 quotes, 225 distinct pages — plus 18 dated developments of the
+year and the 33 research briefs that say how each territory was searched, including
+the 115 leads that were considered and rejected.
+
+[**What the 2026 research found**](research/findings-2026.md) is the account of that
+work territory by territory: what each pass published, what it looked for and did not
+find, what it considered and left out with the reason, and what it has still to
+settle. It is generated from the data by `npm run report`, and `npm run check` fails
+while the committed copy is stale, so the conclusions cannot drift from the evidence.
+Read on its own it answers the question the records cannot: establishment aid was
+found in all 28 regional territories, a succession or cessation aid in 11, a land bank
+in 21, an entry course in 21, and an advisory service of a farmers' organisation in 13.
+
+`npm run validate` reports `33 edition file(s) and 33 research brief(s) checked: 0
+error(s), 0 warning(s), 0 for review`. The count is printed on purpose: a check that
+passes over nothing must never read as a clean run.
+
+Re-reading all 230 cited pages on 2 October 2026 gave **218 PASS, 1 FAIL and 11
+UNCHECKED**, and all three numbers are published rather than summarised into a
+percentage:
+
+- the **FAIL** is a municipal land bank whose procedure page the city removed between
+  the research pass and that run — gone for a browser too. The record is still here,
+  still saying what the page said on the day it was read, and the finding is written
+  in that territory's brief, because a page going away is not by itself evidence that
+  an instrument stopped operating and that call belongs to a person.
+- the **UNCHECKED** pages come from five of the 106 hosts the edition cites: two
+  pages of a municipal portal that answers 403 to anything automated, five pages on
+  the two portals of a provincial council whose certificate authority the runtime
+  does not carry (see [`decisions/008`](decisions/008-complete-a-tls-chain.md) for
+  why that is not something to work around), one page that is empty until JavaScript
+  renders it, and three gazette PDFs that answered minutes earlier and not during the
+  run.
+
+That last one is the honest shape of live checking: two runs an hour apart differed
+on six pages. A run is a reading taken at a moment, which is why its result lives in
+`reports/` and never gates a commit, and why UNCHECKED exists instead of being folded
+into either of the other two.
 
 ## How a territory becomes publishable
 
@@ -137,6 +177,7 @@ npm run validate       # the catalogue, every edition file and every brief
 npm run prompt -- <year> eu | <iso> | <iso>/<region or hub> [--compact]
 npm run ingest -- <saved answer.md>   # write the files an answer delivered, then validate them
 npm run diff -- <from year> <to year> # what changed between two editions
+npm run report         # rewrite the account of what each territory's research concluded
 npm run check:sources  # live: re-read every cited page and look for its quotes
 npm run check:links    # live: ask every address the repository points at whether it answers
 npm run check:territory -- <year> eu | <iso> | <iso>/<region or hub>
@@ -153,7 +194,7 @@ their full result to `reports/`.
 | ------------ | --------------------------------------------------------------------- |
 | `schema/`    | JSON Schemas (Draft 2020-12): the single source of truth for shapes   |
 | `data/`      | The territory catalogue and the yearly editions                       |
-| `research/`  | One research brief per territory                                      |
+| `research/`  | One research brief per territory, and what each one concluded         |
 | `decisions/` | Why each rule is the way it is, and the evidence that decided it      |
 | `src/`       | Production code: loading, validation, and the live checks             |
 | `src/types/` | Types generated from `schema/`, never edited by hand                  |

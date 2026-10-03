@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "HUB",
+    "country": "ES",
+    "hub": "illes-balears"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Illes Balears agrupa cuatro islas investigadas por separado; este brief recoge instrumentos comunes del Govern/FOGAIBA.",
+    "FOGAIBA mantiene una segunda convocatoria de establecimiento de jóvenes correspondiente a 2026, del 1 de octubre al 30 de noviembre, con prima base de 25.000 euros y máximo de 80.000 euros.",
+    "El Pla Estratègic de Ramaderia publica un proyecto común de Banc de Terres de sòl ramader para conectar propietarios y ganaderos; la propia ficha sitúa la creación de la base de datos y plataforma en la Fase I, sin acceso público operativo verificado."
+  ],
+  "portals": [
+    {
+      "name": "Sede electrónica de la CAIB",
+      "url": "https://www.caib.es/seucaib/",
+      "what": "Procedimientos y ayudas comunes a todas las islas."
+    },
+    {
+      "name": "Pla Estratègic de Ramaderia - Banc de Terres",
+      "url": "https://www.caib.es/sites/plaramaderia/ca/banc_de_terres",
+      "what": "Proyecto de banco de suelo ganadero para todas las Illes Balears."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "illes-balears-jovenes",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "FOGAIBA subvenciones creación empresas jóvenes agricultores 2026"
+    },
+    {
+      "id": "illes-balears-banc-sol-ramader-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "Illes Balears Banc de Terres sòl ramader plataforma 2026"
+    }
+  ],
+  "leads": [
+    {
+      "id": "illes-balears-fogaiba-creacion-empresas-jovenes-agricultores",
+      "name": "Subvenciones para la creación de empresas de jóvenes agricultores y agricultoras (FOGAIBA)",
+      "url": "https://www.caib.es/seucaib/es/201/empresas/tramites/tramite/6411151",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "illes-balears-fogaiba-creacion-empresas-jovenes-agricultores",
+      "reason": "Un solo procedimiento para todas las islas; la segunda convocatoria 2026 abre del 1 de octubre al 30 de noviembre.",
+      "foundBy": "illes-balears-jovenes",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "illes-balears-banc-sol-ramader",
+      "name": "Banc de Terres de sòl ramader",
+      "url": "https://www.caib.es/sites/plaramaderia/ca/banc_de_terres",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "illes-balears-banc-terres-sol-ramader",
+      "reason": "Proyecto oficial común y suficientemente concreto para documentarlo, pero la Fase I sigue describiendo creación de base de datos y puesta en marcha de plataforma; se admite como ANNOUNCED_NOT_OPERATING, no como servicio disponible.",
+      "foundBy": "illes-balears-banc-sol-ramader-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera consolidación de la capa compartida de Illes Balears."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "FOGAIBA 2026 revalidado durante Formentera. Durante Mallorca se añade el Banc de Terres de sòl ramader común como ANNOUNCED_NOT_OPERATING: proyecto oficial, pero sin acceso operativo demostrado."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: la ficha del Banc de Terres del Pla Estratègic de Ramaderia se reescribió (misma plataforma, dos fases, Fase I de creación de la web y la base de datos) y sus citas se toman del texto actual, con la fecha «Darrera actualització: 21/09/2026» que respalda la última evidencia. Sigue sin acceso público demostrado."
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "araba-alava"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "En Euskadi las ayudas del Plan Estratégico de la PAC las gestionan las Diputaciones Forales; el Gobierno Vasco coordina con ellas Gaztenek y programas de formación a través de HAZI.",
+    "La página web.araba.eus y el listado de trámites de egoitza.araba.eus permiten comprobar la convocatoria foral 2026; el comprobador automático del repositorio puede comportarse de forma distinta con certificados de Izenpe, por lo que el gate exacto de fuentes debe repetirse desde un checkout normal.",
+    "La Oficina de Intermediación para el Relevo Generacional Agrario funciona desde 2026 en los tres territorios y se documenta una sola vez en la capa del País Vasco.",
+    "La Formación para el Empleo de HAZI 2026 incluye Arkaute, Derio y Fraisoro/Oiartzun y persigue la incorporación y el relevo en toda Euskadi: no debe duplicarse en cada territorio histórico.",
+    "Las ayudas 2026 del Gobierno Vasco a la cesión de explotaciones y a los espacios test efímeros son igualmente comunes a Euskadi y corresponden a la capa del País Vasco."
+  ],
+  "portals": [
+    {
+      "name": "Diputación Foral de Álava — Agricultura y Ganadería",
+      "url": "https://web.araba.eus/es/agricultura-ganaderia",
+      "what": "Ayudas al sector agrario, oficinas comarcales y servicios forales."
+    },
+    {
+      "name": "Diputación Foral de Álava — ayudas al sector agrario",
+      "url": "https://web.araba.eus/es/agricultura-ganaderia/ayudas-al-sector-agrario",
+      "what": "Entrada oficial a las ayudas agrarias, incluida la ayuda al establecimiento de personas jóvenes."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "ala-jovenes",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Diputación Foral de Álava ayudas jóvenes agricultores primera instalación 2026"
+    },
+    {
+      "id": "ala-gaztenek",
+      "kinds": ["ADVICE", "FINANCIAL_SUPPORT"],
+      "query": "Gaztenek programa jóvenes agricultores Euskadi HAZI incorporación sector agrario"
+    },
+    {
+      "id": "ala-tierras",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Diputación Foral de Álava banco de tierras fondo de suelo agrario Álava intermediación explotaciones relevo"
+    },
+    {
+      "id": "ala-tierras-local",
+      "kinds": ["LAND_BANK"],
+      "query": "\"banco de tierras\" Álava ayuntamiento agricultura"
+    },
+    {
+      "id": "ala-aiaraldea-tierras",
+      "kinds": ["LAND_BANK"],
+      "query": "Banco de Tierras Aiaraldea ADR Zabaia formularios demandante"
+    },
+    {
+      "id": "ala-biohazi",
+      "kinds": ["LAND_BANK", "ADVICE"],
+      "query": "Elburgo BIOHAZI parcelas agroecológicas 2026"
+    },
+    {
+      "id": "ala-organizaciones",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Álava relevo generacional explotación agraria sucesión UAGA asesoramiento incorporación jóvenes"
+    },
+    {
+      "id": "ala-formacion",
+      "kinds": ["TRAINING"],
+      "query": "Arkaute escuela agraria curso incorporación a la actividad agraria jóvenes Álava 2026"
+    },
+    {
+      "id": "ala-relevo-2026",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "relevo generacional Álava agricultura ayudas cesión explotaciones 2026"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Araba\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Araba jóvenes agricultores ayudas"
+    }
+  ],
+  "leads": [
+    {
+      "id": "ala-establecimiento-jovenes",
+      "name": "Ayudas para el establecimiento de personas jóvenes agricultoras",
+      "url": "https://web.araba.eus/es/agricultura-ganaderia/ayudas-al-sector-agrario",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "araba-alava-establecimiento-jovenes-agricultores",
+      "reason": "La página foral identifica la ayuda y el trámite; la sede electrónica confirma que la convocatoria 2026 estuvo abierta del 12 de marzo al 14 de abril y el BOTHA publica sus importes y bases.",
+      "foundBy": "ala-jovenes",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-gaztenek",
+      "name": "Programa Gaztenek de incorporación de jóvenes",
+      "url": "https://www.hazi.eus/es/emprendimiento/251-gaztenek.html",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Gaztenek sigue siendo el marco vasco de incorporación citado por fuentes oficiales y sectoriales, pero la antigua URL de HAZI no ofrece una página actual de acceso y en esta pasada no se localizó una ficha regional de Álava suficientemente concreta para describir altas, contacto o disponibilidad sin mezclarla con servicios comunes de Euskadi.",
+      "foundBy": "ala-gaztenek",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-oficinas-intermediacion",
+      "name": "Oficina de Intermediación para el Relevo Generacional Agrario",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "url": "https://www.gipuzkoa.eus/es/-/hiru-foru-aldundiek-nekazaritzako-belaunaldien-erreleborako-bitartekaritza-bulegoa-aktibatu-dute",
+      "resourceId": "pais-vasco-oficina-intermediacion-relevo-generacional",
+      "reason": "Oficina única de las tres diputaciones: se documenta una sola vez en data/editions/2026/hubs/es/pais-vasco.json y Álava la hereda.",
+      "foundBy": "ala-tierras",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-banco-tierras-aiaraldea",
+      "name": "Banco de Tierras de Aiaraldea",
+      "url": "https://www.adrlautada.eus/es/banco-de-tierras-aiaraldea",
+      "kind": "LAND_BANK",
+      "area": "Aiaraldea",
+      "status": "ADMITTED",
+      "resourceId": "araba-alava-banco-tierras-aiaraldea",
+      "reason": "Página operativa de la ADR con normas y formularios para alta y baja de propietarios y demandantes; acredita un instrumento subregional de acceso a tierra actualmente utilizable.",
+      "foundBy": "ala-aiaraldea-tierras",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-biohazi-2026",
+      "name": "BIOHAZI — parcelas municipales para emprendimiento agroecológico",
+      "url": "https://elburgo-burgelu.eus/biohazi/",
+      "kind": "LAND_BANK",
+      "area": "Elburgo/Burgelu (Añua)",
+      "status": "ADMITTED",
+      "resourceId": "araba-alava-elburgo-biohazi",
+      "reason": "El Ayuntamiento mantiene la página del proyecto y publicó el 8 de junio de 2026 una convocatoria para adjudicar durante cuatro años sus dos parcelas municipales en Añua. La convocatoria concreta está cerrada, pero el proyecto de acceso a tierra sigue documentado como instrumento municipal.",
+      "foundBy": "ala-biohazi",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-uaga-jovenes",
+      "name": "Proyecto de incorporación de jóvenes de UAGA",
+      "url": "https://www.uaga.eus/servicios/desarrollo-rural/jovenes/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "araba-alava-uaga-incorporacion-jovenes",
+      "reason": "La página sí describe un servicio concreto: invita a participar, contempla seguimiento del proceso de incorporación, apoyo comercial y administrativo y asesoramiento. Se publica como UNKNOWN porque la descripción conserva referencias históricas y no fecha la admisión actual del acompañamiento específico.",
+      "foundBy": "ala-organizaciones",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-lursail",
+      "name": "Acompañamiento de Lursail en Gaztenek",
+      "url": "https://lursailkoop.eus/noticias/sembrando-futuro-relevo-generacional-para-las-explotaciones-vascas/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Lursail difunde la estrategia de relevo y su papel en proyectos Gaztenek, pero en esta pasada no se localizó una página de servicio actual con una vía pública de acceso propia para nuevas incorporaciones en Álava. Próxima acción: localizar servicio/contacto institucional vigente antes de admitirlo.",
+      "foundBy": "ala-gaztenek",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-arkaute-formacion",
+      "name": "Formación de incorporación en Arkaute",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "No se verificó en 2026 un curso regional específico de incorporación a la empresa agraria en Arkaute. La oferta oficial actual de HAZI sí incluye Arkaute dentro de un programa común de Formación para el Empleo en Euskadi, que debe resolverse en la capa País Vasco.",
+      "foundBy": "ala-formacion",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-hazi-formacion-empleo-2026",
+      "name": "Formación para el Empleo 2026 de HAZI",
+      "url": "https://www.euskadi.eus/web01-a2nekabe/es/contenidos/noticia/formacion_empleo/es_def/index.shtml",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La oferta oficial de septiembre de 2026 incluye Arkaute y declara como objetivo impulsar la incorporación y el relevo, pero es un programa único para los tres territorios históricos. No se duplica en Álava; debe evaluarse como recurso de la capa País Vasco.",
+      "foundBy": "ala-formacion",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-euskadi-ayudas-relevo-2026",
+      "name": "Ayudas 2026 a la incentivación del relevo generacional y espacios test efímeros",
+      "url": "https://www.euskadi.eus/agrupacion_servicios/2026/relevo-generacional/web01-tramite/es/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "La convocatoria del Gobierno Vasco se aplica al conjunto de Euskadi y contempla espacios test y cesión de explotaciones. No es un recurso exclusivo de Álava; debe investigarse y, si procede, publicarse en la capa País Vasco.",
+      "foundBy": "ala-relevo-2026",
+      "checkedOn": "2026-09-27"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "ala-establecimiento-jovenes",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "FOUND",
+      "leadId": "ala-oficinas-intermediacion",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "ala-banco-tierras-aiaraldea",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "NOT_FOUND",
+      "reason": "Se revisaron Arkaute, HAZI y búsquedas de cursos de incorporación. La oferta oficial 2026 localizada es común a Euskadi y corresponde a la capa País Vasco; no se verificó un curso regional alavés específico con acceso actual.",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "FOUND",
+      "leadId": "ala-uaga-jovenes",
+      "checkedOn": "2026-09-27"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada con el checklist nacional: admitida la ayuda foral a jóvenes; Gaztenek, oficinas de intermediación y formación de Arkaute pendientes por páginas no verificables."
+    },
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Admitida la Oficina de Intermediación para el Relevo Generacional Agrario, localizada al investigar Bizkaia."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Oficina de intermediación: la fuente conjunta queda UNCHECKED (raíz Izenpe no reconocida por Node.js); no se consolida en el hub hasta que una persona decida."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Consolidación en la capa del País Vasco: araba-alava-oficina-intermediacion-relevo-generacional pasa a ser pais-vasco-oficina-intermediacion-relevo-generacional, oficina única de las tres diputaciones con comprobación manual documentada."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    },
+    {
+      "date": "2026-09-27",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada regional 1.9.0 completada: enriquecida la ayuda foral con la convocatoria 2026; admitidos el Banco de Tierras de Aiaraldea, BIOHAZI y el servicio de incorporación de UAGA (UNKNOWN por vigencia no fechada). Se buscaron bancos locales, formación, organizaciones y sucesión. HAZI y las ayudas vascas 2026 de cesión/espacios test se excluyen de la capa alavesa por ser comunes a Euskadi y quedan para el hub País Vasco. Gaztenek, Lursail y un curso regional específico de Arkaute continúan pendientes de una vía de acceso actual verificable."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Corrección de edición: una limitación remitía a la ruta de un fichero del repositorio; ahora remite a la edición común del País Vasco. Sin cambios de recursos ni de estados. Además, la cita del BOTHA del acuerdo 119/2026 partía «estableci-miento» entre dos líneas del PDF y no podía comprobarse; se sustituye por otra frase literal del mismo acuerdo, consultado el 2026-09-30."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: el listado paginado de trámites de la sede que se citaba para la convocatoria 2026 redirige ahora a la página general de trámites y sus citas venían de datos internos de la página; se retira. La convocatoria se cita desde el BOTHA (publicación el 11 de marzo de 2026, 20 días hábiles desde el día siguiente); se elimina la fecha de cierre, que era un cálculo de días hábiles y no figura en ninguna fuente."
+    }
+  ]
+}

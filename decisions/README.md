@@ -36,25 +36,35 @@ npm run measure -- language    # how close real prose comes to reading as anothe
 npm run measure -- units       # which units appear next to a number, and in what quantity
 ```
 
-It reads `data/editions` by default, and takes a directory as its second
-argument. The corpus behind the numbers recorded so far is the set of 101 edition
-files and 101 research briefs that milestone 05 brings into this repository, so
-until then the command is run against that directory and the records say so.
+It reads `data/editions` by default and takes a directory as its second argument.
+
+The numbers in the records were measured over the whole corpus one research sweep
+produced: 101 edition files and 101 briefs, across the EU layer and five countries.
+What this repository publishes is the part of that work which is finished and
+checked — the EU layer and Spain, 33 files — and France, Italy, Portugal and Germany
+arrive with their own milestone. So the command run here today reads those 33 files
+and reports the same shape over a smaller sample: 803 pieces of reader-facing prose
+where a record says 2,085, and 108 amounts in euros where a record says 200. The
+distributions hold; the totals are a fifth of the corpus, and a record that names a
+number says which of the two it came from.
 
 ## The records
 
-| #                                                       | Decision                                                      |
-| ------------------------------------------------------- | ------------------------------------------------------------- |
-| [001](001-cumulative-territorial-views.md)              | Territorial views are cumulative, and implemented once        |
-| [002](002-ajv-full-strict-mode.md)                      | The schemas compile under AJV in full strict mode             |
-| [003](003-no-maxitems-in-schemas.md)                    | No `maxItems`, because of what it generates                   |
-| [004](004-where-a-rule-lives.md)                        | A rule lives in the schema, or where a message can explain it |
-| [005](005-a-figure-is-a-date-or-a-value-with-a-unit.md) | A figure is a date, or a value with a unit                    |
-| [006](006-prose-in-the-wrong-language.md)               | Prose reads as another language at two function words         |
-| [007](007-unchecked-is-a-third-answer.md)               | UNCHECKED is an answer, not a softer failure                  |
-| [008](008-complete-a-tls-chain.md)                      | Complete a TLS chain; never disable verification              |
-| [009](009-no-silent-failures.md)                        | A caught error never becomes a value that reads as success    |
-| [010](010-the-brief-is-the-trace.md)                    | Every published record traces back to an admitted lead        |
-| [011](011-every-prompt-version-is-kept.md)              | Every version of the research process is kept whole           |
-| [012](012-ingestion-writes-and-never-merges.md)         | Ingestion writes what an answer said and never merges         |
-| [013](013-a-diff-is-what-a-reader-would-notice.md)      | A diff between editions is what a reader would notice         |
+| #                                                       | Decision                                                       |
+| ------------------------------------------------------- | -------------------------------------------------------------- |
+| [001](001-cumulative-territorial-views.md)              | Territorial views are cumulative, and implemented once         |
+| [002](002-ajv-full-strict-mode.md)                      | The schemas compile under AJV in full strict mode              |
+| [003](003-no-maxitems-in-schemas.md)                    | No `maxItems`, because of what it generates                    |
+| [004](004-where-a-rule-lives.md)                        | A rule lives in the schema, or where a message can explain it  |
+| [005](005-a-figure-is-a-date-or-a-value-with-a-unit.md) | A figure is a date, or a value with a unit                     |
+| [006](006-prose-in-the-wrong-language.md)               | Prose reads as another language at two function words          |
+| [007](007-unchecked-is-a-third-answer.md)               | UNCHECKED is an answer, not a softer failure                   |
+| [008](008-complete-a-tls-chain.md)                      | Complete a TLS chain; never disable verification               |
+| [009](009-no-silent-failures.md)                        | A caught error never becomes a value that reads as success     |
+| [010](010-the-brief-is-the-trace.md)                    | Every published record traces back to an admitted lead         |
+| [011](011-every-prompt-version-is-kept.md)              | Every version of the research process is kept whole            |
+| [012](012-ingestion-writes-and-never-merges.md)         | Ingestion writes what an answer said and never merges          |
+| [013](013-a-diff-is-what-a-reader-would-notice.md)      | A diff between editions is what a reader would notice          |
+| [014](014-a-file-may-use-the-evidence-it-inherits.md)   | A file's own voice may use the evidence it inherits            |
+| [015](015-a-record-whose-source-dies.md)                | A record whose only source dies becomes UNKNOWN, not gone      |
+| [016](016-a-pass-is-a-dated-snapshot.md)                | A finished pass is a dated snapshot; a correction only removes |

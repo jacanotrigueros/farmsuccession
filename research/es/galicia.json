@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "galicia"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Muchas páginas oficiales están en gallego o en ambas lenguas: buscar también banco de terras, axudas, incorporación de mozos y remuda xeracional.",
+    "El Banco de Tierras autonómico lo gestiona AGADER y SITEGAL permite consultar y solicitar parcelas; desde 2026 MR711G abre todo el año las parcelas disponibles sin concurrencia.",
+    "El Banco de Explotaciones tiene dos rutas activas: MR617B para incorporar una explotación y MR617C para que una persona interesada solicite intermediación de acceso; ambas están abiertas todo el año.",
+    "MR617D tiene bases reguladoras desde diciembre de 2025, pero a 28 de septiembre de 2026 no se verificó una convocatoria. La ficha sigue con plazo cerrado y una noticia oficial de junio decía que se publicaría durante 2026.",
+    "MR404A tuvo convocatoria 2026 del 10 de marzo al 9 de abril, con ayuda base de 30.000 euros y máximo de 70.000. La propia ayuda obliga a participar en el programa público de tutorización de las oficinas rurales.",
+    "MR404B sigue mostrando como última convocatoria verificable la de 2024; no asumir vigencia actual.",
+    "AGACAL publicó en 2026 cursos AEA semipresenciales en enero, marzo y septiembre y permite presentar solicitudes de inscripción en cualquier momento.",
+    "Nó Rural está activo en 2026: identifica explotaciones próximas al cese mediante encuesta y ofrece acompañamiento; no tratarlo todavía como un mercado estable de matching de explotaciones.",
+    "La primera Escola de Pastores sigue activa en 2026: el programa práctico se extiende a septiembre-octubre, aunque no se ha verificado inscripción para una segunda edición."
+  ],
+  "portals": [
+    {
+      "name": "Banco de Tierras / SITEGAL",
+      "url": "https://info-sitegal.xunta.gal/es/paxina/que-e-o-banco-de-terras",
+      "what": "Parcelas, datos de disponibilidad y procedimientos de arrendamiento."
+    },
+    {
+      "name": "Banco de Explotaciones",
+      "url": "https://mediorural.xunta.gal/es/temas/explotaciones/banco-de-explotaciones",
+      "what": "Visor y rutas MR617B/MR617C para transmisión de explotaciones."
+    },
+    {
+      "name": "Sede electrónica de la Xunta",
+      "url": "https://sede.xunta.gal/",
+      "what": "Estado oficial de MR404A, MR404B, MR617B, MR617C, MR617D, MR711B y MR711G."
+    },
+    {
+      "name": "Formación AGACAL",
+      "url": "https://agacal.xunta.gal/es/formacion/formacion-continua",
+      "what": "Cursos AEA y ediciones en curso."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "galicia-land-gl",
+      "kinds": ["LAND_BANK"],
+      "query": "\"banco de terras\" concello OR deputación OR comarca Galicia"
+    },
+    {
+      "id": "galicia-aid-gl",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "axudas \"incorporación de mozos\" OR \"persoas agricultoras mozas\" Galicia"
+    },
+    {
+      "id": "galicia-succession-gl",
+      "kinds": ["SUCCESSION_SERVICE", "NETWORK", "NEWS"],
+      "query": "\"remuda xeracional\" OR \"relevo xeracional\" explotacións Galicia"
+    },
+    {
+      "id": "galicia-shepherds",
+      "kinds": ["TRAINING"],
+      "query": "\"Escola de Pastores\" Galicia 2026"
+    },
+    {
+      "id": "galicia-sucesion-7169",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "MR617D sucesión explotacións Galicia convocatoria 2026"
+    },
+    {
+      "id": "galicia-banco-explotacions-access",
+      "kinds": ["SUCCESSION_SERVICE"],
+      "query": "MR617B MR617C Banco Explotaciones Galicia acceso intermediación"
+    },
+    {
+      "id": "galicia-aea-2026",
+      "kinds": ["TRAINING"],
+      "query": "site:agacal.xunta.gal Aptitude Empresarial Agraria 2026 edicións"
+    },
+    {
+      "id": "galicia-advice-orgs",
+      "kinds": ["ADVICE"],
+      "query": "Galicia organización agraria cooperativa asesoramento incorporación mozos remuda xeracional 2026"
+    },
+    {
+      "id": "galicia-local-land-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "banco de terras concello deputación Galicia agricultura 2026"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Galicia\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Galicia jóvenes agricultores ayudas"
+    }
+  ],
+  "leads": [
+    {
+      "id": "galicia-banco-tierras",
+      "name": "Banco de Tierras de Galicia",
+      "url": "https://info-sitegal.xunta.gal/es/paxina/que-e-o-banco-de-terras",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "galicia-banco-tierras",
+      "reason": "Operativo: SITEGAL muestra parcelas, MR711G está abierto todo el año y MR711B publica la próxima ventana de noviembre de 2026.",
+      "foundBy": "galicia-land-gl",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-sitegal-listado",
+      "name": "Listado de parcelas disponibles en SITEGAL",
+      "url": "https://sitegal.xunta.gal/sitegal/ev/PlotList?filterByAvailable=t",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Es la herramienta del mismo Banco de Tierras autonómico, no un recurso independiente.",
+      "foundBy": "portal",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-banco-explotaciones",
+      "name": "Banco de Explotaciones de Galicia",
+      "url": "https://mediorural.xunta.gal/es/temas/explotaciones/banco-de-explotaciones",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "galicia-banco-explotaciones",
+      "reason": "Intermediación real para cedentes y sucesores; MR617B y MR617C están abiertos todo el año y las oficinas rurales asesoran ambas rutas.",
+      "foundBy": "galicia-banco-explotacions-access",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-cooperacion-sucesion",
+      "name": "Cooperación para la sucesión de explotaciones agrarias (MR617D)",
+      "url": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR617D",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "galicia-cooperacion-sucesion-explotaciones",
+      "reason": "Se conserva por sus bases y diseño específico, pero el recurso pasa a ANNOUNCED_NOT_OPERATING: no se verificó convocatoria 2026 y la sede mantiene el plazo cerrado.",
+      "foundBy": "galicia-sucesion-7169",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-establecimiento-jovenes-agricultores",
+      "name": "Ayudas al establecimiento de personas agricultoras jóvenes (MR404A)",
+      "url": "https://sede.xunta.gal/detalle-procedemento?ano=2026&codtram=MR404A&lang=es&numPubAno=1",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "galicia-establecimiento-jovenes-agricultores",
+      "reason": "Convocatoria 2026 verificada, 10 de marzo a 9 de abril; base 30.000 euros y máximo 70.000.",
+      "foundBy": "galicia-aid-gl",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-programa-tutorizacion-incorporacion",
+      "name": "Programa de tutorización de jóvenes agricultores",
+      "url": "https://sede.xunta.gal/detalle-procedemento?ano=2026&codtram=MR404A&lang=es&numPubAno=1",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "galicia-programa-tutorizacion-incorporacion",
+      "reason": "Servicio público concreto y operativo: MR404A obliga a participar y asigna la tutorización al personal técnico agrario de las oficinas rurales.",
+      "foundBy": "galicia-aid-gl",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-establecimiento-nuevos-agricultores",
+      "name": "Ayudas al establecimiento de nuevas personas agricultoras (MR404B)",
+      "url": "https://sede.xunta.gal/gl/detalle-procedemento?ano=2024&codtram=MR404B&numPubAno=1",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "galicia-establecimiento-nuevos-agricultores",
+      "reason": "Se conserva con estado UNKNOWN: la última convocatoria verificable en la sede es 2024.",
+      "foundBy": "galicia-aid-gl",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-curso-aptitud-empresarial-agraria",
+      "name": "Curso de Aptitud Empresarial Agraria (AGACAL)",
+      "url": "https://agacal.xunta.gal/es/formacion/formacion-continua",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "galicia-curso-aptitud-empresarial-agraria",
+      "reason": "Oferta 2026 verificada con ediciones en enero, marzo y septiembre; petición de inscripción disponible en cualquier momento.",
+      "foundBy": "galicia-aea-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-no-rural",
+      "name": "Nó Rural",
+      "url": "https://norural.gal/",
+      "kind": "NETWORK",
+      "area": "Territorios de los GDR socios",
+      "status": "ADMITTED",
+      "resourceId": "galicia-no-rural",
+      "reason": "En julio de 2026 lanzó una encuesta para identificar explotaciones próximas al cese y ofrece acompañamiento; no se presenta como matching plenamente operativo.",
+      "foundBy": "galicia-succession-gl",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-escola-pastores",
+      "name": "Escola de Pastores",
+      "url": "https://mediorural.xunta.gal/gl/recursos/novas/maria-jose-gomez-enxalza-escola-de-pastores-como-exemplo-da-aposta-pola-formacion-da",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "galicia-escuela-pastores",
+      "reason": "Primera edición en ejecución en 2026; 25 alumnos, 250 horas teóricas y 320 prácticas, con parte práctica programada también en septiembre-octubre.",
+      "foundBy": "galicia-shepherds",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-agaca-curso-incorporacion",
+      "name": "Cursos de incorporación de AGACA y proveedores privados",
+      "url": "https://agaca.coop/abre-la-inscripcion-al-curso-incorporacion-a-la-explotacion-agraria-orientacion-vacuno-de-leche/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Ediciones concretas de proveedores; la vía oficial y vigente se representa con el curso AEA de AGACAL.",
+      "foundBy": "galicia-aea-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-organizaciones-asesoramiento-2026",
+      "name": "Asesoramiento de organizaciones agrarias/cooperativas para incorporación o relevo",
+      "url": "https://www.unionsagrarias.org/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Se encontraron noticias, formación y difusión normativa, pero no una página de servicio 2026 con acceso concreto dedicada a primera instalación, sucesión, relevo o transmisión. No confundir actividad representativa o asesoramiento general con el instrumento esperado.",
+      "foundBy": "galicia-advice-orgs",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "galicia-bancos-terras-locais-2026",
+      "name": "Bancos de tierras locales independientes",
+      "url": "https://info-sitegal.xunta.gal/es/paxina/que-e-o-banco-de-terras",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "El barrido municipal/provincial no verificó un mecanismo operativo independiente del Banco de Tierras de Galicia; resultados locales encontrados remiten al instrumento autonómico o a propuestas.",
+      "foundBy": "galicia-local-land-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "galicia-establecimiento-jovenes-agricultores",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "FOUND",
+      "leadId": "galicia-banco-explotaciones",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "galicia-banco-tierras",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "FOUND",
+      "leadId": "galicia-curso-aptitud-empresarial-agraria",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "NOT_FOUND",
+      "reason": "El programa público de tutorización sí está operativo, pero no satisface esta familia específica. No se verificó un servicio propio de una organización agraria o cooperativa con acceso descrito para primera instalación o relevo.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada: banco de tierras y banco de explotaciones, ayudas MR404A y MR404B, curso de AGACAL y proyecto Nó Rural."
+    },
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Escuela de Pastores admitida con fuente oficial."
+    },
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Añadida la ayuda MR617D y respondidos los cinco instrumentos esperados."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar prepublicación; solo discovery, sin cambiar estados."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada 1.9.0 completa: Banco de Tierras enriquecido con MR711G y próxima ventana MR711B; Banco de Explotaciones revalidado con MR617B/MR617C; MR617D degradado a anunciado/no operativo; MR404A y AEA actualizados; tutorización pública añadida; Nó Rural y Escola de Pastores revalidados. No se verificó asesoramiento específico de organizaciones agrarias/cooperativas ni banco local independiente."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: la sede electrónica sirve ahora la ficha MR711G en gallego aunque la dirección pide castellano, así que las citas se copian del texto gallego; en la página de formación continua de AGACAL la fecha y el título del listado de cursos ya no van separados por una barra."
+    }
+  ]
+}

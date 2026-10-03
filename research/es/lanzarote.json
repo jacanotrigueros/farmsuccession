@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "ES", "region": "lanzarote" },
+  "language": "es",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Las ayudas a jóvenes agricultores y la formación común en línea de las Escuelas de Capacitación Agraria se heredan desde la capa Canarias.",
+    "El Cabildo mantiene en la web SIPAM un Banco de Tierras con formulario específico y lo integra en las campañas de reactivación de fincas agrícolas abandonadas o semiabandonadas.",
+    "La cesión de uso a terceros interesados en cultivar está expresamente prevista y la campaña exige mantener la actividad agrícola al menos tres años.",
+    "ADERLAN gestiona LEADER y programas amplios de emprendimiento rural; APROLAN presta apoyo general a agricultores profesionales, pero no se ha verificado una ruta específica de incorporación o relevo agrario en ninguna de las dos entidades."
+  ],
+  "portals": [
+    {
+      "name": "SIPAM Lanzarote",
+      "url": "https://www.sipamlanzarote.com/",
+      "what": "Banco de Tierras y campañas del Área de Paisaje y Soberanía Alimentaria del Cabildo."
+    },
+    { "name": "ADERLAN", "url": "https://aderlan.org/", "what": "LEADER, desarrollo rural y emprendimiento en Lanzarote." }
+  ],
+  "openData": [],
+  "queries": [
+    { "id": "lza-tierras-2026", "kinds": ["LAND_BANK"], "query": "Cabildo Lanzarote Banco de Tierras SIPAM 2026" },
+    {
+      "id": "lza-sucesion-2026",
+      "kinds": ["SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "query": "Lanzarote relevo generacional agricultura Cabildo ADERLAN 2026"
+    },
+    { "id": "lza-formacion-2026", "kinds": ["TRAINING"], "query": "Lanzarote formación incorporación jóvenes agricultores 2026" },
+    {
+      "id": "lza-organizaciones-2026",
+      "kinds": ["ADVICE"],
+      "query": "Lanzarote cooperativa asociación asesoramiento jóvenes agricultores incorporación relevo 2026"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lza-canarias-jovenes",
+      "name": "Subvenciones para el establecimiento de personas jóvenes agricultoras",
+      "url": "https://sede.gobiernodecanarias.org/sede/tramites/9277",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "canarias-establecimiento-jovenes-agricultoras",
+      "reason": "Instrumento autonómico 2026 heredado desde la capa Canarias sin duplicación.",
+      "foundBy": "lza-sucesion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lza-eca-cursos",
+      "name": "Programación común de cursos ECA",
+      "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/ensenanzas/cursos-agricultura-ganaderia.html",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "canarias-formacion-escuelas-capacitacion-agraria",
+      "reason": "Lanzarote no tiene ECA presencial propia; hereda la programación común accesible en línea desde Canarias.",
+      "foundBy": "lza-formacion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lza-banco-tierras",
+      "name": "Programa de Banco de Tierras de Lanzarote",
+      "url": "https://www.sipamlanzarote.com/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "lanzarote-programa-banco-tierras",
+      "reason": "La web actual del Cabildo mantiene formulario específico del Banco de Tierras y la campaña explica cesión de uso a terceros, compromiso mínimo de cultivo y forma de presentación.",
+      "foundBy": "lza-tierras-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lza-aderlan-emprendimiento",
+      "name": "Impulso al Emprendimiento y la Diversificación en el Medio Rural de Lanzarote",
+      "url": "https://aderlan.org/lanzarote-impulsa-el-emprendimiento-rural-con-un-innovador-proyecto-de-diversificacion-y-desarrollo-sostenible/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Programa amplio de emprendimiento rural y diversificación desarrollado entre octubre de 2025 y junio de 2026. Aunque responde también a falta de relevo generacional, no es un servicio específicamente agrario de primera instalación, sucesión o transmisión.",
+      "foundBy": "lza-sucesion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lza-aprolan",
+      "name": "Asociación de Agricultores Profesionales de Lanzarote (APROLAN)",
+      "url": "https://aprolan.es/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Ofrece apoyo normativo, formación, compra y representación a sus socios y declara favorecer el relevo generacional, pero no describe un servicio concreto de primera instalación o transmisión con una vía de acceso específica.",
+      "foundBy": "lza-organizaciones-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    { "expectedId": "es-incorporacion-jovenes", "status": "FOUND", "leadId": "lza-canarias-jovenes", "checkedOn": "2026-09-28" },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "NOT_FOUND",
+      "reason": "El Banco de Tierras facilita cesión de parcelas, pero no se verificó un servicio de transmisión de explotaciones completas ni apoyo al titular cedente/cese.",
+      "checkedOn": "2026-09-28"
+    },
+    { "expectedId": "es-banco-tierras", "status": "FOUND", "leadId": "lza-banco-tierras", "checkedOn": "2026-09-28" },
+    { "expectedId": "es-formacion-incorporacion", "status": "FOUND", "leadId": "lza-eca-cursos", "checkedOn": "2026-09-28" },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "NOT_FOUND",
+      "reason": "ADERLAN y APROLAN disponen de apoyo amplio, pero no se verificó una prestación específica y diferenciada de incorporación/relevo agrario que cumpla la regla ADVICE.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada: admitidos ayuda canaria, formación ECA heredada y Banco de Tierras del Cabildo."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Formación consolidada en la capa Canarias porque Lanzarote no tiene ECA propia."
+    },
+    { "date": "2026-09-25", "by": "CHATGPT (Codex)", "summary": "Barrido preliminar antes de publicar; solo discovery." },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada 1.9.0: Banco de Tierras revalidado con formulario actual y cesión operativa; ADERLAN y APROLAN revisados y rechazados como ADVICE específico; sin servicio de sucesión/cese separado."
+    }
+  ]
+}

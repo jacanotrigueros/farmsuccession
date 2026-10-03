@@ -17,7 +17,7 @@ published as **yearly editions** of JSON files per EU / country / region.
 | ------------ | ------------------------------------------------------------------------------ |
 | `schema/`    | JSON Schemas (Draft 2020-12): the single source of truth for data shapes       |
 | `data/`      | The territory catalogue and the yearly editions                                |
-| `research/`  | One research brief per territory                                               |
+| `research/`  | One research brief per territory, and the generated account of what each found |
 | `decisions/` | Why each rule is the way it is, and the evidence that decided it               |
 | `prompts/`   | The standard research process, used by any assistant or person                 |
 | `config/`    | Pinned public TLS intermediates for portals with incomplete certificate chains |
@@ -28,10 +28,17 @@ published as **yearly editions** of JSON files per EU / country / region.
 | `frontend/`  | The Astro static site                                                          |
 | `test/`      | `node:test` suites and fictional fixtures                                      |
 
-Every directory listed here exists, and each is empty until the milestone that
+Every directory listed here exists, and each stays empty until the milestone that
 needs it. That milestone adds its file layout, its commands and their rules to
 this file in the same change, so nothing here ever describes something the
-repository does not have.
+repository does not have. `frontend/` is the one still waiting.
+
+`data/editions/2026` and `research/` hold the first real data: the European layer,
+Spain, its three groupings of several regions and its 28 regional territories, with
+one research brief each. France, Italy, Portugal and Germany are researched and are
+not here yet, so the catalogue carries the EU layer and Spain and nothing else: a
+file whose country the catalogue does not define is an error, not a file waiting for
+its country.
 
 Three data schemas are settled: `territories.schema.json` (the catalogue),
 `edition.schema.json` (one territory in one year) and
@@ -68,6 +75,7 @@ npm run types          # regenerate src/types from schema/
 npm run types:check    # fail if a committed generated file is stale
 npm run format         # format with Prettier
 npm run measure -- figures | units | language [editionsDir]
+npm run report         # rewrite research/findings-<year>.md; --check fails if one is stale
 npm run prompt -- <year> eu | <iso> | <iso>/<region or hub> [--compact]
 npm run ingest -- <saved answer.md>
 npm run diff -- <from year> <to year>
@@ -157,6 +165,12 @@ the other way round.
   measured is recorded in `decisions/`. A number chosen because it looked right
   is a number nobody can defend, and the records are where the reasoning lives
   that no test can hold.
+- `research/findings-<year>.md` is written by `npm run report` from the edition
+  files and the briefs, never by hand, and `npm run check` fails while a committed
+  one is stale. It is the account of what each pass concluded — what it looked for
+  and did not find, what it left out and why — and an account that can drift from
+  the evidence it describes is worth nothing. Change what it says by changing the
+  data, or the generator when the data is right and the telling is wrong.
 - A check that could not read something says so. UNCHECKED, a skipped file and a
   warning are answers; an empty result over nothing is not a clean run, and a
   caught error must never become a value a caller reports as success.
@@ -185,7 +199,16 @@ the other way round.
 - One `feature/*` branch per milestone, merged into `develop` through a
   reviewed pull request before the next milestone starts. Data milestones get
   one branch per territory.
+- A merge commit names the branch it merged — `Merge feature/validators: add
+schema and semantic validation rules` — and names a pull request number only
+  when that pull request is in this repository. A number is a reference, and a
+  reference that resolves to nothing is worse than no reference: the first
+  milestones were merged in an earlier repository, so their merge commits name
+  their branch and nothing else.
 - Never force-push or delete `master` or `develop`.
+- The first seven commits are the milestones this work went through before this
+  repository existed, one commit each, taken as the state in which each of them was
+  integrated. Everything after them follows the contract above.
 
 ## Commits
 

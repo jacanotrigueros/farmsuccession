@@ -1,0 +1,267 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "comunitat-valenciana"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "La Generalitat mantiene el procedimiento 571 como ruta de tramitación de la primera instalación. A 28/09/2026 la sede todavía muestra sobre todo la convocatoria 2025 y sus fases de modificación/justificación, pero la BDNS oficial ya ha registrado una nueva convocatoria con solicitud del 05/10/2026 al 04/12/2026.",
+    "La Orden 9/2025 fija una prima base de 30.000 euros y máximo de 80.000 euros para jóvenes agricultores, y 20.000/70.000 euros para nuevos agricultores. La ventana de modificación del plan empresarial de beneficiarios 2025 no debe confundirse con una nueva convocatoria.",
+    "La Ley 5/2019 prevé una Xarxa de Terres, pero no se ha encontrado una plataforma autonómica única y operativa. Sí existen bancos de tierras accionables en las tres provincias: València, Pinoso/El Pinós y Nules, además de la plataforma de consulta de la Diputació de València utilizada por los bancos municipales.",
+    "La capacitación profesional de la Orden 9/2025 puede acreditarse mediante títulos, diplomas o certificados. Se ha localizado una oferta 2026 de 150 horas de incorporación a la empresa agraria que el proveedor declara aceptada por la Conselleria; como la página sigue citando la Orden 7/2015 y no existe un catálogo oficial actualizado que confirme individualmente ese curso, se representa con disponibilidad UNKNOWN.",
+    "LA UNIÓ mantiene una web específica para jóvenes y nuevos agricultores con asesoramiento gratuito para primera instalación, además de servicios generales de tramitación de ayudas y redacción de proyectos.",
+    "La Generalitat dispone de un Servicio de Apoyo a la Familia y Relevo Generacional con funciones explícitas de apoyo a continuidad e instalación, pero no se ha verificado una convocatoria de sucesión/cese ni un procedimiento público de intermediación entre cedentes y sucesores."
+  ],
+  "portals": [
+    {
+      "name": "Procedimiento 571 — Generalitat Valenciana",
+      "url": "https://sede.gva.es/es/detall-tramit?id_proc=G571",
+      "what": "Tramitación, normativa, documentación, modificación y justificación de las ayudas de primera instalación."
+    },
+    {
+      "name": "BDNS 931561",
+      "url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/931561",
+      "what": "Nueva convocatoria 2026 de establecimiento, presupuesto y fechas oficiales de solicitud."
+    },
+    {
+      "name": "Consell Agrari de València — Banco de Tierras",
+      "url": "https://valencia.consellagrari.com/es/banco-de-tierras/",
+      "what": "Acceso a tierra, intermediación y enlace al buscador de la Diputació de València."
+    },
+    {
+      "name": "LA UNIÓ — asesoramiento de primera instalación",
+      "url": "https://www.ayudasjovenesagricultores.es/",
+      "what": "Información y asesoramiento gratuito a jóvenes y nuevos agricultores."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "cv-jovenes-2026-nueva-convocatoria",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "BDNS 931561 Comunitat Valenciana jóvenes nuevos agricultores 2026 5 octubre 4 diciembre"
+    },
+    {
+      "id": "cv-tierras-valencia",
+      "kinds": ["LAND_BANK"],
+      "query": "Banco Tierras València Diputació plataforma parcelas Consell Agrari"
+    },
+    {
+      "id": "cv-tierras-alicante",
+      "kinds": ["LAND_BANK"],
+      "query": "Alicante banco de tierras municipal Pinoso Callosa Benasau 2026"
+    },
+    {
+      "id": "cv-tierras-castellon",
+      "kinds": ["LAND_BANK"],
+      "query": "Castellón banco de tierras municipal Nules 2026"
+    },
+    {
+      "id": "cv-xarxa-terres",
+      "kinds": ["LAND_BANK"],
+      "query": "Comunitat Valenciana Xarxa de Terres Ley 5/2019 plataforma operativa banco tierras"
+    },
+    {
+      "id": "cv-formacion-incorporacion-2026",
+      "kinds": ["TRAINING"],
+      "query": "Comunitat Valenciana curso incorporación empresa agraria 150 horas 2026 Orden 9/2025"
+    },
+    {
+      "id": "cv-sucesion-cese-2026",
+      "kinds": ["SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "query": "Comunitat Valenciana sucesión cese explotaciones agrarias ayuda relevo generacional 2026"
+    },
+    {
+      "id": "cv-organizaciones-2026",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Comunitat Valenciana LA UNIÓ ASAJA cooperativas asesoramiento primera instalación jóvenes nuevos agricultores 2026"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Comunitat Valenciana\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Comunitat Valenciana jóvenes agricultores ayudas"
+    }
+  ],
+  "leads": [
+    {
+      "id": "cv-establecimiento-jovenes",
+      "name": "Ayudas al establecimiento de personas jóvenes agricultoras y nuevos agricultores",
+      "url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/931561",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "comunitat-valenciana-establecimiento-jovenes-nuevos-agricultores",
+      "reason": "Programa oficial activo. La convocatoria 2025 está cerrada y resuelta; la nueva BDNS 931561, registrada el 25/09/2026, abrirá solicitudes el 05/10/2026 y cerrará el 04/12/2026. Verificación manual del 30/09/2026 por Claude (claude-opus-5-5) en el navegador integrado de Claude Code (Chromium): la ficha de la convocatoria 931561 de la BDNS se abrió por HTTPS sin aviso de certificado, es decir, con una cadena que el navegador validó, y las 2 citas de la fuente están en el texto de la página. La verificación automática no la lee porque la página se genera con JavaScript y sin ejecutarlo apenas tiene texto. No es una revisión humana: el fichero sigue en borrador.",
+      "foundBy": "cv-jovenes-2026-nueva-convocatoria",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "cv-banco-tierras-valencia",
+      "name": "Banco de Tierras Agrícolas de València",
+      "url": "https://valencia.consellagrari.com/es/banco-de-tierras/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "comunitat-valenciana-banco-tierras-valencia",
+      "reason": "Servicio municipal operativo, gratuito y con intermediación; la FAQ enlaza al buscador actualizado de la Diputació de València para consultar fincas disponibles.",
+      "foundBy": "cv-tierras-valencia",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cv-diputacion-valencia-banco-tierras",
+      "name": "Plataforma de Bancos de Tierras de la Diputació de València",
+      "url": "https://bancdeterres.dival.es/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "El Consell Agrari de València confirma que el buscador de la Diputació permite consultar fincas por municipio y está actualizado. El portal directo devuelve 403 al entorno de investigación y no se ha verificado la relación completa de municipios participantes; por eso se conserva como plataforma supramunicipal comprobada indirectamente y no se duplica todavía como recurso independiente.",
+      "foundBy": "cv-tierras-valencia",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cv-banco-tierras-pinoso",
+      "name": "Banco de Tierras de Pinoso / El Pinós",
+      "url": "https://www.pinoso.es/el-ayuntamiento/concejalias/concejalia-agricultura/banco-de-tierras/",
+      "kind": "LAND_BANK",
+      "area": "Pinoso / El Pinós",
+      "status": "ADMITTED",
+      "resourceId": "comunitat-valenciana-banco-tierras-pinoso",
+      "reason": "Página municipal actual con formularios para inscribir parcelas y demandar tierra; el Ayuntamiento gestiona contactos y facilita acuerdos de cesión, aparcería o alquiler.",
+      "foundBy": "cv-tierras-alicante",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cv-banco-tierras-nules",
+      "name": "Banco de Tierras de Nules",
+      "url": "https://nules.org/es/agricultura/",
+      "kind": "LAND_BANK",
+      "area": "Nules",
+      "status": "ADMITTED",
+      "resourceId": "comunitat-valenciana-banco-tierras-nules",
+      "reason": "La página municipal mantiene instancia de inscripción y contacto de Agricultura; una actualización institucional de 2024 confirma que el banco conecta parcelas con terceros interesados y que la demanda supera la oferta.",
+      "foundBy": "cv-tierras-castellon",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cv-xarxa-terres",
+      "name": "Xarxa de Terres (Ley 5/2019)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2019-4086",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La Ley 5/2019 crea el marco de la Xarxa de Terres y oficinas de gestión, pero la pasada 2026 no localizó una plataforma autonómica única con inventario, inscripción de parcelas o solicitud de tierras. No se infiere operación regional a partir de la ley.",
+      "foundBy": "cv-xarxa-terres",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cv-curso-incorporacion-inalocal",
+      "name": "Curso de Incorporación a la Empresa Agraria — Comunitat Valenciana",
+      "url": "https://inalocal.com/curso-incorporacion-joven-agricultor/curso-joven-agricultor-comunitat-valenciana/",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "comunitat-valenciana-curso-incorporacion-empresa-agraria",
+      "reason": "Oferta actual y accionable de 150 horas con matrícula online. El proveedor afirma que el curso es aceptado por la Conselleria para la capacitación de incorporación; el recurso se publica como UNKNOWN porque la página conserva la Orden 7/2015 y no se ha verificado un catálogo oficial individual de cursos bajo la Orden 9/2025.",
+      "foundBy": "cv-formacion-incorporacion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cv-la-unio-primera-instalacion",
+      "name": "Asesoramiento de LA UNIÓ para primera instalación",
+      "url": "https://www.ayudasjovenesagricultores.es/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "comunitat-valenciana-la-unio-asesoramiento-primera-instalacion",
+      "reason": "LA UNIÓ mantiene una web específica de primera instalación que ofrece asesoramiento gratuito a jóvenes y nuevos agricultores y una ruta directa para solicitar ayuda; su web corporativa confirma servicios de tramitación de ayudas y proyectos.",
+      "foundBy": "cv-organizaciones-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cv-servicio-apoyo-familia-relevo",
+      "name": "Servicio de Apoyo a la Familia y Relevo Generacional — Generalitat Valenciana",
+      "url": "https://sede.gva.es/es/inicio/atencion_ciudadano/buscadores/departamentos/detalle_departamentos?id_dept=26774",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "La unidad administrativa tiene funciones explícitas de apoyar continuidad, instalación y relevo y publica teléfono de contacto. No se ha localizado una ficha de servicio, bolsa de relevo, mediación entre cedentes/sucesores o procedimiento de admisión que permita representarla como servicio de sucesión accionable.",
+      "foundBy": "cv-sucesion-cese-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cv-anecoop-releva-2026",
+      "name": "Programa RELEVA — Anecoop",
+      "url": "https://cooperativesagroalimentariescv.com/anecoop-lanza-el-programa-releva-dirigido-a-jovenes-agricultores-cooperativistas/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Programa piloto 2026 de 12 meses con 15 jóvenes de cooperativas concretas para liderazgo empresarial y relevo generacional. Es relevante, pero no se localizó una convocatoria pública de acceso ni un servicio de transmisión entre titulares y sucesores; se preserva como iniciativa limitada y no como recurso general de sucesión.",
+      "foundBy": "cv-organizaciones-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "cv-establecimiento-jovenes",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "NOT_FOUND",
+      "reason": "Se verificó una unidad administrativa de apoyo al relevo, pero no una ayuda específica de sucesión/cese, bolsa de transmisión o servicio público de intermediación con vía de admisión para cedentes y sucesores.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "cv-banco-tierras-valencia",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "FOUND",
+      "leadId": "cv-curso-incorporacion-inalocal",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "FOUND",
+      "leadId": "cv-la-unio-primera-instalacion",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada con el checklist nacional: admitidas la ayuda a jóvenes y nuevos agricultores y el Banco de Tierras de València; Xarxa de Terres y plataforma de la Diputació pendientes."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada completa con research-territory 1.9.0. Verificada la nueva convocatoria BDNS 931561, bancos de tierras activos en las tres provincias, una oferta actual de curso de incorporación y asesoramiento gratuito de LA UNIÓ. La Xarxa de Terres autonómica y un servicio específico de sucesión/cese siguen sin demostrarse como instrumentos operativos regionales."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: en las preguntas frecuentes del Banc de Terres la página escribe «ésta» con tilde; la cita lo reproduce."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Verificación manual documentada de la convocatoria 931561 en la BDNS, cuya página se genera con JavaScript."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: la ficha del procedimiento 571 ya no muestra el cierre de la convocatoria 2025 y ahora publica la de 2026 «Desde 05-10-2026 Hasta 07-12-2026», mientras la BDNS indica cierre el 04/12/2026. Se retira la convocatoria 2025, cuya evidencia desapareció, y la de 2026 conserva solo la fecha de apertura en la que coinciden ambas fuentes; la discrepancia del cierre queda anotada. Siguiente paso: buscar en el DOGV una modificación que fije la fecha de cierre."
+    }
+  ]
+}

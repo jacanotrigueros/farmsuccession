@@ -1,0 +1,329 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "ES",
+  "region": "cantabria",
+  "officialName": "Cantabria",
+  "published": "2026-09-27",
+  "summary": "Cantabria combina ayudas al establecimiento de jóvenes y nuevos agricultores, cursos oficiales de incorporación agraria del CIFA y orientación práctica de UGAM-COAG para preparar el plan empresarial y la solicitud. En 2026 el Gobierno puso en marcha además un programa piloto de relevo ganadero, aunque no se ha verificado una ruta pública de inscripción a su bolsa de relevo.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Pasada 1.9.0 completada sobre ayudas, relevo, tierra, formación y asesoramiento. Se verificaron la convocatoria oficial 2026, los cursos de incorporación del CIFA y un servicio concreto de orientación de UGAM-COAG. El programa de relevo ganadero está lanzado como piloto, pero no se encontró una ruta pública de alta en la bolsa; tampoco se verificó un banco de tierras autonómico o municipal actualmente operativo.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.cantabria.es/web/consejeria-de-desarrollo-rural-ganaderia-pesca-y-biodiversidad/detalle/-/journal_content/56_INSTANCE_DETALLE/16401/38164125"
+      },
+      {
+        "method": "OFFICIAL_GAZETTE",
+        "detail": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=429103"
+      },
+      {
+        "method": "OFFICIAL_GAZETTE",
+        "detail": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=428486"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.cifacantabria.org/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.ugamcoag.org/convocatoria-2026-ayudas-para-jovenes-y-nuevos-agricultores-as-en-cantabria/"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Cantabria banco de tierras ayuntamiento agricultura ganadería 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Cantabria Programa de Relevo Generacional Ganadero bolsa relevo inscripción 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Cantabria organizaciones agrarias asesoramiento incorporación jóvenes plan empresarial 2026"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "es",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "cantabria-establecimiento-jovenes-nuevos-agricultores",
+      "name": "Ayudas para el establecimiento de jóvenes y nuevos agricultores y agricultoras en Cantabria",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Cantabria",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ayuda a tanto alzado para el primer establecimiento de jóvenes y nuevos agricultores. La prima básica es de 20.000 euros y puede aumentar, por criterios acumulativos, hasta un máximo de 50.000 euros.",
+      "whoCanUseIt": "Personas que se instalan por primera vez en una explotación agraria y cumplen los requisitos de la línea correspondiente; para jóvenes, al menos 18 años y sin cumplir 41 en el año de la convocatoria, y para nuevos agricultores, desde 41 y menos de 56 años.",
+      "howToAccess": "Presentar la solicitud y el plan empresarial por la vía indicada en la convocatoria anual. La ficha general remite a la aplicación GAMO; la convocatoria 2026 está cerrada y las siguientes deben comprobarse en el portal y el BOC.",
+      "accessUrl": "https://www.cantabria.es/web/consejeria-de-desarrollo-rural-ganaderia-pesca-y-biodiversidad/detalle/-/journal_content/56_INSTANCE_DETALLE/16401/38164125",
+      "accessCostType": "FREE",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "calls": [
+        {
+          "name": "Convocatoria 2026",
+          "state": "CLOSED",
+          "closes": "2026-03-30",
+          "sourceUrl": "https://www.ugamcoag.org/convocatoria-2026-ayudas-para-jovenes-y-nuevos-agricultores-as-en-cantabria/"
+        },
+        {
+          "name": "Convocatoria 2025",
+          "state": "CLOSED",
+          "opens": "2025-08-20",
+          "closes": "2025-09-19",
+          "sourceUrl": "https://www.cantabria.es/detalle/-/journal_content/56_INSTANCE_DETALLE/16401/93959538"
+        }
+      ],
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-01-30",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima básica de establecimiento",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2024-07-18",
+          "sourceUrl": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=407263"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Ayuda máxima de establecimiento",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2024-07-18",
+          "sourceUrl": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=407263"
+        }
+      ],
+      "notes": "La convocatoria 2026 fue publicada oficialmente en el BOC de 30 de enero de 2026. La cuantía por persona procede de las bases reguladoras vigentes; la convocatoria anual fija el presupuesto global.",
+      "sources": [
+        {
+          "url": "https://www.cantabria.es/web/consejeria-de-desarrollo-rural-ganaderia-pesca-y-biodiversidad/detalle/-/journal_content/56_INSTANCE_DETALLE/16401/38164125",
+          "title": "Ayudas para el establecimiento de jóvenes y nuevos agricultores y agricultoras en Cantabria",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Ayudas para el establecimiento de jóvenes y nuevos agricultores y agricultoras en Cantabria.",
+            "A través de la aplicación específica de Gestión de Ayudas de Modernización (GAMO).",
+            "Tasa/Precio público:"
+          ]
+        },
+        {
+          "url": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=429103",
+          "title": "Extracto de la convocatoria 2026 de ayudas para el establecimiento de jóvenes y nuevos agricultores y agricultoras en Cantabria",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "por la que se convocan las ayudas para el establecimiento de jóvenes y nuevos agricultores y agricultoras en Cantabria en el año 2026.",
+            "El plazo de presentación de solicitudes comenzará al día siguiente de la publicación del extracto de la presente convocatoria en el Boletín Oficial de Cantabria, y finalizará en el plazo de dos meses desde la publicación del citado extracto."
+          ]
+        },
+        {
+          "url": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=407263",
+          "title": "Orden DES/23/2024, bases reguladoras de las ayudas de establecimiento",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "La ayuda comprenderá una prima básica de 20.000 euros a tanto alzado que se percibirá",
+            "La prima básica de 20.000 euros podrá incrementarse, conforme a alguno o varios de los siguientes elementos que serán acumulativos, sin que en ningún caso pueda superar los 50.000 €:",
+            "Haber cumplido los 18 años y no cumplir los 41 en el año natural",
+            "Cumplir los 41 años y tener menos de 56 años en el año natural"
+          ]
+        },
+        {
+          "url": "https://www.ugamcoag.org/convocatoria-2026-ayudas-para-jovenes-y-nuevos-agricultores-as-en-cantabria/",
+          "title": "Convocatoria 2026: ayudas para jóvenes y nuevos agricultores/as en Cantabria - UGAM-COAG",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Plazo de presentación: 30 de marzo.",
+            "En UGAM-COAG te orientamos en la elaboración del Plan Empresarial y la solicitud."
+          ]
+        },
+        {
+          "url": "https://www.cantabria.es/detalle/-/journal_content/56_INSTANCE_DETALLE/16401/93959538",
+          "title": "Convocatoria 2025 de ayudas para el establecimiento de jóvenes y nuevos agricultores y agricultoras en Cantabria",
+          "consultedOn": "2026-09-27",
+          "quotes": ["Fecha inicio plazo presentación:", "20/08/2025", "Fecha finalización plazo presentación:", "19/09/2025"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "cantabria-cifa-cursos-incorporacion-actividad-agraria",
+      "name": "Cursos de Incorporación a la Actividad Agraria 2026",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Centro de Investigación y Formación Agrarias (CIFA) / Dirección General de Desarrollo Rural",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Cursos oficiales de 150 horas de formación práctica y teórica para incorporarse a la actividad agraria, organizados por especialidades productivas. En 2026 se programaron convocatorias de primavera y otoño para vacuno, hortofruticultura y apicultura según la edición.",
+      "whoCanUseIt": "Personas mayores de 18 años, o mayores de 16 con autorización de sus progenitores o tutoría legal. Tienen preferencia las residentes en Cantabria y, entre ellas, quienes necesiten acreditar capacitación agraria para líneas de ayuda de la PAC ya solicitadas.",
+      "howToAccess": "Presentar el Anexo I antes del comienzo del curso en las Oficinas Comarcales Agrarias, el Registro General del Gobierno de Cantabria u otros registros admitidos. La convocatoria de otoño 2026 ya comenzó; consultar el CIFA para nuevas ediciones.",
+      "accessUrl": "https://www.cifacantabria.org/",
+      "trainingFormats": ["IN_PERSON"],
+      "accessCostType": "FREE",
+      "calls": [
+        {
+          "name": "Convocatoria otoño 2026",
+          "state": "CLOSED",
+          "sourceUrl": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=428486"
+        },
+        {
+          "name": "Convocatoria primavera 2026",
+          "state": "CLOSED",
+          "sourceUrl": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=428486"
+        }
+      ],
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR", "GENERAL"],
+      "lastEvidenceDate": "2026-09-08",
+      "metrics": [
+        {
+          "measure": "TRAINING_HOURS",
+          "label": "Carga lectiva del curso de incorporación",
+          "value": 150,
+          "unit": "HOURS",
+          "asOf": "2025-12-16",
+          "sourceUrl": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=428486"
+        }
+      ],
+      "notes": "La convocatoria de otoño ya comenzó. El plazo de solicitud termina el día anterior al comienzo de cada curso; por eso el programa sigue activo aunque esa matrícula esté cerrada.",
+      "sources": [
+        {
+          "url": "https://www.cifacantabria.org/",
+          "title": "Centro de Investigación y Formación Agrarias de Cantabria - CIFA",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "El CIFA, además de la labor investigadora es responsable de la formación agraria no reglada, lo que se proyecta en la realización de cursos de incorporación y formación continua agraria.",
+            "CONVOCATORIA CURSOS INCORPORACIÓN A LA ACTIVIDAD AGRARIA 2026"
+          ]
+        },
+        {
+          "url": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=428486",
+          "title": "Resolución de la convocatoria de Cursos de Incorporación a la Actividad Agraria, año 2026",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Resolución de la convocatoria de Cursos de Incorporación a la Actividad Agraria, año 2026.",
+            "Los cursos se programan por especialidades productivas, con una carga lectiva de 150 horas de enseñanza práctica y teórica, dividida en módulos que se pueden cursar de forma independiente.",
+            "El plazo de solicitud estará abierto desde el día siguiente de la publicación de esta convocatoria y hasta el día antes del comienzo del curso.",
+            "Pueden solicitar la participación en los cursos todas aquellas personas mayores de 18 años o las mayores de 16"
+          ]
+        },
+        {
+          "url": "https://www.ugamcoag.org/convocatoria-de-los-cursos-de-incorporacion-a-la-actividad-agraria-2026/",
+          "title": "Convocatoria de los Cursos de Incorporación a la Actividad Agraria 2026 - UGAM-COAG",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Los cursos son GRATUITOS y PRESENCIALES",
+            "La Consejería de Desarrollo Rural, Ganadería, Pesca y Alimentación del Gobierno de Cantabria ha publicado en el BOC del 16 de diciembre de 2025 la Convocatoria de los Cursos de Incorporación a la Actividad Agraria para el año 2026"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "cantabria-ugam-coag-orientacion-incorporacion",
+      "name": "Orientación de UGAM-COAG para la incorporación agraria",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "UGAM-COAG Cantabria",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Orientación para preparar el plan empresarial y tramitar la solicitud de las ayudas de establecimiento de jóvenes y nuevos agricultores en Cantabria.",
+      "whoCanUseIt": "Personas interesadas en incorporarse como jóvenes o nuevos agricultores y agricultoras en Cantabria y valorar o tramitar la ayuda autonómica de establecimiento.",
+      "howToAccess": "Contactar con UGAM-COAG a través de sus canales generales o de la información publicada junto a la convocatoria de establecimiento.",
+      "accessUrl": "https://www.ugamcoag.org/convocatoria-2026-ayudas-para-jovenes-y-nuevos-agricultores-as-en-cantabria/",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "UGAM-COAG Cantabria",
+          "value": "942 802 532",
+          "sourceUrl": "https://www.ugamcoag.org/convocatoria-2026-ayudas-para-jovenes-y-nuevos-agricultores-as-en-cantabria/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "UGAM-COAG Cantabria",
+          "value": "info@ugamcoag.org",
+          "sourceUrl": "https://www.ugamcoag.org/convocatoria-2026-ayudas-para-jovenes-y-nuevos-agricultores-as-en-cantabria/"
+        }
+      ],
+      "accessCostType": "UNKNOWN",
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-02-03",
+      "notes": "La página no indica si el servicio requiere afiliación ni si tiene coste; por ello se registra el coste como desconocido.",
+      "sources": [
+        {
+          "url": "https://www.ugamcoag.org/convocatoria-2026-ayudas-para-jovenes-y-nuevos-agricultores-as-en-cantabria/",
+          "title": "Convocatoria 2026: ayudas para jóvenes y nuevos agricultores/as en Cantabria - UGAM-COAG",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "En UGAM-COAG te orientamos en la elaboración del Plan Empresarial y la solicitud.",
+            "942 802 532",
+            "info@ugamcoag.org"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [
+    {
+      "id": "cantabria-2026-lanzamiento-programa-relevo-ganadero",
+      "date": "2026-07-24",
+      "type": "LAUNCH",
+      "headline": "Cantabria pone en marcha un Programa de Relevo Generacional Ganadero",
+      "summary": "El Gobierno presentó un programa piloto para conectar explotaciones ganaderas sin sucesión con jóvenes, con una futura bolsa de relevo, tutela pública y figura de ganadero tutor. La revisión no localizó una página pública de inscripción o alta en esa bolsa, por lo que todavía no se incorpora como recurso accionable.",
+      "sources": [
+        {
+          "url": "https://www.afca.es/post/cantabria-pone-en-marcha-el-primer-plan-de-relevo-generacional-ganadero-para-impulsar-la-continuidad",
+          "title": "Cantabria pone en marcha el primer plan de relevo generacional ganadero para impulsar la continuidad de las explotaciones",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "El Gobierno de Cantabria ha puesto en marcha el primer Programa de Relevo Generacional Ganadero para impulsar la continuidad de las explotaciones",
+            "La iniciativa, tutelada por el Gobierno regional, generará una bolsa de relevo abierta y dinámica para poner en contacto a profesionales en edad de jubilación con jóvenes interesados en incorporarse al sector"
+          ]
+        },
+        {
+          "url": "https://www.rtve.es/play/videos/telecantabria/telecantabria-24-07-26/17168105/",
+          "title": "Telecantabria - 24/07/26",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Cantabria ya cuenta con el primer programa de relevo generacional ganadero que evitará el cierre de explotaciones por falta de sucesión."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "limitations": [
+    "El Programa de Relevo Generacional Ganadero se presentó como programa ya puesto en marcha y existe un proyecto piloto, pero no se ha localizado una ruta pública de inscripción para ganaderos cedentes o aspirantes a la bolsa de relevo.",
+    "No se ha verificado un banco de tierras autonómico ni municipal actualmente operativo en Cantabria; las referencias históricas o propuestas de creación no se consideran prueba de servicio activo."
+  ]
+}

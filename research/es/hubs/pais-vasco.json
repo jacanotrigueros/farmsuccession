@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "HUB",
+    "country": "ES",
+    "hub": "pais-vasco"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-25",
+  "context": [
+    "El País Vasco agrupa tres territorios históricos que se investigan por separado; este brief recoge solo lo que las tres diputaciones forales, o el Gobierno Vasco, ofrecen como un mismo servicio en los tres.",
+    "Las páginas de www.gipuzkoa.eus y www.bizkaia.eus usan certificados de Izenpe: el control automático de fuentes las marca UNCHECKED porque Node.js no reconoce ninguna raíz de Izenpe. Se admiten con comprobación manual documentada cuando la cadena valida con el almacén del sistema; la copia de bizkaia.eus no valida porque omite el intermedio."
+  ],
+  "portals": [
+    {
+      "name": "Diputación Foral de Gipuzkoa",
+      "url": "https://www.gipuzkoa.eus/",
+      "what": "Notas y servicios de la diputación, incluidas las notas conjuntas de las tres diputaciones sobre relevo generacional."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "pais-vasco-relevo",
+      "kinds": ["SUCCESSION_SERVICE"],
+      "query": "Oficina de Intermediación Relevo Generacional Agrario diputaciones forales Álava Bizkaia Gipuzkoa"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "País Vasco / Euskadi relevo generacional agricultura ayudas incorporación banco tierras asesoramiento"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "País Vasco jóvenes agricultores ayudas"
+    }
+  ],
+  "leads": [
+    {
+      "id": "pais-vasco-oficina-intermediacion",
+      "name": "Oficina de Intermediación para el Relevo Generacional Agrario",
+      "url": "https://www.gipuzkoa.eus/es/-/hiru-foru-aldundiek-nekazaritzako-belaunaldien-erreleborako-bitartekaritza-bulegoa-aktibatu-dute",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "pais-vasco-oficina-intermediacion-relevo-generacional",
+      "reason": "Oficina única puesta en marcha conjuntamente por las tres diputaciones y operativa en los tres territorios; sustituye a las copias araba-alava-oficina-intermediacion-relevo-generacional, bizkaia-oficina-intermediacion-relevo-generacional, gipuzkoa-oficina-intermediacion-relevo-generacional. Comprobación manual el 21 de septiembre de 2026 por CLAUDE (claude-opus-5): la página se abrió con curl 8.5.0 y OpenSSL 3.0.13 con la verificación de certificados activada y el almacén del sistema (resultado de verificación 0, cadena válida hasta la raíz Izenpe.com, sin advertencias), HTTP 200 y sin redirección; en su texto están las ocho citas del recurso, que respaldan la puesta en marcha conjunta por las tres diputaciones, el funcionamiento en los tres territorios desde comienzos de 2026, las personas destinatarias (titulares inscritos en su registro foral y personas de entre 18 y 49 años), los servicios de asesoramiento y mediación y la fecha de la nota. El control automático la marca UNCHECKED porque Node.js no reconoce ninguna raíz de Izenpe; la copia de la nota en bizkaia.eus no se usó porque su cadena no valida (falta el intermedio). No es una revisión humana.",
+      "foundBy": "pais-vasco-relevo",
+      "checkedOn": "2026-09-21"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada de la capa del País Vasco: consolidada la oficina de intermediación que estaba copiada en los tres territorios, con comprobación manual de su fuente."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    }
+  ]
+}

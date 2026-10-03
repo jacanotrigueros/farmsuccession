@@ -1,0 +1,407 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "ES",
+  "region": "extremadura",
+  "officialName": "Extremadura",
+  "published": "2026-09-28",
+  "summary": "Extremadura mantiene abierta hasta final de 2026 la ayuda al establecimiento de jóvenes, combina BOTREX con un banco municipal operativo en Pinofranqueado y ofrece tramitación especializada para la incorporación; APAG publica además un curso de incorporación sin fechas 2026 ni homologación concreta verificadas. El presupuesto autonómico de 2026 anuncia una medida de relevo mediante acuerdos con titulares próximos a jubilarse, todavía sin una vía pública de acceso verificada.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Pasada 1.9.0 sobre incorporación, sucesión/cese, acceso a tierra, formación y asesoramiento. Se revalidaron la ayuda de jóvenes y BOTREX; se verificó el Banco de Tierras de Pinofranqueado, la oferta de formación y tramitación de APAG Extremadura ASAJA y la medida presupuestada de relevo con titulares en fase de jubilación. La agenda oficial de cursos sigue remitiendo a un portal HTTP y no se ha localizado aún un procedimiento de acceso para la nueva medida de relevo.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.juntaex.es/w/3632"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://bolsatierrasregadio.juntaex.es/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://bolsatierrasregadio.juntaex.es/funcionamiento"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.juntaex.es/w/5582"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.apagextremaduraasaja.es/formacion-cursos-agrarios.html"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.apagextremaduraasaja.es/tramitacion-ayudas-agricolas-extremadura.html"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://proyectoalquerias.es/banco-de-tierras/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.juntaex.es/w/20260528-el-consejo-de-gobierno-aprueba-el-proyecto-de-ley-de-presupuestos-para-2026-que-ascienden-a-8.854-millones-de-euros"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Extremadura ayuda sucesión cese jubilación explotación agraria acuerdos colaboración relevo generacional 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Extremadura banco de tierras municipal ayuntamiento diputación comarca 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Extremadura curso incorporación empresa agraria jóvenes agricultores 2026 homologación"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Extremadura organizaciones agrarias cooperativas asesoramiento incorporación jóvenes relevo 2026"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "es",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "extremadura-establecimiento-jovenes-agricultores",
+      "name": "Ayudas al establecimiento de jóvenes agricultores/as",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Junta de Extremadura",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ayuda a jóvenes que se establecen por primera vez como jefes de una explotación agraria prioritaria en Extremadura sobre la base de un plan empresarial. La prima básica es de 20.000 euros y puede alcanzar 70.000 euros mediante incrementos.",
+      "whoCanUseIt": "Personas físicas o jurídicas y explotaciones de titularidad compartida que reúnen las condiciones de joven agricultor, tienen la capacitación profesional adecuada y se establecen por primera vez en una explotación prioritaria.",
+      "howToAccess": "La solicitud se cumplimenta por Internet en el portal ARADO dentro de la convocatoria abierta hasta el 31 de diciembre de 2026.",
+      "accessUrl": "https://www.juntaex.es/w/3632",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "calls": [
+        {
+          "name": "Convocatoria del Decreto 169/2024",
+          "state": "OPEN",
+          "opens": "2025-01-22",
+          "closes": "2026-12-31",
+          "sourceUrl": "https://www.juntaex.es/w/3632"
+        }
+      ],
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER"],
+      "lastEvidenceDate": "2026-07-30",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima básica de establecimiento",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2026-07-30",
+          "sourceUrl": "https://www.juntaex.es/w/3632"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Ayuda máxima de establecimiento",
+          "value": 70000,
+          "unit": "EUR",
+          "asOf": "2026-07-30",
+          "sourceUrl": "https://www.juntaex.es/w/3632"
+        },
+        {
+          "measure": "BUDGET_TOTAL",
+          "label": "Financiación total de la convocatoria",
+          "value": 35000000,
+          "unit": "EUR",
+          "asOf": "2026-07-30",
+          "sourceUrl": "https://www.juntaex.es/w/3632"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.juntaex.es/w/3632",
+          "title": "Ayudas al establecimiento de jóvenes agricultores/as - Juntaex.es",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Desde: 22/01/2025 Hasta: 31/12/2026",
+            "La cuantía de la prima básica se establece en 20.000 €.",
+            "resultando un máximo de 70.000 € de ayuda"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "extremadura-bolsa-tierras-regadio-botrex",
+      "name": "Bolsa de Tierras de Regadío de Extremadura (BOTREX)",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Seis zonas regables oficiales de las provincias de Cáceres y Badajoz"
+      },
+      "operator": "Junta de Extremadura",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Pone en contacto a titulares de parcelas de regadío interesados en arrendarlas o venderlas con personas interesadas en explotarlas. Publica ofertas y demandas, facilita formularios de alta y ofrece asesoramiento jurídico gratuito al formalizar arrendamientos o compraventas.",
+      "whoCanUseIt": "Propietarios o titulares de fincas en las zonas regables incluidas y personas demandantes de tierras de regadío en arrendamiento o compra.",
+      "howToAccess": "Inscribirse como ofertante o demandante mediante los modelos publicados por BOTREX y consultar las ofertas y demandas en la web y su visor.",
+      "accessUrl": "https://bolsatierrasregadio.juntaex.es/",
+      "assetTypes": ["PLOTS"],
+      "languages": ["es"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER"],
+      "notes": "La bolsa se circunscribe a Casas de Don Antonio, Valdecañas, Margen derecha del río Salor, Olivenza, Jerez de los Caballeros y Zalamea.",
+      "sources": [
+        {
+          "url": "https://bolsatierrasregadio.juntaex.es/",
+          "title": "Inicio - Bolsa de Tierras de Regadío de Extremadura",
+          "consultedOn": "2026-09-28",
+          "quotes": ["creada para facilitar el encuentro entre quienes deseen ofrecer sus tierras en arrendamiento o venta"]
+        },
+        {
+          "url": "https://bolsatierrasregadio.juntaex.es/funcionamiento",
+          "title": "Funcionamiento de la Bolsa de Tierras de Regadío de Extremadura",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Se ofrece gratuitamente asesoramiento jurídico por la Bolsa de Tierras de Regadío",
+            "Tanto los/las ofertantes como los/las demandantes, para ver sus ofertas y demandas publicadas, deberán inscribirse en la BOTREX."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "extremadura-banco-tierras-pinofranqueado",
+      "name": "Banco de Tierras del Proyecto Alquerías",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Término municipal de Pinofranqueado y sus alquerías"
+      },
+      "operator": "Ayuntamiento de Pinofranqueado — Proyecto Alquerías",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Intermedia entre propietarios de fincas en desuso y personas, familias o emprendedores que buscan tierra en Pinofranqueado. Mantiene un listado público de parcelas disponibles y ofrece apoyo técnico para ordenar y formalizar los acuerdos.",
+      "whoCanUseIt": "Propietarios particulares y personas, familias, nuevos pobladores o emprendedores interesados en proyectos agrícolas, ganaderos o forestales en el municipio.",
+      "howToAccess": "Ofrecer una parcela o inscribirse como demandante a través del Proyecto Alquerías; la página del banco permite consultar las fincas disponibles y sus condiciones.",
+      "accessUrl": "https://proyectoalquerias.es/banco-de-tierras/",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Proyecto Alquerías — Banco de Tierras",
+          "value": "proyectoalquerias@pinofranqueado.es",
+          "sourceUrl": "https://proyectoalquerias.es/banco-de-tierras/"
+        }
+      ],
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "LIVESTOCK", "FORESTRY"],
+      "languages": ["es"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-01-29",
+      "sources": [
+        {
+          "url": "https://proyectoalquerias.es/banco-de-tierras/",
+          "title": "Banco de tierras - Proyecto Alquerías",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "conectar a propietarios que no pueden atender sus parcelas con personas, familias o emprendedores",
+            "proyectoalquerias@pinofranqueado.es"
+          ]
+        },
+        {
+          "url": "https://proyectoalquerias.es/",
+          "title": "Proyecto Alquerías",
+          "consultedOn": "2026-09-28",
+          "quotes": ["estrategia municipal de innovación territorial impulsada por el Ayuntamiento de Pinofranqueado"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "extremadura-relevo-acuerdos-jubilacion",
+      "name": "Asesoramiento para la conciliación y jubilación en el sector agrario",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Junta de Extremadura",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Medida incluida en los presupuestos autonómicos de 2026 con 7 millones de euros para apoyar el relevo generacional mediante acuerdos de colaboración con titulares de explotaciones que se aproximan a la jubilación.",
+      "whoCanUseIt": "El anuncio identifica como partes a personas que se incorporan al sector agrario y a titulares de explotaciones próximos a jubilarse; todavía no publica requisitos de participación.",
+      "howToAccess": "A 28 de septiembre de 2026 no se ha localizado una convocatoria, formulario o página de servicio que permita solicitar esta medida.",
+      "accessUrl": "https://www.juntaex.es/w/20260528-el-consejo-de-gobierno-aprueba-el-proyecto-de-ley-de-presupuestos-para-2026-que-ascienden-a-8.854-millones-de-euros",
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR"],
+      "lastEvidenceDate": "2026-06-09",
+      "metrics": [
+        {
+          "measure": "BUDGET_TOTAL",
+          "label": "Partida anunciada para el relevo generacional agrario",
+          "value": 7000000,
+          "unit": "EUR",
+          "asOf": "2026-06-09",
+          "sourceUrl": "https://www.juntaex.es/es/w/20260609-manzano-recrimina-al-psoe-que-su-enmienda-es-una-confirmacion-a-la-totalidad-del-presupuesto-de-2026"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.juntaex.es/w/20260528-el-consejo-de-gobierno-aprueba-el-proyecto-de-ley-de-presupuestos-para-2026-que-ascienden-a-8.854-millones-de-euros",
+          "title": "El Consejo de Gobierno aprueba el proyecto de ley de presupuestos para 2026 - Juntaex.es",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "partida de 7 millones de euros para el apoyo al relevo generacional",
+            "mediante acuerdos de colaboración con titulares de explotaciones que se van a jubilar"
+          ]
+        },
+        {
+          "url": "https://www.juntaex.es/es/w/20260609-manzano-recrimina-al-psoe-que-su-enmienda-es-una-confirmacion-a-la-totalidad-del-presupuesto-de-2026",
+          "title": "Presupuesto de 2026 y relevo generacional agrario - Juntaex.es",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "incluida en el Presupuesto de 2026 con 7 millones de euros",
+            "titulares de explotaciones que estén en fase de jubilación"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "extremadura-curso-incorporacion-apag",
+      "name": "Curso de Incorporación de jóvenes agricultores en la empresa agraria — APAG Extremadura ASAJA",
+      "kind": "TRAINING",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "APAG Extremadura ASAJA",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "APAG Extremadura ASAJA incluye en su plan de formación un curso de incorporación de jóvenes agricultores en la empresa agraria. La Junta mantiene abierto durante todo el año el procedimiento de homologación de estos cursos.",
+      "whoCanUseIt": "Personas jóvenes que necesitan formación para incorporarse a la actividad agraria. La ayuda autonómica de establecimiento admite el certificado de aprovechamiento de un curso de incorporación como prueba de capacitación profesional.",
+      "howToAccess": "Solicitar información a APAG Extremadura ASAJA desde su página de formación. La página no publica fechas de una edición 2026 ni acredita por sí sola la homologación de una edición concreta, por lo que conviene confirmarlas antes de matricularse.",
+      "accessUrl": "https://www.apagextremaduraasaja.es/formacion-cursos-agrarios.html",
+      "accessCostType": "UNKNOWN",
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.apagextremaduraasaja.es/formacion-cursos-agrarios.html",
+          "title": "Plan de Formación APAG Extremadura ASAJA",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Nuestro Plan de Formación incluye cursos y jornadas.",
+            "Curso de Incorporación de jóvenes agricultores en la empresa agraria"
+          ]
+        },
+        {
+          "url": "https://www.juntaex.es/w/5582",
+          "title": "Homologación de cursos de incorporación a la empresa agraria - Juntaex.es",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Solicitar la homologación de los cursos de incorporación a la empresa agraria.", "Durante todo el año"]
+        },
+        {
+          "url": "https://www.juntaex.es/w/3632",
+          "title": "Ayudas al establecimiento de jóvenes agricultores/as - Juntaex.es",
+          "consultedOn": "2026-09-28",
+          "quotes": ["copia auténtica del certificado de aprovechamiento del curso de incorporación a la empresa agraria"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "extremadura-apag-tramitacion-jovenes",
+      "name": "Tramitación de instalación de jóvenes agricultores — APAG Extremadura ASAJA",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "APAG Extremadura ASAJA",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Servicio de tramitación de ayudas a explotaciones agrarias que incluye expresamente la instalación de jóvenes agricultores, además de planes de mejora y otras ayudas agrarias.",
+      "whoCanUseIt": "Agricultores y ganaderos que soliciten a APAG Extremadura ASAJA apoyo para tramitar ayudas; la página no publica requisitos de afiliación ni tarifas del servicio.",
+      "howToAccess": "Contactar con APAG Extremadura ASAJA a través de su página de tramitación de ayudas u oficinas para solicitar apoyo con el expediente de instalación.",
+      "accessUrl": "https://www.apagextremaduraasaja.es/tramitacion-ayudas-agricolas-extremadura.html",
+      "accessCostType": "UNKNOWN",
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.apagextremaduraasaja.es/tramitacion-ayudas-agricolas-extremadura.html",
+          "title": "Tramitación Ayudas - APAG Extremadura ASAJA",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Gestionamos la tramitación de las ayudas a las explotaciones agrarias.", "Instalación de Jóvenes Agricultores"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [
+    {
+      "id": "extremadura-2026-relevo-acuerdos-jubilacion-anuncio",
+      "date": "2026-05-28",
+      "type": "ANNOUNCEMENT",
+      "headline": "Extremadura anuncia 7 millones para relevo agrario mediante acuerdos con titulares próximos a jubilarse",
+      "summary": "El proyecto de presupuestos autonómicos de 2026 anunció una partida de 7 millones de euros para apoyar incorporaciones al sector agrario mediante acuerdos de colaboración con titulares de explotaciones que van a jubilarse. No se ha verificado todavía un canal de solicitud.",
+      "resourceIds": ["extremadura-relevo-acuerdos-jubilacion"],
+      "sources": [
+        {
+          "url": "https://www.juntaex.es/w/20260528-el-consejo-de-gobierno-aprueba-el-proyecto-de-ley-de-presupuestos-para-2026-que-ascienden-a-8.854-millones-de-euros",
+          "title": "El Consejo de Gobierno aprueba el proyecto de ley de presupuestos para 2026 - Juntaex.es",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "partida de 7 millones de euros para el apoyo al relevo generacional",
+            "mediante acuerdos de colaboración con titulares de explotaciones que se van a jubilar"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "extremadura-2026-banco-tierras-pinofranqueado-lanzamiento",
+      "date": "2026-01-29",
+      "type": "LAUNCH",
+      "headline": "El Proyecto Alquerías activa el Banco de Tierras de Pinofranqueado",
+      "summary": "El proyecto municipal anunció la activación de un banco de tierras para identificar fincas agrícolas y forestales sin uso y conectar a propietarios con personas o proyectos que necesitan acceso a tierra.",
+      "resourceIds": ["extremadura-banco-tierras-pinofranqueado"],
+      "sources": [
+        {
+          "url": "https://proyectoalquerias.es/activacion-de-bancos-de-tierras-pinofranqueado/",
+          "title": "Activación de BANCOS DE TIERRAS - Pinofranqueado - Proyecto Alquerías",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "anunciar la activación del Banco de Tierras de Pinofranqueado",
+            "identificar y registrar tierras agrícolas y forestales sin uso o abandonadas"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "limitations": [
+    "La nueva medida autonómica de relevo generacional agrario dispone de una partida anunciada de 7 millones de euros y prevé acuerdos con titulares próximos a jubilarse, pero todavía no se ha localizado una convocatoria, formulario, bases específicas o canal de acceso; se muestra como «Anunciado, todavía no operativo».",
+    "La página de formación de APAG Extremadura ASAJA anuncia el curso de incorporación, pero no publica fechas de una edición 2026 ni una resolución de homologación concreta. La Junta mantiene el marco de homologación vigente y remite la agenda de cursos a rurex-formacion.gobex.es, que sigue enlazado por HTTP.",
+    "BOTREX continúa limitado a seis zonas regables. No se ha usado un recuento de sus ofertas porque no se verificó de forma fiable el número actual de anuncios.",
+    "El Banco de Tierras de Pinofranqueado es un recurso local y no implica que exista un banco municipal equivalente en el resto de Extremadura.",
+    "La ayuda 2026 al relevo generacional de empresas familiares de la Consejería de Economía no se incluye porque excluye la producción primaria de productos agrícolas.",
+    "Cooperativas Agro-alimentarias Extremadura declaró como prioridad para 2026 desarrollar bancos de tierras vinculados a jóvenes, pero no se ha localizado una vía pública de inscripción, inventario o intermediación que demuestre un servicio operativo."
+  ]
+}

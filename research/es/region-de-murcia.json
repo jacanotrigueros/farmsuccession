@@ -1,0 +1,273 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "region-de-murcia"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Comunidad uniprovincial: por debajo del nivel regional hay municipios, mancomunidades y grupos LEADER; los bancos de tierras confirmados en esta revisión son municipales.",
+    "La sede electrónica CARM es la fuente más estable para la ayuda de primera instalación; la convocatoria 2026 figura cerrada del 8 de marzo al 28 de mayo, con módulo básico de 27.500 euros y máximo de 67.000 euros.",
+    "Los CIFEA constituyen la red pública de formación agroalimentaria regional; sus páginas oficiales describen acciones orientadas a la incorporación al sector, especialmente de agricultores jóvenes.",
+    "Varios municipios aprobaron en años anteriores ordenanzas de bancos de tierras. La norma por sí sola no demuestra funcionamiento: solo Murcia y Molina de Segura se mantienen admitidos con rutas actuales verificadas.",
+    "Las jornadas informativas organizadas en 2026 por la CARM para explicar ayudas de incorporación ofrecen orientación puntual, pero se tratan como eventos y no como servicios permanentes de asesoramiento."
+  ],
+  "portals": [
+    {
+      "name": "Sede electrónica CARM - jóvenes agricultores",
+      "url": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288",
+      "what": "Convocatorias, requisitos, importes y tramitación de primera instalación."
+    },
+    {
+      "name": "Banco de Tierras del Ayuntamiento de Murcia",
+      "url": "https://www.murcia.es/web/urbanismo/banco-de-tierras",
+      "what": "Normativa y modelos actuales de alta e intermediación."
+    },
+    {
+      "name": "Banco de Tierras de Molina de Segura",
+      "url": "https://medioambiente.molinadesegura.es/banco-de-tierras/",
+      "what": "Registro municipal, inscripción y consulta de parcelas."
+    },
+    {
+      "name": "CIFEA Jumilla",
+      "url": "https://www.carm.es/web/pagina?IDCONTENIDO=1539&IDTIPO=221&RASTRO=c2889%24m58554%2C59787",
+      "what": "Objetivos y oferta de la red pública de formación agraria."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "murcia-ordinances",
+      "kinds": ["LAND_BANK"],
+      "query": "\"banco de tierras\" ordenanza OR reglamento ayuntamiento Región de Murcia BORM"
+    },
+    {
+      "id": "murcia-training-cifea",
+      "kinds": ["TRAINING"],
+      "query": "CIFEA Jumilla OR CIFEA Molina curso incorporación empresa agraria 2026"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Región de Murcia\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Región de Murcia jóvenes agricultores ayudas"
+    },
+    {
+      "id": "murcia-sucesion-2026",
+      "kinds": ["SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "query": "Región de Murcia sucesión cese explotación agraria relevo generacional 2026"
+    },
+    {
+      "id": "murcia-organizaciones-2026",
+      "kinds": ["ADVICE"],
+      "query": "Murcia COAG ASAJA UPA asesoramiento incorporación jóvenes agricultores relevo 2026"
+    },
+    {
+      "id": "murcia-bancos-locales-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "Murcia bancos de tierras Ceutí Bullas Cehegín 2026 ayuntamiento"
+    }
+  ],
+  "leads": [
+    {
+      "id": "murcia-creacion-empresas-jovenes-agricultores",
+      "name": "Ayudas a la creación de empresas agrarias por jóvenes agricultores",
+      "url": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "murcia-creacion-empresas-jovenes-agricultores",
+      "reason": "Revalidada directamente en la sede CARM: convocatoria 2026 cerrada, del 8 de marzo al 28 de mayo, con módulo básico de 27.500 euros y máximo de 67.000 euros.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "prepublication-2026-09-25-2"
+    },
+    {
+      "id": "murcia-banco-tierras-huerta",
+      "name": "Banco de Tierras para la Huerta de Murcia",
+      "url": "https://www.murcia.es/web/urbanismo/banco-de-tierras",
+      "kind": "LAND_BANK",
+      "area": "Murcia",
+      "status": "ADMITTED",
+      "resourceId": "murcia-banco-tierras-huerta",
+      "reason": "El portal municipal sigue publicando los modelos de alta de arrendador/arrendatario y el encargo de intermediación, por lo que se mantiene como servicio operativo.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "murcia-bancos-locales-2026"
+    },
+    {
+      "id": "molina-de-segura-banco-tierras",
+      "name": "Banco de Tierras de Molina de Segura",
+      "url": "https://medioambiente.molinadesegura.es/banco-de-tierras/",
+      "kind": "LAND_BANK",
+      "area": "Molina de Segura",
+      "status": "ADMITTED",
+      "resourceId": "molina-de-segura-banco-tierras",
+      "reason": "Página municipal actual con registro público, inscripción de parcelas, consulta por demandantes y comunicación a propietarios para facilitar el contacto.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "murcia-bancos-locales-2026"
+    },
+    {
+      "id": "ceuti-banco-tierras",
+      "name": "Banco de Tierras Agrícolas de Ceutí",
+      "url": "https://www.aranzadilaley.es/ordenanzas-municipales/documento.php?d=LE0000572488_20160428.HTML",
+      "kind": "LAND_BANK",
+      "area": "Ceutí",
+      "status": "REJECTED",
+      "reason": "Ordenanza histórica sin una ruta municipal actual verificada que demuestre funcionamiento operativo en 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "murcia-bancos-locales-2026"
+    },
+    {
+      "id": "bullas-banco-tierras",
+      "name": "Banco de tierras de Bullas",
+      "url": "https://www.aranzadilaley.es/ordenanzas-municipales/documento.php?d=LE0000615929_20180322.HTML",
+      "kind": "LAND_BANK",
+      "area": "Bullas",
+      "status": "REJECTED",
+      "reason": "Reglamento histórico sin una ruta municipal actual verificada que demuestre funcionamiento operativo en 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "murcia-bancos-locales-2026"
+    },
+    {
+      "id": "cehegin-banco-tierras",
+      "name": "Banco de Tierras Agrícolas de Cehegín",
+      "url": "https://www.borm.es/services/anuncio/ano/2018/numero/2721/pdf?id=767174",
+      "kind": "LAND_BANK",
+      "area": "Cehegín",
+      "status": "REJECTED",
+      "reason": "Ordenanza histórica sin una ruta municipal actual verificada que demuestre funcionamiento operativo en 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "murcia-bancos-locales-2026"
+    },
+    {
+      "id": "murcia-carm-intervencion-jovenes",
+      "name": "Página de la intervención de jóvenes en carm.es",
+      "url": "https://www.carm.es/web/pagina?IDCONTENIDO=72762&IDTIPO=100&RASTRO=c3292%24m",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Mismo instrumento que el procedimiento 3125 de sede CARM; no se duplica el recurso.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "prepublication-2026-09-25-2"
+    },
+    {
+      "id": "murcia-carm-catalogo-formacion",
+      "name": "Catálogo de acciones formativas de la CARM",
+      "url": "https://www.carm.es/web/pagina?IDCONTENIDO=58769&IDTIPO=100&RASTRO=c2889%24m58245",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "El catálogo no es por sí mismo un recurso distinto; la formación orientada a incorporación se documenta mediante la red CIFEA y sus páginas oficiales.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "murcia-training-cifea"
+    },
+    {
+      "id": "murcia-coag-formacion",
+      "name": "Programa de formación para el sector agrario de COAG-IR Murcia",
+      "url": "https://coagirmurcia.org/programa-de-formacion-para-el-sector-agrario/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Formación sectorial general; no demuestra una prestación específicamente dedicada a incorporación, primera instalación, sucesión o relevo.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "murcia-organizaciones-2026"
+    },
+    {
+      "id": "murcia-cifea-jumilla",
+      "name": "Centros Integrados de Formación y Experiencias Agrarias (CIFEA)",
+      "url": "https://www.carm.es/web/pagina?IDCONTENIDO=1539&IDTIPO=221&RASTRO=c2889%24m58554%2C59787",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "murcia-cifea-formacion-incorporacion",
+      "reason": "La página oficial describe acciones formativas orientadas a la incorporación al sector agrario, especialmente para agricultores jóvenes; fuentes CARM de 2026 confirman continuidad de la red y su orientación al relevo generacional.",
+      "foundBy": "murcia-training-cifea",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "murcia-carm-jornadas-incorporacion-2026",
+      "name": "Jornadas informativas para jóvenes agricultores 2026",
+      "url": "https://www.carm.es/web/pagina?IDCONTENIDO=128272&IDTIPO=10&RASTRO=c$m",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Sesiones informativas puntuales organizadas por la CARM para explicar las ayudas de incorporación; no constituyen un servicio permanente de asesoramiento distinto de los recursos ya documentados.",
+      "foundBy": "murcia-organizaciones-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "murcia-asaja-incorporacion",
+      "name": "Asesoramiento de incorporación de ASAJA Murcia",
+      "url": "https://www.asajamurcia.com/servicios/asesoramiento/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Se localizaron referencias a asesoramiento e incorporación, pero la evidencia accesible es histórica o no permite fechar una prestación específica en 2026 con una ruta actual suficientemente demostrada.",
+      "foundBy": "murcia-organizaciones-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "murcia-creacion-empresas-jovenes-agricultores",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "NOT_FOUND",
+      "reason": "Se buscaron medidas regionales de sucesión, cese, transmisión y relevo; no se verificó una ayuda o servicio específicamente dirigido a la cesión o transmisión de explotaciones en la Región de Murcia.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "murcia-banco-tierras-huerta",
+      "reason": "No se verificó un banco regional, pero existen mecanismos municipales operativos en Murcia y Molina de Segura.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "FOUND",
+      "leadId": "murcia-cifea-jumilla",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "NOT_FOUND",
+      "reason": "Se revisaron organizaciones agrarias y resultados de 2026. No se verificó un servicio permanente de una organización agraria o cooperativa específicamente dedicado a incorporación o relevo con una ruta actual demostrada.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada: ayuda regional a jóvenes con su convocatoria 2026 y bancos de tierras municipales de Murcia y Molina de Segura; ordenanzas de Ceutí, Bullas y Cehegín descartadas por no mostrar servicio. Tres recursos y una noticia."
+    },
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Resuelta la pista del catálogo de formación: catálogo descartado por bloqueo antibots y CIFEA admitidos con su página oficial."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Pasada con el checklist nacional sobre el fichero existente: respondidos los cinco instrumentos esperados; sin ayuda a la sucesión ni servicio de organizaciones."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: consultas de discovery ejecutadas sin actualizar la edición; quedaba pendiente la revisión completa de familias y candidatos."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revisión regional 1.9.0 completa: ayuda 2026 revalidada en sede CARM; bancos de Murcia y Molina de Segura revalidados; CIFEA actualizado con evidencia de 2026; ordenanzas históricas y sesiones puntuales no promovidas a recursos operativos; sin sucesión/cese ni asesoramiento específico permanente verificado."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: la página del Banco de Tierras de Molina de Segura cambió su redacción y sus citas se toman del texto actual; la nota de prensa de 2026 sobre el CIFEA de Torre Pacheco ya no existe (404) y se retira, porque la página del CIFEA de Jumilla sostiene sola el recurso."
+    }
+  ]
+}

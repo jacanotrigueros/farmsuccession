@@ -1,0 +1,254 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "tenerife"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Las ayudas a jóvenes agricultores y la formación común de las Escuelas de Capacitación Agraria son del Gobierno de Canarias y se documentan en la capa de Canarias; Tenerife añade recursos insulares y municipales.",
+    "El Banco de Tierras de Tenerife forma parte del Plan de Medianías del Cabildo y lo gestiona Gesplan; su página actual incluye un visor con fincas inscritas y asesoramiento a propietarios y demandantes.",
+    "San Cristóbal de La Laguna mantiene un Banco de Tierras municipal distinto, con plataforma propia de oferta/demanda, mediación y acompañamiento de nuevos proyectos agroecológicos.",
+    "La Escuela de Capacitación Agraria de Tacoronte publica su oferta presencial 2026 para personas que quieren incorporarse a la empresa agraria.",
+    "Los Premios Agrojoven del Cabildo tuvieron convocatoria específica en 2026 y persiguen el relevo generacional y la incorporación de nuevos perfiles; el acompañamiento técnico histórico del programa no se modela como recurso separado sin evidencia fechada suficiente de esa prestación en 2026."
+  ],
+  "portals": [
+    {
+      "name": "Sede electrónica del Gobierno de Canarias",
+      "url": "https://sede.gobiernodecanarias.org/sede/",
+      "what": "Ayudas agrarias y procedimientos comunes de Canarias."
+    },
+    {
+      "name": "Plan de Medianías - Banco de Tierras de Tenerife",
+      "url": "https://tenerifebiodiversa.es/medianias/proyecto-medianias/banco-de-tierras/",
+      "what": "Banco insular, visor de tierras y acompañamiento."
+    },
+    {
+      "name": "Banco de Tierras de La Laguna",
+      "url": "https://www.aytolalaguna.es/servicios/desarrollo-rural-agrario-ganadero-y-pesca/Banco-de-Tierras/",
+      "what": "Servicio municipal de acceso a tierra, oferta/demanda, mediación y seguimiento."
+    },
+    {
+      "name": "AgroCabildo - Agrojoven",
+      "url": "https://www.agrocabildo.org/desarrollo_agrojoven.asp",
+      "what": "Programa y premios dirigidos a iniciativas jóvenes del medio rural."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "tfe-jovenes",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Gobierno de Canarias ayudas creación empresas jóvenes agricultores convocatoria 2026 sede"
+    },
+    {
+      "id": "tfe-formacion",
+      "kinds": ["TRAINING"],
+      "query": "Canarias curso incorporación a la empresa agraria jóvenes agricultores Consejería Agricultura formación agraria"
+    },
+    {
+      "id": "tfe-tierras",
+      "kinds": ["LAND_BANK"],
+      "query": "Cabildo de Tenerife banco de tierras Gesplan fincas en desuso Plan de Medianías"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Tenerife\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Tenerife jóvenes agricultores ayudas"
+    },
+    {
+      "id": "tfe-agrojoven-2026",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "Tenerife AGROJOVEN 2026 Cabildo agricultura"
+    },
+    {
+      "id": "tfe-sucesion-2026",
+      "kinds": ["SUCCESSION_SERVICE"],
+      "query": "Tenerife relevo generacional agricultura sucesión cese explotación 2026"
+    },
+    {
+      "id": "tfe-organizaciones-2026",
+      "kinds": ["ADVICE"],
+      "query": "Tenerife ASAGA COAG UPA asesoramiento incorporación jóvenes agricultores relevo"
+    }
+  ],
+  "leads": [
+    {
+      "id": "tfe-canarias-jovenes",
+      "name": "Subvenciones para el establecimiento de personas jóvenes agricultoras",
+      "url": "https://sede.gobiernodecanarias.org/sede/tramites/9277",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "canarias-establecimiento-jovenes-agricultoras",
+      "reason": "Instrumento común a todas las islas, documentado una sola vez en la capa de Canarias y heredado por Tenerife.",
+      "foundBy": "tfe-jovenes",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tfe-eca-cursos",
+      "name": "Cursos presenciales de la Escuela de Capacitación Agraria de Tacoronte",
+      "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/centros/eca-tacoronte/ensenanzas/",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "tenerife-cursos-incorporacion-escuelas-capacitacion-agraria",
+      "reason": "Oferta presencial 2026 propia de la escuela de Tacoronte; la programación común y modalidad en línea se documentan en Canarias.",
+      "foundBy": "tfe-formacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tfe-banco-tierras",
+      "name": "Banco de Tierras de Tenerife",
+      "url": "https://tenerifebiodiversa.es/medianias/proyecto-medianias/banco-de-tierras/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "tenerife-banco-tierras",
+      "reason": "Página actual del Cabildo/Gesplan con visor de fincas inscritas, intermedación y acompañamiento a propietarios y demandantes.",
+      "foundBy": "tfe-tierras",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tfe-curso-online-instalacion",
+      "name": "Curso en línea «Conocimientos Básicos para la Instalación en una Explotación Agraria»",
+      "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/centros/eca-tacoronte/ensenanzas/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Edición anterior terminada en 2023; la oferta vigente se documenta en la capa de Canarias.",
+      "foundBy": "tfe-formacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tfe-curso-establecimiento-jovenes",
+      "name": "Curso en línea de conocimientos básicos para el establecimiento de personas jóvenes agricultoras",
+      "url": "https://sede.gobiernodecanarias.org/sede/procedimientos_servicios/tramites/9378",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "canarias-formacion-escuelas-capacitacion-agraria",
+      "reason": "Programación común de las escuelas, documentada una sola vez en la capa de Canarias.",
+      "foundBy": "tfe-formacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tenerife-lalaguna-banco-tierras",
+      "name": "Banco de Tierras de San Cristóbal de La Laguna",
+      "kind": "LAND_BANK",
+      "url": "https://www.aytolalaguna.es/servicios/desarrollo-rural-agrario-ganadero-y-pesca/Banco-de-Tierras/",
+      "status": "ADMITTED",
+      "resourceId": "tenerife-la-laguna-banco-tierras",
+      "reason": "Resuelto el TO_CHECK: es un servicio municipal distinto con plataforma propia, oferta/demanda, mediación y acompañamiento técnico; no es una mera réplica informativa del banco insular.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "prepublication-2026-09-25-1"
+    },
+    {
+      "id": "tfe-premios-agrojoven-2026",
+      "name": "Premios Agrojoven 2026",
+      "kind": "FINANCIAL_SUPPORT",
+      "url": "https://www.agrocabildo.org/desarrollo_agrojoven.asp",
+      "status": "ADMITTED",
+      "resourceId": "tenerife-premios-agrojoven",
+      "reason": "El Cabildo publicó convocatoria 2026, cerrada el 8 de abril. Los premios se dirigen a jóvenes con ideas o iniciativas empresariales del medio rural y su objetivo explícito incluye relevo generacional e incorporación de nuevos perfiles.",
+      "foundBy": "tfe-agrojoven-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tfe-agrojoven-acompanamiento",
+      "name": "Acompañamiento técnico inicial del programa Agrojoven",
+      "kind": "ADVICE",
+      "url": "https://www.agrocabildo.org/desarrollo_agrojoven.asp",
+      "status": "REJECTED",
+      "reason": "La página describe que el Servicio ha venido desarrollando acompañamiento técnico inicial, pero no ofrece una ruta o evidencia fechada suficiente para modelarlo como servicio independiente vigente en 2026. El componente verificable de 2026 se recoge en Premios Agrojoven.",
+      "foundBy": "tfe-agrojoven-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tfe-sembrando-futuro-2026",
+      "name": "Encuentro de Jóvenes Agroganaderos Sembrando Futuro",
+      "kind": "ADVICE",
+      "url": "https://www.tenerife.es/w/el-cabildo-respalda-el-relevo-generacional-con-una-inversi%C3%B3n-de-5-1-millones-en-el-fomento-de-la-ganader%C3%ADa-en-2026",
+      "status": "REJECTED",
+      "reason": "Encuentro puntual organizado por ASAGA con administraciones para debatir relevo generacional; no demuestra un servicio continuado de asesoramiento o incorporación.",
+      "foundBy": "tfe-organizaciones-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "checkedOn": "2026-09-28",
+      "status": "FOUND",
+      "leadId": "tfe-canarias-jovenes"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "checkedOn": "2026-09-28",
+      "status": "NOT_FOUND",
+      "reason": "Se buscaron ayudas y servicios de sucesión/cese y relevo; se encontraron instrumentos dirigidos a entrantes y eventos de relevo, pero no un servicio actual para titulares salientes o matching de explotaciones completas."
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "checkedOn": "2026-09-28",
+      "status": "FOUND",
+      "leadId": "tfe-banco-tierras"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "checkedOn": "2026-09-28",
+      "status": "FOUND",
+      "leadId": "tfe-eca-cursos"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "checkedOn": "2026-09-28",
+      "status": "NOT_FOUND",
+      "reason": "Se revisó ASAGA y el encuentro Sembrando Futuro; no se verificó un servicio permanente de una organización agraria o cooperativa específicamente dedicado a incorporación o relevo con ruta de acceso propia."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada con el checklist nacional: admitidas la subvención canaria a jóvenes, los cursos de las Escuelas de Capacitación Agraria y el Banco de Tierras de Tenerife."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Corrección tras auditoría: retirado de la oferta vigente el curso en línea que terminó en 2023 y citada la escuela de la isla con su oferta de 2026."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Corrección de la formación: añadido el curso vigente de conocimientos básicos para el establecimiento (procedimiento 9378) y cerrado como rechazado el curso de 2023."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Consolidación en la capa de Canarias: el recurso tenerife-establecimiento-jovenes-agricultoras-canarias pasa a ser canarias-establecimiento-jovenes-agricultoras, común a todas las islas; esta isla lo hereda."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Formación: el recurso de la isla queda como oferta presencial de la escuela de Tacoronte; la programación común en línea y el curso 9378 pasan a Canarias."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revisión regional 1.9.0 completa: revalidados Banco de Tierras insular y formación de Tacoronte; admitidos el Banco de Tierras municipal de La Laguna y Premios Agrojoven 2026; no se verificó servicio separado de sucesión/cese ni asesoramiento permanente específico de organización agraria/cooperativa."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: la convocatoria 2026 de los Premios Agrojoven se citaba desde una página de resultados paginada (start=169) cuyo contenido cambia; ahora se cita la búsqueda filtrada por «agrojoven», que muestra la convocatoria con su plazo cerrado. La ficha de la sede electrónica se genera con JavaScript y la verificación automática no puede leerla. La fecha de apertura del 10 de marzo no figura en ninguna fuente citada y se retira del texto; queda la de cierre, que sí se cita."
+    }
+  ]
+}

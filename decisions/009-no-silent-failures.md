@@ -62,3 +62,25 @@ and it is visible, which is the point.
 
 Nothing about this is a trade-off to re-measure. It can only become narrower: a
 caller with a real reason to treat an absent directory as empty says so itself.
+
+## The same shape twice more: a default that reaches the real repository
+
+Two later bugs were this rule one step out, and both were invisible while the
+repository held no data.
+
+`ingest` took the repository root as an option and fell back to it, so during a
+broken intermediate state of a test it wrote fictional fixtures into `data/` and
+`research/` — and the run reported success, because writing files is what it had been
+asked to do. The root is now a required parameter with no default: a function that
+writes files does not get to decide where.
+
+Then the gate's own tests built editions in a temporary directory and said nothing
+about the briefs, so those fell back to the real `research/`. That passed for as long
+as there were no briefs, and the first one committed turned it into a test that judged
+the project's own data and would fail on whatever the repository happened to hold.
+Each test now says where it looks.
+
+The rule underneath, which is why it belongs with this record: **a default that
+silently reaches the real thing turns a check into a check of something else, and the
+result still reads as success.** A command keeps its defaults, because a maintainer
+running it wants them. A test and anything that writes do not get them.

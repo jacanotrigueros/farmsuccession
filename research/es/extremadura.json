@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "extremadura"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "La ficha de juntaex.es de las ayudas a jóvenes agricultores sigue mostrando un único plazo continuo desde el 22 de enero de 2025 hasta el 31 de diciembre de 2026 (Decreto 169/2024); la solicitud se cumplimenta en el portal ARADO.",
+    "BOTREX sigue operativa en seis zonas regables. Sus páginas interiores vuelven a ser legibles y publican modelos de alta para ofertas y demandas, además de asesoramiento jurídico gratuito al formalizar contratos.",
+    "La Junta mantiene en 2026 los procedimientos permanentes de homologación de entidades y cursos de incorporación a la empresa agraria. La agenda de cursos sigue enlazada a rurex-formacion.gobex.es por HTTP; APAG Extremadura ASAJA ofrece una ruta HTTPS para solicitar información sobre su curso, pero no publica fechas de una edición 2026 ni una homologación concreta.",
+    "Los presupuestos autonómicos de 2026 incluyen una partida de 7 millones de euros para relevo generacional agrario mediante acuerdos de colaboración con titulares de explotaciones en fase de jubilación. A 28 de septiembre no se ha localizado una convocatoria o formulario, por lo que se registra como anunciado pero no operativo.",
+    "El Proyecto Alquerías, impulsado por el Ayuntamiento de Pinofranqueado, mantiene desde 2026 un banco de tierras local con parcelas visibles, registro de demanda y apoyo a los acuerdos.",
+    "La ayuda 2026 al relevo generacional de empresas familiares de la Consejería de Economía excluye expresamente la producción primaria de productos agrícolas; no confundirla con una ayuda de sucesión de explotaciones agrarias.",
+    "Red TERRAE mantiene un banco de tierras agroecológicas con presencia histórica en Extremadura, pero ya está representado en la capa estatal como es-red-terrae-banco-tierras y no debe duplicarse en la edición regional."
+  ],
+  "portals": [
+    {
+      "name": "Trámites de la Junta de Extremadura",
+      "url": "https://www.juntaex.es/",
+      "what": "Fichas de trámites con plazo, destinatarios, requisitos y tramitación en línea."
+    },
+    {
+      "name": "Bolsa de Tierras de Regadío de Extremadura (BOTREX)",
+      "url": "https://bolsatierrasregadio.juntaex.es/",
+      "what": "Bolsa oficial de tierras de regadío con ofertas, demandas, visor, formularios y documentación."
+    },
+    {
+      "name": "Proyecto Alquerías - Banco de Tierras de Pinofranqueado",
+      "url": "https://proyectoalquerias.es/banco-de-tierras/",
+      "what": "Banco municipal con parcelas disponibles y acceso para ofertantes y demandantes."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "ext-jovenes",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Junta de Extremadura ayudas creación empresas jóvenes agricultores convocatoria 2026 juntaex"
+    },
+    {
+      "id": "ext-tierras",
+      "kinds": ["LAND_BANK"],
+      "query": "Extremadura banco de tierras agrarias Junta relevo generacional; BOTREX Bolsa de Tierras de Regadío de Extremadura juntaex"
+    },
+    {
+      "id": "ext-formacion",
+      "kinds": ["TRAINING"],
+      "query": "Extremadura curso incorporación a la empresa agraria jóvenes agricultores formación Junta 2026"
+    },
+    {
+      "id": "ext-relevo",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Extremadura relevo generacional agrario sucesión explotaciones ayuda o servicio 2026 APAG UPA COAG Extremadura oficina"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Extremadura\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Extremadura jóvenes agricultores ayudas"
+    },
+    {
+      "id": "review-2026-09-28-sucesion",
+      "kinds": ["SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "query": "Extremadura ayuda sucesión cese jubilación explotación agraria acuerdos colaboración relevo generacional 2026"
+    },
+    {
+      "id": "review-2026-09-28-tierras-local",
+      "kinds": ["LAND_BANK"],
+      "query": "\"banco de tierras\" Extremadura ayuntamiento diputación comarca 2026"
+    },
+    {
+      "id": "review-2026-09-28-formacion",
+      "kinds": ["TRAINING"],
+      "query": "Extremadura curso incorporación empresa agraria jóvenes agricultores 2026 homologación"
+    },
+    {
+      "id": "review-2026-09-28-organizaciones",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Extremadura organizaciones agrarias cooperativas asesoramiento incorporación jóvenes relevo 2026"
+    }
+  ],
+  "leads": [
+    {
+      "id": "ext-establecimiento-jovenes",
+      "name": "Ayudas al establecimiento de jóvenes agricultores/as",
+      "url": "https://www.juntaex.es/w/3632",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "extremadura-establecimiento-jovenes-agricultores",
+      "reason": "Ficha oficial revalidada el 28 de septiembre: convocatoria abierta hasta el 31 de diciembre de 2026, con prima básica de 20.000 euros y máximo de 70.000 euros.",
+      "foundBy": "ext-jovenes",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ext-botrex",
+      "name": "Bolsa de Tierras de Regadío de Extremadura (BOTREX)",
+      "url": "https://bolsatierrasregadio.juntaex.es/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "extremadura-bolsa-tierras-regadio-botrex",
+      "reason": "Web oficial revalidada con formularios de alta para ofertas y demandas, catálogo/visor y asesoramiento jurídico gratuito en contratos.",
+      "foundBy": "ext-tierras",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ext-banco-tierras-pinofranqueado",
+      "name": "Banco de Tierras del Proyecto Alquerías",
+      "url": "https://proyectoalquerias.es/banco-de-tierras/",
+      "kind": "LAND_BANK",
+      "area": "Pinofranqueado",
+      "status": "ADMITTED",
+      "resourceId": "extremadura-banco-tierras-pinofranqueado",
+      "reason": "Proyecto municipal del Ayuntamiento de Pinofranqueado con banco operativo, parcelas publicadas y vías para ofrecer o solicitar tierra.",
+      "foundBy": "review-2026-09-28-tierras-local",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ext-relevo-acuerdos-jubilacion",
+      "name": "Asesoramiento para la conciliación y jubilación en el sector agrario",
+      "url": "https://www.juntaex.es/w/20260528-el-consejo-de-gobierno-aprueba-el-proyecto-de-ley-de-presupuestos-para-2026-que-ascienden-a-8.854-millones-de-euros",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "extremadura-relevo-acuerdos-jubilacion",
+      "reason": "La Junta presupuestó 7 millones de euros para acuerdos de colaboración con titulares en fase de jubilación; se representa como ANNOUNCED_NOT_OPERATING porque no se localizó acceso público.",
+      "foundBy": "review-2026-09-28-sucesion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ext-rurex-curso-incorporacion",
+      "name": "Curso de Incorporación a la Empresa Agraria (formación para el medio rural)",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "La Junta sigue remitiendo las fechas y lugares de los cursos a rurex-formacion.gobex.es por HTTP; el endpoint HTTPS no se ha podido usar como fuente citable. Mantener como pista para futuras revisiones de la agenda oficial.",
+      "foundBy": "ext-formacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ext-homologacion-cursos",
+      "name": "Homologación de cursos de incorporación a la empresa agraria",
+      "url": "https://www.juntaex.es/w/5582",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Trámite permanente y vigente, pero dirigido a las entidades que imparten los cursos, no a las personas que se incorporan; se usa como evidencia del marco de homologación.",
+      "foundBy": "ext-formacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ext-apag-curso-incorporacion",
+      "name": "Curso de Incorporación de jóvenes agricultores en la empresa agraria - APAG Extremadura ASAJA",
+      "url": "https://www.apagextremaduraasaja.es/formacion-cursos-agrarios.html",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "extremadura-curso-incorporacion-apag",
+      "reason": "La página HTTPS de la organización incluye expresamente el curso de incorporación en su plan de formación; no publica fechas 2026 ni una homologación concreta y esa cautela queda en la edición.",
+      "foundBy": "review-2026-09-28-formacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ext-apag-tramitacion-jovenes",
+      "name": "Tramitación de instalación de jóvenes agricultores - APAG Extremadura ASAJA",
+      "url": "https://www.apagextremaduraasaja.es/tramitacion-ayudas-agricolas-extremadura.html",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "extremadura-apag-tramitacion-jovenes",
+      "reason": "Servicio regional que declara expresamente tramitar la instalación de jóvenes agricultores y explica cómo contactar con la organización.",
+      "foundBy": "review-2026-09-28-organizaciones",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ext-relevo-empresa-familiar-2026",
+      "name": "Ayudas al relevo generacional en las empresas de ámbito familiar de Extremadura",
+      "url": "https://www.juntaex.es/w/0606822",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "La convocatoria 2026 excluye expresamente a empresas cuya actividad sea la producción primaria de productos agrícolas; no es una ayuda de sucesión de explotaciones agrarias.",
+      "foundBy": "review-2026-09-28-sucesion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ext-cooperativas-bancos-tierras-2026",
+      "name": "Prioridad 2026 de bancos de tierras vinculados a jóvenes - Cooperativas Agro-alimentarias Extremadura",
+      "url": "https://www.cooperativasextremadura.es/noticias/comunicacion/1776-cooperativas-agro-alimentarias-extremadura-cierra-2025-reforzando-su-papel-estrategico-y-con-la-vista-en-la-futura-pac.html",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "La organización declara el desarrollo de bancos de tierras como prioridad 2026, pero no se localizó una página operativa con inscripción, inventario o intermediación; una prioridad no demuestra un servicio disponible.",
+      "foundBy": "review-2026-09-28-organizaciones",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ext-red-terrae",
+      "name": "Banco de Tierras Agroecológicas de la Red TERRAE en Extremadura",
+      "url": "https://www.tierrasagroecologicas.es/extremadura-2030/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "es-red-terrae-banco-tierras",
+      "reason": "La plataforma mantiene una página específica de Extremadura, pero el mismo Banco de Tierras Agroecológicas ya está representado en la capa estatal y se hereda; no se duplica como recurso regional.",
+      "foundBy": "review-2026-09-28-tierras-local",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "ext-establecimiento-jovenes",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "FOUND",
+      "leadId": "ext-relevo-acuerdos-jubilacion",
+      "reason": "Medida presupuestada en 2026 para acuerdos con titulares próximos a jubilarse; se mantiene como anunciada y no operativa hasta que exista una vía de acceso.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "ext-botrex",
+      "reason": "BOTREX sigue operativa y además se verificó un banco municipal activo en Pinofranqueado.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "FOUND",
+      "leadId": "ext-apag-curso-incorporacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "FOUND",
+      "leadId": "ext-apag-tramitacion-jovenes",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada con el checklist nacional: admitidas la ayuda a jóvenes agricultores con plazo abierto y la Bolsa de Tierras de Regadío; curso de incorporación pendiente de una página citable."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada 1.9.0 completa: revalidadas la ayuda de jóvenes y BOTREX; añadidos el Banco de Tierras de Pinofranqueado, la medida anunciada de relevo mediante acuerdos con titulares próximos a jubilarse, el curso de incorporación de APAG y su servicio de tramitación de instalación de jóvenes. Se rechaza la ayuda general a empresas familiares porque excluye producción agrícola primaria y se documenta como no operativa la prioridad cooperativa de nuevos bancos de tierras."
+    }
+  ]
+}

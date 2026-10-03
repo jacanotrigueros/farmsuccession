@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "gipuzkoa"
+  },
+  "language": "es",
+  "updatedOn": "2026-10-02",
+  "context": [
+    "En Euskadi las ayudas del Plan Estratégico de la PAC se gestionan por las diputaciones forales; Gaztenek articula el acompañamiento a la primera instalación.",
+    "Gipuzkoa tiene dos mecanismos de tierra distintos: GILUR para oferta/demanda privada y Lur Funtsa/Fondo de Suelo Agrario para fincas y derechos incorporados al fondo público.",
+    "La Oficina de Intermediación para el Relevo Generacional Agrario es común a Álava, Bizkaia y Gipuzkoa y se documenta en la capa compartida del País Vasco.",
+    "Las páginas www.gipuzkoa.eus pueden quedar UNCHECKED por la cadena Izenpe en Node; la sede egoitza.gipuzkoa.eus sí ha sido legible en esta pasada web."
+  ],
+  "portals": [
+    {
+      "name": "Sede electrónica de la Diputación Foral de Gipuzkoa - Medio rural",
+      "url": "https://egoitza.gipuzkoa.eus/es/subvenciones",
+      "what": "Convocatorias y trámites agrarios 2026, incluidas Gaztenek, BMP, asesoramiento y suelo agrario."
+    },
+    {
+      "name": "GILUR",
+      "url": "https://www.gipuzkoa.eus/es/web/gilur/",
+      "what": "Oferta y demanda de terrenos y explotaciones agrarias privadas."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "gip-jovenes-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Gipuzkoa Gaztenek 2026 jóvenes agricultores ayuda establecimiento"
+    },
+    {
+      "id": "gip-tierras-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "Gipuzkoa GILUR Lur Funtsa Fondo Suelo Agrario"
+    },
+    {
+      "id": "gip-sucesion-2026",
+      "kinds": ["SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "query": "Gipuzkoa relevo generacional agrario cedente ayuda cese 2026"
+    },
+    {
+      "id": "gip-formacion-2026",
+      "kinds": ["TRAINING"],
+      "query": "Gipuzkoa formación incorporación jóvenes agricultores Gaztenek curso 2026"
+    },
+    {
+      "id": "gip-organizaciones-2026",
+      "kinds": ["ADVICE", "TRAINING"],
+      "query": "ENBA EHNE Gipuzkoa incorporación jóvenes agricultores asesoramiento relevo"
+    },
+    {
+      "id": "gip-auspoa-2026",
+      "kinds": ["ADVICE"],
+      "query": "AUSPOA Ekoizle Gazteak convocatoria inscripción jóvenes productores Gipuzkoa"
+    }
+  ],
+  "leads": [
+    {
+      "id": "gip-gaztenek-ayudas",
+      "name": "Ayudas GazteNek al establecimiento de personas jóvenes agricultoras",
+      "url": "https://egoitza.gipuzkoa.eus/es/subvenciones/-/laguntza/2026/25/LAGA08",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "gipuzkoa-gaztenek-establecimiento-jovenes",
+      "reason": "La ficha oficial 2026 es legible y confirma convocatoria cerrada 22-12-2025 a 23-01-2026, requisitos de edad/capacitación, acceso por OCA o sede y máximo de 70.000 euros. Comprobación manual el 29 de septiembre de 2026 por CLAUDE (claude-opus-5-5): la ficha se abrió con curl 8.7.1 (SecureTransport) con la verificación de certificados activada y el almacén del sistema (resultado de verificación 0, cadena válida hasta la raíz Izenpe.com), HTTP 200; en su texto están las siete citas del recurso, que respaldan el plazo cerrado, la edad de 18 a 41 años no cumplidos, la capacitación de 200 horas, el acceso por la Oficina Comarcal Agraria y la prima máxima de 70.000 euros. El control automático la marca UNCHECKED porque Node.js no reconoce ninguna raíz de Izenpe. No es una revisión humana.",
+      "foundBy": "gip-jovenes-2026",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gip-gilur",
+      "name": "GILUR",
+      "url": "https://www.gipuzkoa.eus/es/web/gilur/informacion",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "gipuzkoa-gilur-tierras-explotaciones",
+      "reason": "Instrumento de oferta/demanda privada ya admitido; se mantiene separado del Fondo de Suelo Agrario público. Verificación manual del 30/09/2026 por Claude (claude-opus-5-5) en el navegador integrado de Claude Code (Chromium): la página de información de Gilur se abrió por HTTPS sin aviso de certificado, es decir, con una cadena que el navegador validó, y las 4 citas de la fuente están en el texto de la página. La verificación automática no la lee porque la cadena termina en la raíz Izenpe.com, que no está en el almacén de confianza de Node.js, y añadirla como ancla de confianza está prohibido. No es una revisión humana: el fichero sigue en borrador.",
+      "foundBy": "gip-tierras-2026",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "gip-lur-funtsa",
+      "name": "Lur Funtsa - Fondo de Suelo Agrario de Gipuzkoa",
+      "url": "https://egoitza.gipuzkoa.eus/es/listado-tramites/-/tramiteak/xehetasuna/2129",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "gipuzkoa-lur-funtsa-fondo-suelo-agrario",
+      "reason": "Trámite propio y operativo: permite incorporar fincas durante todo el año y solicitar adjudicación de fincas o derechos integrados en el fondo. Verificación manual del 30/09/2026 por Claude (claude-opus-5-5) en el navegador integrado de Claude Code (Chromium): la ficha del trámite 2129 de la sede electrónica se abrió por HTTPS sin aviso de certificado, es decir, con una cadena que el navegador validó, y las 4 citas de la fuente están en el texto de la página. La verificación automática no la lee porque la cadena termina en la raíz Izenpe.com, que no está en el almacén de confianza de Node.js, y añadirla como ancla de confianza está prohibido. No es una revisión humana: el fichero sigue en borrador.",
+      "foundBy": "gip-tierras-2026",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "gip-bmp",
+      "name": "Ayudas a baserritarras mixtos profesionales",
+      "url": "https://egoitza.gipuzkoa.eus/es/subvenciones/-/laguntza/2026/25/LAGA11",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "gipuzkoa-baserritarra-mixto-profesional",
+      "reason": "La convocatoria 2026 está en plazo todo el año y admite a personas que ejercen o van a ejercer actividad agraria en Gipuzkoa compatibilizándola con empleo por cuenta ajena; exige plan de viabilidad y excluye a quien ya recibió primera instalación. Verificación manual del 30/09/2026 por Claude (claude-opus-5-5) en el navegador integrado de Claude Code (Chromium): la ficha LAGA11 de la sede electrónica se abrió por HTTPS sin aviso de certificado, es decir, con una cadena que el navegador validó, y las 6 citas de la fuente están en el texto de la página. La verificación automática no la lee porque la cadena termina en la raíz Izenpe.com, que no está en el almacén de confianza de Node.js, y añadirla como ancla de confianza está prohibido. No es una revisión humana: el fichero sigue en borrador.",
+      "foundBy": "gip-jovenes-2026",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "gip-oficina-intermediacion",
+      "name": "Oficina de Intermediación para el Relevo Generacional Agrario",
+      "url": "https://www.gipuzkoa.eus/es/-/hiru-foru-aldundiek-nekazaritzako-belaunaldien-erreleborako-bitartekaritza-bulegoa-aktibatu-dute",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "pais-vasco-oficina-intermediacion-relevo-generacional",
+      "reason": "Servicio compartido por los tres territorios históricos; se hereda desde la capa del País Vasco y no se duplica en Gipuzkoa.",
+      "foundBy": "gip-sucesion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "gip-auspoa-ekoizle-gazteak",
+      "name": "AUSPOA Ekoizle Gazteak",
+      "url": "https://www.bculinary.com/es/noticias/auspoa-ekoizle-gazteak-reune-en-su-primera-edicion-a-10-jovenes-proyectos-para-impulsar-el-futuro-del-primer-sector",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La fuente confirma una primera cohorte de 10 proyectos ya seleccionados y un itinerario de diagnóstico/mentorías, pero no se ha localizado una convocatoria o ruta de acceso para nuevas personas; no se publica como recurso accionable en esta edición.",
+      "foundBy": "gip-auspoa-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "gip-asesoramiento-general",
+      "name": "Ayudas para la prestación de servicios de asesoramiento",
+      "url": "https://egoitza.gipuzkoa.eus/es/listado-tramites/-/tramiteak/xehetasuna/51/2445",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Financia a entidades que prestan asesoramiento general a explotaciones (gestoría, técnico, fiscal, laboral). No demuestra un servicio específico y accesible de incorporación o relevo, por lo que no cumple la regla de admisión ADVICE de FarmSuccession.",
+      "foundBy": "gip-organizaciones-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "gip-gaztenek-ayudas",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "FOUND",
+      "leadId": "gip-oficina-intermediacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "gip-lur-funtsa",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "NOT_FOUND",
+      "reason": "Gaztenek exige 200 horas de capacitación, pero en esta pasada no se verificó un recurso formativo guipuzcoano independiente con página de acceso propia; se buscó en la sede foral y por Gaztenek/formación 2026.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "NOT_FOUND",
+      "reason": "Se buscaron ENBA, EHNE y entidades de asesoramiento. La ayuda foral encontrada acredita asesoramiento general a explotaciones, no un servicio específico de incorporación/relevo con acceso descrito.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada con el checklist nacional: admitidas las ayudas GazteNek, GILUR y la Oficina de Intermediación; AUSPOA Ekoizle Gazteak pendiente."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Consolidación de la Oficina de Intermediación en la capa compartida del País Vasco y comprobaciones manuales de fuentes Izenpe."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar; solo discovery, sin avanzar estados de edición."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada 1.9.0: revalidada Gaztenek 2026; separados GILUR y Lur Funtsa; admitido Baserritar Misto Profesional; AUSPOA y asesoramiento general rechazados por falta de acceso específico; la Oficina de Intermediación resuelve la familia sucesión/cese desde la capa compartida."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Verificaciones manuales documentadas de las tres fuentes que la verificación automática no puede leer (cadena Izenpe): Gilur, Lur Funtsa y ayudas a baserritarras mixtos profesionales."
+    },
+    {
+      "date": "2026-10-02",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Re-lectura en vivo: los portales egoitza.gipuzkoa.eus y www.gipuzkoa.eus no se pueden comprobar de forma automática. Su cadena de certificados está completa, pero su raíz (Izenpe.com) no está entre las 120 del almacén de confianza de Node, y fijar una raíz añadiría un ancla de confianza, cosa que el proyecto no hace. Sus páginas quedan UNCHECKED, que no es un fallo más suave: el navegador las acepta porque esa raíz sí viene con el sistema operativo."
+    }
+  ]
+}

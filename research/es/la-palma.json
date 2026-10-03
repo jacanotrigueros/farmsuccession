@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "ES", "region": "la-palma" },
+  "language": "es",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "La ayuda al establecimiento de jóvenes y la formación común en línea de las Escuelas de Capacitación Agraria se heredan desde la capa Canarias.",
+    "La Palma tiene una de las tres ECA de Canarias, en Los Llanos de Aridane, con oferta presencial propia de 2026.",
+    "El Cabildo anunció el 9 de julio de 2026 el inicio de los trabajos para crear un Banco de Tierras insular y propuso a ADER La Palma como posible mediadora; no se ha verificado todavía un servicio operativo.",
+    "Tierra de Oportunidades 2026 de ADER/CaixaBank es emprendimiento rural general para proyectos empresariales ya puestos en marcha; algunos beneficiarios son agrarios, pero la convocatoria no constituye una vía específica de primera instalación agraria."
+  ],
+  "portals": [
+    {
+      "name": "ECA Los Llanos de Aridane",
+      "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/centros/eca-los-llanos/ensenanzas/",
+      "what": "Oferta presencial de formación agraria 2026 en La Palma."
+    },
+    {
+      "name": "Cabildo de La Palma",
+      "url": "https://www.cabildodelapalma.es/",
+      "what": "Información oficial sobre agricultura, ganadería y el futuro Banco de Tierras insular."
+    },
+    {
+      "name": "ADER La Palma",
+      "url": "https://www.aderlapalma.org/",
+      "what": "Desarrollo rural, LEADER, emprendimiento y proyectos insulares."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    { "id": "lpa-tierras-2026", "kinds": ["LAND_BANK"], "query": "La Palma banco de tierras insular ADER 2026 operativo" },
+    {
+      "id": "lpa-sucesion-2026",
+      "kinds": ["SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "query": "La Palma relevo generacional agricultura Cabildo ADER 2026"
+    },
+    { "id": "lpa-formacion-2026", "kinds": ["TRAINING"], "query": "La Palma formación incorporación empresa agraria ECA Los Llanos 2026" },
+    {
+      "id": "lpa-organizaciones-2026",
+      "kinds": ["ADVICE"],
+      "query": "La Palma jóvenes agricultores incorporación asesoramiento organización agraria 2026"
+    },
+    {
+      "id": "lpa-emprendimiento-rural-2026",
+      "kinds": ["ADVICE", "FINANCIAL_SUPPORT"],
+      "query": "ADER La Palma Tierra de Oportunidades 2026 agricultura"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lpa-canarias-jovenes",
+      "name": "Subvenciones para el establecimiento de personas jóvenes agricultoras",
+      "url": "https://sede.gobiernodecanarias.org/sede/tramites/9277",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "canarias-establecimiento-jovenes-agricultoras",
+      "reason": "Instrumento común a Canarias, revalidado en la capa compartida con convocatoria 2026; La Palma lo hereda sin duplicación.",
+      "foundBy": "lpa-sucesion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lpa-eca-cursos",
+      "name": "Cursos presenciales de la Escuela de Capacitación Agraria de Los Llanos de Aridane",
+      "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/centros/eca-los-llanos/ensenanzas/",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "la-palma-cursos-incorporacion-escuelas-capacitacion-agraria",
+      "reason": "La página oficial 2026 de la ECA de Los Llanos mantiene oferta propia y declara expresamente que los cursos forman a personas que quieren incorporarse a la empresa agraria.",
+      "foundBy": "lpa-formacion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lpa-banco-tierras-en-creacion",
+      "name": "Banco de Tierras insular de La Palma (en creación)",
+      "url": "https://www.cabildodelapalma.es/es/el-cabildo-de-la-palma-ya-trabaja-en-la-creacion-de-un-banco-de-tierras-insular-para-recuperar",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "La fuente oficial del 9 de julio de 2026 acredita solo el inicio de los trabajos para implementarlo y primeros contactos con ADER como posible mediadora. No se ha localizado después una plataforma, alta, inventario o mecanismo de oferta/demanda operativo, por lo que no se publica como banco activo ni se convierte el anuncio en disponibilidad.",
+      "foundBy": "lpa-tierras-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lpa-tierra-oportunidades-2026",
+      "name": "Tierra de Oportunidades 2026",
+      "url": "https://www.aderlapalma.org/nueva-convocatoria-tierra-de-oportunidades-2026/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Programa general de emprendimiento rural para personas con un proyecto empresarial ya puesto en marcha, con independencia del sector. Aunque algunos seleccionados son agrarios y ofrece mentorización, no es un servicio específico de incorporación, sucesión o relevo agrario.",
+      "foundBy": "lpa-emprendimiento-rural-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lpa-formacion-pesquera-relevo",
+      "name": "Programa de Formación Pesquera para el Relevo Generacional",
+      "url": "https://www.aderlapalma.org/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Programa específico del sector pesquero profesional. FarmSuccession recoge incorporación y relevo de explotaciones agrarias, por lo que queda fuera del alcance de esta edición regional.",
+      "foundBy": "lpa-sucesion-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    { "expectedId": "es-incorporacion-jovenes", "status": "FOUND", "leadId": "lpa-canarias-jovenes", "checkedOn": "2026-09-28" },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "NOT_FOUND",
+      "reason": "Se buscaron Cabildo, ADER y organizaciones agrarias. No se verificó una ayuda o servicio para cesión/transmisión de explotaciones o titulares salientes; el proyecto de Banco de Tierras aún no está operativo.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "NOT_FOUND",
+      "reason": "El Cabildo inició en julio de 2026 los trabajos para un banco insular, pero no se ha verificado una plataforma, inventario, formulario ni mecanismo operativo de oferta/demanda.",
+      "checkedOn": "2026-09-28"
+    },
+    { "expectedId": "es-formacion-incorporacion", "status": "FOUND", "leadId": "lpa-eca-cursos", "checkedOn": "2026-09-28" },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "NOT_FOUND",
+      "reason": "Se revisaron ADER y búsquedas sobre COAG, UPA, PALCA y ASAGA. No se verificó un servicio propio, específicamente accesible, de incorporación o relevo agrario en La Palma; Tierra de Oportunidades es emprendimiento rural general.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada: admitidas la subvención canaria a jóvenes y la formación ECA; Banco de Tierras insular pendiente de creación."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Formación actualizada: oferta presencial de Los Llanos en la isla y programación común en línea consolidada en Canarias."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar; solo discovery, sin avanzar estados de edición."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada 1.9.0: ECA Los Llanos revalidada; el Banco de Tierras se resuelve como no operativo y se rechaza como recurso publicado; Tierra de Oportunidades y formación pesquera quedan fuera por falta de especificidad agraria o alcance; no se verificó sucesión/cese ni asesoramiento específico de organizaciones agrarias."
+    }
+  ]
+}

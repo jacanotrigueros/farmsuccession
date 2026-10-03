@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "ES",
+  "region": "eivissa",
+  "officialName": "Eivissa / Ibiza",
+  "published": "2026-09-30",
+  "summary": "En Eivissa, la ayuda de primera instalación del FOGAIBA se hereda de la capa común de Illes Balears. A escala insular, APAEEF mantiene un banco de tierras para proyectos de agricultura ecológica y Cooperatives Agro-alimentàries Illes Balears dispone de una oficina técnica de acompañamiento y asesoramiento agrario en AgroEivissa.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Pasada 1.9.0 sobre los cinco instrumentos españoles. Se revalidó el Banc de Terres de APAEEF y se admitió la oficina técnica de Cooperatives Agro-alimentàries en Eivissa. La ayuda FOGAIBA a jóvenes se mantiene solo en el hub de Illes Balears para evitar duplicados. No se encontró un instrumento insular específico de sucesión/cese ni un curso actual de incorporación ligado a la primera instalación.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://apaeef.org/ca/que-fem/banc-de-terres"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://agroalimentaries.es/notas_de_prensa/cooperatives-agro-alimentaries-illes-balears-renueva-su-compromiso-con-el-sector-agroalimentario-de-ibiza/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.agroalimentaries.es/serveis/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.caib.es/seucaib/es/201/empresas/tramites/tramite/6411151"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Consell d'Eivissa ajudes joves agricultors incorporació 2026 plans gestió titulars joves"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Eivissa curs incorporació empresa agrària 2026 Can Marines FOGAIBA formació"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Eivissa successió cese explotacions agràries relleu generacional 2026"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "es",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "eivissa-apaeef-banc-de-terres",
+      "name": "Banc de Terres d'Eivissa",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Illa d'Eivissa"
+      },
+      "operator": "Associació de Productors d'Agricultura Ecològica d'Eivissa i Formentera (APAEEF)",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Conecta fincas agrícolas abandonadas o sin uso con agricultores y futuros productores que quieren desarrollar proyectos de agricultura ecológica. APAEEF busca el encaje entre finca y proyecto y acompaña los acuerdos de cesión mediante fórmulas de custodia agraria.",
+      "whoCanUseIt": "Propietarios de fincas agrícolas en Eivissa que quieran ceder su uso y personas agricultoras o futuras productoras con un proyecto de agricultura ecológica.",
+      "howToAccess": "Los propietarios pueden inscribir su finca y las personas demandantes presentar su proyecto a APAEEF mediante la página del Banc de Terres o contactar por teléfono. La asociación analiza las necesidades y busca una finca o productor compatible antes de acompañar el acuerdo.",
+      "accessUrl": "https://apaeef.org/ca/que-fem/banc-de-terres",
+      "assetTypes": ["PLOTS"],
+      "languages": ["ca", "es", "en"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Banc de Terres d'APAEEF",
+          "value": "627464677",
+          "sourceUrl": "https://apaeef.org/ca/que-fem/banc-de-terres"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://apaeef.org/ca/que-fem/banc-de-terres",
+          "title": "Banc de terres — APAEEF",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "El nostre banc de terres connecta a propietaris de finques amb persones que volen posar en marxa un projecte d'agricultura ecològica.",
+            "Acompanyem processos de cessió de terres amb acords de custòdia agrària.",
+            "Connectem terrenys abandonats amb nous/es agricultors/es",
+            "627464677 Vols més informació?"
+          ]
+        }
+      ],
+      "notes": "La página actual publica indicadores de tierras en custodia, nuevas solicitudes y nuevas fincas incorporadas, lo que refuerza la evidencia de operación actual; no se trasladan como métricas porque no todos los indicadores muestran unidad o periodo de referencia inequívocos.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "eivissa-cooperatives-ib-oficina-acompanamiento",
+      "name": "Oficina técnica de acompañamiento agrario de Cooperatives Agro-alimentàries en Eivissa",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Illa d'Eivissa"
+      },
+      "operator": "Cooperatives Agro-alimentàries Illes Balears",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Gabinete de asesoramiento y acompañamiento para agricultores y ganaderos de las cooperativas agroalimentarias socias de la isla. La oficina tramita expedientes de ayudas, presta asesoramiento individual, apoya gestiones digitales y ofrece servicios técnicos como cuaderno de campo y análisis de suelo, producto o agua.",
+      "whoCanUseIt": "Agricultores y ganaderos vinculados a las cooperativas agroalimentarias socias de Eivissa que necesiten apoyo técnico, administrativo o para la tramitación de ayudas.",
+      "howToAccess": "Acudir o contactar con la oficina de AgroEivissa, en el Edifici de Serveis Públics Insulars de sa Blanca Dona, o llamar al teléfono de la oficina publicado por Cooperatives Agro-alimentàries.",
+      "accessUrl": "https://www.agroalimentaries.es/serveis/",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Oficina de Eivissa — AgroEivissa",
+          "value": "615 478 115",
+          "sourceUrl": "https://www.agroalimentaries.es/serveis/"
+        }
+      ],
+      "languages": ["ca", "es"],
+      "targetProfiles": ["GENERAL"],
+      "lastEvidenceDate": "2026-06-09",
+      "sources": [
+        {
+          "url": "https://agroalimentaries.es/notas_de_prensa/cooperatives-agro-alimentaries-illes-balears-renueva-su-compromiso-con-el-sector-agroalimentario-de-ibiza/",
+          "title": "Cooperatives Agro-alimentàries Illes Balears renueva su compromiso con el sector agroalimentario de Ibiza",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "mantenimiento del gabinete de asesoramiento y acompañamiento dirigido a los agricultores y ganaderos de las cooperativas agroalimentarias socias de la isla"
+          ]
+        },
+        {
+          "url": "https://www.agroalimentaries.es/serveis/",
+          "title": "Serveis — Cooperatives Agro-alimentàries Illes Balears",
+          "consultedOn": "2026-09-30",
+          "quotes": ["Tramitació ajudes", "615 478 115"]
+        }
+      ],
+      "notes": "El recurso se representa como servicio de asesoramiento de una organización/cooperativa, no como servicio específico de sucesión. La renovación del convenio con el Consell d'Eivissa en junio de 2026 confirma continuidad actual de la oficina.",
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "La subvención del FOGAIBA a la creación de empresas de jóvenes agricultores se aplica a todas las Illes Balears y se conserva únicamente en la edición común de las Illes Balears; Eivissa la hereda y no la duplica.",
+    "La ayuda insular a planes estratégicos de titulares jóvenes y de reciente incorporación localizada en resoluciones anteriores corresponde a un proyecto ya finalizado; no se ha encontrado una convocatoria de admisión vigente en 2026.",
+    "No se ha localizado una ayuda balear o insular específica de sucesión/cese ni una bolsa pública de relevo para explotaciones en Eivissa.",
+    "CIFP Can Marines mantiene formación profesional agraria y actividad oficial en 2026, pero no se ha localizado un curso actual de incorporación a la empresa agraria vinculado expresamente a la ayuda de primera instalación; por tanto no se utiliza para responder el instrumento de formación de incorporación."
+  ]
+}

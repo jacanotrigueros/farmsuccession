@@ -1,6 +1,6 @@
 # FarmSuccession — research one territory
 
-Prompt version: 1.11.0
+Prompt version: 1.12.0
 
 You are researching **{{territoryName}}** ({{territoryLabel}}) for the **{{edition}}**
 edition of FarmSuccession. Today is {{today}}. The result is two JSON files that
@@ -284,9 +284,22 @@ breaks one is refused as a whole.
     not checked — which is not permission to invent one. A code written with a
     separator (`75.01`) is a figure like any other, and so is an age.
 
-  Summary, limitations and news may use any evidence of the file. Do not write
-  numbers about the research itself (an HTTP status such as 403, a count of pages
-  read) in these fields: the brief is the place for them.
+  Summary, limitations and news may use any evidence of the file **and of the
+  layers it inherits**: a region may state the amount of the national aid that
+  applies to it without copying that aid into its own file, which it must not do.
+  A resource's own text uses only its own evidence, and a sibling region's
+  evidence counts nowhere.
+
+  A dated fact about something this file does **not** publish — a one-off tender
+  that closed, a land bank announced and not operating — goes in `news`, with the
+  page that reports it and its quote, because `limitations` carries no sources of
+  its own. Write it while that page is open: a file published today cannot gain a
+  source read tomorrow without re-dating a review nobody repeated. If it does not
+  deserve a news item, state the limit without the date and leave the date in the
+  brief.
+
+  Do not write numbers about the research itself (an HTTP status such as 403, a
+  count of pages read) in these fields: the brief is the place for them.
 
 - **Reader text shows no internals.** The site turns codes into labels, so
   text readers see never names a schema code or field (`UNKNOWN`,

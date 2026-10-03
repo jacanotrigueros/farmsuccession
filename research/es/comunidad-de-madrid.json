@@ -1,0 +1,415 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "comunidad-de-madrid"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Comunidad uniprovincial: por debajo del nivel regional hay ayuntamientos, mancomunidades y grupos LEADER, por lo que la búsqueda de acceso a tierra debe bajar al nivel local.",
+    "Las fichas de la sede electrónica de la Comunidad de Madrid son la mejor fuente para cuantías, requisitos, fechas y estado de las ayudas. En 2026 muestran convocatorias de jóvenes y nuevos agricultores y la resolución de la ayuda de sucesión de 2025.",
+    "El Portal del Suelo Agrario y el registro de jóvenes agricultores preferentes continúan citados en el Plan de Dinamización, pero no se ha localizado una página operativa de inventario, inscripción o consulta; no deben confundirse con servicios existentes.",
+    "El Ayuntamiento de Madrid sí mantiene un instrumento local real de acceso a tierra: Barrios Productores publica una Convocatoria Abierta Permanente del Vivero de Emprendimiento Agrícola para solicitar parcelas municipales disponibles.",
+    "La Comunidad de Madrid no publica en la ficha de ayudas un catálogo único de cursos de incorporación, pero sí establece expresamente que un curso de incorporación a la empresa agraria de al menos 150 horas acredita formación lectiva. INALOCAL publica en 2026 una oferta de 150 horas que declara homologada conforme a la Orden 1696/2024; debe confirmarse la homologación vigente antes de matricularse.",
+    "UPA Madrid publica un servicio técnico para afiliados que incluye tramitación y seguimiento de ayudas a la primera instalación de jóvenes agricultores, además de modernización y otros servicios de explotación."
+  ],
+  "portals": [
+    {
+      "name": "Sede electrónica — ayudas agrarias",
+      "url": "https://sede.comunidad.madrid/",
+      "what": "Fichas de convocatorias con requisitos, cuantías, calendario, estado y contacto."
+    },
+    {
+      "name": "Ayudas y subvenciones al sector agrario y agroalimentario",
+      "url": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/ayudas-subvenciones-sector-agrario-agroalimentario",
+      "what": "Índice regional de líneas de ayuda y normativa."
+    },
+    {
+      "name": "Plan de Dinamización del Sector Primario",
+      "url": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/plan-dinamizacion-sector-primario-comunidad-madrid",
+      "what": "Plan regional con eje de relevo generacional y medidas anunciadas."
+    },
+    {
+      "name": "Barrios Productores",
+      "url": "https://barriosproductores.madrid.es/",
+      "what": "Programa municipal de agricultura urbana, vivero de emprendimiento, parcelas, formación y asesoramiento."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "madrid-jovenes-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Comunidad de Madrid ayudas incorporación jóvenes agricultores 2026 sede"
+    },
+    {
+      "id": "madrid-nuevos-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Comunidad de Madrid ayudas nuevos agricultores 40 60 años 2026 sede"
+    },
+    {
+      "id": "madrid-sucesion-2026",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "Comunidad de Madrid ayudas cooperación sucesión explotaciones agrícolas resolución 2026"
+    },
+    {
+      "id": "madrid-tierras-local",
+      "kinds": ["LAND_BANK"],
+      "query": "Comunidad de Madrid banco de tierras ayuntamiento vivero agrícola parcelas 2026"
+    },
+    {
+      "id": "madrid-barrios-productores",
+      "kinds": ["LAND_BANK", "ADVICE"],
+      "query": "Ayuntamiento Madrid Barrios Productores convocatoria parcelas Vivero Emprendimiento Agrícola"
+    },
+    {
+      "id": "madrid-curso-incorporacion-2026",
+      "kinds": ["TRAINING"],
+      "query": "Comunidad de Madrid curso incorporación empresa agraria 150 horas 2026 homologado"
+    },
+    {
+      "id": "madrid-organizaciones-2026",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Madrid UPA ASAJA UGAMA COAG asesoramiento primera instalación jóvenes agricultores 2026"
+    },
+    {
+      "id": "madrid-sierra-norte-leader",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "GALSINMA LEADER Sierra Norte jóvenes agricultores relevo"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Comunidad de Madrid\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Comunidad de Madrid jóvenes agricultores ayudas"
+    }
+  ],
+  "leads": [
+    {
+      "id": "madrid-ayudas-sucesion-explotaciones",
+      "name": "Ayudas de cooperación para la sucesión de explotaciones agrícolas",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "madrid-ayudas-sucesion-explotaciones",
+      "reason": "La ficha oficial registra el plazo 20/11-03/12/2025 y una resolución de la convocatoria publicada el 08/06/2026, demostrando operación actual del programa aunque no haya nueva ventana de solicitud abierta.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-sucesion-2026"
+    },
+    {
+      "id": "madrid-incorporacion-jovenes-agricultores",
+      "name": "Ayudas para la incorporación de jóvenes agricultores (A919)",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "madrid-incorporacion-jovenes-agricultores",
+      "reason": "Convocatoria 2026 verificada: 08/04-07/05/2026, prima básica de 30.000 euros, máximo de 80.000 euros y requisito formativo explícito de curso de incorporación de al menos 150 horas.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-jovenes-2026"
+    },
+    {
+      "id": "madrid-incorporacion-nuevos-agricultores",
+      "name": "Ayudas para la incorporación de nuevos agricultores (A921)",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "madrid-incorporacion-nuevos-agricultores",
+      "reason": "Convocatoria 2026 verificada para personas de 40 a 60 años: 02/04-04/05/2026, prima básica de 20.000 euros y máximo de 40.000 euros.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-nuevos-2026"
+    },
+    {
+      "id": "madrid-plan-dinamizacion-sector-primario",
+      "name": "Plan de Dinamización del Sector Primario",
+      "url": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/plan-dinamizacion-sector-primario-comunidad-madrid",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "resourceId": "madrid-plan-dinamizacion-sector-primario",
+      "reason": "Marco regional actualizado en febrero de 2026 con un eje específico de relevo generacional. Sus medidas anunciadas no se presumen operativas sin una ruta de servicio independiente.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-jovenes-2026"
+    },
+    {
+      "id": "madrid-barrios-productores-vivero",
+      "name": "Barrios Productores — Vivero de Emprendimiento Agrícola",
+      "url": "https://barriosproductores.madrid.es/convocatoria-de-parcelas/",
+      "kind": "LAND_BANK",
+      "area": "Madrid",
+      "status": "ADMITTED",
+      "resourceId": "madrid-barrios-productores-vivero-agricola",
+      "reason": "El portal municipal mantiene una Convocatoria Abierta Permanente y permite presentar en sede solicitudes a parcelas disponibles, además de ofrecer asesoramiento técnico. Es acceso real a tierra, no el Portal del Suelo urbano general. Verificación manual del 30/09/2026 por Claude (claude-opus-5-5) en el navegador integrado de Claude Code (Chromium): cada una de las páginas «Convocatoria de parcelas» y «Vivero de emprendimiento» se abrió por HTTPS sin aviso de certificado, es decir, con una cadena que el navegador validó, y las 4 citas de la fuente están en el texto de la página. La verificación automática no la lee porque el servidor responde 403 a las peticiones automatizadas. No es una revisión humana: el fichero sigue en borrador.",
+      "checkedOn": "2026-09-30",
+      "foundBy": "madrid-barrios-productores"
+    },
+    {
+      "id": "madrid-inalocal-curso-incorporacion",
+      "name": "Curso de Incorporación a la Empresa Agraria en Madrid — INALOCAL",
+      "url": "https://inalocal.com/productos/curso-incorporacion-madrid/",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "madrid-curso-incorporacion-empresa-agraria-inalocal",
+      "reason": "Oferta actual de 150 horas, online, con inscripción y pago y una próxima edición publicada para octubre de 2026. El proveedor declara homologación conforme a la Orden 1696/2024 y el requisito oficial de la ayuda acepta cursos de incorporación de al menos 150 horas. La edición conserva una cautela explícita para confirmar la homologación vigente antes de matrícula.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-curso-incorporacion-2026"
+    },
+    {
+      "id": "madrid-upa-asesoramiento-incorporacion",
+      "name": "Asesoramiento y tramitación de primera instalación — UPA Madrid",
+      "url": "https://upa.es/madrid/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "La página citada (afíliate a UPA Madrid) responde 404 desde la renovación de la web; la nueva web de UPA Madrid (upa.es/madrid) no describe la tramitación de ayudas a la primera instalación, y «Asesoramiento» redirige a la portada. Siguiente paso: localizar en la nueva web o en la sede de UPA Madrid una página del servicio con acceso descrito antes de volver a admitirlo.",
+      "checkedOn": "2026-09-30",
+      "foundBy": "madrid-organizaciones-2026"
+    },
+    {
+      "id": "madrid-portal-suelo-agrario",
+      "name": "Portal del Suelo Agrario",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Sigue figurando como medida del plan regional, pero no se localizó un portal agrario operativo con inventario o procedimiento de acceso. No se confunde con Barrios Productores, que es municipal y sí tiene convocatoria.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-tierras-local"
+    },
+    {
+      "id": "madrid-registro-jovenes-preferentes",
+      "name": "Registro de jóvenes agricultores preferentes de la Comunidad de Madrid",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "Solo figura como medida del plan regional; no se localizó una página pública del registro ni un procedimiento de inscripción.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-jovenes-2026"
+    },
+    {
+      "id": "madrid-avalmadrid-linea-relevo",
+      "name": "Línea de financiación y avales de Avalmadrid para el relevo generacional",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-financiar-jovenes-agricultores",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "No se localizó una línea actual accesible en Avalmadrid ni una ficha operativa que permita solicitarla en 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-jovenes-2026"
+    },
+    {
+      "id": "madrid-reduena-red-terrae",
+      "name": "Ayuntamiento de Redueña (nodo de la Red TERRAE)",
+      "url": "https://www.reduena.com/servicios-municipales/desarrollo-local/dinamizacion-agroecologica/red-terrae/",
+      "kind": "LAND_BANK",
+      "area": "Redueña",
+      "status": "REJECTED",
+      "reason": "La página municipal describe la red, pero no muestra ofertas de tierra actuales ni una vía municipal propia comparable a la convocatoria de Barrios Productores.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-tierras-local"
+    },
+    {
+      "id": "madrid-buitrago-red-terrae",
+      "name": "Ayuntamiento de Buitrago del Lozoya (nodo de la Red TERRAE)",
+      "url": "https://www.tierrasagroecologicas.es/buitrago-de-lozoya/",
+      "kind": "LAND_BANK",
+      "area": "Buitrago del Lozoya",
+      "status": "REJECTED",
+      "reason": "Perfil en la web de la red sin ofertas fechadas ni ruta municipal operativa demostrada.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-tierras-local"
+    },
+    {
+      "id": "madrid-la-cabrera-red-terrae",
+      "name": "Ayuntamiento de La Cabrera (nodo de la Red TERRAE)",
+      "url": "https://www.tierrasagroecologicas.es/la-cabrera/",
+      "kind": "LAND_BANK",
+      "area": "La Cabrera",
+      "status": "REJECTED",
+      "reason": "Perfil en la red sin ofertas fechadas ni vía municipal propia demostrada en 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-tierras-local"
+    },
+    {
+      "id": "madrid-pradena-red-terrae",
+      "name": "Ayuntamiento de Prádena del Rincón (nodo de la Red TERRAE)",
+      "url": "https://www.tierrasagroecologicas.es/pradena-del-rincon/",
+      "kind": "LAND_BANK",
+      "area": "Prádena del Rincón",
+      "status": "REJECTED",
+      "reason": "Perfil en la red sin ofertas fechadas ni vía municipal propia demostrada en 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-tierras-local"
+    },
+    {
+      "id": "madrid-alcala-red-terrae",
+      "name": "Ayuntamiento de Alcalá de Henares (adhesión a la Red TERRAE)",
+      "url": "https://medioambiente.ayto-alcaladehenares.es/red-terrae/",
+      "kind": "LAND_BANK",
+      "area": "Alcalá de Henares",
+      "status": "REJECTED",
+      "reason": "Adhesión a la red sin banco de tierras, oferta fechada ni vía de acceso local operativa demostrada.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-tierras-local"
+    },
+    {
+      "id": "madrid-itinera-red-terrae",
+      "name": "Proyecto TERRAE-ItíNERA",
+      "url": "https://www.tierrasagroecologicas.es/itinera/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Proyecto histórico de cooperación del periodo de desarrollo rural 2014-2020, sin servicio 2026 demostrado.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-tierras-local"
+    },
+    {
+      "id": "madrid-portal-suelo-urbano",
+      "name": "Portal del Suelo general de Madrid",
+      "kind": "OTHER",
+      "area": "Madrid",
+      "status": "REJECTED",
+      "reason": "El portal general de suelo público/urbano no es un servicio de acceso a tierra agraria. Barrios Productores se registra por separado porque sí adjudica parcelas para agricultura urbana productiva.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-tierras-local"
+    },
+    {
+      "id": "madrid-galsinma-leader-2026",
+      "name": "Convocatoria LEADER 2026 de GALSINMA (Sierra Norte)",
+      "url": "https://elresurgirdemadrid.com/leader-2026-nuevas-ayudas/",
+      "kind": "FINANCIAL_SUPPORT",
+      "area": "Sierra Norte de Madrid",
+      "status": "REJECTED",
+      "reason": "Financia proyectos de desarrollo local en general, sin una línea específica de incorporación o sucesión.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-sierra-norte-leader"
+    },
+    {
+      "id": "madrid-imidra-formacion",
+      "name": "Cursos de formación del IMIDRA",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-formacion-imidra",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Formación sectorial general; no se usa como sustituto del curso específico de incorporación de 150 horas.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-curso-incorporacion-2026"
+    },
+    {
+      "id": "madrid-villa-del-prado-imidra",
+      "name": "Cursos del IMIDRA difundidos por el Ayuntamiento de Villa del Prado",
+      "url": "https://www.villadelprado.es/concejalia-formacion/236-cursos-de-transferencia-al-sector-agrario-imidra",
+      "kind": "TRAINING",
+      "area": "Villa del Prado",
+      "status": "REJECTED",
+      "reason": "Difusión municipal de cursos regionales generales, no una ruta diferenciada de incorporación.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-curso-incorporacion-2026"
+    },
+    {
+      "id": "madrid-proveedores-curso-incorporacion",
+      "name": "Proveedores del curso de incorporación",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La pista genérica se sustituye por una oferta concreta y actual de 150 horas. No se crea un recurso agregado para proveedores sin una única vía de acceso común.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-curso-incorporacion-2026"
+    },
+    {
+      "id": "madrid-escuela-vid-pastores",
+      "name": "Escuela de la Vid y escuela de pastores de la Sierra",
+      "url": "https://www.adesgam.org/la-escuela-de-pastores-de-madrid-empieza-un-nuevo-curso/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La evidencia localizada sigue siendo histórica y no demuestra una edición actual 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-curso-incorporacion-2026"
+    },
+    {
+      "id": "madrid-asaja-curso-incorporacion",
+      "name": "Curso online de incorporación de ASAJA Madrid",
+      "url": "https://asajamadrid.com/curso-online-incorporacion-jovenes-agricultores-y-ganaderos/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La página localizada corresponde a una oferta anterior sin una edición 2026 claramente fechada. La edición representa en su lugar una oferta actual verificable de 150 horas.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-curso-incorporacion-2026"
+    },
+    {
+      "id": "madrid-asaja-agroemprende-5",
+      "name": "AgroEmprende 5.0 — ASAJA",
+      "url": "https://www.asajamadrid.com/agroemprende-50-servicio-integral-de-asesoramiento-y-apoyo-al-emprendimiento-rural-de-asaja",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Programa de asesoramiento publicado por ASAJA Madrid en enero de 2026 y relevante para incorporación y relevo, pero la página remite a ASAJA general y no demuestra que la prestación tenga un ámbito exclusivamente madrileño. Se evita duplicarlo en la región hasta resolver su capa correcta; UPA Madrid sí aporta un servicio territorial inequívoco.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "madrid-organizaciones-2026"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "madrid-incorporacion-jovenes-agricultores",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "FOUND",
+      "leadId": "madrid-ayudas-sucesion-explotaciones",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "madrid-barrios-productores-vivero",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "FOUND",
+      "leadId": "madrid-inalocal-curso-incorporacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "NOT_FOUND",
+      "reason": "El único servicio verificado, el de UPA Madrid, perdió su página al renovarse la web de la organización y queda como pista pendiente madrid-upa-asesoramiento-incorporacion.",
+      "checkedOn": "2026-09-30"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada: índice de ayudas agrarias, fichas de la sede y plan regional; revisión de nodos de la Red TERRAE y de la oferta formativa. Cuatro recursos y dos noticias; quedan pendientes las medidas anunciadas del plan y la página oficial del curso de incorporación."
+    },
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Resueltas las cuatro pistas pendientes: Portal del Suelo Agrario, registro de jóvenes preferentes, línea de Avalmadrid y escuela de pastores descartados por falta de página oficial actual."
+    },
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Pasada con el checklist nacional: respondidos los cinco instrumentos esperados; sin banco de tierras operativo ni página oficial del curso de incorporación."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: consultas generales ejecutadas como descubrimiento, sin cambiar estados ni afirmar exhaustividad."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada 1.9.0 completada: actualizadas las ayudas 2026 y la resolución de sucesión; admitido Barrios Productores como acceso local operativo a parcelas; verificada una oferta actual de curso de incorporación de 150 horas con cautela sobre homologación; y admitido el servicio de UPA Madrid para tramitación de primera instalación. Los cinco instrumentos esperados quedan FOUND."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: la página de afiliación de UPA Madrid que sostenía el servicio de tramitación de primera instalación da 404 y la nueva web no describe el servicio; el recurso sale de la edición, la pista vuelve a TO_CHECK con el siguiente paso y la comprobación de organizaciones agrarias pasa a NOT_FOUND."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Verificación manual documentada de las dos páginas de Barrios Productores, que rechazan las peticiones automatizadas. La pista y el método de cobertura remiten ahora a la nueva web, https://upa.es/madrid/."
+    }
+  ]
+}

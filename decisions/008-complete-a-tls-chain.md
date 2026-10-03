@@ -57,3 +57,31 @@ there are certificates in it at all, which is what this record is for.
 Both portals fixing their configuration, at which point the entries say which
 hosts needed them and can be removed. The `servedIncompleteBy` field exists for
 exactly that: an intermediate nobody needs any more is an intermediate to delete.
+
+## Both answers, met on real data
+
+The first full live run over the Spanish edition produced one of each.
+
+`miprincipado.asturias.es`, which serves three Asturian aid procedures, is the case
+this rule was written for, in an unusually clear form: it sends intermediates for
+other sites on the same server and omits its own. The one it omits is published by
+DigiCert at the address its own certificate names, it is a CA, it is not self-signed,
+and DigiCert Global Root G2 signed it — so it was pinned like the other two, and
+those three pages went from unreadable to checked with their quotes found.
+
+Gipuzkoa's portals — `egoitza.gipuzkoa.eus` and `www.gipuzkoa.eus`, which
+carry a land-access service and the three provincial councils' intermediation
+office — send a **complete** chain. What is missing is at the other end: its root,
+Izenpe.com, is not among the 120 roots the runtime trusts, so Node reports
+`UNABLE_TO_GET_ISSUER_CERT_LOCALLY` where a browser shows a padlock, because the
+operating system carries that root and the runtime does not.
+
+Nothing in `config/` can fix that, by design. Pinning this one would mean pinning a
+self-signed certificate, which is precisely the condition the list above refuses: it
+would add a trust anchor instead of completing a path to one. So those pages answer
+UNCHECKED, and the pitfall is written in that territory's brief where the next pass
+will look.
+
+The cost is real and worth naming: an instrument documented on a portal the checker
+cannot read stays permanently unverified by this project. Coverage is the price of
+not deciding, on our own, which certificate authorities the world should trust.

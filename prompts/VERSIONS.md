@@ -88,9 +88,29 @@ spacing and avoid a word a PDF splits across lines; lead reasons are in the
 territory's language; every resource of an edition file needs an ADMITTED lead,
 and an `instrumentChecks` answer may not contradict the resources published.
 
+### 1.12.0 — what the first published edition taught
+
+Current version. Both changes come from running the gate over 33 real files instead
+of over fixtures, and both are in the paragraph about figures in the file's own
+voice:
+
+- **Summary, limitations and news may use the evidence of the layers the file
+  inherits**, not only its own. A lower layer is forbidden to repeat a fact recorded
+  above it, so the earlier instruction left an author two ways out and both were worse
+  than the sentence it refused: copy the national fact down, or write something vaguer
+  than the source says. The code changed with the prompt, and a resource's own text
+  still uses only its own evidence.
+- **A dated fact about something the file does not publish belongs in `news`, with
+  its page and its quote.** Two limitations of the first edition dated a closed tender
+  and an announced land bank, and in both the date existed only in the researcher's
+  own prose — one unverified sentence citing another. `limitations` carries no
+  sources, so such a date has to go where sources go, and it has to be written while
+  the page is open: a file published today cannot gain a source read tomorrow without
+  re-dating a review nobody repeated.
+
 ### 1.11.0 — the rules as they are actually enforced
 
-Current version. Section 3 described the checks from memory in three places where
+Section 3 described the checks from memory in three places where
 they no longer matched the code, and a prompt that misdescribes a check teaches a
 researcher to avoid the wrong thing:
 
@@ -126,6 +146,8 @@ what stops it:
    evidence for each claim rather than for each record.
 6. **1.10.0–1.11.0** — the machine rules stated up front, and then corrected to
    match the machine.
+7. **1.12.0** — the first published edition, which found the two places where the
+   rule was asking the wrong file.
 
 ## Comparing versions
 

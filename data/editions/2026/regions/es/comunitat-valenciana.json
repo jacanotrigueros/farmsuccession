@@ -1,0 +1,421 @@
+{
+  "schemaId": "regional-snapshot",
+  "schemaVersion": "1.0.0",
+  "edition": "2026",
+  "country": "ES",
+  "region": "comunitat-valenciana",
+  "officialName": "Comunitat Valenciana",
+  "published": "2026-09-30",
+  "summary": "La Comunitat Valenciana combina ayudas al establecimiento de personas jóvenes y nuevos agricultores, bancos de tierras municipales operativos en las tres provincias y asesoramiento específico de organizaciones agrarias. Una nueva convocatoria de establecimiento, registrada en la BDNS el 25 de septiembre de 2026, abrirá el 5 de octubre. No se ha verificado una ayuda o servicio operativo específico de sucesión/cese.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Pasada 1.9.0 sobre incorporación, sucesión, tierra, formación y asesoramiento. Se verificó la nueva convocatoria BDNS 931561, bancos de tierras accionables en València, Pinoso y Nules, asesoramiento específico de LA UNIÓ y una oferta actual de curso de incorporación. La Xarxa de Terres autonómica sigue sin una ruta regional operativa demostrada y no se encontró una ayuda o procedimiento de mediación específico de sucesión/cese.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://sede.gva.es/es/detall-tramit?id_proc=G571"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/931561"
+      },
+      {
+        "method": "OFFICIAL_GAZETTE",
+        "detail": "https://dogv.gva.es/datos/2025/07/07/pdf/2025_25507_es.pdf"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://valencia.consellagrari.com/es/banco-de-tierras/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.pinoso.es/el-ayuntamiento/concejalias/concejalia-agricultura/banco-de-tierras/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://nules.org/es/agricultura/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.ayudasjovenesagricultores.es/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://inalocal.com/curso-incorporacion-joven-agricultor/curso-joven-agricultor-comunitat-valenciana/"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Comunitat Valenciana sucesión cese explotaciones relevo generacional ayuda servicio 2026"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "es",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "comunitat-valenciana-establecimiento-jovenes-nuevos-agricultores",
+      "name": "Ayudas al establecimiento de personas jóvenes agricultoras y nuevos agricultores de la Comunitat Valenciana",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Agencia Valenciana de Fomento y Garantía Agraria / Generalitat Valenciana",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Prima de primera instalación para personas jóvenes agricultoras y nuevos agricultores. La ayuda base es de 30.000 euros para jóvenes y 20.000 euros para nuevos agricultores, con máximos de 80.000 y 70.000 euros respectivamente según los incrementos aplicables al plan empresarial.",
+      "whoCanUseIt": "Personas que se establecen por primera vez como titulares de una explotación agraria en la Comunitat Valenciana y cumplen la definición y requisitos de persona joven agricultora o nuevo agricultor de la Orden 9/2025.",
+      "howToAccess": "Solicitud electrónica mediante el procedimiento 571 de la Generalitat durante cada convocatoria. La convocatoria 2026 se abre el 5 de octubre de 2026; comprobar la fecha de cierre en la convocatoria antes de presentar la solicitud.",
+      "accessUrl": "https://sede.gva.es/es/detall-tramit?id_proc=G571",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "calls": [
+        {
+          "name": "Convocatoria 2026 — BDNS 931561",
+          "state": "UPCOMING",
+          "opens": "2026-10-05",
+          "sourceUrl": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/931561"
+        }
+      ],
+      "accessCostType": "FREE",
+      "languages": ["es", "ca"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-09-25",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima base para persona joven agricultora",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2026-09-28",
+          "sourceUrl": "https://dogv.gva.es/datos/2025/07/07/pdf/2025_25507_es.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Prima máxima para persona joven agricultora",
+          "value": 80000,
+          "unit": "EUR",
+          "asOf": "2026-09-28",
+          "sourceUrl": "https://dogv.gva.es/datos/2025/07/07/pdf/2025_25507_es.pdf"
+        },
+        {
+          "measure": "BUDGET_TOTAL",
+          "label": "Presupuesto total registrado para la convocatoria BDNS 931561",
+          "value": 8270000,
+          "unit": "EUR",
+          "asOf": "2026-09-25",
+          "sourceUrl": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/931561"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://sede.gva.es/es/detall-tramit?id_proc=G571",
+          "title": "Ayudas al establecimiento de personas jóvenes agricultoras y nuevos agricultores — Generalitat Valenciana",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "Para aquellos casos en que ya se disponga de la capacitación adecuada regulada en el artículo 4.9 de la Orden 9/2025",
+            "Código GVA: 571",
+            "Plazo de solicitud pendiente Desde 05-10-2026 Hasta 07-12-2026"
+          ]
+        },
+        {
+          "url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/931561",
+          "title": "BDNS 931561 — Ayudas al establecimiento de personas jóvenes agricultoras y nuevos agricultores",
+          "consultedOn": "2026-09-28",
+          "quotes": ["05/10/2026", "04/12/2026"]
+        },
+        {
+          "url": "https://dogv.gva.es/datos/2025/07/07/pdf/2025_25507_es.pdf",
+          "title": "Resolución de 30 de junio de 2025 — cuantías de primera instalación",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "La prima básica para el establecimiento de personas jóvenes agricultoras será de 30.000 euros.",
+            "incrementarse hasta un máximo de 80.000 euros",
+            "La prima básica para el establecimiento de nuevos agricultores será de 20.000 euros. Esta prima podrá incrementarse hasta un máximo de 70.000 euros"
+          ]
+        }
+      ],
+      "notes": "La BDNS y la sede de la Generalitat coinciden en que la convocatoria 2026 abre el 5 de octubre, pero la BDNS indica el cierre el 04/12/2026 y la sede el 07-12-2026; mientras una modificación oficial no aclare la diferencia, no se publica fecha de cierre. La prima base y máxima de nuevos agricultores son 20.000 y 70.000 euros conforme a la Orden 9/2025.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "comunitat-valenciana-banco-tierras-valencia",
+      "name": "Banco de Tierras Agrícolas de València (Banc de Terres de València)",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Municipio de València"
+      },
+      "operator": "Ayuntamiento de València, Consell Agrari",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro municipal público para poner en contacto oferta y demanda de parcelas cultivadas o cultivables. Ofrece plataforma de consulta, modelos de contrato, asesoramiento gratuito para formalizar acuerdos y mediación gratuita.",
+      "whoCanUseIt": "Propietarios de parcelas agrícolas del término de València y personas interesadas en cultivarlas.",
+      "howToAccess": "La propiedad puede incorporar parcelas y las personas demandantes consultar tierras disponibles mediante la plataforma del Banco de Tierras de la Diputació de València, con apoyo del Consell Agrari.",
+      "accessUrl": "https://valencia.consellagrari.com/es/banco-de-tierras/",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Consell Agrari de València",
+          "value": "consellagrari@valencia.es",
+          "sourceUrl": "https://valencia.consellagrari.com/es/banco-de-tierras/"
+        }
+      ],
+      "accessCostType": "FREE",
+      "assetTypes": ["PLOTS"],
+      "languages": ["es", "ca"],
+      "targetProfiles": ["LAND_SEEKER", "LANDOWNER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://valencia.consellagrari.com/es/banco-de-tierras/",
+          "title": "Banco de Tierras de València — Consell Agrari de València",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "registro administrativo municipal de carácter público",
+            "una plataforma web donde publicar la oferta y un servicio de mediación",
+            "Ofrece asesoramiento gratuito",
+            "consellagrari@valencia.es"
+          ]
+        },
+        {
+          "url": "https://valencia.consellagrari.com/es/faqs-banc-de-terres/",
+          "title": "FAQs Banco de Tierras — Consell Agrari de València",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "puedes acceder al buscador de tierras de la web del Banco de Tierras de la Diputación de València",
+            "ésta estará siempre actualizada"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "comunitat-valenciana-banco-tierras-pinoso",
+      "name": "Banco de Tierras de Pinoso / El Pinós",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Pinoso / El Pinós (Alicante)"
+      },
+      "operator": "Ayuntamiento de Pinoso / El Pinós",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro municipal de fincas disponibles para cesión, aparcería o alquiler, con formularios diferenciados para propietarios y personas que buscan tierra. El Ayuntamiento gestiona los contactos y facilita los acuerdos.",
+      "whoCanUseIt": "Propietarios que desean incorporar parcelas y personas que quieren ampliar la superficie que trabajan o emprender una nueva actividad agrícola.",
+      "howToAccess": "Completar en la página municipal el formulario de inscripción de tierras o el de demanda de tierras; el Ayuntamiento contacta posteriormente con las personas interesadas.",
+      "accessUrl": "https://www.pinoso.es/el-ayuntamiento/concejalias/concejalia-agricultura/banco-de-tierras/",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Ayuntamiento de Pinoso",
+          "value": "+34 966 97 02 50",
+          "sourceUrl": "https://www.pinoso.es/el-ayuntamiento/concejalias/concejalia-agricultura/banco-de-tierras/"
+        }
+      ],
+      "assetTypes": ["PLOTS"],
+      "languages": ["es"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.pinoso.es/el-ayuntamiento/concejalias/concejalia-agricultura/banco-de-tierras/",
+          "title": "Banco de tierras — Ajuntament del Pinós",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Quiero inscribir mis parcelas",
+            "Quiero tierras para cultivar",
+            "emprender una nueva actividad agrícola",
+            "+34 966 97 02 50"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "comunitat-valenciana-banco-tierras-nules",
+      "name": "Banco de Tierras de Nules",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Nules (Castellón)"
+      },
+      "operator": "Ayuntamiento de Nules",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Banco municipal para recuperar parcelas sin uso y facilitar que vuelvan a producción agrícola mediante el contacto entre propietarios y personas interesadas en su cesión o alquiler.",
+      "whoCanUseIt": "Propietarios de parcelas agrarias que no puedan atenderlas y personas interesadas en explotar tierras en el término municipal.",
+      "howToAccess": "La página municipal de Agricultura publica la instancia para inscribir fincas en el Banco de Tierras y los datos de la Oficina Local de Agricultura para gestionar el servicio.",
+      "accessUrl": "https://nules.org/es/agricultura/",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Oficina Local de Agricultura de Nules",
+          "value": "agricultura@nules.es",
+          "sourceUrl": "https://nules.org/es/agricultura/"
+        }
+      ],
+      "assetTypes": ["PLOTS"],
+      "languages": ["es"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://nules.org/es/agricultura/",
+          "title": "Agricultura — Ayuntamiento de Nules",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "el Ayuntamiento de Nules ofrece la posibilidad de incluirlas en el Banco de Tierras de Nules",
+            "se facilita la recuperación de parcelas y se fomenta de la actividad agrícola",
+            "la Ley 5/2019, de 28 de febrero, de la Generalitat, de estructuras agrarias de la Comunidad Valenciana",
+            "e-mail: agricultura@nules.es"
+          ]
+        },
+        {
+          "url": "https://nules.org/es/nules-pone-en-marcha-un-prograna-de-limpieza-de-parcelas-rusticas/",
+          "title": "Nules pone en marcha un programa de limpieza de parcelas rústicas",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "facilitar el contacto con terceras personas interesadas en la cesión de la propiedad en régimen de alquiler por su explotación agrícola",
+            "hay más demanda que oferta de parcelas"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "comunitat-valenciana-curso-incorporacion-empresa-agraria",
+      "name": "Curso de Incorporación a la Empresa Agraria — Comunitat Valenciana",
+      "kind": "TRAINING",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "INALOCAL",
+      "operatorType": "PRIVATE",
+      "whatItOffers": "Curso online de 150 horas orientado a acreditar capacitación y competencia profesional para incorporación agraria, modernización y otros expedientes. El proveedor mantiene convocatorias 2026 y afirma que el curso está aceptado por la Conselleria de Agricultura para la incorporación a la empresa agraria.",
+      "whoCanUseIt": "Personas jóvenes o nuevas agricultoras que necesiten formación agraria para incorporarse profesionalmente, además de otros titulares que deban acreditar capacitación.",
+      "howToAccess": "Solicitar información o matricularse desde la página del curso. La web mantiene una convocatoria actual y vías de inscripción y pago.",
+      "accessUrl": "https://inalocal.com/curso-incorporacion-joven-agricultor/curso-joven-agricultor-comunitat-valenciana/",
+      "trainingFormats": ["ONLINE"],
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "metrics": [
+        {
+          "measure": "TRAINING_HOURS",
+          "label": "Duración anunciada del curso",
+          "value": 150,
+          "unit": "HOURS",
+          "asOf": "2026-09-28",
+          "sourceUrl": "https://inalocal.com/curso-incorporacion-joven-agricultor/curso-joven-agricultor-comunitat-valenciana/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://inalocal.com/curso-incorporacion-joven-agricultor/curso-joven-agricultor-comunitat-valenciana/",
+          "title": "Curso Joven Agricultor en la Comunidad Valenciana — INALOCAL",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "El objetivo de este curso de 150 horas es capacitar a jóvenes agricultores para su incorporación profesional al sector agrario.",
+            "Curso también aceptado por la Consellería de Agricultura de la Comunitat Valenciana",
+            "necesitan acreditar capacitación y competencia profesional según la Orden 7/2015"
+          ]
+        },
+        {
+          "url": "https://sede.gva.es/es/detall-tramit?id_proc=G571",
+          "title": "Ayudas al establecimiento — acreditación de capacitación",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "diplomas, títulos o certificados del responsable del centro correspondiente, en el que consten especificadas las materias impartidas, la duración de la formación y el receptor de esta"
+          ]
+        }
+      ],
+      "notes": "La oferta formativa es actual y accionable, pero la página del proveedor sigue citando como referencia principal la Orden 7/2015. La convocatoria de ayudas vigente se rige por bases posteriores, por lo que la aceptación concreta del certificado bajo la normativa actual no se ha verificado de forma independiente en una lista oficial de cursos; por prudencia el estado es «Estado no confirmado».",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "comunitat-valenciana-la-unio-asesoramiento-primera-instalacion",
+      "name": "Asesoramiento para primera instalación de jóvenes y nuevos agricultores — LA UNIÓ",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "LA UNIÓ Llauradora i Ramadera",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Información y asesoramiento específico para personas jóvenes y nuevos agricultores que quieren incorporarse al campo, incluida ayuda para tramitar la primera instalación y orientación sobre requisitos, cuantías y plan empresarial.",
+      "whoCanUseIt": "Personas menores de 41 años y personas de 41 a 56 años que quieren iniciar una explotación agraria en la Comunitat Valenciana.",
+      "howToAccess": "Solicitar asesoramiento gratuito mediante la web específica de LA UNIÓ o contactar con la organización por teléfono o correo electrónico.",
+      "accessUrl": "https://www.ayudasjovenesagricultores.es/",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "LA UNIÓ",
+          "value": "963530036",
+          "sourceUrl": "https://launio.org/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "LA UNIÓ",
+          "value": "launio@launio.org",
+          "sourceUrl": "https://launio.org/"
+        }
+      ],
+      "accessCostType": "FREE",
+      "languages": ["es", "ca"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-09-15",
+      "sources": [
+        {
+          "url": "https://www.ayudasjovenesagricultores.es/",
+          "title": "Ayudas Joven Agricultor — LA UNIÓ te acompaña",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "En LA UNIÓ te ayudamos a conseguir las ayudas para la primera instalación de jóvenes agricultores.",
+            "SOLICITA ASESORAMIENTO GRATUITO",
+            "¿Tienes menos de 41 años y te quieres dedicar a la agricultura y/o la ganadería?",
+            "¿Tienes entre 41 y 56 años y quieres emprender en el sector agrario?"
+          ]
+        },
+        {
+          "url": "https://launio.org/",
+          "title": "LA UNIÓ",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Tramitar tus ayudas", "Redactar tus proyectos, informes y recursos", "Tlf: 963530036 Email: launio@launio.org"]
+        },
+        {
+          "url": "https://launio.org/post/la-unio-alerta-de-que-solo-el-5825-de-los-perceptores-de-la-pac-en-la-comunitat--522318?l=ES",
+          "title": "LA UNIÓ alerta sobre el relevo generacional en la Comunitat Valenciana",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "mayor apoyo a la primera instalación",
+            "medidas que faciliten el acceso a la tierra y la transmisión de explotaciones"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "La Xarxa de Terres prevista en la Ley 5/2019 se mantiene como marco legal: no se ha localizado una plataforma autonómica única con inventario, alta y demanda de parcelas. La operación verificable se articula mediante bancos provinciales o municipales.",
+    "No se ha localizado una convocatoria valenciana específica de ayuda a la sucesión/cese ni una bolsa pública de transmisión de explotaciones. El Servicio de Apoyo a la Familia y Relevo Generacional de la Generalitat tiene funciones de apoyo e instalación y teléfono público, pero no se ha verificado un procedimiento de intermediación o admisión de cedentes/sucesores equivalente a un servicio de sucesión.",
+    "El curso de incorporación de INALOCAL es una oferta 2026 utilizable y el proveedor afirma reconocimiento por la Conselleria, pero su página sigue citando la Orden 7/2015; no se ha localizado un catálogo oficial que confirme individualmente ese curso bajo la Orden 9/2025, por lo que se representa como «Estado no confirmado».",
+    "La investigación local verificó bancos de tierras en las tres provincias mediante València, Pinoso y Nules, pero no pretende ser un inventario exhaustivo de todos los municipios valencianos."
+  ]
+}

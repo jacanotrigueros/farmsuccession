@@ -85,7 +85,25 @@ release.
   gate warns about the two ways continuity breaks: a record that vanishes instead
   of being kept as discontinued, and the same page returning under a new id.
 
+### The first edition
+
+- **The 2026 edition of the European layer and Spain**: 33 files, 132 records, 231
+  sources, 651 quotes and 18 dated developments, plus the 33 research briefs that say
+  how each territory was searched — including the 115 leads that were considered and
+  rejected, which is the part that makes a second pass cheaper than the first.
+- One commit per territory, edition file and brief together, so a research pass can be
+  reverted on its own.
+- Three sentences were corrected on the way in, each claiming a date that no quote of
+  the file supported, and one rule was corrected because the data was right and the
+  rule was wrong: a file's own voice may use the evidence of the layers it inherits,
+  which is what a cumulative view means.
+- The Asturian portal's incomplete certificate chain is completed by a third pinned
+  public intermediate; the Gipuzkoa portals stay UNCHECKED, because trusting their
+  root would add a trust anchor and that line does not move.
+- Re-read live on 2 October 2026: 218 PASS, 1 FAIL, 11 UNCHECKED of 230 pages, all
+  three published as they are.
+
 ### Not here yet
 
-- Any published data: `data/` holds the territory catalogue and nothing else.
+- France, Italy, Portugal and Germany: researched, not published here.
 - The site, and therefore anything to visit.

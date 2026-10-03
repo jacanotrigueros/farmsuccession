@@ -1,0 +1,390 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "aragon"
+  },
+  "language": "es",
+  "updatedOn": "2026-10-02",
+  "context": [
+    "Aragón distingue dos realidades de acceso a tierra que no deben confundirse: la Ley 6/2023 prevé un banco de tierras sin servicio propio demostrado, mientras el Patrimonio Agrario sí tiene un procedimiento permanente para solicitar la adjudicación de tierras públicas.",
+    "SIGPAC y la concentración parcelaria no son vías de acceso a tierra para nuevos agricultores: son falsos positivos habituales.",
+    "El tramitador del Gobierno de Aragón muestra cada convocatoria con su plazo en una página propia; una convocatoria cerrada no implica que el programa haya dejado de existir.",
+    "Desde la modificación de 2026, la ayuda de establecimiento puede incrementarse hasta 30.000 euros cuando el joven integra una o varias explotaciones que cesan definitivamente. Es un pago al joven que se instala, no una ayuda separada al cedente.",
+    "La página oficial de formación agraria ya presenta expresamente la formación para la incorporación a la empresa agraria, y la normativa de la ayuda reconoce como capacitación un curso de incorporación de al menos 150 horas homologado o validado.",
+    "La Estiva tiene promoción 2026 verificable y apoyo del Gobierno de Aragón. Su edición 2026 terminó en septiembre, pero la escuela mantiene una vía de interés para futuras formaciones.",
+    "El esquema PEPAC de asesoramiento agrario selecciona entidades y después usuarios cada año; la convocatoria 2026 incluye expresamente a jóvenes que se incorporan y está cerrada, por lo que no debe describirse como admisión subvencionada abierta en septiembre.",
+    "El Programa de Relevo Generacional de PYMES y Cámaras de Comercio es general para negocios y no sustituye a los instrumentos agrarios específicos."
+  ],
+  "portals": [
+    {
+      "name": "Jóvenes agricultores - Gobierno de Aragón",
+      "url": "https://www.aragon.es/-/modernizacion-de-explotaciones-agrarias-e-instalacion-de-jovenes-agricultores",
+      "what": "Ayudas al establecimiento, modernización y financiación de jóvenes agricultores."
+    },
+    {
+      "name": "Patrimonio agrario - Gobierno de Aragón",
+      "url": "https://www.aragon.es/-/patrimonio-agrario",
+      "what": "Acceso y adjudicación de bienes del Patrimonio Agrario y documentación de la política de tierras públicas."
+    },
+    {
+      "name": "Formación en agricultura, ganadería y alimentación - Gobierno de Aragón",
+      "url": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/formacion-en-agricultura-ganaderia-y-alimentacion",
+      "what": "Cursos y actividades, incluida la formación para la incorporación a la empresa agraria."
+    },
+    {
+      "name": "Asesoramiento para el sector agrario - Gobierno de Aragón",
+      "url": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/asesoramiento-sector-agrario",
+      "what": "Entidades seleccionadas y convocatorias anuales de usuarios del servicio de asesoramiento PEPAC."
+    },
+    {
+      "name": "Banco de Tierras Huertas Km 0 - Ayuntamiento de Zaragoza",
+      "url": "https://www.zaragoza.es/sede/portal/medioambiente/alimentacion-sostenible/servicio/tramite/28100",
+      "what": "Registro municipal, formularios y contacto para acceder a parcelas de la huerta de Zaragoza."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "aragon-comarca-land",
+      "kinds": ["LAND_BANK"],
+      "query": "\"banco de tierras\" OR \"recuperación de tierras\" comarca Aragón 2026"
+    },
+    {
+      "id": "aragon-shepherds",
+      "kinds": ["TRAINING"],
+      "query": "\"escuela de pastoreo\" OR \"escuela de pastores\" Aragón matrícula 2026"
+    },
+    {
+      "id": "aragon-sucesion-cese",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "Gobierno de Aragón ayuda cooperación sucesión explotaciones agrarias 7169 cese anticipado 2026"
+    },
+    {
+      "id": "aragon-organizaciones",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Aragón relevo generacional servicio asesoramiento incorporación ASAJA UAGA UPA ARAGA oficina jóvenes agricultores Aragón"
+    },
+    {
+      "id": "aragon-patrimonio-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "site:aragon.es patrimonio agrario adjudicación tierras jóvenes relevo generacional Aragón 2026"
+    },
+    {
+      "id": "aragon-formacion-2026",
+      "kinds": ["TRAINING"],
+      "query": "site:aragon.es formación incorporación empresa agraria Aragón curso 2026"
+    },
+    {
+      "id": "aragon-asesoramiento-2026",
+      "kinds": ["ADVICE"],
+      "query": "site:aragon.es asesoramiento agrario PEPAC jóvenes incorporación Aragón convocatoria 2026"
+    },
+    {
+      "id": "aragon-relevo-2026",
+      "kinds": ["SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "relevo generacional agrario Aragón 2026 jóvenes agricultores sucesión explotaciones"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Aragón relevo generacional agricultura ayudas incorporación banco tierras asesoramiento"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Aragón jóvenes agricultores ayudas"
+    }
+  ],
+  "leads": [
+    {
+      "id": "aragon-establecimiento-jovenes-agricultores",
+      "name": "Subvención para el establecimiento de jóvenes agricultores",
+      "url": "https://www.aragon.es/tramitador/-/tramite/subvencion-para-el-establecimiento-de-jovenes-agricultores-en-el-marco-pepac-2023-2027",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "aragon-establecimiento-jovenes-agricultores",
+      "reason": "Programa regional vigente; la convocatoria 2026 está cerrada y la modificación de enero de 2026 añadió un incremento de hasta 30.000 euros por integrar explotaciones que cesan.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-sucesion-cese"
+    },
+    {
+      "id": "aragon-ifgc-prestamos-jovenes",
+      "name": "Instrumento Financiero de Gestión Centralizada (IFGC)",
+      "url": "https://www.aragon.es/-/instrumento-financiero-de-gestion-centralizada",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "aragon-ifgc-prestamos-jovenes",
+      "reason": "Instrumento oficial de garantía para facilitar financiación a jóvenes y explotaciones agrarias.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "portal"
+    },
+    {
+      "id": "aragon-banco-tierras-ley-6-2023",
+      "name": "Banco de tierras previsto en la Ley 6/2023",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2023-7735",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "aragon-banco-tierras-ley-6-2023",
+      "reason": "Se conserva como ANNOUNCED_NOT_OPERATING para documentar el objetivo legal sin convertir la previsión normativa en un servicio operativo.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-comarca-land"
+    },
+    {
+      "id": "zaragoza-banco-tierras-huertas-km0",
+      "name": "Banco de Tierras Huertas Km 0 de Zaragoza",
+      "url": "https://www.zaragoza.es/sede/portal/medioambiente/alimentacion-sostenible/servicio/tramite/28100",
+      "kind": "LAND_BANK",
+      "area": "Zaragoza",
+      "status": "ADMITTED",
+      "resourceId": "zaragoza-banco-tierras-huertas-km0",
+      "reason": "La página municipal mantiene el registro, formularios de acceso y contacto institucional para parcelas de la huerta de Zaragoza.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-comarca-land"
+    },
+    {
+      "id": "aragon-adjudicacion-patrimonio-agrario",
+      "name": "Adjudicación de bienes del Patrimonio Agrario de Aragón",
+      "url": "https://www.aragon.es/tramitador/-/tramite/adjudicacion-bienes-patrimonio-agrario-comunidad-autonoma-aragon",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "aragon-adjudicacion-patrimonio-agrario",
+      "reason": "Procedimiento oficial en plazo permanente para solicitar tierras públicas; la página de patrimonio lo vincula expresamente al acceso a tierra, jóvenes y relevo generacional.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-patrimonio-2026"
+    },
+    {
+      "id": "aragon-ley-3-1987-banco-tierras",
+      "name": "Ley 3/1987 del Banco de Tierras de Aragón",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-1987-8203",
+      "kind": "POLICY",
+      "status": "REJECTED",
+      "reason": "Disposición derogada; no es un instrumento vigente.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-comarca-land"
+    },
+    {
+      "id": "aragon-rechazo-banco-tierras-2025",
+      "name": "Rechazo en las Cortes de Aragón de la propuesta de banco de tierras (marzo de 2025)",
+      "url": "https://www.eleconomista.es/retail-consumo/noticias/13272432/03/25/aragon-se-queda-sin-banco-de-tierras-para-facilitar-la-incorporacion-de-jovenes-agricultores.html",
+      "kind": "NEWS",
+      "status": "REJECTED",
+      "reason": "Noticia de 2025, fuera de la edición 2026; no sustituye la comprobación del servicio actual.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-comarca-land"
+    },
+    {
+      "id": "aragon-sigpac",
+      "name": "SIGPAC",
+      "url": "https://www.aragon.es/pac-2025/sigpac",
+      "kind": "OTHER",
+      "status": "REJECTED",
+      "reason": "Identificación de parcelas para la gestión de la PAC, no un banco de tierras ni una vía de acceso a tierra.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-comarca-land"
+    },
+    {
+      "id": "aragon-concentracion-parcelaria",
+      "name": "Concentración parcelaria",
+      "url": "https://www.aragon.es/concentracion-parcelaria",
+      "kind": "OTHER",
+      "status": "REJECTED",
+      "reason": "Reordenación de la propiedad rústica, no una vía de acceso a tierra para nuevos agricultores.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-comarca-land"
+    },
+    {
+      "id": "aragon-matarranya-banco-tierras",
+      "name": "Proyecto Banco de Tierras de la Comarca del Matarraña/Matarranya",
+      "kind": "LAND_BANK",
+      "area": "Comarca del Matarraña/Matarranya",
+      "status": "REJECTED",
+      "reason": "Proyecto Interreg histórico de 2012-2015; no se encontró una página operativa actual.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-comarca-land"
+    },
+    {
+      "id": "aragon-convocatoria-2025-jovenes",
+      "name": "Convocatoria 2025 de la subvención a jóvenes agricultores",
+      "url": "https://www.aragon.es/tramitador/-/tramite/subvencion-para-el-establecimiento-de-jovenes-agricultores-en-el-marco-pepac-2023-2027/convocatoria-2025",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Convocatoria anterior cerrada; se representa el programa una sola vez con la convocatoria 2026 de la edición.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-sucesion-cese"
+    },
+    {
+      "id": "aragon-adecuara-boletin",
+      "name": "Boletín de ADECUARA (grupo LEADER de La Jacetania y Alto Gállego)",
+      "url": "https://www.adecuara.org/boletin-ficha.php?Idficha=12232",
+      "kind": "FINANCIAL_SUPPORT",
+      "area": "La Jacetania y Alto Gállego",
+      "status": "REJECTED",
+      "reason": "Difunde ayudas autonómicas; no acredita una línea propia de incorporación o sucesión distinta de las ya registradas.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-relevo-2026"
+    },
+    {
+      "id": "aragon-formacion-agraria",
+      "name": "Formación para la incorporación a la empresa agraria - Gobierno de Aragón",
+      "url": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/formacion-en-agricultura-ganaderia-y-alimentacion",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "aragon-formacion-incorporacion-empresa-agraria",
+      "reason": "La página oficial, actualizada en 2026, ya identifica expresamente la formación de incorporación, explica cómo consultar actividades e inscribirse y la normativa vincula un curso homologado de al menos 150 horas con la capacitación de la ayuda a jóvenes.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-formacion-2026"
+    },
+    {
+      "id": "aragon-akis-curso-2025",
+      "name": "Edición 2025 del curso de incorporación en la plataforma AKIS",
+      "url": "https://akisplataforma.es/cursos-de-formaci%C3%B3n/curso-joven-agricultor-la-incorporacion-la-empresa-agraria-aragon",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Edición pasada y agregada; la edición usa ahora la ruta oficial estable del Gobierno de Aragón.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-formacion-2026"
+    },
+    {
+      "id": "aragon-proveedores-curso-incorporacion",
+      "name": "Proveedores reconocidos del curso de incorporación (EFAS de Aragón y otros)",
+      "url": "https://efasdearagon.org/incorporacion-a-la-empresa-agraria-2/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Los proveedores pueden impartir cursos concretos, pero se evita duplicarlos cuando la vía oficial regional ya permite localizar las actividades y establece los requisitos de capacitación.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-formacion-2026"
+    },
+    {
+      "id": "aragon-la-estiva-escuela-pastoreo",
+      "name": "La Estiva - Escuela de Pastoreo de Aragón",
+      "url": "https://www.escueladepastoreo.com/formacion/",
+      "kind": "TRAINING",
+      "area": "Valle de Chistau (Huesca)",
+      "status": "ADMITTED",
+      "resourceId": "aragon-la-estiva-escuela-pastoreo",
+      "reason": "La web propia publica la promoción 2026, 860 horas y el reconocimiento formativo; un convenio oficial del Gobierno de Aragón confirma el apoyo a la Escuela. La edición 2026 terminó, pero la escuela mantiene formulario de interés.",
+      "checkedOn": "2026-09-27",
+      "foundBy": "aragon-shepherds"
+    },
+    {
+      "id": "aragon-programa-relevo-generacional-pymes",
+      "name": "Programa de Relevo Generacional (PYMES y Cámaras de Comercio)",
+      "url": "https://www.aragon.es/-/relevo-generacional-1",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "Programa general de transmisión de negocios, no específico de explotaciones agrarias; no se usa para cubrir la familia de sucesión agraria.",
+      "foundBy": "aragon-relevo-2026",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "aragon-asesoramiento-sector-agrario",
+      "name": "Servicios de asesoramiento agrario PEPAC en Aragón",
+      "url": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/asesoramiento-sector-agrario",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "aragon-asesoramiento-agrario-pepac",
+      "reason": "La convocatoria 2026 demuestra que el servicio incluye expresamente a jóvenes que se incorporan y que su asesoramiento aborda el plan empresarial. Las entidades vigentes incluyen UAGA, UPA, ASAJA Huesca, ARAGA y cooperativas.",
+      "foundBy": "aragon-asesoramiento-2026",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "aragon-asaja-huesca-incorporacion",
+      "name": "Asesoramiento de ASAJA Huesca para incorporación a la agricultura",
+      "url": "https://www.asajahuesca.es/info/ayudas-para-incorporacion-a-la-agricultura-y-modernizacion",
+      "kind": "ADVICE",
+      "area": "Huesca",
+      "status": "ADMITTED",
+      "resourceId": "aragon-asaja-huesca-incorporacion",
+      "reason": "Página estable de servicio específico: análisis de proyectos, estudios de viabilidad, planes de explotación, tramitación y acompañamiento durante la ayuda de incorporación.",
+      "foundBy": "aragon-organizaciones",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "aragon-complemento-cese-jovenes",
+      "name": "Incremento por integrar explotaciones que cesan en la de un joven",
+      "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1432649890303",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "aragon-establecimiento-jovenes-agricultores",
+      "reason": "La Orden AGA/92/2026 confirma un incremento de hasta 30.000 euros dentro de la ayuda de establecimiento. No es un instrumento independiente ni un pago al cedente, por lo que se integra en el recurso existente.",
+      "foundBy": "aragon-sucesion-cese",
+      "checkedOn": "2026-09-27"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "aragon-establecimiento-jovenes-agricultores",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "FOUND",
+      "leadId": "aragon-complemento-cese-jovenes",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "aragon-adjudicacion-patrimonio-agrario",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "FOUND",
+      "leadId": "aragon-formacion-agraria",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "FOUND",
+      "leadId": "aragon-asesoramiento-sector-agrario",
+      "checkedOn": "2026-09-27"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada: subvención a jóvenes con su convocatoria 2026 y la modificación de bases, préstamos IFGC, ausencia documentada del banco de tierras autonómico y banco de tierras municipal de Zaragoza. Cuatro recursos y dos noticias."
+    },
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Resuelta la pista de La Estiva: descartada por falta de fuente oficial actual verificable."
+    },
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Pasada con el checklist nacional: respondidos los cinco instrumentos esperados; rechazados el programa de relevo empresarial general y el asesoramiento agrario genérico; complemento por cese pendiente."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    },
+    {
+      "date": "2026-09-27",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Cierre de la pasada 1.9.0: recursos 4→9. Confirmados adjudicación permanente del Patrimonio Agrario, formación oficial de incorporación, La Estiva 2026, asesoramiento PEPAC con jóvenes y servicio específico de ASAJA Huesca. Resuelto el complemento de cese como incremento de hasta 30.000 euros de la ayuda al joven, no como ayuda al cedente. El banco legal sigue no operativo y no se hallaron otros bancos locales actuales suficientemente demostrados."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisión de fuentes: el trámite de adjudicación de bienes del patrimonio agrario pasó a la misma dirección sin «/es/» (la antigua da 404) y conserva todas sus citas; las páginas del IFGC y de la subvención de establecimiento cambiaron de redacción y sus citas se toman del texto actual."
+    },
+    {
+      "date": "2026-10-02",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Re-lectura en vivo de las páginas citadas: el trámite 28100 del Banco de Tierras Huertas Km 0 de Zaragoza responde 404, y también para un navegador, que muestra «Registro no encontrado»; la página municipal de la huerta ya no menciona el registro y no se ha localizado una página sustituta. La ficha sigue publicada como ACTIVE: cambiar su estado o retirarla es una decisión de revisión, no una consecuencia automática de que una página deje de responder."
+    },
+    {
+      "date": "2026-10-02",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Decisión de revisión del mantenedor sobre el hallazgo anterior: la ficha del Banco de Tierras Huertas Km 0 pasa de ACTIVE a UNKNOWN. No hay fuente que diga que se haya cerrado, así que no se marca como discontinuado ni se retira; queda como estado desconocido con una nota que dirige al correo municipal. La pista sigue ADMITTED: si el Ayuntamiento vuelve a publicar el trámite, la próxima pasada lo recupera."
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "ES",
+  "region": "castilla-y-leon",
+  "officialName": "Castilla y León",
+  "published": "2026-09-27",
+  "summary": "Castilla y León combina la ayuda autonómica al establecimiento de jóvenes, una intervención específica de cooperación para la sucesión, cursos oficiales de incorporación, asesoramiento PEPAC y una red de asesoramiento de ASAJA. El Banco de Tierras del Bierzo añade acceso comarcal a parcelas, intermediación y acompañamiento; el Fondo de Tierras autonómico previsto por la ley no se ha verificado como un banco operativo unificado.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Pasada 1.9.0 completada sobre incorporación, sucesión, tierra, formación y asesoramiento. Se verificaron la última convocatoria de establecimiento (2025), la última convocatoria localizada de cooperación para la sucesión (2024), cursos CIEA activos en 2026, el sistema autonómico de asesoramiento y el Banco de Tierras del Bierzo. La documentación institucional sigue describiendo el Fondo de Tierras autonómico como pendiente de constitución; el Espacio Test Agrario del Bierzo estaba en puesta en marcha y el arrendamiento municipal de Cuéllar de 2026 fue una licitación puntual ya cerrada.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://agriculturaganaderia.jcyl.es/web/es/desarrollo-rural/ayudas-incorporacion.html"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1251181077965/Ayuda012/1285537308333/Propuesta"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1284933058677/Ayuda012/1285453181763/Propuesta"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1251181050732/Ayuda012/1285237836884/Tramite"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://ccbierzo.com/servicios/banco-tierras/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.asajacyl.com/formacion/proximos-cursos"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.asajacyl.com/servicios-socio/asesoramiento-explotaciones/asesoramiento-las-explotaciones-agrarias-forestales-pymes-del-medio-rural"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Castilla y León Banco de Tierras Fondo de Tierras operativo 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Castilla y León bancos de tierras municipales arrendamiento parcelas jóvenes 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Castilla y León organizaciones agrarias asesoramiento incorporación jóvenes 2026"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "es",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "castilla-y-leon-establecimiento-jovenes-agricultores",
+      "name": "Ayudas al establecimiento de personas jóvenes agricultores",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Junta de Castilla y León",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ayuda para el primer establecimiento de jóvenes como titulares de una explotación agraria. En la convocatoria 2025 el importe base era de 30.000 euros y podía incrementarse hasta un máximo de 100.000 euros, sin superar los gastos e inversiones de establecimiento incluidos en el plan empresarial.",
+      "whoCanUseIt": "Jóvenes de entre 18 y 40 años en el año de la solicitud que realizan su primer establecimiento y cumplen los requisitos de la intervención 6961.1.",
+      "howToAccess": "Presentar la solicitud y el plan empresarial por la aplicación G.E.M.A. durante la convocatoria. La última convocatoria localizada es la de 2025, cerrada el 31 de octubre de 2025; las nuevas convocatorias deben comprobarse en la sede electrónica de Castilla y León.",
+      "accessUrl": "https://agriculturaganaderia.jcyl.es/web/es/desarrollo-rural/ayudas-incorporacion.html",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "calls": [
+        {
+          "name": "Convocatoria 2025",
+          "state": "CLOSED",
+          "opens": "2025-07-04",
+          "closes": "2025-10-31",
+          "sourceUrl": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1251181077965/Ayuda012/1285537308333/Propuesta"
+        }
+      ],
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Importe base de la ayuda por joven",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2025-07-03",
+          "sourceUrl": "https://www.asajacyl.com/servicios-socio/convocadas-para-2025-las-ayudas-de-incorporacion-y-mejora"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Ayuda máxima de establecimiento",
+          "value": 100000,
+          "unit": "EUR",
+          "asOf": "2025-07-03",
+          "sourceUrl": "https://www.asajacyl.com/servicios-socio/convocadas-para-2025-las-ayudas-de-incorporacion-y-mejora"
+        }
+      ],
+      "notes": "No se ha localizado una nueva convocatoria de establecimiento de 2026 hasta el 27 de septiembre de 2026. El programa se mantiene en el marco PEPAC, pero la convocatoria anual actualmente verificable está cerrada.",
+      "sources": [
+        {
+          "url": "https://agriculturaganaderia.jcyl.es/web/es/desarrollo-rural/ayudas-incorporacion.html",
+          "title": "Ayudas de incorporación | Agricultura y Ganadería | Junta de Castilla y León",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Esta ayuda tiene por objeto promover el establecimiento de personas jóvenes agricultores",
+            "Serán beneficiarios los agricultores jóvenes que realicen su primer establecimiento y no hayan recibido ayuda de primera instalación.",
+            "Tener entre 18 y 40 años en el año de presentación de la solicitud de ayuda"
+          ]
+        },
+        {
+          "url": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1251181077965/Ayuda012/1285537308333/Propuesta",
+          "title": "Ayudas, cofinanciadas por el FEADER, para la mejora de las estructuras de producción y modernización de las explotaciones agrarias (2025)",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Intervención 6961.1 “Establecimiento de personas jóvenes agricultores”.",
+            "Desde el 4 de julio de 2025 hasta el 31 de octubre de 2025"
+          ]
+        },
+        {
+          "url": "https://www.asajacyl.com/servicios-socio/convocadas-para-2025-las-ayudas-de-incorporacion-y-mejora",
+          "title": "Convocadas para 2025 las ayudas de incorporación y mejora - ASAJA Castilla y León",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "La ayuda prevista no podrá superar los 100.000 € ni el importe de los gastos e inversiones de establecimiento incluidos en el plan empresarial.",
+            "Se establece un importe base de ayuda de 30.000 €"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "castilla-y-leon-cooperacion-sucesion-explotaciones",
+      "name": "Ayudas para la cooperación en la sucesión de explotaciones agrarias",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Junta de Castilla y León",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Subvención a titulares jubilados o en condiciones de jubilarse que ceden su explotación mediante un proyecto de cooperación para la sucesión. La convocatoria 2024 fijó una ayuda anual ligada a la producción estándar y una ayuda total máxima de 85.000 euros.",
+      "whoCanUseIt": "Cedentes, personas físicas jefes de explotación en Castilla y León, jubilados o que cumplen los requisitos para acceder a la jubilación y formalizan un proyecto de cooperación con un sucesor que no sea familiar de primer grado.",
+      "howToAccess": "La convocatoria verificada se tramitó electrónicamente mediante SCAG. Cerró el 15 de enero de 2025 y no se ha localizado una convocatoria 2025 o 2026; comprobar la página general y la sede electrónica antes de planificar una cesión.",
+      "accessUrl": "https://agriculturaganaderia.jcyl.es/web/es/ayudas-para-cooperacion-sucesion.html",
+      "instrumentType": "GRANT",
+      "purposes": ["RETIREMENT_SUCCESSION", "TRANSFER"],
+      "calls": [
+        {
+          "name": "Convocatoria 2024",
+          "state": "CLOSED",
+          "opens": "2024-10-29",
+          "closes": "2025-01-15",
+          "sourceUrl": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1284933058677/Ayuda012/1285453181763/Propuesta"
+        }
+      ],
+      "languages": ["es"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Ayuda total máxima al cedente",
+          "value": 85000,
+          "unit": "EUR",
+          "asOf": "2024-10-28",
+          "sourceUrl": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1284933058677/Ayuda012/1285453181763/Propuesta"
+        }
+      ],
+      "notes": "La última convocatoria localizada es la publicada el 28 de octubre de 2024; por prudencia la disponibilidad se marca como «Estado no confirmado» hasta verificar una nueva convocatoria.",
+      "sources": [
+        {
+          "url": "https://agriculturaganaderia.jcyl.es/web/es/ayudas-para-cooperacion-sucesion.html",
+          "title": "Ayudas para la cooperación en la sucesión en las explotaciones agrarias | Agricultura y Ganadería | Junta de Castilla y León",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "subvenciones dirigidas a promover la cooperación para la sucesión de explotaciones agrarias con el objetivo de favorecer el relevo generacional",
+            "que cedan su explotación agraria a otra persona física o jurídica que quiera sucederle"
+          ]
+        },
+        {
+          "url": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1284933058677/Ayuda012/1285453181763/Propuesta",
+          "title": "Ayudas para fomentar la cooperación para la sucesión de explotaciones agrarias (2024)",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Desde el 29 de octubre de 2024 hasta el 15 de enero de 2025",
+            "La ayuda total en euros que percibirá el beneficiario se calculará multiplicando por cinco la ayuda final anual con un límite máximo de 85.000 euros.",
+            "Formalizar un proyecto de cooperación con un cesionario que no podrá ser familiar de primer grado del cedente."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "castilla-y-leon-banco-tierras-bierzo",
+      "name": "Banco de Tierras del Bierzo",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Comarca de El Bierzo"
+      },
+      "operator": "Consejo Comarcal del Bierzo",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Centro público de intermediación para movilizar terrenos agrícolas, ganaderos o forestales mediante cesión o arrendamiento. Además del buscador de fincas, ofrece a demandantes asesoramiento técnico, jurídico y formativo, tutorización, apoyo a la comercialización, análisis de suelo y préstamo de maquinaria.",
+      "whoCanUseIt": "Personas propietarias que quieran incorporar voluntariamente fincas y personas que busquen tierra para desarrollar o ampliar una actividad agrícola, ganadera o forestal en El Bierzo.",
+      "howToAccess": "Consultar las fincas disponibles en la web. Para inscribirse como demandante, acudir a las oficinas del Banco de Tierras o remitir por correo electrónico el modelo normalizado facilitado por el servicio.",
+      "accessUrl": "https://www.bancodetierrasdelbierzo.es/",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Banco de Tierras del Bierzo",
+          "value": "bancodetierras@ccbierzo.com",
+          "sourceUrl": "https://ccbierzo.com/servicios/banco-tierras/"
+        }
+      ],
+      "accessCostType": "FREE",
+      "assetTypes": ["PLOTS"],
+      "languages": ["es"],
+      "targetProfiles": ["LAND_SEEKER", "LANDOWNER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-04-29",
+      "metrics": [
+        {
+          "measure": "LAND_LISTINGS",
+          "label": "Parcelas libres gestionadas por el Banco de Tierras",
+          "value": 489,
+          "unit": "PARCELS",
+          "asOf": "2026-04-29",
+          "sourceUrl": "https://ccbierzo.com/actividad-agricola/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.bancodetierrasdelbierzo.es/",
+          "title": "Banco de Tierras del Bierzo",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "El Banco de Tierras es un servicio gratuito del Consejo Comarcal del Bierzo.",
+            "El Banco de Tierras es un Centro de intermediación creado por el Consejo Comarcal del Bierzo, cuya finalidad es la movilización de terrenos con vocación agrícola, ganadera o forestal"
+          ]
+        },
+        {
+          "url": "https://ccbierzo.com/servicios/banco-tierras/",
+          "title": "Banco de Tierras - Consejo Comarcal del Bierzo",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Puedes incorporarlas de forma GRATUITA y VOLUNTARIA.",
+            "Puedes consultar en todo momento que fincas están disponibles para su arrendamiento, a través de la WEB.",
+            "bancodetierras@ccbierzo.com"
+          ]
+        },
+        {
+          "url": "https://www.bancodetierrasdelbierzo.es/necesito-tierras/",
+          "title": "Necesito Tierras, ¿cómo las solicito? - Banco de Tierras del Bierzo",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Puedes inscribirte como demandante en las oficinas del Banco de Tierra en el Consejo Comarcal del Bierzo o a través del correo electrónico remitiendo el modelo normalizado que previamente te facilitaremos.",
+            "Recibirás un asesoramiento técnico, jurídico y formativo en todo momento.",
+            "Todos nuestros servicios son gratuitos."
+          ]
+        },
+        {
+          "url": "https://ccbierzo.com/actividad-agricola/",
+          "title": "Plantas gratis - Consejo Comarcal del Bierzo",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "el Banco de Tierras, creado en marzo de 2013, gestiona actualmente 5.500 parcelas, de las cuales solo 489 permanecen libres."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "castilla-y-leon-cursos-incorporacion-empresa-agraria",
+      "name": "Cursos de Incorporación a la Empresa Agraria (CIEA)",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Junta de Castilla y León / entidades de formación registradas",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Formación oficial de incorporación a la empresa agraria impartida por entidades registradas, con 160 horas teóricas, trabajo de viabilidad, visitas, prácticas y examen final. En 2026 hay múltiples ediciones en modalidad mixta y la superación permite acreditar la capacitación vinculada a las ayudas de primera instalación.",
+      "whoCanUseIt": "Personas que quieran mejorar su formación agraria, incorporarse a la actividad agraria o modernizar su empresa agraria.",
+      "howToAccess": "Inscribirse en una edición impartida por una entidad incluida en el registro CIEA. Tras superar la formación teórico-práctica y el examen final, la Administración emite de oficio el certificado de aprovechamiento.",
+      "accessUrl": "https://agriculturaganaderia.jcyl.es/web/es/formacion-agraria/cursos-incorporacion-empresa-agraria.html",
+      "trainingFormats": ["HYBRID"],
+      "qualifiesForEstablishmentAid": true,
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-09-03",
+      "metrics": [
+        {
+          "measure": "TRAINING_HOURS",
+          "label": "Formación teórica del CIEA",
+          "value": 160,
+          "unit": "HOURS",
+          "asOf": "2026-09-03",
+          "sourceUrl": "https://www.asajacyl.com/formacion/proximos-cursos"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://agriculturaganaderia.jcyl.es/web/es/formacion-agraria/cursos-incorporacion-empresa-agraria.html",
+          "title": "Cursos de Incorporación a la Empresa Agraria | Agricultura y Ganadería | Junta de Castilla y León",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Una parte de formación teórica de 160 horas de duración.",
+            "cada alumno deberá realizar, como trabajo final, un estudio de viabilidad de una empresa agraria",
+            "Prácticas en CIFP (tres prácticas de 5 horas)"
+          ]
+        },
+        {
+          "url": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1284933058677/Tramite/1284725281940/Tramite",
+          "title": "Declaración responsable para impartir cursos de incorporación a la empresa agraria (CIEA)",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Quienes se vayan a incorporar a la actividad agraria.",
+            "La presentación de esta declaración conlleva la inscripción en el Registro de Entidades de formación de los cursos de incorporación a la empresa agraria"
+          ]
+        },
+        {
+          "url": "https://www.asajacyl.com/formacion/proximos-cursos",
+          "title": "Próximos cursos - ASAJA Castilla y León",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Una parte de formación teórica de 160 horas de duración, que se realizará en modalidad online a través de la plataforma de formación Moodle.",
+            "Curso de incorporación a la empresa agraria, modalidad mixta, del 7 de septiembre al 15 de noviembre de 2026, organizado por ASAJA Castilla y León."
+          ]
+        },
+        {
+          "url": "https://www.asajacyl.com/asaja-informa/presentacion-de-los-cursos-de-incorporacion-a-la-empresa-agraria-2026",
+          "title": "Presentación de los cursos de incorporación a la empresa agraria 2026 - ASAJA Castilla y León",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "esta certificación permite acceder a las ayudas a la mejora de las estructuras de producción de las explotaciones agrarias o a la primera instalación de agricultores jóvenes a las explotaciones prioritarias."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "castilla-y-leon-servicio-asesoramiento-explotaciones",
+      "name": "Servicio de asesoramiento a explotaciones agrarias y forestales",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Junta de Castilla y León / entidades de asesoramiento seleccionadas",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Asesoramiento individualizado a titulares de explotaciones agrarias y forestales por entidades seleccionadas dentro del PEPAC, sobre gestión sostenible y rendimiento de la explotación, requisitos PAC, digitalización y otras necesidades técnicas.",
+      "whoCanUseIt": "Personas físicas o jurídicas o grupos de ellas que sean titulares de explotaciones agrarias o forestales y cumplan los criterios de la convocatoria anual de selección de usuarios.",
+      "howToAccess": "Solicitar el servicio dentro de la Solicitud Única PAC del año correspondiente e indicar la entidad del sistema de asesoramiento que se desea. La selección para el servicio de 2027 se solicitó con la campaña 2026 y está cerrada.",
+      "accessUrl": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1251181050732/Ayuda012/1285237836884/Tramite",
+      "calls": [
+        {
+          "name": "Selección de usuarios para el servicio 2027 (campaña 2026/2027)",
+          "state": "CLOSED",
+          "opens": "2026-02-01",
+          "closes": "2026-05-15",
+          "sourceUrl": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1251181050732/Ayuda012/1285237836884/Tramite"
+        }
+      ],
+      "languages": ["es"],
+      "targetProfiles": ["GENERAL"],
+      "lastEvidenceDate": "2026-04-22",
+      "sources": [
+        {
+          "url": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1251181050732/Ayuda012/1285237836884/Tramite",
+          "title": "Selección de usuarios del servicio de asesoramiento de explotaciones de Castilla y León para el año 2027",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Convocar la selección de los usuarios del servicio de asesoramiento a las explotaciones agrarias y forestales para el año 2027",
+            "deberán formalizar su solicitud en la solicitud única 2026",
+            "El plazo para la presentación de la solicitud única correspondiente al año 2026 será el comprendido entre el 1 de febrero y el 15 de mayo de dicho año"
+          ]
+        },
+        {
+          "url": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1284933058677/Ayuda012/1285564691223/Propuesta",
+          "title": "Ayudas para la prestación del servicio de asesoramiento a las explotaciones agrarias y forestales (2027)",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "Asesorar a los titulares de explotaciones como usuarios del servicio, aplicada a las características específicas de su explotación.",
+            "El servicio de asesoramiento comenzará a partir de la publicación de la resolución provisional de usuarios del sistema de asesoramiento, y finalizará antes del 30 de noviembre de 2027."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "castilla-y-leon-asaja-asesoramiento-explotaciones",
+      "name": "Asesoramiento a explotaciones de ASAJA Castilla y León",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "ASAJA Castilla y León",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Asesoramiento técnico a explotaciones agrarias y forestales en el marco del sistema PEPAC. La página de servicio describe atención sobre gestión y rendimiento, requisitos y ayudas PAC, instrumentos financieros y planes empresariales, y publica oficinas en las nueve provincias.",
+      "whoCanUseIt": "Titulares de explotaciones que sean seleccionados como usuarios del sistema de asesoramiento y elijan a ASAJA cuando la organización sea una de las entidades seleccionadas para la campaña correspondiente.",
+      "howToAccess": "Consultar la convocatoria anual de usuarios y, si ASAJA figura entre las entidades seleccionadas, elegirla en la Solicitud Única. La página del servicio mantiene teléfonos, correos y horarios de las oficinas provinciales.",
+      "accessUrl": "https://www.asajacyl.com/servicios-socio/asesoramiento-explotaciones/asesoramiento-las-explotaciones-agrarias-forestales-pymes-del-medio-rural",
+      "accessCostType": "UNKNOWN",
+      "languages": ["es"],
+      "targetProfiles": ["GENERAL"],
+      "notes": "La página de ASAJA describe el servicio, pero no identifica en la propia página la resolución de selección de ASAJA para la campaña vigente; por prudencia se conserva como «Estado no confirmado».",
+      "sources": [
+        {
+          "url": "https://www.asajacyl.com/servicios-socio/asesoramiento-explotaciones/asesoramiento-las-explotaciones-agrarias-forestales-pymes-del-medio-rural",
+          "title": "Asesoramiento a las explotaciones agrarias, forestales y pymes del medio rural - ASAJA Castilla y León",
+          "consultedOn": "2026-09-27",
+          "quotes": [
+            "ASAJA Castilla y León viene siendo entidad seleccionada para prestar el asesoramiento desde la primera convocatoria",
+            "El servicio se presta en las siguientes oficinas:",
+            "sobre los requisitos, condiciones y compromisos establecidos en el Plan Estratégico de la PAC"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "No se ha localizado una convocatoria 2026 de la ayuda de establecimiento; la última verificada es la de 2025, cerrada el 31 de octubre de 2025.",
+    "La última convocatoria localizada de cooperación para la sucesión es la de 2024, cerrada el 15 de enero de 2025, por lo que su disponibilidad actual se mantiene como «Estado no confirmado».",
+    "El Fondo de Tierras previsto por la ley autonómica no se ha verificado como banco operativo y unificado; el acceso comprobado se articula, entre otros mecanismos, mediante iniciativas comarcales o cesiones locales.",
+    "El Espacio Test Agrario del Bierzo estaba en fase de organización y puesta en marcha durante 2026 y no se localizó todavía una ruta pública de admisión de emprendedores al dispositivo.",
+    "La licitación municipal de Cuéllar para arrendar fincas patrimoniales y Cuarteles del Henar ya estaba cerrada en esta revisión y se trata de un procedimiento puntual, no de un banco de tierras permanente."
+  ]
+}

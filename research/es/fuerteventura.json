@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "fuerteventura"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Las ayudas a jóvenes agricultores y la formación de las Escuelas de Capacitación Agraria son del Gobierno de Canarias y comunes a las siete islas; cada Cabildo puede añadir banco de tierras, sucesión, ayudas o servicios propios.",
+    "La convocatoria común del procedimiento 9277 para 2026 estuvo abierta del 1 al 28 de febrero; Fuerteventura la hereda de la capa Canarias.",
+    "Fuerteventura no tiene Escuela de Capacitación Agraria propia. La formación accesible desde la isla es la programación común en línea; la ficha 6726 confirma que los cursos on-line se pueden realizar desde cualquier isla.",
+    "La convocatoria insular 2026 del Cabildo localizada en septiembre contiene líneas para agrupaciones de defensa sanitaria, recría ganadera e inversiones inventariables; no es una línea de primera instalación o sucesión.",
+    "Las menciones del Cabildo al relevo generacional en FEAGA, muestras ganaderas o formación son objetivos de actividades generales y no prueban un servicio de sucesión o incorporación.",
+    "Una propuesta política de 2025 para crear un banco de tierras no demuestra que exista un mecanismo operativo de oferta y demanda."
+  ],
+  "portals": [
+    {
+      "name": "Sede electrónica del Gobierno de Canarias",
+      "url": "https://sede.gobiernodecanarias.org/sede/",
+      "what": "Procedimientos comunes de ayudas agrarias y formación."
+    },
+    {
+      "name": "Cabildo de Fuerteventura - Agricultura, ganadería y pesca",
+      "url": "https://www.cabildofuer.es/cabildo/atencion-al-ciudadano/ayudas-becas-y-subvenciones/agricultura-ganaderia-y-pesca/",
+      "what": "Convocatorias y ayudas insulares del sector primario."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "fue-jovenes",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Gobierno de Canarias ayudas creación empresas jóvenes agricultores convocatoria 2026 sede"
+    },
+    {
+      "id": "fue-formacion",
+      "kinds": ["TRAINING"],
+      "query": "Canarias curso incorporación a la empresa agraria jóvenes agricultores Consejería Agricultura formación agraria"
+    },
+    { "id": "fue-tierras", "kinds": ["LAND_BANK"], "query": "Cabildo de Fuerteventura banco de tierras agrícolas" },
+    {
+      "id": "fue-relevo",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "Cabildo Fuerteventura jóvenes agricultores incorporación relevo generacional ayudas 2026"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Fuerteventura\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Fuerteventura jóvenes agricultores ayudas"
+    },
+    {
+      "id": "review-2026-09-28-cabildo",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE", "ADVICE"],
+      "query": "site:cabildofuer.es agricultura 2026 subvenciones relevo generacional Fuerteventura"
+    },
+    {
+      "id": "review-2026-09-28-organizaciones",
+      "kinds": ["ADVICE", "TRAINING"],
+      "query": "Fuerteventura asociación cooperativa asesoramiento jóvenes agricultores relevo generacional 2026"
+    }
+  ],
+  "leads": [
+    {
+      "id": "fue-canarias-jovenes",
+      "name": "Subvenciones para el establecimiento de personas jóvenes agricultoras",
+      "url": "https://sede.gobiernodecanarias.org/sede/tramites/9277",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "canarias-establecimiento-jovenes-agricultoras",
+      "reason": "Instrumento común a todas las islas y documentado una sola vez en la capa Canarias. Revalidado el 28 de septiembre de 2026: la convocatoria 2026 estuvo abierta del 1 al 28 de febrero y está cerrada.",
+      "foundBy": "fue-jovenes",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fue-eca-cursos",
+      "name": "Cursos de incorporación de las Escuelas de Capacitación Agraria",
+      "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/ensenanzas/cursos-agricultura-ganaderia.html",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "canarias-formacion-escuelas-capacitacion-agraria",
+      "reason": "La isla no tiene escuela; la formación a su alcance es la programación común en línea, documentada una sola vez en Canarias. La programación 2026 se revalidó el 28 de septiembre.",
+      "foundBy": "fue-formacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fue-propuesta-banco-tierras",
+      "name": "Propuesta de banco de tierras en Fuerteventura",
+      "url": "https://cn8noticiascanarias.com/politica/contigo-fuerteventura-propone-un-banco-de-tierras-para-impulsar-la-agricultura-sostenible-en-la-isla/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Propuesta política de 2025 para crear un banco de tierras, no un servicio en funcionamiento. La pasada de septiembre de 2026 no localizó una página operativa del Cabildo con oferta/demanda o inscripción.",
+      "foundBy": "fue-tierras",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fue-curso-online-instalacion",
+      "name": "Curso en línea «Conocimientos Básicos para la Instalación en una Explotación Agraria»",
+      "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/centros/eca-arucas/ensenanzas/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Edición anterior del curso en línea, terminada en 2023. La oferta vigente es el curso de conocimientos básicos para el establecimiento de personas jóvenes agricultoras, procedimiento 9378, integrado en la programación común.",
+      "foundBy": "fue-formacion",
+      "checkedOn": "2026-09-21"
+    },
+    {
+      "id": "fue-curso-establecimiento-jovenes",
+      "name": "Curso en línea de conocimientos básicos para el establecimiento de personas jóvenes agricultoras",
+      "url": "https://sede.gobiernodecanarias.org/sede/procedimientos_servicios/tramites/9378",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "canarias-formacion-escuelas-capacitacion-agraria",
+      "reason": "Curso de la programación común de las escuelas; se documenta una sola vez en Canarias y esta isla lo hereda.",
+      "foundBy": "fue-formacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fue-cabildo-subvenciones-sector-primario-2026",
+      "name": "Subvenciones genéricas del Cabildo de Fuerteventura al sector primario 2026",
+      "url": "https://www.cabildofuer.es/cabildo/atencion-al-ciudadano/ayudas-becas-y-subvenciones/agricultura-ganaderia-y-pesca/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "La convocatoria 2026 se limita a agrupaciones de defensa sanitaria, fomento de la recría ganadera e inversiones agropecuarias/pesqueras inventariables. No es una ayuda explícita a primera instalación, sucesión o cese.",
+      "foundBy": "review-2026-09-28-cabildo",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fue-feaga-relevo-generacional",
+      "name": "Actividades de FEAGA y formación del Cabildo con objetivo de relevo generacional",
+      "url": "https://www.cabildofuer.es/cabildo/%EF%BB%BFalrededor-de-3-000-escolares-conocen-la-labor-del-sector-primario-majorero-en-feaga-2026/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Son actividades de divulgación/formación general que mencionan el relevo generacional como objetivo; no constituyen un itinerario de incorporación, capacitación requerida para la ayuda ni un servicio de sucesión accesible.",
+      "foundBy": "review-2026-09-28-cabildo",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    { "expectedId": "es-incorporacion-jovenes", "checkedOn": "2026-09-28", "status": "FOUND", "leadId": "fue-canarias-jovenes" },
+    {
+      "expectedId": "es-sucesion-cese",
+      "checkedOn": "2026-09-28",
+      "status": "NOT_FOUND",
+      "reason": "Revisados el Cabildo y búsquedas de sucesión/relevo: no se verificó un instrumento de cese, transmisión o mediación de explotaciones en Fuerteventura."
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "checkedOn": "2026-09-28",
+      "status": "NOT_FOUND",
+      "reason": "No se verificó un banco de tierras operativo con oferta/demanda, inscripción o intermediación. La pista existente es una propuesta política de 2025."
+    },
+    { "expectedId": "es-formacion-incorporacion", "checkedOn": "2026-09-28", "status": "FOUND", "leadId": "fue-eca-cursos" },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "checkedOn": "2026-09-28",
+      "status": "NOT_FOUND",
+      "reason": "Las búsquedas de organizaciones y cooperativas no localizaron un servicio actual con acceso descrito para primera instalación, sucesión o relevo; las acciones del Cabildo son institucionales y generales."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada con el checklist nacional: admitidas la subvención canaria a jóvenes y los cursos de las Escuelas de Capacitación Agraria; sin banco de tierras operativo en la isla."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Corrección tras auditoría: retirado de la oferta vigente el curso en línea que terminó en 2023 y limitada la formación a la modalidad en línea, porque la isla no tiene escuela."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Corrección de la formación: la modalidad en línea queda respaldada por la ficha oficial de inscripción (desde cualquier isla), añadido el curso vigente 9378 y cerrado como rechazado el curso de 2023."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Consolidación en la capa de Canarias: el recurso fuerteventura-establecimiento-jovenes-agricultoras-canarias pasa a ser canarias-establecimiento-jovenes-agricultoras, común a todas las islas; esta isla lo hereda."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Formación: la copia de la isla se retira; la isla hereda la programación común en línea documentada en Canarias."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada 1.9.0 completa: revalidados los instrumentos heredados de Canarias y su convocatoria 2026; rechazadas las ayudas sectoriales genéricas y las actividades de divulgación como instrumentos de incorporación; no se verificó banco de tierras, sucesión/cese ni asesoramiento específico de organizaciones en la isla."
+    }
+  ]
+}

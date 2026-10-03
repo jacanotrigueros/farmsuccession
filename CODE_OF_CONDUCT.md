@@ -31,10 +31,10 @@ This applies in this repository and anywhere somebody is representing the projec
 
 ## Enforcement
 
-Reports go to the maintainer, José Antonio Cano, at
-[contact@farmsuccession.eu](mailto:contact@farmsuccession.eu). They are handled
-privately. The maintainer may edit, hide or remove contributions, and may block an
-account, explaining the reason where it is appropriate to do so.
+Reports go to [contact@farmsuccession.eu](mailto:contact@farmsuccession.eu), the
+project's own address, and are read privately by the maintainer. The maintainer may
+edit, hide or remove contributions, and may block an account, explaining the reason
+where it is appropriate to do so.
 
 This is a single-maintainer project, which means two honest things: a report will
 be read by one person, and it will not be read within the hour.

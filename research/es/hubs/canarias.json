@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "HUB",
+    "country": "ES",
+    "hub": "canarias"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Canarias agrupa siete islas que se investigan por separado; este brief recoge solo lo que el Gobierno de Canarias ofrece con un mismo procedimiento para todas ellas.",
+    "El procedimiento 9277 exige residir en la isla donde se instala la explotación: es un requisito de acceso, no un límite de ámbito, y el procedimiento es único para todo el archipiélago.",
+    "La convocatoria plurianual del procedimiento 9277 fija para 2026 el plazo del 1 al 28 de febrero. La Orden de 21 de abril de 2026 incrementó el crédito del procedimiento de selección 2026; el trámite está actualmente fuera de plazo.",
+    "La programación de cursos de las Escuelas de Capacitación Agraria es común y se documenta aquí con la modalidad en línea (inscripción 6726, curso de conocimientos básicos 9378, cursos en línea desde cualquier isla según la ficha de 6726). Los cursos presenciales solo se imparten en Arucas, Tacoronte y Los Llanos de Aridane y siguen en los briefs de esas islas.",
+    "Pendiente en cada edición: comprobar que la página de la programación común publica la oferta del año y que cada escuela sigue impartiendo cursos presenciales; si una escuela deja de hacerlo, su isla pierde el recurso presencial."
+  ],
+  "portals": [
+    {
+      "name": "Sede electrónica del Gobierno de Canarias",
+      "url": "https://sede.gobiernodecanarias.org/sede/",
+      "what": "Fichas de procedimientos de ayudas agrarias comunes a todas las islas, con objeto, requisitos y estado del plazo."
+    },
+    {
+      "name": "Formación agraria del Gobierno de Canarias",
+      "url": "https://www.gobiernodecanarias.org/agpsa/formacion/",
+      "what": "Programación común de cursos de las Escuelas de Capacitación Agraria y enlaces a la inscripción."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "canarias-jovenes",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Gobierno de Canarias ayudas establecimiento personas jóvenes agricultoras convocatoria sede"
+    },
+    {
+      "id": "canarias-formacion",
+      "kinds": ["TRAINING"],
+      "query": "Canarias Escuelas de Capacitación Agraria cursos profesionales programación inscripción secretaría virtual"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Canarias relevo generacional agricultura ayudas incorporación banco tierras asesoramiento"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Canarias jóvenes agricultores ayudas"
+    },
+    {
+      "id": "review-2026-09-28-jovenes",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:gobiernodecanarias.org procedimiento 9277 jóvenes agricultoras 2026 convocatoria"
+    },
+    {
+      "id": "review-2026-09-28-formacion",
+      "kinds": ["TRAINING"],
+      "query": "site:gobiernodecanarias.org/agpsa/formacion cursos profesionales 2026 incorporarse empresa agraria"
+    }
+  ],
+  "leads": [
+    {
+      "id": "canarias-establecimiento-jovenes-agricultoras",
+      "name": "Subvenciones para el establecimiento de personas jóvenes agricultoras",
+      "url": "https://sede.gobiernodecanarias.org/sede/tramites/9277",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "canarias-establecimiento-jovenes-agricultoras",
+      "reason": "Un solo procedimiento para todas las islas. Revalidado el 28 de septiembre de 2026: el periodo de selección 2026 estuvo abierto del 1 al 28 de febrero y la Orden de 21 de abril de 2026 incrementó su crédito; el trámite figura fuera de plazo.",
+      "foundBy": "canarias-jovenes",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "canarias-eca-programacion",
+      "name": "Programación común de cursos de las Escuelas de Capacitación Agraria",
+      "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/ensenanzas/cursos-agricultura-ganaderia.html",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "canarias-formacion-escuelas-capacitacion-agraria",
+      "reason": "Una programación, una inscripción y cursos en línea para todo el archipiélago. Revalidada el 28 de septiembre: la página sigue publicando la programación 2026 y el curso de conocimientos básicos para establecimiento.",
+      "foundBy": "canarias-formacion",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada de la capa de Canarias: consolidado el instrumento común que estaba copiado en 7 islas."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Formación de las Escuelas de Capacitación Agraria: la programación común, en línea, pasa a la capa de Canarias; la presencial sigue en Gran Canaria, Tenerife y La Palma."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revalidación compartida durante la pasada de Fuerteventura: el procedimiento 9277 fija el periodo 2026 del 1 al 28 de febrero y figura fuera de plazo; la programación común de cursos 2026 sigue publicada. Se actualiza la capa compartida una sola vez."
+    }
+  ]
+}

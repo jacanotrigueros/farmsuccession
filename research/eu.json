@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "EU"
+  },
+  "language": "en",
+  "updatedOn": "2026-09-25",
+  "context": [
+    "The EU layer holds frameworks and EU-wide networks only. Aid, land banks and courses are applied for nationally or regionally and belong in country or region files.",
+    "Commission pages describe measures of a strategy (for example a European Land Observatory); record them as announced until a page shows a working service.",
+    "Commission news articles explain policy; add them as news only when they report a dated event (adoption, launch, call, new figures) of the edition year.",
+    "Farmers do not apply to EU financial instruments directly: they are offered through national or regional guarantee and loan schemes, which belong in country or region files."
+  ],
+  "portals": [
+    {
+      "name": "Generational renewal in agriculture (European Commission)",
+      "url": "https://agriculture.ec.europa.eu/vision-overview/generational-renewal_en",
+      "what": "The Strategy for Generational Renewal in Agriculture, its measures and related news and events."
+    },
+    {
+      "name": "Young farmers (European Commission)",
+      "url": "https://agriculture.ec.europa.eu/common-agricultural-policy/income-support/young-farmers_en",
+      "what": "CAP interventions for young farmers and the minimum share of direct payments reserved for them."
+    },
+    {
+      "name": "EU CAP Network — Generational Renewal",
+      "url": "https://eu-cap-network.ec.europa.eu/topics/generational-renewal_en",
+      "what": "Knowledge hub with projects, good practices and publications on young farmers and new entrants."
+    },
+    {
+      "name": "Access to land (European Commission)",
+      "url": "https://agriculture.ec.europa.eu/vision-overview/generational-renewal/access-land_en",
+      "what": "Land measures of the Strategy, the future Observatory on Farmland and the Expert Group on Farmland."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "eu-strategy-news",
+      "kinds": ["NEWS", "POLICY"],
+      "query": "\"generational renewal\" agriculture European Commission 2026"
+    },
+    {
+      "id": "eu-land-observatory",
+      "kinds": ["LAND_BANK", "NEWS"],
+      "query": "\"European Land Observatory\" agriculture"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "European Union farm succession generational renewal land access support farmers 2026"
+    }
+  ],
+  "leads": [
+    {
+      "id": "eu-generational-renewal-strategy",
+      "name": "Strategy for Generational Renewal in Agriculture",
+      "url": "https://agriculture.ec.europa.eu/vision-overview/generational-renewal_en",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "resourceId": "eu-generational-renewal-strategy",
+      "checkedOn": "2026-09-14",
+      "foundBy": "portal"
+    },
+    {
+      "id": "eu-cap-young-farmers",
+      "name": "CAP support for young farmers",
+      "url": "https://agriculture.ec.europa.eu/common-agricultural-policy/income-support/young-farmers_en",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "resourceId": "eu-cap-young-farmers",
+      "checkedOn": "2026-09-14",
+      "foundBy": "portal"
+    },
+    {
+      "id": "eu-cap-network-generational-renewal",
+      "name": "EU CAP Network — Generational Renewal",
+      "url": "https://eu-cap-network.ec.europa.eu/topics/generational-renewal_en",
+      "kind": "NETWORK",
+      "status": "ADMITTED",
+      "resourceId": "eu-cap-network-generational-renewal",
+      "checkedOn": "2026-09-14",
+      "foundBy": "portal"
+    },
+    {
+      "id": "eu-land-observatory",
+      "name": "European Land Observatory",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "reason": "Recorded as announced: the access-to-land page describes a future observatory, a 2026 expert group call and a pilot project.",
+      "resourceId": "eu-observatory-on-farmland",
+      "url": "https://agriculture.ec.europa.eu/vision-overview/generational-renewal/access-land_en",
+      "checkedOn": "2026-09-14"
+    },
+    {
+      "id": "eu-eib-young-farmers-finance",
+      "name": "EIB financial instruments for young farmers",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "EU financial instruments reach farmers through national or regional CAP instruments (in Spain, the IFGC); fi-compass material targets managing authorities, not farmers.",
+      "checkedOn": "2026-09-14"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "First pass: reviewed the three Commission and EU CAP Network portals and wrote the 2026 EU edition with three resources; no 2026 EU event verified as news."
+    },
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Resolved the two open leads: the Observatory on Farmland recorded as announced; EIB instruments rejected at EU level."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Prepublication discovery: ran prepublication-2026-09-25 queries. This is a search-result scan, not a complete review or evidence of absence. Candidate pages, all families and practical details still require verification. The scan does not update edition statuses or dates."
+    }
+  ]
+}

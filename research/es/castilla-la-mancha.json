@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "castilla-la-mancha"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "La Ley 9/2023 de Agricultura Familiar y de Acceso a la Tierra crea un Banco de Tierras Disponibles, pero la existencia legal no demuestra operación: antes de marcarlo como activo debe existir una ruta con inventario, inscripción o acceso público.",
+    "El portal PEPAC de Castilla-La Mancha reúne la intervención de establecimiento, la capacitación agraria, la programación formativa y las bases/convocatorias; el DOCM es la fuente preferida para plazos, cuantías y requisitos jurídicos.",
+    "La convocatoria 2026 de establecimiento se publicó por tramitación anticipada el 26 de diciembre de 2025 y cerró el 5 de marzo de 2026. La prima básica es de 37.000 euros y puede llegar a 60.000 euros.",
+    "Las bases definen como cedente a quien cesa totalmente en la actividad y cede al menos el 75 % de la explotación a una persona joven, pero no se ha localizado una ayuda separada, bolsa de sucesión o servicio regional de intermediación para cedentes y sucesores.",
+    "La capacitación exigida para cobrar la ayuda puede obtenerse mediante formación de la Consejería, otras administraciones, organizaciones agrarias o entidades privadas con contenidos homólogos al curso de Incorporación a la Empresa Agraria. La Junta publica programación formativa 2026 y existen ediciones concretas de 150 horas.",
+    "La Escuela de Pastores tiene actividad oficial demostrada en 2026: en junio la Junta comunicó 510 alumnos formados desde su inicio y 66 contrataciones vinculadas al modelo de inserción laboral.",
+    "Cooperativas Agro-alimentarias Castilla-La Mancha mantiene una página propia de Servicio de Asesoramiento a Explotaciones y documenta asesoramiento individualizado a cerca de 1.000 explotaciones; la última ejecución fechada localizada terminó en mayo de 2026, por lo que la disponibilidad actual se trata como UNKNOWN."
+  ],
+  "portals": [
+    {
+      "name": "Establecimiento de jóvenes — PEPAC Castilla-La Mancha",
+      "url": "https://pepac.castillalamancha.es/desarrollo-rural/programas-e-intervenciones/jovenes",
+      "what": "Intervención de establecimiento, capacitación agraria, asesoramiento y enlaces a convocatorias y formación."
+    },
+    {
+      "name": "Formación — PEPAC Castilla-La Mancha",
+      "url": "https://pepac.castillalamancha.es/desarrollo-rural/formacion",
+      "what": "Programación anual, modalidades, inscripción y contactos provinciales de formación agraria."
+    },
+    {
+      "name": "Bases y convocatorias de desarrollo rural",
+      "url": "https://pepac.castillalamancha.es/desarrollo-rural/bases-y-convocatorias",
+      "what": "Bases, convocatorias y modificaciones de intervenciones PEPAC."
+    },
+    {
+      "name": "Noticias del Gobierno de Castilla-La Mancha",
+      "url": "https://www.castillalamancha.es/actualidad/noticias",
+      "what": "Actividad y cifras actuales de programas como la Escuela de Pastores."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "clm-jovenes-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Castilla-La Mancha convocatoria 2026 establecimiento jóvenes agricultura 37.000 60.000 DOCM"
+    },
+    {
+      "id": "clm-land-bank-law",
+      "kinds": ["LAND_BANK", "NEWS"],
+      "query": "Banco de Tierras Disponibles Castilla-La Mancha Ley 9/2023 operativo inscripción inventario 2026"
+    },
+    {
+      "id": "clm-provincial-land",
+      "kinds": ["LAND_BANK"],
+      "query": "banco de tierras Diputación Albacete Ciudad Real Cuenca Guadalajara Toledo 2026"
+    },
+    {
+      "id": "clm-shepherds-2026",
+      "kinds": ["TRAINING", "NEWS"],
+      "query": "Escuela de Pastores Castilla-La Mancha cursos 2026 alumnos contrataciones"
+    },
+    {
+      "id": "clm-sucesion-cese",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "Castilla-La Mancha ayuda sucesión cese cedente explotación agraria jóvenes 2026"
+    },
+    {
+      "id": "clm-formacion-incorporacion-2026",
+      "kinds": ["TRAINING"],
+      "query": "Castilla-La Mancha Incorporación a la Empresa Agraria 2026 150 horas capacitación ayudas jóvenes"
+    },
+    {
+      "id": "clm-organizaciones",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Castilla-La Mancha servicio asesoramiento explotaciones incorporación jóvenes ASAJA COAG UPA Cooperativas Agro-alimentarias 2026"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Castilla-La Mancha\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Castilla-La Mancha jóvenes agricultores ayudas"
+    }
+  ],
+  "leads": [
+    {
+      "id": "clm-establecimiento-jovenes-agricultores",
+      "name": "Ayudas al establecimiento de jóvenes en la actividad agraria",
+      "url": "https://pepac.castillalamancha.es/desarrollo-rural/programas-e-intervenciones/jovenes",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "clm-establecimiento-jovenes-agricultores",
+      "reason": "Intervención oficial con convocatoria 2026 verificada en el DOCM: plazo 26/12/2025-05/03/2026, prima básica de 37.000 euros, máxima de 60.000 euros y 23,388 millones de crédito para establecimiento.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-jovenes-2026"
+    },
+    {
+      "id": "clm-banco-tierras-disponibles",
+      "name": "Banco de Tierras Disponibles (Ley 9/2023)",
+      "url": "https://docm.jccm.es/portaldocm/verArchivoHtml.do?ruta=2023%2F04%2F17%2Fhtml%2F2023_3386.html&tipo=rutaDocm",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "clm-banco-tierras-disponibles",
+      "reason": "La ley crea el Banco y define su función, pero la búsqueda 2026 no encontró inventario, formulario de alta ni acceso de demandantes. Se conserva como ANNOUNCED_NOT_OPERATING, no como servicio activo.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-land-bank-law"
+    },
+    {
+      "id": "clm-escuela-pastores",
+      "name": "Escuela de Pastores de Castilla-La Mancha",
+      "url": "https://pepac.castillalamancha.es/pdr/novedades/escuela-de-pastores-de-castilla-la-mancha",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "clm-escuela-pastores",
+      "reason": "Programa oficial con cursos y bolsa de empleo. La evidencia de junio de 2026 confirma actividad, 510 alumnos formados y 66 contrataciones desde su puesta en marcha.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-shepherds-2026"
+    },
+    {
+      "id": "clm-formacion-incorporacion",
+      "name": "Capacitación para la incorporación a la empresa agraria",
+      "url": "https://pepac.castillalamancha.es/desarrollo-rural/programas-e-intervenciones/jovenes",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "clm-capacitacion-incorporacion-empresa-agraria",
+      "reason": "La página oficial de jóvenes explica expresamente que la capacitación para cobrar la ayuda puede adquirirse mediante formación homóloga al curso de Incorporación a la Empresa Agraria y enlaza la programación 2026. Cooperativas Agro-alimentarias impartió una edición online de 150 horas en febrero-marzo de 2026 bajo la Orden 198/2023.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-formacion-incorporacion-2026"
+    },
+    {
+      "id": "clm-cooperativas-asesoramiento",
+      "name": "Servicio de Asesoramiento a Explotaciones de Cooperativas Agro-alimentarias Castilla-La Mancha",
+      "url": "https://agroalimentariasclm.coop/consultoria/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "clm-cooperativas-asesoramiento-explotaciones",
+      "reason": "Página propia de servicio que describe asesoramiento individualizado a cerca de 1.000 explotaciones. La última ejecución con fechas localizada fue 2025-2026 y finalizó en mayo, por lo que el recurso se representa como UNKNOWN y no como admisión abierta.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-organizaciones"
+    },
+    {
+      "id": "clm-cedente-ayuda-jovenes",
+      "name": "Figura de persona cedente en las bases de establecimiento de jóvenes",
+      "url": "https://docm.jccm.es/docm/verArchivoHtml.do?ruta=2023%2F12%2F22%2Fhtml%2F2023_10423.html&tipo=rutaDocm",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "Las bases definen al cedente como titular que cesa totalmente y transmite al menos el 75 % de la explotación a una persona joven, pero esa definición no constituye por sí sola una ayuda al cedente, una bolsa de relevo ni un servicio de intermediación.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-sucesion-cese"
+    },
+    {
+      "id": "clm-pepac-ayudas-creacion-empresas",
+      "name": "Página PEPAC histórica de ayudas a la creación de empresas agrarias por jóvenes",
+      "url": "https://pepac.castillalamancha.es/pdr/ayudas-la-creacion-de-empresas-agrarias-por-jovenes",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Duplica la intervención actual de establecimiento; la edición usa la página vigente de jóvenes y el DOCM 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-jovenes-2026"
+    },
+    {
+      "id": "clm-cooperativas-propuesta-banco-tierras",
+      "name": "Propuesta de banco de tierras de Cooperativas Agro-alimentarias",
+      "url": "https://www.cmmedia.es/play/tv/el-campo/crean-banco-tierras-evitar-abandono-12-02-25.html",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Propuesta incluida en un plan estratégico presentado en 2025, no un servicio operativo.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-land-bank-law"
+    },
+    {
+      "id": "clm-luciana-banco-tierras",
+      "name": "Banco de tierras agroecológico de Luciana (Ciudad Real)",
+      "url": "https://www.encastillalamancha.es/sociedad-cat/el-banco-de-tierras-de-luciana-ciudad-real-supera-ya-las-60-hectareas/",
+      "kind": "LAND_BANK",
+      "area": "Luciana",
+      "status": "REJECTED",
+      "reason": "Solo consta en prensa antigua y no se encontró una ruta municipal actual de inventario o acceso; no se presenta como operativo en 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-provincial-land"
+    },
+    {
+      "id": "clm-el-campillo-red-terrae",
+      "name": "El Campillo de la Jara (nodo de la Red TERRAE)",
+      "url": "https://www.tierrasagroecologicas.es/el-campillo-de-la-jara/",
+      "kind": "LAND_BANK",
+      "area": "El Campillo de la Jara",
+      "status": "REJECTED",
+      "reason": "Perfil en la red sin inventario fechado ni vía municipal actual demostrada; la plataforma TERRAE se evalúa en la capa estatal cuando corresponda.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-provincial-land"
+    },
+    {
+      "id": "clm-uceda-red-terrae",
+      "name": "Uceda (nodo de la Red TERRAE)",
+      "url": "https://www.tierrasagroecologicas.es/uceda/",
+      "kind": "LAND_BANK",
+      "area": "Uceda",
+      "status": "REJECTED",
+      "reason": "Perfil en la red sin ofertas fechadas ni vía municipal operativa demostrada en 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-provincial-land"
+    },
+    {
+      "id": "clm-proveedores-curso-incorporacion",
+      "name": "Proveedores reconocidos del curso de incorporación",
+      "url": "https://www.universidadderiego.com/project/incorporacion-empresa-agraria-castilla-la-mancha-2023/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Los proveedores no se duplican como recursos separados: la edición representa la ruta regional de capacitación y usa ediciones concretas como evidencia de operación.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-formacion-incorporacion-2026"
+    },
+    {
+      "id": "clm-juventud-cultiva",
+      "name": "Difusión del Programa CULTIVA por la Dirección General de Juventud",
+      "url": "https://juventud.castillalamancha.es/todo-lo-mas/abierta-la-convocatoria-del-programa-cultiva-2025-para-jovenes",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Difunde el programa estatal CULTIVA, que pertenece a la capa nacional y no debe duplicarse como instrumento regional.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-formacion-incorporacion-2026"
+    },
+    {
+      "id": "clm-orden-71-2018-curso",
+      "name": "Orden 71/2018 que regula formación de incorporación",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La norma no se registra como recurso separado: la edición representa la ruta de capacitación actual mediante la página oficial PEPAC y evidencia de impartición 2026.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "clm-formacion-incorporacion-2026"
+    },
+    {
+      "id": "clm-cooperativas-formacion-jovenes",
+      "name": "Curso de Incorporación a la Empresa Agraria de Cooperativas Agro-alimentarias Castilla-La Mancha",
+      "url": "https://agroalimentariasclm.coop/project/incorporacion-a-la-empresa-agraria-2/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La edición concreta de 150 horas de febrero-marzo de 2026 se usa como evidencia de operación de la ruta regional de capacitación, pero no se duplica como recurso separado por proveedor.",
+      "foundBy": "clm-formacion-incorporacion-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "clm-establecimiento-jovenes-agricultores",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "NOT_FOUND",
+      "reason": "La normativa define una persona cedente que cesa totalmente y transmite al menos el 75 % de su explotación a una persona joven, pero no se ha encontrado una ayuda independiente al cedente, una bolsa de sucesión ni un servicio regional de matching o acompañamiento de la transferencia.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "clm-banco-tierras-disponibles",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "FOUND",
+      "leadId": "clm-formacion-incorporacion",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "FOUND",
+      "leadId": "clm-cooperativas-asesoramiento",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada: ayudas a jóvenes con la convocatoria 2026, Banco de Tierras previsto en la Ley 9/2023 y Escuela de Pastores. Tres recursos y una noticia; sin banco de tierras local operativo."
+    },
+    {
+      "date": "2026-09-14",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Resuelta la pista pendiente del curso de incorporación: sin página oficial actual."
+    },
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Pasada con el checklist nacional: respondidos los cinco instrumentos esperados; el banco de tierras sigue previsto en ley sin funcionar y la sucesión solo aparece como figura del cedente en la ayuda a jóvenes."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: consultas generales ejecutadas como descubrimiento, sin cambiar estados ni afirmar exhaustividad."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada 1.9.0 completada: enriquecida la convocatoria 2026 de jóvenes con cuantías y presupuesto; verificada la ruta oficial de capacitación y una edición 2026 de 150 horas; actualizada la Escuela de Pastores con actividad y cifras 2026; admitido el SAE de Cooperativas como UNKNOWN. El Banco de Tierras permanece no operativo y la definición normativa de cedente no se transforma en un recurso de sucesión sin servicio o ayuda independiente."
+    }
+  ]
+}

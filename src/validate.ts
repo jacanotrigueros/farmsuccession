@@ -14,7 +14,7 @@
  */
 import { checkBrief, listBriefFiles, loadBriefs, RESEARCH_DIR } from "./briefs.ts";
 import { continuityWarnings, diffEditions } from "./diff.ts";
-import { EDITIONS_DIR, listEditionFiles, loadSnapshots, type LoadedSnapshot } from "./editions.ts";
+import { editionOf, EDITIONS_DIR, listEditionFiles, loadSnapshots, type LoadedSnapshot } from "./editions.ts";
 import { damageInFile, damageInTree, type JsonDamage } from "./json-damage.ts";
 import { isEntryPoint, runMain } from "./paths.ts";
 import { checkPromptVersion, knownPromptVersions } from "./prompt-version.ts";
@@ -24,7 +24,6 @@ import { checkEdition, checkSemantics, type Finding } from "./validate-edition.t
 export type ValidationResult = { files: number; briefs: number; errors: Finding[]; warnings: Finding[]; reviews: Finding[] };
 
 /** The edition a file belongs to is the year its path starts with, which `identityFromPath` enforces. */
-const editionOf = (file: string): string => file.slice(0, 4);
 
 /** A brief is reported by its path in the repository, so a finding says which file to open. */
 const briefLabel = (file: string): string => `research/${file}`;

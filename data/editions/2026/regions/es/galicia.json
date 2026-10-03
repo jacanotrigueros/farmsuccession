@@ -1,0 +1,545 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "ES",
+  "region": "galicia",
+  "officialName": "Galicia",
+  "published": "2026-09-30",
+  "summary": "Galicia combina un Banco de Tierras con acceso real a parcelas, un Banco de Explotaciones con procedimientos abiertos todo el año para cedentes y personas sucesoras, ayudas 2026 a la primera instalación de jóvenes, formación oficial y tutorización pública. La ayuda MR617D para quien cede una explotación tiene bases reguladoras, pero no se ha verificado una convocatoria operativa en 2026.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Revisión 1.9.0 de las cinco familias españolas y de niveles locales. Se revalidaron Banco de Tierras, Banco de Explotaciones, MR404A/MR404B, formación AGACAL, Escola de Pastores y Nó Rural; se corrigió la operatividad de MR617D y se incorporó la tutorización pública de jóvenes. No se verificó un servicio específico de incorporación/relevo de una organización agraria o cooperativa ni un banco de tierras local independiente del autonómico.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "AGADER/SITEGAL y procedimientos MR711B/MR711G"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "Sede Xunta: MR617B, MR617C, MR617D, MR404A y MR404B"
+      },
+      {
+        "method": "OFFICIAL_GAZETTE",
+        "detail": "DOG 2026 de MR404A y MR711G; bases MR617D de diciembre de 2025"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "AGACAL: Aptitude Empresarial Agraria y programación 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Nó Rural, organizaciones agrarias/cooperativas y bancos de tierras municipales/provinciales"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "es",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "galicia-banco-tierras",
+      "name": "Banco de Tierras de Galicia",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Agencia Gallega de Desarrollo Rural (AGADER)",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Instrumento público de intermediación de tierra. SITEGAL permite consultar parcelas y, desde 2026, solicitar durante todo el año el arrendamiento de parcelas disponibles sin concurrencia mediante MR711G; las parcelas en concurrencia usan ventanas específicas de MR711B.",
+      "whoCanUseIt": "Personas propietarias que quieren incorporar parcelas y cualquier persona que quiera arrendar tierras para fines agrícolas, ganaderos o forestales.",
+      "howToAccess": "Consultar SITEGAL. Para parcelas disponibles sin concurrencia, presentar MR711G durante todo el año. Para parcelas en concurrencia, usar MR711B; la próxima ventana publicada es del 2 al 20 de noviembre de 2026.",
+      "accessUrl": "https://agader.xunta.gal/es/banco-de-tierras/datos-principales",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "LIVESTOCK", "FORESTRY"],
+      "languages": ["es", "gl"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-06-30",
+      "calls": [
+        {
+          "name": "MR711G - parcelas disponibles sin concurrencia",
+          "state": "OPEN",
+          "sourceUrl": "https://sede.xunta.gal/detalle-procedemento?ano=2026&c=entidades-locais&codtram=MR711G&lang=es&numpub=1"
+        },
+        {
+          "name": "MR711B - próxima ventana de parcelas en concurrencia",
+          "state": "UPCOMING",
+          "opens": "2026-11-02",
+          "closes": "2026-11-20",
+          "sourceUrl": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR711B"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "LAND_LISTINGS",
+          "label": "Parcelas en el Banco de Tierras",
+          "value": 20405,
+          "unit": "PARCELS",
+          "asOf": "2026-06-30",
+          "sourceUrl": "https://agader.xunta.gal/es/banco-de-tierras/datos-principales"
+        },
+        {
+          "measure": "LAND_AREA",
+          "label": "Superficie en el Banco de Tierras",
+          "value": 7271.84,
+          "unit": "HECTARES",
+          "asOf": "2026-06-30",
+          "sourceUrl": "https://agader.xunta.gal/es/banco-de-tierras/datos-principales"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://agader.xunta.gal/es/banco-de-tierras/datos-principales",
+          "title": "Datos principales | AGADER",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "datos del total de parcelas, titularidad y precios medios de arrendamiento del Banco de Tierras, actualizados a 30 de junio de 2026",
+            "Galicia 20.405 7.271,84 0,36"
+          ]
+        },
+        {
+          "url": "https://sede.xunta.gal/detalle-procedemento?ano=2026&c=entidades-locais&codtram=MR711G&lang=es&numpub=1",
+          "title": "MR711G - Alquiler sin concurrencia",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "Convocatoria 2026 - Aberto todo o ano",
+            "calquera persoa que queira arrendar terras para fins agrícolas, gandeiros ou forestais"
+          ]
+        },
+        {
+          "url": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR711B",
+          "title": "MR711B - Alquiler en concurrencia",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Próxima apertura: 02/11/2026 00:00 - 20/11/2026 23:59",
+            "cualquier persona que quiera arrendar tierras para fines agrícolas, ganaderos o forestales"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "galicia-banco-explotaciones",
+      "name": "Banco de Explotaciones de Galicia",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Consellería do Medio Rural, Xunta de Galicia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Instrumento público de intermediación que facilita el contacto entre titulares de explotaciones agroforestales que abandonan la actividad y personas interesadas en incorporarse. Dispone de visor público y procedimientos separados para incorporar una explotación y solicitar intermediación de acceso.",
+      "whoCanUseIt": "Titulares de explotaciones que quieren transmitirlas y personas interesadas en arrendar, permutar, adquirir o formalizar otra cesión de uso o transmisión de una explotación incluida.",
+      "howToAccess": "Los titulares usan MR617B y las personas interesadas usan MR617C; ambos procedimientos están abiertos todo el año. Las oficinas rurales informan y asesoran las solicitudes.",
+      "accessUrl": "https://mediorural.xunta.gal/es/temas/explotaciones/banco-de-explotaciones",
+      "assetTypes": ["WHOLE_HOLDINGS"],
+      "languages": ["gl", "es"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "calls": [
+        {
+          "name": "MR617B - inclusión de explotación",
+          "state": "OPEN",
+          "sourceUrl": "https://sede.xunta.gal/es/detalle-procedemento?ano=2025&c=884&codtram=MR617B&lang=es&numpub=1"
+        },
+        {
+          "name": "MR617C - intermediación para acceso",
+          "state": "OPEN",
+          "sourceUrl": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR617C"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://mediorural.xunta.gal/es/temas/explotaciones/banco-de-explotaciones",
+          "title": "Banco de Explotaciones | Consellería do Medio Rural",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "actúa como un instrumento público de intermediación",
+            "dispón dun visor de acceso público para localizar as explotacións dispoñibles para a súa transmisión en Galicia"
+          ]
+        },
+        {
+          "url": "https://sede.xunta.gal/es/detalle-procedemento?ano=2025&c=884&codtram=MR617B&lang=es&numpub=1",
+          "title": "MR617B - Inclusión de explotación",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Abierto todo el año",
+            "Personas titulares de explotación que deseen incorporar al Banco de Explotaciones su explotación"
+          ]
+        },
+        {
+          "url": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR617C",
+          "title": "MR617C - Intermediación para el acceso",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Abierto todo el año", "desde las oficinas rurales se informará y se asesorará a las personas interesadas"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "galicia-cooperacion-sucesion-explotaciones",
+      "name": "Cooperación para la sucesión de explotaciones agrarias (MR617D)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Consellería do Medio Rural, Xunta de Galicia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Las bases reguladoras prevén apoyo a agricultores o ganaderos que cesen en su actividad y cedan su explotación mediante un proyecto de cooperación ligado al Banco de Explotaciones.",
+      "whoCanUseIt": "Según las bases, personas físicas jefas de explotación que cumplan requisitos de jubilación al transmitirla o tengan incapacidad permanente y cedan la explotación a una persona sucesora mediante un proyecto de cooperación.",
+      "howToAccess": "No se ha verificado una convocatoria abierta. La sede indica que el plazo se abrirá cuando se publique la correspondiente convocatoria en el DOG.",
+      "accessUrl": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR617D",
+      "instrumentType": "GRANT",
+      "purposes": ["RETIREMENT_SUCCESSION", "TRANSFER"],
+      "languages": ["gl", "es"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Importe máximo total previsto en cinco anualidades",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2025-12-22",
+          "sourceUrl": "https://www.xunta.gal/dog/Publicados/2025/20251222/AnuncioG0426-111225-0005_gl.html"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR617D",
+          "title": "MR617D - Cooperación para la sucesión de explotaciones agrarias",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Plazo de presentación: CERRADO", "Se abrirá el plazo cuándo salga la convocatoria publicada en el DOG"]
+        },
+        {
+          "url": "https://mediorural.xunta.gal/gl/recursos/novas/xunta-mobilizara-mais-de-21-meu-no-periodo-2025-2027-co-plan-de-conservacion-dos",
+          "title": "Axudas neste ano para a sucesión de explotacións",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "a Consellería do Medio Rural publicará este ano a convocatoria de axudas para o fomento da sucesión de explotacións agrarias"
+          ]
+        },
+        {
+          "url": "https://www.xunta.gal/dog/Publicados/2025/20251222/AnuncioG0426-111225-0005_gl.html",
+          "title": "Diario Oficial de Galicia — bases da axuda á cooperación para a sucesión de explotacións",
+          "consultedOn": "2026-09-29",
+          "quotes": ["a axuda poderá acadar no total de todas as anualidades a contía de 30.000 €"]
+        }
+      ],
+      "notes": "Las bases reguladoras existen desde diciembre de 2025, pero no demuestran por sí solas una convocatoria operativa.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "galicia-establecimiento-jovenes-agricultores",
+      "name": "Ayudas al establecimiento de personas agricultoras jóvenes (MR404A)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Consellería do Medio Rural, Xunta de Galicia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ayuda a la primera instalación de jóvenes como jefes de explotación. En 2026 la cuantía base fue de 30.000 euros y podía incrementarse hasta 70.000 euros por criterios de mujer, zona de montaña o Red Natura 2000, producción ecológica y titularidad compartida.",
+      "whoCanUseIt": "Personas físicas jóvenes que se establecen por primera vez como jefas de una explotación y cumplen los requisitos del procedimiento.",
+      "howToAccess": "Solicitud electrónica durante la convocatoria anual. La convocatoria 2026 estuvo abierta del 10 de marzo al 9 de abril. Las personas beneficiarias deben participar en el programa de tutorización de la Consellería.",
+      "accessUrl": "https://sede.xunta.gal/detalle-procedemento?ano=2026&codtram=MR404A&lang=es&numPubAno=1",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["gl", "es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "calls": [
+        {
+          "name": "Convocatoria 2026",
+          "state": "CLOSED",
+          "opens": "2026-03-10",
+          "closes": "2026-04-09",
+          "sourceUrl": "https://sede.xunta.gal/detalle-procedemento?ano=2026&codtram=MR404A&lang=es&numPubAno=1"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Importe base de la ayuda 2026",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2026-03-09",
+          "sourceUrl": "https://www.xunta.gal/dog/Publicados/2026/20260309/AnuncioG0426-260226-0004_es.html"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Importe máximo de la ayuda 2026",
+          "value": 70000,
+          "unit": "EUR",
+          "asOf": "2026-03-09",
+          "sourceUrl": "https://www.xunta.gal/dog/Publicados/2026/20260309/AnuncioG0426-260226-0004_es.html"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://sede.xunta.gal/detalle-procedemento?ano=2026&codtram=MR404A&lang=es&numPubAno=1",
+          "title": "MR404A - Establecimiento de personas agricultoras jóvenes",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Convocatoria 2026 - Prazo pechado: 10/03/2026 00:00 - 09/04/2026 23:59",
+            "Participar no programa de titorización a persoas agricultoras mozas que presta a Consellería do Medio Rural"
+          ]
+        },
+        {
+          "url": "https://www.xunta.gal/dog/Publicados/2026/20260309/AnuncioG0426-260226-0004_es.html",
+          "title": "DOG 45/2026 - Extracto MR404A",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "El importe de la ayuda será de 30.000 euros",
+            "podrá incrementarse hasta los 70.000 euros",
+            "explotación localizada en zonas con limitaciones naturales de montaña o en la Red Natura 2000"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "galicia-establecimiento-nuevos-agricultores",
+      "name": "Ayudas al establecimiento de nuevas personas agricultoras (MR404B)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Consellería do Medio Rural, Xunta de Galicia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ayuda a la primera instalación de personas de 41 a 55 años como jefas de explotación dentro del Plan Estratégico de la PAC 2023-2027.",
+      "whoCanUseIt": "Personas de 41 a 55 años que se establecen por primera vez como jefas de explotación y cumplen los requisitos del procedimiento.",
+      "accessUrl": "https://sede.xunta.gal/gl/detalle-procedemento?ano=2024&codtram=MR404B&numPubAno=1",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["gl", "es"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "calls": [
+        {
+          "name": "Última convocatoria verificada (2024)",
+          "state": "CLOSED",
+          "opens": "2024-01-23",
+          "closes": "2024-04-22",
+          "sourceUrl": "https://sede.xunta.gal/gl/detalle-procedemento?ano=2024&codtram=MR404B&numPubAno=1"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://sede.xunta.gal/gl/detalle-procedemento?ano=2024&codtram=MR404B&numPubAno=1",
+          "title": "MR404B - Establecimiento de nuevas personas agricultoras",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Convocatoria 2024 - Prazo pechado: 23/01/2024 00:00 - 22/04/2024 23:59",
+            "Ter entre 41 e 55 anos de idade, ambos incluídos",
+            "Plan estratéxico da política agraria común de España 2023-2027"
+          ]
+        }
+      ],
+      "notes": "No se ha verificado una convocatoria posterior a 2024; por eso la operatividad actual queda como «Estado no confirmado».",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "galicia-curso-aptitud-empresarial-agraria",
+      "name": "Curso de Aptitud Empresarial Agraria",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Axencia Galega da Calidade Alimentaria (AGACAL)",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Formación oficial de aptitud empresarial agraria. AGACAL publicó ediciones semipresenciales en enero, marzo y septiembre de 2026 y mantiene un modelo de inscripción que puede presentarse en cualquier momento.",
+      "whoCanUseIt": "Personas que necesitan capacitación empresarial agraria, especialmente quienes quieren incorporarse profesionalmente al sector y acceder a ayudas de primera instalación.",
+      "howToAccess": "Presentar el modelo de inscripción de AGACAL. La formación se desarrolla mediante plataforma de teleformación con los componentes prácticos previstos para cada orientación.",
+      "accessUrl": "https://agacal.xunta.gal/es/formacion/formacion-continua",
+      "languages": ["gl", "es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://agacal.xunta.gal/es/formacion/formacion-continua",
+          "title": "Cursos de Aptitude Empresarial Agraria e outros | AGACAL",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "Setembro 2026 Relación de Cursos semipresenciais AEA - Edicións 127, 128, 129, 130 e 131",
+            "poderán formular, en calquera momento, a súa petición"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "galicia-programa-tutorizacion-incorporacion",
+      "name": "Programa de tutorización para la incorporación de personas agricultoras jóvenes",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Consellería do Medio Rural, oficinas rurales",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Acompañamiento técnico durante la incorporación de jóvenes agricultores. La convocatoria MR404A obliga a participar y establece que el proceso de incorporación sea tutelado por personal técnico agrario de la oficina rural correspondiente.",
+      "whoCanUseIt": "Personas beneficiarias de la ayuda MR404A que realizan su proceso de incorporación.",
+      "howToAccess": "Se accede como parte del proceso MR404A; la tutorización corresponde al personal técnico agrario de las oficinas rurales del área comarcal donde se localiza la explotación.",
+      "accessUrl": "https://www.xunta.gal/dog/Publicados/2026/20260309/AnuncioG0426-260226-0003_gl.html",
+      "languages": ["gl", "es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.xunta.gal/dog/Publicados/2026/20260309/AnuncioG0426-260226-0003_gl.html",
+          "title": "DOG 45/2026 - Orde MR404A",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Participar no programa de titorización a persoas agricultoras mozas que presta a Consellería do Medio Rural",
+            "deberá ser tutelado polo persoal técnico agrario das oficinas rurais"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "galicia-no-rural",
+      "name": "Nó Rural, pactos territoriales por el relevo agrario",
+      "kind": "NETWORK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Territorios de los seis grupos de desarrollo rural socios"
+      },
+      "operator": "Nó Rural, proyecto de cooperación de seis grupos de desarrollo rural",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Proyecto territorial de relevo agrario que en 2026 identifica explotaciones próximas al cese y ofrece acompañamiento para facilitar su continuidad. La encuesta a titulares alimenta una base destinada a conectar procesos de relevo con posibles personas sucesoras.",
+      "whoCanUseIt": "Titulares próximos a la jubilación en los territorios de los GDR participantes y personas interesadas en incorporación o relevo agrario.",
+      "howToAccess": "Completar la encuesta de relevo o contactar con Nó Rural o con cualquiera de los seis grupos de desarrollo rural participantes.",
+      "accessUrl": "https://norural.gal/",
+      "languages": ["gl"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://norural.gal/no-rural-lanza-unha-enquisa-para-identificar-a-agricultores-e-gandeiros-proximos-a-xubilacion-que-desexen-buscar-a-remuda-o-fronte-da-explotacion/",
+          "title": "Nó Rural lanza una encuesta para titulares próximos a la jubilación",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "ofrecerlles un acompañamento que facilite a chegada de persoas emprendedoras",
+            "permitirá conectar ás persoas agricultoras e gandeiras"
+          ]
+        },
+        {
+          "url": "https://norural.gal/quenes-somos/",
+          "title": "Quenes somos | Nó Rural",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Os seis GDR que constituen este proxecto e que polo tanto definen o ámbito de actuación do mesmo son"]
+        },
+        {
+          "url": "https://norural.gal/",
+          "title": "Nó Rural",
+          "consultedOn": "2026-09-29",
+          "quotes": [
+            "Nó Rural lanza unha enquisa para identificar a agricultores e gandeiros próximos á xubilación que desexen buscar a remuda ó fronte da explotación"
+          ]
+        }
+      ],
+      "notes": "La investigación no demuestra todavía un mercado estable de explotaciones con matching automático; el servicio actual es identificación y acompañamiento territorial.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "galicia-escuela-pastores",
+      "name": "Escuela de Pastores de Galicia",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Consellería do Medio Rural (AGACAL), con Ovica y entidades colaboradoras",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Primera edición de formación especializada en pastoreo y ganadería extensiva, con 250 horas de Aptitud Empresarial Agraria y 320 horas prácticas en explotaciones. La parte práctica se programó entre marzo-julio y septiembre-octubre de 2026.",
+      "whoCanUseIt": "La primera edición seleccionó 25 alumnos entre 44 personas interesadas.",
+      "accessUrl": "https://mediorural.xunta.gal/gl/recursos/novas/maria-jose-gomez-enxalza-escola-de-pastores-como-exemplo-da-aposta-pola-formacion-da",
+      "accessCostType": "FREE",
+      "languages": ["gl", "es"],
+      "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
+      "lastEvidenceDate": "2026-07-21",
+      "sources": [
+        {
+          "url": "https://mediorural.xunta.gal/gl/recursos/novas/medio-rural-presenta-hoxe-nova-escola-de-pastores-impulsada-en-colaboracion-coa",
+          "title": "Presentación de la Escola de Pastores",
+          "consultedOn": "2026-09-28",
+          "quotes": ["impartirá no período de marzo a xullo e de setembro a outubro"]
+        },
+        {
+          "url": "https://mediorural.xunta.gal/gl/recursos/novas/maria-jose-gomez-enxalza-escola-de-pastores-como-exemplo-da-aposta-pola-formacion-da",
+          "title": "Seguimiento de la primera edición de la Escola de Pastores",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Esta primeira edición conta con 25 alumnos e alumnas",
+            "250 horas de formación teórica",
+            "320 horas de formación práctica",
+            "Esta primeira edición conta con 25 alumnos e alumnas, seleccionados entre 44 persoas interesadas"
+          ]
+        }
+      ],
+      "notes": "La cohorte 2026 sigue en ejecución, pero no se ha localizado una inscripción abierta para una segunda edición.",
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [
+    {
+      "id": "galicia-2026-convocatoria-jovenes-agricultores",
+      "date": "2026-03-10",
+      "type": "CALL_OPENED",
+      "headline": "Abre la convocatoria 2026 de ayudas al establecimiento de jóvenes agricultores",
+      "summary": "La convocatoria MR404A estuvo abierta del 10 de marzo al 9 de abril de 2026.",
+      "resourceIds": ["galicia-establecimiento-jovenes-agricultores"],
+      "sources": [
+        {
+          "url": "https://sede.xunta.gal/detalle-procedemento?ano=2026&codtram=MR404A&lang=es&numPubAno=1",
+          "title": "MR404A 2026",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Convocatoria 2026 - Prazo pechado: 10/03/2026 00:00 - 09/04/2026 23:59"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "galicia-2026-no-rural-enquisa-relevo",
+      "date": "2026-07-09",
+      "type": "OTHER",
+      "headline": "Nó Rural lanza una encuesta para identificar titulares próximos a la jubilación que buscan relevo",
+      "summary": "El proyecto abrió una vía de identificación y acompañamiento de explotaciones que necesitan continuidad.",
+      "resourceIds": ["galicia-no-rural"],
+      "sources": [
+        {
+          "url": "https://norural.gal/no-rural-lanza-unha-enquisa-para-identificar-a-agricultores-e-gandeiros-proximos-a-xubilacion-que-desexen-buscar-a-remuda-o-fronte-da-explotacion/",
+          "title": "Encuesta de relevo de Nó Rural",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Ferrol, 9 de xullo de 2026"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "limitations": [
+    "No se verificó una convocatoria operativa de MR617D a 28 de septiembre de 2026; las bases reguladoras no bastan para marcar la ayuda como activa.",
+    "No se verificó una convocatoria de MR404B posterior a 2024.",
+    "No se encontró un banco de tierras municipal, comarcal o provincial independiente del Banco de Tierras autonómico en la pasada de 28 de septiembre de 2026.",
+    "No se verificó un servicio propio de una organización profesional agraria o cooperativa específicamente accesible para incorporación, primera instalación, sucesión o transmisión. La tutorización incorporada es un servicio público de la Xunta.",
+    "La Escuela de Pastores tiene una cohorte 2026 en ejecución, pero no se ha verificado una convocatoria de una segunda edición."
+  ]
+}

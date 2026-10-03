@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "ES",
+  "region": "gran-canaria",
+  "officialName": "Gran Canaria",
+  "published": "2026-09-30",
+  "summary": "Gran Canaria añade a las ayudas y formación comunes de Canarias un Banco de Tierras insular activo, formación presencial de incorporación en la Escuela de Capacitación Agraria de Arucas y una ayuda del Cabildo específicamente destinada al relevo e incorporación a la actividad ganadera.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Pasada regional 1.9.0 sobre incorporación, sucesión/cese, acceso a tierra, formación y asesoramiento. Se revalidó el Banco de Tierras con evidencia operativa de 2026 y la formación presencial de Arucas, y se incorporó la Medida IX del Cabildo para relevo e incorporación ganadera. Las ayudas autonómicas a jóvenes y la formación común en línea se heredan de Canarias. No se verificó un servicio separado de sucesión/cese ni un servicio específico de incorporación/relevo de una organización agraria o cooperativa.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.aidergc.com/proyecto/banco-de-tierras-de-gran-canaria/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.aidergc.com/dia-mundial-de-la-agricultura/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/centros/eca-arucas/ensenanzas/"
+      },
+      {
+        "method": "OFFICIAL_GAZETTE",
+        "detail": "https://www.boplaspalmas.net/boletines/2026/17-4-26/17-4-26.pdf"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Gran Canaria relevo generacional agricultura Cabildo AIDER 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Gran Canaria jóvenes agricultores ganaderos incorporación ayuda Cabildo 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "COAG ASAGA Gran Canaria asesoramiento incorporación jóvenes agricultores relevo"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Gran Canaria banco de tierras ayuntamiento agricultura 2026"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "es",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "gran-canaria-cursos-incorporacion-escuelas-capacitacion-agraria",
+      "name": "Cursos presenciales de la Escuela de Capacitación Agraria de Arucas",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Canarias, Escuela de Capacitación Agraria de Arucas",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Cursos profesionales no reglados de 2026 impartidos presencialmente en la Escuela de Capacitación Agraria de Arucas para personas que quieren incorporarse a la empresa agraria y mejorar su capacitación técnico-práctica y empresarial.",
+      "whoCanUseIt": "Personas que quieren incorporarse a la empresa agraria y otras personas interesadas en la formación profesional agraria, según los requisitos de cada curso.",
+      "howToAccess": "Las solicitudes de la programación 2026 se realizan a través de la Secretaría Virtual de las Escuelas de Capacitación Agraria; la página de Arucas publica la oferta y modalidad de cada curso.",
+      "accessUrl": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/centros/eca-arucas/ensenanzas/",
+      "trainingFormats": ["IN_PERSON"],
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notes": "La inscripción común, los cursos en línea y el curso de conocimientos básicos se documentan en la capa de Canarias; aquí solo se recoge la oferta presencial propia de Arucas.",
+      "sources": [
+        {
+          "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/centros/eca-arucas/ensenanzas/",
+          "title": "Escuela de Capacitación Agraria de Arucas - Enseñanzas",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Cursos profesionales 2026 - Enseñanzas no regladas en ARUCAS",
+            "El objetivo de estos Cursos es formar a personas que se quieran incorporar a la empresa agraria en las mejores condiciones técnico-prácticas y de capacidad empresarial",
+            "Podrás solicitar los cursos a partir del 7 de enero de 2026",
+            "Modalidad: Presencial"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "gran-canaria-banco-tierras",
+      "name": "Banco de Tierras de Gran Canaria",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Isla de Gran Canaria"
+      },
+      "operator": "Cabildo de Gran Canaria y AIDER Gran Canaria",
+      "operatorType": "MIXED",
+      "whatItOffers": "Conecta a titulares de terrenos disponibles con personas, empresas o entidades que buscan tierra para iniciar o ampliar proyectos agrícolas, ganaderos, forestales u otros vinculados al medio rural; el equipo realiza dinamización, mediación y asesoramiento durante el proceso.",
+      "whoCanUseIt": "Titulares de fincas o parcelas disponibles y personas, empresas, entidades o colectivos que necesiten terrenos para iniciar o ampliar una iniciativa agraria, forestal, ambiental o social vinculada al medio rural.",
+      "howToAccess": "Las personas propietarias se registran, publican el terreno y reciben una visita técnica antes de su incorporación. Quienes buscan tierra consultan las fincas, se registran y marcan «Me interesa»; el equipo contacta para valorar el proyecto y orientar la formalización del arrendamiento.",
+      "accessUrl": "https://www.aidergc.com/proyecto/banco-de-tierras-de-gran-canaria/",
+      "accessCostType": "FREE",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "LIVESTOCK", "FORESTRY"],
+      "languages": ["es"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-09-09",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "AIDER Gran Canaria",
+          "value": "aidergc@aidergc.com",
+          "sourceUrl": "https://www.aidergc.com/proyecto/banco-de-tierras-de-gran-canaria/"
+        },
+        {
+          "channel": "PHONE",
+          "label": "AIDER Gran Canaria",
+          "value": "928 660 738",
+          "sourceUrl": "https://www.aidergc.com/proyecto/banco-de-tierras-de-gran-canaria/"
+        }
+      ],
+      "notes": "AIDER informó el 9 de septiembre de 2026 de 275 hectáreas inscritas, más de 85 recuperadas y 325 personas demandantes, evidencia reciente de actividad del instrumento.",
+      "sources": [
+        {
+          "url": "https://www.aidergc.com/proyecto/banco-de-tierras-de-gran-canaria/",
+          "title": "Banco de Tierras de Gran Canaria - AIDER Gran Canaria",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "El Banco de Tierras de Gran Canaria conecta a personas propietarias de terrenos disponibles con quienes necesitan tierra para desarrollar iniciativas agrícolas, ganaderas, forestales, ambientales o de interés social.",
+            "el equipo del Banco de Tierras realiza labores de dinamización, mediación y asesoramiento durante el proceso.",
+            "puede incorporarlo gratuitamente al Banco de Tierras de Gran Canaria.",
+            "Para mostrar interés por una finca deberá crear previamente su perfil en la plataforma.",
+            "928 660 738",
+            "aidergc@aidergc.com"
+          ]
+        },
+        {
+          "url": "https://www.aidergc.com/dia-mundial-de-la-agricultura/",
+          "title": "Día Mundial de la Agricultura - AIDER Gran Canaria",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "09/09/2026",
+            "Actualmente hay 275 hectáreas inscritas en el Banco de Tierras, de las que más de 85 ya se han recuperado, y 325 personas demandantes buscan terrenos para emprender o consolidar proyectos."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "gran-canaria-relevo-incorporacion-ganadera",
+      "name": "Medida IX - Fomento del relevo e incorporación a la actividad ganadera",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Isla de Gran Canaria"
+      },
+      "operator": "Cabildo de Gran Canaria",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Subvenciona gastos de funcionamiento vinculados a la incorporación reciente a la ganadería, como cuotas de Seguridad Social por cuenta propia, alquileres, seguros y determinados gastos financieros de la explotación.",
+      "whoCanUseIt": "Titulares de explotaciones ganaderas de Gran Canaria que acrediten actividad agraria por cuenta propia durante un periodo no superior a cinco años antes del cierre de la convocatoria; para personas jurídicas, más de la mitad de sus integrantes deben cumplir ese requisito.",
+      "howToAccess": "La solicitud se presenta telemáticamente en la sede electrónica del Cabildo con la memoria de la Medida IX y acreditación de la actividad agraria por cuenta propia. La convocatoria 2026 está cerrada.",
+      "accessUrl": "https://www.boplaspalmas.net/boletines/2026/17-4-26/17-4-26.pdf",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT", "RETIREMENT_SUCCESSION"],
+      "calls": [
+        {
+          "name": "Convocatoria 2026 para el fomento del sector ganadero - Medida IX",
+          "state": "CLOSED",
+          "closes": "2026-05-18",
+          "sourceUrl": "https://www.boplaspalmas.net/boletines/2026/17-4-26/17-4-26.pdf"
+        }
+      ],
+      "languages": ["es"],
+      "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
+      "lastEvidenceDate": "2026-04-17",
+      "notes": "La medida no fija una edad máxima; prioriza, entre otros criterios, a quienes no recibieron la ayuda autonómica de creación de empresas por jóvenes ganaderos. El presupuesto máximo aprobado para gastos de funcionamiento es de 3.000 euros y el porcentaje ordinario de subvención es del 60%, sujeto a las reglas de la convocatoria.",
+      "sources": [
+        {
+          "url": "https://www.boplaspalmas.net/boletines/2026/17-4-26/17-4-26.pdf",
+          "title": "BOP Las Palmas 46/2026 - Convocatoria de subvenciones para el fomento del sector ganadero de Gran Canaria",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "CONVOCATORIA DE SUBVENCIONES PARA EL AÑO 2026 PARA EL FOMENTO DEL SECTOR GANADERO DE GRAN CANARIA",
+            "Plazo de presentación de solicitudes: VEINTE (20) DÍAS HÁBILES"
+          ]
+        },
+        {
+          "url": "https://www.infosubvenciones.es/bdnstrans/api/convocatorias/documentos?idDocumento=1435060",
+          "title": "Convocatoria de subvenciones para el año 2026 para el fomento del sector ganadero de Gran Canaria — texto completo (BDNS 898764)",
+          "quotes": [
+            "Medida IX.- Fomento del relevo e incorporación a la actividad ganadera.",
+            "Las destinadas a coadyuvar en el incremento de personas que inician su andadura profesional en la ganadería.",
+            "Acreditar la actividad agraria por cuenta propia por un periodo no superior a 5 años",
+            "El presupuesto máximo aprobado para los gastos no podrá superar, en ningún caso, los tres mil euros (3.000,00 €).",
+            "El porcentaje de subvención que se aplicará sobre el presupuesto aprobado será de un 60%",
+            "necesariamente de forma telemática a través de la sede electrónica del Cabildo de Gran Canaria"
+          ],
+          "consultedOn": "2026-09-30"
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "No se ha verificado una ayuda o servicio insular específico para la cesión de explotaciones por titulares salientes; la Medida IX apoya a quienes se incorporan recientemente a la ganadería.",
+    "No se ha verificado un servicio de una organización profesional agraria o cooperativa específicamente dedicado a incorporación o relevo con una ruta de acceso propia.",
+    "Las ayudas autonómicas 2026 al establecimiento de jóvenes y la formación común de las Escuelas de Capacitación Agraria se documentan una sola vez en la capa de Canarias y se heredan en esta isla."
+  ]
+}

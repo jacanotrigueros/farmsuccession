@@ -144,6 +144,28 @@ test("a contact detail is published by the source that is cited for it", () => {
   assert.equal(errorsOf(form), "", "a form is published by being the page itself, so no quote can show it");
 });
 
+test("a record describes itself with its own evidence, not with the file's", () => {
+  assert.match(
+    errorsOf(withResource({ whoCanUseIt: "Applicants may apply for the 25.000 euro payment." })),
+    /whoCanUseIt states 25\.000 euro, which no quote, metric, date or URL of the resource supports/u,
+  );
+  // The other record of the same file carries the figure; this one still may not borrow it, because a
+  // paraphrase that needs another record's evidence is a paraphrase about another instrument.
+  const two = fakeEdition({
+    resources: [
+      fakeResource({ whoCanUseIt: "Applicants may apply for the 25.000 euro payment." }),
+      fakeResource({
+        id: "north-isle-establishment-aid",
+        name: "Establishment aid of North Isle",
+        kind: "FINANCIAL_SUPPORT",
+        accessUrl: "https://example.test/north-aid",
+        sources: [fakeSource({ url: "https://example.test/north-aid", quotes: ["The payment is 25.000 euros."] })],
+      }),
+    ],
+  });
+  assert.match(errorsOf(two), /whoCanUseIt states 25\.000 euro/u);
+});
+
 test("a measure keeps its unit, so the same figure compares across territories", () => {
   assert.match(errorsOf(withMetric({ unit: "HECTARES" })), /is in HECTARES; use EUR/u);
   assert.equal(errorsOf(withMetric({ measure: "LAND_AREA", unit: "HECTARES", label: "Area offered" })), "");

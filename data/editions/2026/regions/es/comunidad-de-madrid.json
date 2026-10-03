@@ -1,0 +1,463 @@
+{
+  "schemaId": "regional-snapshot",
+  "schemaVersion": "1.0.0",
+  "edition": "2026",
+  "country": "ES",
+  "region": "comunidad-de-madrid",
+  "officialName": "Comunidad de Madrid",
+  "published": "2026-09-30",
+  "summary": "La Comunidad de Madrid combina ayudas al establecimiento de jóvenes y nuevos agricultores, una ayuda específica para la sucesión de explotaciones, formación de incorporación reconocida para acreditar capacitación y servicios de organizaciones agrarias. En la ciudad de Madrid, Barrios Productores mantiene además una convocatoria permanente de parcelas municipales para emprendimiento agrícola urbano.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Pasada 1.9.0 sobre ayudas, sucesión, acceso a tierra, formación y asesoramiento. Se verificaron las convocatorias 2026 de incorporación, la resolución 2026 de la ayuda de sucesión, la convocatoria permanente de Barrios Productores, una edición actual de formación de incorporación de 150 horas y un servicio regional concreto de UPA Madrid. El Portal del Suelo Agrario y el registro de jóvenes preferentes del plan regional siguen sin una ruta pública operativa verificada.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/plan-dinamizacion-sector-primario-comunidad-madrid"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://barriosproductores.madrid.es/convocatoria-de-parcelas/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://inalocal.com/productos/curso-incorporacion-madrid/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://upa.es/madrid/ — la página de afiliación consultada antes dejó de existir al renovarse la web de UPA Madrid"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Comunidad de Madrid banco de tierras agrario ayuntamiento vivero parcelas jóvenes agricultores 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Comunidad de Madrid curso incorporación empresa agraria 150 horas 2026 homologado"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Madrid organizaciones agrarias asesoramiento primera instalación jóvenes UPA ASAJA UGAMA COAG 2026"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "es",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "madrid-ayudas-sucesion-explotaciones",
+      "name": "Ayudas de cooperación para la sucesión de explotaciones agrícolas",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Consejería de Medio Ambiente, Agricultura e Interior de la Comunidad de Madrid",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ayuda a titulares que se jubilan y transmiten su explotación agraria a otra persona. La subvención se determina a tanto alzado según los ingresos agrarios de los tres últimos ejercicios y la pensión de jubilación, con el objetivo de favorecer el relevo generacional.",
+      "whoCanUseIt": "Personas agricultoras de la Comunidad de Madrid en situación de jubilación que cumplen los requisitos de edad, actividad y antigüedad registral de la convocatoria.",
+      "howToAccess": "Solicitar electrónicamente durante la convocatoria. La convocatoria 2025 cerró el 3 de diciembre de 2025 y fue resuelta el 8 de junio de 2026; consultar la sede para una nueva convocatoria.",
+      "accessUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas",
+      "instrumentType": "GRANT",
+      "purposes": ["RETIREMENT_SUCCESSION", "TRANSFER"],
+      "calls": [
+        {
+          "name": "Convocatoria 2025",
+          "state": "CLOSED",
+          "opens": "2025-11-20",
+          "closes": "2025-12-03",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas"
+        }
+      ],
+      "accessCostType": "FREE",
+      "languages": ["es"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "lastEvidenceDate": "2026-06-08",
+      "sources": [
+        {
+          "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas",
+          "title": "Ayudas de cooperación para la sucesión de explotaciones agrícolas — Comunidad de Madrid",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Ayudas para la transmisión de explotaciones agrarias a otra persona cuando se jubila el titular de la explotación.",
+            "Fecha de inicio: 20/11/2025 Fecha de fin: 03/12/2025",
+            "08/06/2026 Resolución de la convocatoria"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "madrid-incorporacion-jovenes-agricultores",
+      "name": "Ayudas para la incorporación de jóvenes agricultores",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Comunidad de Madrid",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ayuda para financiar el primer establecimiento de personas jóvenes como titulares de una explotación agraria, con prima básica de 30.000 euros y suplementos por orientación productiva, ubicación, creación de empleo y agricultura ecológica hasta un máximo de 80.000 euros.",
+      "whoCanUseIt": "Personas que hayan cumplido 18 años y no cumplan más de 40 en 2026, se incorporen por primera vez y cumplan los requisitos de cualificación, plan empresarial y explotación.",
+      "howToAccess": "Solicitud electrónica en la sede de la Comunidad de Madrid durante la convocatoria anual. La convocatoria 2026 cerró el 7 de mayo y sigue en tramitación.",
+      "accessUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Área FEADER no SIGC II",
+          "value": "ayudas_agrarias@madrid.org",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2"
+        }
+      ],
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "calls": [
+        {
+          "name": "Convocatoria 2026",
+          "state": "CLOSED",
+          "opens": "2026-04-08",
+          "closes": "2026-05-07",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2"
+        }
+      ],
+      "accessCostType": "FREE",
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-05-29",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima básica por persona beneficiaria — convocatoria 2026",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2026-05-29",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Cuantía máxima por persona beneficiaria — convocatoria 2026",
+          "value": 80000,
+          "unit": "EUR",
+          "asOf": "2026-05-29",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2",
+          "title": "Ayudas para la incorporación de jóvenes agricultores (2026) — Comunidad de Madrid",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "prima básica de 30.000 euros",
+            "La cuantía máxima de la subvención es de 80.000 euros por persona beneficiaria.",
+            "Fecha de inicio: 08/04/2026 Fecha de fin: 07/05/2026",
+            "Certificado de asistencia y aprovechamiento a un curso de incorporación a la empresa agraria con una duración mínima de 150 horas.",
+            "ayudas_agrarias@madrid.org",
+            "Última actualización: 29/05/2026",
+            "Haber cumplido 18 años y no cumplir más de 40 años en 2026."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "madrid-incorporacion-nuevos-agricultores",
+      "name": "Ayudas para la incorporación de nuevos agricultores",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Comunidad de Madrid",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ayuda al primer establecimiento de personas que se incorporan a la actividad agraria fuera de la edad de joven agricultor, con prima básica de 20.000 euros y un suplemento de 20.000 euros para determinadas explotaciones ganaderas, hasta un máximo de 40.000 euros.",
+      "whoCanUseIt": "Personas de 40 a 60 años en 2026 que quieren incorporarse por primera vez como titulares de una explotación agraria y cumplen los requisitos de capacitación y plan empresarial.",
+      "howToAccess": "Solicitud electrónica en la sede de la Comunidad de Madrid. La convocatoria 2026 cerró el 4 de mayo y sigue en tramitación.",
+      "accessUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Área FEADER no SIGC II",
+          "value": "ayudas_agrarias@madrid.org",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0"
+        }
+      ],
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "calls": [
+        {
+          "name": "Convocatoria 2026",
+          "state": "CLOSED",
+          "opens": "2026-04-02",
+          "closes": "2026-05-04",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0"
+        }
+      ],
+      "accessCostType": "FREE",
+      "languages": ["es"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-05-05",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima básica por persona beneficiaria — convocatoria 2026",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2026-05-05",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Cuantía máxima por persona beneficiaria — convocatoria 2026",
+          "value": 40000,
+          "unit": "EUR",
+          "asOf": "2026-05-05",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0",
+          "title": "Ayudas para la incorporación de nuevos agricultores (2026) — Comunidad de Madrid",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "prima básica de 20.000 euros más un suplemento de 20.000 euros",
+            "La cuantía máxima de la subvención es de 40.000 euros.",
+            "Fecha de inicio: 02/04/2026 Fecha de fin: 04/05/2026",
+            "Certificado de asistencia y aprovechamiento a un curso de incorporación a la empresa agraria con una duración mínima de 150 horas.",
+            "ayudas_agrarias@madrid.org",
+            "Última actualización: 05/05/2026",
+            "Haber cumplido los 40 años y no cumplir más de 60 años en 2026."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "madrid-plan-dinamizacion-sector-primario",
+      "name": "Plan de Dinamización del Sector Primario en la Comunidad de Madrid",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Comunidad de Madrid",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Plan de acción con 35 medidas en 6 ejes. El eje de relevo generacional incluye ayudas y varias medidas anunciadas, entre ellas financiación, un programa para jóvenes emprendedores, un Portal del Suelo Agrario y un registro de jóvenes agricultores preferentes.",
+      "accessUrl": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/plan-dinamizacion-sector-primario-comunidad-madrid",
+      "lastEvidenceDate": "2026-02-10",
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "GENERAL"],
+      "metrics": [
+        {
+          "measure": "BUDGET_TOTAL",
+          "label": "Presupuesto global del plan",
+          "value": 148335372,
+          "unit": "EUR",
+          "asOf": "2026-02-10",
+          "sourceUrl": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/plan-dinamizacion-sector-primario-comunidad-madrid"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/plan-dinamizacion-sector-primario-comunidad-madrid",
+          "title": "Plan de Dinamización del Sector Primario en la Comunidad de Madrid",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "se estructura en 35 medidas aglutinadas en 6 ejes distintos",
+            "EJE 2: Relevo generacional",
+            "Portal del Suelo Agrario",
+            "asciende a 148.335.372€",
+            "Última actualización: 10 febrero 2026"
+          ]
+        }
+      ],
+      "notes": "El plan enumera medidas, pero no se ha verificado una página operativa del Portal del Suelo Agrario ni del registro de jóvenes agricultores preferentes. No se confunden esas medidas con el servicio municipal Barrios Productores del Ayuntamiento de Madrid.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "madrid-barrios-productores-vivero-agricola",
+      "name": "Barrios Productores — Vivero de Emprendimiento Agrícola",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Madrid"
+      },
+      "operator": "Ayuntamiento de Madrid",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Convocatoria permanente para acceder a parcelas municipales y a servicios de un vivero de emprendimiento en agricultura urbana. La oficina técnica presta asesoramiento a los proyectos interesados y el portal publica el mapa y las características de las parcelas incorporadas al programa.",
+      "whoCanUseIt": "Proyectos de emprendimiento vinculados a la agricultura urbana productiva que quieran solicitar alguna de las parcelas disponibles y acceder a los servicios del vivero.",
+      "howToAccess": "Presentar la solicitud mediante la Sede Electrónica del Ayuntamiento de Madrid desde la página de convocatoria de parcelas; se puede pedir asesoramiento previo a la Oficina Técnica de Barrios Productores.",
+      "accessUrl": "https://barriosproductores.madrid.es/convocatoria-de-parcelas/",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "calls": [
+        {
+          "name": "Convocatoria Abierta Permanente del Vivero de Emprendimiento Agrícola",
+          "state": "OPEN",
+          "sourceUrl": "https://barriosproductores.madrid.es/convocatoria-de-parcelas/"
+        }
+      ],
+      "languages": ["es"],
+      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "GENERAL"],
+      "sources": [
+        {
+          "url": "https://barriosproductores.madrid.es/convocatoria-de-parcelas/",
+          "title": "Convocatoria de parcelas — Barrios Productores",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Convocatoria Abierta Permanente del Vivero de Emprendimiento Agrícola de Barrios Productores",
+            "los proyectos de emprendimiento interesados podrán hacer solicitudes a las parcelas disponibles.",
+            "visita la Sede Electrónica del Ayuntamiento de Madrid."
+          ]
+        },
+        {
+          "url": "https://barriosproductores.madrid.es/vivero-de-emprendimiento/",
+          "title": "Vivero de emprendimiento — Barrios Productores",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "facilita programas formativos y de acompañamiento, vinculados a la puesta a disposición de los emprendedores de parcelas de terreno y recursos materiales"
+          ]
+        }
+      ],
+      "notes": "El portal enumera nueve parcelas del inventario municipal, pero no se interpreta que todas estén libres simultáneamente: la propia convocatoria habla de solicitudes a las parcelas disponibles.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "madrid-curso-incorporacion-empresa-agraria-inalocal",
+      "name": "Curso de Incorporación a la Empresa Agraria en Madrid — INALOCAL",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "INALOCAL",
+      "operatorType": "PRIVATE",
+      "whatItOffers": "Curso online de 150 horas para acreditar capacitación profesional agraria en la Comunidad de Madrid. El proveedor publica inscripción y pago en línea y una próxima edición en otoño de 2026; la sede autonómica confirma que un curso de incorporación de al menos 150 horas es una vía válida de formación lectiva para las ayudas de establecimiento.",
+      "whoCanUseIt": "Personas que necesitan capacitación agraria para incorporarse, modernizar una explotación o justificar formación en ayudas de primera instalación de la Comunidad de Madrid.",
+      "howToAccess": "Inscripción y pago desde la web de INALOCAL o mediante su formulario y canales de contacto. La página publica una próxima edición del 24 de octubre al 6 de enero y disponibilidad continua del curso.",
+      "accessUrl": "https://inalocal.com/productos/curso-incorporacion-madrid/",
+      "accessCostType": "FEE_REQUIRED",
+      "trainingFormats": ["ONLINE"],
+      "qualifiesForEstablishmentAid": true,
+      "languages": ["es"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://inalocal.com/productos/curso-incorporacion-madrid/",
+          "title": "Certificado curso joven agricultor Madrid — INALOCAL",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Certificado curso joven agricultor Madrid 375,00€",
+            "Cuenta con 150 horas de formación Según Articulo 4 de La Orden 1696/2024 20 mayo",
+            "Próxima convocatoria 24 octubre – 6 enero",
+            "Este curso está homologado por la Comunidad de Madrid"
+          ]
+        },
+        {
+          "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2",
+          "title": "Ayudas para la incorporación de jóvenes agricultores (2026) — requisito formativo",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Certificado de asistencia y aprovechamiento a un curso de incorporación a la empresa agraria con una duración mínima de 150 horas."
+          ]
+        }
+      ],
+      "notes": "La Comunidad de Madrid no publica en la ficha de ayuda un catálogo único de proveedores. La validez concreta del curso se apoya en la acreditación declarada por el propio proveedor y se contrasta con el requisito oficial de 150 horas; conviene confirmar la homologación vigente antes de matricularse.",
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [
+    {
+      "id": "madrid-2026-convocatoria-nuevos-agricultores",
+      "date": "2026-04-02",
+      "type": "CALL_OPENED",
+      "headline": "Abre la convocatoria 2026 de ayudas a la incorporación de nuevos agricultores",
+      "summary": "La Comunidad de Madrid abrió el 2 de abril de 2026 el plazo de ayudas para personas de 40 a 60 años que se incorporan a la actividad agraria; el plazo terminó el 4 de mayo.",
+      "resourceIds": ["madrid-incorporacion-nuevos-agricultores"],
+      "sources": [
+        {
+          "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0",
+          "title": "Ayudas para la incorporación de nuevos agricultores (2026)",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Fecha de inicio: 02/04/2026 Fecha de fin: 04/05/2026"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "madrid-2026-convocatoria-jovenes-agricultores",
+      "date": "2026-04-08",
+      "type": "CALL_OPENED",
+      "headline": "Abre la convocatoria 2026 de ayudas a la incorporación de jóvenes agricultores",
+      "summary": "La Comunidad de Madrid abrió el 8 de abril de 2026 el plazo de ayudas a jóvenes, con una prima básica de 30.000 euros y hasta 80.000 euros por persona; el plazo terminó el 7 de mayo.",
+      "resourceIds": ["madrid-incorporacion-jovenes-agricultores"],
+      "sources": [
+        {
+          "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2",
+          "title": "Ayudas para la incorporación de jóvenes agricultores (2026)",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Fecha de inicio: 08/04/2026 Fecha de fin: 07/05/2026"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "madrid-2026-resolucion-sucesion-explotaciones",
+      "date": "2026-06-08",
+      "type": "CHANGE",
+      "headline": "Se resuelve la convocatoria de cooperación para la sucesión de explotaciones",
+      "summary": "La Comunidad de Madrid publicó el 8 de junio de 2026 la resolución de la convocatoria 2025 de ayudas para la sucesión de explotaciones agrícolas.",
+      "resourceIds": ["madrid-ayudas-sucesion-explotaciones"],
+      "sources": [
+        {
+          "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas",
+          "title": "Ayudas de cooperación para la sucesión de explotaciones agrícolas",
+          "consultedOn": "2026-09-28",
+          "quotes": ["08/06/2026 Resolución de la convocatoria"]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "limitations": [
+    "El Portal del Suelo Agrario y el registro de jóvenes agricultores preferentes siguen apareciendo como medidas del Plan de Dinamización, pero no se ha localizado una página operativa de inscripción, inventario o acceso; no se presentan como servicios disponibles.",
+    "Barrios Productores es un recurso local de agricultura urbana del Ayuntamiento de Madrid, no el Portal del Suelo Agrario autonómico. La página mantiene una convocatoria abierta permanente, pero la disponibilidad concreta de cada parcela debe confirmarse al solicitarla.",
+    "La formación de incorporación se imparte mediante entidades proveedoras y la sede autonómica acredita el requisito de al menos 150 horas, pero no se ha localizado un directorio oficial único y actualizado de cursos homologados. El curso de INALOCAL se admite como oferta actual con la cautela de confirmar su homologación vigente antes de matricularse.",
+    "La búsqueda de organizaciones agrarias identifica un servicio concreto de UPA Madrid para tramitar y seguir la primera instalación. Otros servicios generales o programas de ámbito estatal no se duplican en la capa regional sin evidencia de una prestación madrileña diferenciada.",
+    "No se ha revisado exhaustivamente cada municipio de la Comunidad de Madrid; los perfiles históricos de la Red TERRAE revisados no demostraron una oferta local actual comparable a Barrios Productores.",
+    "El servicio de UPA Madrid de tramitación de ayudas a la primera instalación ya no se muestra: su página dejó de existir al renovarse la web de la organización y la nueva no describe el servicio. Queda pendiente de verificar."
+  ]
+}

@@ -83,3 +83,9 @@ Prose that starts carrying ISO dates, which would make the spelled-month tables
 unnecessary; or a corpus where `ha` is overwhelmingly an area, which would make
 the hectare abbreviation worth reading. Both are questions for
 `npm run measure -- figures`, not for preference.
+
+## Refined later
+
+[014](014-a-file-may-use-the-evidence-it-inherits.md) settles whose evidence may
+support a figure, which this record left as "the file" and the territorial model
+had already answered differently.

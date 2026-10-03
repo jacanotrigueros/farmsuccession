@@ -19,6 +19,8 @@
     "check:links": "node src/check-links.ts",
     "check:territory": "node src/check-territory.ts",
     "measure": "node scripts/measure.ts",
+    "report": "node scripts/report.ts",
+    "report:check": "node scripts/report.ts --check",
     "prompt": "node src/prompt.ts",
     "ingest": "node src/ingest.ts",
     "diff": "node src/diff.ts",
@@ -27,7 +29,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "node --test \"test/**/*.test.ts\"",
-    "check": "npm run typecheck && npm run lint && npm run format:check && npm run types:check && npm test && npm run validate"
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run types:check && npm test && npm run validate && npm run report:check"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"

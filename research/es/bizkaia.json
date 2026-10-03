@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "bizkaia"
+  },
+  "language": "es",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "En Euskadi las ayudas del Plan Estratégico de la PAC las gestionan las Diputaciones Forales; el Gobierno Vasco coordina el programa Gaztenek de incorporación de jóvenes.",
+    "bizkaia.eus y gazteak.bizkaia.eus usan certificados de Izenpe y el comprobador automático del repositorio puede no leer algunas rutas; en la revisión del 27 de septiembre de 2026 las páginas oficiales indexadas permitieron resolver la ayuda foral a jóvenes y el Fondo de Suelo Agrario, pero el gate de fuentes debe repetirse desde un checkout normal.",
+    "Desde 2026 las tres diputaciones tienen una Oficina de Intermediación para el Relevo Generacional Agrario con un Registro de Relevo Generacional; se documenta una sola vez en la capa del País Vasco.",
+    "El Suspertze Plana de la Diputación, acordado con las organizaciones agrarias, reúne las medidas forales de apoyo al primer sector, incluido el relevo.",
+    "La formación HAZI para el empleo y las ayudas 2026 del Gobierno Vasco a la cesión de explotaciones y espacios test son instrumentos comunes a los tres territorios históricos; se deben revisar en la capa del País Vasco y no duplicar en Bizkaia."
+  ],
+  "portals": [
+    {
+      "name": "Diputación Foral de Bizkaia — Medio Natural y Agricultura",
+      "url": "https://www.bizkaia.eus/es/medio-natural-y-agricultura",
+      "what": "Portal foral con acceso al Fondo de Suelo Agrario y otros servicios agrarios."
+    },
+    {
+      "name": "Bizkaia Gazteak — ayudas al establecimiento de jóvenes",
+      "url": "https://gazteak.bizkaia.eus/es/-/ayudas-a-j%C3%B3venes-agricultores-y-agricultoras-2021",
+      "what": "Ficha oficial de la ayuda foral al establecimiento; en 2026 muestra convocatoria cerrada el 27 de febrero."
+    }
+  ],
+  "openData": [
+    {
+      "name": "Open Data Bizkaia — Plan Anual Normativo 2026",
+      "url": "https://www.opendatabizkaia.eus/es/catalogo/plan-anual-normativo/recurso/pan-2026",
+      "how": "Revisar disposiciones del Departamento de Medio Natural y Agricultura para convocatorias y regulación del Fondo de Suelo Agrario y relevo."
+    }
+  ],
+  "queries": [
+    {
+      "id": "biz-jovenes",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Diputación Foral de Bizkaia ayudas instalación jóvenes agricultores 2026 bizkaia.eus"
+    },
+    {
+      "id": "biz-tierras",
+      "kinds": ["LAND_BANK"],
+      "query": "Banco de Tierras Bizkaia Diputación lotes terreno sector primario solicitud"
+    },
+    {
+      "id": "biz-organizaciones",
+      "kinds": ["ADVICE", "TRAINING"],
+      "query": "Bizkaia relevo generacional baserri EHNE Bizkaia Lorra asesoramiento incorporación jóvenes formación Derio"
+    },
+    {
+      "id": "biz-intermediacion",
+      "kinds": ["SUCCESSION_SERVICE"],
+      "query": "\"Oficina de Intermediación\" relevo generacional agrario Diputación Foral registro cedentes futuros agricultores 18 a 49 años"
+    },
+    {
+      "id": "biz-enba-baserri-gaztea",
+      "kinds": ["ADVICE"],
+      "query": "Baserri Gaztea ENBA Bizkaia asesoramiento incorporación jóvenes agricultores"
+    },
+    {
+      "id": "biz-haztegi",
+      "kinds": ["TRAINING", "ADVICE"],
+      "query": "Haztegi Bizkaia Urkiola Enkarterrialde Urremendi Lea-Artibai relevo generacional"
+    },
+    {
+      "id": "biz-relevo-2026",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "relevo generacional Bizkaia agricultura ayudas cesión explotaciones 2026"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "\"Bizkaia\" agricultura (\"banco de tierras\" OR \"relevo generacional\" OR incorporación)"
+    },
+    {
+      "id": "prepublication-2026-09-25-2",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Bizkaia jóvenes agricultores ayudas"
+    }
+  ],
+  "leads": [
+    {
+      "id": "biz-oficina-intermediacion",
+      "name": "Oficina de Intermediación para el Relevo Generacional Agrario",
+      "url": "https://www.gipuzkoa.eus/es/-/hiru-foru-aldundiek-nekazaritzako-belaunaldien-erreleborako-bitartekaritza-bulegoa-aktibatu-dute",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "pais-vasco-oficina-intermediacion-relevo-generacional",
+      "reason": "Oficina única de las tres diputaciones: se documenta una sola vez en el fichero del País Vasco (data/editions/2026/hubs/es/pais-vasco.json), con su comprobación manual en el brief del País Vasco, y este territorio la hereda.",
+      "foundBy": "biz-intermediacion",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "biz-ehne-acompanamiento",
+      "name": "Acompañamiento de EHNE Bizkaia a la incorporación",
+      "url": "https://www.ehnebizkaia.eus/jovenes/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "bizkaia-ehne-acompanamiento-incorporacion",
+      "reason": "Página de la organización con un proceso de acompañamiento, formación, visitas, intercambios, prácticas y formulario de contacto. La página sigue accesible pero no está fechada y conserva referencias antiguas a Gaztenek, por lo que el recurso publicado permanece UNKNOWN.",
+      "foundBy": "biz-organizaciones",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "biz-ayuda-primera-instalacion",
+      "name": "Ayudas al establecimiento de personas jóvenes agricultoras en explotaciones agrarias",
+      "url": "https://gazteak.bizkaia.eus/es/-/ayudas-a-j%C3%B3venes-agricultores-y-agricultoras-2021",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "bizkaia-establecimiento-jovenes-agricultores",
+      "reason": "La ficha oficial muestra la convocatoria 2026 cerrada el 27 de febrero y los requisitos de edad y registro; una nota foral de junio de 2026 confirma importes de hasta 70.000 euros y el incentivo adicional cuando la incorporación se produce mediante relevo.",
+      "foundBy": "biz-jovenes",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "biz-fondo-suelo-agrario",
+      "name": "Fondo de Suelo Agrario (Banco de Tierras) de Bizkaia",
+      "url": "https://www.bizkaia.eus/es/medio-natural-y-agricultura",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "bizkaia-fondo-suelo-agrario",
+      "reason": "La página actual de Medio Natural y Agricultura dice que el servicio informa de los lotes de suelo agrario a reparto y facilita el impreso de solicitud; la Diputación mantiene además el procedimiento de adjudicación de bienes y derechos del Fondo.",
+      "foundBy": "biz-tierras",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "biz-lorra-gaztenek",
+      "name": "Acompañamiento de Lorra a proyectos Gaztenek",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "La memoria 2024 de Lorra documenta expedientes Gaztenek 2024/25 y acompañamiento a nuevas incorporaciones, pero en esta pasada no se localizó una página actual de servicio o admisión 2026 con una vía de acceso verificable. Próxima acción: comprobar la web/servicios de Lorra y una convocatoria o contacto institucional vigente antes de admitirlo.",
+      "foundBy": "biz-organizaciones",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "biz-enba-baserri-gaztea",
+      "name": "Baserri Gaztea — orientación de ENBA para nuevas incorporaciones",
+      "url": "https://enba.eus/es/baserri-gaztea",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "La página de ENBA ofrece orientación técnica sobre incorporación, Gaztenek, ayudas y entidades a las que acudir, y ENBA tiene oficina propia en Bizkaia. La misma página sirve también a Gipuzkoa; antes de crear un recurso regional hay que resolver su ámbito y evitar duplicar un único servicio compartido entre dos territorios sin una capa común específica.",
+      "foundBy": "biz-enba-baserri-gaztea",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "biz-haztegi-centros",
+      "name": "Haztegis agrarios de Bizkaia",
+      "url": "https://www.bizkaia.eus/es/web/comunicacion/noticias/-/news/detailView/la-diputacion-foral-de-bizkaia-refuerza-su-apuesta-por-el-relevo-generacional-para-garantizar-el-futuro-del-primer-sector",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "La Diputación afirma en junio de 2026 que existen cuatro centros impulsados por las ADR Urkiola, Enkarterrialde, Urremendi y Lea-Artibai donde jóvenes comienzan un negocio con acompañamiento y formación. No se localizó una página de operador con admisión, plazas o contacto específico para los cuatro centros; próxima acción: verificar cada ADR y admitir solo los centros con acceso público actual.",
+      "foundBy": "biz-haztegi",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "biz-hazi-formacion-empleo-2026",
+      "name": "Formación para el Empleo 2026 de HAZI",
+      "url": "https://www.euskadi.eus/web01-a2nekabe/es/contenidos/noticia/formacion_empleo/es_def/index.shtml",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La oferta 2026 incluye Derio (Bizkaia) y declara como objetivo impulsar la incorporación y el relevo, pero es un único programa común de Euskadi con centros en los tres territorios. No se duplica en Bizkaia; debe evaluarse en una pasada separada de la capa País Vasco.",
+      "foundBy": "biz-organizaciones",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "biz-euskadi-ayudas-relevo-2026",
+      "name": "Ayudas 2026 a la incentivación del relevo generacional y espacios test efímeros",
+      "url": "https://www.euskadi.eus/agrupacion_servicios/2026/relevo-generacional/web01-tramite/es/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "La convocatoria del Gobierno Vasco se aplica a Euskadi y tiene dos líneas —espacios test y cesión de explotaciones— abiertas del 1 de julio al 30 de septiembre de 2026. No es un recurso exclusivo de Bizkaia; debe investigarse y publicarse, si procede, en la capa País Vasco.",
+      "foundBy": "biz-relevo-2026",
+      "checkedOn": "2026-09-27"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "biz-ayuda-primera-instalacion",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "FOUND",
+      "leadId": "biz-oficina-intermediacion",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "biz-fondo-suelo-agrario",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "NOT_FOUND",
+      "reason": "Se buscó formación de incorporación en Bizkaia y se revisaron HAZI, EHNE, ENBA, Lorra y los Haztegis. HAZI es una oferta común a Euskadi que debe resolverse en la capa País Vasco; EHNE es acompañamiento no acreditado como curso oficial de incorporación; los Haztegis carecen todavía de una vía pública de admisión verificada.",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "FOUND",
+      "leadId": "biz-ehne-acompanamiento",
+      "checkedOn": "2026-09-27"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada con el checklist nacional: admitidas la Oficina de Intermediación para el Relevo Generacional y el acompañamiento de EHNE Bizkaia; ayuda a jóvenes y Fondo de Suelo Agrario pendientes por certificados de bizkaia.eus."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Oficina de intermediación: la fuente conjunta queda UNCHECKED (raíz Izenpe no reconocida por Node.js); no se consolida en el hub hasta que una persona decida."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Consolidación en la capa del País Vasco: bizkaia-oficina-intermediacion-relevo-generacional pasa a ser pais-vasco-oficina-intermediacion-relevo-generacional, oficina única de las tres diputaciones con comprobación manual documentada."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar: ejecutadas las consultas prepublication-2026-09-25. Solo descubrimiento; no es una revisión completa ni demuestra ausencias. Quedan pendientes la lectura de candidatos, todas las familias, los niveles locales y la comprobación de detalles prácticos. No se actualizan los estados ni las fechas de la edición por este barrido."
+    },
+    {
+      "date": "2026-09-27",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada regional 1.9.0 completada: resueltas con fuentes actuales la ayuda foral 2026 a jóvenes y el Fondo de Suelo Agrario; revalidado EHNE; buscados niveles locales, organizaciones, formación y sucesión. Se documentan como pendientes sin admisión regional Lorra, Baserri Gaztea y los cuatro Haztegis. HAZI y las ayudas vascas 2026 de cesión/espacios test se descartan de esta capa por ámbito común a Euskadi y quedan para la próxima revisión específica del hub País Vasco. Cobertura PARTIAL por esos candidatos y porque el gate automático de fuentes no puede ejecutarse en este conector."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Corrección de edición: una limitación remitía a la ruta de un fichero del repositorio; ahora remite a la edición común del País Vasco. Sin cambios de recursos ni de estados."
+    }
+  ]
+}

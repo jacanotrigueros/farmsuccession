@@ -1,0 +1,144 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "ES", "region": "la-gomera" },
+  "language": "es",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "La ayuda a jóvenes agricultores y la formación común en línea de las Escuelas de Capacitación Agraria se heredan desde la capa Canarias.",
+    "La Gomera mantiene un Banco Insular de Tierras propio; en agosto de 2026 el Cabildo anunció un convenio con Red TERRAE que garantiza dos años de continuidad y dinamización.",
+    "AIDER La Gomera ejecuta Emprende Rural La Gomera 2025–2026, con tutelaje y asesoramiento a ideas de negocio rural y objetivo explícito de relevo generacional en el sector primario.",
+    "Las Agencias de Extensión Agraria de San Sebastián y Vallehermoso prestan asesoramiento técnico general e in situ y tramitan ayudas, pero no se consideran por sí mismas un servicio específico de relevo."
+  ],
+  "portals": [
+    {
+      "name": "Agricultura, ganadería y pesca - Cabildo de La Gomera",
+      "url": "https://www.lagomera.es/area/agricultura-ganaderia-pesca/banco-de-tierras",
+      "what": "Banco de Tierras, agencias de extensión agraria y servicios insulares del sector primario."
+    },
+    {
+      "name": "AIDER La Gomera - Sector primario",
+      "url": "https://www.aidergomera.es/areas-de-actuacion/sector-primario/",
+      "what": "Programas de desarrollo rural y emprendimiento, incluido Emprende Rural 2025–2026."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    { "id": "gom-tierras-2026", "kinds": ["LAND_BANK"], "query": "La Gomera banco de tierras parcelas 2026 Red TERRAE" },
+    {
+      "id": "gom-incorporacion-2026",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "La Gomera jóvenes agricultores incorporación asesoramiento 2026"
+    },
+    {
+      "id": "gom-sucesion-2026",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "La Gomera relevo generacional agricultura Cabildo AIDER 2026"
+    },
+    { "id": "gom-formacion-2026", "kinds": ["TRAINING"], "query": "La Gomera formación incorporación empresa agraria 2026" },
+    {
+      "id": "gom-organizaciones-2026",
+      "kinds": ["ADVICE"],
+      "query": "La Gomera cooperativa organización agraria relevo incorporación jóvenes asesoramiento"
+    }
+  ],
+  "leads": [
+    {
+      "id": "gom-canarias-jovenes",
+      "name": "Subvenciones para el establecimiento de personas jóvenes agricultoras",
+      "url": "https://sede.gobiernodecanarias.org/sede/tramites/9277",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "canarias-establecimiento-jovenes-agricultoras",
+      "reason": "Instrumento común de Canarias, revalidado en la capa compartida con el periodo 2026; se hereda sin duplicación.",
+      "foundBy": "gom-incorporacion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "gom-eca-cursos",
+      "name": "Programación común de cursos ECA",
+      "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/ensenanzas/cursos-agricultura-ganaderia.html",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "canarias-formacion-escuelas-capacitacion-agraria",
+      "reason": "La Gomera no tiene ECA propia; la formación en línea accesible desde cualquier isla se hereda desde Canarias.",
+      "foundBy": "gom-formacion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "gom-banco-tierras",
+      "name": "Banco Insular de Tierras de La Gomera",
+      "url": "https://www.lagomera.es/area/agricultura-ganaderia-pesca/banco-de-tierras",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "la-gomera-banco-insular-tierras",
+      "reason": "Servicio público gratuito con plataforma, oferta/demanda, asesoramiento y mediación. En agosto de 2026 el Cabildo anunció dos años adicionales de dinamización y continuidad mediante convenio con Red TERRAE.",
+      "foundBy": "gom-tierras-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "gom-emprende-rural",
+      "name": "Emprende Rural La Gomera 2025–2026",
+      "url": "https://www.aidergomera.es/areas-de-actuacion/sector-primario/emprende-rural-la-gomera-2025-2026/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "la-gomera-emprende-rural-2025-2026",
+      "reason": "Servicio vigente en 2025–2026 con tutelaje desde la idea hasta la materialización del negocio, acompañamiento personalizado y objetivo explícito de promover el relevo generacional del sector primario.",
+      "foundBy": "gom-sucesion-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "gom-extension-agraria",
+      "name": "Agencias de Extensión Agraria de La Gomera",
+      "url": "https://www.lagomera.es/area/agricultura-ganaderia-pesca/agencias-extension-agraria",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Prestan asesoramiento técnico general, formación y ayuda con trámites a agricultores y ganaderos, pero no se ha demostrado un servicio específico de incorporación/relevo distinto de los instrumentos admitidos.",
+      "foundBy": "gom-organizaciones-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "gom-fincas-piloto-hermigua",
+      "name": "Fincas piloto de platanera con riego de alta eficiencia en Hermigua",
+      "url": "https://www.gobiernodecanarias.org/boc/2026/083/1401.html",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Proyecto demostrativo y de transferencia técnica con participación de jóvenes, pero no ofrece una ruta general de incorporación, sucesión o acceso a una explotación; no constituye un recurso separado para FarmSuccession.",
+      "foundBy": "gom-formacion-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    { "expectedId": "es-incorporacion-jovenes", "status": "FOUND", "leadId": "gom-canarias-jovenes", "checkedOn": "2026-09-28" },
+    {
+      "expectedId": "es-sucesion-cese",
+      "status": "NOT_FOUND",
+      "reason": "Emprende Rural fomenta el relevo mediante nuevos proyectos y el banco facilita tierra, pero no se verificó un servicio específico para cesión/transmisión de explotaciones completas o apoyo a titulares que cesan.",
+      "checkedOn": "2026-09-28"
+    },
+    { "expectedId": "es-banco-tierras", "status": "FOUND", "leadId": "gom-banco-tierras", "checkedOn": "2026-09-28" },
+    { "expectedId": "es-formacion-incorporacion", "status": "FOUND", "leadId": "gom-eca-cursos", "checkedOn": "2026-09-28" },
+    { "expectedId": "es-organizaciones-asesoramiento", "status": "FOUND", "leadId": "gom-emprende-rural", "checkedOn": "2026-09-28" }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primera pasada: admitidas la subvención canaria a jóvenes, la formación común de las ECA y el Banco Insular de Tierras."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Formación consolidada en la capa Canarias porque La Gomera no tiene ECA presencial propia."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Barrido preliminar antes de publicar; solo discovery, sin avanzar estados de edición."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Pasada 1.9.0: Banco Insular de Tierras revalidado con continuidad 2026–2028; admitido Emprende Rural La Gomera 2025–2026 como asesoramiento/tutelaje para nuevos proyectos y relevo del sector primario; extensión agraria general y fincas piloto rechazadas como recursos separados."
+    }
+  ]
+}
