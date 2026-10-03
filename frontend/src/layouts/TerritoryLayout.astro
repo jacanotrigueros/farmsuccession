@@ -6,6 +6,11 @@
  * The order in the markup is content, then index, then tree, and the columns are rearranged on a wide
  * screen. That way a phone gets the page it asked for first and the two indexes afterwards, which is also
  * the order a screen reader meets them in.
+ *
+ * The middle column is a container, so what is inside it can lay itself out against the width it actually
+ * has. Between 1024px and about 1400px the window is wide while this column is narrow — the two rails are
+ * already taking their share — and anything that asked the window instead would split into columns that do
+ * not fit.
  */
 import PageIndex from "../components/PageIndex.astro";
 import TerritoryTree from "../components/TerritoryTree.astro";
@@ -25,7 +30,7 @@ const { title, description, language, current, sections } = Astro.props;
 <SiteLayout title={title} description={description} language={language} current={current}>
   <div class="mx-auto max-w-7xl px-4 sm:px-6">
     <div class="lg:grid lg:grid-cols-[14rem_minmax(0,1fr)_13rem] lg:gap-10">
-      <div class="lg:order-2">
+      <div class="@container lg:order-2">
         <slot />
       </div>
 

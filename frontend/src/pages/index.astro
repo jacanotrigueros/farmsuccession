@@ -13,7 +13,8 @@ import Illustration from "../components/Illustration.astro";
 import ResourceRow from "../components/ResourceRow.astro";
 import TerritoryLayout from "../layouts/TerritoryLayout.astro";
 import { countryTerritories, currentEdition, euTerritory, href, isDraft, languageOf, regionsOf } from "../lib/corpus.ts";
-import { counted, words } from "../lib/words.ts";
+import { dateIn } from "../lib/language.ts";
+import { counted, editionNamed, words } from "../lib/words.ts";
 
 const europe = euTerritory();
 if (!europe) {
@@ -93,7 +94,7 @@ const sections = [
     <p class="mt-2 max-w-measure text-ink-soft">{europe.data.summary}</p>
     <div class="mt-6">
       {europe.data.resources.map((resource) => (
-        <ResourceRow resource={resource} language={language} />
+        <ResourceRow resource={resource} language={language} recordedIn={europe} />
       ))}
     </div>
   </section>
@@ -110,7 +111,8 @@ const sections = [
     <h3 class="mt-6 text-lead">{text.coverageNote}</h3>
     <p class="mt-2 max-w-measure text-ink-soft">{europe.data.coverage.note}</p>
     <p class="mt-6 text-meta text-ink-soft">
-      {currentEdition} {text.edition} · {text.publishedOn} <time datetime={europe.data.published}>{europe.data.published}</time>
+      {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
+      <time datetime={europe.data.published}>{dateIn(europe.data.published, language)}</time>
     </p>
   </section>
 </TerritoryLayout>

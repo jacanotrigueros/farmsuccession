@@ -29,7 +29,8 @@ import {
   view,
 } from "../lib/corpus.ts";
 import { GOALS, goalOf } from "../lib/goals.ts";
-import { counted, situation, words } from "../lib/words.ts";
+import { dateIn } from "../lib/language.ts";
+import { counted, editionNamed, situation, words } from "../lib/words.ts";
 
 export function getStaticPaths() {
   // Written out here rather than in a helper: Astro lifts this function into a module of its own, where
@@ -81,7 +82,9 @@ const trail = layers.slice(0, -1);
       <ol class="flex flex-wrap gap-x-2">
         {trail.map((above) => (
           <li>
-            <a href={href(above.layer)}>{above.layer.level === "EU" ? text.europe : above.data.officialName}</a>
+            <a href={href(above.layer)} class="inline-flex min-h-tap items-center">
+              {above.layer.level === "EU" ? text.europe : above.data.officialName}
+            </a>
             <span aria-hidden="true"> ›</span>
           </li>
         ))}
@@ -158,11 +161,7 @@ const trail = layers.slice(0, -1);
       <p class="mt-1 max-w-measure text-ink-soft">{situation(goal.id, language).hint}</p>
       <div class="mt-4">
         {found.map(({ resource, from, inherited }) => (
-          <ResourceRow
-            resource={resource}
-            language={language}
-            from={inherited ? (from.layer.level === "EU" ? text.europe : from.data.officialName) : undefined}
-          />
+          <ResourceRow resource={resource} language={language} recordedIn={from} inherited={inherited} />
         ))}
       </div>
     </section>
@@ -187,7 +186,8 @@ const trail = layers.slice(0, -1);
     </h2>
     <p class="mt-2 max-w-measure text-ink-soft">{territory.data.coverage.note}</p>
     <p class="mt-6 text-meta text-ink-soft">
-      {currentEdition} {text.edition} · {text.publishedOn} <time datetime={territory.data.published}>{territory.data.published}</time>
+      {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
+      <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
     </p>
   </section>
 </TerritoryLayout>

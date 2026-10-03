@@ -14,7 +14,7 @@ import { pathToFileURL } from "node:url";
 
 import type { LoadedSnapshot } from "../../../src/editions.ts";
 import type { Layer } from "../../../src/layers.ts";
-import type { EditionSnapshot, Resource } from "../../../src/types/edition.ts";
+import type { Call, ContactPoint, EditionSnapshot, Metric, NewsItem, Resource, Source } from "../../../src/types/edition.ts";
 import type { Territories } from "../../../src/types/territories.ts";
 
 /**
@@ -33,7 +33,7 @@ const { loadSnapshots } = await fromRepository<typeof import("../../../src/editi
 const { loadTerritories } = await fromRepository<typeof import("../../../src/territories.ts")>("src/territories.ts");
 const { ancestorLayers, layerKey, snapshotLayer } = await fromRepository<typeof import("../../../src/layers.ts")>("src/layers.ts");
 
-export type { Layer, Resource, EditionSnapshot };
+export type { Layer, Resource, EditionSnapshot, NewsItem, Source, Call, Metric, ContactPoint };
 
 /** One territory of one edition: its file, its place in the tree, and what it publishes. */
 export type Territory = { file: string; layer: Layer; data: EditionSnapshot };
@@ -118,3 +118,38 @@ export const languageOf = (territory: Territory): string => territory.data.metad
 
 /** A review nobody has signed is the one thing a reader has to be told before anything else. */
 export const isDraft = (territory: Territory): boolean => territory.data.review.status === "DRAFT";
+
+/** A record and the territory whose file holds it, which is the one place on the site it has a page. */
+export type RecordedResource = { resource: Resource; territory: Territory };
+
+/**
+ * Every record of an edition, each with the territory that documented it.
+ *
+ * A record is inherited by every territory below the one that holds it, and giving it a page under each of
+ * them would mean the same evidence at thirty addresses, none of them the real one. It has one page, under
+ * the territory that recorded it, and the territory pages that inherit it all link there.
+ */
+export const records = (edition = currentEdition): RecordedResource[] =>
+  territoriesOf(edition).flatMap((territory) => territory.data.resources.map((resource) => ({ resource, territory })));
+
+/**
+ * Where a record lives: under its own territory, behind a segment of its own.
+ *
+ * The segment is what keeps the two routes apart by construction rather than by luck — a record id and a
+ * region slug are both slugs, and nothing in the schema stops a national record from being called
+ * `galicia`.
+ */
+export const recordHref = (layer: Layer, id: string): string => `${href(layer)}record/${id}/`;
+
+/**
+ * This edition's news about one record, wherever it was reported.
+ *
+ * An event about a national programme can perfectly well be recorded in a region's file — a regional
+ * office announcing a closing date, say — so this looks across the whole edition rather than only in the
+ * file the record itself lives in.
+ */
+export const newsAbout = (id: string, edition = currentEdition): NewsItem[] =>
+  territoriesOf(edition)
+    .flatMap(({ data }) => data.news)
+    .filter((item) => item.resourceIds?.includes(id))
+    .toSorted((a, b) => b.date.localeCompare(a.date));

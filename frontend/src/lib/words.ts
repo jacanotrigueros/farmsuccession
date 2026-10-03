@@ -2,23 +2,12 @@
  * The site's own words, in each language a territory of the catalogue is written in.
  *
  * The records' text is never translated — it is quoted from a source, in the source's language — so this
- * holds only the chrome: labels, headings and the sentences the site says about itself. An unknown
- * language throws rather than falling back to English, because English chrome around Portuguese content
- * is a page nobody reviewed and the build is the place to find that out.
+ * holds only the chrome: labels, headings and the sentences the site says about itself. The words for the
+ * codes the data uses live in `vocabulary.ts`, which is a different job: this file is what the site says,
+ * that one is what the data means.
  */
-import type { Resource } from "../../../src/types/edition.ts";
 import type { GoalId } from "./goals.ts";
-
-export type Language = "en" | "es";
-
-const isLanguage = (value: string): value is Language => value === "en" || value === "es";
-
-function asLanguage(language: string): Language {
-  if (!isLanguage(language)) {
-    throw new Error(`no chrome is written in "${language}": add it to words.ts before publishing a territory in that language`);
-  }
-  return language;
-}
+import { asLanguage, type Language } from "./language.ts";
 
 /** The English chrome, which is also the list every other language has to answer in full. */
 const EN = {
@@ -30,7 +19,7 @@ const EN = {
   draftBody:
     "Every claim on it cites a public page, the date it was read and the words that were on it, and automatic checks have passed. A person has not signed it off.",
   publishedOn: "Published",
-  edition: "edition",
+  edition: "{year} edition",
   whatThisIs: "What this is",
   whereToLook: "Where to look",
   whereYouAre: "Where you are",
@@ -46,14 +35,50 @@ const EN = {
   appliesHere: "What applies here",
   whatDoYouNeed: "What do you need to sort out?",
   onThisPage: "On this page",
-  byKind: "By kind",
-  allKinds: "Everything",
   territoriesTitle: "Territories",
+  wholeCountry: "The whole country",
   sharedLayers: "Groupings with a layer of their own",
   inheritedFromAbove: "Everything above also applies here, and is listed with it.",
-  seeTerritory: "See what applies",
   notAService: "This is a directory of verified references, not a replacement for the official services.",
   licence: "Data, site and code under CC BY 4.0. The quoted excerpts belong to the public bodies that published them.",
+
+  // The record page, in the order a reader needs it.
+  offersTitle: "What it offers",
+  datesTitle: "When you can apply",
+  whoTitle: "Who it is for",
+  accessTitle: "How to get it",
+  factsTitle: "The details",
+  figuresTitle: "Published figures",
+  newsTitle: "What happened this year",
+  evidenceTitle: "Where this comes from",
+  notesTitle: "Also worth knowing",
+  contactTitle: "Where to ask",
+  officialPage: "Go to the official page",
+  noPeriodRecorded: "The sources record no application period for this.",
+  periodsExplained: "Each period is what its source said on the day that source was read, not a claim about today.",
+  from: "from",
+  until: "until",
+  recordedOn: "page read on",
+  asOf: "figure as of",
+  quotesExplained: "Copied word for word from each page, so anyone can look for the same words and see whether they are still there.",
+  sourceShort: "Source",
+  whatItIsRow: "What it is",
+  stateRow: "Situation",
+  runByRow: "Run by",
+  bodyTypeRow: "Kind of body",
+  reachRow: "Where it applies",
+  costRow: "Cost of using it",
+  handlesRow: "What it handles",
+  coversRow: "Covers",
+  availableInRow: "Available in",
+  forRow: "Aimed at",
+  supportTypeRow: "Kind of support",
+  paysForRow: "Pays for",
+  taughtRow: "How it is taught",
+  qualifiesRow: "Counts as the training required for first-establishment aid",
+  latestPageDateRow: "Latest date the page itself shows",
+  yes: "Yes",
+  no: "No",
 } as const;
 
 /**
@@ -69,7 +94,7 @@ const ES = {
   draftBody:
     "Cada dato cita una página pública, la fecha en que se leyó y las palabras que había en ella, y ha pasado las comprobaciones automáticas. Una persona no la ha dado por buena.",
   publishedOn: "Publicado",
-  edition: "edición",
+  edition: "edición {year}",
   whatThisIs: "Qué es esto",
   whereToLook: "Dónde mirar",
   whereYouAre: "Dónde estás",
@@ -85,65 +110,52 @@ const ES = {
   appliesHere: "Qué se aplica aquí",
   whatDoYouNeed: "¿Qué necesitas resolver?",
   onThisPage: "En esta página",
-  byKind: "Por tipo",
-  allKinds: "Todo",
   territoriesTitle: "Territorios",
+  wholeCountry: "Todo el país",
   sharedLayers: "Agrupaciones con capa propia",
   inheritedFromAbove: "Todo lo de las capas superiores se aplica también aquí, y aparece en la misma lista.",
-  seeTerritory: "Ver qué se aplica",
   notAService: "Es un directorio de referencias verificadas, no un sustituto de los servicios oficiales.",
   licence: "Datos, sitio y código con licencia CC BY 4.0. Las citas pertenecen a los organismos públicos que las publicaron.",
+
+  offersTitle: "Qué ofrece",
+  datesTitle: "Cuándo se puede solicitar",
+  whoTitle: "Para quién es",
+  accessTitle: "Cómo acceder",
+  factsTitle: "Los datos",
+  figuresTitle: "Cifras publicadas",
+  newsTitle: "Qué ha pasado este año",
+  evidenceTitle: "De dónde sale esto",
+  notesTitle: "Además",
+  contactTitle: "Dónde preguntar",
+  officialPage: "Ir a la página oficial",
+  noPeriodRecorded: "Las fuentes no recogen ningún plazo de solicitud.",
+  periodsExplained: "Cada plazo es lo que decía su fuente el día en que se leyó, no una afirmación sobre hoy.",
+  from: "del",
+  until: "al",
+  recordedOn: "página leída el",
+  asOf: "cifra a fecha de",
+  quotesExplained: "Copiado palabra por palabra de cada página, para que cualquiera pueda buscar esas mismas palabras y ver si siguen ahí.",
+  sourceShort: "Fuente",
+  whatItIsRow: "Qué es",
+  stateRow: "Situación",
+  runByRow: "Lo gestiona",
+  bodyTypeRow: "Tipo de entidad",
+  reachRow: "Dónde se aplica",
+  costRow: "Coste de usarlo",
+  handlesRow: "Qué gestiona",
+  coversRow: "Cubre",
+  availableInRow: "Disponible en",
+  forRow: "Dirigido a",
+  supportTypeRow: "Tipo de apoyo",
+  paysForRow: "Sirve para",
+  taughtRow: "Cómo se imparte",
+  qualifiesRow: "Cuenta como la formación exigida para la ayuda de primera instalación",
+  latestPageDateRow: "Fecha más reciente que muestra la página",
+  yes: "Sí",
+  no: "No",
 } as const satisfies Record<keyof typeof EN, string | readonly [string, string]>;
 
 const WORDS = { en: EN, es: ES };
-
-/**
- * The codes a reader never sees. The data says `ANNOUNCED_NOT_OPERATING` because a check has to be able
- * to reason about it; a page says what that means in the territory's own language. `satisfies` ties both
- * tables to the schema's enums, so adding a kind or a state to `schema/` breaks this file at type-check
- * time instead of printing a code at a reader.
- */
-const KINDS = {
-  en: {
-    LAND_BANK: "Land",
-    SUCCESSION_SERVICE: "Taking over",
-    FINANCIAL_SUPPORT: "Money",
-    TRAINING: "Training",
-    ADVICE: "Advice",
-    OFFICIAL_PORTAL: "Official portal",
-    POLICY: "Rules",
-    NETWORK: "Network",
-    OTHER: "Other",
-  },
-  es: {
-    LAND_BANK: "Tierra",
-    SUCCESSION_SERVICE: "Tomar el relevo",
-    FINANCIAL_SUPPORT: "Dinero",
-    TRAINING: "Formación",
-    ADVICE: "Asesoramiento",
-    OFFICIAL_PORTAL: "Portal oficial",
-    POLICY: "Normas",
-    NETWORK: "Red",
-    OTHER: "Otro",
-  },
-} as const satisfies Record<Language, Record<Resource["kind"], string>>;
-
-const STATES = {
-  en: {
-    ACTIVE: "operating",
-    ANNOUNCED_NOT_OPERATING: "announced, not operating",
-    HISTORICAL: "closed, kept for the record",
-    DISCONTINUED: "no longer offered",
-    UNKNOWN: "could not be confirmed",
-  },
-  es: {
-    ACTIVE: "en funcionamiento",
-    ANNOUNCED_NOT_OPERATING: "anunciado, sin funcionar",
-    HISTORICAL: "cerrado, se conserva como registro",
-    DISCONTINUED: "ya no se ofrece",
-    UNKNOWN: "no se pudo confirmar",
-  },
-} as const satisfies Record<Language, Record<Resource["status"], string>>;
 
 /**
  * The situations, in the words somebody would use for their own. The hint under each one is what tells a
@@ -168,9 +180,6 @@ const SITUATIONS = {
 
 export const situation = (goal: GoalId, language: string): { title: string; hint: string } => SITUATIONS[asLanguage(language)][goal];
 
-export const kindLabel = (kind: Resource["kind"], language: string): string => KINDS[asLanguage(language)][kind];
-export const stateLabel = (status: Resource["status"], language: string): string => STATES[asLanguage(language)][status];
-
 /**
  * The shape of one language's chrome: every key the English table has, widened from its exact wording, so
  * the two tables are one thing and no page can come to depend on the words of a particular language.
@@ -180,6 +189,12 @@ export type Words = {
 };
 
 export const words = (language: string): Words => WORDS[asLanguage(language)];
+
+/**
+ * The edition a page belongs to, named the way the language names it. English puts the year first and
+ * Spanish puts it last, which is why the whole phrase is translated rather than the word on its own.
+ */
+export const editionNamed = (year: string, language: string): string => words(language).edition.replace("{year}", year);
 
 /** A number with its noun in the right form. One source and two sources are both worth getting right. */
 export const counted = (howMany: number, forms: readonly [string, string]): string => `${howMany} ${forms[howMany === 1 ? 0 : 1]}`;
