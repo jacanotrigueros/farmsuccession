@@ -7,6 +7,7 @@
  * is a page nobody reviewed and the build is the place to find that out.
  */
 import type { Resource } from "../../../src/types/edition.ts";
+import type { GoalId } from "./goals.ts";
 
 export type Language = "en" | "es";
 
@@ -32,6 +33,7 @@ const EN = {
   edition: "edition",
   whatThisIs: "What this is",
   whereToLook: "Where to look",
+  whereYouAre: "Where you are",
   inherited: "Applies here from",
   limits: "What this page does not cover",
   coverageNote: "How this was searched",
@@ -42,6 +44,8 @@ const EN = {
   opensOfficialPage: "opens the official page",
   noRecords: "No record yet",
   appliesHere: "What applies here",
+  whatDoYouNeed: "What do you need to sort out?",
+  onThisPage: "On this page",
   byKind: "By kind",
   allKinds: "Everything",
   territoriesTitle: "Territories",
@@ -68,6 +72,7 @@ const ES = {
   edition: "edición",
   whatThisIs: "Qué es esto",
   whereToLook: "Dónde mirar",
+  whereYouAre: "Dónde estás",
   inherited: "Se aplica aquí desde",
   limits: "Qué no cubre esta página",
   coverageNote: "Cómo se buscó",
@@ -78,6 +83,8 @@ const ES = {
   opensOfficialPage: "abre la página oficial",
   noRecords: "Todavía sin fichas",
   appliesHere: "Qué se aplica aquí",
+  whatDoYouNeed: "¿Qué necesitas resolver?",
+  onThisPage: "En esta página",
   byKind: "Por tipo",
   allKinds: "Todo",
   territoriesTitle: "Territorios",
@@ -137,6 +144,29 @@ const STATES = {
     UNKNOWN: "no se pudo confirmar",
   },
 } as const satisfies Record<Language, Record<Resource["status"], string>>;
+
+/**
+ * The situations, in the words somebody would use for their own. The hint under each one is what tells a
+ * reader whether it is theirs without having to open it.
+ */
+const SITUATIONS = {
+  en: {
+    land: { title: "Find land", hint: "Land to rent, to buy, or to take on from somebody leaving it" },
+    handover: { title: "Hand the holding over, or take one on", hint: "Help with passing a farm to whoever will keep it going" },
+    money: { title: "Pay for starting out", hint: "Aid, loans and guarantees for setting up as a farmer" },
+    learn: { title: "Learn, or get somebody to advise you", hint: "Courses that qualify you, and people who walk you through it" },
+    context: { title: "The rules behind all of it", hint: "Frameworks, networks and the official portals they live on" },
+  },
+  es: {
+    land: { title: "Encontrar tierra", hint: "Tierra para arrendar, comprar o hacerse cargo de quien la deja" },
+    handover: { title: "Dejar la explotación, o hacerse cargo", hint: "Ayuda para pasar una explotación a quien va a continuarla" },
+    money: { title: "Pagar la puesta en marcha", hint: "Ayudas, préstamos y avales para instalarse" },
+    learn: { title: "Formarte, o que alguien te asesore", hint: "Cursos que habilitan, y personas que acompañan el proceso" },
+    context: { title: "Las normas que hay detrás", hint: "Marcos, redes y los portales oficiales donde viven" },
+  },
+} as const satisfies Record<Language, Record<GoalId, { title: string; hint: string }>>;
+
+export const situation = (goal: GoalId, language: string): { title: string; hint: string } => SITUATIONS[asLanguage(language)][goal];
 
 export const kindLabel = (kind: Resource["kind"], language: string): string => KINDS[asLanguage(language)][kind];
 export const stateLabel = (status: Resource["status"], language: string): string => STATES[asLanguage(language)][status];
