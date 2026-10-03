@@ -1,122 +1,191 @@
-@import "tailwindcss";
-
-/**
- * The tokens. Everything visual comes from here, so a change lands everywhere at once and a page cannot
- * quietly invent its own sizes or colours.
+/*
+ * FarmSuccession — the one style system.
  *
- * The sizes are a constraint, not a preference: the audience is farmers roughly 20 to 65, often on a
- * phone, and small chrome is what fails them first. Body text is 17px, nothing functional goes below
- * 16px, metadata never below 15px, and anything tappable is at least 44px.
+ * Brought over from the closed design of the previous generation rather than invented again: the palette,
+ * the type scale and the component classes are that work, and the reasons below are its reasons. What is
+ * new here is only the explanation of why each one survives.
+ *
+ * Tailwind 4 for layout, on a small set of SEMANTIC tokens: a component says "card", "muted", "brand" or
+ * "status-active" and never a physical colour, so the day a colour changes it changes once. The default
+ * Tailwind palette and type scale are removed (`initial`), which is what makes that real — a component
+ * cannot reach for a grey or a size that is not in this file, because there is none.
+ *
+ * Accessibility is part of the tokens rather than a pass over them: the readers include older farmers and
+ * people with low digital literacy. No text below 15px, body at 17px, every control at least 44px tall,
+ * and AA contrast on every token pair that carries text.
+ *
+ * Typography: Inter Variable for the interface and for reading, Source Serif 4 at one weight for page
+ * titles and quoted evidence. Both self-hosted — the site asks no other host for anything — and both
+ * carrying unicode-range, so a page downloads only the scripts it actually renders.
  */
+@import "tailwindcss";
+@import "@fontsource-variable/inter/wght.css";
+@import "@fontsource/source-serif-4/400.css";
+
 @theme {
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji";
+  --color-*: initial;
+  --text-*: initial;
+  --font-*: initial;
 
-  --text-meta: 0.9375rem; /* 15px — dates, source lists, the smallest text the site may use */
-  --text-meta--line-height: 1.5;
-  --text-base: 1.0625rem; /* 17px — body */
-  --text-base--line-height: 1.65;
-  --text-lead: 1.1875rem; /* 19px — the opening paragraph of a page */
-  --text-lead--line-height: 1.6;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
 
-  --spacing-tap: 2.75rem; /* 44px — the floor for anything a finger has to find */
-  --container-measure: 38rem; /* a readable column, roughly 70 characters */
+  /* The scale has a floor: metadata 15px, body 17px. Nothing functional below 16px. */
+  --text-meta: 0.9375rem;
+  --text-meta--line-height: 1.45;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.375rem;
+  --text-xl--line-height: 1.35;
+  --text-2xl: 1.75rem;
+  --text-2xl--line-height: 1.25;
+  --text-3xl: 2.25rem;
+  --text-3xl--line-height: 1.15;
+  --text-4xl: 3rem;
+  --text-4xl--line-height: 1.08;
 
-  /* Ink on paper, warmed slightly so a long page is not a glare. Contrast with --color-paper is
-     AA or better for every pair used on text. */
-  --color-paper: oklch(99% 0.004 95);
-  --color-paper-sunk: oklch(96.5% 0.006 95);
-  --color-ink: oklch(24% 0.012 250);
-  --color-ink-soft: oklch(44% 0.014 250);
-  --color-line: oklch(88% 0.008 250);
+  /* Surfaces */
+  --color-page: #f3f5f1;
+  --color-card: #ffffff;
+  --color-subtle: #dce4d8;
+  /* Text */
+  --color-ink: #16181a;
+  --color-muted: #4a504c;
+  --color-on-brand: #fffdf8;
+  /* Borders */
+  --color-line: #dde2dc;
+  --color-line-strong: #858b85;
+  /* Identity: brand (forest) for actions and links, accent (wheat) for evidence and notices */
+  --color-brand: #17503a;
+  --color-brand-strong: #0f3b2c;
+  --color-brand-tint: #dce4d8;
+  --color-accent: #7a4a04;
+  --color-accent-line: #d9b77a;
+  --color-accent-tint: #f6ecd8;
+  --color-focus: #1d3f8f;
+  /* What a record says about itself: operating, or anything else (announced, historical, unknown…) */
+  --color-status-active: #1c6536;
+  --color-status-active-tint: #e3f3e7;
+  --color-status-active-line: #a7d7b5;
+  --color-status-other: #3d4a5c;
+  --color-status-other-tint: #eef0f3;
+  --color-status-other-line: #c9ced6;
 
-  /* One accent, from the land rather than from a brand: links, focus, the active territory. */
-  --color-accent: oklch(44% 0.09 155);
-  --color-accent-strong: oklch(34% 0.09 155);
-  --color-accent-wash: oklch(95% 0.03 155);
-
-  /* The three answers the data gives about itself, and the one warning it owes a reader. */
-  --color-verified: oklch(45% 0.08 150);
-  --color-unknown: oklch(48% 0.02 250);
-  --color-caution: oklch(52% 0.11 70);
-  --color-caution-wash: oklch(96% 0.04 85);
+  --spacing-target: 2.75rem; /* 44px — the floor for anything a finger has to find */
+  --radius-card: 0.625rem;
 }
 
-/**
- * Dark is the same site with the variables redefined, never a second set of utilities.
- *
- * It has to be a plain `:root` block: `@theme` inside a media query is hoisted out of it, so the night
- * colours would apply in daylight — which is exactly what happened, and what looking at the page in a
- * light browser caught.
+/*
+ * The kinds of record share the brand colour; what tells them apart is their icon and their name. Status
+ * colours stay separate from them on purpose, so a category can never be read as availability.
  */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-paper: oklch(19% 0.012 250);
-    --color-paper-sunk: oklch(23% 0.014 250);
-    --color-ink: oklch(94% 0.006 95);
-    --color-ink-soft: oklch(76% 0.012 250);
-    --color-line: oklch(33% 0.012 250);
-
-    --color-accent: oklch(78% 0.11 155);
-    --color-accent-strong: oklch(88% 0.09 155);
-    --color-accent-wash: oklch(27% 0.04 155);
-
-    --color-verified: oklch(80% 0.11 150);
-    --color-unknown: oklch(72% 0.02 250);
-    --color-caution: oklch(82% 0.12 80);
-    --color-caution-wash: oklch(29% 0.05 80);
-  }
+[data-kind] {
+  --kind: var(--color-brand);
+  --kind-tint: var(--color-brand-tint);
 }
 
 @layer base {
+  /* Tailwind's placeholder is the text colour at half opacity, about 3.4:1 on white; muted keeps it above 4.5:1. */
+  ::placeholder {
+    color: var(--color-muted);
+    opacity: 1;
+  }
   html {
-    color-scheme: light dark;
+    font-size: 100%;
     -webkit-text-size-adjust: 100%;
   }
-
   body {
-    background-color: var(--color-paper);
+    background: var(--color-page);
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: var(--text-base);
-    line-height: var(--text-base--line-height);
-    text-wrap: pretty;
+    line-height: 1.6;
   }
-
-  h1,
-  h2,
-  h3 {
-    color: var(--color-ink);
-    font-weight: 650;
-    letter-spacing: -0.012em;
-    text-wrap: balance;
-  }
-
   a {
-    color: var(--color-accent-strong);
-    text-decoration-line: underline;
-    text-decoration-thickness: from-font;
-    text-underline-offset: 0.18em;
+    color: var(--color-brand-strong);
+    text-underline-offset: 0.2em;
   }
-
-  a:hover {
-    text-decoration-thickness: 2px;
-  }
-
   /* Visible, and the same shape everywhere: a keyboard reader has to be able to see where they are. */
   :focus-visible {
-    outline: 3px solid var(--color-accent);
-    outline-offset: 2px;
-    border-radius: 2px;
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+    border-radius: 0.25rem;
   }
-
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
+      transition: none !important;
+      animation: none !important;
     }
   }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    overflow-wrap: anywhere;
+  }
+  .btn {
+    @apply inline-flex min-h-(--spacing-target) items-center justify-center gap-2 rounded-lg px-5 font-bold no-underline transition-colors;
+  }
+  .btn-primary {
+    @apply bg-brand text-on-brand hover:bg-brand-strong;
+  }
+  .btn-quiet {
+    @apply border border-line-strong bg-card text-ink hover:border-brand;
+  }
+  .card {
+    @apply rounded-(--radius-card) border border-line bg-card;
+  }
+  .card-link {
+    @apply transition-colors hover:border-brand;
+  }
+  .tag {
+    @apply inline-flex min-h-8 items-center gap-1.5 rounded-md px-2.5 text-meta font-bold ring-1 ring-inset;
+  }
+  .meta {
+    @apply text-meta text-muted;
+  }
+  .eyebrow {
+    @apply text-meta font-bold tracking-wide text-accent uppercase;
+  }
+  .notice {
+    @apply flex items-start gap-3 rounded-lg border border-accent-line bg-accent-tint p-4;
+  }
+  .page-title {
+    @apply font-serif font-normal tracking-tight;
+  }
+}
+
+/* The kind tag, the status tag, and the kind's colour bar on a card. */
+.tag-kind {
+  color: var(--kind);
+  background: var(--kind-tint);
+  --tw-ring-color: color-mix(in srgb, var(--kind) 30%, transparent);
+}
+.tag-kind svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+.tag-status {
+  color: var(--color-status-other);
+  background: var(--color-status-other-tint);
+  --tw-ring-color: var(--color-status-other-line);
+}
+[data-status="ACTIVE"] .tag-status,
+.tag-status[data-status="ACTIVE"] {
+  color: var(--color-status-active);
+  background: var(--color-status-active-tint);
+  --tw-ring-color: var(--color-status-active-line);
+}
+.kind-bar {
+  border-top: 4px solid var(--kind, var(--color-line));
 }

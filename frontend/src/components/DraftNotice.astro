@@ -15,15 +15,8 @@ const { language } = Astro.props;
 const text = words(language);
 ---
 
-<aside class="flex gap-3 rounded-sm border-s-4 border-caution bg-caution-wash px-4 py-3" aria-labelledby="draft-title">
-  <svg
-    viewBox="0 0 24 24"
-    class="mt-0.5 size-5 shrink-0 text-caution"
-    aria-hidden="true"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-  >
+<aside class="flex gap-3 rounded-sm border-s-4 border-accent-line bg-accent-tint px-4 py-3" aria-labelledby="draft-title">
+  <svg viewBox="0 0 24 24" class="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
     <path d="M12 9v4" stroke-linecap="round"></path>
     <path d="M12 17h.01" stroke-linecap="round"></path>
     <path d="M10.3 3.9 2.4 17.5A2 2 0 0 0 4.1 20.5h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke-linejoin="round"></path>
@@ -32,6 +25,6 @@ const text = words(language);
     <p id="draft-title" class="font-semibold text-ink">
       {text.draftTitle}
     </p>
-    <p class="mt-1 max-w-measure text-ink">{text.draftBody}</p>
+    <p class="mt-1 max-w-3xl text-ink">{text.draftBody}</p>
   </div>
 </aside>

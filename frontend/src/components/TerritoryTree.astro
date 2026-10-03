@@ -24,7 +24,7 @@ const branches = countryTerritories().map((country) => {
 });
 
 const linkClass = (to: string): string =>
-  `flex min-h-tap items-center no-underline ${to === current ? "font-semibold text-ink" : "text-ink-soft hover:text-ink"}`;
+  `flex min-h-(--spacing-target) items-center no-underline ${to === current ? "font-semibold text-ink" : "text-muted hover:text-ink"}`;
 ---
 
 <nav aria-label={text.territoriesTitle} class="text-meta">
@@ -39,7 +39,7 @@ const linkClass = (to: string): string =>
     {branches.map(({ country, children, holdsCurrent }) => (
       <li>
         <details open={holdsCurrent}>
-          <summary class="flex min-h-tap cursor-pointer items-center font-semibold text-ink marker:text-ink-soft">
+          <summary class="flex min-h-(--spacing-target) cursor-pointer items-center font-semibold text-ink marker:text-muted">
             {country.data.officialName}
           </summary>
           <ul class="border-s border-line ps-3">

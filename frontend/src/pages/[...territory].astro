@@ -78,11 +78,11 @@ const trail = layers.slice(0, -1);
   sections={sections}
 >
   <header class="py-10">
-    <nav aria-label={text.whereYouAre} class="text-meta text-ink-soft">
+    <nav aria-label={text.whereYouAre} class="text-meta text-muted">
       <ol class="flex flex-wrap gap-x-2">
         {trail.map((above) => (
           <li>
-            <a href={href(above.layer)} class="inline-flex min-h-tap items-center">
+            <a href={href(above.layer)} class="inline-flex min-h-(--spacing-target) items-center">
               {above.layer.level === "EU" ? text.europe : above.data.officialName}
             </a>
             <span aria-hidden="true"> ›</span>
@@ -91,8 +91,8 @@ const trail = layers.slice(0, -1);
         <li aria-current="page">{territory.data.officialName}</li>
       </ol>
     </nav>
-    <h1 class="mt-2 text-3xl sm:text-4xl">{territory.data.officialName}</h1>
-    <p class="mt-4 max-w-measure text-lead">{territory.data.summary}</p>
+    <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{territory.data.officialName}</h1>
+    <p class="mt-4 max-w-3xl text-lg">{territory.data.summary}</p>
   </header>
 
   {isDraft(territory) && (
@@ -102,19 +102,19 @@ const trail = layers.slice(0, -1);
   )}
 
   <section class="border-t border-line py-8" aria-labelledby="needs">
-    <h2 id="needs" class="text-2xl">
+    <h2 id="needs" class="text-2xl font-bold">
       {text.whatDoYouNeed}
     </h2>
-    <p class="mt-2 max-w-measure text-ink-soft">{text.inheritedFromAbove}</p>
+    <p class="mt-2 max-w-3xl text-muted">{text.inheritedFromAbove}</p>
     <ul class="mt-5 grid gap-3 sm:grid-cols-2">
       {answered.map(({ goal, found }) => (
-        <li class="rounded-sm border border-line bg-paper-sunk">
-          <a href={`#${goal.id}`} class="flex min-h-tap flex-col justify-center gap-0.5 px-4 py-3 no-underline">
+        <li class="rounded-sm border border-line bg-card">
+          <a href={`#${goal.id}`} class="flex min-h-(--spacing-target) flex-col justify-center gap-0.5 px-4 py-3 no-underline">
             <span class="font-semibold text-ink">
               {situation(goal.id, language).title}{" "}
-              <span class="text-meta font-normal text-ink-soft">{counted(found.length, text.record)}</span>
+              <span class="text-meta font-normal text-muted">{counted(found.length, text.record)}</span>
             </span>
-            <span class="text-meta text-ink-soft">{situation(goal.id, language).hint}</span>
+            <span class="text-meta text-muted">{situation(goal.id, language).hint}</span>
           </a>
         </li>
       ))}
@@ -123,16 +123,16 @@ const trail = layers.slice(0, -1);
 
   {(children.length > 0 || groupings.length > 0) && (
     <section class="border-t border-line py-8" aria-labelledby="territories">
-      <h2 id="territories" class="scroll-mt-6 text-2xl">
+      <h2 id="territories" class="scroll-mt-6 text-2xl font-bold">
         {text.territoriesTitle}
       </h2>
       {groupings.length > 0 && (
         <>
-          <h3 class="mt-4 text-meta font-semibold tracking-wide text-ink-soft uppercase">{text.sharedLayers}</h3>
+          <h3 class="mt-4 text-meta font-semibold tracking-wide text-muted uppercase">{text.sharedLayers}</h3>
           <ul class="mt-2 flex flex-wrap gap-x-5">
             {groupings.map((grouping) => (
               <li>
-                <a href={href(grouping.layer)} class="flex min-h-tap items-center">
+                <a href={href(grouping.layer)} class="flex min-h-(--spacing-target) items-center">
                   {grouping.data.officialName}
                 </a>
               </li>
@@ -143,9 +143,9 @@ const trail = layers.slice(0, -1);
       <ul class="mt-4 grid gap-x-6 sm:grid-cols-2">
         {children.map((child) => (
           <li class="border-t border-line">
-            <a href={href(child.layer)} class="flex min-h-tap items-center justify-between gap-3 no-underline">
+            <a href={href(child.layer)} class="flex min-h-(--spacing-target) items-center justify-between gap-3 no-underline">
               <span class="text-ink">{child.data.officialName}</span>
-              <span class="text-meta text-ink-soft">{child.data.resources.length}</span>
+              <span class="text-meta text-muted">{child.data.resources.length}</span>
             </a>
           </li>
         ))}
@@ -155,10 +155,10 @@ const trail = layers.slice(0, -1);
 
   {answered.map(({ goal, found }) => (
     <section class="border-t border-line py-8" aria-labelledby={goal.id}>
-      <h2 id={goal.id} class="scroll-mt-6 text-2xl">
+      <h2 id={goal.id} class="scroll-mt-6 text-2xl font-bold">
         {situation(goal.id, language).title}
       </h2>
-      <p class="mt-1 max-w-measure text-ink-soft">{situation(goal.id, language).hint}</p>
+      <p class="mt-1 max-w-3xl text-muted">{situation(goal.id, language).hint}</p>
       <div class="mt-4">
         {found.map(({ resource, from, inherited }) => (
           <ResourceRow resource={resource} language={language} recordedIn={from} inherited={inherited} />
@@ -169,10 +169,10 @@ const trail = layers.slice(0, -1);
 
   {territory.data.limitations.length > 0 && (
     <section class="border-t border-line py-8" aria-labelledby="limits">
-      <h2 id="limits" class="scroll-mt-6 text-2xl">
+      <h2 id="limits" class="scroll-mt-6 text-2xl font-bold">
         {text.limits}
       </h2>
-      <ul class="mt-3 max-w-measure list-disc space-y-2 ps-5">
+      <ul class="mt-3 max-w-3xl list-disc space-y-2 ps-5">
         {territory.data.limitations.map((limitation) => (
           <li>{limitation}</li>
         ))}
@@ -181,11 +181,11 @@ const trail = layers.slice(0, -1);
   )}
 
   <section class="border-t border-line py-8" aria-labelledby="coverage">
-    <h2 id="coverage" class="scroll-mt-6 text-lead">
+    <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
       {text.coverageNote}
     </h2>
-    <p class="mt-2 max-w-measure text-ink-soft">{territory.data.coverage.note}</p>
-    <p class="mt-6 text-meta text-ink-soft">
+    <p class="mt-2 max-w-3xl text-muted">{territory.data.coverage.note}</p>
+    <p class="mt-6 text-meta text-muted">
       {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
       <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
     </p>

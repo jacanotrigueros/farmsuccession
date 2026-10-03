@@ -34,7 +34,7 @@ function window(call: Call): string {
 ---
 
 {calls.length === 0 ? (
-  <p class="max-w-measure">{text.noPeriodRecorded}</p>
+  <p class="max-w-3xl">{text.noPeriodRecorded}</p>
 ) : (
   <>
     <ul class="space-y-3">
@@ -49,7 +49,7 @@ function window(call: Call): string {
               {period && <>, {period}</>}
             </p>
             {cited && (
-              <p class="text-meta text-ink-soft">
+              <p class="text-meta text-muted">
                 {text.recordedOn} <time datetime={cited.consultedOn}>{dateIn(cited.consultedOn, language)}</time>{" "}
                 <SourceRef number={cited.number} language={language} />
               </p>
@@ -58,6 +58,6 @@ function window(call: Call): string {
         );
       })}
     </ul>
-    <p class="mt-4 max-w-measure text-meta text-ink-soft">{text.periodsExplained}</p>
+    <p class="mt-4 max-w-3xl text-meta text-muted">{text.periodsExplained}</p>
   </>
 )}

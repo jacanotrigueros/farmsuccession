@@ -47,19 +47,19 @@ if (form && state && results && resultsHeading && resultsList && everything) {
         row.className = "border-t border-line py-5 first:border-t-0";
 
         const title = document.createElement("h3");
-        title.className = "text-lead font-semibold";
+        title.className = "text-lg font-semibold";
         const link = document.createElement("a");
         link.href = result.url;
-        link.className = "inline-flex min-h-tap items-center";
+        link.className = "inline-flex min-h-(--spacing-target) items-center";
         link.textContent = result.meta.title ?? result.url;
         title.append(link);
 
         const where = document.createElement("p");
-        where.className = "mt-1 text-meta text-ink-soft";
+        where.className = "mt-1 text-meta text-muted";
         where.textContent = [result.meta.kind, result.meta.operator, result.meta.territory].filter(Boolean).join(" · ");
 
         const summary = document.createElement("p");
-        summary.className = "mt-2 max-w-measure";
+        summary.className = "mt-2 max-w-3xl";
         // The excerpt is this site's own text, taken from the page the result points at, with the words
         // that matched marked. It is the one place markup is set rather than written, and it comes from
         // the index this build produced.
