@@ -22,6 +22,7 @@ type Props = {
 
 const { title, description, language, current } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const socialCard = new URL("/social-card.png", Astro.site).href;
 ---
 
 <!doctype html>
@@ -36,7 +37,23 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    {/*
+     * The card a link to this site shows when it is shared. It is first-party and committed like every
+     * other asset here, and it is absolute because the service drawing the card is not reading it from
+     * this page's own address.
+     */}
+    <meta property="og:image" content={socialCard} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="FarmSuccession · farmsuccession.eu" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialCard} />
+    {/* The SVG scales to any size a browser asks for; the ICO is for the ones that will not read it. */}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
   </head>
   <body class="min-h-screen flex flex-col">
     <a
