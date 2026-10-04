@@ -61,6 +61,37 @@ const EN = {
   sharedLayers: "Groupings with a layer of their own",
   inheritedFromAbove: "Everything above also applies here, and is listed with it.",
   notAService: "This is a directory of verified references, not a replacement for the official services.",
+
+  // The project page.
+  aboutSlug: "about",
+  aboutTitle: "About this project",
+  aboutIntro:
+    "An independent directory maintained by José Antonio Cano Trigueros. It brings together land, funding, training and advice to start farming, take over a holding or hand one on. Applications and services are handled by the organisations linked in each record.",
+  overviewTitle: "What this project is",
+  overviewLead:
+    "FarmSuccession is a documentary inventory of public resources for farm succession and access to farming. It helps people find land, funding, training, advice and transfer services; it is not a marketplace, an advisory service or an application portal.",
+  methodTitle: "Method and coverage",
+  methodLead:
+    "The directory is not exhaustive. Content stays in its original language, and searching across languages does not translate your words. Automated checks are separate from human review. A resource marked as operating does not necessarily have an open application period: each record says whether you can apply now, and on what date a page said so.",
+  methodSteps: [
+    ["Primary sources", "Public administrations and the bodies that run each resource."],
+    ["Quoted word for word", "Each record carries the words that were on the page, so its summary can be checked against them."],
+    [
+      "Checked by machine",
+      "Structure, consistency and reachable sources. These checks do not replace a person, and they confirm nothing about current availability.",
+    ],
+    ["Dated", "Every source says when it was read. Circumstances may have changed since."],
+  ],
+  notOfficial: "FarmSuccession is not an official service and does not represent the administrations or organisations it links to.",
+  contactTitle2: "Contact and corrections",
+  contactLead:
+    "Something out of date, a broken link, a resource missing: write and say so. Every suggestion is checked against public sources before anything changes here.",
+  privacyTitle: "Privacy",
+  privacyLead:
+    "This site has no analytics, no advertising cookies and no accounts. Searching runs in your browser and nothing you type leaves it. The hosting provider may keep technical access logs. Writing to us shares whatever you choose to put in the message.",
+  licenceTitle: "Licence",
+  licenceLead:
+    "Original directory content is offered under CC BY 4.0. Quotations and linked materials keep the rights of whoever published them.",
   trust:
     "Every record comes from a public administration or the body that runs the service, and carries its own sources and the dates they were read.",
   optOut: "If your organisation does not want to appear in the inventory, ask for it to be taken out:",
@@ -201,6 +232,36 @@ const ES = {
   sharedLayers: "Agrupaciones con capa propia",
   inheritedFromAbove: "Todo lo de las capas superiores se aplica también aquí, y aparece en la misma lista.",
   notAService: "Es un directorio de referencias verificadas, no un sustituto de los servicios oficiales.",
+
+  aboutSlug: "proyecto",
+  aboutTitle: "Sobre el proyecto",
+  aboutIntro:
+    "Directorio independiente mantenido por José Antonio Cano Trigueros. Reúne tierras, ayudas, formación y asesoramiento para incorporarse al campo, hacerse cargo de una explotación o traspasarla. Los trámites y servicios corresponden a las entidades enlazadas en cada ficha.",
+  overviewTitle: "Qué es este proyecto",
+  overviewLead:
+    "FarmSuccession es un inventario documental de recursos públicos para el relevo agrario y el acceso a la actividad. Sirve para encontrar tierra, ayudas, formación, asesoramiento y servicios de transmisión; no es un mercado, ni un servicio de asesoría, ni un portal de solicitudes.",
+  methodTitle: "Método y cobertura",
+  methodLead:
+    "El directorio no es exhaustivo. El contenido se mantiene en su idioma original, y buscar en varios idiomas no traduce tus palabras. Las comprobaciones automáticas no sustituyen la revisión de una persona. Que un recurso figure en funcionamiento no significa que haya un plazo abierto: cada ficha dice si se puede solicitar ahora, y en qué fecha lo decía una página.",
+  methodSteps: [
+    ["Fuentes primarias", "Administraciones públicas y las entidades que gestionan cada recurso."],
+    ["Citado palabra por palabra", "Cada ficha lleva las palabras que había en la página, para poder contrastar el resumen con ellas."],
+    [
+      "Comprobado por máquina",
+      "Estructura, coherencia y fuentes alcanzables. Estas comprobaciones no sustituyen a una persona y no confirman nada sobre la disponibilidad actual.",
+    ],
+    ["Fechado", "Cada fuente dice cuándo se leyó. Las circunstancias pueden haber cambiado desde entonces."],
+  ],
+  notOfficial: "FarmSuccession no es un servicio oficial y no representa a las administraciones ni a las entidades que enlaza.",
+  contactTitle2: "Contacto y correcciones",
+  contactLead:
+    "Algo desactualizado, un enlace roto, un recurso que falta: escríbenos y dilo. Cada aviso se comprueba contra fuentes públicas antes de que aquí cambie nada.",
+  privacyTitle: "Privacidad",
+  privacyLead:
+    "Este sitio no tiene analítica, ni cookies publicitarias, ni cuentas. La búsqueda se ejecuta en tu navegador y nada de lo que escribes sale de él. El proveedor de alojamiento puede conservar registros técnicos de acceso. Al escribirnos compartes lo que decidas poner en el mensaje.",
+  licenceTitle: "Licencia",
+  licenceLead:
+    "El contenido original del directorio se ofrece con licencia CC BY 4.0. Las citas y los materiales enlazados conservan los derechos de quien los publicó.",
   trust:
     "Cada ficha procede de una administración pública o de la entidad que gestiona el servicio, y lleva sus propias fuentes y las fechas en que se leyeron.",
   optOut: "Si tu entidad no quiere aparecer en el inventario, solicita su retirada:",
@@ -281,7 +342,7 @@ const ES = {
   everythingHere: "Todo lo que se aplica aquí",
   searchFailed:
     "No se ha podido cargar el índice de búsqueda, así que la lista de abajo es todo lo que hay. A la página no le falta nada; sólo le falta poder escribir.",
-} as const satisfies Record<keyof typeof EN, string | readonly [string, string]>;
+} as const satisfies Record<keyof typeof EN, string | readonly [string, string] | readonly (readonly [string, string])[]>;
 
 const WORDS = { en: EN, es: ES };
 
@@ -313,7 +374,11 @@ export const situation = (goal: GoalId, language: string): { title: string; hint
  * the two tables are one thing and no page can come to depend on the words of a particular language.
  */
 export type Words = {
-  readonly [Key in keyof typeof EN]: (typeof EN)[Key] extends readonly [string, string] ? readonly [string, string] : string;
+  readonly [Key in keyof typeof EN]: (typeof EN)[Key] extends readonly [string, string]
+    ? readonly [string, string]
+    : (typeof EN)[Key] extends readonly (readonly [string, string])[]
+      ? readonly (readonly [string, string])[]
+      : string;
 };
 
 export const words = (language: string): Words => WORDS[asLanguage(language)];

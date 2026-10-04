@@ -1,0 +1,119 @@
+---
+/**
+ * What this project is, how it is made, and what it does not do — one page per language, at the word that
+ * language uses for it: `/about/` and `/es/proyecto/`.
+ *
+ * It exists because an inventory asks a reader to trust it, and the things that decide whether that trust
+ * is warranted are not on any record: who maintains it, where the facts come from, what the checks do and
+ * do not establish, what happens to a message you send, and who owns the words. A reader looking for any
+ * of those is looking for one page, so it is one page with named sections rather than five.
+ */
+import { Icon } from "astro-icon/components";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { countryTerritories, currentEdition, euTerritory, href, languageOf, type Territory } from "../lib/corpus.ts";
+import { ICON } from "../lib/icons.ts";
+import { editionNamed, words } from "../lib/words.ts";
+
+export function getStaticPaths() {
+  const europe = euTerritory();
+  const everywhere: Territory[] = [...(europe ? [europe] : []), ...countryTerritories()];
+  return everywhere.map((territory) => {
+    const language = languageOf(territory);
+    const where = territory.layer.level === "EU" ? "" : `${territory.layer.country.toLowerCase()}/`;
+    return { params: { about: `${where}${words(language).aboutSlug}` }, props: { territory } };
+  });
+}
+
+const { territory } = Astro.props;
+const language = languageOf(territory);
+const text = words(language);
+const home = href(territory.layer);
+
+const sections = [
+  { id: "overview", label: text.overviewTitle },
+  { id: "method", label: text.methodTitle },
+  { id: "contact", label: text.contactTitle2 },
+  { id: "privacy", label: text.privacyTitle },
+  { id: "licence", label: text.licenceTitle },
+];
+---
+
+<SiteLayout title={`${text.aboutTitle} · ${text.siteName}`} description={text.aboutIntro} language={language} current={home}>
+  <div class="wrap">
+    <header class="max-w-3xl py-10">
+      <p class="eyebrow">{editionNamed(currentEdition, language)}</p>
+      <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{text.aboutTitle}</h1>
+      <p class="mt-4 text-lg">{text.aboutIntro}</p>
+    </header>
+
+    <nav aria-label={text.onThisPage} class="max-w-3xl border-t border-line py-4">
+      <ul class="flex flex-wrap gap-x-6">
+        {sections.map((section) => (
+          <li>
+            <a href={`#${section.id}`} class="inline-flex min-h-(--spacing-target) items-center underline">
+              {section.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <section class="max-w-3xl border-t border-line py-8" aria-labelledby="overview">
+      <h2 id="overview" class="scroll-mt-6 text-2xl font-bold">
+        {text.overviewTitle}
+      </h2>
+      <p class="mt-3">{text.overviewLead}</p>
+      <p class="notice mt-4">
+        <Icon name={ICON.limits} aria-hidden="true" class="mt-0.5 size-5 shrink-0 text-accent" />
+        <span>{text.notOfficial}</span>
+      </p>
+    </section>
+
+    <section class="max-w-3xl border-t border-line py-8" aria-labelledby="method">
+      <h2 id="method" class="scroll-mt-6 text-2xl font-bold">
+        {text.methodTitle}
+      </h2>
+      <p class="mt-3">{text.methodLead}</p>
+      <dl class="mt-5">
+        {text.methodSteps.map(([title, detail]) => (
+          <div class="border-t border-line py-3">
+            <dt class="font-bold">{title}</dt>
+            <dd class="meta mt-1">{detail}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="max-w-3xl border-t border-line py-8" aria-labelledby="contact">
+      <h2 id="contact" class="scroll-mt-6 text-2xl font-bold">
+        {text.contactTitle2}
+      </h2>
+      <p class="mt-3">{text.contactLead}</p>
+      <p class="mt-3">
+        <a class="underline" href="mailto:contact@farmsuccession.eu">
+          contact@farmsuccession.eu
+        </a>
+      </p>
+      <p class="meta mt-3">{text.optOut}</p>
+    </section>
+
+    <section class="max-w-3xl border-t border-line py-8" aria-labelledby="privacy">
+      <h2 id="privacy" class="scroll-mt-6 text-2xl font-bold">
+        {text.privacyTitle}
+      </h2>
+      <p class="mt-3">{text.privacyLead}</p>
+    </section>
+
+    <section class="max-w-3xl border-t border-line py-8" aria-labelledby="licence">
+      <h2 id="licence" class="scroll-mt-6 text-2xl font-bold">
+        {text.licenceTitle}
+      </h2>
+      <p class="mt-3">{text.licenceLead}</p>
+      <p class="mt-3">
+        <a class="underline" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">
+          CC BY 4.0
+        </a>
+      </p>
+    </section>
+  </div>
+</SiteLayout>
