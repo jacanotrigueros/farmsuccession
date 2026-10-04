@@ -1,0 +1,153 @@
+---
+/**
+ * A search, at one scope.
+ *
+ * The page is complete before anything runs: every record in scope is listed below, in full, so a reader
+ * with no JavaScript — or on a connection that dropped the index — still gets the whole answer. The field
+ * and the filters are hidden until the index has answered, because a control that cannot do anything is
+ * worse than no control.
+ *
+ * What the client needs is handed to it from here rather than fetched or guessed: which languages the
+ * bundles of this scope cover, the words for every code, a result's markup as a template, and one template
+ * per kind holding its icon. All of it in the language of this page, so a Spanish record found from the
+ * European page is still described in the words of the page the reader is on.
+ */
+import { Icon } from "astro-icon/components";
+import ResourceRow from "./ResourceRow.astro";
+import type { Resource, Territory } from "../lib/corpus.ts";
+import { kindIcon } from "../lib/icons.ts";
+import { kindLabel, profileLabel, reachLabel, stateLabel } from "../lib/vocabulary.ts";
+import { counted, words } from "../lib/words.ts";
+
+type Listed = { resource: Resource; from: Territory; inherited: boolean };
+type Facet = { name: string; legend: string; options: { value: string; label: string; count: number }[] };
+
+type Props = {
+  language: string;
+  /** The ISO code of the country this search is fixed to, or nothing for the European scope. */
+  country?: string;
+  title: string;
+  lead: string;
+  listed: Listed[];
+  facets: Facet[];
+  languages: string[];
+  inherits: string[];
+};
+const { language, country, title, lead, listed, facets, languages, inherits } = Astro.props;
+const text = words(language);
+
+const kinds = [...new Set(listed.map(({ resource }) => resource.kind))];
+
+/** Everything the client would otherwise have to translate, in the language of this page. */
+const labels = {
+  kind: Object.fromEntries(kinds.map((kind) => [kind, kindLabel(kind, language)])),
+  status: Object.fromEntries([...new Set(listed.map(({ resource }) => resource.status))].map((s) => [s, stateLabel(s, language)])),
+};
+---
+
+<header class="py-10">
+  <h1 class="page-title text-3xl text-balance sm:text-4xl">{title}</h1>
+  <p class="mt-4 max-w-3xl text-lg">{lead}</p>
+</header>
+
+<form
+  id="search"
+  role="search"
+  hidden
+  class="border-t border-line py-6"
+  data-search
+  data-languages={JSON.stringify(languages)}
+  data-inherits={JSON.stringify(inherits)}
+  data-labels={JSON.stringify(labels)}
+  data-strings={JSON.stringify({ one: text.result[0], many: text.result[1], nothing: text.nothingMatched, failed: text.searchFailed })}
+>
+  <label for="query" class="block font-bold">
+    {text.searchLabel}
+  </label>
+  <div class="mt-2 flex flex-wrap gap-3">
+    <input
+      id="query"
+      name="q"
+      type="search"
+      autocomplete="off"
+      class="min-h-14 min-w-0 flex-1 rounded-lg border-2 border-line-strong bg-card px-4 text-lg focus:border-brand"
+    />
+    <button type="submit" class="btn btn-primary min-h-14 text-lg">
+      {text.searchAction}
+    </button>
+  </div>
+
+  <div class="mt-6 flex flex-wrap items-baseline justify-between gap-3">
+    <h2 class="text-lg font-bold">{text.narrowDown}</h2>
+    <button type="reset" class="inline-flex min-h-(--spacing-target) items-center text-brand-strong underline">
+      {text.clearFilters}
+    </button>
+  </div>
+
+  <div class="mt-2 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+    {facets.map((facet) => (
+      <fieldset>
+        <legend class="meta font-bold tracking-wide uppercase">{facet.legend}</legend>
+        <ul class="mt-1">
+          {facet.options.map((option) => (
+            <li>
+              <label class="flex min-h-(--spacing-target) items-center gap-2">
+                <input type="checkbox" name={facet.name} value={option.value} class="size-5 shrink-0" />
+                <span class="min-w-0 flex-1">{option.label}</span>
+                <span class="meta tabular-nums" data-count>
+                  {option.count}
+                </span>
+              </label>
+            </li>
+          ))}
+        </ul>
+      </fieldset>
+    ))}
+  </div>
+</form>
+
+<p id="search-state" class="border-t border-line py-4 text-muted" hidden aria-live="polite" data-state></p>
+
+<section class="border-t border-line py-8" aria-labelledby="results" hidden data-results>
+  <h2 id="results" class="scroll-mt-6 text-2xl font-bold" data-results-heading></h2>
+  <div class="mt-4" data-results-list></div>
+</section>
+
+<section class="border-t border-line py-8" aria-labelledby="everything" data-everything>
+  <h2 id="everything" class="scroll-mt-6 text-2xl font-bold">
+    {text.everythingHere}
+  </h2>
+  <p class="meta mt-1">{counted(listed.length, text.record)}</p>
+  <noscript>
+    <p class="mt-3 max-w-3xl text-muted">{text.searchNeedsScript}</p>
+  </noscript>
+  <div class="mt-4">
+    {listed.map(({ resource, from, inherited }) => (
+      <ResourceRow resource={resource} language={language} recordedIn={from} inherited={inherited} />
+    ))}
+  </div>
+</section>
+
+{/* The markup of a result, and each kind's icon, rendered here so the client never has to invent either. */}
+<template data-result>
+  <article class="border-t border-line py-5 first:border-t-0">
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+      <h3 class="text-lg font-bold">
+        <a data-result-link class="inline-flex min-h-(--spacing-target) items-center"></a>
+      </h3>
+      <span class="tag tag-kind" data-result-kind></span>
+      <span class="tag tag-status" data-result-status></span>
+    </div>
+    <p class="meta mt-1">
+      <span data-result-operator></span> · <span data-result-territory></span>
+    </p>
+    <p class="mt-2 max-w-3xl" data-result-excerpt></p>
+  </article>
+</template>
+{kinds.map((kind) => (
+  <template data-icon-for={kind}>
+    <Icon name={kindIcon(kind)} aria-hidden="true" />
+  </template>
+))}
+
+<script is:inline type="module" src="/search.js" defer></script>

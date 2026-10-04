@@ -16,6 +16,7 @@
  */
 import DraftNotice from "../components/DraftNotice.astro";
 import Needs from "../components/Needs.astro";
+import SearchBox from "../components/SearchBox.astro";
 import ResourceRow from "../components/ResourceRow.astro";
 import TerritoryLayout from "../layouts/TerritoryLayout.astro";
 import {
@@ -32,6 +33,7 @@ import {
 import { GOALS, goalOf } from "../lib/goals.ts";
 import { dateIn } from "../lib/language.ts";
 import { counted, editionNamed, situation, words } from "../lib/words.ts";
+import { queryFromState, searchPath } from "../../public/search-scope.js";
 
 export function getStaticPaths() {
   // Written out here rather than in a helper: Astro lifts this function into a module of its own, where
@@ -69,6 +71,13 @@ const sections = [
 ];
 
 const trail = layers.slice(0, -1);
+
+/**
+ * Searching from a territory searches its country, with this territory already chosen — never the European
+ * search, which would show a reader schemes that do not apply where they are. A country searches itself.
+ */
+const pinned = territory.layer.level === "REGION" ? [{ name: "territory", value: `${country}/${territory.layer.region}` }] : [];
+const pinnedQuery = queryFromState({ selected: Object.fromEntries(pinned.map((f) => [f.name, [f.value]])) }, country || undefined);
 ---
 
 <TerritoryLayout
@@ -94,6 +103,22 @@ const trail = layers.slice(0, -1);
     </nav>
     <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{territory.data.officialName}</h1>
     <p class="mt-4 max-w-3xl text-lg">{territory.data.summary}</p>
+
+    <div class="mt-8">
+      <SearchBox
+        action={searchPath("/", country || undefined)}
+        id="here"
+        label={text.searchHereLabel.replace("{where}", territory.data.officialName)}
+        button={text.searchAction}
+        pinned={pinned}
+      />
+      <a
+        href={searchPath("/", country || undefined) + pinnedQuery}
+        class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
+      >
+        {text.browseAll.replace("{where}", territory.data.officialName)}
+      </a>
+    </div>
   </header>
 
   {isDraft(territory) && (

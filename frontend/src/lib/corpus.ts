@@ -31,9 +31,13 @@ const fromRepository = <T>(file: string): Promise<T> =>
 
 const { loadSnapshots } = await fromRepository<typeof import("../../../src/editions.ts")>("src/editions.ts");
 const { loadTerritories } = await fromRepository<typeof import("../../../src/territories.ts")>("src/territories.ts");
-const { ancestorLayers, layerKey, snapshotLayer } = await fromRepository<typeof import("../../../src/layers.ts")>("src/layers.ts");
+const { ancestorLayers, layerKey, leafLayers, snapshotLayer } =
+  await fromRepository<typeof import("../../../src/layers.ts")>("src/layers.ts");
 
 export type { Layer, Resource, EditionSnapshot, NewsItem, Source, Call, Metric, ContactPoint };
+
+/** Every region a layer reaches, which is where its records apply. */
+export { leafLayers };
 
 /** One territory of one edition: its file, its place in the tree, and what it publishes. */
 export type Territory = { file: string; layer: Layer; data: EditionSnapshot };

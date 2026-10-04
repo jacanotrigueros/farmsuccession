@@ -12,10 +12,13 @@
  */
 import { countryTerritories, currentEdition, href } from "../lib/corpus.ts";
 import { editionNamed, words } from "../lib/words.ts";
+import { searchPath } from "../../public/search-scope.js";
 
 type Props = { language: string; current?: string };
 const { language, current = "/" } = Astro.props;
 const text = words(language);
+
+const country = current === "/" ? undefined : current.split("/")[1]?.toUpperCase();
 
 const places = [
   { href: "/", label: text.europe },
@@ -45,7 +48,7 @@ const places = [
           {place.label}
         </a>
       ))}
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${current}search/`}>
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={searchPath("/", country)}>
         {text.searchAction}
       </a>
     </nav>

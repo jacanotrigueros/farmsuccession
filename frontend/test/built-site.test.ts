@@ -29,36 +29,27 @@ test("the build produced pages at all, so an empty run cannot pass as a clean on
 });
 
 /**
- * The whole licence the site gives JavaScript: two files, each on the one kind of page that needs it,
- * from this host, deferred, and never written into the page.
+ * The whole licence the site gives JavaScript: a page may load a file only because of something it
+ * actually carries, and never inline.
  *
- * `/search.js` filters a list that is already complete. `/apply.js` answers "can I apply now?" again for
- * the reader's own day, from dates that are already on the page. Both only re-say something the HTML
- * already said; neither is how anything gets read. An inline script would break the other half of the
+ * `/search.js` fills in a list that is already complete; `/apply.js` answers "can I apply now?" again for
+ * the reader's own day, from dates that are already on the page. Both only re-say something the HTML has
+ * already said, and neither is how anything gets read. An inline script would break the other half of the
  * promise, because it cannot be read before it runs or audited afterwards.
  */
-const ALLOWED = new Map([
-  [path.join("search", "index.html"), "/search.js"],
-  [`resources${path.sep}`, "/apply.js"],
-]);
-
-test("only two kinds of page ship JavaScript, and only their own file", () => {
+test("a page ships JavaScript only for what it actually carries", () => {
   for (const { file, html } of pages) {
-    const tags = [...html.matchAll(/<script\b[^>]*>/giu)].map(([tag]) => tag);
-    const allowed = [...ALLOWED].find(([where]) => (where.endsWith(path.sep) ? file.startsWith(where) : file.endsWith(where)))?.[1];
+    const allowed = new Set<string>();
+    if (html.includes("data-search")) allowed.add("/search.js");
+    if (html.includes('class="apply')) allowed.add("/apply.js");
 
-    if (!allowed) {
-      assert.equal(tags.length, 0, `${file} carries a script: a page that is only read is read without JavaScript`);
-      continue;
-    }
-    assert.ok(tags.length <= 1, `${file} carries ${tags.length} scripts; one page may load one file`);
-    if (tags.length === 1) {
+    for (const [, src] of html.matchAll(/<script[^>]*\ssrc="([^"]+)"/giu)) {
       assert.ok(
-        tags[0]?.includes(`src="${allowed}"`),
-        `${file} loads something other than ${allowed}: each enhancement is one first-party file, served as it was written`,
+        allowed.has(src ?? ""),
+        `${file} loads ${src}, and nothing on it needs that: a page that is only read is read without JavaScript`,
       );
     }
-    const written = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/giu)].map(([, body]) => (body ?? "").trim());
+    const written = [...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/giu)].map(([, body]) => (body ?? "").trim());
     assert.ok(
       written.every((body) => body === ""),
       `${file} has an inline script, which cannot be read before it runs or audited afterwards`,
@@ -94,7 +85,7 @@ test("no page stores anything in the reader's browser", () => {
 });
 
 /**
- * The promise now has to survive a dependency. The search engine is somebody else's code running in the
+ * The promise has to survive a dependency. The search engine is somebody else's code running in the
  * reader's browser, so what it may do is checked rather than assumed — and checked in `dist/`, which is
  * what a reader would receive, not in the package it was built from.
  */
@@ -128,8 +119,10 @@ test("every link inside the site reaches a page the build produced", () => {
       .map((entry) => `/${entry.name}`),
   );
   for (const { file, html } of pages) {
-    for (const [, href] of html.matchAll(/<a\b[^>]*\bhref\s*=\s*["'](\/[^"'#]*)/giu)) {
-      assert.ok(built.has(href ?? "") || assets.has(href ?? ""), `${file} links ${href}, which the build did not produce`);
+    for (const [, link] of html.matchAll(/<a\b[^>]*\bhref\s*=\s*["'](\/[^"'#]*)/giu)) {
+      // A query narrows what a page shows; it does not name a different page.
+      const href = (link ?? "").split("?")[0] ?? "";
+      assert.ok(built.has(href) || assets.has(href), `${file} links ${href}, which the build did not produce`);
     }
   }
 });

@@ -69,15 +69,32 @@ npm run build          # writes frontend/dist, which is output and is not commit
 The rules, which are requirements rather than preferences:
 
 - **The published pages make no third-party request and store nothing in the reader's
-  browser, and the only one that ships JavaScript is the search page.** The audience is
-  often on a phone on a rural connection. Tests over `dist/` enforce all three: no page
-  but a search page may carry a script, that script is `/search.js` and nothing else,
-  and nothing shipped to a browser — this project's code or the search engine's — may
-  touch a cookie or any kind of storage.
-- **The search is an enhancement over a page that is already complete.** Every record
-  in scope is in the HTML before anything runs, the field stays hidden until the index
-  answers, and a reader whose browser never gets there loses the typing, not the
-  answer. A control that cannot do anything is worse than no control.
+  browser, and a page ships JavaScript only for something it actually carries.** The
+  audience is often on a phone on a rural connection. Tests over `dist/` enforce all
+  three: a page may load `/search.js` only if it has a search form and `/apply.js` only
+  if it has an application-period block, never inline, and nothing shipped to a browser
+  — this project's code or the search engine's — may touch a cookie or any storage.
+- **Every enhancement sits on a page that is already complete.** Every record in scope
+  is in the HTML before anything runs; the search field stays hidden until the index
+  answers; a reader whose browser never gets there loses the typing, not the answer. A
+  control that cannot do anything is worse than no control.
+- **The route fixes the scope of a search and the query string can only narrow it.**
+  `/search/` is Europe and `/{cc}/{slug}/` is one country, at the word that country's
+  language uses for searching. A `country` parameter on a national route is ignored and
+  a territory belonging to somewhere else is dropped, so no link — however it was built,
+  edited or shared — can show a reader a scheme that does not apply where they are.
+  `public/search-scope.js` owns that contract and is read by the pages when they are
+  built, by the browser, and by the tests: implemented twice means disagreeing once.
+- **One search bundle per language, each holding the records written in it**, plus a
+  manifest. A scope loads the bundles its own records need and queries each with its own
+  stemmer, through its own import of its own `pagefind.js`. Never merge indexes across
+  languages and never put two languages through one module: Pagefind keeps one
+  WebAssembly instance per module, so the second language silently gets the first one's
+  stemmer. `pagefind.filters()` is called once per bundle, or the counts of every facet
+  the query did not mention are simply missing.
+- **A value in a URL or an index is a code from the schema, never a translated word.** A
+  shared search has to survive being opened in another language, and a result found from
+  the European page is described in the words of the page that found it.
 - **The site reads data only through `src/lib/corpus.ts`**, which loads the
   repository's own modules from the repository rather than bundling them: they resolve
   the schemas and the data from their own location, which stops being true the moment a

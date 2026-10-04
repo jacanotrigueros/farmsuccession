@@ -1,44 +1,79 @@
 /**
- * Builds one search index per language the catalogue is written in, each holding every record.
+ * One search bundle per language, and a manifest saying what is in each.
  *
- * Pagefind indexes a site by language: it reads the `lang` of each page and files it under that language,
- * so a Spanish page searching its own index would never reach the European layer, which is written in
- * English. The records inherited from above are the ones a reader is least likely to know about, and they
- * are exactly the ones that would have gone missing.
+ * Pagefind analyses a page in the language it is written in — that is what stemming is — and it keeps one
+ * WebAssembly module, and therefore one language, per instance. So the corpus is published as one bundle
+ * per language, holding the record pages written in it, and a search loads the bundles its scope actually
+ * contains and queries each with its own stemmer.
  *
- * So each language gets an index of the whole catalogue, stemmed for somebody typing in that language.
- * That costs a second of build time and a megabyte in `dist/`, which nobody downloads: a reader loads the
- * index of the page they are on and nothing else. It is also what makes the one promise here testable —
- * whatever language a reader types in, the same records are reachable.
+ * The two shortcuts both fail, and the previous generation measured them failing rather than guessing:
+ * merging indexes across languages searches them all with the main instance's module, which is the wrong
+ * stemmer for every language but one, and forcing the whole corpus into a single language does the same
+ * thing at build time. German queries lost eleven of twelve results that way, French nine of twenty-seven.
  *
- * The languages come from the data rather than from a list here, so a country published in a language
- * nobody thought about still gets an index.
+ * The country is a filter inside every bundle, never a folder: a country can span several languages and a
+ * language several countries, and only the manifest knows which.
  */
-import { spawnSync } from "node:child_process";
+import { readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
-import { loadSnapshots } from "../../src/editions.ts";
+import * as pagefind from "pagefind";
 
-const SITE = path.join(import.meta.dirname, "..", "dist");
+const DIST = path.join(import.meta.dirname, "..", "dist");
+const OUT = path.join(DIST, "pagefind");
 
-const loaded = loadSnapshots({});
-if (loaded.problems.length > 0) {
-  const problems = loaded.problems.map(({ file, message }) => `${file} ${message}`).join("; ");
-  throw new Error(`cannot index data the loader could not read: ${problems}`);
+/**
+ * Pagefind writes three ready-made interfaces into every bundle. This site uses the search API and its own
+ * markup, so they are deleted: on this corpus they are most of each bundle's bytes on disk.
+ */
+const UNUSED = /^pagefind-(ui|component-ui|modular-ui)\.(js|css)$|^pagefind-highlight\.js$/u;
+
+/** Every built record page, with the language it declares and the country it was filed under. */
+function recordPages(dir = path.join(DIST, "resources")): { url: string; html: string; language: string; country: string }[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    if (!entry.isDirectory()) return [];
+    const file = path.join(dir, entry.name, "index.html");
+    const html = readFileSync(file, "utf8");
+    const language = /<html[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const country = /data-pagefind-filter="country:([^"]+)"/u.exec(html)?.[1] ?? "";
+    if (!language || !country) throw new Error(`${entry.name} has no language or no country: the index could not say where it belongs`);
+    return [{ url: `/resources/${entry.name}/`, html, language, country }];
+  });
 }
 
-const languages = [...new Set(loaded.snapshots.map(({ data }) => data.metadata.language))].toSorted();
-if (languages.length === 0) throw new Error("no languages in the corpus: there is nothing to index");
+const pages = recordPages();
+if (pages.length === 0) throw new Error("no record pages in dist/: run the build before indexing");
 
-for (const language of languages) {
-  const run = spawnSync(
-    "pagefind",
-    ["--site", SITE, "--force-language", language, "--output-path", path.join(SITE, "pagefind", language)],
-    { stdio: ["ignore", "pipe", "inherit"], encoding: "utf8", shell: process.platform === "win32" },
-  );
-  if (run.status !== 0) {
-    throw new Error(`pagefind failed for ${language} with status ${String(run.status)}`);
+rmSync(OUT, { recursive: true, force: true });
+
+const manifest: { languages: Record<string, { pages: number; countries: Record<string, number> }> } = { languages: {} };
+
+for (const language of [...new Set(pages.map((page) => page.language))].toSorted()) {
+  const own = pages.filter((page) => page.language === language);
+  const { index, errors } = await pagefind.createIndex({});
+  if (errors.length > 0 || !index) throw new Error(`pagefind refused to start for ${language}: ${errors.join("; ")}`);
+
+  for (const page of own) {
+    const added = await index.addHTMLFile({ url: page.url, content: page.html });
+    if (added.errors.length > 0) throw new Error(`${page.url}: ${added.errors.join("; ")}`);
   }
-  const indexed = /Indexed (\d+) pages/u.exec(run.stdout ?? "")?.[1] ?? "no";
-  process.stdout.write(`search index for ${language}: ${indexed} pages\n`);
+
+  const folder = path.join(OUT, language);
+  const written = await index.writeFiles({ outputPath: folder });
+  if (written.errors.length > 0) throw new Error(written.errors.join("; "));
+  await index.deleteIndex();
+
+  for (const file of readdirSync(folder)) if (UNUSED.test(file)) rmSync(path.join(folder, file));
+
+  const countries: Record<string, number> = {};
+  for (const page of own) countries[page.country] = (countries[page.country] ?? 0) + 1;
+  manifest.languages[language] = { pages: own.length, countries };
 }
+
+writeFileSync(path.join(OUT, "index.json"), `${JSON.stringify(manifest, null, 2)}\n`);
+await pagefind.close();
+
+const total = Object.values(manifest.languages).reduce((sum, { pages: n }) => sum + n, 0);
+process.stdout.write(
+  `search: ${total} records in ${Object.keys(manifest.languages).length} language bundles (${Object.keys(manifest.languages).join(", ")})\n`,
+);

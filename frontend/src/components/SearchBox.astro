@@ -1,0 +1,36 @@
+---
+/**
+ * The way into searching from a page that is not the search page.
+ *
+ * A plain GET form to that page's own scope, so it works with no JavaScript at all: the browser builds the
+ * query string and the search page reads it. The facets a scope needs — a region searching inside itself —
+ * travel as hidden fields in the same format the search page writes back to the URL, which is why there is
+ * only one format and one file that knows it.
+ */
+import { Icon } from "astro-icon/components";
+import { ICON } from "../lib/icons.ts";
+
+type Props = { action: string; id: string; label: string; button: string; pinned?: { name: string; value: string }[] };
+const { action, id, label, button, pinned = [] } = Astro.props;
+---
+
+<label for={id} class="mb-2 block font-bold">
+  {label}
+</label>
+<form action={action} method="get" role="search" class="flex max-w-3xl flex-col gap-3 sm:flex-row">
+  {pinned.map((field) => (
+    <input type="hidden" name={field.name} value={field.value} />
+  ))}
+  <div class="relative flex-1">
+    <Icon name={ICON.search} aria-hidden="true" class="pointer-events-none absolute top-1/2 left-4 size-6 -translate-y-1/2 text-muted" />
+    <input
+      id={id}
+      name="q"
+      type="search"
+      class="min-h-14 w-full rounded-lg border-2 border-line-strong bg-card pr-4 pl-13 text-lg focus:border-brand"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary min-h-14 text-lg">
+    {button}
+  </button>
+</form>

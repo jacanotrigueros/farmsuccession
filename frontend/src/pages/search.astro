@@ -1,0 +1,45 @@
+---
+/**
+ * Searching the whole catalogue.
+ *
+ * This is the one scope with nothing above it, so it is the one search that may return a record from
+ * anywhere — and every result says which territory it applies in, because a reader at this layer has not
+ * told the site where they farm yet. Inside a country the route fixes the scope instead, and the query
+ * string cannot widen it.
+ *
+ * It is written in the language of the European layer, which is the layer it is about.
+ */
+import SearchView from "../components/SearchView.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { countryTerritories, euTerritory, hubTerritories, languageOf, regionTerritories } from "../lib/corpus.ts";
+import { facetsFor, type Listed } from "../lib/facets.ts";
+import { words } from "../lib/words.ts";
+
+const europe = euTerritory();
+if (!europe) throw new Error("no European layer: there is nothing to search");
+
+const language = languageOf(europe);
+const text = words(language);
+
+const everywhere = [europe, ...countryTerritories(), ...hubTerritories(), ...regionTerritories()];
+const listed: Listed[] = everywhere.flatMap((from) =>
+  from.data.resources.map((resource) => ({ resource, from, inherited: from !== europe })),
+);
+
+/** The bundles this scope has to load: one per language any of its records is written in. */
+const languages = [...new Set(everywhere.map((territory) => languageOf(territory)))].toSorted();
+---
+
+<SiteLayout title={`${text.searchEverywhere} — ${text.siteName}`} description={text.searchWhole} language={language} current="/">
+  <div class="wrap">
+    <SearchView
+      language={language}
+      title={text.searchEverywhere}
+      lead={text.searchWhole}
+      listed={listed}
+      facets={facetsFor(listed, language)}
+      languages={languages}
+      inherits={[]}
+    />
+  </div>
+</SiteLayout>

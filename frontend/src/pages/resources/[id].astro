@@ -20,7 +20,18 @@ import KindTag from "../../components/KindTag.astro";
 import StatusTag from "../../components/StatusTag.astro";
 import SourceRef from "../../components/SourceRef.astro";
 import TerritoryLayout from "../../layouts/TerritoryLayout.astro";
-import { currentEdition, href, isDraft, languageOf, newsAbout, records, view, type RecordedResource } from "../../lib/corpus.ts";
+import {
+  currentEdition,
+  href,
+  isDraft,
+  languageOf,
+  newsAbout,
+  records,
+  territories,
+  view,
+  leafLayers,
+  type RecordedResource,
+} from "../../lib/corpus.ts";
 import { goalOf } from "../../lib/goals.ts";
 import { dateIn, listIn } from "../../lib/language.ts";
 import {
@@ -145,6 +156,12 @@ const sections = [
 ];
 
 const trail = view(territory).layers;
+
+/** The country the record belongs to, and every region it reaches — the two things a search filters by. */
+const country = territory.layer.level === "EU" ? "" : territory.layer.country;
+const reaches = leafLayers(territory.layer, territories)
+  .map((leaf) => (leaf.level === "REGION" ? `${leaf.country}/${leaf.region}` : ""))
+  .filter(Boolean);
 ---
 
 <TerritoryLayout
@@ -159,17 +176,27 @@ const trail = view(territory).layers;
    * same records, and indexing them too would return a reader the same record several times over, once
    * per territory that inherits it. `data-pagefind-body` here is what declares that.
    *
-   * The filters are what keep a search from widening. A record is tagged with the layer it was recorded
-   * at, and a territory's search asks only for the layers that territory inherits — so searching from
-   * Galicia can return a European, a Spanish or a Galician record, and never an Andalusian one, by
-   * construction rather than by a rule somebody has to remember.
+   * The filters are what keep a search from widening, and every one of them is a code from the schema
+   * rather than a translated word: a shared link has to survive being opened in another language. The
+   * country is the layer the record belongs to, and the territories are every region it reaches, so
+   * choosing a region returns exactly what that region's own page lists — its own records and the ones it
+   * inherits — and never a neighbour's.
    */}
   <div
     data-pagefind-body
-    data-pagefind-filter={`recordedAt:${href(territory.layer)}`}
     data-pagefind-meta="territory[data-territory]"
     data-territory={territory.layer.level === "EU" ? text.europe : territory.data.officialName}
   >
+    <span hidden data-pagefind-filter={`country:${country || "EU"}`} data-pagefind-meta={`country:${country || "EU"}`}></span>
+    <span hidden data-pagefind-filter={`kind:${resource.kind}`} data-pagefind-meta={`kind:${resource.kind}`}></span>
+    <span hidden data-pagefind-filter={`status:${resource.status}`} data-pagefind-meta={`status:${resource.status}`}></span>
+    <span hidden data-pagefind-filter={`scope:${resource.scope.level}`}></span>
+    {(resource.targetProfiles ?? []).map((profile) => (
+      <span hidden data-pagefind-filter={`profile:${profile}`} />
+    ))}
+    {reaches.map((leaf) => (
+      <span hidden data-pagefind-filter={`territory:${leaf}`} />
+    ))}
     <header class="py-10">
       <nav aria-label={text.whereYouAre} class="text-meta text-muted" data-pagefind-ignore>
         <ol class="flex flex-wrap gap-x-2">
@@ -186,10 +213,12 @@ const trail = view(territory).layers;
       </nav>
       <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{resource.name}</h1>
       <p class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
-        <span data-pagefind-filter={`situation:${goalOf(resource.kind)}`} data-pagefind-meta="kind">
+        {/* The tags carry this page's own words; the index carries the codes, in the hidden spans above,
+            so a result can be described in the language of whichever page found it. */}
+        <span data-pagefind-filter={`situation:${goalOf(resource.kind)}`}>
           <KindTag kind={resource.kind} language={language} />
         </span>
-        <span data-pagefind-meta="state">
+        <span>
           <StatusTag status={resource.status} language={language} />
         </span>
         <span class="meta" data-pagefind-meta="operator">

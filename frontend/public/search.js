@@ -1,14 +1,17 @@
 /**
- * The one piece of JavaScript this site ships, and the only thing it is allowed to do: filter a list that
- * is already on the page.
+ * The search page, in the reader's browser.
  *
- * It is written here rather than in `src/`, so it is served exactly as it reads — no bundler, no transform,
- * nothing a reader would have to take on trust. If it never runs, the search page is still complete: every
- * record in scope is in the HTML, which is why the field starts hidden and is only revealed once the index
- * has answered. A field that cannot search is worse than no field.
+ * Everything it needs is already in the page: the scope, the languages its bundles cover, the words for
+ * every code, and the markup of a result as a template the server rendered. This file only fills things
+ * in. If it never runs, the page is still the complete list of what is in scope — which is why the field
+ * and the filters start hidden and are revealed once the index has answered.
  *
- * It sets no cookie, stores nothing, and asks no host but this one.
+ * The URL is kept in step with every change, so any view of a search can be shared or kept. The route
+ * fixes the scope and the query string can only narrow it: `search-scope.js` owns that rule, and the same
+ * file was read when the page was built.
  */
+import { createEngine } from "/search-engine.js";
+import { effectiveFilters, facetsOf, queryFromState, scopeFromPath, stateFromQuery } from "/search-scope.js";
 
 const form = document.querySelector("[data-search]");
 const state = document.querySelector("[data-state]");
@@ -16,90 +19,88 @@ const results = document.querySelector("[data-results]");
 const resultsHeading = document.querySelector("[data-results-heading]");
 const resultsList = document.querySelector("[data-results-list]");
 const everything = document.querySelector("[data-everything]");
+const template = document.querySelector("template[data-result]");
 
-if (form && state && results && resultsHeading && resultsList && everything) {
+if (form && state && results && resultsHeading && resultsList && everything && template) {
   const words = JSON.parse(form.dataset.strings);
-  const scope = JSON.parse(form.dataset.scope);
+  const labels = JSON.parse(form.dataset.labels);
+  const languages = JSON.parse(form.dataset.languages);
+  const inherits = JSON.parse(form.dataset.inherits ?? "[]");
+  const scope = scopeFromPath("/", location.pathname) ?? { country: null };
   const field = form.querySelector("input[type=search]");
 
-  /** How many of a thing, with its noun in the form the language gives it. */
   const counted = (howMany, forms) => `${howMany} ${forms[howMany === 1 ? 0 : 1]}`;
-
   const show = (element, visible) => {
     element.hidden = !visible;
   };
 
-  /** The filters a query carries: the layers this territory inherits, and whatever the reader ticked. */
-  function filters() {
-    const situations = [...form.querySelectorAll("input[name=situation]:checked")].map((box) => box.value);
-    // "any", not a bare list: a list means every value at once, and a record is recorded at one layer,
-    // so asking for three layers as a list asks for a record that is in all three and finds nothing.
-    return {
-      ...(scope.length > 0 ? { recordedAt: { any: scope } } : {}),
-      ...(situations.length > 0 ? { situation: { any: situations } } : {}),
-    };
+  /** What the reader has chosen, read from the form rather than remembered. */
+  function chosen() {
+    const selected = {};
+    for (const facet of facetsOf(scope.country)) {
+      const values = [...form.querySelectorAll(`input[name="${facet}"]:checked`)].map((box) => box.value);
+      if (values.length > 0) selected[facet] = values;
+    }
+    return selected;
   }
 
-  function render(found) {
-    resultsList.replaceChildren(
-      ...found.map((result) => {
-        const row = document.createElement("article");
-        row.className = "border-t border-line py-5 first:border-t-0";
+  function fill(result) {
+    const row = template.content.firstElementChild.cloneNode(true);
+    const link = row.querySelector("[data-result-link]");
+    link.href = result.url;
+    link.textContent = result.meta.title ?? result.url;
 
-        const title = document.createElement("h3");
-        title.className = "text-lg font-semibold";
-        const link = document.createElement("a");
-        link.href = result.url;
-        link.className = "inline-flex min-h-(--spacing-target) items-center";
-        link.textContent = result.meta.title ?? result.url;
-        title.append(link);
+    const kind = row.querySelector("[data-result-kind]");
+    const code = result.meta.kind;
+    kind.dataset.kind = code;
+    const icon = document.querySelector(`template[data-icon-for="${code}"]`);
+    if (icon) kind.append(icon.content.cloneNode(true));
+    kind.append(labels.kind?.[code] ?? code);
 
-        const where = document.createElement("p");
-        where.className = "mt-1 text-meta text-muted";
-        where.textContent = [result.meta.kind, result.meta.operator, result.meta.territory].filter(Boolean).join(" · ");
+    const status = row.querySelector("[data-result-status]");
+    status.dataset.status = result.meta.status;
+    status.textContent = labels.status?.[result.meta.status] ?? result.meta.status;
 
-        const summary = document.createElement("p");
-        summary.className = "mt-2 max-w-3xl";
-        // The excerpt is this site's own text, taken from the page the result points at, with the words
-        // that matched marked. It is the one place markup is set rather than written, and it comes from
-        // the index this build produced.
-        summary.innerHTML = result.excerpt;
-
-        row.append(title, where, summary);
-        return row;
-      }),
-    );
+    row.querySelector("[data-result-operator]").textContent = result.meta.operator ?? "";
+    row.querySelector("[data-result-territory]").textContent = result.meta.territory ?? "";
+    // The excerpt is this site's own text, taken from the page the result points at, with the words that
+    // matched marked. It comes from the index this build produced and from nowhere else.
+    row.querySelector("[data-result-excerpt]").innerHTML = result.excerpt;
+    return row;
   }
 
-  /** The counts beside each filter, which are the counts of what the current query actually found. */
+  /** The counts beside each option, which are the counts of what this query actually found. */
   function recount(counts) {
-    for (const element of form.querySelectorAll("[data-count]")) {
-      const found = counts?.situation?.[element.dataset.count];
-      element.textContent = String(found ?? 0);
+    for (const box of form.querySelectorAll("input[name]")) {
+      const beside = box.closest("label")?.querySelector("[data-count]");
+      if (beside) beside.textContent = String(counts[box.name]?.[box.value] ?? 0);
     }
   }
 
-  let pagefind;
+  let engine;
   let latest = 0;
 
-  async function run() {
-    const query = field.value.trim();
+  async function run({ push = true } = {}) {
+    const term = field.value.trim();
+    const selected = chosen();
     const mine = (latest += 1);
 
-    if (query === "") {
+    if (push) {
+      history.replaceState(null, "", `${location.pathname}${queryFromState({ q: term, selected }, scope.country)}`);
+    }
+
+    const filters = effectiveFilters(selected, scope.country, inherits);
+    const { results: found, counts } = await engine.query(term, filters, Object.keys(selected));
+    if (mine !== latest) return; // A later keystroke already answered; this one is history.
+
+    recount(counts);
+
+    if (term === "" && Object.keys(selected).length === 0) {
       show(results, false);
       show(everything, true);
       show(state, false);
-      const all = await pagefind.filters();
-      recount(all);
       return;
     }
-
-    const search = await pagefind.search(query, { filters: filters() });
-    if (mine !== latest) return; // A later keystroke already answered; this one is history.
-
-    const found = await Promise.all(search.results.slice(0, 50).map((result) => result.data()));
-    recount(search.filters);
 
     if (found.length === 0) {
       show(results, false);
@@ -109,8 +110,9 @@ if (form && state && results && resultsHeading && resultsList && everything) {
       return;
     }
 
-    resultsHeading.textContent = counted(search.results.length, [words.one, words.many]);
-    render(found);
+    const shown = await Promise.all(found.slice(0, 50).map((result) => result.data()));
+    resultsHeading.textContent = counted(found.length, [words.one, words.many]);
+    resultsList.replaceChildren(...shown.map((result) => fill(result)));
     show(results, true);
     show(everything, false);
     show(state, false);
@@ -124,10 +126,7 @@ if (form && state && results && resultsHeading && resultsList && everything) {
 
   async function start() {
     try {
-      // One index per language, each holding the whole catalogue: a Spanish page searching only the
-      // Spanish index would never reach the European layer, which is written in English.
-      pagefind = await import(`/pagefind/${form.dataset.language}/pagefind.js`);
-      await pagefind.init();
+      engine = await createEngine({ bundles: "/pagefind/", languages });
     } catch {
       // The list is already on the page, so the honest thing is to say what is missing and leave it alone.
       state.textContent = words.failed;
@@ -135,8 +134,19 @@ if (form && state && results && resultsHeading && resultsList && everything) {
       return;
     }
 
+    // Whatever the URL already asked for, before anything is typed: a shared search opens as it was
+    // shared — minus whatever it asked for and could not have, which the rewrite below drops for good.
+    const asked = stateFromQuery(location.search, scope.country);
+    field.value = asked.q;
+    for (const facet of facetsOf(scope.country)) {
+      for (const value of asked.selected[facet] ?? []) {
+        const box = form.querySelector(`input[name="${facet}"][value="${CSS.escape(value)}"]`);
+        if (box) box.checked = true;
+      }
+    }
+
     show(form, true);
-    recount(await pagefind.filters());
+    await run();
 
     form.addEventListener("submit", (event) => event.preventDefault());
     field.addEventListener("input", soon);
