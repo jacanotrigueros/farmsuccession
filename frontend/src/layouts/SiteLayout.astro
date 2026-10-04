@@ -51,9 +51,16 @@ const socialCard = new URL("/social-card.png", Astro.site).href;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialCard} />
-    {/* The SVG scales to any size a browser asks for; the ICO is for the ones that will not read it. */}
+    {/*
+     * The SVG scales to any size a browser asks for; the ICO carries 16, 32, 48 and 64 for the ones that
+     * will not read it. The two below are for the places that read neither: iOS takes a screenshot of the
+     * page without an apple-touch-icon, and Android offers no install without a manifest.
+     */}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#f3f5f1" />
   </head>
   <body class="min-h-screen flex flex-col">
     <a
