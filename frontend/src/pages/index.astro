@@ -1,20 +1,32 @@
 ---
 /**
- * The European layer, which is what every reader of this site shares, and therefore the home.
+ * Europe: what this is, how to search it, what it holds, and why its data can be trusted — in that order.
  *
- * It opens with what the site is and where to look, rather than with the data model: the first version of
- * this site opened on a grid of nine record kinds — Financial support, Land bank, Policy framework — which
- * is the right structure for the data and the wrong first thing to show somebody deciding whether the site
- * is for them. The situations a reader comes with are on the territory pages, where there is something to
- * answer them: at this layer the honest first step is choosing where you farm.
+ * Every figure on this page is counted from the corpus when the page is built, never written down here.
+ * The ones that would be flattering to round are the ones most worth counting: a reader deciding whether
+ * to trust an inventory is owed the size of it and how much of it a person has actually checked.
+ *
+ * It is written in the language of the European layer, because that is the layer it is about.
  */
-import DraftNotice from "../components/DraftNotice.astro";
-import Illustration from "../components/Illustration.astro";
-import ResourceRow from "../components/ResourceRow.astro";
-import TerritoryLayout from "../layouts/TerritoryLayout.astro";
-import { countryTerritories, currentEdition, euTerritory, href, isDraft, languageOf, regionsOf } from "../lib/corpus.ts";
-import { dateIn } from "../lib/language.ts";
+import { Icon } from "astro-icon/components";
+import Needs from "../components/Needs.astro";
+import SearchBox from "../components/SearchBox.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import {
+  corpusStats,
+  countryTerritories,
+  currentEdition,
+  euTerritory,
+  href,
+  hubTerritories,
+  languageOf,
+  regionTerritories,
+  regionsOf,
+} from "../lib/corpus.ts";
+import { GOALS } from "../lib/goals.ts";
+import { ICON } from "../lib/icons.ts";
 import { counted, editionNamed, words } from "../lib/words.ts";
+import { searchUrl } from "../../public/search-scope.js";
 
 const europe = euTerritory();
 if (!europe) {
@@ -23,96 +35,143 @@ if (!europe) {
 
 const language = languageOf(europe);
 const text = words(language);
-const countries = countryTerritories();
+const stats = corpusStats();
 
-const sections = [
-  { id: "where", label: text.whereToLook, count: countries.length },
-  { id: "eu-records", label: text.appliesHere, count: europe.data.resources.length },
-  { id: "limits", label: text.limits },
+/** A flag is two regional indicator letters, so a country never needs an image to be recognised. */
+const flagOf = (code: string): string => String.fromCodePoint(...[...code.toUpperCase()].map((letter) => 0x1f1a5 + letter.charCodeAt(0)));
+
+/**
+ * What a country card counts is what applies inside it — its own records, its groupings', its regions'
+ * and the European ones — because that is what a reader gets by going there, not what the country file
+ * happens to hold.
+ */
+const countries = countryTerritories().map((country) => {
+  const iso = country.layer.level === "EU" ? "" : country.layer.country;
+  const inside = [country, ...hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === iso), ...regionsOf(iso)];
+  return {
+    href: href(country.layer),
+    name: country.data.officialName,
+    flag: flagOf(iso),
+    records: inside.reduce((total, { data }) => total + data.resources.length, 0) + europe.data.resources.length,
+    territories: regionsOf(iso).length,
+  };
+});
+
+/** Everything in the edition, which is what the cards on this page count and link into. */
+const everything = [europe, ...countryTerritories(), ...hubTerritories(), ...regionTerritories()].flatMap(({ data }) => data.resources);
+
+const editionNote = (stats.drafts === stats.files ? text.editionAllDrafts : text.editionSomeDrafts)
+  .replace("{edition}", currentEdition)
+  .replace("{drafts}", String(stats.drafts))
+  .replace("{files}", String(stats.files));
+
+const figures = [
+  { icon: ICON.resources, value: stats.records, label: counted(stats.records, text.statRecords) },
+  { icon: ICON.europe, value: stats.countries, label: counted(stats.countries, text.statCountries) },
+  { icon: ICON.territory, value: stats.territories, label: counted(stats.territories, text.statTerritories) },
+  { icon: ICON.sources, value: stats.sources, label: counted(stats.sources, text.statSources) },
+];
+
+const trust = [
+  { icon: ICON.evidence, title: text.trustSourced },
+  { icon: ICON.checked, title: text.trustDated },
+  { icon: ICON.open, title: text.trustOpen },
 ];
 ---
 
-<TerritoryLayout
-  title={`${text.siteName} — ${text.tagline}`}
-  description="Land banks, succession services, establishment aid, training and advice for taking over or starting a farm in Europe, each entry traceable to a public page, the date it was read and the words that were on it."
-  language={language}
-  current="/"
-  sections={sections}
->
-  <section class="grid items-center gap-8 py-10 md:grid-cols-[1.3fr_1fr] md:py-14">
-    <div>
-      <h1 class="page-title text-3xl text-balance sm:text-4xl">Taking over or starting a farm in Europe</h1>
-      <p class="mt-4 max-w-3xl text-lg">
-        Land banks, help with taking over a holding, establishment aid, training and advice — collected from the public pages of the bodies
-        that run them, and published as one edition a year.
+<SiteLayout title={`${text.siteName} · ${text.tagline}`} description={text.lead} language={language} current="/">
+  <section class="border-b border-line bg-card">
+    <div class="wrap py-10 lg:py-14">
+      <p class="eyebrow">
+        {text.siteName} · {editionNamed(currentEdition, language)}
       </p>
-      <p class="mt-3 max-w-3xl">
-        Every entry names the page it came from, the day that page was read and the words that were on it. Nothing here is inferred, rounded
-        or remembered, and an instrument that exists is never presented as one you can apply for today.
-      </p>
-    </div>
-    <div class="overflow-hidden rounded-sm md:order-last">
-      <Illustration />
+      {stats.news > 0 && (
+        <p class="meta mt-1 flex items-center gap-1.5">
+          <Icon name={ICON.date} aria-hidden="true" class="size-4 text-brand" />
+          {text.newsCount.replace("{n}", String(stats.news)).replace("{edition}", currentEdition)}
+        </p>
+      )}
+      <h1 class="page-title mt-2 max-w-3xl text-3xl text-balance sm:text-4xl">{text.tagline}</h1>
+      <p class="mt-4 max-w-3xl text-lg text-muted">{text.lead}</p>
+
+      <div class="mt-8 max-w-3xl">
+        <SearchBox action={searchUrl("/")} id="home-q" label={text.searchAcrossEurope} button={text.searchAction} />
+        <a href={searchUrl("/")} class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
+          {text.browseAcrossEurope}
+        </a>
+      </div>
+
+      <div class="mt-10 rounded-lg bg-page p-5">
+        <ul class="grid grid-cols-2 gap-4 sm:grid-cols-4" aria-label={text.statsLabel}>
+          {figures.map((figure) => (
+            <li class="flex items-center gap-3">
+              <Icon name={figure.icon} aria-hidden="true" class="size-5 shrink-0 text-brand" />
+              <p>
+                <span class="block text-2xl font-bold text-brand tabular-nums">{figure.value}</span>
+                <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+        <ul class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-line pt-4 text-meta">
+          {trust.map((point) => (
+            <li class="flex items-center gap-2 font-bold text-ink">
+              <Icon name={point.icon} aria-hidden="true" class="size-4 shrink-0 text-brand" />
+              {point.title}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   </section>
 
-  {isDraft(europe) && (
-    <div class="pb-8">
-      <DraftNotice language={language} />
-    </div>
-  )}
-
-  <section class="border-t border-line py-10" aria-labelledby="where">
-    <h2 id="where" class="scroll-mt-6 text-2xl font-bold">
-      {text.whereToLook}
-    </h2>
-    <p class="mt-2 max-w-3xl text-muted">
-      What applies to you is cumulative: the European framework, then your country, then your region. A region page shows all three, so you
-      never have to visit two pages to find out what you can use.
-    </p>
-    <ul class="mt-6 grid gap-4 sm:grid-cols-2">
-      {countries.map((country) => {
-        const regions = regionsOf(country.layer.level === "EU" ? "" : country.layer.country);
-        return (
-          <li class="rounded-sm border border-line bg-card">
-            <a href={href(country.layer)} class="flex min-h-(--spacing-target) flex-col justify-center gap-1 px-4 py-4 no-underline">
-              <span class="text-lg font-semibold text-ink">{country.data.officialName}</span>
-              <span class="text-meta text-muted">
-                {counted(country.data.resources.length, text.record)} · {counted(regions.length, text.territory)}
+  <section class="border-b border-line" aria-labelledby="countries">
+    <div class="wrap py-12">
+      <h2 id="countries" class="text-2xl font-bold">
+        {text.countriesTitle}
+      </h2>
+      <p class="meta mt-1">
+        {text.countriesLead
+          .replace("{territories}", counted(stats.territories, text.statTerritories))
+          .replace("{countries}", counted(stats.countries, text.statCountries))}
+      </p>
+      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {countries.map((country) => (
+          <li>
+            <a href={country.href} class="card card-link flex min-h-full items-center gap-3 p-5 no-underline">
+              <span aria-hidden="true" class="text-3xl leading-none">
+                {country.flag}
               </span>
+              <span class="flex min-w-0 flex-1 flex-col">
+                <span class="text-lg font-bold text-ink">{country.name}</span>
+                <span class="meta">
+                  {counted(country.records, text.statApplicable)} · {counted(country.territories, text.statTerritories)}
+                </span>
+              </span>
+              <Icon name={ICON.chevron} aria-hidden="true" class="size-5 shrink-0 text-muted" />
             </a>
           </li>
-        );
-      })}
-    </ul>
-  </section>
-
-  <section class="border-t border-line py-10" aria-labelledby="eu-records">
-    <h2 id="eu-records" class="scroll-mt-6 text-2xl font-bold">
-      What applies everywhere in the EU
-    </h2>
-    <p class="mt-2 max-w-3xl text-muted">{europe.data.summary}</p>
-    <div class="mt-6">
-      {europe.data.resources.map((resource) => (
-        <ResourceRow resource={resource} language={language} recordedIn={europe} />
-      ))}
+        ))}
+      </ul>
+      <p class="meta mt-4">{text.euAlso.replace("{n}", String(europe.data.resources.length))}</p>
     </div>
   </section>
 
-  <section class="border-t border-line py-10" aria-labelledby="limits">
-    <h2 id="limits" class="scroll-mt-6 text-2xl font-bold">
-      {text.limits}
-    </h2>
-    <ul class="mt-3 max-w-3xl list-disc space-y-2 ps-5">
-      {europe.data.limitations.map((limitation) => (
-        <li>{limitation}</li>
-      ))}
-    </ul>
-    <h3 class="mt-6 text-lg font-bold">{text.coverageNote}</h3>
-    <p class="mt-2 max-w-3xl text-muted">{europe.data.coverage.note}</p>
-    <p class="mt-6 text-meta text-muted">
-      {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
-      <time datetime={europe.data.published}>{dateIn(europe.data.published, language)}</time>
-    </p>
+  <section class="border-b border-line bg-card" aria-labelledby="needs">
+    <div class="wrap py-12">
+      <Needs
+        resources={everything}
+        language={language}
+        hrefFor={(goal) => searchUrl("/", { selected: { kind: [...(GOALS.find(({ id }) => id === goal)?.kinds ?? [])] } })}
+        hrefForKind={(kind) => searchUrl("/", { selected: { kind: [kind] } })}
+      />
+    </div>
   </section>
-</TerritoryLayout>
+
+  <div class="wrap py-8">
+    <p class="meta flex items-start gap-2">
+      <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
+      <span>{editionNote}</span>
+    </p>
+  </div>
+</SiteLayout>

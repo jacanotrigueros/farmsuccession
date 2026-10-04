@@ -18,8 +18,13 @@ import { ICON, kindIcon } from "../lib/icons.ts";
 import { kindLabel } from "../lib/vocabulary.ts";
 import { counted, situation, words } from "../lib/words.ts";
 
-type Props = { resources: readonly Resource[]; language: string; hrefFor: (goal: GoalId) => string };
-const { resources, language, hrefFor } = Astro.props;
+type Props = {
+  resources: readonly Resource[];
+  language: string;
+  hrefFor: (goal: GoalId) => string;
+  hrefForKind?: (kind: Resource["kind"]) => string;
+};
+const { resources, language, hrefFor, hrefForKind } = Astro.props;
 const text = words(language);
 
 /** One illustration per situation, kept to the four a reader arrives with. */
@@ -71,7 +76,7 @@ const others = [...new Set(resources.filter((resource) => goalOf(resource.kind) 
 
 {others.length > 0 && (
   <>
-    <h3 class="mt-10 text-lg font-bold">{situation("context", language).title}</h3>
+    <h3 class="mt-10 text-lg font-bold">{text.kindsTitle}</h3>
     <ul class="mt-2 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
       {others.map(({ kind, count }) => (
         <li class="relative flex items-start gap-3 border-b border-line py-4" data-kind={kind}>
@@ -79,7 +84,10 @@ const others = [...new Set(resources.filter((resource) => goalOf(resource.kind) 
             <Icon name={kindIcon(kind)} aria-hidden="true" class="size-5" />
           </span>
           <p class="flex min-w-0 flex-1 items-baseline justify-between gap-3">
-            <a href={hrefFor("context")} class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
+            <a
+              href={hrefForKind ? hrefForKind(kind) : hrefFor("context")}
+              class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline"
+            >
               {kindLabel(kind, language)}
             </a>
             <span class="meta tabular-nums">{count}</span>

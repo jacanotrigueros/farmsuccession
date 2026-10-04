@@ -158,3 +158,29 @@ export const newsAbout = (id: string, edition = currentEdition): NewsItem[] =>
     .flatMap(({ data }) => data.news)
     .filter((item) => item.resourceIds?.includes(id))
     .toSorted((a, b) => b.date.localeCompare(a.date));
+
+/** The corpus in numbers, counted from the files rather than written down anywhere. */
+export function corpusStats(edition = currentEdition): {
+  records: number;
+  countries: number;
+  territories: number;
+  sources: number;
+  quotes: number;
+  news: number;
+  drafts: number;
+  files: number;
+} {
+  const here = territoriesOf(edition);
+  const resources = here.flatMap(({ data }) => data.resources);
+  const sources = resources.flatMap(({ sources: own }) => own);
+  return {
+    records: resources.length,
+    countries: countryTerritories(edition).length,
+    territories: regionTerritories(edition).length,
+    sources: new Set(sources.map(({ url }) => url)).size,
+    quotes: sources.reduce((total, { quotes }) => total + quotes.length, 0),
+    news: here.reduce((total, { data }) => total + data.news.length, 0),
+    drafts: here.filter((territory) => isDraft(territory)).length,
+    files: here.length,
+  };
+}
