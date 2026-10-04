@@ -1,0 +1,59 @@
+---
+/**
+ * Searching inside one country, at the word that country uses for searching.
+ *
+ * The route is the scope. A national search accepts its own country and the layers it inherits — today the
+ * European one — so a European framework shows up in every country and a record of another country never
+ * does, because the query cannot name it. A `country` in the query string is ignored here, and a territory
+ * belonging to somewhere else is dropped: `search-scope.js` holds that rule, and this page and the
+ * reader's browser both read it from there.
+ */
+import SearchView from "../../components/SearchView.astro";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { countryTerritories, euTerritory, hubTerritories, languageOf, regionsOf, type Territory } from "../../lib/corpus.ts";
+import { facetsFor, type Listed } from "../../lib/facets.ts";
+import { words } from "../../lib/words.ts";
+import { SEARCH_SLUGS } from "../../../public/search-scope.js";
+
+export function getStaticPaths() {
+  return countryTerritories().map((territory: Territory) => {
+    const iso = territory.layer.level === "EU" ? "" : territory.layer.country;
+    return { params: { country: iso.toLowerCase(), search: SEARCH_SLUGS[iso] ?? SEARCH_SLUGS.EU }, props: { territory } };
+  });
+}
+
+const { territory } = Astro.props;
+const language = languageOf(territory);
+const text = words(language);
+const iso = territory.layer.level === "EU" ? "" : territory.layer.country;
+
+const europe = euTerritory();
+const inside = [
+  ...(europe ? [europe] : []),
+  territory,
+  ...hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === iso),
+  ...regionsOf(iso),
+];
+const listed: Listed[] = inside.flatMap((from) =>
+  from.data.resources.map((resource) => ({ resource, from, inherited: from !== territory })),
+);
+
+const languages = [...new Set(inside.map((each) => languageOf(each)))].toSorted();
+const title = text.searchHere.replace("{where}", territory.data.officialName);
+const lead = text.searchScoped.replace("{where}", territory.data.officialName);
+---
+
+<SiteLayout title={`${title} — ${text.siteName}`} description={lead} language={language} current={`/${iso.toLowerCase()}/`}>
+  <div class="wrap">
+    <SearchView
+      language={language}
+      country={iso}
+      title={title}
+      lead={lead}
+      listed={listed}
+      facets={facetsFor(listed, language, iso)}
+      languages={languages}
+      inherits={["EU"]}
+    />
+  </div>
+</SiteLayout>

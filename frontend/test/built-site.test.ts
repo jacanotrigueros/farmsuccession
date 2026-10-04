@@ -28,9 +28,32 @@ test("the build produced pages at all, so an empty run cannot pass as a clean on
   assert.ok(pages.length > 0, "no HTML in dist/: run npm run build before the tests");
 });
 
-test("no page ships JavaScript", () => {
+/**
+ * The whole licence the site gives JavaScript: a page may load a file only because of something it
+ * actually carries, and never inline.
+ *
+ * `/search.js` fills in a list that is already complete; `/apply.js` answers "can I apply now?" again for
+ * the reader's own day, from dates that are already on the page. Both only re-say something the HTML has
+ * already said, and neither is how anything gets read. An inline script would break the other half of the
+ * promise, because it cannot be read before it runs or audited afterwards.
+ */
+test("a page ships JavaScript only for what it actually carries", () => {
   for (const { file, html } of pages) {
-    assert.doesNotMatch(html, /<script/iu, `${file} carries a script: the site is read without JavaScript, by design`);
+    const allowed = new Set<string>();
+    if (html.includes("data-search")) allowed.add("/search.js");
+    if (html.includes('class="apply')) allowed.add("/apply.js");
+
+    for (const [, src] of html.matchAll(/<script[^>]*\ssrc="([^"]+)"/giu)) {
+      assert.ok(
+        allowed.has(src ?? ""),
+        `${file} loads ${src}, and nothing on it needs that: a page that is only read is read without JavaScript`,
+      );
+    }
+    const written = [...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/giu)].map(([, body]) => (body ?? "").trim());
+    assert.ok(
+      written.every((body) => body === ""),
+      `${file} has an inline script, which cannot be read before it runs or audited afterwards`,
+    );
   }
 });
 
@@ -53,9 +76,38 @@ test("no page asks the reader's browser for anything from another host", () => {
   }
 });
 
+const STORAGE = /document\.cookie|localStorage|sessionStorage|indexedDB/u;
+
 test("no page stores anything in the reader's browser", () => {
   for (const { file, html } of pages) {
-    assert.doesNotMatch(html, /document\.cookie|localStorage|sessionStorage|indexedDB/u, `${file} touches browser storage`);
+    assert.doesNotMatch(html, STORAGE, `${file} touches browser storage`);
+  }
+});
+
+/**
+ * The promise has to survive a dependency. The search engine is somebody else's code running in the
+ * reader's browser, so what it may do is checked rather than assumed — and checked in `dist/`, which is
+ * what a reader would receive, not in the package it was built from.
+ */
+test("nothing the site ships to a browser stores anything there", () => {
+  const scripts = (function walk(dir: string): string[] {
+    return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) return walk(full);
+      return entry.name.endsWith(".js") ? [full] : [];
+    });
+  })(DIST);
+
+  assert.ok(
+    scripts.some((file) => path.basename(file) === "search.js"),
+    "no search.js in dist/: the enhancement is missing, and this check would pass without checking anything",
+  );
+  for (const file of scripts) {
+    assert.doesNotMatch(
+      readFileSync(file, "utf8"),
+      STORAGE,
+      `${path.relative(DIST, file)} touches browser storage. Nothing a reader is sent may keep anything on their machine, this project's own code or anybody else's.`,
+    );
   }
 });
 
@@ -67,8 +119,10 @@ test("every link inside the site reaches a page the build produced", () => {
       .map((entry) => `/${entry.name}`),
   );
   for (const { file, html } of pages) {
-    for (const [, href] of html.matchAll(/<a\b[^>]*\bhref\s*=\s*["'](\/[^"'#]*)/giu)) {
-      assert.ok(built.has(href ?? "") || assets.has(href ?? ""), `${file} links ${href}, which the build did not produce`);
+    for (const [, link] of html.matchAll(/<a\b[^>]*\bhref\s*=\s*["'](\/[^"'#]*)/giu)) {
+      // A query narrows what a page shows; it does not name a different page.
+      const href = (link ?? "").split("?")[0] ?? "";
+      assert.ok(built.has(href) || assets.has(href), `${file} links ${href}, which the build did not produce`);
     }
   }
 });

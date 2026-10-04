@@ -1,0 +1,21 @@
+---
+/**
+ * What kind of thing a record is, as a tag with its own icon.
+ *
+ * Every kind shares the brand colour on purpose: what tells them apart is the icon and the word, never a
+ * colour of their own. Status colours are the only ones that mean something by themselves, and they are
+ * kept well away from these — a category must never be readable as a statement about availability.
+ */
+import { Icon } from "astro-icon/components";
+import type { Resource } from "../lib/corpus.ts";
+import { kindIcon } from "../lib/icons.ts";
+import { kindLabel } from "../lib/vocabulary.ts";
+
+type Props = { kind: Resource["kind"]; language: string };
+const { kind, language } = Astro.props;
+---
+
+<span class="tag tag-kind" data-kind={kind}>
+  <Icon name={kindIcon(kind)} aria-hidden="true" />
+  {kindLabel(kind, language)}
+</span>

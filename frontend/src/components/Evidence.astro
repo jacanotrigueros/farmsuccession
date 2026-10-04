@@ -21,28 +21,28 @@ const { sources, language } = Astro.props;
 const text = words(language);
 ---
 
-<p class="max-w-measure text-ink-soft">{text.quotesExplained}</p>
+<p class="max-w-3xl text-muted">{text.quotesExplained}</p>
 
 <ol class="mt-5 space-y-6">
   {sources.map((source, index) => (
     <li id={`source-${index + 1}`} class="scroll-mt-6 grid grid-cols-[2.5rem_minmax(0,1fr)]">
-      <span class="text-ink-soft" aria-hidden="true">
+      <span class="text-muted" aria-hidden="true">
         [{index + 1}]
       </span>
       <div>
         <p>
-          <a href={source.url} rel="noopener" class="inline-flex min-h-tap items-center">
+          <a href={source.url} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center">
             {source.title}
           </a>
         </p>
-        <p class="text-meta break-words text-ink-soft">{source.url}</p>
-        <p class="text-meta text-ink-soft">
+        <p class="text-meta break-words text-muted">{source.url}</p>
+        <p class="text-meta text-muted">
           {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, language)}</time>
         </p>
         <ul class="mt-2 space-y-2">
           {source.quotes.map((quote) => (
             <li>
-              <blockquote class="border-s-2 border-line ps-3 text-ink-soft italic">{quote}</blockquote>
+              <blockquote class="border-s-2 border-line ps-3 text-muted italic">{quote}</blockquote>
             </li>
           ))}
         </ul>

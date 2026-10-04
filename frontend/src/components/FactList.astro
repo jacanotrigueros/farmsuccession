@@ -23,7 +23,7 @@ const { rows } = Astro.props;
 <dl class="mt-4">
   {rows.map(({ label, value, datetime }) => (
     <div class="grid gap-x-6 border-t border-line py-3 @lg:grid-cols-[14rem_minmax(0,1fr)]">
-      <dt class="text-ink-soft">{label}</dt>
+      <dt class="text-muted">{label}</dt>
       <dd class="mt-0.5 @lg:mt-0">{datetime ? <time datetime={datetime}>{value}</time> : value}</dd>
     </div>
   ))}

@@ -3,6 +3,7 @@ import path from "node:path";
 
 import tailwind from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
+import icon from "astro-icon";
 
 /**
  * Where the repository is, injected as a constant because this file is the only one that can know.
@@ -18,12 +19,15 @@ const repositoryRoot = path.resolve(import.meta.dirname, "..");
  * A static site, built once and served as files.
  *
  * Nothing here adds a client runtime: there is no framework integration, no prefetching and no
- * third-party request, because the audience is on a rural connection and often on a phone. The site also
+ * third-party request, because the audience is on a rural connection and often on a phone. The icon set is
+ * the same kind of promise: astro-icon writes each icon into the page as inline SVG while the site is
+ * built, so there is no icon font, no sprite to fetch and nothing left at runtime. The site also
  * reads the repository's own `src/` for the types and the territorial model the validators use, which is
  * why Vite is allowed to resolve one directory above this one.
  */
 export default defineConfig({
   site: "https://farmsuccession.eu",
+  integrations: [icon()],
   trailingSlash: "always",
   build: { format: "directory" },
   devToolbar: { enabled: false },

@@ -15,7 +15,8 @@
  */
 import { recordHref, type Resource, type Territory } from "../lib/corpus.ts";
 import { dateIn } from "../lib/language.ts";
-import { kindLabel, stateLabel } from "../lib/vocabulary.ts";
+import KindTag from "./KindTag.astro";
+import StatusTag from "./StatusTag.astro";
 import { counted, words } from "../lib/words.ts";
 
 type Props = { resource: Resource; language: string; recordedIn: Territory; inherited?: boolean; showKind?: boolean };
@@ -32,20 +33,16 @@ const from = recordedIn.layer.level === "EU" ? text.europe : recordedIn.data.off
 
 <article class="border-t border-line py-5 first:border-t-0">
   <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-    <h3 class="text-lead font-semibold">
-      <a href={recordHref(recordedIn.layer, resource.id)} class="inline-flex min-h-tap items-center">
+    <h3 class="text-lg font-semibold">
+      <a href={recordHref(resource.id)} class="inline-flex min-h-(--spacing-target) items-center">
         {resource.name}
       </a>
     </h3>
-    {showKind && (
-      <span class="rounded-full bg-accent-wash px-2.5 py-0.5 text-meta font-medium text-accent-strong">
-        {kindLabel(resource.kind, language)}
-      </span>
-    )}
-    {resource.status !== "ACTIVE" && <span class="text-meta font-medium text-caution">{stateLabel(resource.status, language)}</span>}
+    {showKind && <KindTag kind={resource.kind} language={language} />}
+    <StatusTag status={resource.status} language={language} />
   </div>
 
-  <p class="mt-1 text-meta text-ink-soft">
+  <p class="mt-1 text-meta text-muted">
     {resource.operator}
     {inherited && (
       <>
@@ -55,9 +52,9 @@ const from = recordedIn.layer.level === "EU" ? text.europe : recordedIn.data.off
     )}
   </p>
 
-  <p class="mt-2 max-w-measure">{resource.whatItOffers}</p>
+  <p class="mt-2 max-w-3xl">{resource.whatItOffers}</p>
 
-  <p class="mt-2 text-meta text-ink-soft">
+  <p class="mt-2 text-meta text-muted">
     {host}
     {" · "}
     {counted(resource.sources.length, text.source)}

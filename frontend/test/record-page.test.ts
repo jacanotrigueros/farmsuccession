@@ -31,18 +31,13 @@ function snapshots(dir: string): Snapshot[] {
   });
 }
 
-/** Where the site puts a record, derived from the data rather than read back from the build. */
-function recordDirectory(snapshot: Snapshot, id: string): string {
-  const iso = snapshot.country?.toLowerCase() ?? "";
-  if (snapshot.schemaId === "eu-snapshot") return path.join("record", id);
-  if (snapshot.schemaId === "country-snapshot") return path.join(iso, "record", id);
-  return path.join(iso, snapshot.hub ?? snapshot.region ?? "", "record", id);
-}
+/** Where the site puts a record: one address that names the record and nothing else. */
+const recordDirectory = (id: string): string => path.join("resources", id);
 
 const built = snapshots(path.join(EDITIONS, edition)).flatMap((snapshot) =>
   snapshot.resources.map((resource) => ({
     resource,
-    directory: recordDirectory(snapshot, resource.id),
+    directory: recordDirectory(resource.id),
   })),
 );
 
@@ -133,7 +128,9 @@ test("no code from the schema reaches a reader", () => {
   })(DIST);
 
   for (const file of pages) {
-    const html = readFileSync(file, "utf8");
+    // What a reader sees, which is the text between the tags. A code inside an attribute is a hook for a
+    // machine — a filter value, the state a script re-reads — and no reader is ever shown one.
+    const html = readFileSync(file, "utf8").replaceAll(/<[^>]*>/gu, " ");
     for (const code of codes) {
       assert.doesNotMatch(
         html,

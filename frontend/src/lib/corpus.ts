@@ -31,9 +31,13 @@ const fromRepository = <T>(file: string): Promise<T> =>
 
 const { loadSnapshots } = await fromRepository<typeof import("../../../src/editions.ts")>("src/editions.ts");
 const { loadTerritories } = await fromRepository<typeof import("../../../src/territories.ts")>("src/territories.ts");
-const { ancestorLayers, layerKey, snapshotLayer } = await fromRepository<typeof import("../../../src/layers.ts")>("src/layers.ts");
+const { ancestorLayers, layerKey, leafLayers, snapshotLayer } =
+  await fromRepository<typeof import("../../../src/layers.ts")>("src/layers.ts");
 
 export type { Layer, Resource, EditionSnapshot, NewsItem, Source, Call, Metric, ContactPoint };
+
+/** Every region a layer reaches, which is where its records apply. */
+export { leafLayers };
 
 /** One territory of one edition: its file, its place in the tree, and what it publishes. */
 export type Territory = { file: string; layer: Layer; data: EditionSnapshot };
@@ -133,13 +137,14 @@ export const records = (edition = currentEdition): RecordedResource[] =>
   territoriesOf(edition).flatMap((territory) => territory.data.resources.map((resource) => ({ resource, territory })));
 
 /**
- * Where a record lives: under its own territory, behind a segment of its own.
+ * Where a record lives: one address, naming the record and nothing else.
  *
- * The segment is what keeps the two routes apart by construction rather than by luck — a record id and a
- * region slug are both slugs, and nothing in the schema stops a national record from being called
- * `galicia`.
+ * The identifier is unique across the edition and already begins with its territory, so the path would
+ * only repeat what the slug says, and a reader arriving from a search engine lands on the same address
+ * however they got there. It also survives a record changing layer between editions, which a territorial
+ * path would not.
  */
-export const recordHref = (layer: Layer, id: string): string => `${href(layer)}record/${id}/`;
+export const recordHref = (id: string): string => `/resources/${id}/`;
 
 /**
  * This edition's news about one record, wherever it was reported.

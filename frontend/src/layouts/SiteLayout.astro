@@ -1,8 +1,9 @@
 ---
 /**
- * Every page of the site. It ships no JavaScript, makes no third-party request and sets no cookie, and
- * those three are requirements rather than preferences: the reader may be on a phone on a rural
- * connection, and nothing here is worth a byte they did not ask for.
+ * Every page of the site. It makes no third-party request and sets no cookie, and the only page that
+ * ships a script is the one for searching — which still reads without it. Those are requirements rather
+ * than preferences: the reader may be on a phone on a rural connection, and nothing here is worth a byte
+ * they did not ask for.
  *
  * The page's language is the language its territory's text is written in, which is data rather than a
  * site-wide setting — the European layer is written in English, Spain's in Spanish.
@@ -21,6 +22,7 @@ type Props = {
 
 const { title, description, language, current } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const socialCard = new URL("/social-card.png", Astro.site).href;
 ---
 
 <!doctype html>
@@ -35,12 +37,35 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    {/*
+     * The card a link to this site shows when it is shared. It is first-party and committed like every
+     * other asset here, and it is absolute because the service drawing the card is not reading it from
+     * this page's own address.
+     */}
+    <meta property="og:image" content={socialCard} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="FarmSuccession · farmsuccession.eu" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialCard} />
+    {/*
+     * The SVG scales to any size a browser asks for; the ICO carries 16, 32, 48 and 64 for the ones that
+     * will not read it. The two below are for the places that read neither: iOS takes a screenshot of the
+     * page without an apple-touch-icon, and Android offers no install without a manifest.
+     */}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#f3f5f1" />
   </head>
   <body class="min-h-screen flex flex-col">
     <a
       href="#content"
-      class="sr-only focus:not-sr-only focus:absolute focus:z-10 focus:m-3 focus:rounded-sm focus:bg-paper focus:px-4 focus:py-3 focus:text-accent-strong"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-10 focus:m-3 focus:rounded-sm focus:bg-card focus:px-4 focus:py-3 focus:text-brand-strong"
     >
       Skip to the content
     </a>
@@ -48,6 +73,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <main id="content" class="flex-1">
       <slot />
     </main>
-    <Footer language={language} />
+    <Footer language={language} current={current} />
   </body>
 </html>

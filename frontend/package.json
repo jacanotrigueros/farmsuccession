@@ -6,17 +6,22 @@
   "description": "The static site: it renders the editions the gate has already judged, and decides nothing about what is publishable.",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/build-index.ts",
     "preview": "astro preview",
     "typecheck": "tsc --project tsconfig.check.json",
     "test": "node --test \"test/**/*.test.ts\"",
     "check": "npm run typecheck && npm run build && npm test"
   },
   "dependencies": {
-    "astro": "7.3.5"
+    "@fontsource-variable/inter": "5.3.0",
+    "@fontsource/source-serif-4": "5.3.0",
+    "@iconify-json/lucide": "1.2.135",
+    "astro": "7.3.5",
+    "astro-icon": "1.2.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.3.3",
+    "pagefind": "1.5.2",
     "tailwindcss": "4.3.3"
   }
 }

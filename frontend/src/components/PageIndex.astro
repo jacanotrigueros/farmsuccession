@@ -11,13 +11,13 @@ const text = words(language);
 ---
 
 <nav aria-label={text.onThisPage} class="text-meta">
-  <h2 class="font-semibold tracking-wide text-ink-soft uppercase">{text.onThisPage}</h2>
+  <h2 class="font-semibold tracking-wide text-muted uppercase">{text.onThisPage}</h2>
   <ul class="mt-2">
     {sections.map(({ id, label, count }) => (
       <li>
-        <a href={`#${id}`} class="flex min-h-tap items-center justify-between gap-3 no-underline">
-          <span class="text-ink-soft hover:text-ink">{label}</span>
-          {count !== undefined && <span class="text-ink-soft">{count}</span>}
+        <a href={`#${id}`} class="flex min-h-(--spacing-target) items-center justify-between gap-3 no-underline">
+          <span class="text-muted hover:text-ink">{label}</span>
+          {count !== undefined && <span class="text-muted">{count}</span>}
         </a>
       </li>
     ))}
