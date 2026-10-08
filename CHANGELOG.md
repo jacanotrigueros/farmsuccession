@@ -178,7 +178,28 @@ release.
   that reason — their chain is anchored in Izenpe, and no cross-signed certificate links
   it to a root this runtime trusts.
 
+### Italy
+
+- **The 2026 edition of Italy**: 22 files, 62 records, 123 sources and 419 quotes, with a
+  research brief for the national layer and for each of the 19 regions and two autonomous
+  provinces. Nothing operative is documented nationally: the national instruments belong
+  to ISMEA and no page specific enough to cite was found, and the file says so.
+- Italy leans the opposite way from France: establishment aid in 20 of its 21 territories
+  and a qualifying course in 10, but a transfer or matching service in only 2.
+- Three claims no source supported were refused at the door: two invented a minimum age of
+  18 where the call quotes only "di età non superiore a 40 anni", and one named a deadline
+  that no quote of its record mentions.
+- Four territories failed their own gate because their sources had moved, and all four were
+  corrected against what those pages say now rather than edited to pass: the Campanian call
+  closed on 30 September, the Piedmontese one reads Scaduto, the Venetian one opened on 2
+  October with its publication in the BUR, and a Tuscan chamber replaced the weekly sheet
+  that carried a remaining-budget figure, which is therefore no longer published here.
+- Italian is the fifth language. The check that no schema code reaches a reader now skips
+  quotations, because an Italian training course quotes its own page — "COMPILA IL FORM
+  ONLINE" — and FORM is also a contact channel in the schema. A citation edited to satisfy
+  a check is no longer evidence, so the rule that gave way is the other one.
+
 ### Not here yet
 
-- Italy and Portugal: researched, not published here.
+- Portugal: researched, not published here.
 - A published site, and therefore anything to visit.
