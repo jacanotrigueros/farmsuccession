@@ -34,10 +34,10 @@ this file in the same change, so nothing here ever describes something the
 repository does not have.
 
 `data/editions/2026` and `research/` hold the real data: the European layer; Spain,
-with its three groupings of several regions and its 28 regional territories; and
-Germany, with its 16 Länder, each territory with one research brief. France, Italy and
-Portugal are researched and are not here yet, so the catalogue carries the EU layer,
-Spain and Germany and nothing else. The two halves of that have to agree: a file whose
+with its three groupings of several regions and its 28 regional territories; Germany,
+with its 16 Länder; and France, with its 18 régions, each territory with one research
+brief. Italy and Portugal are researched and are not here yet, so the catalogue carries
+the EU layer, Spain, Germany and France and nothing else. The two halves of that have to agree: a file whose
 country the catalogue does not define is an error rather than a file waiting for its
 country, and a country the catalogue defines with no file of its own is the same
 mistake the other way round. `test/territories.test.ts` compares the two instead of
@@ -142,8 +142,8 @@ Three data schemas are settled: `territories.schema.json` (the catalogue),
 `config/` and carries no version, because nothing publishes it.
 
 `data/territories.json` is the catalogue, keyed by ISO code plus `EU`. It
-carries the EU layer, Spain and Germany: a country is added with its data, never
-ahead of it. `src/layers.ts` is the one implementation of the territorial tree —
+carries the EU layer, Spain, Germany and France: a country is added with its data,
+never ahead of it. `src/layers.ts` is the one implementation of the territorial tree —
 anything that needs to know what a page shows asks it, so a reader and a
 validator cannot disagree. `src/territories.ts` loads the catalogue and also
 enforces the rules the schema cannot express: a region belongs to exactly one
@@ -202,6 +202,16 @@ FAIL or UNCHECKED, and the third is not a softer failure: it means this run coul
 not read the page — no response, a bot challenge, a server error, a page a browser
 would have to render — so it proves nothing either way. Never report an UNCHECKED
 page as verified, and never "fix" one by removing the quote.
+
+**A verdict about a source comes from the series of runs, never from the run in
+front of you.** Every run appends a line to `reports/source-checks.jsonl`, which is
+committed, and `npm run report:sources` reads it: a page is only GONE after it
+answered with a refusal, or lost its quotes, on two different days, and silence
+never becomes GONE at all. A run where half or more of what it checked never
+answered is a reading about the machine it ran on, and its totals are not a
+measurement of the corpus — see [`decisions/025`](decisions/025-a-source-is-gone-when-the-series-says-so.md)
+for the French sweep that proved it, where 36 pages went unread one evening and
+every one of them answered the next day.
 
 One research pass is one territory in one edition: `npm run prompt` builds the
 instructions for it, the pass produces that territory's edition file and its

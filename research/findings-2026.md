@@ -106,7 +106,7 @@ Still open:
 What this file does not cover:
 
 - Le Répertoire Départ Installation, les Safer et les points d'accueil ont été identifiés, mais leurs portées et pages nationales d'accès doivent encore être consolidées.
-- Les aides financières sont principalement documentées dans les fichiers régionaux.
+- Les aides financières sont principalement documentées sur les pages des régions.
 
 ### Canarias — grouping of several regions
 

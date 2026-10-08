@@ -15,6 +15,7 @@ import { isEntryPoint, runMain } from "./paths.ts";
 import { type CheckReport, type RunOptions, runChecks, summarize } from "./sources/check.ts";
 import { collectSourceChecks } from "./sources/collect.ts";
 import { type Fetcher, fetchPage } from "./sources/fetch.ts";
+import { appendRun, ledgerPathIn } from "./sources/ledger.ts";
 import { consoleOutput, type Output, renderReport, renderTotals, writeReport } from "./sources/report.ts";
 import { installIntermediates } from "./sources/tls.ts";
 
@@ -55,6 +56,8 @@ export async function checkSources(options: CheckOptions = {}): Promise<SourceCh
 
   const totals = summarize(reports);
   const reportFile = writeReport("sources", { totals, reports }, options.reportsDir);
+  // Appended before the totals are printed, so a run that is interrupted afterwards is still recorded.
+  appendRun({ edition: options.edition ?? "", scope: options.filter ?? "all", totals, reports }, ledgerPathIn(options.reportsDir));
   out.log(`${renderTotals(totals)} — full report in ${reportFile}`);
   return { planned: planned.length, reports, reportFile };
 }
