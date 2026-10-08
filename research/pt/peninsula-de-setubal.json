@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "PT",
+    "region": "peninsula-de-setubal"
+  },
+  "language": "pt",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "No continente o prémio à instalação e o acompanhamento técnico C.5.5 são nacionais e não se repetem na região.",
+    "A pesquisa de 2026-09-28 cobriu bolsas de terras por concelho, ADREPES e organizações agrícolas com presença em Palmela/Poceirão.",
+    "A AADS continua listada no diretório DGADR de balcões SAAF e o Município de Palmela documentou apoio técnico, consultoria, formação e acompanhamento de candidaturas; isso prova atividade de aconselhamento, mas não por si só um serviço específico de instalação ou sucessão.",
+    "A estratégia ADREPES inclui empreendedorismo e apoio a atividades locais, mas não foi localizada uma via de entrada agrícola específica que cumpra os critérios FarmSuccession.",
+    "A oferta formativa AJAP encontrada em 2026 é nacional/à distância e não deve ser atribuída à região."
+  ],
+  "portals": [
+    {
+      "name": "DGADR — Balcões SAAF",
+      "url": "https://saaf.dgadr.gov.pt/",
+      "what": "Diretório oficial de balcões de aconselhamento; inclui AADS no Poceirão."
+    },
+    {
+      "name": "ADREPES",
+      "url": "https://www.adrepes.pt/",
+      "what": "Desenvolvimento local da Península de Setúbal; verificar chamadas e serviços agrícolas concretos sem confundir apoio empresarial genérico com instalação."
+    },
+    {
+      "name": "Município de Palmela",
+      "url": "https://www.cm-palmela.pt/",
+      "what": "Fonte municipal para protocolos e apoio a organizações agrícolas do concelho."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "set-bolsa",
+      "kinds": ["LAND_BANK"],
+      "query": "bolsa de terras municipal Península de Setúbal Palmela Sesimbra Montijo terrenos agrícolas câmara municipal"
+    },
+    {
+      "id": "set-palmela-land",
+      "kinds": ["LAND_BANK"],
+      "query": "\"bolsa de terras\" Palmela agricultura câmara municipal"
+    },
+    {
+      "id": "set-montijo-land",
+      "kinds": ["LAND_BANK"],
+      "query": "\"bolsa de terras\" Montijo agricultura câmara municipal"
+    },
+    {
+      "id": "set-sesimbra-land",
+      "kinds": ["LAND_BANK"],
+      "query": "\"bolsa de terras\" Sesimbra agricultura câmara municipal"
+    },
+    {
+      "id": "set-advice",
+      "kinds": ["ADVICE"],
+      "query": "\"jovens agricultores\" Palmela apoio aconselhamento 2026"
+    },
+    {
+      "id": "set-adrepes",
+      "kinds": ["ADVICE", "FINANCIAL_SUPPORT"],
+      "query": "site:adrepes.pt agricultura jovens agricultores instalação terras Palmela Setúbal 2026"
+    },
+    {
+      "id": "set-aads-install",
+      "kinds": ["ADVICE"],
+      "query": "\"Associação dos Agricultores do Distrito de Setúbal\" \"instalação\" agricultor"
+    }
+  ],
+  "leads": [
+    {
+      "id": "set-bolsas-municipais",
+      "name": "Bolsas de terras municipais na Península de Setúbal",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "As pesquisas gerais e por Palmela, Montijo e Sesimbra não localizaram página atual com inventário, inscrição ou intermediação municipal de terras. Isto documenta a passagem, não prova inexistência.",
+      "foundBy": "set-bolsa",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "set-aads-advice",
+      "name": "AADS — Associação dos Agricultores do Distrito de Setúbal",
+      "url": "https://saaf.dgadr.gov.pt/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "O diretório oficial DGADR mantém a AADS no Poceirão e Palmela documentou apoio técnico, consultoria, formação e candidaturas. Falta uma fonte contemporânea do operador/serviço que demonstre uma oferta específica para primeira instalação, sucessão ou acesso à terra e a respetiva via de acesso.",
+      "foundBy": "set-aads-install",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "set-adrepes-entrepreneurship",
+      "name": "ADREPES — apoio ao empreendedorismo e desenvolvimento local",
+      "url": "https://www.adrepes.pt/estrategia-14-20/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "A estratégia territorial descreve apoio ao empreendedorismo e capacitação de forma ampla, mas não estabelece um serviço concreto específico de instalação/relevo agrícola acessível ao utilizador final.",
+      "foundBy": "set-adrepes",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "set-ajap-online-training",
+      "name": "Formação AJAP 2026",
+      "url": "https://formacao.ajap.pt/default.aspx",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Oferta nacional e maioritariamente à distância; não é um instrumento próprio da Península de Setúbal e as ações consultadas não justificam duplicação regional.",
+      "foundBy": "set-advice",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "pt-bolsa-terras-local",
+      "status": "NOT_FOUND",
+      "reason": "Pesquisas gerais e por Palmela, Montijo e Sesimbra não localizaram um mecanismo municipal/intermunicipal atual de oferta, procura, inscrição ou intermediação de terras.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-apoio-regional-instalacao",
+      "status": "NOT_APPLICABLE",
+      "reason": "No continente o apoio à instalação de jovens agricultores é nacional; não foi identificado um apoio financeiro próprio da Península de Setúbal.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-servicos-acompanhamento",
+      "status": "NOT_FOUND",
+      "reason": "A AADS tem evidência de aconselhamento agrícola atual e apoio técnico documentado, mas não foi possível provar nesta passagem um serviço atual especificamente ligado à primeira instalação, sucessão ou acesso à terra; fica TO_CHECK.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primeira passagem com a lista de verificação nacional: nenhum recurso regional encontrado."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revisão alargada a municípios, ADREPES e organizações agrícolas. Nenhuma bolsa local foi demonstrada; AADS permanece TO_CHECK porque o aconselhamento atual não foi ligado por fonte suficiente a primeira instalação/relevo; restantes candidatos eram genéricos ou nacionais."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisão de ligações: a lista de balcões do SAAF da DGADR devolve 404; o portal, a pista e o método de cobertura remetem para https://saaf.dgadr.gov.pt/. Sem alterações de recursos."
+    }
+  ]
+}

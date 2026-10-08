@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "PT",
+    "region": "grande-lisboa"
+  },
+  "language": "pt",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "O município de Sintra criou um programa de disponibilização de terrenos para fins agrícolas, florestais e silvopastoris, com cedência de prédios municipais e divulgação de prédios privados.",
+    "O arquivo municipal de 2026 disponibiliza o texto do programa de Sintra e liga o visor SIG; a chamada de terrenos municipais visível é de 2021/2022.",
+    "No continente o prémio à instalação de jovens agricultores é nacional, pelo que o instrumento regional equivalente não se aplica.",
+    "Cascais Ambiente e o município descrevem intermediação e registo MyCascais, mas não se confirmou inventário atual."
+  ],
+  "portals": [
+    {
+      "name": "Disponibilização de Terrenos de Sintra",
+      "url": "https://arquivo2026.cm-sintra.pt/dts",
+      "what": "Regras municipais, consulta da plataforma e contacto para terrenos de Sintra."
+    },
+    {
+      "name": "Banco de Terras Cascais Ambiente",
+      "url": "https://ambiente.cascais.pt/pt/terrasdecascais/banco-terras",
+      "what": "Intermediação municipal de terrenos e acesso à plataforma de Cascais."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "lis-bolsa",
+      "kinds": ["LAND_BANK"],
+      "query": "bolsa de terras municipal Lisboa Loures Sintra Mafra terrenos agrícolas cedência câmara"
+    },
+    {
+      "id": "lis-sintra-dts",
+      "kinds": ["LAND_BANK"],
+      "query": "site:arquivo2026.cm-sintra.pt/dts disponibilização terrenos plataforma municipal"
+    },
+    {
+      "id": "lis-cascais-banco",
+      "kinds": ["LAND_BANK"],
+      "query": "site:ambiente.cascais.pt banco terras registo MyCascais"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lis-sintra-terrenos",
+      "name": "Programa municipal de disponibilização de terrenos de Sintra",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "reason": "O arquivo municipal explica duas vias de disponibilização e liga plataforma; a oferta atual não está comprovada, estado UNKNOWN.",
+      "foundBy": "lis-bolsa",
+      "checkedOn": "2026-09-28",
+      "url": "https://arquivo2026.cm-sintra.pt/dts",
+      "resourceId": "pt-sintra-disponibilizacao-terrenos"
+    },
+    {
+      "id": "lis-cascais-banco-terras",
+      "name": "Banco de Terras de Cascais",
+      "url": "https://ambiente.cascais.pt/pt/terrasdecascais/banco-terras",
+      "kind": "LAND_BANK",
+      "area": "Cascais",
+      "status": "ADMITTED",
+      "resourceId": "pt-cascais-banco-terras",
+      "reason": "As páginas do operador e do município descrevem intermediação e registo; inventário atual ainda não confirmado.",
+      "foundBy": "lis-cascais-banco",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "pt-bolsa-terras-local",
+      "status": "FOUND",
+      "checkedOn": "2026-09-28",
+      "leadId": "lis-sintra-terrenos"
+    },
+    {
+      "expectedId": "pt-apoio-regional-instalacao",
+      "status": "NOT_APPLICABLE",
+      "reason": "O prémio C.2.2.1 do PEPAC aplica-se ao continente e está na camada Portugal; não se verificou apoio exclusivo da Grande Lisboa.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-servicos-acompanhamento",
+      "status": "NOT_FOUND",
+      "reason": "Foram pesquisados AJAP, A2S, CCDR, municípios e cooperativas; não foi comprovado um serviço distinto de acompanhamento local à instalação. C.5.5 é herdado do país.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primeira passagem com a lista de verificação nacional: nenhum recurso admitido; programa municipal de terrenos com páginas em erro."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Sintra e Cascais admitidos como mecanismos municipais de terras com operação atual não demonstrada; acompanhamento C.5.5 permanece nacional."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisão de ligações: o endereço antigo do Gabinete de Desenvolvimento no sítio da Câmara de Sintra devolve 404; o método de cobertura remete para o sítio atual e para o arquivo 2026 já citado. Sem alterações de recursos."
+    }
+  ]
+}

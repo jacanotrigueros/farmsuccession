@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "PT",
+    "region": "regiao-autonoma-dos-acores"
+  },
+  "language": "pt",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Os Açores têm autoridade de gestão e intervenções PEPAC próprias; não herdar o estado dos concursos do continente nem da Madeira.",
+    "A página oficial do GPP resolve a lacuna anterior: confirma E.7.1, os três períodos de 2026 e a submissão via GestPDR.",
+    "O regime regional de cessação liga explicitamente cedente, cessionário, transferência de terras e substituição por agricultores mais jovens; sem nova janela comprovada, tratá-lo como HISTORICAL.",
+    "O portal Jovem Agricultor indexado descreve apoio técnico pelos Serviços de Desenvolvimento Agrário e FORJAGRI, mas as páginas primárias devolveram 403 em abertura direta nesta sessão: manter TO_CHECK.",
+    "E.1.1 e E.2.2 constam do PEPAC Açores no GPP, sem concurso atual visível na página de candidaturas; não inferir serviço final operacional.",
+    "Não foi localizado um mecanismo de bolsa/banco de terras regional ou municipal."
+  ],
+  "portals": [
+    {
+      "name": "GPP — candidaturas PEPAC",
+      "url": "https://www.gpp.pt/index.php/pepac/pepac-candidaturas",
+      "what": "Calendário oficial e períodos de candidatura das intervenções PEPAC, incluindo E.7.1 Açores."
+    },
+    {
+      "name": "GPP — legislação PEPAC",
+      "url": "https://www.gpp.pt/index.php/pepac/pepac-legislacao-nacional-intervencoes-de-apoio",
+      "what": "Legislação vigente das intervenções PEPAC Açores."
+    },
+    {
+      "name": "Programa Jovem Agricultor Açores",
+      "url": "https://jovemagricultor.azores.gov.pt/",
+      "what": "Portal regional de jovens agricultores; nesta sessão as páginas diretas devolveram 403 e só devem ser usadas como leads enquanto não forem reabertas."
+    },
+    {
+      "name": "Diário da República — cessação agrícola Açores",
+      "url": "https://diariodarepublica.pt/dr/detalhe/decreto-legislativo-regional/14-2020-136600051",
+      "what": "Texto legal do regime regional de cessação e transferência para cessionários."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "acores-young",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:gpp.pt E.7.1 Açores 2026 jovens agricultores"
+    },
+    {
+      "id": "acores-land",
+      "kinds": ["LAND_BANK"],
+      "query": "site:portal.azores.gov.pt bolsa de terras banco de terras agricultura Açores"
+    },
+    {
+      "id": "acores-transfer",
+      "kinds": ["SUCCESSION_SERVICE"],
+      "query": "Açores cessação atividade agrícola transmissão exploração cessionário"
+    },
+    {
+      "id": "acores-advice",
+      "kinds": ["ADVICE"],
+      "query": "site:jovemagricultor.azores.gov.pt apoio técnico jovem agricultor Açores"
+    },
+    {
+      "id": "acores-training",
+      "kinds": ["TRAINING", "FINANCIAL_SUPPORT"],
+      "query": "site:jovemagricultor.azores.gov.pt FORJAGRI formação jovem agricultor Açores 2026"
+    }
+  ],
+  "leads": [
+    {
+      "id": "acores-e71-young",
+      "name": "E.7.1 Apoio à instalação de jovens agricultores",
+      "url": "https://www.gpp.pt/index.php/pepac/pepac-candidaturas",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "acores-e71-instalacao-jovens-agricultores",
+      "reason": "O GPP aberto diretamente confirma a intervenção, os três períodos de 2026 e o procedimento de submissão via GestPDR; a legislação PEPAC confirma a Portaria 137/2025.",
+      "foundBy": "acores-young",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "acores-cessacao",
+      "name": "Regime de cessação da atividade agrícola",
+      "url": "https://diariodarepublica.pt/dr/detalhe/decreto-legislativo-regional/14-2020-136600051",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "acores-cessacao-atividade-agricola",
+      "reason": "O texto legal aberto diretamente liga cessação, terras libertadas, cessionários e substituição por agricultores jovens. Sem janela atual verificada, publica-se como HISTORICAL. Verificação manual de 30/09/2026 por Claude (claude-opus-5-5) no navegador integrado do Claude Code (Chromium): a página do decreto no Diário da República abriu por HTTPS sem aviso de certificado, ou seja, com uma cadeia validada pelo navegador, e as 3 citações da fonte estão no texto da página. A verificação automática não a lê porque a página é gerada com JavaScript e, sem o executar, não tem texto. Não é uma revisão humana: o ficheiro continua em rascunho.",
+      "foundBy": "acores-transfer",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "acores-apoio-tecnico-sda",
+      "name": "Apoio técnico — Serviços de Desenvolvimento Agrário",
+      "url": "https://jovemagricultor.azores.gov.pt/faq.aspx",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "O conteúdo indexado oficial indica apoio técnico pelos Serviços de Desenvolvimento Agrário de cada ilha, mas a página primária devolveu 403 ao abrir; falta uma leitura direta/citável antes de admitir.",
+      "foundBy": "acores-advice",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "acores-forjagri",
+      "name": "FORJAGRI — Programa de Apoio à Formação de Jovens Agricultores",
+      "url": "https://jovemagricultor.azores.gov.pt/noticia.aspx?f=15&i=47&t=3",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "O conteúdo indexado do portal continua a apresentar FORJAGRI e uma compensação para formação, mas a página devolveu 403 em abertura direta e não se verificou um período/fluxo de candidatura 2026.",
+      "foundBy": "acores-training",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "acores-e11-formacao",
+      "name": "E.1.1 Formação profissional e aquisição de competências",
+      "url": "https://www.gpp.pt/index.php/pepac/pepac-candidaturas",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "A intervenção aparece no quadro PEPAC Açores, mas a página oficial consultada não mostra concurso nem curso final acessível ao agricultor em 2026; não confundir instrumento de financiamento com oferta formativa.",
+      "foundBy": "acores-training",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "acores-e22-advice",
+      "name": "E.2.2 Prestação de Serviços de aconselhamento agrícola e florestal",
+      "url": "https://www.gpp.pt/index.php/pepac/pepac-candidaturas",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "A intervenção consta do PEPAC Açores, mas não existe concurso/serviço final demonstrado na página de candidaturas consultada; não admitir a rubrica abstrata como serviço operacional.",
+      "foundBy": "acores-advice",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "acores-land-bank",
+      "name": "Banco/bolsa de terras nos Açores",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "As pesquisas regionais e municipais não localizaram mecanismo atual de oferta, procura, inscrição ou intermediação de terras que cumpra os critérios do inventário.",
+      "foundBy": "acores-land",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "pt-bolsa-terras-local",
+      "status": "NOT_FOUND",
+      "reason": "Não foi localizado mecanismo regional ou municipal atual de oferta, procura, inscrição ou intermediação de terras.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-apoio-regional-instalacao",
+      "status": "FOUND",
+      "leadId": "acores-e71-young",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-servicos-acompanhamento",
+      "status": "NOT_FOUND",
+      "reason": "Existem leads fortes no Programa Jovem Agricultor e a intervenção E.2.2, mas nesta sessão não foi possível abrir diretamente a página do apoio técnico nem demonstrar um serviço E.2.2 final operacional; não elevar a FOUND.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Primeira passagem autónoma: identificado o vocabulário E.7.1 e o calendário próprio, mas nenhum recurso publicado sem conseguir ler a página regional."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passagem com a lista de verificação nacional: nenhum instrumento esperado documentado; apoio regional por verificar."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revisão aprofundada: E.7.1 validado por páginas GPP abertas diretamente e admitido; regime de cessação/transmissão admitido como HISTORICAL; apoio técnico e FORJAGRI permanecem TO_CHECK devido a 403 nas páginas primárias; sem banco de terras e sem oferta final E.1.1/E.2.2 demonstrada."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Verificação manual documentada do Decreto Legislativo Regional n.º 14/2020/A no Diário da República, cuja página é gerada com JavaScript."
+    }
+  ]
+}

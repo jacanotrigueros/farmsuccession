@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "PT",
+  "region": "norte",
+  "officialName": "Norte",
+  "published": "2026-09-28",
+  "summary": "No Norte, os apoios à instalação e o acompanhamento técnico PEPAC são de âmbito nacional. A nível local, Caminha mantém uma bolsa municipal de terras e Braga disponibiliza um gabinete municipal de apoio com aconselhamento individualizado e promoção do empreendedorismo de jovens agricultores.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Revistos instrumentos locais de acesso à terra e acompanhamento, incluindo câmaras municipais, CCDR Norte e organizações de jovens agricultores. Confirmados Caminha e o Gabinete de Apoio ao Agricultor de Braga; a operacionalidade prática da Bolsa Agroflorestal de Ponte de Lima continua por resolver.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:ccdr-n.pt agricultura jovens agricultores instalação apoio aconselhamento Norte Portugal"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:ajap.pt Norte Portugal gabinete apoio jovem agricultor Braga Porto Vila Real Bragança Viana Castelo 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "\"bolsa de terras\" Braga Viana do Castelo Vila Real Bragança município agricultura"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.cm-caminha.pt/pages/1169"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.cm-braga.pt/pt/0101/viver/ambiente/desenvolvimento-rural"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://festivaldejardins.cm-pontedelima.pt/ponte-de-lima"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "\"formação jovens agricultores\" Braga Vila Real Bragança Viana do Castelo Porto 2026 agricultura"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "pt",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "norte-bolsa-terras-caminha",
+      "name": "Bolsa de Terras de Caminha",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Concelho de Caminha"
+      },
+      "operator": "Câmara Municipal de Caminha",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Bolsa municipal que liga proprietários de terrenos agrícolas sem uso a munícipes que os querem cultivar, com protocolo de cedência e apoio jurídico da Câmara Municipal.",
+      "whoCanUseIt": "Proprietários de terrenos no concelho de Caminha disponíveis para produção agrícola e munícipes interessados em cultivar terrenos cedidos.",
+      "howToAccess": "Pedido de adesão na Câmara Municipal de Caminha ou nas Juntas de Freguesia.",
+      "accessUrl": "https://www.cm-caminha.pt/pages/1169",
+      "assetTypes": ["PLOTS"],
+      "languages": ["pt"],
+      "targetProfiles": ["LAND_SEEKER", "LANDOWNER"],
+      "notes": "A página municipal continua acessível e publica requerimentos e candidatos, mas não apresenta data de atualização da bolsa; por prudência, o estado atual fica como desconhecido.",
+      "sources": [
+        {
+          "url": "https://www.cm-caminha.pt/pages/1169",
+          "title": "Bolsa de Terras | CM Caminha",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "A Bolsa de Terras vai permitir que munícipes que não possuem terras se voluntariem a cultivar o terreno de proprietários que não dão uso ao espaço.",
+            "Podem aderir à Bolsa de Terras os proprietários de terrenos localizados no concelho de Caminha e disponíveis para o desenvolvimento da produção agrícola",
+            "cujo apoio jurídico para a definição dos termos do mesmo é assegurado pela Câmara Municipal",
+            "O pedido de adesão pode ser feito na Câmara Municipal de Caminha ou nas Juntas de Freguesia."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "norte-gabinete-apoio-agricultor-braga",
+      "name": "Gabinete de Apoio ao Agricultor de Braga",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Concelho de Braga"
+      },
+      "operator": "Município de Braga",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Aconselhamento técnico individualizado gratuito aos agricultores do concelho, informação sobre apoios ao desenvolvimento rural e promoção do empreendedorismo de jovens agricultores.",
+      "whoCanUseIt": "Agricultores do concelho de Braga, incluindo jovens agricultores e pessoas interessadas em criar novas empresas agrícolas.",
+      "howToAccess": "Marcação prévia para atendimento no Gabinete de Apoio ao Agricultor, nas instalações da Quinta Pedagógica de Braga.",
+      "accessUrl": "https://www.cm-braga.pt/pt/0101/viver/ambiente/desenvolvimento-rural",
+      "languages": ["pt"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.cm-braga.pt/pt/0101/viver/ambiente/desenvolvimento-rural",
+          "title": "Desenvolvimento Rural | Município de Braga",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "o Município de Braga disponibiliza gratuitamente um conjunto de serviços aos agricultores do concelho, através do Gabinete de Apoio ao Agricultor.",
+            "promover o empreendedorismo de jovens agricultores",
+            "Os serviços do Gabinete de Apoio ao Agricultor funcionam nas instalações da Quinta Pedagógica de Braga",
+            "Os beneficiários devem marcar previamente a visita"
+          ]
+        }
+      ],
+      "notes": "Serviço municipal distinto do acompanhamento nacional: presta aconselhamento local mais amplo e explicita apoio ao empreendedorismo de jovens agricultores.",
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "Não foi encontrado um apoio financeiro regional próprio do Norte além dos instrumentos nacionais aplicáveis ao continente.",
+    "A Bolsa Agroflorestal de Ponte de Lima é referida por uma página municipal atual como procedimento apoiado pelo Município, mas nesta passagem não foi localizada uma via pública atual de inscrição ou inventário; permanece por verificar.",
+    "Não foi identificado um serviço próprio da CCDR Norte especificamente dedicado à instalação, sucessão ou acesso à terra que deva ser separado dos instrumentos nacionais.",
+    "Foram encontrados cursos nacionais/à distância e referências históricas locais, mas não foi admitida nesta passagem uma formação local do Norte especificamente comprovada em 2026 para a instalação."
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "PT",
+    "region": "centro"
+  },
+  "language": "pt",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Os apoios PEPAC e a Bolsa Nacional de Terras já pertencem à camada nacional e não devem ser duplicados no Centro.",
+    "A página própria https://www.cm-figfoz.pt/pages/644 descreve formulário e acesso SIG; não se confirmou inventário nem candidaturas atuais.",
+    "Uma menção no menu ou num resultado de pesquisa é apenas uma pista: sem página pública citável, inventário ou procedimento, o serviço não é admitido.",
+    "Pesquisar municípios, comunidades intermunicipais, GAL e associações de desenvolvimento local apenas quando prestam um serviço próprio.",
+    "Passagem com a lista de verificação nacional sobre um ficheiro existente: faltavam apenas os instrumentos esperados.",
+    "A Figueira da Foz e a COAPE têm serviços próprios com inscrição; distinguir a antiga Bolsa Nacional, cuja lei de 2012 foi revogada."
+  ],
+  "portals": [
+    {
+      "name": "CCDR Centro",
+      "url": "https://www.ccdrc.pt/",
+      "what": "Programas regionais, desenvolvimento territorial e ligações institucionais."
+    },
+    {
+      "name": "Município da Figueira da Foz",
+      "url": "https://www.cm-figfoz.pt/pages/644",
+      "what": "Bolsa agroflorestal municipal, formulário de registo e acesso cartográfico."
+    },
+    {
+      "name": "COAPE Bolsa de Terras",
+      "url": "https://coape.pt/bolsa-de-terras-coape/",
+      "what": "Inscrição de proprietários e empreendedores rurais, oferta de terrenos para arrendamento."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "centro-bolsa-terras",
+      "kinds": ["LAND_BANK"],
+      "query": "Centro Portugal município bolsa de terras prédios rústicos agroflorestais"
+    },
+    {
+      "id": "centro-installation",
+      "kinds": ["ADVICE", "TRAINING", "FINANCIAL_SUPPORT"],
+      "query": "Centro Portugal jovem agricultor instalação apoio aconselhamento"
+    },
+    {
+      "id": "centro-local",
+      "kinds": ["SUCCESSION_SERVICE", "LAND_BANK", "TRAINING"],
+      "query": "Centro Portugal CIM GAL espaço teste agrícola sucessão exploração"
+    },
+    {
+      "id": "centro-coape-terras",
+      "kinds": ["LAND_BANK", "ADVICE"],
+      "query": "site:coape.pt bolsa terras pastores jovem agricultor instalação"
+    },
+    {
+      "id": "centro-mortagua-banco",
+      "kinds": ["LAND_BANK"],
+      "query": "site:cm-mortagua.pt banco de terras candidatura"
+    }
+  ],
+  "leads": [
+    {
+      "id": "centro-figueira-foz-bolsa-terras",
+      "name": "Bolsa de Terras da Figueira da Foz",
+      "url": "https://www.cm-figfoz.pt/pages/644",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "reason": "A página municipal expõe formulário e objetivo da bolsa, mas a oferta atual não foi comprovada; estado UNKNOWN.",
+      "foundBy": "centro-bolsa-terras",
+      "resourceId": "centro-figueira-foz-bolsa-terras",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "centro-coape-bolsa-terras",
+      "name": "Bolsa de Terras COAPE",
+      "url": "https://coape.pt/bolsa-de-terras-coape/",
+      "kind": "LAND_BANK",
+      "area": "Mangualde",
+      "status": "ADMITTED",
+      "resourceId": "centro-coape-bolsa-terras",
+      "reason": "Página do operador descreve pré-inscrição de proprietários e procura, mediação e uma lista de terrenos.",
+      "foundBy": "centro-coape-terras",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "centro-coape-banco-pastores",
+      "name": "Banco de Terras Pastores COAPE",
+      "url": "https://coape.pt/banco-de-terras-pastores/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Serviço específico para pastores; página bloqueou a verificação independente do acesso e da área atendida.",
+      "foundBy": "centro-coape-terras"
+    },
+    {
+      "id": "centro-coape-apoio-jovens",
+      "name": "Apoio a jovens agricultores COAPE",
+      "url": "https://coape.pt/servicos/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "A página de serviços bloqueou a leitura independente; confirmar primeira instalação, acesso e atividade atual.",
+      "foundBy": "centro-coape-terras"
+    },
+    {
+      "id": "centro-mortagua-banco-terras",
+      "name": "Banco de Terras de Mortágua",
+      "url": "https://www.cm-mortagua.pt/p/banco-de-terras",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Regulamento e atas de anos anteriores existem, mas a página de acesso não pôde ser aberta para verificar ofertas ou inscrição atual.",
+      "foundBy": "centro-mortagua-banco"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "pt-bolsa-terras-local",
+      "status": "FOUND",
+      "checkedOn": "2026-09-28",
+      "leadId": "centro-figueira-foz-bolsa-terras"
+    },
+    {
+      "expectedId": "pt-apoio-regional-instalacao",
+      "status": "NOT_APPLICABLE",
+      "reason": "O apoio C.2.2.1 é do PEPAC no Continente e está na camada Portugal; não foi identificado programa próprio do Centro nas fontes consultadas.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-servicos-acompanhamento",
+      "status": "NOT_FOUND",
+      "reason": "A página de aconselhamento da COAPE não pôde ser verificada independentemente; outras fontes consultadas não provaram acesso a um serviço específico.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CHATGPT (Codex)",
+      "summary": "Primeira passagem regional e expansão municipal; a Bolsa de Terras da Figueira da Foz ficou como pista porque o conteúdo não é citável num endereço estável."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passagem com a lista de verificação nacional sobre o ficheiro existente: bolsa municipal continua sem página citável."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Figueira da Foz e COAPE admitidas como bolsas locais de operatividade atual não comprovada; outras pistas mantidas para verificação."
+    }
+  ]
+}

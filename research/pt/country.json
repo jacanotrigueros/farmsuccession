@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "COUNTRY",
+    "country": "PT"
+  },
+  "language": "pt",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "No continente, o PEPAC publica os concursos C.2.2.1 para o prémio de instalação e C.2.2.2 para o investimento produtivo de jovens agricultores.",
+    "A Lei 49/2023 revogou a Lei 62/2012 da antiga Bolsa Nacional; criou Banco e Bolsa distintos e SiBBT. A página DGADR/Portal da Agricultura de 2021 não prova gestão ou inventário atuais.",
+    "As Regiões Autónomas dos Açores e da Madeira têm intervenções e concursos próprios e não devem ser inferidas a partir do regime do continente.",
+    "Pesquisar também municípios, comunidades intermunicipais, associações de desenvolvimento local e GAL apenas quando prestam um serviço próprio.",
+    "O acompanhamento C.5.5 é um serviço final para jovens do PEPAC no Continente, distinto dos concursos que financiam entidades prestadoras; as regiões autónomas têm sistemas próprios.",
+    "O apoio IFAP de 2026 a novos produtores pecuários destina-se à primeira titularidade e gestão, mas só nas freguesias do anexo II da Portaria 142/2026/1."
+  ],
+  "portals": [
+    {
+      "name": "PEPAC no Continente",
+      "url": "https://pepacc.pt/",
+      "what": "Concursos, avisos, orientações e notícias dos apoios PEPAC no continente."
+    },
+    {
+      "name": "Portal da Agricultura",
+      "url": "https://agricultura.gov.pt/portal/",
+      "what": "Serviços e procedimentos nacionais, incluindo a Bolsa Nacional de Terras."
+    },
+    {
+      "name": "Diário da República — Banco e Bolsa de Terras",
+      "url": "https://diariodarepublica.pt/dr/detalhe/lei/49-2023-220280193",
+      "what": "Lei atual que revogou a antiga Bolsa e estabeleceu o novo sistema de terras."
+    },
+    {
+      "name": "PEPAC — Acompanhamento de Jovens",
+      "url": "https://pepacc.pt/acompanhamento-tecnico-especializado-para-jovens-agricultores/",
+      "what": "Adesão mediante contrato com entidades prestadoras para jovens agricultores do continente."
+    },
+    {
+      "name": "IFAP — Novos Produtores Pecuários",
+      "url": "https://www.ifap.pt/portal/novos-prod-pec-regras",
+      "what": "Regras da ajuda de instalação em pastorícia extensiva de 2026."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "pepac-young",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:pepacc.pt prémio instalação jovens agricultores concurso"
+    },
+    {
+      "id": "national-land",
+      "kinds": ["LAND_BANK"],
+      "query": "site:agricultura.gov.pt Bolsa Nacional de Terras DGADR"
+    },
+    {
+      "id": "regional-local",
+      "kinds": ["LAND_BANK", "ADVICE", "TRAINING"],
+      "query": "{region} município bolsa de terras jovem agricultor instalação associação desenvolvimento local"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Portugal jovens agricultores instalação acompanhamento terras"
+    },
+    {
+      "id": "pt-lei-49-banco-bolsa",
+      "kinds": ["LAND_BANK", "POLICY"],
+      "query": "Portugal Lei 49/2023 SiBBT Banco Bolsa terras inventário acesso 2026"
+    },
+    {
+      "id": "pt-c55-jovens",
+      "kinds": ["ADVICE"],
+      "query": "site:pepacc.pt acompanhamento técnico especializado Jovens Agricultores entidades C.5.5"
+    },
+    {
+      "id": "pt-novos-pecuarios-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:ifap.pt novos produtores pecuários instalação 2026 fundo ambiental"
+    }
+  ],
+  "leads": [
+    {
+      "id": "pt-bolsa-nacional-terras",
+      "name": "Bolsa Nacional de Terras",
+      "url": "https://agricultura.gov.pt/portal/reg-notif-bolsa-nacional-de-terras",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "pt-bolsa-nacional-terras",
+      "reason": "A ficha histórica de 2012 continua citável, mas a Lei 49/2023 revogou esse regime; o recurso é HISTORICAL e a operação do novo SiBBT não foi verificada.",
+      "foundBy": "national-land",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pt-premio-instalacao-jovens",
+      "name": "Prémio instalação jovens agricultores",
+      "url": "https://pepacc.pt/concursos/premio-instalacao-jovens-agricultores-1o-concurso-4o-periodo/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "pt-premio-instalacao-jovens",
+      "reason": "O portal oficial mantém a medida e mostra as condições da candidatura; o período consultado está fechado.",
+      "foundBy": "pepac-young",
+      "checkedOn": "2026-09-14"
+    },
+    {
+      "id": "pt-banco-bolsa-49-2023",
+      "name": "Novo Banco e Bolsa de Terras — Lei 49/2023",
+      "url": "https://diariodarepublica.pt/dr/detalhe/lei/49-2023-220280193",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "A lei cria Banco e Bolsa distintos, mas não foi localizada uma lista de terras ou via operacional SiBBT verificável em 2026.",
+      "foundBy": "pt-lei-49-banco-bolsa"
+    },
+    {
+      "id": "pt-acompanhamento-tecnico-jovens",
+      "name": "Acompanhamento técnico especializado para jovens agricultores",
+      "url": "https://pepacc.pt/acompanhamento-tecnico-especializado-para-jovens-agricultores/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "pt-acompanhamento-tecnico-jovens",
+      "reason": "PEPAC descreve contrato obrigatório com prestadora listada e acompanhamento de três anos; acesso do jovem distinto dos concursos para entidades.",
+      "foundBy": "pt-c55-jovens",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pt-novos-produtores-pecuarios-2026",
+      "name": "Apoio à instalação de novos produtores pecuários",
+      "url": "https://www.ifap.pt/portal/novos-prod-pec-regras",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "pt-novos-produtores-pecuarios-2026",
+      "reason": "IFAP descreve a primeira instalação, elegibilidade geográfica, prémio e esgotamento da dotação em 2026.",
+      "foundBy": "pt-novos-pecuarios-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "expectedInstruments": [
+    {
+      "id": "pt-bolsa-terras-local",
+      "name": "Bolsas de terras municipais ou intermunicipais",
+      "kinds": ["LAND_BANK"],
+      "lookFor": "Bolsas de terras de câmaras municipais ou comunidades intermunicipais com regulamento, formulário de adesão ou lista de terrenos. A Bolsa Nacional de Terras é nacional e não se repete na região."
+    },
+    {
+      "id": "pt-apoio-regional-instalacao",
+      "name": "Apoio regional à instalação de jovens agricultores",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "lookFor": "Nas regiões autónomas, apoios à instalação próprios do programa regional. No continente, confirmar se existe algo além do prémio nacional; se não existir, responder NOT_APPLICABLE."
+    },
+    {
+      "id": "pt-servicos-acompanhamento",
+      "name": "Acompanhamento regional à instalação e ao acesso à terra",
+      "kinds": ["ADVICE"],
+      "lookFor": "Acompanhamento prestado pela direção regional de agricultura, grupos de ação local, associações de jovens agricultores ou de agricultores na região, com serviço e contacto descritos."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Primeira passagem pelos portais nacionais e expansão para os códigos C.2.2.1 e C.2.2.2; admitidos a Bolsa Nacional de Terras e o prémio de instalação."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Rastreio preliminar antes da publicação: executadas as pesquisas prepublication-2026-09-25. Apenas descoberta, não revisão completa nem prova de ausência. Falta verificar candidatos, todas as famílias, níveis locais e detalhes práticos. Este rastreio não altera estados nem datas da edição."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Revogação da antiga Bolsa de 2012 documentada; novo Banco/SiBBT pendente; admitidos acompanhamento C.5.5 e apoio 2026 a novos pecuários."
+    }
+  ]
+}

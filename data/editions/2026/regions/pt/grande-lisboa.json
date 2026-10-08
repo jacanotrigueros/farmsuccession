@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "PT",
+  "region": "grande-lisboa",
+  "officialName": "Grande Lisboa",
+  "published": "2026-09-28",
+  "summary": "Os municípios de Sintra e Cascais documentam mecanismos próprios de disponibilização e intermediação de terrenos. A oferta atual e o funcionamento completo das plataformas não foram confirmados.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Foram abertas páginas municipais de Sintra e Cascais, com regras e vias de acesso. O concurso municipal de Sintra visível é de 2021/2022 e não se verificaram anúncios atuais nem a conclusão dos registos nas plataformas.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "bolsa de terras municipal Lisboa Loures Sintra Mafra terrenos agrícolas cedência câmara"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://cm-sintra.pt/ — a antiga página do Gabinete de Desenvolvimento deixou de existir no sítio atual da Câmara; o seu conteúdo está no arquivo citado a seguir"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://arquivo2026.cm-sintra.pt/dts"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://ambiente.cascais.pt/pt/terrasdecascais/banco-terras"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.cascais.pt/node/28159"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "pt",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "pt-sintra-disponibilizacao-terrenos",
+      "name": "Programa Municipal de Disponibilização de Terrenos de Sintra",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Sintra"
+      },
+      "operator": "Câmara Municipal de Sintra",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Divulgação de terrenos privados para exploração agrícola, florestal ou silvopastoril e cedência de terrenos municipais mediante anúncios e candidaturas.",
+      "whoCanUseIt": "Proprietários de prédios rústicos ou mistos no concelho e interessados em exploração rural.",
+      "howToAccess": "Consultar a plataforma de terrenos ligada à página municipal; para anúncios municipais, seguir o procedimento e o prazo do concurso publicado, quando houver.",
+      "accessUrl": "https://arquivo2026.cm-sintra.pt/dts",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "FORESTRY"],
+      "languages": ["pt"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://arquivo2026.cm-sintra.pt/dts",
+          "title": "Disponibilização de Terrenos de Sintra",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "O Programa tem duas vertentes: a cedência de terrenos propriedade do Município, através de concurso, e a divulgação de informação sobre terrenos de particulares",
+            "O Município apenas facilita o contacto entre os interessados",
+            "As propostas deverão ser entregues de dia 15 de dezembro de 2021 a dia 15 de janeiro de 2022"
+          ]
+        }
+      ],
+      "notes": "A última chamada identificada na página é de 2021/2022. A plataforma SIG está ligada, mas não foram confirmadas fichas de terrenos ou candidaturas atuais.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "pt-cascais-banco-terras",
+      "name": "Banco de Terras de Cascais",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Cascais"
+      },
+      "operator": "Cascais Ambiente",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Intermediação entre proprietários de terras no concelho e pessoas interessadas em cultivar terrenos, através de plataforma municipal.",
+      "whoCanUseIt": "Proprietários de terrenos em Cascais e interessados em cultivar.",
+      "howToAccess": "Consultar o Banco de Terras na página de Cascais Ambiente e a plataforma ligada; o município indica registo através de MyCascais.",
+      "accessUrl": "https://ambiente.cascais.pt/pt/terrasdecascais/banco-terras",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "languages": ["pt"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://ambiente.cascais.pt/pt/terrasdecascais/banco-terras",
+          "title": "Banco de Terras | Cascais Ambiente",
+          "consultedOn": "2026-09-28",
+          "quotes": ["se procura terra para cultivar, então este projeto é para si."]
+        },
+        {
+          "url": "https://www.cascais.pt/node/28159",
+          "title": "Banco de Terras de Cascais: Ponha a sua terra no mapa",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Uma iniciativa da Empresa Municipal de Ambiente de Cascais que faz a ponte entre o proprietário e o agricultor",
+            "Para participar neste projeto basta registar- se na Plataforma MyCascais"
+          ]
+        }
+      ],
+      "notes": "A via municipal de registo está descrita, mas não foi comprovado o inventário atual nem concluído o fluxo de inscrição.",
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "O concurso municipal de Sintra publicado na página é de 2021/2022; não se confirmou uma nova oferta aberta.",
+    "As plataformas de Sintra e Cascais não mostraram à verificação um inventário atual nem a conclusão do registo.",
+    "Não foi verificado um serviço local específico de sucessão ou um curso de primeira instalação na Grande Lisboa."
+  ]
+}

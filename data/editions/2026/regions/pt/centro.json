@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "PT",
+  "region": "centro",
+  "officialName": "Centro",
+  "published": "2026-09-28",
+  "summary": "A Figueira da Foz e a COAPE em Mangualde oferecem vias locais para anunciar e procurar terrenos rurais. A disponibilidade atual de parcelas e a conclusão das inscrições não puderam ser comprovadas.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Foram abertas páginas próprias da bolsa municipal da Figueira da Foz e da COAPE, com formulário e mecanismo de oferta/procura; as candidaturas e listagens não foram testadas. Outras bolsas, formação e sucessão permanecem com cobertura parcial.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.ccdrc.pt/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.cm-figfoz.pt/"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Centro Portugal município bolsa de terras jovem agricultor instalação"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:cm-figfoz.pt Bolsa de Terras prédios rústicos agroflorestais"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Centro Portugal CIM GAL espaço teste agrícola sucessão exploração"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.cm-figfoz.pt/pages/644"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://coape.pt/bolsa-de-terras-coape/"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "pt",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "centro-figueira-foz-bolsa-terras",
+      "name": "Bolsa de Terras Agroflorestais da Figueira da Foz",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Figueira da Foz"
+      },
+      "operator": "Câmara Municipal da Figueira da Foz",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Divulgação de prédios rústicos agroflorestais para venda, arrendamento ou cedência no concelho, com registo de proprietários e consulta cartográfica.",
+      "whoCanUseIt": "Proprietários de terrenos agroflorestais no concelho e pessoas interessadas em aceder a esses terrenos.",
+      "howToAccess": "Registar um terreno no formulário municipal e consultar a bolsa no sistema de informação geográfica ligado à página.",
+      "accessUrl": "https://www.cm-figfoz.pt/pages/644",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "FORESTRY"],
+      "languages": ["pt"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://www.cm-figfoz.pt/pages/644",
+          "title": "Bolsa de Terras | CM Figueira da Foz",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Tem um terreno agroflorestal que pretende vender, arrendar ou ceder no concelho da Figueira da Foz? Então registe-o na Bolsa de Terras, preenchendo o formulário.",
+            "A criação da Bolsa de Terras visa divulgar os prédios rústicos agroflorestais para venda, arrendamento ou cedência no concelho da Figueira da Foz."
+          ]
+        }
+      ],
+      "notes": "O formulário é anunciado na página municipal, mas não foi confirmada uma oferta atual nem a operação do visor SIG.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "centro-coape-bolsa-terras",
+      "name": "Bolsa de Terras COAPE",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Mangualde"
+      },
+      "operator": "COAPE – Cooperativa Agro-Pecuária dos Agricultores de Mangualde",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Intermediação de terrenos rústicos para novos empreendedores rurais, com pré-inscrição de proprietários e interessados, visitas ou reuniões e divulgação de ofertas.",
+      "whoCanUseIt": "Proprietários e empreendedores rurais que procuram terrenos para atividades agrícolas, pecuárias ou florestais.",
+      "howToAccess": "Preencher um dos formulários de pré-inscrição na página ou contactar a COAPE; a página também liga uma lista de terrenos para arrendamento.",
+      "accessUrl": "https://coape.pt/bolsa-de-terras-coape/",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "LIVESTOCK", "FORESTRY"],
+      "languages": ["pt"],
+      "targetProfiles": ["NEW_ENTRANT", "LANDOWNER", "LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://coape.pt/bolsa-de-terras-coape/",
+          "title": "Bolsa de Terras COAPE",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Facilitar o acesso à terra aos novos empreendedores rurais que pretendam dedicar-se a atividades agrícolas, pecuárias ou florestais ou ampliar a sua atividade;",
+            "Pré-inscrição mediante submissão de formulário disponível nesta página ou através dos seguintes contactos:",
+            "LISTA DE TERRENOS DISPONÍVEIS PARA ARRENDAMENTO"
+          ]
+        }
+      ],
+      "notes": "A página contém formulários e ligação à lista, mas não foi possível confirmar ofertas atuais ou concluir uma inscrição.",
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "O formulário e o visor da Figueira da Foz não foram testados para determinar terrenos disponíveis atualmente.",
+    "A lista e a submissão de formulários da COAPE não foram verificadas até ao fim; o estado operativo permanece «Situação não confirmada».",
+    "O banco para pastores, o aconselhamento da COAPE e o banco de Mortágua requerem verificação adicional; não foi comprovado um curso atual de incorporação ou serviço de sucessão."
+  ]
+}

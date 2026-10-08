@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "PT",
+    "region": "regiao-autonoma-da-madeira"
+  },
+  "language": "pt",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "A Madeira tem autoridade de gestão, portal de candidaturas e intervenções PEPAC próprias; não herdar o calendário do continente nem dos Açores.",
+    "F.4.1 é o prémio à primeira instalação e F.1.2 é o investimento associado à instalação; são recursos diferentes.",
+    "Os avisos F.1.2.1, F.1.2.2 e F.1.2.3 permanecem abertos em 28 de setembro de 2026, com fechos em novembro.",
+    "A Carteira de Consultores PEPAC é uma rota atual de consultoria para potenciais beneficiários e as páginas F.1.2 recomendam entidades especializadas para elaboração/acompanhamento das candidaturas.",
+    "F.11.1 explicita formação para competências de jovens agricultores em primeira instalação, mas é uma intervenção para entidades formadoras; só admitir uma oferta de formação quando existir curso/inscrição para o agricultor.",
+    "A AJAMPS recebe apoio regional em 2026 e mantém acompanhamento de proximidade, mas a fonte atual não descreve uma via específica de instalação/sucessão."
+  ],
+  "portals": [
+    {
+      "name": "PEPAC R.A. Madeira",
+      "url": "https://pepac.madeira.gov.pt/",
+      "what": "Portal oficial das intervenções, legislação, avisos, consultores e notícias PEPAC da Madeira."
+    },
+    {
+      "name": "Balcão de Candidaturas PEPAC Madeira",
+      "url": "https://portalpepac.madeira.gov.pt/",
+      "what": "Portal oficial para registo e submissão de candidaturas."
+    },
+    {
+      "name": "Governo Regional — Agricultura e Pescas",
+      "url": "https://www.madeira.gov.pt/srap",
+      "what": "Notícias e decisões regionais atuais sobre agricultura, associações e apoio ao setor."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "madeira-young",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "PEPAC Madeira jovens agricultores apoio instalação"
+    },
+    {
+      "id": "madeira-calls",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:pepac.madeira.gov.pt avisos F.1.2 investimento instalação jovens agricultores 2026"
+    },
+    {
+      "id": "madeira-transfer",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Madeira transmissão exploração agrícola banco de terras aconselhamento"
+    },
+    {
+      "id": "madeira-land-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "\"bolsa de terras\" Madeira agricultura câmara municipal"
+    },
+    {
+      "id": "madeira-training-2026",
+      "kinds": ["TRAINING"],
+      "query": "\"formação\" \"jovens agricultores\" Madeira 2026"
+    },
+    {
+      "id": "madeira-advice-2026",
+      "kinds": ["ADVICE"],
+      "query": "site:madeira.gov.pt agricultura \"jovens agricultores\" aconselhamento instalação 2026 Madeira"
+    },
+    {
+      "id": "madeira-ajamps",
+      "kinds": ["ADVICE", "TRAINING"],
+      "query": "\"AJAMPS\" \"jovens agricultores\" instalação Madeira 2026"
+    }
+  ],
+  "leads": [
+    {
+      "id": "madeira-f41-premio",
+      "name": "F.4.1 — Prémio à instalação de jovens agricultores",
+      "url": "https://pepac.madeira.gov.pt/index.php?Itemid=262&id=26&option=com_content&view=article",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "madeira-premio-instalacao-jovens-agricultores",
+      "reason": "Página oficial atual confirma beneficiários, valores, documentação V2.2026 e acesso ao balcão; não publica período de aviso.",
+      "foundBy": "madeira-young",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "madeira-f12-investimento",
+      "name": "F.1.2 — Investimento associado à instalação de jovens agricultores",
+      "url": "https://pepac.madeira.gov.pt/index.php?Itemid=162&catid=19&id=97:avisos-de-abertura-de-candidaturas-pepac-r-a-madeira&option=com_content&view=article",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "madeira-investimento-instalacao-jovens-agricultores",
+      "reason": "Portal oficial mantém três avisos 2026 abertos em 28 de setembro, com fechos em novembro e submissão pelo balcão PEPAC Madeira.",
+      "foundBy": "madeira-calls",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "madeira-consultores-pepac",
+      "name": "Carteira de Consultores PEPAC R.A. Madeira",
+      "url": "https://pepac.madeira.gov.pt/index.php?Itemid=851&id=99&option=com_content&view=article",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "madeira-carteira-consultores-pepac",
+      "reason": "Diretório atual da Autoridade de Gestão para identificar prestadores de consultoria PEPAC; as páginas F.1.2 de jovens agricultores remetem expressamente para consultores na elaboração e acompanhamento de candidaturas.",
+      "foundBy": "madeira-advice-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "madeira-f111-training",
+      "name": "F.11.1 — Formação profissional",
+      "url": "https://pepac.madeira.gov.pt/index.php?Itemid=269&id=33&option=com_content&view=article",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "A intervenção prevê competências específicas para jovens agricultores em primeira instalação, mas os beneficiários da página são entidades formadoras e não foi demonstrada uma ação atual com inscrição direta para agricultores.",
+      "foundBy": "madeira-training-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "madeira-ajamps-support",
+      "name": "AJAMPS — projeto Madeira Agrícola e acompanhamento",
+      "url": "https://www.madeira.gov.pt/srap/GovernoRegional/OGoverno/Secretarias/Structure/SRAP/ctl/Read/mid/15244/InformacaoId/254854/UnidadeOrganicaId/56/CatalogoId/0",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Fonte regional de julho de 2026 confirma acompanhamento e apoio de proximidade pela associação de jovens agricultores, mas não descreve uma rota específica de primeira instalação, sucessão ou terra nem o acesso ao serviço.",
+      "foundBy": "madeira-ajamps",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "madeira-land-bank",
+      "name": "Bolsa/banco de terras na Madeira",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "As pesquisas atuais não localizaram mecanismo regional/municipal de oferta, procura, inscrição ou intermediação de terras que cumpra os critérios de LAND_BANK.",
+      "foundBy": "madeira-land-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "pt-bolsa-terras-local",
+      "status": "NOT_FOUND",
+      "reason": "Não foi localizado um banco/bolsa regional ou municipal com oferta, procura, inscrição ou intermediação acessível.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-apoio-regional-instalacao",
+      "status": "FOUND",
+      "leadId": "madeira-f41-premio",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-servicos-acompanhamento",
+      "status": "FOUND",
+      "leadId": "madeira-consultores-pepac",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Primeira passagem autónoma: separados o prémio de instalação e o investimento associado, com três avisos de investimento abertos e sem inventar um período para F.4.1."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passagem com a lista de verificação nacional: apoio regional à instalação confirmado; sem bolsa de terras nem acompanhamento verificados."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revalidados F.4.1 e os três avisos F.1.2; admitida a Carteira de Consultores PEPAC como rota de acompanhamento da instalação; F.11.1 e AJAMPS permanecem TO_CHECK por falta de oferta final específica demonstrada; sem banco de terras ou serviço de sucessão verificado."
+    }
+  ]
+}
