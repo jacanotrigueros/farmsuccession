@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "FR", "region": "ile-de-france" },
+  "language": "fr",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "iledefrance.fr renvoie un accès refusé (403) aux outils automatiques : chercher les dispositifs régionaux sur des sources officielles tierces ou vérifier à la main.",
+    "Le dispositif « Île-de-France, terre d’installation agricole » associe Île-de-France Nature et la Safer régionale pour acquérir temporairement du foncier.",
+    "La Région a voté des aides à l’installation et à l’accompagnement du cédant dont les montants circulent dans la presse spécialisée."
+  ],
+  "portals": [
+    {
+      "name": "Safer de l’Île-de-France",
+      "url": "https://www.saferidf.fr/",
+      "what": "Installation, transmission et opérations foncières agricoles."
+    },
+    {
+      "name": "Île-de-France Nature",
+      "url": "https://www.iledefrance-nature.fr/",
+      "what": "Terres agricoles régionales, appels à candidatures et portage foncier."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "idf-aides",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "Région Île-de-France aide installation agriculteurs 2026 dispositif transmission agriculture"
+    },
+    { "id": "idf-foncier", "kinds": ["LAND_BANK"], "query": "Safer Île-de-France s’installer transmettre foncier agricole site" }
+  ],
+  "leads": [
+    {
+      "id": "idf-safer-transmission",
+      "name": "Transmettre son exploitation avec la Safer de l’Île-de-France",
+      "url": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/transmettre-une-exploitation-agricole/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "ile-de-france-safer-idf-transmission",
+      "reason": "Page de l’opérateur décrivant l’accompagnement des cédants et la garantie de vendeur professionnel.",
+      "foundBy": "idf-foncier",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "idf-nature-terres",
+      "name": "Île-de-France Nature, s’installer sur des terres agricoles",
+      "url": "https://www.iledefrance-nature.fr/offres-et-accompagnement/je-souhaite-minstaller-sur-des-terres-agricoles/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "ile-de-france-nature-terres-agricoles",
+      "reason": "Page officielle décrivant la location de terres, le portage foncier et le dispositif mené avec la Safer.",
+      "foundBy": "idf-foncier",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "idf-feader-installation",
+      "name": "FEADER - Aide à l’installation du jeune agriculteur (Région Île-de-France)",
+      "url": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Fiche d’aide régionale renvoyant un accès refusé (403) : à vérifier à la main.",
+      "foundBy": "idf-aides",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "idf-aide-cedant",
+      "name": "Aide régionale à l’accompagnement du cédant",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "Dispositif voté par la Région pour les cédants qui accompagnent leur repreneur ; seule la presse le décrit pour l’instant.",
+      "foundBy": "idf-aides",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "NOT_FOUND",
+      "reason": "La fiche d’aide à l’installation de la Région renvoie un accès refusé aux outils automatiques.",
+      "checkedOn": "2026-09-20"
+    },
+    { "expectedId": "fr-transmission-accompagnement", "status": "FOUND", "leadId": "idf-safer-transmission", "checkedOn": "2026-09-20" },
+    { "expectedId": "fr-safer-foncier", "status": "FOUND", "leadId": "idf-nature-terres", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "Aucune association régionale d’accompagnement à l’installation n’a été vérifiée dans cette passe.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe avec la liste de contrôle nationale : Safer francilienne et Île-de-France Nature admises ; aides régionales bloquées par un accès refusé."
+    }
+  ]
+}

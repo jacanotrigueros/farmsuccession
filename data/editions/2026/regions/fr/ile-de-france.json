@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "FR",
+  "region": "ile-de-france",
+  "officialName": "Île-de-France",
+  "published": "2026-09-20",
+  "summary": "En Île-de-France, l’accès à la terre passe par deux opérateurs vérifiables : Île-de-France Nature, qui loue ses terres agricoles et porte du foncier pour installer des agriculteurs en zone périurbaine avec la Safer, et la Safer de l’Île-de-France, qui accompagne les cédants dans la transmission de leur exploitation.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Recherches sur les aides régionales à l’installation et à la transmission, sur la Safer et sur le portage foncier régional. Les fiches d’aides du site de la Région renvoient un accès refusé aux outils automatiques.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Région Île-de-France aide installation agriculteurs 2026 dispositif transmission agriculture"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Safer Île-de-France s’installer transmettre foncier agricole site"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/transmettre-une-exploitation-agricole/"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "fr",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "ile-de-france-safer-idf-transmission",
+      "name": "Safer de l’Île-de-France, accompagnement à la transmission",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer de l’Île-de-France",
+      "operatorType": "MIXED",
+      "whatItOffers": "Facilite la transmission des exploitations sur leur volet foncier et immobilier, apporte une expertise de diagnostic et d’évaluation des biens et sécurise l’opération par sa garantie de vendeur professionnel.",
+      "whoCanUseIt": "Cédants qui veulent transmettre leur exploitation, de tous types de productions, et contribuer à l’installation d’un jeune agriculteur.",
+      "howToAccess": "Contacter la Safer de l’Île-de-France et rencontrer le conseiller foncier du secteur pour définir les conditions de la transmission.",
+      "accessUrl": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/transmettre-une-exploitation-agricole/",
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "languages": ["fr"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "LANDOWNER"],
+      "sources": [
+        {
+          "url": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/transmettre-une-exploitation-agricole/",
+          "title": "Transmettre son exploitation agricole avec la Safer de l’Ile-de-France",
+          "consultedOn": "2026-09-20",
+          "quotes": [
+            "La Safer, opérateur foncier de référence du secteur agricole, facilite la transmission des exploitations, en particulier sur leur volet foncier et immobilier.",
+            "Elle sécurise et facilite la transmission par sa garantie de vendeur professionnel.",
+            "Rencontrez le/la conseiller(e) foncier(e) en charge de votre secteur",
+            "contribuer à l’installation d’un(e) jeune agriculteur(rice)"
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    },
+    {
+      "id": "ile-de-france-nature-terres-agricoles",
+      "name": "Île-de-France Nature, location de terres agricoles et portage foncier",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Île-de-France Nature, avec la Safer de l’Île-de-France",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Loue ses terres agricoles à des porteurs de projet par des baux ruraux, assure si nécessaire le portage du foncier et peut vendre ensuite les terres et bâtiments acquis, dans le cadre du dispositif régional d’installation agricole.",
+      "whoCanUseIt": "Porteurs de projet agricole qui cherchent des terres libres en Île-de-France, avec des activités économiquement viables et compatibles avec les enjeux du territoire.",
+      "howToAccess": "Répondre aux appels à candidatures lancés par l’agence régionale et passer par le dispositif mené avec la Safer de l’Île-de-France.",
+      "accessUrl": "https://www.iledefrance-nature.fr/offres-et-accompagnement/je-souhaite-minstaller-sur-des-terres-agricoles/",
+      "assetTypes": ["PLOTS"],
+      "languages": ["fr"],
+      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "YOUNG_FARMER"],
+      "sources": [
+        {
+          "url": "https://www.iledefrance-nature.fr/offres-et-accompagnement/je-souhaite-minstaller-sur-des-terres-agricoles/",
+          "title": "Je souhaite m’installer sur des terres agricoles - Île-de-France Nature",
+          "consultedOn": "2026-09-20",
+          "quotes": [
+            "favorise l’installation d’agriculteurs en zone périurbaine, dont les activités sont économiquement viables et compatibles avec les enjeux du territoire",
+            "en louant ses terres agricoles à des porteurs de projets agricoles, notamment à travers des baux ruraux",
+            "en assurant, si nécessaire, le portage du foncier",
+            "dans le cadre du dispositif « Île-de-France, terre d’installation agricole » mené en partenariat avec la SAFER de l’Île-de-France"
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "Les fiches d’aides du site de la Région renvoient un accès refusé aux outils automatiques : l’aide régionale à l’installation et l’aide à l’accompagnement du cédant n’ont pas pu être citées.",
+    "Les montants annoncés par la presse pour ces deux aides n’ont pas été repris faute de source officielle lisible.",
+    "L’offre du Point Accueil Installation francilien n’a pas été vérifiée."
+  ]
+}

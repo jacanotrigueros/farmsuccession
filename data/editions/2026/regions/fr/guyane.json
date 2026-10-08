@@ -1,0 +1,318 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "FR",
+  "region": "guyane",
+  "officialName": "Guyane",
+  "published": "2026-09-29",
+  "summary": "En Guyane, trois dotations FEADER visent des profils distincts de nouveaux agriculteurs. La Safer propose un accès au foncier et un accompagnement à la transmission. Une intervention de coopération pour la transmission est décrite, mais aucun appel ouvert n'a été vérifié.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Les fiches FEADER et les services de la Safer ont été vérifiés. Le site de la Chambre d'agriculture, les formulaires fonciers de l'État et plusieurs pistes associatives ou intercommunales restent à vérifier.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Collectivité territoriale de Guyane aide installation jeunes agriculteurs FEADER 2026 dotation agriculture"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Safer Guyane projet agricole s'installer foncier appels de candidatures"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Guyane installation transmission exploitation agricole cédant repreneur ; dotation nouvel agriculteur FEADER ; département EPCI commune transmission ferme espace-test agricole"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Guyane association Terre de Liens ADEAR CIVAM espace-test ; CACL incubateur agricole Carapa ; FEADER 77.04 appel 2026"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.europe-guyane.fr/ — interventions 75.01, 75.02, 75.05, 73.17, 77.04 et 78.01"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://safer-guyane.fr/ — installation, transmission et appels de candidatures"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.geoguyane.fr/accueil/geoservice/navigateur_cartographique/ofag/description — outil foncier et procédure de la Mission Foncier"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "fr",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "guyane-feader-aide-installation",
+      "name": "Aide à l'installation en agriculture 75.01 (DJA)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Collectivité territoriale de Guyane",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Dotation individuelle de 35 000 à 60 000 € pour démarrer une exploitation agricole.",
+      "whoCanUseIt": "Personnes physiques reconnues jeunes agriculteurs, âgées au plus de 40 ans lors de la demande, justifiant de la capacité professionnelle agricole et présentant un plan d'entreprise.",
+      "howToAccess": "Consulter la fiche 75.01 et déposer le dossier par le lien « Je dépose mon dossier ». La fiche indique un dépôt en continu ou par appel selon le sujet.",
+      "accessUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-01-aide-a-linstallation-en-agriculture-dja/",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["fr"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notes": "Non cumulable avec les dotations DPA et DNA. La fiche comporte un lien de dépôt, sans dates d'appel propres à ce dispositif.",
+      "sources": [
+        {
+          "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-01-aide-a-linstallation-en-agriculture-dja/",
+          "title": "75.01 Aide à l'installation en agriculture (DJA) – Europe Guyane",
+          "consultedOn": "2026-09-29",
+          "quotes": [
+            "Dotation individuelle comprise entre 35 000 et 60 000 €",
+            "Justifier au dépôt de la demande d’aide de la capacité professionnelle agricole (CPA)",
+            "Je dépose mon dossier",
+            "75.01 Aide à l’installation en agriculture (DJA)",
+            "la limite d’âge maximale afin d’être reconnu jeune agriculteur est fixée à 40 ans"
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    },
+    {
+      "id": "guyane-feader-petite-exploitation-dpa",
+      "name": "Aide à la petite exploitation agricole 75.02 (DPA)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Collectivité territoriale de Guyane",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Dotation individuelle de 10 000 € versée en deux fois pour le démarrage d'une petite exploitation.",
+      "whoCanUseIt": "Personnes physiques ayant un projet de petite exploitation, sous réserve des conditions de la fiche d'intervention.",
+      "howToAccess": "Consulter la fiche 75.02 ; elle indique un dépôt en continu ou par appel à projets selon les sujets, sans afficher de formulaire de dépôt propre à cette fiche.",
+      "accessUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-02-aide-a-la-petite-exploitation-agricole-dpa/",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "notes": "Non cumulable avec la DJA ou la DNA. La fiche donne des indications contradictoires sur la superficie de première année ; ce seuil doit être confirmé avant de conseiller un candidat.",
+      "sources": [
+        {
+          "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-02-aide-a-la-petite-exploitation-agricole-dpa/",
+          "title": "75.02 Aide à la petite exploitation agricole (DPA) – Europe Guyane",
+          "consultedOn": "2026-09-29",
+          "quotes": [
+            "Dotation individuelle de 10 000 € versée en 2 fois",
+            "Dispositif non cumulable avec DJA ou DNA",
+            "En continu",
+            "75.02 Aide à la petite exploitation agricole (DPA)"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "guyane-feader-nouvel-installe-dna",
+      "name": "Dotation Nouvel Installé 75.05 (DNA)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Collectivité territoriale de Guyane",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Dotation individuelle de 30 000 à 40 000 € destinée au démarrage de l'installation.",
+      "whoCanUseIt": "Personnes physiques répondant à la définition de nouvel agriculteur, âgées d'au moins 41 ans et satisfaisant aux conditions de qualification ou d'expérience indiquées dans la fiche.",
+      "howToAccess": "Consulter la fiche 75.05 ; elle indique un dépôt en continu ou par appel à projets selon les sujets, sans afficher de formulaire de dépôt propre à cette fiche.",
+      "accessUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-05-dotation-nouvel-installe-dna/",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "notes": "Non cumulable avec la DJA ou la DPA. Le projet requiert notamment un plan d'entreprise et une justification de la situation foncière.",
+      "sources": [
+        {
+          "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-05-dotation-nouvel-installe-dna/",
+          "title": "75.05 Dotation Nouvel Installé (DNA) – Europe Guyane",
+          "consultedOn": "2026-09-29",
+          "quotes": [
+            "Dotation individuelle comprise entre 30 000 et 40 000 €",
+            "Être âgé de 41 ans ou plus",
+            "Dispositif non cumulable avec DJA ou DPA",
+            "75.05 Dotation Nouvel Installé (DNA)"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "guyane-feader-investissements-ja",
+      "name": "Investissements Jeunes agriculteurs 73.17",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Collectivité territoriale de Guyane",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Aide aux investissements matériels et immatériels de jeunes agriculteurs, notamment pour la performance de l'exploitation et l'aménagement foncier.",
+      "whoCanUseIt": "Jeunes agriculteurs âgés au plus de 40 ans à la demande et bénéficiant de la DJA.",
+      "howToAccess": "Consulter la fiche 73.17 puis suivre son lien « Je dépose mon dossier ». Elle indique un dépôt en continu ou par appel à projets selon les sujets.",
+      "accessUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/investissement/73-17-investissements-jeunes-agriculteurs-ja/",
+      "instrumentType": "GRANT",
+      "purposes": ["INVESTMENT"],
+      "languages": ["fr"],
+      "targetProfiles": ["YOUNG_FARMER"],
+      "notes": "La fiche annonce un taux d'aide publique de 50 % à 80 %. L'obtention de la DJA est une condition distincte.",
+      "sources": [
+        {
+          "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/investissement/73-17-investissements-jeunes-agriculteurs-ja/",
+          "title": "73.17 Investissements Jeunes agriculteurs (JA) – Europe Guyane",
+          "consultedOn": "2026-09-29",
+          "quotes": [
+            "Bénéficier de la DJA",
+            "Taux d’aide publique : entre 50% et 80%",
+            "Je dépose mon dossier",
+            "73.17 Investissements Jeunes agriculteurs (JA)",
+            "la limite d’âge maximale afin d’être reconnu jeune agriculteur est fixée à 40 ans"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "guyane-feader-renouvellement-generations",
+      "name": "Renouvellement des générations en agriculture 77.04",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Collectivité territoriale de Guyane",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Intervention destinée aux projets de coopération associant des exploitations à céder, des cédants et des porteurs de projet d'installation ou structures d'accompagnement.",
+      "whoCanUseIt": "Groupes de projet remplissant les conditions de partenariat et de transmission décrites dans la fiche.",
+      "howToAccess": "La fiche prévoit une candidature par appel à projets ; vérifier la publication d'un appel applicable avant de déposer un dossier.",
+      "accessUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/cooperation/77-04-renouvellement-des-generations-en-agriculture/",
+      "instrumentType": "GRANT",
+      "purposes": ["TRANSFER"],
+      "languages": ["fr"],
+      "targetProfiles": ["TRANSFEROR", "NEW_ENTRANT"],
+      "notes": "La fiche de programmation ne démontre pas qu'un appel à projets est actuellement ouvert.",
+      "sources": [
+        {
+          "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/cooperation/77-04-renouvellement-des-generations-en-agriculture/",
+          "title": "77.04 Renouvellement des générations en agriculture – Europe Guyane",
+          "consultedOn": "2026-09-29",
+          "quotes": [
+            "Études, diagnostic",
+            "Ingénierie/conseil",
+            "Par appel à projet",
+            "77.04 Renouvellement des générations en agriculture"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "guyane-safer-guyane",
+      "name": "Accès au foncier par la Safer Guyane",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer Guyane",
+      "operatorType": "MIXED",
+      "whatItOffers": "Accès à des parcelles agricoles à acheter ou à louer et publication d'appels de candidatures.",
+      "whoCanUseIt": "Porteurs de projet agricole recherchant du foncier ; les demandes des jeunes agriculteurs bénéficient d'un traitement prioritaire annoncé par la Safer.",
+      "howToAccess": "Consulter les appels de candidatures de la Safer et les étapes pour acheter ou louer, puis contacter la Safer pour le bien concerné. La présence d'une annonce dans la liste ne prouve pas que son délai de candidature court encore.",
+      "accessUrl": "https://safer-guyane.fr/sinstaller/projet-agricole/",
+      "assetTypes": ["PLOTS"],
+      "languages": ["fr"],
+      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "YOUNG_FARMER"],
+      "sources": [
+        {
+          "url": "https://safer-guyane.fr/sinstaller/projet-agricole/",
+          "title": "Projet agricole – Safer Guyane",
+          "consultedOn": "2026-09-29",
+          "quotes": [
+            "Traiter prioritairement les demandes de foncier émanant des jeunes",
+            "Les étapes pour acheter ou louer un bien à la Safer"
+          ]
+        },
+        {
+          "url": "https://safer-guyane.fr/biens-disponibles/appels-de-candidatures/",
+          "title": "Appels de candidatures – Safer Guyane",
+          "consultedOn": "2026-09-29",
+          "quotes": ["Consultez ci-dessous la liste de nos appels de candidatures :", "Macouria Vente d'une parcelle agricole de 23 ha"]
+        }
+      ],
+      "generatorId": "claude-1"
+    },
+    {
+      "id": "guyane-safer-transmission",
+      "name": "Accompagnement à la transmission par la Safer Guyane",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer Guyane",
+      "operatorType": "MIXED",
+      "whatItOffers": "Accompagnement du cédant pour l'évaluation des biens, les questions statutaires et fiscales, la recherche éventuelle d'un acquéreur et les étapes de la cession.",
+      "whoCanUseIt": "Agriculteurs souhaitant cesser leur activité et transmettre leur exploitation.",
+      "howToAccess": "Contacter la Safer Guyane à partir de sa page dédiée à la transmission.",
+      "accessUrl": "https://safer-guyane.fr/vous-souhaitez-transmettre-votre-exploitation-agricole-la-safer-guyane-vous-accompagne/",
+      "assetTypes": ["WHOLE_HOLDINGS"],
+      "languages": ["fr"],
+      "targetProfiles": ["TRANSFEROR", "LANDOWNER"],
+      "notes": "Service distinct de la liste de parcelles destinée aux candidats à l'installation. La page dédiée est datée du 5 novembre 2025 et reste accessible sur le site de l'opérateur.",
+      "lastEvidenceDate": "2025-11-05",
+      "sources": [
+        {
+          "url": "https://safer-guyane.fr/vous-souhaitez-transmettre-votre-exploitation-agricole-la-safer-guyane-vous-accompagne/",
+          "title": "Vous souhaitez transmettre votre exploitation agricole ? – Safer Guyane",
+          "consultedOn": "2026-09-29",
+          "quotes": [
+            "5 novembre 2025",
+            "Vous êtes agriculteur et vous souhaitez cesser votre activité et transmettre votre exploitation.",
+            "Une transmission se prépare, n’hésitez pas à nous contacter !"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "La fiche DPA se contredit sur la superficie de première année ; le seuil exact reste à confirmer.",
+    "La fiche 77.04 prévoit un appel à projets, mais aucun appel ouvert ni calendrier applicable n'a été vérifié.",
+    "Le site de la Chambre d'agriculture de la Guyane n'a pas pu être lu ; son offre actuelle d'installation et de transmission reste à confirmer.",
+    "La carte OFAG est signalée en maintenance et la date de dernière mise à jour affichée pour ses données foncières est antérieure de plusieurs années à cette édition.",
+    "Les fiches individuelles des appels fonciers de la Safer n'ont pas pu être ouvertes ; aucun de ces appels n'est qualifié d'ouvert ici.",
+    "Le projet de foncier aménagé et d'incubateur agricole de la CACL ne présente pas encore de voie de candidature vérifiée.",
+    "Aucun service associatif propre à la Guyane n'a pu être admis sur une page de son opérateur."
+  ]
+}

@@ -41,11 +41,11 @@ It reads `data/editions` by default and takes a directory as its second argument
 The numbers in the records were measured over the whole corpus one research sweep
 produced: 101 edition files and 101 briefs, across the EU layer and five countries.
 What this repository publishes is the part of that work which is finished and
-checked — the EU layer, Spain and Germany, 50 files — and France, Italy and Portugal
-arrive with their own milestones. So the command run here today reads those 50 files
-and reports the same shape over a smaller sample: 1,054 pieces of reader-facing prose
-where a record says 2,085, and 127 amounts in euros where a record says 200. The
-distributions hold; the totals are about half the corpus, and a record that names a
+checked — the EU layer, Spain, Germany and France, 69 files — and Italy and Portugal
+arrive with their own milestones. So the command run here today reads those 69 files
+and reports the same shape over a smaller sample: 1,489 pieces of reader-facing prose
+where a record says 2,085, and 147 amounts in euros where a record says 200. The
+distributions hold; the totals are most of the corpus now, and a record that names a
 number says which of the two it came from.
 
 ## The records
@@ -76,3 +76,4 @@ number says which of the two it came from.
 | [022](022-never-narrower-than-the-source.md)                     | A record is never narrower than its source                     |
 | [023](023-a-country-is-data-a-catalogue-entry-and-a-language.md) | A country is data, a catalogue entry and a language            |
 | [024](024-a-territory-lives-under-a-segment-of-its-own.md)       | A territory lives under a segment of its own                   |
+| [025](025-a-source-is-gone-when-the-series-says-so.md)           | A source is gone when the series says so, not when a run does  |

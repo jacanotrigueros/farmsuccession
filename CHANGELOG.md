@@ -134,7 +134,51 @@ release.
 - One script on the search pages, one that re-answers "can I apply now?" for the
   reader own day, and nothing else: no cookies, no storage, no request to another host.
 
+### France
+
+- **The 2026 edition of France**: 19 files, 72 records, 89 sources and 271 quotes, with a
+  research brief for the national layer and for each of the 18 regions. France sits
+  between the two countries already here: one national record, and the weight in the
+  regions, where land is the strongest layer.
+- Mayotte publishes nothing and says why — the state agricultural service did not answer,
+  the land authority certificate has expired, and the domain that carried the European
+  funds now redirects elsewhere. A reader gets that account rather than an empty page.
+- French is the fourth language, added the same way as the third: one union, nineteen
+  tables, and a build that stays broken until every word exists.
+- It also found a defect four milestones old: the link that skips to the content was
+  written into the layout in English and stayed English on every Spanish, German and
+  French page. It is the first thing a keyboard or screen-reader user meets, and it was
+  invisible to every check because it only appears when focused. Fixed, and now a test.
+
+### The checks keep their results
+
+- Every live check writes its own file under `reports/checks/`, committed, named for the
+  instant it was taken: when, which scope, the totals, and every URL with its status,
+  HTTP code and reason. One file per run, because a 53 KB append is not atomic and two
+  checks at once would corrupt each other, and because a run nobody needs can be deleted
+  without the rest losing their meaning.
+- `npm run report:sources` answers from the series what no single run can: which pages are
+  actually gone, which hosts are unreliable, and which runs were readings about the
+  machine they ran on rather than about the corpus.
+- A page is GONE only after it answered badly on two different days, and silence never
+  becomes GONE. The French sweep of 8 October 2026 is why: 36 of 89 pages went unread in
+  one evening, every one of them a transport failure, and the next run read them fine.
+  See [`decisions/025`](decisions/025-a-source-is-gone-when-the-series-says-so.md).
+
+### A chain completed, and one that cannot be
+
+- `www.mapa.gob.es` — the Spanish ministry, eight cited pages — served a chain including
+  the self-signed FNMT root the default store does not carry, so nothing could read them.
+  FNMT publishes the same certificate cross-signed by the older root that the store does
+  carry; it is byte-identical to the one the ministry serves, and it is now pinned by
+  fingerprint. Spain's national layer went from 3 PASS and 8 UNCHECKED to 11 PASS.
+- The self-signed twin published beside it was refused: trusting it would add an anchor,
+  which [`decisions/008`](decisions/008-complete-a-tls-chain.md) forbids and the checks
+  in `installIntermediates` reject on their own. The Gipuzkoa portals stay UNCHECKED for
+  that reason — their chain is anchored in Izenpe, and no cross-signed certificate links
+  it to a root this runtime trusts.
+
 ### Not here yet
 
-- France, Italy and Portugal: researched, not published here.
+- Italy and Portugal: researched, not published here.
 - A published site, and therefore anything to visit.

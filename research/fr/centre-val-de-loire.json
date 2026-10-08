@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "centre-val-de-loire"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-25",
+  "context": [
+    "La Safer du Centre couvre la région Centre-Val de Loire et détaille son fonds d’aide à l’installation et son dispositif de portage foncier avec un partenaire bancaire.",
+    "Le portail Europe O Centre-Val de Loire présente le plan régional d’intervention FEADER 2023-2027, qui porte l’aide à l’installation.",
+    "Les montants de la dotation régionale (jeunes agriculteurs et nouvel agriculteur) proviennent de la presse spécialisée et restent à confirmer sur une source officielle."
+  ],
+  "portals": [
+    {
+      "name": "Safer du Centre",
+      "url": "https://www.saferducentre.fr/agriculteurs",
+      "what": "Installation, transmission, appels à candidature et biens à la vente."
+    },
+    {
+      "name": "Europe O Centre-Val de Loire",
+      "url": "https://www.europeocentre-valdeloire.eu/",
+      "what": "Programmes européens régionaux, dont le FEADER 2023-2027."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "cvl-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Centre-Val de Loire installation transmission foncier agricole site"
+    },
+    {
+      "id": "cvl-aide-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Région Centre-Val de Loire aide installation agriculteurs 2026 dispositif dotation jeunes agriculteurs"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Centre-Val de Loire installation transmission agriculture accompagnement"
+    }
+  ],
+  "leads": [
+    {
+      "id": "cvl-safer-installation",
+      "name": "Safer du Centre, installation et portage foncier",
+      "url": "https://www.saferducentre.fr/agriculteurs/linstallation-de-jeunes-agriculteurs-notre-priorite",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "centre-val-de-loire-safer-du-centre-installation",
+      "reason": "Page de l’opérateur décrivant l’accompagnement, le fonds d’aide et le portage foncier.",
+      "foundBy": "cvl-safer",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "cvl-feader-pri",
+      "name": "Plan régional d’intervention FEADER 2023-2027",
+      "url": "https://www.europeocentre-valdeloire.eu/programmes/plan-regional-dintervention-feader-2023-2027/",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "resourceId": "centre-val-de-loire-feader-installation",
+      "reason": "Cadre régional officiel qui programme l’aide à l’installation ; retenu comme politique, faute de fiche d’aide.",
+      "foundBy": "cvl-aide-installation",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "cvl-dotation-regionale",
+      "name": "Dotation jeunes agriculteurs et dotation nouvel agriculteur en Centre-Val de Loire",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Montants et modulations décrits par la presse spécialisée ; trouver la fiche officielle de la Région.",
+      "foundBy": "cvl-aide-installation",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "centre-installation-nouveaux-page",
+      "name": "Installation des nouveaux agriculteurs — fiche régionale",
+      "kind": "FINANCIAL_SUPPORT",
+      "url": "https://www.centre-valdeloire.fr/le-guide-des-aides-de-la-region-centre-val-de-loire/installation-des-nouveaux-agriculteurs",
+      "status": "TO_CHECK",
+      "reason": "Nouvelle adresse officielle repérée, mais ouverture bloquée par une boucle de redirection. À rapprocher de la piste existante sur la dotation ; ne pas admettre une seconde aide sans établir son identité.",
+      "checkedOn": "2026-09-25",
+      "foundBy": "prepublication-2026-09-25"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "NOT_FOUND",
+      "reason": "Seul le cadre FEADER régional a pu être cité ; la fiche d’aide à l’installation de la Région n’a pas été trouvée.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "NOT_FOUND",
+      "reason": "Le volet régional AITA et l’offre de transmission des Chambres d’agriculture n’ont pas été vérifiés dans cette passe.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "cvl-safer-installation",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "Aucune association régionale d’accompagnement à l’installation n’a été vérifiée dans cette passe.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe avec la liste de contrôle nationale : Safer du Centre et plan régional FEADER admis ; dotation régionale à confirmer."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Repérage préliminaire avant publication : requêtes prepublication-2026-09-25 exécutées. Découverte uniquement, sans revue complète ni preuve d’absence. Restent à vérifier les candidats, toutes les familles, les échelons locaux et les détails pratiques. Ce repérage ne modifie ni les statuts ni les dates de l’édition."
+    }
+  ]
+}

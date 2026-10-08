@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "FR", "region": "pays-de-la-loire" },
+  "language": "fr",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "En Pays de la Loire, l’étude d’installation est un préalable obligatoire à la demande de dotation aux jeunes agriculteurs.",
+    "Le règlement régional de la dotation couvre la période 2024-2027 et détaille montants et modulations.",
+    "La Région anime aussi des territoires pilotes pour la transmission agricole, à vérifier lors d’une prochaine passe."
+  ],
+  "portals": [
+    {
+      "name": "Les aides de la Région Pays de la Loire",
+      "url": "https://www.paysdelaloire.fr/les-aides",
+      "what": "Fiches des aides régionales, dont l’installation agricole."
+    },
+    {
+      "name": "Safer Pays de la Loire",
+      "url": "https://www.safer-pays-de-loire.fr/",
+      "what": "Installation, transmission et opérations foncières agricoles."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "pdl-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Région Pays de la Loire aide installation jeunes agriculteurs 2026 transmission dispositif agriculture"
+    },
+    {
+      "id": "pdl-safer",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Safer Pays de la Loire transmettre installation maintien foncier"
+    }
+  ],
+  "leads": [
+    {
+      "id": "pdl-dja",
+      "name": "Dotation jeunes agriculteurs en Pays de la Loire",
+      "url": "https://www.paysdelaloire.fr/les-aides/dotation-jeunes-agriculteurs-dja-feader",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "pays-de-la-loire-dotation-jeunes-agriculteurs",
+      "reason": "Fiche officielle de l’aide régionale avec objectifs et procédure, dont l’étude d’installation préalable.",
+      "foundBy": "pdl-installation",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "pdl-safer-transmission",
+      "name": "Safer Pays de la Loire, transmettre son exploitation",
+      "url": "https://www.safer-pays-de-loire.fr/agriculteurs/transmettre-installation-maintien/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "pays-de-la-loire-safer-transmission",
+      "reason": "Page de l’opérateur décrivant l’accompagnement des cédants et la recherche d’investisseurs pour installer un jeune.",
+      "foundBy": "pdl-safer",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "pdl-territoires-pilotes",
+      "name": "Territoires pilotes pour la transmission agricole",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "Dispositif régional associant intercommunalités et chambres d’agriculture ; à vérifier sur une source officielle.",
+      "foundBy": "pdl-installation",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    { "expectedId": "fr-aide-regionale-installation", "status": "FOUND", "leadId": "pdl-dja", "checkedOn": "2026-09-20" },
+    { "expectedId": "fr-transmission-accompagnement", "status": "FOUND", "leadId": "pdl-safer-transmission", "checkedOn": "2026-09-20" },
+    { "expectedId": "fr-safer-foncier", "status": "FOUND", "leadId": "pdl-safer-transmission", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "Aucune association régionale d’accompagnement à l’installation n’a été vérifiée dans cette passe.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe avec la liste de contrôle nationale : dotation régionale et accompagnement à la transmission de la Safer admis."
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "guyane"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-29",
+  "context": [
+    "La Collectivité territoriale de Guyane est autorité de gestion du FEADER ; le portail Europe Guyane décrit chaque intervention, dont l'aide à l'installation 75.01.",
+    "La Safer Guyane publie une stratégie pluriannuelle orientée vers l'installation et le traitement prioritaire des demandes des jeunes.",
+    "La Chambre d'agriculture de la Guyane a une rubrique installation-transmission qui reste à vérifier.",
+    "Les interventions 75.01, 75.02 et 75.05 concernent respectivement les jeunes agriculteurs, les petites exploitations et les nouveaux installés âgés d'au moins 41 ans ; leurs conditions ne sont pas interchangeables.",
+    "La Safer Guyane décrit désormais un accompagnement concret des cédants, distinct de son accès au foncier pour les porteurs de projet.",
+    "La page OFAG, mise à jour en septembre 2026, signale que sa carte est en maintenance et que ses données foncières remontent à février 2021. Elle décrit aussi le dépôt des demandes auprès de la Mission Foncier.",
+    "La fiche 75.02 présente deux seuils opposés pour la superficie de première année ; ne pas recopier ce seuil sans consulter la notice applicable.",
+    "Les fiches de détail des annonces foncières de la Safer ont renvoyé une erreur lors de cette passe ; vérifier leurs échéances directement auprès de l'opérateur."
+  ],
+  "portals": [
+    {
+      "name": "Europe Guyane",
+      "url": "https://www.europe-guyane.fr/",
+      "what": "Fiches des interventions FEADER du programme guyanais."
+    },
+    {
+      "name": "Safer Guyane",
+      "url": "https://safer-guyane.fr/",
+      "what": "Accès au foncier, appels de candidatures, biens disponibles et accompagnement à la transmission."
+    },
+    {
+      "name": "GéoGuyane — OFAG",
+      "url": "https://www.geoguyane.fr/accueil/geoservice/navigateur_cartographique/ofag/description",
+      "what": "Description de l'outil cartographique et de la procédure de demande de foncier de l'État ; carte signalée en maintenance."
+    },
+    {
+      "name": "CACL",
+      "url": "https://www.cacl-guyane.fr/actualites/signature-dune-convention-avec-la-safer/",
+      "what": "Projet intercommunal de foncier agricole aménagé à suivre jusqu'à l'ouverture d'un accès aux candidats."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "gf-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Collectivité territoriale de Guyane aide installation jeunes agriculteurs FEADER 2026 dotation agriculture"
+    },
+    {
+      "id": "gf-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Guyane projet agricole s'installer foncier appels de candidatures"
+    },
+    {
+      "id": "gf-transmission",
+      "kinds": ["SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "query": "Guyane Safer transmission exploitation cédant repreneur FEADER 77.04 appel à projets"
+    },
+    {
+      "id": "gf-autres-profils",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:europe-guyane.fr FEADER 75.02 75.05 73.17 petite exploitation nouvel installé jeunes agriculteurs"
+    },
+    {
+      "id": "gf-local-associatif",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "ADVICE", "TRAINING"],
+      "query": "Guyane CACL CCOG CCDS CCEG commune incubateur agricole espace-test Terre de Liens ADEAR CIVAM Jeunes Agriculteurs installation"
+    }
+  ],
+  "leads": [
+    {
+      "id": "gf-feader-installation",
+      "name": "Aide à l'installation en agriculture (DJA)",
+      "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-01-aide-a-linstallation-en-agriculture-dja/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "guyane-feader-aide-installation",
+      "reason": "Fiche officielle relue : montant, profil jeune agriculteur, conditions et lien de dépôt confirmés.",
+      "foundBy": "gf-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-safer-guyane",
+      "name": "Safer Guyane",
+      "url": "https://safer-guyane.fr/sinstaller/projet-agricole/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "guyane-safer-guyane",
+      "reason": "Pages de l'opérateur relues : accès aux parcelles, priorité annoncée pour les jeunes et liste d'appels. Les délais des annonces individuelles restent inconnus.",
+      "foundBy": "gf-safer",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-chambre-installation",
+      "name": "Installation-transmission de la Chambre d'agriculture de la Guyane",
+      "url": "https://guyane.chambre-agriculture.fr/installation-transmission/les-aides/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Le site de l'opérateur n'a pas pu être lu. Une page GéoGuyane décrit un PAI à la Chambre, mais ne suffit pas à confirmer son offre actuelle ; obtenir une page ou un contact de l'opérateur décrivant le service.",
+      "foundBy": "gf-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-dpa",
+      "name": "Aide à la petite exploitation agricole 75.02",
+      "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-02-aide-a-la-petite-exploitation-agricole-dpa/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "guyane-feader-petite-exploitation-dpa",
+      "reason": "Fiche de l'autorité de gestion relue ; dotation destinée au démarrage. Seuil de superficie contradictoire, écart consigné.",
+      "foundBy": "gf-autres-profils",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-dna",
+      "name": "Dotation Nouvel Installé 75.05",
+      "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-05-dotation-nouvel-installe-dna/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "guyane-feader-nouvel-installe-dna",
+      "reason": "Fiche de l'autorité de gestion relue ; dispositif distinct pour les nouveaux installés d'au moins 41 ans.",
+      "foundBy": "gf-autres-profils",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-investissements-ja",
+      "name": "Investissements Jeunes agriculteurs 73.17",
+      "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/investissement/73-17-investissements-jeunes-agriculteurs-ja/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "guyane-feader-investissements-ja",
+      "reason": "Aide propre aux investissements des jeunes bénéficiant de la DJA, avec lien de dépôt sur la fiche.",
+      "foundBy": "gf-autres-profils",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-renouvellement-7704",
+      "name": "Renouvellement des générations en agriculture 77.04",
+      "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/cooperation/77-04-renouvellement-des-generations-en-agriculture/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "guyane-feader-renouvellement-generations",
+      "reason": "Fiche de coopération entre cédant et porteur de projet relue ; ressource publiée avec statut UNKNOWN, car aucun appel applicable n'a été vérifié.",
+      "foundBy": "gf-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-safer-transmission",
+      "name": "Accompagnement des cédants par la Safer Guyane",
+      "url": "https://safer-guyane.fr/vous-souhaitez-transmettre-votre-exploitation-agricole-la-safer-guyane-vous-accompagne/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "guyane-safer-transmission",
+      "reason": "Page propre de l'opérateur décrivant l'évaluation, la recherche de repreneur et les étapes de la cession.",
+      "foundBy": "gf-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-ofag",
+      "name": "Outil du foncier agricole de Guyane",
+      "url": "https://www.geoguyane.fr/accueil/geoservice/navigateur_cartographique/ofag/description",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La page officielle indique que la carte dynamique est en maintenance et que les données de la Mission Foncier datent de 2021 ; vérifier sa remise en service et l'actualisation des parcelles avant admission.",
+      "foundBy": "gf-local-associatif",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-mission-foncier-formulaires",
+      "name": "Demande de foncier agricole de l'État",
+      "url": "https://www.guyane.gouv.fr/Politiques-publiques/Acces-au-foncier-de-l-Etat/Les-agriculteurs/Formulaires-de-demande-agricole",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "GéoGuyane décrit le dépôt auprès de la Mission Foncier, mais la page officielle des formulaires a renvoyé une erreur 502 ; ouvrir la procédure et ses formulaires à nouveau.",
+      "foundBy": "gf-local-associatif",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-cacl-foncier",
+      "name": "Foncier agricole aménagé et incubateur projetés par la CACL",
+      "url": "https://www.cacl-guyane.fr/actualites/signature-dune-convention-avec-la-safer/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La convention et le projet de parcelle à Carapa sont décrits, mais aucune mise à disposition effective ni candidature des exploitants n'a été vérifiée ; suivre l'opérateur.",
+      "foundBy": "gf-local-associatif",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-formation-7801",
+      "name": "Formation, conseil et diffusion 78.01",
+      "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/formation/78-01-formation-conseil-et-diffusion/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Intervention générale de formation et de conseil agricole ; aucune offre concrète liée à l'entrée ou à la reprise d'une exploitation n'a été établie sur la fiche consultée.",
+      "foundBy": "gf-autres-profils",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gf-associations",
+      "name": "Associations et espaces-test agricoles en Guyane",
+      "url": "https://graineguyane.org/annuaire/association-jeunes-agriculteurs-ja/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "L'annuaire tiers mentionne un accompagnement des candidats par Jeunes Agriculteurs de Guyane, sans page propre de l'opérateur vérifiée ; rechercher une offre et un accès publiés par celui-ci. Les recherches Terre de Liens, ADEAR, CIVAM et espace-test n'ont pas établi d'autre service territorial admissible.",
+      "foundBy": "gf-local-associatif",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "FOUND",
+      "leadId": "gf-feader-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "gf-safer-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "gf-safer-guyane",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "Recherches sur Terre de Liens, ADEAR, CIVAM, Jeunes Agriculteurs et les espaces-test en Guyane ; l'offre locale évoquée par un annuaire tiers demeure TO_CHECK dans gf-associations faute de page propre vérifiée.",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe avec la liste de contrôle nationale : aide FEADER à l'installation et Safer Guyane admises ; Chambre d'agriculture à vérifier."
+    },
+    {
+      "date": "2026-09-29",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Relecture des deux ressources existantes ; ajout des dotations DPA et DNA, de l'investissement JA, de l'intervention 77.04 à disponibilité inconnue et du service de transmission de la Safer. Appels fonciers individuels, Chambre, OFAG, Mission Foncier, projet CACL et offre associative laissés à vérifier."
+    }
+  ]
+}

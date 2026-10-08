@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "COUNTRY",
+    "country": "FR"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-25",
+  "context": [
+    "Les Régions gèrent une part structurante des aides FEADER, tandis que les chambres départementales assurent des services d'installation et de transmission.",
+    "Rechercher les dispositifs aux niveaux région, département, EPCI et commune, ainsi que les opérateurs fonctionnels comme les Chambres d'agriculture et les Safer.",
+    "Le vocabulaire local comprend installation-transmission, cédant, repreneur, Point accueil installation transmission, Répertoire départ installation et stage de parrainage.",
+    "France Services Agriculture est prévu à compter de 2027 : son annonce ne constitue pas encore un service opérationnel en 2026."
+  ],
+  "portals": [
+    {
+      "name": "Ministère de l'Agriculture — installation-transmission",
+      "url": "https://agriculture.gouv.fr/installation-transmission-qui-sont-les-acteurs-cles",
+      "what": "Présentation nationale des acteurs, des services actuels et du futur réseau France Services Agriculture."
+    },
+    {
+      "name": "Chambres d'agriculture — futur agriculteur",
+      "url": "https://chambres-agriculture.fr/je-suis-futur-agriculteur",
+      "what": "Point d'entrée national vers l'installation, les aides et la recherche d'exploitation."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "transmission-regional",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "site officiel {region} installation transmission exploitation agricole cédant repreneur"
+    },
+    {
+      "id": "land-regional",
+      "kinds": ["LAND_BANK"],
+      "query": "{region} répertoire exploitation à reprendre foncier agricole Safer"
+    },
+    {
+      "id": "aid-regional",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "{region} dotation jeune agriculteur nouvel agriculteur FEADER"
+    },
+    {
+      "id": "local-levels",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "TRAINING"],
+      "query": "{region} département EPCI commune transmission ferme espace-test agricole"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "France installation transmission agriculture accompagnement"
+    }
+  ],
+  "leads": [
+    {
+      "id": "fr-france-services-agriculture",
+      "name": "France Services Agriculture",
+      "url": "https://agriculture.gouv.fr/installation-transmission-qui-sont-les-acteurs-cles",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "resourceId": "fr-france-services-agriculture",
+      "reason": "Le ministère prévoit le déploiement opérationnel au 1er janvier 2027 ; le fichier le classe comme annoncé et non opérationnel.",
+      "foundBy": "Ministère de l'Agriculture",
+      "checkedOn": "2026-09-14"
+    },
+    {
+      "id": "fr-repertoire-depart-installation",
+      "name": "Répertoire Départ Installation",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "Trouver une page nationale stable de l'opérateur et vérifier le parcours d'accès actuel avant admission.",
+      "foundBy": "transmission-regional"
+    }
+  ],
+  "expectedInstruments": [
+    {
+      "id": "fr-aide-regionale-installation",
+      "name": "Aide régionale à l'installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "lookFor": "Aide de la Région à la première installation, en complément ou en relais de la DJA depuis que les Régions gèrent le FEADER installation, sur le site ou le guichet d'aides de la Région. Les sites régionaux bloquent parfois les robots : chercher une page officielle lisible."
+    },
+    {
+      "id": "fr-transmission-accompagnement",
+      "name": "Aides et accompagnement régionaux à la transmission et au test d'activité",
+      "kinds": ["SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "lookFor": "Volets régionaux du programme AITA, aides au test d'activité ou au stage de parrainage, et offre propre à la région autour du Point Info Transmission ou du Répertoire Départ Installation."
+    },
+    {
+      "id": "fr-safer-foncier",
+      "name": "Safer et dispositifs fonciers régionaux ou départementaux",
+      "kinds": ["LAND_BANK"],
+      "lookFor": "Page de la Safer de la région sur l'installation et la transmission, portage foncier ou appels à candidatures, et dispositifs fonciers de la Région ou des départements."
+    },
+    {
+      "id": "fr-associations-installation",
+      "name": "Associations d'accès à la terre et d'accompagnement à l'installation",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "lookFor": "Association territoriale Terre de Liens, ADEAR, CIVAM, couveuses ou espaces-test agricoles de la région, avec un service décrit et un contact régional."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Première passe nationale puis expansion avec le vocabulaire PADU, RDI, Safer et AITA ; France Services Agriculture admis comme dispositif annoncé pour 2027."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Repérage préliminaire avant publication : requêtes prepublication-2026-09-25 exécutées. Découverte uniquement, sans revue complète ni preuve d’absence. Restent à vérifier les candidats, toutes les familles, les échelons locaux et les détails pratiques. Ce repérage ne modifie ni les statuts ni les dates de l’édition."
+    }
+  ]
+}

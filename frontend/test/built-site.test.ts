@@ -205,6 +205,22 @@ test("a territory never shares a namespace with a page of the site", () => {
   }
 });
 
+/**
+ * The first thing on every page is a link for somebody who cannot use a mouse, and for four milestones it
+ * said "Skip to the content" in English on every Spanish page on the site. Nothing caught it: it sits in
+ * the layout, outside the part of the page anybody reads, and it is invisible until it is focused. So the
+ * check is here — the one piece of chrome a reader meets before any other has to be in their language.
+ */
+test("the first link of a page is written in that page's language", () => {
+  for (const { file, html } of pages) {
+    const language = /<html lang="([^"]+)"/u.exec(html)?.[1];
+    assert.ok(language, `${file} does not declare the language it is written in`);
+    const skip = /<a\b[^>]*\bhref="#content"[^>]*>([\s\S]*?)<\/a>/u.exec(html)?.[1]?.trim();
+    assert.ok(skip, `${file} has no link that skips to the content`);
+    assert.equal(skip, words(language).skip, `${file} offers its skip link in another language than its own`);
+  }
+});
+
 test("a page declares the language its text is actually written in", () => {
   const home = pages.find(({ file }) => file === "index.html");
   assert.ok(home, "no home page was built");

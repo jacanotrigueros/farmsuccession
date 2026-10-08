@@ -15,6 +15,7 @@ import { isEntryPoint, runMain } from "./paths.ts";
 import { type CheckReport, type RunOptions, runChecks, summarize } from "./sources/check.ts";
 import { collectSourceChecks } from "./sources/collect.ts";
 import { type Fetcher, fetchPage } from "./sources/fetch.ts";
+import { checksDirIn, recordRun } from "./sources/ledger.ts";
 import { consoleOutput, type Output, renderReport, renderTotals, writeReport } from "./sources/report.ts";
 import { installIntermediates } from "./sources/tls.ts";
 
@@ -30,6 +31,8 @@ export type CheckOptions = {
   edition?: string;
   /** A path fragment to narrow the run to, so one territory can be checked without the other ninety. */
   filter?: string;
+  /** What to call this run in the record. A territory spec reads better there than the path it filtered on. */
+  scope?: string;
   editionsDir?: string;
   reportsDir?: string;
   fetcher?: Fetcher;
@@ -55,6 +58,11 @@ export async function checkSources(options: CheckOptions = {}): Promise<SourceCh
 
   const totals = summarize(reports);
   const reportFile = writeReport("sources", { totals, reports }, options.reportsDir);
+  // Recorded before the totals are printed, so a run interrupted afterwards is still part of the series.
+  recordRun(
+    { edition: options.edition ?? "", scope: options.scope ?? options.filter ?? "all", totals, reports },
+    checksDirIn(options.reportsDir),
+  );
   out.log(`${renderTotals(totals)} — full report in ${reportFile}`);
   return { planned: planned.length, reports, reportFile };
 }

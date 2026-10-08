@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "bourgogne-franche-comte"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "La Région Bourgogne-Franche-Comté gère la DJA et a officiellement annoncé le 30 juin 2026 sa revalorisation de 45 000 à 65 000 euros, avec un plafond possible de 72 000 euros.",
+    "La Région maintient un programme de formation à la reprise permettant aux candidats hors cadre familial de tester une exploitation pendant 3 à 12 mois avec accompagnement.",
+    "La Safer Bourgogne-Franche-Comté reste l'opérateur foncier régional pour installation, transmission, consolidation et annonces légales.",
+    "Terre de Liens Bourgogne-Franche-Comté est actif en 2026 et décrit des parcours d'installation, transmission et accès au foncier.",
+    "AITA est structuré régionalement ; la DRAAF décrit les volets accueil, conseil, professionnalisation, transmission et animation. Ne pas confondre financement des structures et aide directement accessible au bénéficiaire final.",
+    "France Services Agriculture est en phase d'expérimentation en 2026 et relève de la couche nationale."
+  ],
+  "portals": [
+    {
+      "name": "Guide des aides Région Bourgogne-Franche-Comté",
+      "url": "https://www.bourgognefranchecomte.fr/guide-des-aides",
+      "what": "Aides régionales et dépôt des dossiers."
+    },
+    {
+      "name": "DRAAF Bourgogne-Franche-Comté - AITA",
+      "url": "https://draaf.bourgogne-franche-comte.agriculture.gouv.fr/les-dispositifs-de-l-aide-a-l-installation-et-a-la-transmission-aita-r784.html",
+      "what": "Dispositif régional installation-transmission et structures labellisées."
+    },
+    {
+      "name": "Safer Bourgogne-Franche-Comté",
+      "url": "https://www.saferbfc.com/",
+      "what": "Foncier, installation, transmission et annonces légales."
+    },
+    {
+      "name": "Terre de Liens Bourgogne-Franche-Comté",
+      "url": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/",
+      "what": "Installation, transmission, foncier et annonces."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "bfc-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Bourgogne-Franche-Comté installation transmission foncier agricole site officiel"
+    },
+    {
+      "id": "bfc-aide-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Région Bourgogne-Franche-Comté aide installation jeunes agriculteurs 2026 dotation transmission dispositif"
+    },
+    {
+      "id": "bfc-aita",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "DRAAF Bourgogne Franche Comté AITA installation transmission 2026"
+    },
+    {
+      "id": "bfc-associations",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE", "LAND_BANK"],
+      "query": "Terre de Liens Bourgogne Franche Comté installation transmission accompagnement foncier 2026"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Bourgogne-Franche-Comté installation transmission agriculture accompagnement"
+    }
+  ],
+  "leads": [
+    {
+      "id": "bfc-safer-bfc",
+      "name": "Safer Bourgogne-Franche-Comté",
+      "url": "https://www.saferbfc.com/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "bourgogne-franche-comte-safer-bfc",
+      "reason": "Opérateur foncier régional avec missions d'installation/transmission et accès aux annonces légales.",
+      "foundBy": "bfc-safer",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bfc-dja-revalorisee",
+      "name": "Dotation jeunes agriculteurs Bourgogne-Franche-Comté",
+      "url": "https://www.bourgognefranchecomte.fr/node/4207",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "bourgogne-franche-comte-dja",
+      "reason": "La fiche officielle décrit le dispositif ; une actualité officielle du 30 juin 2026 confirme la revalorisation à 65 000 euros de base et jusqu'à 72 000 euros.",
+      "foundBy": "bfc-aide-installation",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bfc-formation-reprise",
+      "name": "Programme de formation à la reprise des exploitations agricoles",
+      "url": "https://www.bourgognefranchecomte.fr/node/1901",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "bourgogne-franche-comte-formation-reprise-exploitation",
+      "reason": "Fiche régionale actuelle avec bénéficiaires, durée 3-12 mois, accompagnement, contacts et lien de dépôt ; directement liée à la reprise hors cadre familial.",
+      "foundBy": "bfc-aide-installation",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bfc-terre-de-liens",
+      "name": "Terre de Liens Bourgogne-Franche-Comté",
+      "url": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "bourgogne-franche-comte-terre-de-liens",
+      "reason": "Page territoriale actuelle décrivant installation, transmission, accès au foncier et activité 2026, avec contact et parcours d'accès.",
+      "foundBy": "bfc-associations",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bfc-aita",
+      "name": "Aide à l'Installation et à la Transmission en Agriculture (AITA)",
+      "url": "https://draaf.bourgogne-franche-comte.agriculture.gouv.fr/les-dispositifs-de-l-aide-a-l-installation-et-a-la-transmission-aita-r784.html",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "Dispositif structurant et actuel, mais la page précise que les aides soutiennent les structures agréées/labellisées. Les parcours utilisateur concrets sont représentés par les ressources accessibles directement ; éviter un doublon abstrait.",
+      "foundBy": "bfc-aita",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bfc-fsa-experimentation",
+      "name": "Phase d'expérimentation France Services Agriculture",
+      "url": "https://draaf.bourgogne-franche-comte.agriculture.gouv.fr/phase-d-experimentation-du-dispositif-france-service-agriculture-a3654.html",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Phase de test 2026 d'un dispositif national prévu pour déploiement ultérieur ; ne pas le dupliquer comme service régional établi.",
+      "foundBy": "bfc-aita",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "FOUND",
+      "leadId": "bfc-dja-revalorisee",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "bfc-formation-reprise",
+      "reason": "Le programme régional de reprise et Terre de Liens couvrent test/reprise et accompagnement à la transmission ; AITA est documenté mais non dupliqué comme ressource finale.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "bfc-safer-bfc",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "FOUND",
+      "leadId": "bfc-terre-de-liens",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe : Safer admise ; dotation régionale revalorisée à vérifier sur source officielle."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Repérage préliminaire avant publication sans modification des statuts."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revue 1.9.0 complète : DJA 2026 revalorisée confirmée officiellement ; programme régional de reprise admis ; Safer et Terre de Liens BFC revalidés ; AITA documenté mais non dupliqué comme ressource abstraite."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revue des sources : la citation d'un café installation à la Ferme de la Motte a disparu de la page, qui fait tourner ses évènements ; seules les citations stables des parcours restent, et la date de dernière évidence tirée de cet évènement est retirée."
+    }
+  ]
+}

@@ -87,6 +87,7 @@ export async function checkTerritory(options: TerritoryCheckOptions): Promise<Te
   const sources = await checkSources({
     edition: options.edition,
     filter: editionPath,
+    scope: options.territory,
     editionsDir,
     reportsDir: options.reportsDir,
     fetcher: options.fetcher,

@@ -12,9 +12,9 @@
  * by three orders of magnitude for anybody who knows the other convention.
  */
 
-export type Language = "en" | "es" | "de";
+export type Language = "en" | "es" | "de" | "fr";
 
-const isLanguage = (value: string): value is Language => value === "en" || value === "es" || value === "de";
+const isLanguage = (value: string): value is Language => value === "en" || value === "es" || value === "de" || value === "fr";
 
 /**
  * Narrows a language recorded in the data to one the site can actually write, and throws otherwise. A

@@ -1,0 +1,215 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "auvergne-rhone-alpes"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Le programme FEADER régional 2023-2027 comprend le dispositif 101 « M'installer en agriculture avec la DJA » ; le CRIT du 24 juin 2026 en présente un bilan jusqu'à fin avril 2026.",
+    "La Safer Auvergne-Rhône-Alpes dispose d'un parcours actuel pour l'installation, la transmission et les candidatures sur les biens proposés.",
+    "Terre de Liens intervient par associations territoriales. La page Rhône-Alpes fournit une voie explicite de demande d'accompagnement pour installation, transmission ou cession.",
+    "Au 24 juin 2026, le CRIT indiquait la mise en œuvre AITA 2026 comme en attente d'information du ministère ; ne pas convertir les anciennes fiches AITA en aides 2026 actives sans nouvelle décision.",
+    "France Services Agriculture est un dispositif national prévu pour 2027 et reste dans la couche France."
+  ],
+  "portals": [
+    {
+      "name": "DRAAF Auvergne-Rhône-Alpes - installation transmission",
+      "url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/transmission-et-installation-en-agriculture-r414.html",
+      "what": "CRIT, AITA et actualité régionale installation-transmission."
+    },
+    {
+      "name": "Safer Auvergne-Rhône-Alpes",
+      "url": "https://safer-aura.fr/",
+      "what": "Foncier, installation, transmission et appels à candidatures."
+    },
+    {
+      "name": "Terre de Liens Rhône-Alpes",
+      "url": "https://terredeliens.org/rhone-alpes/nous-contacter/",
+      "what": "Demande d'accompagnement pour installation, transmission ou cession."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "aura-installation",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "Auvergne-Rhône-Alpes aide installation jeunes agriculteurs Région 2026 DJA transmission"
+    },
+    {
+      "id": "aura-tresorerie",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Auvergne-Rhône-Alpes Région aide trésorerie jeunes agriculteurs installation hors cadre familial"
+    },
+    {
+      "id": "aura-foncier",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Terre de Liens Auvergne-Rhône-Alpes accès foncier installation transmission ferme"
+    },
+    {
+      "id": "aura-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Auvergne-Rhône-Alpes installer transmettre appel candidature 2026"
+    },
+    {
+      "id": "aura-aita",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Auvergne-Rhône-Alpes AITA accompagnement transmission cédant 2026"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Auvergne-Rhône-Alpes installation transmission agriculture accompagnement"
+    }
+  ],
+  "leads": [
+    {
+      "id": "aura-dja-101",
+      "name": "M'installer en agriculture avec la Dotation Jeunes Agriculteurs - dispositif 101",
+      "url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/documents-du-crit-du-24-juin-2026-a6658.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Le lien edelib de la délibération du programme FEADER expire (il renvoie désormais une page vide de 44 octets), la page du CRIT du 24 juin 2026 sur le site de la DRAAF ne répond pas depuis l'environnement de vérification et la fiche d'aide de la Région redirige vers une protection anti-robots. Prochaine étape : ouvrir la page de la DRAAF ou la fiche régionale dans un navigateur dont la chaîne de certificats est validée, documenter la vérification manuelle ici, puis réadmettre la ressource sous l'id auvergne-rhone-alpes-dja.",
+      "foundBy": "aura-installation",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "aura-aide-tresorerie",
+      "name": "Soutenir la trésorerie de mon exploitation agricole dès mon installation",
+      "url": "https://www.auvergnerhonealpes.fr/aides/soutenir-la-tresorerie-de-mon-exploitation-agricole-des-mon-installation",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "La fiche régionale reste protégée et son articulation actuelle avec la DJA 2023-2027 n'a pas pu être vérifiée ; ne pas créer un doublon à partir de résultats de recherche anciens.",
+      "foundBy": "aura-tresorerie",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "aura-conseil-installation",
+      "name": "Être conseillé pour mon projet d'installation en agriculture",
+      "url": "https://www.auvergnerhonealpes.fr/aides/etre-conseille-pour-mon-projet-dinstallation-en-agriculture",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La page redirige vers une protection anti-robots et son contenu opérationnel actuel n'a pas pu être lu ; aucun fait non vérifié n'est promu dans l'édition.",
+      "foundBy": "aura-installation",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "aura-point-accueil-installation",
+      "name": "Point Accueil Installation",
+      "url": "https://aura.chambres-agriculture.fr/sinformer/ma-vie-dagriculteur/minstaller-en-agriculture",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Déclinaison territoriale d'un dispositif national ; ne pas dupliquer la couche France.",
+      "foundBy": "aura-installation",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "aura-repertoire-depart-installation",
+      "name": "Répertoire Départ Installation",
+      "url": "https://aura.chambres-agriculture.fr/sinformer/ma-vie-dagriculteur/minstaller-en-agriculture",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "Outil du réseau national des Chambres d'agriculture ; ne pas dupliquer sans offre régionale distincte.",
+      "foundBy": "aura-installation",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "aura-terre-de-liens-rhone-alpes",
+      "name": "Terre de Liens Rhône-Alpes - accompagnement installation et transmission",
+      "url": "https://terredeliens.org/rhone-alpes/nous-contacter/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "auvergne-rhone-alpes-terre-de-liens-rhone-alpes",
+      "reason": "Page territoriale actuelle avec demande d'accompagnement explicite pour un projet d'installation, de transmission ou de cession via Objectif Terres.",
+      "foundBy": "aura-foncier",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "aura-terre-de-liens-auvergne",
+      "name": "Terre de Liens Auvergne",
+      "url": "https://terredeliens.org/auvergne/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "L'association est active et publie des projets fonciers en 2026, mais cette passe n'a pas trouvé une page publique décrivant une voie d'accompagnement installation/transmission aussi précise que la page Rhône-Alpes ; conservé comme piste, non dupliqué.",
+      "foundBy": "aura-foncier",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "aura-safer-aura",
+      "name": "Safer Auvergne-Rhône-Alpes",
+      "url": "https://safer-aura.fr/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "auvergne-rhone-alpes-safer-aura",
+      "reason": "Site actuel de l'opérateur régional avec parcours d'installation et transmission, appels à candidatures et dépôt de dossier.",
+      "foundBy": "aura-safer",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "aura-aita-draaf",
+      "name": "Accompagnement à l'installation et à la transmission en agriculture (AITA)",
+      "url": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/l-accompagnement-de-l-installation-et-de-la-transmission-en-agriculture-aita-a1951.html",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "Le dispositif régional est documenté historiquement, mais le CRIT du 24 juin 2026 indique encore « mise en œuvre AITA 2026 (en attente d'information du ministère) ». Ne pas affirmer l'ouverture des aides individuelles 2026 sans source ultérieure.",
+      "foundBy": "aura-aita",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "NOT_FOUND",
+      "reason": "La DJA régionale (dispositif 101) existe dans le programme FEADER mais aucune de ses sources n'est vérifiable aujourd'hui ; voir la piste aura-dja-101, en attente de vérification manuelle.",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "aura-terre-de-liens-rhone-alpes",
+      "reason": "Accompagnement territorial vérifié via Terre de Liens ; AITA 2026 reste TO_CHECK et n'est pas présenté comme aide ouverte.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "aura-safer-aura",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "FOUND",
+      "leadId": "aura-terre-de-liens-rhone-alpes",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe sans ressource admise : pages d'aides régionales protégées, dispositifs nationaux rejetés, Terre de Liens à vérifier."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Safer Auvergne-Rhône-Alpes admise ; aides régionales et accompagnement AITA encore non vérifiés."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Repérage préliminaire avant publication, sans modification des statuts de l'édition."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revue 1.9.0 complète : DJA régionale admise à partir du programme FEADER et du CRIT 2026 ; Safer revalidée ; accompagnement Terre de Liens Rhône-Alpes admis ; AITA 2026 maintenu TO_CHECK car sa mise en œuvre était encore en attente au CRIT de juin."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revue des sources : la délibération edelib citée pour la DJA régionale est un lien qui expire, la DRAAF ne répond pas et la fiche régionale est protégée ; la ressource sort de l'édition sans source vérifiable, la piste repasse en TO_CHECK avec l'étape suivante et la vérification de l'aide régionale à l'installation passe en NOT_FOUND. La phrase de la Safer sur le délai de 15 jours a changé et la citation suit le texte actuel."
+    }
+  ]
+}

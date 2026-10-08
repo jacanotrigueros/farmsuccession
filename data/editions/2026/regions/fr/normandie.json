@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "FR",
+  "region": "normandie",
+  "officialName": "Normandie",
+  "published": "2026-09-20",
+  "summary": "La Normandie dispose d’un service régional dédié à l’installation et à la transmission, financé par la Région et animé par six partenaires agricoles, avec prise de rendez-vous et agenda d’événements ; la Safer de Normandie accompagne le volet foncier de l’installation et de la transmission.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Recherches sur le service régional installation-transmission, les aides de la Région et la Safer de Normandie. Les fiches d’aides de la Région n’ont pas été citées dans cette passe.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Région Normandie aide installation jeunes agriculteurs 2026 transmission dispositif agriculture"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Safer de Normandie s’installer transmettre foncier agricole"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.installer-transmettre-normandie.fr/"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "fr",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "normandie-installer-transmettre",
+      "name": "Installation et transmission en agriculture en Normandie",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Région Normandie, avec les Chambres d’agriculture, Jeunes agriculteurs, le réseau des CIVAM, Terre de liens, l’ARDEAR et Bio en Normandie",
+      "operatorType": "MIXED",
+      "whatItOffers": "Service régional qui informe et accompagne les porteurs de projet d’installation et les cédants, avec des parcours par étapes, un carnet d’adresses, un agenda d’événements et la prise de rendez-vous avec un conseiller.",
+      "whoCanUseIt": "Futurs porteurs de projet en agriculture et cédants d’exploitations agricoles en Normandie.",
+      "howToAccess": "Prendre rendez-vous avec un conseiller depuis le site régional et suivre les rubriques dédiées à l’installation, à la transmission et à la cessation d’activité.",
+      "accessUrl": "https://www.installer-transmettre-normandie.fr/",
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER", "TRANSFEROR", "SUCCESSOR"],
+      "sources": [
+        {
+          "url": "https://www.installer-transmettre-normandie.fr/",
+          "title": "Transmission et installation en agriculture en Normandie",
+          "consultedOn": "2026-09-20",
+          "quotes": [
+            "La Région Normandie finance, à travers un contrat d’objectifs, des actions visant à promouvoir l’installation de nouveaux agriculteurs sur le territoire normand et accompagner les exploitants dits cédants dans la transmission de leurs outils de production agricole.",
+            "Ce contrat d’objectif regroupe 6 partenaires : Les Chambres d’agriculture de Normandie, les Jeunes agriculteurs, le réseau des CIVAMs, Terre de liens, l’ARDEAR, Bio en Normandie.",
+            "Je m'installe en agriculture Les aides agricoles Je transmets ma ferme Je cesse mon activité Je prends rendez-vous",
+            "Planifiez votre rendez-vous avec notre conseiller en agriculture en Normandie."
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    },
+    {
+      "id": "normandie-safer-normandie",
+      "name": "Safer de Normandie, s’installer et transmettre",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer de Normandie",
+      "operatorType": "MIXED",
+      "whatItOffers": "Accompagne les agriculteurs pour acheter, vendre, louer, s’installer ou transmettre, publie les biens à acheter ou à louer et les biens notifiés par les notaires, et met en relation avec un conseiller foncier de secteur.",
+      "whoCanUseIt": "Agriculteurs, porteurs de projet, propriétaires et collectivités en Normandie.",
+      "howToAccess": "Consulter les biens à acheter ou à louer sur le site de la Safer et contacter le conseiller de son secteur.",
+      "accessUrl": "https://www.saferdenormandie.fr/fr/nos-expertises/sinstaller-transmettre.html",
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "languages": ["fr"],
+      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "TRANSFEROR", "LANDOWNER"],
+      "sources": [
+        {
+          "url": "https://www.saferdenormandie.fr/fr/nos-expertises/sinstaller-transmettre.html",
+          "title": "S’installer / transmettre - Safer de Normandie",
+          "consultedOn": "2026-09-20",
+          "quotes": [
+            "S’installer/ transmettre Contacter un Conseiller Safer Contactez le conseiller de votre secteur",
+            "Agriculteurs Acheter Vendre Louer S’installer / transmettre",
+            "Biens à acheter ou à louer",
+            "Biens Notifiés par les notaires"
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "Les fiches des aides régionales au démarrage de l’installation n’ont pas été citées : leurs montants proviennent de résultats de recherche.",
+    "L’appel à projets annuel de l’État pour l’accompagnement installation-transmission n’a pas été vérifié.",
+    "Les six partenaires du contrat d’objectifs régional n’ont pas été vérifiés individuellement."
+  ]
+}

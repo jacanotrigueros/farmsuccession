@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "FR", "region": "normandie" },
+  "language": "fr",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Le site installer-transmettre-normandie.fr est le guichet régional commun, financé par la Région dans un contrat d’objectifs avec six partenaires agricoles.",
+    "La Région publie par ailleurs des fiches d’aides au démarrage de l’installation sur normandie.fr, non citées dans cette passe.",
+    "Les services agricoles de l’État lancent chaque année un appel à projets régional pour l’accompagnement installation-transmission."
+  ],
+  "portals": [
+    {
+      "name": "Installer Transmettre Normandie",
+      "url": "https://www.installer-transmettre-normandie.fr/",
+      "what": "Parcours d’installation et de transmission, aides, événements et rendez-vous conseiller."
+    },
+    {
+      "name": "Safer de Normandie",
+      "url": "https://www.saferdenormandie.fr/",
+      "what": "Biens à acheter ou à louer et accompagnement foncier à l’installation et à la transmission."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "nor-installation",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "Région Normandie aide installation jeunes agriculteurs 2026 transmission dispositif agriculture"
+    },
+    { "id": "nor-safer", "kinds": ["LAND_BANK"], "query": "Safer de Normandie s’installer transmettre foncier agricole" }
+  ],
+  "leads": [
+    {
+      "id": "nor-installer-transmettre",
+      "name": "Installation et transmission en agriculture en Normandie",
+      "url": "https://www.installer-transmettre-normandie.fr/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "normandie-installer-transmettre",
+      "reason": "Guichet régional officiel décrivant son financement, ses partenaires et ses services aux porteurs de projet et aux cédants.",
+      "foundBy": "nor-installation",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "nor-safer-normandie",
+      "name": "Safer de Normandie",
+      "url": "https://www.saferdenormandie.fr/fr/nos-expertises/sinstaller-transmettre.html",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "normandie-safer-normandie",
+      "reason": "Page de l’opérateur foncier régional consacrée à l’installation et à la transmission.",
+      "foundBy": "nor-safer",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "nor-demarrage-installation",
+      "name": "Normandie Démarrage Installation",
+      "url": "https://www.normandie.fr/normandie-demarrage-installation",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Aide régionale au démarrage pour jeunes et nouveaux agriculteurs ; fiche non citée dans cette passe.",
+      "foundBy": "nor-installation",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "nor-aita-appel-projets",
+      "name": "Appel à projets AITA installation-transmission en Normandie",
+      "url": "https://draaf.normandie.agriculture.gouv.fr/appel-a-projets-aita-installation-transmission-2026-en-normandie-a622.html",
+      "kind": "POLICY",
+      "status": "TO_CHECK",
+      "reason": "Appel annuel de l’État aux structures d’accompagnement ; à vérifier lors d’une prochaine passe.",
+      "foundBy": "nor-installation",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "NOT_FOUND",
+      "reason": "La fiche de l’aide régionale au démarrage n’a pas été citée dans cette passe.",
+      "checkedOn": "2026-09-20"
+    },
+    { "expectedId": "fr-transmission-accompagnement", "status": "FOUND", "leadId": "nor-installer-transmettre", "checkedOn": "2026-09-20" },
+    { "expectedId": "fr-safer-foncier", "status": "FOUND", "leadId": "nor-safer-normandie", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "Les associations partenaires du contrat d’objectifs régional n’ont pas été vérifiées individuellement.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe avec la liste de contrôle nationale : guichet régional installation-transmission et Safer de Normandie admis ; aides régionales à vérifier."
+    }
+  ]
+}
