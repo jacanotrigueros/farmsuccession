@@ -199,7 +199,28 @@ release.
   ONLINE" — and FORM is also a contact channel in the schema. A citation edited to satisfy
   a check is no longer evidence, so the rule that gave way is the other one.
 
+### Portugal, and the edition complete
+
+- **The 2026 edition of Portugal**: 10 files, 17 records, 26 sources and 69 quotes, with a
+  research brief for the national layer and for each of its 9 regions. It is the thinnest
+  country and the most national: four of its records apply to the whole country, no region
+  documents a qualifying course, and what the regions carry is advice in 4 of 9 and a land
+  exchange in 3.
+- **The corpus is now the whole corpus**: 101 edition files and 101 briefs, the EU layer
+  and five countries, 319 records, 511 sources, 1,550 quotes, 494 distinct pages. What the
+  research sweep produced is what this repository publishes, so the sample the measurement
+  thresholds were set from and the thing being measured have become the same.
+- Portuguese is the sixth language.
+- Madeira cost the most and was worth it. Its prize page used to read "não antes de 24
+  meses" and now reads "há não mais de 4 anos": the eligibility window doubled and then
+  some, and the record would have told somebody three years into farming that it was too
+  late for them. The notices page had dropped a prefix from every line, and another page
+  had fixed a typo this repository was still quoting. Checking that a quote can still be
+  found is not pedantry about punctuation; this is what it is for.
+- The same page also shows a call nobody had recorded: the prize is open from 2 October to
+  18 December, so the record now answers "can I apply now?" where before it had no dates
+  at all.
+
 ### Not here yet
 
-- Portugal: researched, not published here.
 - A published site, and therefore anything to visit.
