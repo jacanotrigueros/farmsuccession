@@ -73,6 +73,17 @@ export const kindLabel = vocabulary<Resource["kind"]>({
     NETWORK: "Réseau",
     OTHER: "Autre",
   },
+  it: {
+    LAND_BANK: "Terreni",
+    SUCCESSION_SERVICE: "Subentro",
+    FINANCIAL_SUPPORT: "Denaro",
+    TRAINING: "Formazione",
+    ADVICE: "Consulenza",
+    OFFICIAL_PORTAL: "Portale ufficiale",
+    POLICY: "Norme",
+    NETWORK: "Rete",
+    OTHER: "Altro",
+  },
 });
 
 /**
@@ -108,6 +119,13 @@ export const stateLabel = vocabulary<Resource["status"]>({
     DISCONTINUED: "n’est plus proposé",
     UNKNOWN: "n’a pas pu être confirmé",
   },
+  it: {
+    ACTIVE: "in funzione",
+    ANNOUNCED_NOT_OPERATING: "annunciato, non in funzione",
+    HISTORICAL: "concluso, conservato come traccia",
+    DISCONTINUED: "non è più offerto",
+    UNKNOWN: "non è stato possibile confermarlo",
+  },
 });
 
 /** How far a resource reaches. Said as an extent a reader can place themselves in, not as a tier name. */
@@ -139,6 +157,13 @@ export const reachLabel = vocabulary<Scope["level"]>({
     REGIONAL: "Toute la région",
     SUBREGIONAL: "Une partie de la région",
     LOCAL: "Une ou plusieurs communes",
+  },
+  it: {
+    EU: "In tutta l’Unione europea",
+    NATIONAL: "Tutto il paese",
+    REGIONAL: "Tutta la regione",
+    SUBREGIONAL: "Una parte della regione",
+    LOCAL: "Uno o più comuni",
   },
 });
 
@@ -172,6 +197,13 @@ export const operatorTypeLabel = vocabulary<Resource["operatorType"]>({
     MIXED: "Public et privé ensemble",
     UNKNOWN: "Les sources ne le disent pas",
   },
+  it: {
+    PUBLIC: "Ente pubblico",
+    NONPROFIT: "Organizzazione senza scopo di lucro",
+    PRIVATE: "Impresa privata",
+    MIXED: "Pubblico e privato insieme",
+    UNKNOWN: "Le fonti non lo dicono",
+  },
 });
 
 export const costLabel = vocabulary<NonNullable<Resource["accessCostType"]>>({
@@ -198,6 +230,12 @@ export const costLabel = vocabulary<NonNullable<Resource["accessCostType"]>>({
     FEE_REQUIRED: "Payant",
     NOT_APPLICABLE: "Il n’y a rien à demander",
     UNKNOWN: "Les sources ne le disent pas",
+  },
+  it: {
+    FREE: "Gratuito",
+    FEE_REQUIRED: "Ha un costo",
+    NOT_APPLICABLE: "Non c’è nulla da richiedere",
+    UNKNOWN: "Le fonti non lo dicono",
   },
 });
 
@@ -229,6 +267,13 @@ export const instrumentLabel = vocabulary<NonNullable<Resource["instrumentType"]
     GUARANTEE: "Garantie pour un prêt",
     INTEREST_SUBSIDY: "Aide sur les intérêts d’un prêt",
     OTHER: "Un autre type de soutien",
+  },
+  it: {
+    GRANT: "Contributo",
+    LOAN: "Prestito",
+    GUARANTEE: "Garanzia per un prestito",
+    INTEREST_SUBSIDY: "Aiuto sugli interessi di un prestito",
+    OTHER: "Un altro tipo di sostegno",
   },
 });
 
@@ -265,6 +310,14 @@ export const purposeLabel = vocabulary<NonNullable<Resource["purposes"]>[number]
     RETIREMENT_SUCCESSION: "partir à la retraite en laissant un repreneur",
     OTHER: "autre chose",
   },
+  it: {
+    FIRST_ESTABLISHMENT: "insediarsi per la prima volta",
+    INVESTMENT: "investire nell’azienda",
+    LAND_ACQUISITION: "ottenere terreni",
+    TRANSFER: "cedere l’azienda",
+    RETIREMENT_SUCCESSION: "andare in pensione lasciando un subentrante",
+    OTHER: "altro",
+  },
 });
 
 export const assetLabel = vocabulary<NonNullable<Resource["assetTypes"]>[number]>({
@@ -272,6 +325,7 @@ export const assetLabel = vocabulary<NonNullable<Resource["assetTypes"]>[number]
   es: { PLOTS: "parcelas", WHOLE_HOLDINGS: "explotaciones completas" },
   de: { PLOTS: "Flurstücke", WHOLE_HOLDINGS: "ganze Betriebe" },
   fr: { PLOTS: "parcelles", WHOLE_HOLDINGS: "exploitations entières" },
+  it: { PLOTS: "particelle", WHOLE_HOLDINGS: "aziende intere" },
 });
 
 export const sectorLabel = vocabulary<NonNullable<Resource["sectors"]>[number]>({
@@ -279,6 +333,7 @@ export const sectorLabel = vocabulary<NonNullable<Resource["sectors"]>[number]>(
   es: { AGRICULTURE: "agricultura", LIVESTOCK: "ganadería", FORESTRY: "forestal" },
   de: { AGRICULTURE: "Ackerbau", LIVESTOCK: "Tierhaltung", FORESTRY: "Forstwirtschaft" },
   fr: { AGRICULTURE: "cultures", LIVESTOCK: "élevage", FORESTRY: "forêt" },
+  it: { AGRICULTURE: "coltivazioni", LIVESTOCK: "allevamento", FORESTRY: "settore forestale" },
 });
 
 export const formatLabel = vocabulary<NonNullable<Resource["trainingFormats"]>[number]>({
@@ -286,6 +341,7 @@ export const formatLabel = vocabulary<NonNullable<Resource["trainingFormats"]>[n
   es: { IN_PERSON: "presencial", ONLINE: "en línea", HYBRID: "mixto, presencial y en línea", OTHER: "otro formato" },
   de: { IN_PERSON: "in Präsenz", ONLINE: "online", HYBRID: "teils in Präsenz, teils online", OTHER: "anderes Format" },
   fr: { IN_PERSON: "en présentiel", ONLINE: "en ligne", HYBRID: "en partie en présentiel, en partie en ligne", OTHER: "un autre format" },
+  it: { IN_PERSON: "in presenza", ONLINE: "online", HYBRID: "in parte in presenza, in parte online", OTHER: "un altro formato" },
 });
 
 /** Who it is for, in the words somebody would use about themselves rather than about a beneficiary class. */
@@ -326,6 +382,15 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
     LAND_SEEKER: "qui cherche des terres",
     GENERAL: "tout le monde",
   },
+  it: {
+    YOUNG_FARMER: "giovani agricoltori",
+    NEW_ENTRANT: "chi inizia in agricoltura",
+    SUCCESSOR: "chi subentra in un’azienda",
+    TRANSFEROR: "chi cede un’azienda",
+    LANDOWNER: "chi possiede terreni",
+    LAND_SEEKER: "chi cerca terreni",
+    GENERAL: "chiunque",
+  },
 });
 
 /** What "anyone" becomes once the source has also named somebody: an addition, not the whole answer. */
@@ -334,6 +399,7 @@ const anyoneElse = vocabulary<"else">({
   es: { else: "cualquier otra persona" },
   de: { else: "alle anderen" },
   fr: { else: "toute autre personne" },
+  it: { else: "chiunque altro" },
 });
 
 /**
@@ -381,6 +447,12 @@ export const callStateLabel = vocabulary<Call["state"]>({
     CLOSED: "déjà clos",
     NOT_PUBLISHED: "aucune période publiée",
   },
+  it: {
+    UPCOMING: "non ancora aperto",
+    OPEN: "aperto",
+    CLOSED: "già chiuso",
+    NOT_PUBLISHED: "nessun periodo pubblicato",
+  },
 });
 
 export const channelLabel = vocabulary<ContactPoint["channel"]>({
@@ -388,6 +460,7 @@ export const channelLabel = vocabulary<ContactPoint["channel"]>({
   es: { EMAIL: "Correo electrónico", PHONE: "Teléfono", FORM: "Formulario", OFFICE: "Oficina" },
   de: { EMAIL: "E-Mail", PHONE: "Telefon", FORM: "Formular", OFFICE: "Dienststelle" },
   fr: { EMAIL: "Courriel", PHONE: "Téléphone", FORM: "Formulaire", OFFICE: "Bureau" },
+  it: { EMAIL: "Email", PHONE: "Telefono", FORM: "Modulo", OFFICE: "Ufficio" },
 });
 
 /** What happened, as a thing that happened rather than as an event class. */
@@ -436,6 +509,17 @@ export const newsTypeLabel = vocabulary<NewsItem["type"]>({
     FIGURE: "Chiffre publié",
     OTHER: "Survenu",
   },
+  it: {
+    ANNOUNCEMENT: "Annunciato",
+    LAUNCH: "Entrato in funzione",
+    CALL_OPENED: "Si è aperto un periodo",
+    CALL_CLOSED: "Si è chiuso un periodo",
+    LAW_OR_REGULATION: "Norma pubblicata",
+    CHANGE: "Modificato",
+    DISCONTINUATION: "Concluso",
+    FIGURE: "Cifra pubblicata",
+    OTHER: "Accaduto",
+  },
 });
 
 const UNITS = countedVocabulary<Metric["unit"]>({
@@ -478,6 +562,16 @@ const UNITS = countedVocabulary<Metric["unit"]>({
     HOLDINGS: ["exploitation", "exploitations"],
     PEOPLE: ["personne", "personnes"],
     HOURS: ["heure", "heures"],
+  },
+  it: {
+    EUR: ["euro", "euro"],
+    HECTARES: ["ettaro", "ettari"],
+    PARCELS: ["particella", "particelle"],
+    OFFERS: ["offerta", "offerte"],
+    PROPERTIES: ["immobile", "immobili"],
+    HOLDINGS: ["azienda", "aziende"],
+    PEOPLE: ["persona", "persone"],
+    HOURS: ["ora", "ore"],
   },
 });
 
@@ -534,6 +628,17 @@ const LANGUAGE_NAMES = {
     gl: "galicien",
     it: "italien",
     pt: "portugais",
+  },
+  it: {
+    ca: "catalano",
+    de: "tedesco",
+    en: "inglese",
+    es: "spagnolo",
+    eu: "basco",
+    fr: "francese",
+    gl: "galiziano",
+    it: "italiano",
+    pt: "portoghese",
   },
 } as const satisfies Record<Language, Record<string, string>>;
 
