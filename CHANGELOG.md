@@ -103,7 +103,38 @@ release.
 - Re-read live on 2 October 2026: 218 PASS, 1 FAIL, 11 UNCHECKED of 230 pages, all
   three published as they are.
 
+### Germany
+
+- **The 2026 edition of Germany**: 17 files, 36 records, 43 sources and 142 quotes,
+  with a research brief for the national layer and for each of the 16 Länder. Nothing
+  operative is documented nationally, because establishment aid, handover advice and
+  farm matching are run by the Länder; every one of them documents something.
+- A country now arrives as data, one catalogue entry and one language, and no code:
+  [`decisions/023`](decisions/023-a-country-is-data-a-catalogue-entry-and-a-language.md).
+  German is the first language added after the two the site started with, and the type
+  checker listed every word that was missing rather than letting a page fall back to
+  another language.
+- Two records, in Berlin and in Brandenburg, cite the same page on purpose: the two
+  Länder fund establishment through one joint directive. Each record says so, and the
+  validator lists the pair for review rather than deciding for a person.
+- Three corrections on the way in, all of them prose a reader would have been told
+  wrongly: a national coverage note and a limitation still saying the other Länder
+  remained to be examined, and two notes written in research vocabulary — a dataset, a
+  duplicate check, a resource id, a stored status code — none of which a reader can use.
+- Re-read live on 8 October 2026, Land by Land: 40 PASS, 0 FAIL, 2 UNCHECKED of 42
+  fetches, the two being pages of one host that refuses automated requests.
+
+### The site
+
+- An Astro site built from the data, with a page for every territory and every record,
+  a search page for each scope, the pages about the project, and an account of the
+  project that held this domain before. It is not published yet.
+- Search is a Pagefind index per language, each loaded on its own, so recall in one
+  language never costs recall in another.
+- One script on the search pages, one that re-answers "can I apply now?" for the
+  reader own day, and nothing else: no cookies, no storage, no request to another host.
+
 ### Not here yet
 
-- France, Italy, Portugal and Germany: researched, not published here.
-- The site, and therefore anything to visit.
+- France, Italy and Portugal: researched, not published here.
+- A published site, and therefore anything to visit.

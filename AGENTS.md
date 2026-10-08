@@ -33,12 +33,15 @@ needs it. That milestone adds its file layout, its commands and their rules to
 this file in the same change, so nothing here ever describes something the
 repository does not have.
 
-`data/editions/2026` and `research/` hold the first real data: the European layer,
-Spain, its three groupings of several regions and its 28 regional territories, with
-one research brief each. France, Italy, Portugal and Germany are researched and are
-not here yet, so the catalogue carries the EU layer and Spain and nothing else: a
-file whose country the catalogue does not define is an error, not a file waiting for
-its country.
+`data/editions/2026` and `research/` hold the real data: the European layer; Spain,
+with its three groupings of several regions and its 28 regional territories; and
+Germany, with its 16 Länder, each territory with one research brief. France, Italy and
+Portugal are researched and are not here yet, so the catalogue carries the EU layer,
+Spain and Germany and nothing else. The two halves of that have to agree: a file whose
+country the catalogue does not define is an error rather than a file waiting for its
+country, and a country the catalogue defines with no file of its own is the same
+mistake the other way round. `test/territories.test.ts` compares the two instead of
+naming the countries, so neither can be edited without the other.
 
 ## The site
 
@@ -139,8 +142,8 @@ Three data schemas are settled: `territories.schema.json` (the catalogue),
 `config/` and carries no version, because nothing publishes it.
 
 `data/territories.json` is the catalogue, keyed by ISO code plus `EU`. It
-carries the EU layer and Spain: the model is proved on one country before more
-are added. `src/layers.ts` is the one implementation of the territorial tree —
+carries the EU layer, Spain and Germany: a country is added with its data, never
+ahead of it. `src/layers.ts` is the one implementation of the territorial tree —
 anything that needs to know what a page shows asks it, so a reader and a
 validator cannot disagree. `src/territories.ts` loads the catalogue and also
 enforces the rules the schema cannot express: a region belongs to exactly one
