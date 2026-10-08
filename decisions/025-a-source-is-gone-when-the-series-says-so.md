@@ -1,7 +1,7 @@
 # 025 — A source is gone when the series says so, not when a run does
 
 **2026-10-09.** Every live check now appends one line to
-[`reports/source-checks.jsonl`](../reports/source-checks.jsonl), which is committed, and
+[`reports/checks/`](../reports/checks/) as a file of its own, which is committed, and
 `npm run report:sources` answers from the series rather than from the last reading.
 
 ## What happened, which is the whole argument
@@ -47,10 +47,14 @@ statement that traced to nobody: its own freshness.
 
 ## The decision
 
-1. **Every run is kept.** `checkSources` appends one line per run: when, which edition,
-   which scope, the totals, and each URL with its status, HTTP code and, when it did not
-   pass, the reason. One run of the whole edition is about 40 KB; one of a territory is a
-   few hundred bytes.
+1. **Every run is kept, as a file of its own** under `reports/checks/`, named for the
+   instant it was taken and what it covered: when, which edition, which scope, the
+   totals, and each URL with its status, HTTP code and, when it did not pass, the reason.
+   A run over the whole edition is about 53 KB; one over a territory is a few hundred
+   bytes. One file per run rather than one growing file, because a 53 KB append is not
+   atomic — POSIX guarantees that only up to 4 KB — so two checks running at once would
+   interleave and quietly destroy both records. It also means a run nobody needs can be
+   deleted without the rest losing their meaning.
 2. **A verdict is a property of the series, not of a run.** `npm run report:sources`
    classifies each cited page as HEALTHY, FLAKY, UNREACHABLE, GONE or NEW.
 3. **GONE — the only verdict that asks for a record to be changed — requires an answered

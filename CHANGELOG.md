@@ -152,8 +152,11 @@ release.
 
 ### The checks keep their results
 
-- Every live check appends one line to `reports/source-checks.jsonl`, which is committed:
-  when, which scope, the totals, and every URL with its status, HTTP code and reason.
+- Every live check writes its own file under `reports/checks/`, committed, named for the
+  instant it was taken: when, which scope, the totals, and every URL with its status,
+  HTTP code and reason. One file per run, because a 53 KB append is not atomic and two
+  checks at once would corrupt each other, and because a run nobody needs can be deleted
+  without the rest losing their meaning.
 - `npm run report:sources` answers from the series what no single run can: which pages are
   actually gone, which hosts are unreliable, and which runs were readings about the
   machine they ran on rather than about the corpus.

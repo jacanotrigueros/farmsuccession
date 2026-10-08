@@ -12,21 +12,28 @@
  * all of them throughout. Nothing was wrong with France. The network here was dropping, and no single
  * run could have said so — only two runs disagreeing could.
  *
- * So every run appends one line here, and the question "is this source still there?" is answered from
- * the series rather than from the last reading. The file is committed on purpose: it is the evidence
- * behind what the site claims about its own freshness, and a claim whose evidence is not in the
- * repository is a claim nobody can check.
+ * So every run writes a file of its own under `reports/checks/`, and the question "is this source still
+ * there?" is answered from the series rather than from the last reading. They are committed on purpose:
+ * they are the evidence behind what the site claims about its own freshness, and a claim whose evidence
+ * is not in the repository is a claim nobody can check.
+ *
+ * One file per run rather than one growing file, for two reasons and the second is the serious one. A
+ * run over the whole edition is about 53 KB, which in a single appended file is 53 KB that only ever
+ * grows; and an append that size is not atomic — POSIX guarantees it only up to PIPE_BUF, 4 KB — so two
+ * checks running at once would interleave and quietly destroy both records. A run that writes its own
+ * new file shares nothing with any other run, and a record nobody needs can be deleted without the rest
+ * losing their meaning.
  */
-import { appendFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 import type { CheckReport, CheckStatus, Totals } from "./check.ts";
 import { REPORTS_DIR } from "./report.ts";
 
-/** The series lives beside the run reports, so a test pointed at a temporary reports directory keeps its own. */
-export const ledgerPathIn = (reportsDir: string = REPORTS_DIR): string => path.join(reportsDir, "source-checks.jsonl");
+/** Where the runs are kept. A test pointed at a temporary reports directory keeps its own series. */
+export const checksDirIn = (reportsDir: string = REPORTS_DIR): string => path.join(reportsDir, "checks");
 
-export const LEDGER_PATH = ledgerPathIn();
+export const CHECKS_DIR = checksDirIn();
 
 /** One URL as one run saw it. Everything that passed is one short object; a failure carries its reason. */
 export type LedgerResult = {
@@ -37,7 +44,7 @@ export type LedgerResult = {
   note?: string;
 };
 
-/** One run: what was checked, when, and what came back. One line of the ledger. */
+/** One run: what was checked, when, and what came back. One file of the series. */
 export type LedgerRun = {
   checkedAt: string;
   edition: string;
@@ -54,11 +61,28 @@ const resultOf = (report: CheckReport): LedgerResult => ({
   ...(report.status === "PASS" ? {} : { note: report.notes[0] ?? "" }),
 });
 
-/** Appends one run. Never rewrites a line: a reading that was taken is not edited afterwards. */
-export function appendRun(
+/**
+ * What a run is called: the instant it was taken, then what it covered. Sorting the directory by name
+ * sorts it by time, and a person looking for "the sweep of the whole edition last Tuesday" can find it
+ * without opening anything.
+ */
+export const fileNameOf = (run: Pick<LedgerRun, "checkedAt" | "scope">): string => {
+  const stamp = run.checkedAt.replaceAll(/[-:]/gu, "").replace(".", "");
+  const scope = run.scope.replaceAll(/[^a-z0-9]+/giu, "-").toLowerCase();
+  return `${stamp}--${scope}.json`;
+};
+
+/**
+ * Writes one run as a file of its own, and refuses to overwrite one.
+ *
+ * `wx` is the whole point: a reading that was taken is never edited afterwards, and two runs that
+ * somehow chose the same name would otherwise silently become one. The instant carries milliseconds, so
+ * a collision means the same run being recorded twice, which is a bug worth hearing about.
+ */
+export function recordRun(
   run: { edition: string; scope: string; totals: Totals; reports: readonly CheckReport[]; checkedAt?: string },
-  ledgerPath = LEDGER_PATH,
-): LedgerRun {
+  checksDir = CHECKS_DIR,
+): { run: LedgerRun; file: string } {
   const entry: LedgerRun = {
     checkedAt: run.checkedAt ?? new Date().toISOString(),
     edition: run.edition,
@@ -66,14 +90,15 @@ export function appendRun(
     totals: run.totals,
     results: run.reports.map(resultOf),
   };
-  mkdirSync(path.dirname(ledgerPath), { recursive: true });
-  appendFileSync(ledgerPath, `${JSON.stringify(entry)}\n`);
-  return entry;
+  mkdirSync(checksDir, { recursive: true });
+  const file = path.join(checksDir, fileNameOf(entry));
+  writeFileSync(file, `${JSON.stringify(entry)}\n`, { flag: "wx" });
+  return { run: entry, file };
 }
 
 /**
- * Whether a parsed line is a run. The ledger is append-only and written by one function, so this is not
- * a schema so much as a refusal to read a file that has been edited into something else by hand.
+ * Whether a parsed file is a run. Each one is written by a single function, so this is not a schema so
+ * much as a refusal to read a file that has been edited into something else by hand.
  */
 function isRun(value: unknown): value is LedgerRun {
   if (value === null || typeof value !== "object") return false;
@@ -81,23 +106,24 @@ function isRun(value: unknown): value is LedgerRun {
   return typeof run.checkedAt === "string" && typeof run.scope === "string" && Array.isArray(run.results) && typeof run.totals === "object";
 }
 
-/** Every run ever recorded, oldest first. A malformed line stops the read instead of being skipped. */
-export function readLedger(ledgerPath = LEDGER_PATH): LedgerRun[] {
-  if (!existsSync(ledgerPath)) return [];
-  return readFileSync(ledgerPath, "utf8")
-    .split("\n")
-    .filter((line) => line.trim().length > 0)
-    .map((line, index) => {
+/** Every run ever recorded, oldest first. A malformed file stops the read instead of being skipped. */
+export function readRuns(checksDir = CHECKS_DIR): LedgerRun[] {
+  if (!existsSync(checksDir)) return [];
+  return readdirSync(checksDir)
+    .filter((name) => name.endsWith(".json"))
+    .toSorted()
+    .map((name) => {
       const parsed: unknown = ((): unknown => {
         try {
-          return JSON.parse(line);
+          return JSON.parse(readFileSync(path.join(checksDir, name), "utf8"));
         } catch (cause) {
-          throw new Error(`${path.basename(ledgerPath)} line ${index + 1} is not JSON`, { cause });
+          throw new Error(`${name} is not JSON`, { cause });
         }
       })();
-      if (!isRun(parsed)) throw new Error(`${path.basename(ledgerPath)} line ${index + 1} is not a recorded run`);
+      if (!isRun(parsed)) throw new Error(`${name} is not a recorded run`);
       return parsed;
-    });
+    })
+    .toSorted((a, b) => a.checkedAt.localeCompare(b.checkedAt));
 }
 
 /**

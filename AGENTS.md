@@ -204,8 +204,8 @@ would have to render — so it proves nothing either way. Never report an UNCHEC
 page as verified, and never "fix" one by removing the quote.
 
 **A verdict about a source comes from the series of runs, never from the run in
-front of you.** Every run appends a line to `reports/source-checks.jsonl`, which is
-committed, and `npm run report:sources` reads it: a page is only GONE after it
+front of you.** Every run writes `reports/checks/<when>--<scope>.json`, which is
+committed as a file of its own, and `npm run report:sources` reads the series: a page is only GONE after it
 answered with a refusal, or lost its quotes, on two different days, and silence
 never becomes GONE at all. A run where half or more of what it checked never
 answered is a reading about the machine it ran on, and its totals are not a

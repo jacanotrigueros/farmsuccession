@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
-import { mkdtempSync, readFileSync } from "node:fs";
+import { mkdtempSync, readdirSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { test } from "node:test";
 
 import { reportSources } from "../scripts/report-sources.ts";
 import type { CheckReport } from "../src/sources/check.ts";
-import { appendRun, byHost, historyOf, looksLikeOurSide, readLedger, type LedgerRun } from "../src/sources/ledger.ts";
+import { byHost, fileNameOf, historyOf, looksLikeOurSide, readRuns, recordRun, type LedgerRun } from "../src/sources/ledger.ts";
 
 /**
  * The rules this file protects are the ones the French sweep of 2026-10-08 taught, and all of them say
@@ -43,11 +43,11 @@ const run = (checkedAt: string, reports: CheckReport[]): LedgerRun => ({
   })),
 });
 
-const ledger = (): string => path.join(mkdtempSync(path.join(tmpdir(), "ledger-")), "source-checks.jsonl");
+const ledger = (): string => path.join(mkdtempSync(path.join(tmpdir(), "ledger-")), "checks");
 
-test("a run is appended and never rewrites the ones before it", () => {
+test("a run writes a file of its own and can never overwrite another", () => {
   const file = ledger();
-  appendRun(
+  recordRun(
     {
       edition: "2026",
       scope: "fr/occitanie",
@@ -57,7 +57,7 @@ test("a run is appended and never rewrites the ones before it", () => {
     },
     file,
   );
-  appendRun(
+  recordRun(
     {
       edition: "2026",
       scope: "fr/bretagne",
@@ -68,12 +68,43 @@ test("a run is appended and never rewrites the ones before it", () => {
     file,
   );
 
-  const runs = readLedger(file);
-  assert.equal(runs.length, 2, "a second run replaced the first instead of being added to it");
-  assert.equal(runs[0]?.scope, "fr/occitanie", "the series is not in the order it was recorded");
-  assert.equal(readFileSync(file, "utf8").trim().split("\n").length, 2, "one run is one line, so the file stays appendable");
+  const runs = readRuns(file);
+  assert.equal(runs.length, 2, "a second run replaced the first instead of joining the series");
+  assert.equal(runs[0]?.scope, "fr/occitanie", "the series is not in the order it was taken");
   assert.equal(runs[0]?.results[0]?.note, undefined, "a page that passed carries a reason it does not have");
   assert.equal(runs[1]?.results[0]?.note, "no response", "a page that did not pass lost the reason why");
+
+  const files = readdirSync(file).toSorted();
+  assert.deepEqual(
+    files,
+    ["20261008T200000000Z--fr-occitanie.json", "20261009T090000000Z--fr-bretagne.json"],
+    "two runs did not write two files named after the instant and the scope, so the directory no longer sorts by time",
+  );
+  assert.equal(
+    readFileSync(path.join(file, files[0] ?? ""), "utf8")
+      .trim()
+      .split("\n").length,
+    1,
+    "a run is one line of JSON in its own file",
+  );
+  assert.equal(fileNameOf(runs[0] ?? { checkedAt: "", scope: "" }), files[0], "the name a run would be given is not the name it has");
+
+  // The guarantee the whole shape exists for: nothing one run writes can touch what another run wrote.
+  assert.throws(
+    () =>
+      recordRun(
+        {
+          edition: "2026",
+          scope: "fr/occitanie",
+          totals: { pass: 0, fail: 0, unchecked: 0 },
+          reports: [],
+          checkedAt: "2026-10-08T20:00:00.000Z",
+        },
+        file,
+      ),
+    /EEXIST/u,
+    "a run overwrote a reading that had already been taken",
+  );
 });
 
 test("a page is only gone when it answered badly on more than one day", () => {
@@ -163,7 +194,7 @@ test("the report says what has to be acted on, and says nothing when nothing has
 
   const file = ledger();
   for (const day of ["2026-10-08T20:00:00.000Z", "2026-10-09T09:00:00.000Z"]) {
-    appendRun(
+    recordRun(
       {
         edition: "2026",
         scope: "fr/occitanie",

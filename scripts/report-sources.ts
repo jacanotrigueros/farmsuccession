@@ -1,7 +1,7 @@
 /**
  * What the series of live checks says, which is not what any one of them says.
  *
- * `npm run report:sources` reads `reports/source-checks.jsonl` — every run ever recorded — and answers
+ * `npm run report:sources` reads `reports/checks/` — one file per run, every run ever recorded — and answers
  * the three questions a single run cannot:
  *
  *   1. which cited pages are actually gone, as opposed to unread once;
@@ -11,7 +11,7 @@
  * It decides nothing on its own. It prints what somebody then has to act on, which for a GONE page
  * means opening it and either correcting the record or marking the resource UNKNOWN — `decisions/015`.
  */
-import { byHost, historyOf, LEDGER_PATH, looksLikeOurSide, readLedger, type UrlHistory, type Verdict } from "../src/sources/ledger.ts";
+import { byHost, CHECKS_DIR, historyOf, looksLikeOurSide, readRuns, type UrlHistory, type Verdict } from "../src/sources/ledger.ts";
 import { isEntryPoint, runMain } from "../src/paths.ts";
 
 const EXPLAIN: Record<Verdict, string> = {
@@ -24,7 +24,7 @@ const EXPLAIN: Record<Verdict, string> = {
 
 const ORDER: Verdict[] = ["GONE", "UNREACHABLE", "FLAKY", "NEW", "HEALTHY"];
 
-function render(histories: readonly UrlHistory[], runs: ReturnType<typeof readLedger>): string[] {
+function render(histories: readonly UrlHistory[], runs: ReturnType<typeof readRuns>): string[] {
   const lines: string[] = [];
   const days = new Set(runs.map((run) => run.checkedAt.slice(0, 10)));
   lines.push(
@@ -65,8 +65,8 @@ function render(histories: readonly UrlHistory[], runs: ReturnType<typeof readLe
   return lines;
 }
 
-export function reportSources(ledgerPath = LEDGER_PATH): { lines: string[]; gone: number } {
-  const runs = readLedger(ledgerPath);
+export function reportSources(checksDir = CHECKS_DIR): { lines: string[]; gone: number } {
+  const runs = readRuns(checksDir);
   if (runs.length === 0) {
     return { lines: ["no run has been recorded yet: run npm run check:sources, and the series starts there"], gone: 0 };
   }

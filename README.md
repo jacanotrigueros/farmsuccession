@@ -74,7 +74,8 @@ because the two Länder fund establishment through one joint directive, and each
 says so.
 
 Every cited page is re-read against the live web, and every run is kept:
-[`reports/source-checks.jsonl`](reports/source-checks.jsonl) holds one line per run —
+[`reports/checks/`](reports/checks/) holds one file per run, named for the instant it
+was taken —
 when, what it covered, and each URL with its status, HTTP code and, when it did not
 pass, why. `npm run report:sources` reads the series.
 
