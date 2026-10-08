@@ -3,6 +3,9 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
+import { regionSlug, SEARCH_SLUGS } from "../public/search-scope.js";
+import { words } from "../src/lib/words.ts";
+
 /**
  * What the built pages may and may not contain. These are the promises the site makes to a reader on a
  * phone on a rural connection, and they are the kind that get broken by accident months later — one
@@ -165,6 +168,41 @@ test("a page says what has not been reviewed, and the count follows the data", (
     eu.html.includes("Nobody has reviewed this page yet"),
     "a record page of a draft file does not carry the warning, which is the first thing its reader is owed",
   );
+});
+
+/**
+ * Two namespaces that must not become one.
+ *
+ * The pages a country has of its own — searching, the project, its history — are a closed list this
+ * repository writes. The territories under it are an open list the catalogue grows, one more with every
+ * research pass. Published side by side, the first territory slug that happens to equal one of those
+ * words takes the page, in whichever language it happens. So everything below a country lives under one
+ * segment of its own, and this is the check that it stays there.
+ */
+test("a territory never shares a namespace with a page of the site", () => {
+  const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
+    jurisdictions: Record<string, { lang: string }>;
+  };
+  const countries = Object.entries(catalogue.jurisdictions).filter(([iso]) => iso !== "EU");
+  assert.ok(countries.length > 0, "no country in the catalogue: this check would pass without checking anything");
+
+  for (const [iso, { lang }] of countries) {
+    const text = words(lang);
+    const own = new Set([text.aboutSlug, text.historySlug, SEARCH_SLUGS[iso] ?? "", regionSlug(iso)]);
+    const published = new Set(
+      pages
+        .map(({ file }) => file.split(path.sep))
+        .filter((parts) => parts[0] === iso.toLowerCase() && parts.length > 2)
+        .map((parts) => parts[1] ?? ""),
+    );
+    for (const segment of published) {
+      assert.ok(
+        own.has(segment),
+        `/${iso.toLowerCase()}/${segment}/ sits beside this country's own pages. A territory belongs under /${iso.toLowerCase()}/${regionSlug(iso)}/, or the day a territory is called "${text.aboutSlug}" it takes that page.`,
+      );
+    }
+    assert.ok(published.has(regionSlug(iso)), `${iso} published no territory under /${iso.toLowerCase()}/${regionSlug(iso)}/`);
+  }
 });
 
 test("a page declares the language its text is actually written in", () => {

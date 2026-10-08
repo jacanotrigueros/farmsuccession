@@ -6,8 +6,9 @@
  * that is implemented twice is a contract that disagrees with itself the first time somebody changes one
  * of them.
  *
- *   /search/            Europe: everything published
- *   /{cc}/{slug}/       One country and the layers it inherits, with the slug in that country's language
+ *   /search/                  Europe: everything published
+ *   /{cc}/{slug}/             One country and the layers it inherits, with the slug in that country's language
+ *   /{cc}/{regions}/{slug}/   One territory inside that country, under a segment of its own
  *
  * **The route fixes the scope and the query string can only narrow it.** On a national route a `country`
  * parameter is ignored and a territory of another country is dropped, so no link, however it was built or
@@ -23,6 +24,20 @@
 
 /** @type {Record<string, string>} */
 export const SEARCH_SLUGS = { EU: "search", ES: "buscar", FR: "rechercher", IT: "cerca", PT: "pesquisar", DE: "suchen" };
+
+/**
+ * The segment every territory inside a country sits under, in that country's language.
+ *
+ * It exists to keep two namespaces apart. Without it a region and a page of the site compete for the
+ * same shape — `/es/proyecto/` is the page about the project, and the day a region is called that, the
+ * region takes it. A country's territories are an open list the catalogue can grow; the site's own pages
+ * are a closed one, and the open list is the one that has to be fenced.
+ */
+/** @type {Record<string, string>} */
+export const REGION_SLUGS = { ES: "regiones", FR: "regions", IT: "regioni", PT: "regioes", DE: "regionen" };
+
+/** @param {string} country */
+export const regionSlug = (country) => REGION_SLUGS[country] ?? "regions";
 
 /**
  * The facets a reader can choose from, as the schema's own codes. Country is not one of them inside a

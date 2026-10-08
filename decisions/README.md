@@ -75,3 +75,4 @@ number says which of the two it came from.
 | [021](021-a-layout-asks-its-own-column.md)                       | A layout asks the column it sits in, not the window            |
 | [022](022-never-narrower-than-the-source.md)                     | A record is never narrower than its source                     |
 | [023](023-a-country-is-data-a-catalogue-entry-and-a-language.md) | A country is data, a catalogue entry and a language            |
+| [024](024-a-territory-lives-under-a-segment-of-its-own.md)       | A territory lives under a segment of its own                   |

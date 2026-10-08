@@ -16,6 +16,7 @@ import type { LoadedSnapshot } from "../../../src/editions.ts";
 import type { Layer } from "../../../src/layers.ts";
 import type { Call, ContactPoint, EditionSnapshot, Metric, NewsItem, Resource, Source } from "../../../src/types/edition.ts";
 import type { Territories } from "../../../src/types/territories.ts";
+import { regionSlug } from "../../public/search-scope.js";
 
 /**
  * The repository's modules are loaded from the repository, not bundled into the site.
@@ -109,12 +110,20 @@ export function view(territory: Territory): { layers: Territory[]; resources: Vi
   };
 }
 
-/** Where a territory lives on the site. The EU layer is the home, because it is what every reader shares. */
+/**
+ * Where a territory lives on the site. The EU layer is the home, because it is what every reader shares.
+ *
+ * Everything below a country sits under one segment, in that country's own language — `/es/regiones/galicia/`,
+ * `/de/regionen/bayern/` — so the catalogue's open list of territories can never collide with the site's
+ * own pages. A grouping that publishes a layer of its own is a territory like any other and lives there
+ * too: for a reader it is the place the page is about, not a tier of the model.
+ */
 export function href(layer: Layer): string {
   if (layer.level === "EU") return "/";
-  if (layer.level === "COUNTRY") return `/${layer.country.toLowerCase()}/`;
-  if (layer.level === "HUB") return `/${layer.country.toLowerCase()}/${layer.hub}/`;
-  return `/${layer.country.toLowerCase()}/${layer.region}/`;
+  const country = layer.country.toLowerCase();
+  if (layer.level === "COUNTRY") return `/${country}/`;
+  const inside = layer.level === "HUB" ? layer.hub : layer.region;
+  return `/${country}/${regionSlug(layer.country)}/${inside}/`;
 }
 
 /** The language a territory's text is written in, which is the language the page is in. */
