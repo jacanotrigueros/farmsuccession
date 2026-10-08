@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "provincia-autonoma-bolzano-alto-adige"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Il portale myCIVIS rende leggibile la scheda SRE01; il portale agricolo provinciale rende ora leggibili anche il calendario dei bandi e la disciplina del maso chiuso.",
+    "Cercare in italiano e in tedesco: Junglandwirte, Niederlassung, geschlossener Hof e außerfamiliäre Hofübergabe hanno prodotto servizi distinti.",
+    "Il maso chiuso disciplina il subentro e la conservazione dell'azienda, ma non è una banca di terreni offerti a nuovi agricoltori.",
+    "Le concessioni della Landesdomäne riguardano anche particelle agricole, ma i procedimenti esaminati non sono un programma specifico per il primo insediamento."
+  ],
+  "portals": [
+    {
+      "name": "Portale dei servizi della Provincia autonoma di Bolzano",
+      "url": "https://mycivis.civis.bz.it/",
+      "what": "Schede di servizio con requisiti, documenti, scadenze e accesso."
+    },
+    {
+      "name": "Agricoltura della Provincia autonoma di Bolzano",
+      "url": "https://landwirtschaft.provinz.bz.it/",
+      "what": "Calendario dei bandi SRE01 e procedure relative al maso chiuso."
+    },
+    {
+      "name": "Südtiroler Bauernbund",
+      "url": "https://www.sbb.it/de/service/",
+      "what": "Servizi distinti per incontro tra cedenti e subentranti e consulenza giuridica per il passaggio del maso."
+    },
+    {
+      "name": "Fachschule Dietenheim",
+      "url": "https://www.fachschule-dietenheim.it/de/junglandwirte",
+      "what": "Offerta e stato delle iscrizioni ai corsi per futuri conduttori."
+    },
+    {
+      "name": "Agenzia Landesdomäne — concessioni",
+      "url": "https://landesdomaene.provinz.bz.it/de/konzessionen",
+      "what": "Procedure di concessione di beni provinciali, da distinguere da una banca della terra per nuovi entranti."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "bz-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Provincia autonoma di Bolzano premio insediamento giovani agricoltori 2026 contributo primo insediamento"
+    },
+    {
+      "id": "bz-hofuebergabe",
+      "kinds": ["SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "query": "Südtirol Hofübergabe Jungbauern Förderung Niederlassungsprämie Landwirtschaft Autonome Provinz Bozen 2026"
+    },
+    {
+      "id": "bz-banca-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "site:agricoltura.provincia.bz.it \"banca della terra\" agricoltura"
+    },
+    {
+      "id": "bz-bodenboerse",
+      "kinds": ["LAND_BANK"],
+      "query": "site:landwirtschaft.provinz.bz.it \"Bodenbörse\" \"Hof\""
+    },
+    {
+      "id": "bz-formazione-junglandwirte",
+      "kinds": ["TRAINING"],
+      "query": "site:fachschule-dietenheim.it junglandwirte 2026 Ausbildung Anmeldung"
+    },
+    {
+      "id": "bz-organizzazioni-subentro",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "site:sbb.it/de/service Hofübergabe Rechtsberatung außerfamiliäre Hofübergabe"
+    },
+    {
+      "id": "bz-sre01-proroga",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:provinz.bz.it SRE01 2026 Verlängerung 15 Juni Niederlassung Junglandwirte"
+    },
+    {
+      "id": "bz-comuni-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Südtirol Gemeinde landwirtschaftliche Flächen Bodenbank Hofbörse Zugang"
+    }
+  ],
+  "leads": [
+    {
+      "id": "bz-contributo-insediamento",
+      "name": "Contributo per l'insediamento di giovani agricoltori o agricoltrici",
+      "url": "https://landwirtschaft.provinz.bz.it/de/aufrufe-annahme-der-antrage",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "bolzano-contributo-insediamento-giovani",
+      "reason": "Scheda provinciale e bando 2026 letti: la presentazione delle domande è terminata il 15 giugno, mentre l'istruttoria successiva non riapre la finestra. Verifica manuale del 30/09/2026 di Claude (claude-opus-5-5) nel browser integrato di Claude Code (Chromium): la pagina dei bandi e dell'accettazione delle domande si è aperta in HTTPS senza avvisi sul certificato, cioè con una catena convalidata dal browser, e le 2 citazioni della fonte sono nel testo della pagina. La verifica automatica non la legge perché la pagina è generata con JavaScript e senza eseguirlo contiene appena il testo «Loading...». Non è una revisione umana: il file resta in bozza.",
+      "foundBy": "bz-insediamento",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "bz-maso-chiuso",
+      "name": "Maso chiuso",
+      "url": "https://landwirtschaft.provinz.bz.it/it/maso-chiuso",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "resourceId": "bolzano-maso-chiuso",
+      "reason": "Pagina provinciale leggibile, aggiornata nel 2026, con procedure sul subentro e sull'indivisibilità del maso; non è un inventario fondiario. Verifica manuale del 30/09/2026 di Claude (claude-opus-5-5) nel browser integrato di Claude Code (Chromium): la pagina Il maso chiuso si è aperta in HTTPS senza avvisi sul certificato, cioè con una catena convalidata dal browser, e le 2 citazioni della fonte sono nel testo della pagina. La verifica automatica non la legge perché la pagina è generata con JavaScript e senza eseguirlo contiene appena il testo «Loading...». Non è una revisione umana: il file resta in bozza. La data «Ultimo aggiornamento: 27/07/2026» non compare più e non è più citata.",
+      "foundBy": "bz-hofuebergabe",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "bz-conciliazione-masi",
+      "name": "Conciliazione nelle controversie sui masi chiusi",
+      "url": "https://mycivis.civis.bz.it/it/Services/ServiceDetail/?lid=1036084",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "bolzano-conciliazione-masi-chiusi",
+      "reason": "La Provincia pubblica una procedura e un accesso specifici anche per controversie di successione e divisione ereditaria.",
+      "foundBy": "bz-hofuebergabe",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bz-dietenheim-junglandwirte",
+      "name": "Corso per giovani agricoltori della Fachschule Dietenheim",
+      "url": "https://www.fachschule-dietenheim.it/de/junglandwirte",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "bolzano-dietenheim-lehrgang-junglandwirte",
+      "reason": "La scuola descrive il corso per futuri conduttori e l'offerta 2026/27; entrambi i corsi risultano esauriti. Verifica manuale del 30/09/2026 di Claude (claude-opus-5-5) nel browser integrato di Claude Code (Chromium): la pagina Junglandwirte della scuola professionale si è aperta in HTTPS senza avvisi sul certificato, cioè con una catena convalidata dal browser, e le 3 citazioni della fonte sono nel testo della pagina. La verifica automatica non la legge perché la pagina è generata con JavaScript e senza eseguirlo contiene appena il testo «Loading...». Non è una revisione umana: il file resta in bozza.",
+      "foundBy": "bz-formazione-junglandwirte",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "bz-fuerstenburg-junglandwirte",
+      "name": "Seminario per futuri agricoltori della Fachschule Fürstenburg",
+      "url": "https://www.fachschule-fuerstenburg.it/de/junglandwirte-ausbildung",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "La pagina descrive destinatari e contenuti, ma non mostra una convocazione o iscrizione attuale. Verificare direttamente presso la scuola la prossima edizione e l'eventuale riconoscimento per SRE01.",
+      "foundBy": "bz-formazione-junglandwirte",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bz-sbb-ausserfamiliaere-hofuebergabe",
+      "name": "Trasferimento del maso fuori dalla famiglia",
+      "url": "https://www.sbb.it/de/service/ausserfamiliaere-hofuebergabe",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "bolzano-sbb-ausserfamiliaere-hofuebergabe",
+      "reason": "L'associazione offre questionari per entrambe le parti, incontro assistito e fase di prova, con accesso e costo pubblicati.",
+      "foundBy": "bz-organizzazioni-subentro",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bz-sbb-rechtsberatung",
+      "name": "Consulenza giuridica del Bauernbund per il passaggio del maso",
+      "url": "https://www.sbb.it/de/service/rechtsberatung-suedtirol",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "bolzano-sbb-rechtsberatung-hofuebergabe",
+      "reason": "Servizio specifico di accompagnamento giuridico al trasferimento con appuntamento presso sedi provinciali; la pagina dichiara che è a pagamento.",
+      "foundBy": "bz-organizzazioni-subentro",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bz-landesdomaene-konzessionen",
+      "name": "Concessioni fondiarie dell'Agenzia Landesdomäne",
+      "url": "https://landesdomaene.provinz.bz.it/de/konzessionen",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "La pagina presenta concessioni di beni provinciali, anche agricoli, ma non un inventario o servizio specificamente collegato all'ingresso, al subentro o alla successione; le procedure agricole 2026 esaminate sono chiuse.",
+      "foundBy": "bz-comuni-terra",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "bz-contributo-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Ricerche in italiano e tedesco sul portale agricolo, ai livelli comunale e provinciale, e controllo delle concessioni della Landesdomäne: non è stato verificato un inventario o servizio di assegnazione destinato ai nuovi agricoltori. La banca nazionale ISMEA appartiene al livello paese.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "FOUND",
+      "leadId": "bz-dietenheim-junglandwirte",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "FOUND",
+      "leadId": "bz-sbb-ausserfamiliaere-hofuebergabe",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammesso il contributo provinciale per l’insediamento; maso chiuso da documentare."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-6, prompt 1.9.0)",
+      "summary": "Verificati scheda e bando SRE01 2026, ora chiuso; documentati maso chiuso, conciliazione, corso Dietenheim e due servizi distinti del Bauernbund. Ricercata la banca della terra senza verificarne una operativa; Fürstenburg resta da controllare. Edizione DRAFT e copertura PARTIAL."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Verifiche manuali documentate delle tre pagine della Provincia e della scuola di Dietenheim, ora generate con JavaScript. La pagina del maso chiuso non mostra più la data di ultimo aggiornamento: la citazione e la data dell'ultima evidenza sono rimosse."
+    }
+  ]
+}

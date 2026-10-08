@@ -28,27 +28,27 @@ Two consequences that shape the whole design:
 This repository is being built in milestones, and it says where it is rather
 than describing what it intends to be.
 
-| Area                                                         | State                                                                              |
-| ------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
-| Data contracts (`schema/`) and the types generated from them | Settled at `schemaVersion` 1.0.0                                                   |
-| Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                                               |
-| Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                                                 |
-| Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`                          |
-| The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                                       |
-| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                                 |
-| Published data                                               | The 2026 edition of the EU layer, Spain, Germany and France: 69 files, 240 records |
-| The rest of Europe                                           | Researched, not published here yet: Italy, Portugal                                |
-| The site                                                     | Builds from the data: 321 pages, one script on search; not published               |
+| Area                                                         | State                                                                                     |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| Data contracts (`schema/`) and the types generated from them | Settled at `schemaVersion` 1.0.0                                                          |
+| Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                                                      |
+| Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                                                        |
+| Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`                                 |
+| The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                                              |
+| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                                        |
+| Published data                                               | The 2026 edition of the EU layer, Spain, Germany, France and Italy: 91 files, 302 records |
+| The rest of Europe                                           | Researched, not published here yet: Portugal                                              |
+| The site                                                     | Builds from the data: 408 pages, one script on search; not published                      |
 
 ## What is published today
 
 The 2026 edition covers the European layer; Spain, with its three multi-island and
 multi-province groupings and its 28 regional territories; Germany, with its 16 Länder;
-and France, with its 18 régions: **240 records**, each with the page it came from, the
-date that page was read and the words that were on it — 363 sources, 1,064 quotes, 354
-distinct pages — plus 21 dated developments of the year and the 69 research briefs that
-say how each territory was searched, including the 150 leads that were considered and
-rejected.
+France, with its 18 régions; and Italy, with its 19 regions and two autonomous
+provinces: **302 records**, each with the page it came from, the date that page was read
+and the words that were on it — 486 sources, 1,483 quotes, 470 distinct pages — plus 30
+dated developments of the year and the 91 research briefs that say how each territory was
+searched, including the 213 leads that were considered and rejected.
 
 [**What the 2026 research found**](research/findings-2026.md) is the account of that
 work territory by territory: what each pass published, what it looked for and did not
@@ -64,9 +64,12 @@ establishment aid in 9, a handover advisory service in 10, a transfer or matchin
 service in 5, a land exchange in 2 and a qualifying course in 1. France leans towards
 land: of its 18 régions, 13 document a land exchange, 12 a transfer or matching service,
 11 establishment aid, 6 advice and 4 a qualifying course, while one — Mayotte —
-documents nothing and says exactly why.
+documents nothing and says exactly why. Italy leans the other way: establishment aid in
+20 of its 21 territories and a qualifying course in 10, but a transfer or matching
+service in only 2, and nothing operative at national level, where the instruments belong
+to ISMEA and no page specific enough to cite was found.
 
-`npm run validate` reports `69 edition file(s) and 69 research brief(s) checked: 0
+`npm run validate` reports `91 edition file(s) and 91 research brief(s) checked: 0
 error(s), 0 warning(s), 1 for review`. The count is printed on purpose: a check that
 passes over nothing must never read as a clean run. The one for review is a question
 rather than a defect — two records, in Berlin and in Brandenburg, cite the same page,

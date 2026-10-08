@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "sardegna"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "I comunicati stampa della Regione autonoma della Sardegna sono la fonte leggibile più diretta sui bandi agricoli; il testo integrale del bando è un documento separato.",
+    "Le domande passano dall’organismo pagatore regionale.",
+    "Il progetto regionale di assegnazione di terreni pubblici ai giovani è stato attuato con bandi dell’agenzia regionale per lo sviluppo agricolo, ormai conclusi.",
+    "La scheda ufficiale del bando SRE01 riporta la rettifica dell'11 settembre 2026: le domande sono differite al 1°-31 ottobre, benché il PDF del bando e il comunicato dell'11 agosto conservino i termini originari.",
+    "Laore ha pubblicato avviso, riapertura dei termini ed esiti del corso Conduttore di impresa agricola per beneficiari 6.1 e SRE01. La selezione conclusa non equivale a nuove iscrizioni aperte.",
+    "La proposta di legge regionale n. 198/2026 sulla Banca della terra è una proposta legislativa, distinta sia dai precedenti bandi Terra ai giovani sia dall'inventario nazionale ISMEA."
+  ],
+  "portals": [
+    {
+      "name": "Regione autonoma della Sardegna",
+      "url": "https://www.regione.sardegna.it/",
+      "what": "Atti, bandi e comunicati regionali, compresi quelli agricoli."
+    },
+    {
+      "name": "Sardegna Agricoltura",
+      "url": "https://www.sardegnaagricoltura.it/",
+      "what": "Notizie e bandi delle agenzie agricole regionali."
+    },
+    {
+      "name": "Bandi e gare Laore",
+      "url": "https://www.agenzialaore.it/attibandieavvisi/bandiegare/",
+      "what": "Avvisi, rettifiche ed esiti dell'agenzia, inclusi i percorsi formativi."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "sar-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Sardegna bando insediamento giovani agricoltori 2026 SRE01 CSR Argea domanda"
+    },
+    {
+      "id": "sar-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Sardegna banca della terra terreni agricoli regionali assegnazione giovani Laore"
+    },
+    {
+      "id": "sar-laore-formazione",
+      "kinds": ["TRAINING"],
+      "query": "site:agenzialaore.it Conduttore di impresa agricola SRE01 2026 avviso esiti riapertura"
+    },
+    {
+      "id": "sar-terra-espansione",
+      "kinds": ["LAND_BANK"],
+      "query": "Sardegna proposta legge 198 2026 Banca della terra Terra ai giovani SIBaTer Sorso elenco lotti"
+    },
+    {
+      "id": "sar-assistenza-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Sardegna Coldiretti CIA Confagricoltura servizio primo insediamento subentro ricambio generazionale sedi provinciali"
+    }
+  ],
+  "leads": [
+    {
+      "id": "sar-bando-insediamento",
+      "name": "Bando per il primo insediamento dei giovani in agricoltura",
+      "url": "https://www.regione.sardegna.it/notizie/pubblicato-il-bando-per-il-primo-insediamento-dei-giovani-in-agricoltura-l",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "sardegna-insediamento-giovani-agricoltori",
+      "reason": "Riletti comunicato, scheda e PDF ufficiali. La rettifica dell'11/09/2026 prevale sui termini del comunicato: domande dal 1° al 31/10/2026, dunque UPCOMING il 28/09. Il premio forfettario di 40.000 euro è confermato.",
+      "foundBy": "sar-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sar-terra-ai-giovani",
+      "name": "Progetto regionale di assegnazione di terreni pubblici ai giovani",
+      "url": "https://www.sardegnaagricoltura.it/index.php?xsl=443&s=381822&v=2&c=3608",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Riletta la pagina dell'operatore: riporta gli esiti del secondo bando e rimanda ai bandi del 2016 e 2017, senza una procedura attuale o lotti richiedibili nel 2026. Mantenuta la decisione precedente.",
+      "foundBy": "sar-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sar-bando-testo",
+      "name": "Testo del bando per l’insediamento dei giovani agricoltori",
+      "url": "https://www.regione.sardegna.it/atti-bandi-archivi/atti-amministrativi/bandi/178634727851228",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Scheda, bando PDF e determinazione di rinvio letti e usati come fonti del SRE01 già ammesso; non sono una seconda risorsa. La scheda aggiornata corregge la finestra originaria.",
+      "foundBy": "sar-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sar-laore-corso-conduttore",
+      "name": "Corso Laore Conduttore di impresa agricola",
+      "url": "https://www.agenzialaore.it/index.php?c=96130&s=469845&t=1&v=2&xsl=2933",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "sardegna-laore-corso-conduttore-impresa-agricola",
+      "reason": "Pagina propria dell'agenzia e scheda dell'avviso aperte: 150 ore, beneficiari SRE01 e 6.1, requisito professionale, scadenza del 27/04/2026 ed esiti pubblicati a giugno. La finestra è CLOSED; una nuova coorte non è dimostrata.",
+      "foundBy": "sar-laore-formazione",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sar-confagricoltura-insediamento",
+      "name": "Assistenza delle Unioni provinciali Confagricoltura al primo insediamento",
+      "url": "https://www.confagricoltura.sardegna.it/sedi-provinciali/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "sardegna-confagricoltura-assistenza-primo-insediamento",
+      "reason": "La pagina propria dell'organizzazione elenca esplicitamente il premio di primo insediamento tra i servizi e dà accesso alle sedi provinciali. Essendo datata 2022, il servizio si pubblica con stato UNKNOWN; occorre confermare l'erogazione concreta nel 2026.",
+      "foundBy": "sar-assistenza-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sar-proposta-banca-terra-198",
+      "name": "Proposta di legge regionale 198/2026 sulla Banca della terra",
+      "url": "https://www.consregsardegna.it/wp-content/uploads/2026/04/PL0198.pdf",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Documento del Consiglio letto: reca chiaramente «PROPOSTA DI LEGGE N. 198» del 20/04/2026, non prova approvazione né attivazione. Verificare iter legislativo, eventuale legge promulgata e successivo inventario prima di ammettere un servizio.",
+      "foundBy": "sar-terra-espansione",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sar-sorso-sibater",
+      "name": "Avviso comunale SIBaTer di Sorso",
+      "url": "https://lnx.comune.sorso.ss.it/sorso2020/novita/comunicati-stampa/2784-progetto-sibater-avviso-pubblico-per-iscrizione-dei-terreni-privati-nella-banca-delle-terre",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Candidato comunale individuato con la ricerca, ma l'apertura diretta ha restituito DisabledError. Cercare l'avviso e l'inventario nel portale comunale vigente e verificare le date e l'accesso per i richiedenti; non usare il risultato di ricerca come prova di funzionamento.",
+      "foundBy": "sar-terra-espansione",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sar-ismea-banca-terre",
+      "name": "Banca nazionale delle terre agricole difundida por Confagricoltura Sardegna",
+      "url": "https://www.confagricoltura.sardegna.it/2026/07/17/ismea_-banca-nazionale-delle-terre-agricole-al-via-la-nuova-edizione-2026/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Il pezzo regionale rilancia lo strumento gestito da ISMEA su scala nazionale; non documenta un inventario o una procedura propri della Sardegna. Non duplicare un possibile recurso del livello nazionale.",
+      "foundBy": "sar-terra-espansione",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "sar-bando-insediamento",
+      "reason": "Bando e rettifica ufficiali verificati; il periodo per i richiedenti è 1°-31 ottobre 2026 ed è UPCOMING alla data della passata.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Esaminati gli esiti storici Terra ai giovani, i bandi Laore, la proposta di legge 198/2026 e ricerche SIBaTer. Non verificato un inventario regionale operativo; proposta e avviso comunale restano TO_CHECK.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "FOUND",
+      "leadId": "sar-laore-corso-conduttore",
+      "reason": "Percorso Laore di 150 ore destinato anche ai beneficiari SRE01; manifestazione di interesse 2026 chiusa il 27 aprile ed esiti pubblicati.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "FOUND",
+      "leadId": "sar-confagricoltura-insediamento",
+      "reason": "Confagricoltura Sardegna descrive un servizio proprio relativo al premio di primo insediamento e le sedi di accesso. La pagina datata non conferma l'attività specifica nel 2026: stato della risorsa UNKNOWN.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammesso il bando di primo insediamento 2026; assegnazione di terreni pubblici solo storica."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-6)",
+      "summary": "Passata 1.9.0: corretta la finestra SRE01 secondo la rettifica dell'11 settembre, da OPEN a UPCOMING; aggiunti corso Laore con iscrizioni CLOSED e assistenza Confagricoltura con operatività UNKNOWN. Esaminati Terra ai giovani, proposta di legge sulla Banca della terra e pista comunale SIBaTer. Nessun inventario regionale corrente verificato."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisione delle fonti: nella scheda dell'atto 116049 l'etichetta «Stato» è ora attaccata al valore, quindi la citazione riporta solo «ESITO PUBBLICATO»."
+    }
+  ]
+}

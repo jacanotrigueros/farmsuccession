@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "molise"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "La pagina istituzionale della Regione Molise che presenta i bandi del complemento regionale è la fonte leggibile più completa: descrive premi, obblighi e misure collegate.",
+    "Il bando molisano è a pacchetto: il premio di insediamento è abbinato a un intervento di investimento con dimensionamento minimo pari al premio.",
+    "La banca della terra molisana è affidata all’agenzia regionale per lo sviluppo agricolo, ma la pagina dedicata restituisce un errore 404.",
+    "Il portale Sviluppo Rurale Molise pubblica la scheda del bando 2025 con stato «Chiuso», testo integrale, proroga e graduatoria distinta.",
+    "La pubblicazione di una graduatoria nel 2026 non costituisce riapertura delle domande degli agricoltori.",
+    "La descrizione di un obbligo formativo o di un bando rivolto agli organismi formatori non prova che esista un corso accessibile al giovane agricoltore."
+  ],
+  "portals": [
+    {
+      "name": "Regione Molise, agricoltura",
+      "url": "https://www.regione.molise.it/",
+      "what": "Bandi e comunicazioni del complemento regionale di sviluppo rurale."
+    },
+    {
+      "name": "ARSARP",
+      "url": "https://www.arsarp.it/",
+      "what": "Agenzia regionale per lo sviluppo agricolo, rurale e della pesca; verificare l'eventuale inventario fondiario."
+    },
+    {
+      "name": "Sviluppo Rurale Molise, bandi CSR",
+      "url": "https://www.svilupporuralemolise.it/bandi/",
+      "what": "Schede dei bandi, allegati, termini, graduatorie e archivio degli interventi SRE01, SRH01 e SRH03."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "mol-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Molise bando insediamento giovani agricoltori 2026 SRE01 CSR domanda"
+    },
+    {
+      "id": "mol-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Molise banca della terra terreni agricoli regionali giovani assegnazione"
+    },
+    {
+      "id": "mol-formazione",
+      "kinds": ["TRAINING"],
+      "query": "Molise SRH03 corso primo insediamento giovani agricoltori iscrizioni riconoscimento"
+    },
+    {
+      "id": "mol-consulenza",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Molise Coldiretti CIA Confagricoltura consulenza primo insediamento subentro SRH01"
+    },
+    {
+      "id": "mol-locali",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Matese Campobasso Isernia GAL comune banca della terra azienda agricola subentro"
+    }
+  ],
+  "leads": [
+    {
+      "id": "mol-pacchetto-giovani",
+      "name": "Bando “Pacchetto Giovani” per l’insediamento",
+      "url": "https://www.svilupporuralemolise.it/bandi/pacchetto-giovani-edizione-2025/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "molise-pacchetto-giovani-insediamento",
+      "reason": "La scheda dell'operatore pubblica il testo del bando, la proroga al 20 novembre 2025 e lo stato Chiuso. Il testo conferma l'abbinamento obbligatorio con SRD02 e l'accesso tramite SIAN. La graduatoria del 2026 non riapre le domande.",
+      "foundBy": "mol-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "mol-formazione-insediati",
+      "name": "Misura formativa obbligatoria per i primi insediati",
+      "url": "https://www.regione.molise.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/20848",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "La pagina regionale annuncia SRH03 e l'obbligo dei primi insediati privi di competenze, ma il bando consultato si rivolge agli organismi formatori. Non è stata individuata una pagina dell'ente erogatore con corso concreto, iscrizione e riconoscimento; ritirata la precedente risorsa locale finché tali elementi siano verificati.",
+      "foundBy": "mol-formazione",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "mol-banca-terra",
+      "name": "Banca della Terra del Molise",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La normativa e la documentazione ARSARP descrivono la competenza dell'agenzia, ma la precedente pagina dedicata non risponde e non sono stati verificati un inventario né una procedura vigente. Cercare atti e lotti presso ARSARP e gli albi degli enti locali.",
+      "foundBy": "mol-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "mol-srh03-organismi",
+      "name": "Bando SRH03 per organismi formatori",
+      "url": "https://www.svilupporuralemolise.it/misura/srh03/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La pagina dei bandi riguarda progetti degli organismi formatori e non costituisce da sola un corso qualificante con iscrizione del destinatario finale.",
+      "foundBy": "mol-formazione",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "mol-consulenza-psr-innovazione",
+      "name": "Manifestazione d'interesse SRH01 di PSR & Innovazione Molise",
+      "url": "https://www.innovazionemolise.it/intervento-srh01",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "L'operatore pubblica un avviso per destinatari finali che attribuisce punteggio ai giovani in insediamento e un modulo di adesione. L'avviso subordina l'erogazione al finanziamento del progetto; non sono stati verificati l'esito né una finestra attuale di adesione. Verificare l'aggiudicazione e l'accesso odierno prima di ammetterlo.",
+      "foundBy": "mol-consulenza",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "mol-gal-generazione-terra",
+      "name": "Notizia del GAL Molise su Generazione Terra",
+      "url": "https://www.galmolise.it/generazione-terra-2026/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Il GAL segnala uno strumento ISMEA nazionale, senza una propria procedura molisana distinta; non va duplicato nel livello regionale.",
+      "foundBy": "mol-locali",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "mol-matese-banca",
+      "name": "Progetto Banca della Terra del Matese",
+      "url": "https://moliseineuropa.regione.molise.it/sites/moliseineuropa.regione.molise.it/files/4%20-%20Allegato%202%20A_relazioni%20tecniche%20%281%29.pdf",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La relazione progettuale descrive un censimento e una futura procedura per i comuni del Matese; non è stato verificato un inventario funzionante o un avviso di assegnazione. Cercare gli atti dei comuni e del GAL competente.",
+      "foundBy": "mol-locali",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "mol-pacchetto-giovani",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Cercati presso ARSARP, Regione e fonti locali inventari, lotti e bandi di assegnazione. Verificata la previsione della banca, ma non una procedura operativa; resta mol-banca-terra.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "NOT_FOUND",
+      "reason": "Esaminati la descrizione regionale SRH03, l'archivio del bando rivolto agli organismi e il requisito del Pacchetto Giovani. Manca una pagina di corso riconosciuto con iscrizione per l'agricoltore; resta mol-formazione-insediati.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "NOT_FOUND",
+      "reason": "Cercate le organizzazioni agricole molisane e verificato l'avviso SRH01 di PSR & Innovazione Molise. La proposta era subordinata a selezione e finanziamento, non verificati; resta mol-consulenza-psr-innovazione.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammessi il pacchetto giovani e la misura formativa obbligatoria; banca della terra irraggiungibile."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Passata 1.9.0: aggiornata la risorsa SRE01/SRD02 sul bando 2025 chiuso il 20 novembre e distinta la graduatoria 2026 dalle nuove domande. La precedente risorsa formativa è stata ritirata per mancanza di un corso con accesso verificato. Restano da verificare banca della terra, offerta formativa, esito della proposta SRH01 e progetto fondiario del Matese."
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "umbria"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "L’intervento di insediamento si documenta dalla pagina del complemento regionale (regione.umbria.it/csrumbria), che collega la scheda di sintesi, le FAQ e i documenti dell’avviso; le notizie delle organizzazioni agricole ne sono solo la divulgazione.",
+    "Il banco della terra umbro è gestito con l’agenzia forestale regionale, che pubblica gli avvisi di concessione dei beni.",
+    "La legge regionale prevede che una quota dei beni del banco della terra sia riservata a chi ha meno di quarant’anni.",
+    "Il programma annuale di attività dell’agenzia forestale regionale, pubblicato dal Consiglio regionale, è la fonte più recente sullo stato del banco della terra; le notizie del 2019 e del 2022 documentano solo avvisi passati.",
+    "La scheda pubblica del bando SRE01 2026 nel portale applicazioni.regione.umbria.it è leggibile senza identificativo di sessione nell'URL e registra il termine aggiornato al 2 settembre 2026; le notizie di luglio e agosto conservano il termine precedente del 24 agosto.",
+    "Il download della DD 8340 e dell'allegato A dal portale bandi restituisce application/octet-stream al lettore web: usare la scheda pubblica per la finestra e verificare separatamente gli allegati.",
+    "AFOR pubblica concessioni di singoli terreni anche nel 2026, ma le pagine esaminate non le chiamano avvisi del Banco della Terra. Una concessione singola non prova il rilancio dell'inventario."
+  ],
+  "portals": [
+    {
+      "name": "Regione Umbria",
+      "url": "https://www.regione.umbria.it/agricoltura",
+      "what": "Notizie, bandi e avvisi regionali, compreso il banco della terra."
+    },
+    {
+      "name": "Agenzia forestale regionale dell’Umbria",
+      "url": "https://afor.umbria.it/",
+      "what": "Avvisi di concessione dei beni del patrimonio agro-forestale regionale, compreso il banco della terra."
+    },
+    {
+      "name": "Portale bandi Regione Umbria",
+      "url": "https://applicazioni.regione.umbria.it/bandi1",
+      "what": "Schede dei bandi e atti successivi; verificare le proroghe rispetto alle notizie iniziali."
+    },
+    {
+      "name": "AFOR bandi e avvisi chiusi",
+      "url": "https://afor.umbria.it/argomento-bandieavvisi/bandi-e-avvisi-chiusi/",
+      "what": "Archivio degli avvisi e delle concessioni, incluso il quarto avviso del Banco della Terra."
+    },
+    {
+      "name": "Elenco regionale degli enti formativi accreditati",
+      "url": "https://www.regione.umbria.it/la-presidente?_101_assetEntryId=611178&_101_returnToFullPageURL=https%3A%2F%2Fwww.regione.umbria.it%2Fla-presidente%3Fp_p_id%3D3%26p_p_lifecycle%3D1%26p_p_state%3Dnormal%26p_p_state_rcv%3D1&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_type=content&inheritRedirect=true&p_p_id=101&p_p_lifecycle=0&p_p_mode=view&p_p_state=maximized",
+      "what": "Elenco degli organismi accreditati; l'accreditamento non dimostra l'esistenza di un corso SRE01 accessibile."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "umb-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Umbria bando insediamento giovani agricoltori 2026 SRE01 CSR domanda"
+    },
+    {
+      "id": "umb-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Umbria banca della terra terreni agricoli regionali assegnazione giovani"
+    },
+    {
+      "id": "umb-proroga-sre01",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:regione.umbria.it SRE01 2026 proroga 24 agosto settembre domande"
+    },
+    {
+      "id": "umb-afor-banco",
+      "kinds": ["LAND_BANK"],
+      "query": "site:afor.umbria.it \"banco della terra\" 2026 avviso"
+    },
+    {
+      "id": "umb-corsi-sre01",
+      "kinds": ["TRAINING"],
+      "query": "\"SRE01\" \"150 ore\" \"Umbria\" \"2026\" corso iscrizioni"
+    },
+    {
+      "id": "umb-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "site:confagricolturaumbria.it \"insediamento\" \"assistenza\"; site:ciaumbria.it \"insediamento\" \"consulenza\""
+    },
+    {
+      "id": "umb-terreni-locali",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "site:comune.terni.it terreni agricoli giovani concessione 2026; site:comune.perugia.it terreni agricoli giovani concessione 2026"
+    }
+  ],
+  "leads": [
+    {
+      "id": "umb-bando-insediamento",
+      "name": "Bando regionale per l’insediamento dei giovani agricoltori",
+      "url": "https://applicazioni.regione.umbria.it/widget/bandi1?_bandi_WAR_bandiportlet_codBando=2026-002-6802&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio&p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_mode=view&p_p_state=maximized",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "umbria-insediamento-giovani-agricoltori",
+      "reason": "Verificata la scheda dell'avviso 2026 sul portale regionale: domanda dall'8 luglio al 2 settembre, DD 8340 del 18 agosto e stato «BANDO SCADUTO». La scheda corregge la scadenza precedente del 24 agosto presente nelle notizie.",
+      "foundBy": "umb-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "umb-banco-terra",
+      "name": "Banco della terra dell’Umbria",
+      "url": "https://afor.umbria.it/bandieavvisi/4-avviso-banco-della-terra-assegnazione-in-concessione-beni-appartenenti-al-patrimonio-agro-forestale-regionale-indisponibile/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "umbria-banco-della-terra",
+      "reason": "La pagina dell'operatore conserva il quarto avviso del 2022 fra i bandi chiusi; il programma AFOR 2026 dice che quell'avviso andò deserto e propone di ottimizzare lo strumento. Stato della Banca: UNKNOWN, senza affermare un'offerta aperta.",
+      "foundBy": "umb-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "umb-confagricoltura-sre01",
+      "name": "Notizia di Confagricoltura Umbria sul bando SRE01",
+      "url": "https://www.confagricolturaumbria.it/pubblicato-il-bando-csr-umbria-2023-2027-intervento-sre01-insediamento-giovani-agricoltori/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "La pagina divulga il bando operato dalla Regione; non identifica una procedura autonoma dell'organizzazione.",
+      "foundBy": "umb-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "umb-proroga-8340",
+      "name": "Proroga del bando SRE01 mediante DD 8340",
+      "url": "https://applicazioni.regione.umbria.it/widget/bandi1?_bandi_WAR_bandiportlet_codBando=2026-002-6802&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio&p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_mode=view&p_p_state=maximized",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "umbria-insediamento-giovani-agricoltori",
+      "reason": "La scheda aggiornata mostra il termine fino al 2 settembre e cita la DD 8340 del 18 agosto. È una modifica dello stesso bando, non un'altra risorsa; l'allegato scaricabile dell'atto non è stato leggibile con il lettore web.",
+      "foundBy": "umb-proroga-sre01",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "umb-srh03-corso-sre01",
+      "name": "Cursos de 150 ore previsti dal bando SRH03",
+      "url": "https://www.umbriagricoltura.it/wp-content/uploads/2025/12/Allegato-A-bando-2025-rev2.pdf",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "L'allegato del bando per enti formativi definisce corsi di 150 ore idonei agli obblighi SRE01, ma non è l'iscrizione di un allievo e non nomina qui un corso effettivamente disponibile. Cercare gli enti aggiudicatari e le loro pagine di iscrizione.",
+      "foundBy": "umb-corsi-sre01",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "umb-caa-confagricoltura",
+      "name": "CAA Confagricoltura Umbria",
+      "url": "https://www.confagricolturaumbria.it/servizio/servizio-di-assistenza/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina dell'operatore descrive mandato, fascicolo aziendale e aiuti in generale, ma non un servizio concreto distinto per ingresso, subentro o successione agricola; l'accesso generico ai contributi non basta.",
+      "foundBy": "umb-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "umb-agia-cia",
+      "name": "Comunicazione AGIA-CIA sul primo insediamento",
+      "url": "https://www.ciaumbria.it/index.php/comunicati/item/694-agia",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Il comunicato del luglio 2026 esprime posizioni sul bando e auspica formazione e accompagnamento, ma non descrive un servizio accessibile di AGIA-CIA per un aspirante agricoltore.",
+      "foundBy": "umb-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "umb-afor-pietralunga-2026",
+      "name": "Concessione del terreno a nocciolo di Pietralunga",
+      "url": "https://afor.umbria.it/bandieavvisi/avviso-pubblico-per-la-concessione-in-uso-pluriennale-di-terreno-coltivato-a-nocciolo-sito-nel-comune-di-pietralunga-loc-molinello-lotto-unico/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Avviso del luglio 2026 per un lotto singolo, presente fra quelli chiusi; la pagina non lo attribuisce al Banco della Terra e una proprietà individuale non costituisce una banca fondiaria distinta.",
+      "foundBy": "umb-afor-banco",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "umb-afor-gubbio-2026",
+      "name": "Concessione terreni Loreto-Bevelle a Gubbio",
+      "url": "https://afor.umbria.it/bandieavvisi/avviso-pubblico-per-laffidamento-di-terreni-ubicati-nel-comune-di-gubbio-loc-loreto-bevelle/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Avviso per terreni individuali del patrimonio regionale, con procedura già nella fase di apertura delle offerte nell'aprile 2026. Non si presenta come nuovo inventario del Banco della Terra né come servizio stabile distinto.",
+      "foundBy": "umb-terreni-locali",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "umb-bando-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "FOUND",
+      "leadId": "umb-banco-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "NOT_FOUND",
+      "reason": "Cercati corsi IAP e SRE01 di 150 ore, bando SRH03 ed elenco degli enti accreditati. Il bando finanzia corsi idonei, ma non è stata verificata una pagina dell'ente erogatore con iscrizione concretamente accessibile: lead umb-srh03-corso-sre01 TO_CHECK.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "NOT_FOUND",
+      "reason": "Esaminate le pagine di Confagricoltura Umbria e CIA/AGIA Umbria: il CAA descrive pratiche generali e i comunicati divulgano o commentano SRE01, senza una via verificata a un servizio specifico di insediamento o subentro.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammessi il bando di insediamento e il banco della terra regionale."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Correzione dopo l’audit: bando di insediamento riletto su fonti della Regione al posto di un’organizzazione agricola; banco della terra portato a UNKNOWN secondo il programma 2026 dell’agenzia forestale."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (gpt-6, ricerca web e connettore GitHub; prompt 1.9.0)",
+      "summary": "Riletto SRE01 sul portale bandi: proroga del termine al 2 settembre 2026 e convocazione CLOSED; aggiunta la dotazione dell'avviso. Verificati l'archivio AFOR e le concessioni singole 2026 senza promuovere il Banco della Terra ad ACTIVE. Ricercati formazione SRE01 e servizi delle organizzazioni; manca una iscrizione a corso e un servizio specifico verificato. Copertura PARTIAL."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Correzione redazionale: la motivazione della segnalazione umb-afor-gubbio-2026 era scritta in parte in spagnolo ed è stata riscritta in italiano senza cambiarne il contenuto. Nessun cambio di stato."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisione dei collegamenti: la radice di regione.umbria.it risponde 404; il portale rimanda ora alla sezione agricoltura, che risponde."
+    }
+  ]
+}

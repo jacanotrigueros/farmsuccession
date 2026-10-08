@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "valle-d-aosta"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "La pagina regionale dell’intervento di insediamento riporta direttamente importi, requisiti e termini: è una delle fonti più complete tra le regioni italiane.",
+    "La Valle d’Aosta distingue esplicitamente il premio per subentro aziendale da quello per insediamento ex novo, un dettaglio utile per il tema del ricambio generazionale.",
+    "La regione è bilingue: cercare eventualmente anche in francese.",
+    "La pagina dei bandi strutturali indica SRE01 come SCADUTO; la graduatoria definitiva pubblicata successivamente non è una nuova finestra per i richiedenti.",
+    "La pagina del percorso Tecnico agricolo collega le competenze all'insediamento, ma l'iscrizione specifica al quarto anno 2025-2026 è scaduta e il riconoscimento del requisito va verificato per il singolo richiedente.",
+    "Una pagina di aiuti alla ricomposizione fondiaria riguarda le imprese agricole in generale: non va presentata come aiuto specifico al primo insediamento."
+  ],
+  "portals": [
+    {
+      "name": "Agricoltura della Regione autonoma Valle d’Aosta",
+      "url": "https://regione.vda.it/Agricoltura/",
+      "what": "Bandi e interventi del complemento regionale di sviluppo rurale."
+    },
+    {
+      "name": "Bandi interventi strutturali CSR 2023/2027",
+      "url": "https://www.regione.vda.it/agricoltura/CSR_2023_2027/bandi_interventi_strutturali/default_i.aspx",
+      "what": "Stato pubblicato dei bandi, inclusa la chiusura di SRE01."
+    },
+    {
+      "name": "Catalogo formativo dello sviluppo rurale",
+      "url": "https://www.regione.vda.it/agricoltura/akis_vda/Catalogo_formativo_dello_sviluppo_rurale/default_i.aspx",
+      "what": "Corsi regionali realizzati o online da distinguere dalla formazione specifica per l'insediamento."
+    },
+    {
+      "name": "Institut Agricole Régional",
+      "url": "https://www.iar.edu.it/pagine/il-presente",
+      "what": "Offerta scolastica professionale agricola e segreteria per verificare iscrizioni correnti."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "vda-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Valle d’Aosta bando insediamento giovani agricoltori 2026 primo insediamento domanda"
+    },
+    {
+      "id": "vda-banca-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Valle d'Aosta banca terra terreni agricoli assegnazione agricoltori regione 2026"
+    },
+    {
+      "id": "vda-formazione",
+      "kinds": ["TRAINING"],
+      "query": "Valle d'Aosta formazione capacità professionale giovani agricoltori primo insediamento corso 2026"
+    },
+    {
+      "id": "vda-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Coldiretti Valle d'Aosta giovani impresa insediamento subentro servizio consulenza 2026"
+    },
+    {
+      "id": "vda-espansione-terra",
+      "kinds": ["LAND_BANK", "FINANCIAL_SUPPORT"],
+      "query": "site:regione.vda.it \"banca della terra\" agricoltura Valle d'Aosta; site:regione.vda.it \"ricomposizione fondiaria\" \"2026\" terreni"
+    },
+    {
+      "id": "vda-espansione-formazione",
+      "kinds": ["TRAINING", "ADVICE"],
+      "query": "site:iar.edu.it \"Tecnico agricolo\" \"2026-27\" iscrizioni; site:regione.vda.it/agricoltura \"Catalogo formativo\" \"giovani\" insediamento"
+    },
+    {
+      "id": "vda-espansione-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "site:valledaosta.coldiretti.it SRE01 servizio domande insediamento giovani agricoltori; Valle d'Aosta Confagricoltura CIA giovani agricoltori primo insediamento consulenza CAA successione azienda"
+    }
+  ],
+  "leads": [
+    {
+      "id": "vda-bando-insediamento",
+      "name": "Intervento per l’insediamento dei giovani agricoltori",
+      "url": "https://www.regione.vda.it/agricoltura/CSR_2023_2027/bandi_interventi_strutturali/sre01_insediamento_giovani_agricoltori_i.aspx",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "valle-d-aosta-insediamento-giovani-agricoltori",
+      "reason": "Pagina regionale e bando modificato verificati: premio per subentro o ex novo, domanda SIAN dal 18 agosto al 15 dicembre 2025 dopo proroga. Il portale marca SCADUTO; la graduatoria successiva non riapre il bando.",
+      "foundBy": "vda-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "vda-tecnico-agricolo",
+      "name": "Percorso Tecnico agricolo dell'Institut Agricole Régional",
+      "url": "https://www.iar.edu.it/pagine/il-presente",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "valle-d-aosta-tecnico-agricolo-iar",
+      "reason": "L'istituto presenta il percorso quadriennale avviato nell'anno scolastico 2025-2026; la pagina regionale collega espressamente le competenze alle misure di insediamento. La vecchia preiscrizione al quarto anno è chiusa; verificare la nuova ammissione e il riconoscimento individuale.",
+      "foundBy": "vda-formazione",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "vda-caa-coldiretti",
+      "name": "CAA Coldiretti Valle d’Aosta",
+      "url": "https://valledaosta.coldiretti.it/caa-valle-daosta/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "valle-d-aosta-caa-coldiretti",
+      "reason": "L'operatore descrive sedi valdostane e assistenza concreta per le pratiche di sovvenzione; il bando SRE01 ammette i CAA alla compilazione. È un servizio di consegna distinto dall'aiuto regionale. Costi e accesso associativo non specificati.",
+      "foundBy": "vda-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "vda-ricomposizione-fondiaria",
+      "name": "Aiuti alla ricomposizione fondiaria",
+      "url": "https://www.regione.vda.it/Agricoltura/leggeregionale17del2016/aiuti_alla_ricomposizione_fondiaria_i.aspx",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "La procedura 2026 copre costi legali e amministrativi per acquisti o permute di terreni di aziende agricole in generale; la pagina non la lega specificamente al nuovo ingresso o al subentro. Non è una banca della terra.",
+      "foundBy": "vda-espansione-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "vda-catalogo-akis",
+      "name": "Catalogo formativo dello sviluppo rurale",
+      "url": "https://www.regione.vda.it/agricoltura/akis_vda/Catalogo_formativo_dello_sviluppo_rurale/default_i.aspx",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Il catalogo consultato presenta corsi settoriali realizzati o online, ma non attesta per essi un collegamento al primo insediamento; il percorso pertinente dell'IAR è registrato separatamente.",
+      "foundBy": "vda-espansione-formazione",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "vda-akis-consulenza",
+      "name": "Elenco regionale dei fornitori di consulenza agricola SRH01",
+      "url": "https://www.regione.vda.it/agricoltura/akis_vda/servizi_di_consulenza_i.aspx",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina istituisce e apre l'iscrizione dei fornitori all'elenco, non un accesso verificato per nuovi agricoltori a un servizio concreto di consulenza per l'insediamento.",
+      "foundBy": "vda-espansione-organizzazioni",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "vda-bando-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Consultati il portale agricoltura e i bandi strutturali; ricerche per banca della terra, inventario e assegnazione di terreni in Valle d'Aosta non hanno individuato un servizio regionale operativo. Gli aiuti alla ricomposizione fondiaria sono un altro strumento.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "FOUND",
+      "leadId": "vda-tecnico-agricolo",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "FOUND",
+      "leadId": "vda-caa-coldiretti",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammesso il premio di primo insediamento, con distinzione tra subentro ed ex novo."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Passata 1.9.0: riconfermati premio e proroga SRE01 con bando 2025 chiuso; aggiunti il percorso Tecnico agricolo e il CAA territoriale. Valutati e scartati gli aiuti generali alla ricomposizione e le pagine AKIS non specifiche. Restano da verificare una banca della terra operativa, la prossima finestra SRE01, le iscrizioni formative e le condizioni del CAA."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisione delle fonti: la pagina SRE01 è stata aggiornata il 27/08/2026; citazione e data dell'ultima evidenza seguono la pagina."
+    }
+  ]
+}

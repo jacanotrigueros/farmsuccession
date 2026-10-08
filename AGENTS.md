@@ -28,16 +28,19 @@ published as **yearly editions** of JSON files per EU / country / region.
 | `frontend/`  | The Astro static site                                                          |
 | `test/`      | `node:test` suites and fictional fixtures                                      |
 
-Every directory listed here exists, and each stays empty until the milestone that
-needs it. That milestone adds its file layout, its commands and their rules to
-this file in the same change, so nothing here ever describes something the
-repository does not have.
+Every directory listed here exists and now holds the work it was waiting for.
+Each stayed empty until the milestone that needed it, and that milestone added its
+file layout, its commands and their rules to this file in the same change, so
+nothing here ever describes something the repository does not have. The empty ones
+were held open by a `.gitkeep`; none is left, and a directory that fills up does not
+keep the placeholder that stood in for its contents.
 
 `data/editions/2026` and `research/` hold the real data: the European layer; Spain,
 with its three groupings of several regions and its 28 regional territories; Germany,
-with its 16 Länder; and France, with its 18 régions, each territory with one research
-brief. Italy and Portugal are researched and are not here yet, so the catalogue carries
-the EU layer, Spain, Germany and France and nothing else. The two halves of that have to agree: a file whose
+with its 16 Länder; France, with its 18 régions; and Italy, with its 19 regions and two
+autonomous provinces, each territory with one research brief. Portugal is researched and
+is not here yet, so the catalogue carries the EU layer, Spain, Germany, France and Italy
+and nothing else. The two halves of that have to agree: a file whose
 country the catalogue does not define is an error rather than a file waiting for its
 country, and a country the catalogue defines with no file of its own is the same
 mistake the other way round. `test/territories.test.ts` compares the two instead of
@@ -142,8 +145,8 @@ Three data schemas are settled: `territories.schema.json` (the catalogue),
 `config/` and carries no version, because nothing publishes it.
 
 `data/territories.json` is the catalogue, keyed by ISO code plus `EU`. It
-carries the EU layer, Spain, Germany and France: a country is added with its data,
-never ahead of it. `src/layers.ts` is the one implementation of the territorial tree —
+carries the EU layer, Spain, Germany, France and Italy: a country is added with its
+data, never ahead of it. `src/layers.ts` is the one implementation of the territorial tree —
 anything that needs to know what a page shows asks it, so a reader and a
 validator cannot disagree. `src/territories.ts` loads the catalogue and also
 enforces the rules the schema cannot express: a region belongs to exactly one

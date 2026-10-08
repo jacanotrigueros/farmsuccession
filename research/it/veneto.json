@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "veneto"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Veneto Rurale (venetorurale.it) è il sito dell'Autorità di gestione del CSR: le notizie ufficiali riportano scadenze e risorse aggiornate, mentre alcune schede bando mostrano ancora il ciclo precedente.",
+    "In Veneto l'intervento SRE01 si attiva solo nel Pacchetto Giovani insieme ad almeno un intervento di investimento.",
+    "La Banca della terra veneta è gestita tramite AVEPA; la pagina regionale è descrittiva e poco aggiornata, i lotti vanno cercati sul portale AVEPA.",
+    "Passata con la lista di controllo nazionale sul file del benchmark: restavano da compilare solo gli strumenti attesi.",
+    "La scheda SRE01 con suffisso -3 riguarda il bando scaduto il 16 gennaio 2026; quella con suffisso -4 riguarda il nuovo Pacchetto Giovani approvato nel settembre 2026. Non confondere le due dotazioni: 11,2 milioni dopo la modifica del vecchio bando e 14 milioni nel nuovo.",
+    "La nuova scheda indica una data di pubblicazione futura rispetto al 28 settembre 2026. Finché non si verifica il BUR, non trasformarla in una finestra OPEN né dedurre una scadenza a partire dai 105 giorni annunciati.",
+    "Un decreto BUR del febbraio 2026 documenta canoni di terreni già affittati por la Banca della terra; non dimostra che oggi vi siano lotti aperti."
+  ],
+  "portals": [
+    {
+      "name": "Veneto Rurale",
+      "url": "https://venetorurale.it/",
+      "what": "Programmazione dello sviluppo rurale, bandi e notizie del CSR Veneto."
+    },
+    {
+      "name": "Regione del Veneto — Agricoltura e foreste",
+      "url": "https://www.regione.veneto.it/web/agricoltura-e-foreste",
+      "what": "Pagine regionali su imprese agricole, bandi e Banca della terra."
+    },
+    {
+      "name": "Bandi e finanziamenti Veneto Rurale",
+      "url": "https://venetorurale.it/bandi-e-finanziamenti/",
+      "what": "Confrontare le schede dei cicli SRE01 e verificare il testo ufficiale del BUR."
+    },
+    {
+      "name": "CIA Veneto - Consulenza tecnica",
+      "url": "https://www.ciaveneto.it/servizi/consulenza-tecnica/",
+      "what": "Assistenza del CAA delle Venezie per qualifica IAP e domande PAC e PSR."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "veneto-young",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Veneto SRE01 insediamento giovani agricoltori bando 2026"
+    },
+    {
+      "id": "veneto-land",
+      "kinds": ["LAND_BANK"],
+      "query": "Banca della terra Veneto terreni agricoli giovani Veneto Agricoltura"
+    },
+    {
+      "id": "veneto-sre01-nuovo-ciclo",
+      "kinds": ["FINANCIAL_SUPPORT", "NEWS"],
+      "query": "site:venetorurale.it SRE01 990 settembre 2026 nuovi bandi Pacchetto Giovani"
+    },
+    {
+      "id": "veneto-avepa-lotti",
+      "kinds": ["LAND_BANK"],
+      "query": "site:avepa.it \"banca della terra veneta\" 2026 terreni; site:bur.regione.veneto.it \"Banca della terra veneta\" \"2026\""
+    },
+    {
+      "id": "veneto-formazione-iap",
+      "kinds": ["TRAINING"],
+      "query": "Veneto formazione IAP primo insediamento corso riconosciuto 2026 SRH03"
+    },
+    {
+      "id": "veneto-servizi-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "site:ciaveneto.it insediamento servizi giovani qualifica IAP domande contributo; site:veneto.coldiretti.it passaggio generazionale servizio"
+    },
+    {
+      "id": "veneto-livelli-locali",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "\"banca della terra\" comune veneto giovani agricoli terreni 2026; Veneto Agricoltura passaggio generazionale sportello"
+    }
+  ],
+  "leads": [
+    {
+      "id": "veneto-sre01",
+      "name": "SRE01 Insediamento giovani agricoltori",
+      "url": "https://venetorurale.it/giovani-agricoltori-aperti-bandi-per-36-milioni-di-euro-per-il-primo-insediamento/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "veneto-sre01-insediamento-giovani",
+      "reason": "Risorsa esistente mantenuta con lo stesso id. Il bando 2025 è scaduto il 16 gennaio 2026, la sua dotazione è stata ridotta a 11,2 milioni; il nuovo ciclo approvato con DGR 990/2026 dispone 14 milioni ma è ancora in attesa di apertura sul BUR.",
+      "foundBy": "veneto-young",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "veneto-banca-terra",
+      "name": "Banca della terra veneta",
+      "url": "https://www.regione.veneto.it/web/agricoltura-e-foreste/banca-della-terra-veneta",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "veneto-banca-della-terra",
+      "reason": "La pagina regionale documenta censimento, lotti e concessione; un decreto BUR 2026 documenta canoni di terreni già affittati. Nessun lotto disponibile oggi è verificato: stato UNKNOWN.",
+      "foundBy": "veneto-land",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "veneto-avepa-banca-terra",
+      "name": "Portale AVEPA Banca della terra veneta",
+      "url": "https://www.avepa.it/banca-terra-veneta",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "L'URL precedente resta senza lettura verificata. La pagina AVEPA attualmente indicizzata su https://www.avepa.it/servizi/competenze-regionali-delegate/banca-della-terra-veneta è andata in timeout all'apertura web del 28/09/2026; consultare direttamente AVEPA o una copia ufficiale leggibile, confermare inventario e bandi e documentare la verifica prima di usarla come fonte.",
+      "foundBy": "veneto-land",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "veneto-scheda-bando-sre01",
+      "name": "Scheda bando SRE01 su Veneto Rurale",
+      "url": "https://venetorurale.it/bandi/insediamento-giovani-agricoltori/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "La scheda del ciclo ancora precedente non è una risorsa distinta; la scheda -3 documenta il bando 2025 e la scheda -4 il nuovo ciclo 2026, entrambi dello stesso intervento SRE01.",
+      "foundBy": "veneto-young",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "veneto-irecoop-iap",
+      "name": "Corso per Imprenditore Agricolo Professionale Irecoop Veneto",
+      "url": "https://www.irecoop.veneto.it/corso-per-imprenditore-agricolo-professionale/csr",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "veneto-irecoop-corso-iap",
+      "reason": "L'ente pubblica un corso SRH03 di 150 ore per aziende venete, un modulo di interesse/iscrizione e l'avvio previsto a ottobre 2026; l'effettivo riconoscimento individuale per SRE01 rimane da verificare.",
+      "foundBy": "veneto-formazione-iap",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "veneto-caa-venezie",
+      "name": "CAA delle Venezie - assistenza IAP e domande PSR",
+      "url": "https://www.ciaveneto.it/servizi/consulenza-tecnica/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "veneto-caa-delle-venezie",
+      "reason": "L'organizzazione descrive il servizio concreto nel Veneto per la qualifica IAP, il fascicolo e le domande di contributo PAC e PSR. Non è una seconda copia dell'aiuto regionale.",
+      "foundBy": "veneto-servizi-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "veneto-agia",
+      "name": "AGIA CIA Veneto",
+      "url": "https://www.ciaveneto.it/associazioni/agia-associazione-giovani-agricoltori/",
+      "kind": "NETWORK",
+      "status": "REJECTED",
+      "reason": "La pagina espone obiettivi di rappresentanza e ricambio generazionale, ma non descrive una distinta procedura individuale di insediamento o mediazione del subentro. Il servizio tecnico concreto della stessa rete è registrato nel lead del CAA.",
+      "foundBy": "veneto-servizi-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "veneto-srh01-catalogo",
+      "name": "SRH01 Erogazione servizi di consulenza a catalogo",
+      "url": "https://venetorurale.it/bandi/erogazione-servizi-di-consulenza-a-catalogo-2/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La scheda consultata descrive il bando rivolto ai fornitori di consulenza e l'adesione futura delle imprese ai loro progetti; non identifica ancora un servizio individuale operativo di accompagnamento all'insediamento. La data 20261002 indicata nella scheda è futura rispetto alla consultazione.",
+      "foundBy": "veneto-servizi-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "veneto-coldiretti-padova-iap",
+      "name": "Corso IAP di Impresa Verde Padova, settembre-dicembre 2026",
+      "url": "https://venezia.coldiretti.it/news/corso-iap-imprenditore-agricolo-professionale-iscrizioni-entro-il-14-agosto/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "L'operatore annuncia un percorso distinto di 150 ore con ammissioni chiuse il 14 agosto e prima lezione prevista il 28 settembre 2026. Verificare con una pagina aggiornata dell'ente se il corso è effettivamente partito e se esistono successive sessioni; non inferire disponibilità dalla sola notizia di apertura iscrizioni.",
+      "foundBy": "veneto-formazione-iap",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "veneto-sre01",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "FOUND",
+      "leadId": "veneto-banca-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "FOUND",
+      "leadId": "veneto-irecoop-iap",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "FOUND",
+      "leadId": "veneto-caa-venezie",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata: ammessi il bando SRE01 del pacchetto giovani e la Banca della terra veneta (stato UNKNOWN); portale AVEPA irraggiungibile e da ricontrollare."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passata con la lista di controllo nazionale: confermati bando di insediamento e banca della terra veneta."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Passata 1.9.0: distinto il nuovo Pacchetto Giovani approvato nel settembre 2026 dal bando scaduto e dalla sua dotazione rettificata; aggiunti corso IAP e servizio CAA. AVEPA continua a non rispondere e non sono stati verificati lotti attuali né l'apertura del nuovo SRE01."
+    }
+  ]
+}

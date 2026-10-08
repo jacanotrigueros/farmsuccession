@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "puglia"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Il portale csr.regione.puglia.it dedica una pagina a ciascun intervento, con descrizione, dotazione e referente: è la fonte più leggibile per la regione.",
+    "La Banca della Terra di Puglia è istituita da legge regionale del 2017; i comuni devono censire terreni e fabbricati rurali abbandonati.",
+    "In Puglia figurano anche terreni della banca nazionale delle terre agricole, citati dalla Regione e dalle organizzazioni agricole.",
+    "La DGR 262/2020 approvò un elenco provvisorio della Banca della Terra; quell'atto non dimostra che nel 2026 esista un inventario utilizzabile o una procedura aperta.",
+    "Nel settembre 2026 il portale CSR classifica SRE01 e SRD01.06 come «Prossima apertura». I rispettivi avvisi rinviano scadenze e procedure a successivi provvedimenti; un avviso approvato non equivale a domande aperte.",
+    "La pagina di Confagricoltura Bari-Bat sul corso per giovani e nuovi agricoltori presenta una verifica automatica al tentativo di apertura. La pagina propria di IRSEA mostra un annuncio con una scadenza di iscrizione passata; serve controllare direttamente un'offerta successiva."
+  ],
+  "portals": [
+    {
+      "name": "CSR Puglia",
+      "url": "https://csr.regione.puglia.it/",
+      "what": "Interventi, bandi e avvisi del complemento regionale di sviluppo rurale."
+    },
+    {
+      "name": "Bandi e Avvisi CSR Puglia",
+      "url": "https://csr.regione.puglia.it/bandi",
+      "what": "Stato pubblicato delle convocazioni, da confrontare con avvisi e successivi atti."
+    },
+    {
+      "name": "Bussola Normativa Puglia",
+      "url": "https://bussolanormativa.consiglio.puglia.it/",
+      "what": "Legge e regolamento della Banca della Terra; non è l'inventario dei lotti."
+    },
+    {
+      "name": "IRSEA",
+      "url": "https://www.irsea.org/",
+      "what": "Verificare presso l'ente formatore la nuova edizione e l'accesso al corso per giovani e nuovi agricoltori."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "pug-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Puglia bando insediamento giovani agricoltori 2026 SRE01 CSR PSP domanda"
+    },
+    {
+      "id": "pug-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Puglia banca della terra terreni agricoli regionali assegnazione giovani"
+    },
+    {
+      "id": "pug-srd0106",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Puglia SRD01.06 giovani agricoltori DAG 51 2026 scadenze provvedimento"
+    },
+    {
+      "id": "pug-terra-comuni",
+      "kinds": ["LAND_BANK"],
+      "query": "Puglia Banca della Terra elenco lotti 2026 concessione comune terreni incolti"
+    },
+    {
+      "id": "pug-formazione-irsea",
+      "kinds": ["TRAINING"],
+      "query": "IRSEA GAL Ponte Lama Confagricoltura Bari-Bat giovani nuovi agricoltori corso 150 ore 2026 iscrizioni"
+    },
+    {
+      "id": "pug-servizi-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Puglia Coldiretti CIA Confagricoltura consulenza primo insediamento subentro azienda agricola ricambio generazionale sportello"
+    }
+  ],
+  "leads": [
+    {
+      "id": "pug-sre01",
+      "name": "Intervento per l’insediamento dei giovani agricoltori",
+      "url": "https://csr.regione.puglia.it/sre01-insediamento-giovani-agricoltori",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "puglia-insediamento-giovani-agricoltori",
+      "reason": "Pagina regionale, avviso e DAG 53/2026 letti il 28/09/2026. Premio e beneficiari confermati; il portale dice «Prossima apertura» e l'avviso demanda termini e procedure a un altro atto. Corretto ACTIVE in ANNOUNCED_NOT_OPERATING e tolto il contatto personale.",
+      "foundBy": "pug-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pug-avviso-sre01",
+      "name": "Avviso pubblico per la presentazione delle domande di sostegno",
+      "url": "https://csr.regione.puglia.it/web/guest/intervento-sre01-insediamento-giovani-agricoltori-approvato-l-avviso-pubblico-per-la-presentazione-delle-dds",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Notizia e atto verificati come fonti dell'intervento SRE01 già ammesso; non costituiscono una seconda risorsa. Non è stata dimostrata un'apertura delle domande.",
+      "foundBy": "pug-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pug-banca-terra",
+      "name": "Banca della Terra di Puglia",
+      "url": "https://www.consiglio.puglia.it/-/-banca-della-terra-di-puglia-via-libera-dalla-iv-commissione-alla-istituzione-e-al-primo-elenco-di-terreni-disponibili-",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La legge e la DGR 262/2020 documentano istituzione ed elenco provvisorio, ma non è stato trovato un inventario corrente o un bando di assegnazione del 2026. Cercare sul SIT regionale e sugli albi dei comuni un elenco consultabile e una procedura effettiva; il comunicato del Consiglio da solo non prova l'operatività.",
+      "foundBy": "pug-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pug-srd0106",
+      "name": "SRD01.06 - Investimenti produttivi per giovani agricoltori",
+      "url": "https://csr.regione.puglia.it/web/guest/investimenti-produttivi-agricoli-per-la-competitivit%C3%A0-delle-aziende-agricole-giovani-agricoltori",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "puglia-srd01-06-investimenti-giovani",
+      "reason": "La pagina propria della Regione circoscrive l'intervento ai giovani già insediati con la sottomisura 6.1; l'avviso del 28/07/2026 rinvia termini e procedure a un atto successivo. Risorsa distinta dal premio SRE01, classificata ANNOUNCED_NOT_OPERATING. L'allegato DAG 51 non è stato leggibile.",
+      "foundBy": "pug-srd0106",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pug-srd0106-dag51",
+      "name": "Allegato DAG 51/2026 dell'avviso SRD01.06",
+      "url": "https://csr.regione.puglia.it/documents/20117/161474/DAG%2Bn.%2B51%2Bdel%2B28.07.2026.pdf/8a5d4674-6524-bc1e-254e-0f504c439dfe?t=1788170966421&version=1.2",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Il collegamento dal portale CSR ha restituito timeout in due tentativi. Aprire il PDF direttamente o la copia BURP e verificarne requisiti, eventuali emendamenti e importi prima di ampliare la scheda; non è usato come fonte del recurso publicado.",
+      "foundBy": "pug-srd0106",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pug-formazione-confagri-irsea",
+      "name": "Corso Giovani e Nuovi Agricoltori di IRSEA con Confagricoltura Bari-Bat",
+      "url": "https://www.confagricolturabari.it/corso-giovani-e-nuovi-agricoltori-prorogato-all11-settembre-il-termine-per-le-iscrizioni/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "La ricerca ha individuato il corso, ma l'apertura diretta del sito di Confagricoltura mostra «Please wait while your request is being verified». L'annuncio leggibile sul sito IRSEA cita iscrizioni entro il 4 settembre, data trascorsa. Verificare direttamente con IRSEA una nuova finestra, la modalità di iscrizione e il riconoscimento specifico ai fini SRE01; nessuna affermazione del solo risultato di ricerca è stata ammessa.",
+      "foundBy": "pug-formazione-irsea",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pug-irsea-home",
+      "name": "Annuncio del corso sul sito dell'ente formatore IRSEA",
+      "url": "https://www.irsea.org/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Pagina dell'operatore aperta e letta: presenta il corso e una scadenza di iscrizione già passata, mentre il catalogo dei corsi in svolgimento non mostra quel corso. Cercare una pagina di iscrizione aggiornata o chiedere conferma all'ente prima di ammettere una risorsa formativa corrente.",
+      "foundBy": "pug-formazione-irsea",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pug-coldiretti-giovani-consulenza",
+      "name": "Consulenza e Academy Coldiretti Giovani Impresa Puglia",
+      "url": "https://puglia.coldiretti.it/news/psr-49mln-euro-per-800-giovani-neo-insediati-subito-secondo-bando-con-maggiori-risorse-per-recuperare-idee-green/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Una comunicazione dell'operatore del 2022 menziona consulenza e avvicinamento dei giovani, ma non dimostra un servizio regionale attuale né una sua pagina di accesso. Cercare sportello, tutor o contatto operativo del 2026 prima dell'ammissione.",
+      "foundBy": "pug-servizi-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pug-psr-corsi-2021",
+      "name": "Elenco PSR dei corsi collegati alla sottomisura 6.1",
+      "url": "https://psr.regione.puglia.it/-/formazione-e-primo-insediamento-i-riferimenti-degli-enti-e-dei-corsi-utili",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "La pagina storica del 2021 non ha risposto alla lettura diretta in questa passata. Verificare gli enti e le offerte effettivamente disponibili nel 2026; un elenco del precedente PSR non dimostra un corso corrente.",
+      "foundBy": "pug-formazione-irsea",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "pug-sre01",
+      "reason": "Avviso 2026 approvato, con apertura ancora in attesa secondo il portale regionale; la sua approvazione non viene confusa con una finestra aperta.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Esaminate legge, regolamento, DGR 262/2020 e ricerche su inventario e concessioni comunali: trovato un elenco provvisorio antico, non un accesso operativo attuale. La pista pug-banca-terra resta TO_CHECK.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "NOT_FOUND",
+      "reason": "Cercati corsi regionali, IRSEA, GAL Ponte Lama e Confagricoltura Bari-Bat. La pagina di iscrizione è bloccata; l'annuncio proprio di IRSEA mostra un termine trascorso. Restano TO_CHECK pug-formazione-confagri-irsea, pug-irsea-home e pug-psr-corsi-2021.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "NOT_FOUND",
+      "reason": "Cercati servizi concreti di CIA, Coldiretti e Confagricoltura per insediamento, subentro e ricambio. La comunicazione Coldiretti del 2022 non dimostra accesso attuale; pug-coldiretti-giovani-consulenza resta TO_CHECK.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammesso l’intervento di insediamento; banca della terra solo istituita, senza elenco operativo verificato."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-6)",
+      "summary": "Passata 1.9.0: corretto SRE01 da ACTIVE a ANNOUNCED_NOT_OPERATING, verificato l'avviso e i premi, eliminato il contatto personale; aggiunto SRD01.06 come distinta misura annunciata. Esaminate banca della terra, formazione IRSEA/Confagricoltura e servizi Coldiretti; accesso attuale e alcune fonti restano da verificare. Nessuna domanda è stata dichiarata aperta."
+    }
+  ]
+}

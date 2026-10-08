@@ -1,0 +1,244 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "lazio"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "La Banca della Terra regionale è un elenco di terreni destinati a procedure di vendita: la notizia del 2024 annuncia dismissioni e aste successive, ma non offre da sola una procedura attualmente utilizzabile.",
+    "Nel 2025 la Regione ha avviato la stima del valore di mercato di 364 terreni della Banca della Terra. Questo passaggio amministrativo non è una finestra di candidatura per gli agricoltori.",
+    "Roma Capitale gestisce un programma distinto di assegnazione in locazione delle proprie terre agricole. Il bando del 2024 è chiuso e la città descrive ancora l'iniziativa nel 2026; cercare separatamente i futuri bandi.",
+    "I corsi IAP di 150 ore finanziati dal PSR 2014-2022 hanno avuto offerte concrete di più enti nel 2026. Le iscrizioni esaminate sono chiuse e non va presunta la validità automatica per un futuro SRE01.",
+    "Le ricerche sul codice SRE01 del Lazio restituiscono schede di programmazione, mentre molti provvedimenti di primo insediamento ancora indicizzati riguardano la precedente misura 6.1.1. Non attribuire loro date o importi SRE01."
+  ],
+  "portals": [
+    {
+      "name": "LazioEuropa",
+      "url": "https://www.lazioeuropa.it/",
+      "what": "Bandi e graduatorie dei fondi europei regionali."
+    },
+    {
+      "name": "Regione Lazio",
+      "url": "https://regione.lazio.it/",
+      "what": "Provvedimenti, bandi agricoli e atti relativi alla Banca della Terra."
+    },
+    {
+      "name": "Roma Capitale – Bandi e avvisi",
+      "url": "https://www.comune.roma.it/web/it/bando-concorso.page?contentId=BEC1220040",
+      "what": "Bando e schede dei lotti comunali di terre agricole; controllare nuovi avvisi separatamente."
+    },
+    {
+      "name": "Regione Lazio – avvisi formativi PSR",
+      "url": "https://regione.lazio.it/cittadini/agricoltura/Formazione-PSR-avvisi-reclutamento-selezione-allievi",
+      "what": "Elenco regionale degli enti beneficiari e collegamenti agli avvisi di reclutamento degli allievi."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "laz-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Lazio bando insediamento giovani agricoltori 2026 SRE01 CSR lazioeuropa"
+    },
+    {
+      "id": "laz-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Lazio banca della terra terreni agricoli regionali assegnazione giovani ARSIAL"
+    },
+    {
+      "id": "laz-sre01-atti",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:regione.lazio.it/documenti SRE01 insediamento giovani agricoltori bando"
+    },
+    {
+      "id": "laz-banca-aste",
+      "kinds": ["LAND_BANK"],
+      "query": "Lazio Banca della Terra asta terreni agricoli perizie 364 2025 2026"
+    },
+    {
+      "id": "laz-roma-terre",
+      "kinds": ["LAND_BANK", "ADVICE"],
+      "query": "site:comune.roma.it terre pubbliche agricole bando giovani 2026 assegnazione"
+    },
+    {
+      "id": "laz-formazione-iap",
+      "kinds": ["TRAINING"],
+      "query": "Lazio corso 150 ore IAP primo insediamento ENUIP ENAPRA Aisfor iscrizioni 2026"
+    },
+    {
+      "id": "laz-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "CIA Coldiretti Confagricoltura UNICOOP Lazio assistenza primo insediamento subentro azienda agricola"
+    },
+    {
+      "id": "laz-terra-comuni",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Roma Viterbo Latina Frosinone Rieti comuni GAL terreni agricoli giovani bando assegnazione"
+    }
+  ],
+  "leads": [
+    {
+      "id": "laz-banca-terra",
+      "name": "Banca della Terra del Lazio",
+      "url": "https://regione.lazio.it/notizie/banca-terra-elenco-terreni-agricoli",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "lazio-banca-della-terra",
+      "reason": "Conservato l'ID esistente, ma corretto lo stato della risorsa in UNKNOWN: la notizia del 2024 prevede aste future e l'atto del 2025 riguarda perizie, senza una procedura attuale di domanda verificata.",
+      "foundBy": "laz-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-avviamento-6-1-1",
+      "name": "Aiuti all'avviamento aziendale per i giovani agricoltori del PSR 2014-2022",
+      "url": "https://www.lazioeuropa.it/bandi/aiuti-allavviamento-aziendale-per-i-giovani-agricoltori/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Bando della programmazione precedente, con termine di candidatura scaduto; non costituisce il bando SRE01.",
+      "foundBy": "laz-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-sre01-vigente",
+      "name": "Intervento SRE01 del CSR Lazio 2023-2027",
+      "url": "https://www.regione.lazio.it/sites/default/files/documentazione/Allegato-2-CSR-10-07-23.pdf",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "La scheda programmatoria è stata individuata, ma le ricerche nelle pagine regionali dei bandi e nei documenti non hanno prodotto un bando SRE01 con procedura, termini e beneficiari verificati. Ripetere la ricerca quando viene pubblicato un atto attuativo.",
+      "foundBy": "laz-sre01-atti",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-terre-ai-giovani",
+      "name": "Assegnazione regionale di terreni ai giovani tramite ARSIAL",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Non è stata dimostrata una procedura ARSIAL distinta dalla Banca della Terra regionale o dai bandi di Roma Capitale; evitare di duplicare operatori diversi sulla base di notizie generiche.",
+      "foundBy": "laz-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-banca-perizie-364",
+      "name": "Perizie di 364 terreni regionali",
+      "url": "https://www.regione.lazio.it/amministrazione-trasparente/atti-procedure-affidamento/3481",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "È un affidamento per stimare il valore dei terreni, non un inventario utilizzabile dagli agricoltori né un bando di vendita; serve solo a contestualizzare lo stato della Banca della Terra.",
+      "foundBy": "laz-banca-aste",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-roma-terre-pubbliche",
+      "name": "Assegnazione delle terre pubbliche agricole di Roma Capitale",
+      "url": "https://www.comune.roma.it/web/it/bando-concorso.page?contentId=BEC1220040",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "lazio-roma-terre-pubbliche-agricole",
+      "reason": "Roma Capitale pubblica un proprio bando, lotti e criteri per assegnare terreni agricoli comunali; la procedura 2024 è conclusa e l'attività comunale continua a essere descritta nel 2026.",
+      "foundBy": "laz-roma-terre",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-aisfor-iap",
+      "name": "Corso IAP di 150 ore Aisfor – seconda edizione",
+      "url": "https://www.aisfor.it/corso/iap-2025-ed-2/",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "lazio-aisfor-corso-iap-150-ore",
+      "reason": "La pagina dell'ente contiene destinatari, durata, formato, sede e accesso. L'iscrizione si è chiusa l'11 luglio 2026; non è stata confermata l'effettiva erogazione in corso.",
+      "foundBy": "laz-formazione-iap",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-enuip-giovani-agricoltura",
+      "name": "Giovani per l'agricoltura – ENUIP",
+      "url": "https://enuip.it/giovani-per-lagricoltura/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "La pagina dell'ente presenta un percorso gratuito di 150 ore e un modulo di iscrizione, ma annuncia l'avvio per marzo 2026 e non chiarisce se esista un'edizione ancora accessibile. Verificare lo stato con l'operatore.",
+      "foundBy": "laz-formazione-iap",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-enapra-iap",
+      "name": "Corsi IAP di ENAPRA nel Lazio",
+      "url": "https://www.enapra.it/regione-lazio/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Il corso di 150 ore compare sotto 'CANDIDATURE CHIUSE' con scadenza del 16 aprile 2026. Registrato come alternativa storica, senza attribuirgli disponibilità attuale.",
+      "foundBy": "laz-formazione-iap",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-arsial-corsi-generici",
+      "name": "Catalogo formativo ARSIAL",
+      "url": "https://www.arsial.it/formazione/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "I corsi 2026 descritti nella pagina riguardano attività settoriali specifiche, non un percorso di primo insediamento; l'accreditamento generale dell'ente non basta.",
+      "foundBy": "laz-formazione-iap",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-unicoop-generazione-terra",
+      "name": "Assistenza UNICOOP Lazio su Generazione Terra",
+      "url": "https://unicooplazio.it/agricoltura-opportunita-per-i-giovani-al-via-generazione-terra-con-120-milioni-di-euro/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Il risultato di ricerca indica assistenza locale alle cooperative associate, ma l'apertura diretta della pagina restituisce HTTP 401. Aprire una pagina dell'operatore leggibile, verificare servizio, territorio e accesso; non duplicare il finanziamento nazionale ISMEA.",
+      "foundBy": "laz-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "laz-caa-consulenza-nazionale",
+      "name": "Assistenza amministrativa generale dei CAA nazionali",
+      "url": "https://www.cia.it/servizi/caa/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina riguarda la rete nazionale e pratiche amministrative generali; non dimostra un servizio laziale distinto per insediamento o passaggio aziendale.",
+      "foundBy": "laz-organizzazioni",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Cercati SRE01 nel portale regionale, in LazioEuropa e tra gli atti. È verificabile la scheda del CSR, ma non un bando attuativo SRE01; le pagine di primo insediamento trovate riguardano la misura 6.1.1 precedente. Resta la pista laz-sre01-vigente.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "FOUND",
+      "leadId": "laz-banca-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "FOUND",
+      "leadId": "laz-aisfor-iap",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "NOT_FOUND",
+      "reason": "Cercati servizi locali CIA, Coldiretti, Confagricoltura e cooperative per ingresso e passaggio aziendale. Le pagine CAA trovate descrivono assistenza nazionale generica; la pista UNICOOP Lazio resta TO_CHECK perché la pagina restituisce HTTP 401.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammessa la banca della terra regionale; bando di insediamento vigente non trovato in pagina leggibile."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (Codex, prompt 1.9.0)",
+      "summary": "Corretto in UNKNOWN lo stato della Banca della Terra regionale; verificati il distinto programma comunale di Roma e un corso IAP di 150 ore con iscrizioni chiuse. Cercati tutti e quattro gli strumenti attesi e servizi delle organizzazioni. SRE01 attuativo e assistenza UNICOOP restano da verificare; copertura PARTIAL e revisione DRAFT."
+    }
+  ]
+}

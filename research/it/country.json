@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "COUNTRY",
+    "country": "IT"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-25",
+  "context": [
+    "Le Regioni e le Province autonome pubblicano gli interventi di primo insediamento del Piano Strategico PAC; i bandi e le scadenze variano per territorio.",
+    "ISMEA gestisce strumenti nazionali distinti: Banca delle Terre Agricole, Generazione Terra e Più Impresa.",
+    "Una banca della terra istituita da una legge regionale non è operativa senza inventario, procedura o contatto attuale.",
+    "Cercare anche ai livelli provincia, città metropolitana, comune, GAL e distretto rurale quando svolgono un servizio proprio."
+  ],
+  "portals": [
+    {
+      "name": "ISMEA",
+      "url": "https://www.ismea.it/",
+      "what": "Portale nazionale per gli strumenti fondiari e di imprenditoria giovanile da verificare singolarmente."
+    },
+    {
+      "name": "MASAF",
+      "url": "https://www.politicheagricole.it/",
+      "what": "Portale del Ministero e accesso al Piano Strategico PAC nazionale."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "ismea-land",
+      "kinds": ["LAND_BANK", "FINANCIAL_SUPPORT"],
+      "query": "site:ismea.it Banca delle Terre Agricole Generazione Terra giovani"
+    },
+    {
+      "id": "ismea-succession",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "site:ismea.it Più Impresa giovani subentro azienda agricola"
+    },
+    {
+      "id": "regional-entry",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "{region} SRE01 insediamento giovani agricoltori bando"
+    },
+    {
+      "id": "regional-land",
+      "kinds": ["LAND_BANK"],
+      "query": "{region} banca della terra inventario terreni agricoli assegnazione"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Italia insediamento agricoltori SRE01 formazione"
+    }
+  ],
+  "leads": [
+    {
+      "id": "it-banca-terre-agricole",
+      "name": "Banca delle Terre Agricole ISMEA",
+      "url": "https://www.ismea.it/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Individuato lo strumento nazionale; serve una pagina stabile e verificabile con inventario e accesso attuali.",
+      "foundBy": "ismea-land"
+    },
+    {
+      "id": "it-generazione-terra",
+      "name": "Generazione Terra",
+      "url": "https://www.ismea.it/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Individuato lo strumento; verificare la pagina dell'operatore e l'eventuale finestra attuale senza usare riassunti di terzi.",
+      "foundBy": "ismea-land"
+    },
+    {
+      "id": "it-piu-impresa",
+      "name": "Più Impresa",
+      "url": "https://www.ismea.it/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Individuato lo strumento nazionale per giovani e donne; accesso e stato corrente non ancora verificati su una pagina leggibile.",
+      "foundBy": "ismea-succession"
+    }
+  ],
+  "expectedInstruments": [
+    {
+      "id": "it-sre01-bando-regionale",
+      "name": "Bando regionale SRE01 per il primo insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "lookFor": "Bando dell'intervento SRE01, spesso nel pacchetto giovani con SRD01, sul portale agricoltura o sviluppo rurale della Regione o Provincia autonoma: premio, risorse, beneficiari e scadenza del bando corrente o più recente."
+    },
+    {
+      "id": "it-banca-terra-regionale",
+      "name": "Banca della terra regionale",
+      "kinds": ["LAND_BANK"],
+      "lookFor": "Banca della terra istituita da legge regionale e gestita da Regione, agenzia o ente regionale, con lotti o bandi di concessione. È distinta dalla Banca delle Terre Agricole di ISMEA, che è nazionale."
+    },
+    {
+      "id": "it-formazione-insediamento",
+      "name": "Formazione per il primo insediamento",
+      "kinds": ["TRAINING"],
+      "lookFor": "Corsi riconosciuti per la capacità professionale richiesta dal primo insediamento, organizzati da enti di formazione accreditati o dalla Regione."
+    },
+    {
+      "id": "it-organizzazioni-servizi",
+      "name": "Servizi delle organizzazioni agricole per insediamento e ricambio",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "lookFor": "Servizi regionali concreti di organizzazioni professionali agricole, consorzi o associazioni per insediamento, subentro o accesso alla terra, con pagina e contatto."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Prima ricerca nazionale e seconda passata sui nomi ISMEA; tre strumenti mantenuti come piste perché le pagine specifiche non erano verificabili in modo affidabile."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Ricognizione preliminare prima della pubblicazione: eseguite le query prepublication-2026-09-25. Solo scoperta, non revisione completa né prova di assenza. Restano da verificare candidati, tutte le famiglie, livelli locali e dettagli pratici. Questa ricognizione non modifica stati o date dell’edizione."
+    }
+  ]
+}

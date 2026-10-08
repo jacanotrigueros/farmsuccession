@@ -137,7 +137,15 @@ test("no code from the schema reaches a reader", () => {
   for (const file of pages) {
     // What a reader sees, which is the text between the tags. A code inside an attribute is a hook for a
     // machine — a filter value, the state a script re-reads — and no reader is ever shown one.
-    const html = readFileSync(file, "utf8").replaceAll(/<[^>]*>/gu, " ");
+    //
+    // Quotations are excluded, and that exclusion is a rule meeting a rule. A blockquote holds words
+    // copied from an official page, and an Italian training course quotes its own: "COMPILA IL FORM
+    // ONLINE". FORM is also a contact channel in the schema. One of the two rules has to give, and it
+    // is not the one that says a quotation is reproduced exactly: a citation edited to satisfy a check
+    // is no longer evidence. What this test owns is the site's own words.
+    const html = readFileSync(file, "utf8")
+      .replaceAll(/<blockquote\b[^>]*>[\s\S]*?<\/blockquote>/gu, " ")
+      .replaceAll(/<[^>]*>/gu, " ");
     for (const code of codes) {
       assert.doesNotMatch(
         html,

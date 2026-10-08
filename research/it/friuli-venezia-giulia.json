@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "friuli-venezia-giulia"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Il PDF SRE01 presente nella precedente edizione appartiene al bando approvato nel 2025: non trasferire al bando 2026 le sue date o le sue condizioni senza verificare il nuovo atto.",
+    "La pagina ufficiale Europa FVG dedicata a SRE01 2026 appare nei risultati di ricerca, ma l'apertura diretta restituisce soltanto una richiesta di JavaScript. La pagina CIA FVG del 5 agosto 2026 descrive il nuovo bando; controllare il testo ufficiale e gli eventuali aggiornamenti.",
+    "Il Fondo di rotazione regionale mette a disposizione una domanda per l'acquisto di terreni con dichiarazione specifica per giovani agricoltori. È un finanziamento e non una banca della terra.",
+    "La disciplina regionale riconosce percorsi formativi di almeno 150 ore per determinati requisiti professionali, ma una regola di ammissibilità non dimostra l'apertura di un corso concreto."
+  ],
+  "portals": [
+    {
+      "name": "Agricoltura e foreste della Regione autonoma Friuli-Venezia Giulia",
+      "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/",
+      "what": "Bandi agricoli regionali e accesso alla modulistica del Fondo di rotazione."
+    },
+    {
+      "name": "Europa FVG – SRE01 2026",
+      "url": "https://europa.regione.fvg.it/it/programmi-36605/piano-strategico-della-politica-agricola-comune-2023-2027-del-friuli-venezia-giulia-39986/sre01-2026-171589",
+      "what": "Pagina ufficiale del bando 2026; richiede una lettura diretta del testo e degli allegati."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "fvg-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Friuli Venezia Giulia bando insediamento giovani agricoltori 2026 SRE01 CSR"
+    },
+    {
+      "id": "fvg-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Friuli Venezia Giulia banca della terra terreni agricoli incolti assegnazione giovani"
+    },
+    {
+      "id": "fvg-srd16-terreni",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Friuli Venezia Giulia SRD16 Fondo di rotazione acquisto terreni giovani agricoltori bando invito"
+    },
+    {
+      "id": "fvg-corsi-150-ore",
+      "kinds": ["TRAINING"],
+      "query": "Friuli Venezia Giulia corso 150 ore accreditato giovane agricoltore primo insediamento iscrizioni"
+    },
+    {
+      "id": "fvg-organizzazioni-ricambio",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "CIA Confagricoltura Coldiretti Friuli Venezia Giulia assistenza primo insediamento subentro azienda agricola"
+    },
+    {
+      "id": "fvg-terra-locale",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Udine Pordenone Gorizia Trieste comuni GAL banca terreni agricoli subentro"
+    }
+  ],
+  "leads": [
+    {
+      "id": "fvg-bando-sre01",
+      "name": "Bando SRE01 di primo insediamento",
+      "url": "https://europa.regione.fvg.it/media/files/EUROPA/attachment/Bando_SRE01.pdf",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "friuli-venezia-giulia-insediamento-giovani-agricoltori",
+      "reason": "Conservato l'ID della risorsa. Il PDF precedentemente indicato documenta il bando 2025, non quello 2026; la pagina CIA FVG letta direttamente documenta l'apertura del nuovo bando. Resta da confrontare il testo ufficiale 2026.",
+      "foundBy": "fvg-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fvg-sre01-2026-ufficiale",
+      "name": "Testo ufficiale e aggiornamenti del bando SRE01 2026",
+      "url": "https://europa.regione.fvg.it/it/programmi-36605/piano-strategico-della-politica-agricola-comune-2023-2027-del-friuli-venezia-giulia-39986/sre01-2026-171589",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "L'apertura diretta mostra soltanto la richiesta di abilitare JavaScript. Aprire il portale in un ambiente che visualizzi pagina e allegati, controllare il bando e le eventuali proroghe e confrontare importo, condizioni e termine con la pagina CIA FVG; non usare gli estratti dei risultati di ricerca come prova.",
+      "foundBy": "fvg-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fvg-pacchetto-giovani",
+      "name": "Pacchetto Giovani della programmazione precedente",
+      "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/psr-programma-sviluppo-rurale/FOGLIA124/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "La pagina descrive la programmazione 2014-2020 e non una seconda misura vigente di primo insediamento.",
+      "foundBy": "fvg-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fvg-finanziamenti-terreni",
+      "name": "Fondo di rotazione per l'acquisto di terreni da parte di giovani agricoltori",
+      "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA1/FOGLIA22/modulistica/modulistica.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "friuli-venezia-giulia-fondo-rotazione-acquisto-terreni-giovani",
+      "reason": "La Regione pubblica un modulo per l'acquisto di terreni e una dichiarazione allegata per giovani agricoltori; il comunicato dell'8 agosto 2026 spiega i prestiti agevolati e l'accesso tramite banche convenzionate.",
+      "foundBy": "fvg-srd16-terreni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fvg-banca-terra-proposta",
+      "name": "Ipotesi di banca della terra regionale",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "I riferimenti rintracciati a una proposta normativa non stabiliscono un inventario regionale utilizzabile né una procedura attuale di assegnazione.",
+      "foundBy": "fvg-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fvg-formazione-150-ore",
+      "name": "Percorso di almeno 150 ore per i requisiti professionali agricoli",
+      "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/formazione-lavoro/formazione/FOGLIA35/FOGLIA8/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "La Regione descrive il monte ore e l'attestato, ma non è stata verificata su questa pagina un'edizione attuale con iscrizioni, sede e riconoscimento specifico per SRE01 2026. Cercare i corsi concreti degli enti accreditati.",
+      "foundBy": "fvg-corsi-150-ore",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fvg-cefap-catalogo",
+      "name": "Catalogo dei corsi agricoli CeFAP",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "I corsi brevi trovati non dimostrano un percorso di 150 ore valido per il requisito di primo insediamento.",
+      "foundBy": "fvg-corsi-150-ore",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fvg-cia-consulto",
+      "name": "Consulto CIA FVG sul primo insediamento",
+      "url": "https://ciafvg.it/primo-insediamento-giovani/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "friuli-venezia-giulia-cia-consulto-primo-insediamento",
+      "reason": "La pagina dell'organizzazione, datata 5 agosto 2026, offre un primo consulto sugli specifici requisiti e sul punteggio SRE01 con un recapito pubblico.",
+      "foundBy": "fvg-organizzazioni-ricambio",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fvg-confagricoltura-consulenza-2025",
+      "name": "Assistenza provinciale Confagricoltura FVG sul bando SRE01 2025",
+      "url": "https://confagricolturafvg.it/bando-per-linsediamento-giovani-dei-agricoltori-ampliati-i-requisiti/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina letta si riferisce esplicitamente al bando 2025 e alla sua scadenza del marzo 2026; non prova da sola un servizio specifico per la nuova convocazione.",
+      "foundBy": "fvg-organizzazioni-ricambio",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "fvg-cia-successioni-eredita",
+      "name": "Servizio CIA FVG per pratiche ereditarie",
+      "url": "https://ciafvg.it/successioni/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "Riguarda dichiarazioni di successione e volture catastali; la pagina non stabilisce un servizio di passaggio o abbinamento di aziende agricole.",
+      "foundBy": "fvg-organizzazioni-ricambio",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "fvg-bando-sre01",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Ricercati inventario e procedura regionale, nonché piste comunali e GAL. Il prestito regionale per comprare terreni non è una banca della terra; la proposta normativa individuata non ne dimostra l'operatività.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "NOT_FOUND",
+      "reason": "Verificati il requisito regionale delle 150 ore e cataloghi formativi; resta TO_CHECK il percorso concreto, con iscrizione attuale e riconoscimento specifico per SRE01 2026.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "FOUND",
+      "leadId": "fvg-cia-consulto",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammesso il bando di insediamento letto nel documento regionale; nessuna banca della terra regionale."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (Codex, prompt 1.9.0)",
+      "summary": "Distinto il PDF del bando 2025 dalla convocazione 2026; verificati il prestito regionale per l'acquisto di terreni e il consulto CIA FVG. Completati i quattro controlli nazionali. La pagina ufficiale SRE01 2026 e un corso attuale di 150 ore restano da controllare; copertura PARTIAL e revisione DRAFT."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisione delle fonti: la pagina della modulistica scrive la data di aggiornamento nella lingua del browser («Monday 03 August 2026», «lunes 03 agosto 2026»); la citazione conserva solo «03 agosto 2026», uguale in italiano e spagnolo."
+    }
+  ]
+}

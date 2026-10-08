@@ -1,0 +1,191 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "piemonte"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Il portale Bandi Piemonte pubblica stato, apertura, scadenza, procedura e allegati dei bandi agricoli regionali.",
+    "Il bando SRE01 è aperto e distingue correttamente il programma attivo dalla finestra di domanda corrente.",
+    "La pagina SRE01 pubblica solo indirizzi attribuiti a persone nominate: non copiarli nei contatti strutturati.",
+    "Una banca della terra prevista dalla normativa non va ammessa senza inventario, assegnazione o accesso operativo verificabile.",
+    "Passata con la lista di controllo nazionale su un file esistente: restavano da compilare solo gli strumenti attesi.",
+    "Il vademecum regionale descrive la Banca della Terra piemontese come inventario di terreni disponibili, ma occorre raggiungere l'inventario effettivo prima di attribuirle operatività.",
+    "Le associazioni fondiarie sono soggetti locali distinti dalla Banca regionale della terra; una loro pagina storica non dimostra che oggi abbiano lotti liberi per nuovi conduttori."
+  ],
+  "portals": [
+    {
+      "name": "Bandi Regione Piemonte",
+      "url": "https://bandi.regione.piemonte.it/",
+      "what": "Bandi, stato, scadenze, allegati e procedure regionali."
+    },
+    {
+      "name": "Regione Piemonte — Agricoltura",
+      "url": "https://www.regione.piemonte.it/web/temi/agricoltura",
+      "what": "Normativa, sviluppo rurale, servizi e notizie agricole regionali."
+    },
+    {
+      "name": "Regione Piemonte — corso 150 ore",
+      "url": "https://www.regione.piemonte.it/web/temi/agricoltura/servizi-alle-aziende/corso-150-ore-per-giovani-nuovi-agricoltori",
+      "what": "Requisiti, contenuti, costi e contatto istituzionale del corso."
+    },
+    {
+      "name": "Regione Piemonte — associazioni fondiarie",
+      "url": "https://www.regione.piemonte.it/web/temi/ambiente-territorio/montagna/associazioni-fondiarie-0",
+      "what": "Quadro regionale e collegamenti verso associazioni locali da verificare individualmente."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "piemonte-sre01",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:bandi.regione.piemonte.it SRE01 insediamento giovani agricoltori bando 2026"
+    },
+    {
+      "id": "piemonte-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "site:regione.piemonte.it banca regionale della terra inventario terreni agricoli"
+    },
+    {
+      "id": "piemonte-subentro-locale",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Piemonte provincia comune subentro azienda agricola successione consulenza"
+    },
+    {
+      "id": "piemonte-formazione",
+      "kinds": ["TRAINING"],
+      "query": "site:regione.piemonte.it corso 150 ore giovani nuovi agricoltori sessioni iscrizioni"
+    },
+    {
+      "id": "piemonte-asfo",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Piemonte associazione fondiaria terreni affidamento giovani conduttori adesione"
+    },
+    {
+      "id": "piemonte-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Piemonte Coldiretti CIA Confagricoltura servizio specifico insediamento subentro consulenza"
+    }
+  ],
+  "leads": [
+    {
+      "id": "piemonte-sre01-2026",
+      "name": "SRE01 — Insediamento giovani agricoltori, bando 2026",
+      "url": "https://bandi.regione.piemonte.it/contributi-finanziamenti/csr-2023-2027-insediamento-giovani-agricoltori-sre01-bando-2026",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "piemonte-sre01-insediamento-giovani-2026",
+      "reason": "Riletti stato Aperto, apertura, chiusura del 2 ottobre 2026, proroga e accesso tramite SIAP sulla pagina del procedimento.",
+      "foundBy": "piemonte-sre01",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "piemonte-banca-terra",
+      "name": "Banca regionale della terra",
+      "url": "https://www.regione.piemonte.it/web/media/41879/download",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Il vademecum regionale descrive un elenco pubblico aggiornato di terreni disponibili, ma le ricerche non hanno raggiunto l'inventario né una procedura di assegnazione utilizzabile. Cercare il servizio specifico e verificare l'eventuale popolamento dei lotti.",
+      "foundBy": "piemonte-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "piemonte-corso-150-ore",
+      "name": "Corso regionale per giovani e nuovi agricoltori",
+      "url": "https://www.regione.piemonte.it/web/temi/agricoltura/servizi-alle-aziende/corso-150-ore-per-giovani-nuovi-agricoltori",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "piemonte-corso-150-ore-giovani-nuovi-agricoltori",
+      "reason": "La pagina dell'operatore regionale descrive corso, destinatari, esame, attestato, costo e contatto dedicato. Non documenta sessioni successive a gennaio 2026, quindi lo stato corrente resta UNKNOWN. Controllo manuale del 29 settembre 2026 di CLAUDE (claude-opus-5-5): la pagina è stata aperta nel browser integrato dell'app Claude (Chromium) su HTTPS con catena di certificati validata, senza avvisi; il testo contiene le cinque citazioni della risorsa, che sostengono l'organizzazione dei corsi di 150 ore, i destinatari (18-40 anni e 41-60 anni), il costo di 500 euro riducibile a 400 euro e il recapito dedicato. Il controllo automatico la segna UNCHECKED perché il server non risponde ai client non interattivi (timeout di connessione). Non è una revisione umana.",
+      "foundBy": "piemonte-formazione",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "piemonte-asfo-la-chiara",
+      "name": "Associazione Fondiaria La Chiara, Usseglio",
+      "url": "https://asfolachiara.it/associazione-fondiaria-la-chiara/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La pagina propria documenta terreni un tempo affidati a giovani locali e pubblica moduli di adesione del 2022 e 2023. Verificare lotti oggi liberi, accesso per nuovi conduttori e attività corrente prima di ammettere un servizio di accesso alla terra.",
+      "foundBy": "piemonte-asfo",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "piemonte-asfo-la-serra",
+      "name": "Associazione Fondiaria La Serra, Chiaverano",
+      "url": "https://www.asfolaserra.it/component/content/article/12-faq/12-faq",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "L'associazione pubblica adesione dei proprietari e affida terreni attraverso contratti, ma la pagina consultata non identifica un lotto disponibile oggi né un percorso di richiesta per un nuovo conduttore.",
+      "foundBy": "piemonte-asfo",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "piemonte-caa-coldiretti",
+      "name": "CAA Coldiretti Piemonte",
+      "url": "https://piemonte.coldiretti.it/c-a-a-coldiretti-piemonte/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina regionale descrive assistenza amministrativa generale per finanziamenti agricoli, ma non una prestazione distinta e specifica per primo insediamento o successione.",
+      "foundBy": "piemonte-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "piemonte-camera-torino-webinar",
+      "name": "Webinar della Camera di commercio di Torino sull'avvio di aziende agricole",
+      "url": "https://www.to.camcom.it/scopri-come-aprire-unazienda-agricola",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Incontro puntuale del 23 ottobre 2025, con iscrizioni chiuse; la pagina non prova un servizio attuale di accompagnamento individuale distinto.",
+      "foundBy": "piemonte-organizzazioni",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "piemonte-sre01-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Riletti normativa e vademecum regionale e cercati inventario, elenco di particelle e domanda di assegnazione; nessun accesso operativo è stato verificato. Resta piemonte-banca-terra.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "FOUND",
+      "leadId": "piemonte-corso-150-ore",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "NOT_FOUND",
+      "reason": "Cercati servizi di Coldiretti, CIA e Confagricoltura; la pagina CAA piemontese consultata presenta assistenza agricola generale. Non è stato verificato uno sportello specifico di insediamento o ricambio generazionale.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CHATGPT (Codex)",
+      "summary": "Prima passata sul portale regionale e seconda su terra e subentro; ammesso il bando SRE01 aperto, banca della terra lasciata da verificare."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passata con la lista di controllo nazionale sul file esistente: confermato il bando di insediamento; banca della terra e formazione da verificare."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Passata 1.9.0: riconfermata la finestra SRE01 aperta fino al 2 ottobre 2026 e ammesso il corso regionale di 150 ore con stato UNKNOWN. Esaminati vademecum fondiario, associazioni locali e organizzazioni agricole; restano da verificare inventario, nuovi posti nel corso e accesso corrente ai terreni."
+    }
+  ]
+}
