@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "hessen"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Die Hessische Hofbörse wird vom Landesbetrieb Landwirtschaft Hessen gemeinsam mit der Hessischen Landgesellschaft betrieben und ist kostenfrei.",
+    "Der Landesbetrieb berät auch zu Betriebsgründung und Hofübergabe, einschließlich außerfamiliärer Lösungen.",
+    "Die Investitionsförderung des Landes enthält laut Förderdatenbank einen Zuschlag für Junglandwirte; das ist noch auf einer Landesseite zu belegen."
+  ],
+  "portals": [
+    {
+      "name": "Landesbetrieb Landwirtschaft Hessen",
+      "url": "https://llh.hessen.de/",
+      "what": "Beratung, Unternehmensentwicklung und Hofbörse."
+    },
+    {
+      "name": "Hessische Hofbörse",
+      "url": "https://www.hessische-hofboerse.de/",
+      "what": "Marktplatz für landwirtschaftliche und gärtnerische Betriebe in Hessen."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "he-hofboerse",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE", "FINANCIAL_SUPPORT"],
+      "query": "Hessen Junglandwirte Förderung Existenzgründung Niederlassung Hofbörse Hofnachfolge Beratung LLH"
+    }
+  ],
+  "leads": [
+    {
+      "id": "he-hofboerse-lead",
+      "name": "Hessische Hofbörse",
+      "url": "https://llh.hessen.de/unternehmensfuehrung/unternehmensentwicklung/hessische-hofborse/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "hessen-hessische-hofboerse",
+      "reason": "Seite des Landesbetriebs mit Beschreibung der Plattform, der Kostenfreiheit und der begleitenden Beratung.",
+      "foundBy": "he-hofboerse",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "he-llh-hofnachfolge",
+      "name": "Beratung des Landesbetriebs zur Hofnachfolge",
+      "url": "https://llh.hessen.de/unternehmensfuehrung/unternehmensentwicklung/analyse-strategie-finanzen/hofnachfolge-interview/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "hessen-llh-hofnachfolge-beratung",
+      "reason": "Beitrag des Landesbetriebs zur Hofnachfolge, der das Beratungsangebot benennt.",
+      "foundBy": "he-hofboerse",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "he-afp-junglandwirte",
+      "name": "Junglandwirte-Zuschlag im Investitionsförderungsprogramm des Landes",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Laut Förderdatenbank gibt es einen Zuschlag für Junglandwirte; Landesquelle noch nicht geprüft.",
+      "foundBy": "he-hofboerse",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "NOT_FOUND",
+      "reason": "Der Junglandwirte-Zuschlag des Landes wurde in dieser Runde nicht auf einer Landesseite belegt.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "FOUND",
+      "leadId": "he-hofboerse-lead",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "he-llh-hofnachfolge",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: Hofbörse und Übergabeberatung aufgenommen; Landesförderung offen."
+    }
+  ]
+}

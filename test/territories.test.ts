@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
+import { loadSnapshots, snapshotCountry } from "../src/editions.ts";
 import { countryCodes, jurisdiction, loadTerritories, region, validateTerritories } from "../src/territories.ts";
 import type { Territories } from "../src/types/territories.ts";
 import { fakeTerritories } from "./fixtures.ts";
@@ -109,9 +110,26 @@ test("loading a broken catalogue fails loudly instead of returning it", () => {
   );
 });
 
-test("the real catalogue carries the EU layer and Spain", () => {
+/**
+ * The catalogue is frozen and the corpus grows one country at a time, so the two can disagree in exactly
+ * two ways, both of them a port that only half landed: a country defined here that nobody documented, or
+ * an edition file for a country this catalogue never defined. Naming the countries in a list instead would
+ * have to be edited every time one arrives, which is not a check, only a record of the last edit.
+ */
+test("the catalogue and the corpus name the same countries", () => {
   const territories = loadTerritories();
-  assert.deepEqual(countryCodes(territories), ["ES"], "this milestone proves the model on one country before widening it");
+  const documented = [
+    ...new Set(
+      loadSnapshots({})
+        .snapshots.map(({ data }) => snapshotCountry(data))
+        .filter((iso): iso is string => iso !== undefined),
+    ),
+  ].toSorted();
+  assert.deepEqual(
+    countryCodes(territories),
+    documented,
+    "the catalogue and the edition files disagree about which countries exist: one of them is a port that only half landed",
+  );
   assert.equal(jurisdiction(territories, "es").lang, "es", "a lowercase code resolves the same jurisdiction");
   assert.equal(region(territories, "ES", "tenerife").parentHub, "canarias");
   assert.throws(() => jurisdiction(territories, "ZZ"), /not a jurisdiction/);

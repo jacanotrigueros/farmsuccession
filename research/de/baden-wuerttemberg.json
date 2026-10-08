@@ -1,0 +1,258 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "baden-wuerttemberg"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Der Förderwegweiser des Landes (foerderung.landwirtschaft-bw.de) beschreibt die Junglandwirte-Einkommensstützung, die bundesweit geregelt ist und laut Länder-Checkliste nicht als Landesinstrument zählt.",
+    "Die Hofbörse der Landsiedlung Baden-Württemberg ist der sichtbarste Landesbaustein für die Hofnachfolge.",
+    "Überregionale Plattformen wie Hof sucht Bauer und Hof-gesucht-gefunden listen ebenfalls Höfe in Baden-Württemberg.",
+    "Beim AFP ist der Junglandwirte-Zuschlag Teil einer Investitionsförderung und keine selbständige Niederlassungsprämie. Auswahltermine dürfen nicht als Antragsfristen ausgegeben werden.",
+    "Die Vertrauensstelle für außerfamiliäre Hofübergabe arbeitet in Südbaden; die landwirtschaftliche Familienberatung des Evangelischen Bauernwerks richtet sich an Familien in Württemberg.",
+    "Beratungsseiten mit namentlich genannten Beschäftigten liefern keine geeigneten persönlichen Kontaktdaten für den Datensatz; nur institutionelle Kanäle verwenden.",
+    "Einzelne Angebote der Hofbörse sind landwirtschaftlich geprägte Immobilien, ohne dass die Fortführung eines aktiven Betriebs für jedes Inserat gesichert wäre."
+  ],
+  "portals": [
+    {
+      "name": "Infodienst Förderung Baden-Württemberg",
+      "url": "https://foerderung.landwirtschaft-bw.de/",
+      "what": "Förderwegweiser des Landes mit Direktzahlungen und Investitionsförderung."
+    },
+    {
+      "name": "Landsiedlung Baden-Württemberg",
+      "url": "https://landsiedlung.de/",
+      "what": "Hofbörse, Flächenmanagement und Ökopunkte."
+    },
+    {
+      "name": "Landesbauernverband in Baden-Württemberg",
+      "url": "https://www.lbv-bw.de/dienstleistungen/hofuebergabe",
+      "what": "Beratung für Mitglieder zur Hofübergabe und Nachfolge."
+    },
+    {
+      "name": "Badischer Landwirtschaftlicher Hauptverband",
+      "url": "https://www.blhv.de/hofuebergabe/",
+      "what": "Hofübergabeberatung und regionale Ansprechstellen."
+    },
+    {
+      "name": "Vertrauensstelle Außerfamiliäre Hofübergabe Südbaden",
+      "url": "https://www.vertrauensstelle-hofuebergabe.de/",
+      "what": "Vertrauliche Vermittlung zwischen nachfolgesuchenden Betrieben und Hofsuchenden in Südbaden."
+    },
+    {
+      "name": "Evangelisches Bauernwerk in Württemberg",
+      "url": "https://www.hohebuch.de/beratung-hilfe/",
+      "what": "Landwirtschaftliche Familienberatung und Bildungsangebote."
+    },
+    {
+      "name": "L-Bank Landwirtschaftsförderung",
+      "url": "https://www.l-bank.de/produkte/wirtschaftsfoerderung/landwirtschaft-nachhaltigkeit.html",
+      "what": "Förderdarlehen mit einem ausdrücklich benannten Zugang für Hofnachfolgende und Existenzgründende."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "bw-foerderung",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Baden-Württemberg Junglandwirte Förderung Niederlassung Existenzgründung Agrarinvestitionsförderung 2026"
+    },
+    {
+      "id": "bw-hofboerse",
+      "kinds": ["SUCCESSION_SERVICE", "LAND_BANK", "ADVICE"],
+      "query": "Baden-Württemberg Hofbörse Hofnachfolge außerfamiliär Vermittlung Landwirtschaft Beratung Hofübergabe"
+    },
+    {
+      "id": "bw-vertrauensstelle",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Vertrauensstelle außerfamiliäre Hofübergabe Südbaden Hofsuchende BLHV"
+    },
+    {
+      "id": "bw-familienberatung",
+      "kinds": ["ADVICE", "TRAINING"],
+      "query": "Baden-Württemberg Hofübergabe Familienberatung Hohebuch evangelisches Bauernwerk Seminar"
+    },
+    {
+      "id": "bw-finanzierung-nachfolge",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Baden-Württemberg Agrar-Bürgschaft L-Bank Hofnachfolger Existenzgründer Flächenerwerb"
+    },
+    {
+      "id": "bw-bodenfonds",
+      "kinds": ["LAND_BANK"],
+      "query": "Baden-Württemberg landwirtschaftliche Flächenbörse Bodenfonds Pacht Existenzgründung Landsiedlung"
+    }
+  ],
+  "leads": [
+    {
+      "id": "bw-hofboerse-landsiedlung",
+      "name": "Hofbörse der Landsiedlung Baden-Württemberg",
+      "url": "https://www.landsiedlung.de/marktplatz/hofboerse",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "baden-wuerttemberg-hofboerse-landsiedlung",
+      "reason": "Aktuelle Betreiberseite mit landesweiter Vermittlung, Angeboten und Kontaktweg; die alte URL wurde durch die aktuelle Marktplatzseite ersetzt.",
+      "foundBy": "bw-hofboerse",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "bw-jes",
+      "name": "Junglandwirte-Einkommensstützung",
+      "url": "https://foerderung.landwirtschaft-bw.de/,Lde/Startseite/Foerderwegweiser/Junglandwirte-Einkommensstuetzung+_JES_",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Bundesweit geregelte Einkommensstützung; die Landesinformationsseite ist kein eigenständiges Landesinstrument.",
+      "foundBy": "bw-foerderung",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "bw-afp-junglandwirte",
+      "name": "Junglandwirte-Zuschlag im Agrarinvestitionsförderungsprogramm",
+      "url": "https://foerderung.landwirtschaft-bw.de/,Lde/Startseite/Foerderwegweiser/Agrarinvestitionsfoerderungsprogramm%2B_AFP_%2B-%2BTeil%2BA",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "baden-wuerttemberg-afp-junglandwirte",
+      "reason": "Der Landesförderwegweiser nennt ausdrücklich den zusätzlichen Junglandwirte-Zuschuss und den Antragsweg; keine eigenständige Niederlassungsprämie.",
+      "foundBy": "bw-foerderung",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "bw-lbv-hofuebergabe",
+      "name": "Hofübergabeberatung des Landesbauernverbands",
+      "url": "https://www.lbv-bw.de/dienstleistungen/hofuebergabe",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "baden-wuerttemberg-lbv-hofuebergabe",
+      "reason": "Eigener Beratungsdienst des Verbands für Mitglieder, ausdrücklich auch zur außerfamiliären Übergabe.",
+      "foundBy": "bw-hofboerse",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "bw-blhv-hofuebergabe",
+      "name": "Hofübergabeberatung des BLHV",
+      "url": "https://www.vertrauensstelle-hofuebergabe.de/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "baden-wuerttemberg-blhv-hofuebergabe",
+      "reason": "Der Verband beschreibt eigene Übergabeberatung und verweist auf regionale Ansprechstellen. Manuelle Prüfung vom 30.09.2026 durch Claude (claude-opus-5-5) im integrierten Browser von Claude Code (Chromium): die Startseite der Vertrauensstelle öffnete sich über HTTPS ohne Zertifikatswarnung, also mit einer vom Browser validierten Kette, und die 2 Zitate der Quelle stehen im Seitentext. Die automatische Prüfung liest sie nicht, weil der Server automatisierte Abrufe mit HTTP 403 ablehnt. Das ist keine menschliche Prüfung; die Datei bleibt ein Entwurf.",
+      "foundBy": "bw-hofboerse",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "bw-vertrauensstelle-suedbaden",
+      "name": "Vertrauensstelle Außerfamiliäre Hofübergabe Südbaden",
+      "url": "https://www.vertrauensstelle-hofuebergabe.de/so-laeufts/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "baden-wuerttemberg-vertrauensstelle-hofuebergabe-suedbaden",
+      "reason": "Eigener vertraulicher Erstkontakt und Vermittlungsdienst für Südbaden, zusätzlich zur allgemeinen Verbandsberatung und zur landesweiten Hofbörse. Manuelle Prüfung vom 30.09.2026 durch Claude (claude-opus-5-5) im integrierten Browser von Claude Code (Chromium): die Seiten «So läufts» und die Startseite der Vertrauensstelle öffnete sich über HTTPS ohne Zertifikatswarnung, also mit einer vom Browser validierten Kette, und die 4 Zitate der Quelle stehen im Seitentext. Die automatische Prüfung liest sie nicht, weil der Server automatisierte Abrufe mit HTTP 403 ablehnt. Das ist keine menschliche Prüfung; die Datei bleibt ein Entwurf.",
+      "foundBy": "bw-vertrauensstelle",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "bw-hohebuch-familienberatung",
+      "name": "Landwirtschaftliche Familienberatung des Evangelischen Bauernwerks",
+      "url": "https://www.hohebuch.de/beratung-hilfe/landwirtschaftliche-familienberatung/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "baden-wuerttemberg-hohebuch-familienberatung",
+      "reason": "Eigenes Beratungsangebot in Württemberg, das die Betriebsübergabe an die nächste Generation ausdrücklich als Anlass nennt.",
+      "foundBy": "bw-familienberatung",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "bw-agrar-buergschaft",
+      "name": "Agrar-Bürgschaft der Bürgschaftsbank Baden-Württemberg",
+      "url": "https://bw.ermoeglicher.de/de/ueber-uns/service-downloads/produktliste/agrar-buergschaft/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "baden-wuerttemberg-agrar-buergschaft",
+      "reason": "Die regional zuständige Bürgschaftsbank nennt landwirtschaftliche Existenzgründungen und Betriebsübernahmen ausdrücklich.",
+      "foundBy": "bw-finanzierung-nachfolge",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "bw-l-bank-nachhaltigkeit",
+      "name": "Landwirtschaft – Nachhaltigkeit der L-Bank",
+      "url": "https://www.l-bank.de/produkte/wirtschaftsfoerderung/landwirtschaft-nachhaltigkeit.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "baden-wuerttemberg-l-bank-landwirtschaft-nachhaltigkeit",
+      "reason": "Eigener regionaler Antragsweg über Hausbanken; die Betreiberseite nennt besondere Konditionen für Hofnachfolgende und Existenzgründende.",
+      "foundBy": "bw-finanzierung-nachfolge",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "bw-bodenfonds-landsiedlung",
+      "name": "Bodenfonds der Landsiedlung",
+      "url": "https://www.landsiedlung.de/leistungen/bodenfonds",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Die gelesene Seite beschreibt Flächenbevorratung und Aufstockung bestehender Betriebe, aber keinen belegten eigenen Zugang für Hofsuchende oder Neueinsteigende; die konkrete Vermittlung ist bereits in der Hofbörse erfasst.",
+      "foundBy": "bw-bodenfonds",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "bw-hohebuch-hofuebergabeseminar-2027",
+      "name": "Hofübergabeseminar Hohebuch",
+      "url": "https://www.hohebuch.de/veranstaltung/hofuebergabeseminar-4/",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Die gelesene konkrete Veranstaltung ist für Januar 2027 angekündigt und kein 2026 durchgeführter Termin; die fortlaufende Familienberatung ist separat aufgenommen.",
+      "foundBy": "bw-familienberatung",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "bw-bzl-betriebsuebergabe",
+      "name": "Beratungsmodul Arbeitswirtschaft und Betriebsorganisation",
+      "url": "https://bzl.landwirtschaft-bw.de/,Lde_DE/Startseite/Beratungsmodule/Unternehmen%2Bund%2BEinkommenskombinationen",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Die Landesübersicht nennt Betriebsübergabe als möglichen Beratungsinhalt, zeigt aber auch erst ab 2027 geltende Modulabschnitte. Vor Aufnahme sind die am 29.09.2026 geltende Fassung und der konkrete Zugang zu einem anbietenden Beratungsdienst abzugleichen.",
+      "foundBy": "bw-familienberatung",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "FOUND",
+      "leadId": "bw-afp-junglandwirte",
+      "reason": "AFP-Investitionszuschlag für Junglandwirte; eine eigenständige Niederlassungsprämie wurde nicht belegt.",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "FOUND",
+      "leadId": "bw-hofboerse-landsiedlung",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "bw-lbv-hofuebergabe",
+      "reason": "Zusätzlich wurden BLHV und landwirtschaftliche Familienberatung als eigenständige Dienste aufgenommen.",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: Hofbörse aufgenommen; Landesförderung und Übergabeberatung offen."
+    },
+    {
+      "date": "2026-09-29",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Rekonstruktion nach Verlust der früheren Antwort: bestehende Hofbörse erneut geprüft, AFP-Junglandwirte-Zuschlag und sechs weitere Finanzierungs-, Vermittlungs- und Beratungsangebote anhand von Betreiberseiten aufgenommen. Alle drei Landes-Checklistenpunkte beantwortet. Kommunale Vollständigkeit, das BZL-Beratungsmodul und konkrete Antragsfristen bleiben offen; technische Prüfungen wurden nicht ausgeführt."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Manuelle Prüfung der Seiten der Vertrauensstelle Hofübergabe dokumentiert, die automatisierte Abrufe mit 403 ablehnen. Auf der Startseite fehlt heute das Kürzel «(BLHV)» im Satz über den Verband; das Zitat folgt dem aktuellen Text."
+    }
+  ]
+}

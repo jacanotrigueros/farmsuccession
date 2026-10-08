@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "brandenburg"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Brandenburg und Berlin setzen ELER 2023–2027 über ein gemeinsames Förderportal um.",
+    "Die Niederlassungsbeihilfe für Junglandwirte ist als eigener Förderbegriff sichtbar; ohne lesbare Detailseite darf ihr aktueller Antragsstatus nicht angenommen werden.",
+    "Neben Landesprogrammen existieren gemeinnützige, öffentlich zugängliche Vermittlungsangebote für Flächen und außerfamiliäre Hofnachfolge.",
+    "Die Niederlassungsbeihilfe des Landes ist auf der Förderseite des Landwirtschaftsministeriums zitierfähig beschrieben."
+  ],
+  "portals": [
+    {
+      "name": "ELER Brandenburg und Berlin",
+      "url": "https://eler.brandenburg.de/eler/de/foerderung/foerderperiode-20232027/",
+      "what": "Förderrahmen, Richtlinien, Antrag und Beratung für ELER 2023–2027."
+    },
+    {
+      "name": "MLEUV Brandenburg",
+      "url": "https://mleuv.brandenburg.de/mleuv/de/",
+      "what": "Landesministerium und Förderinformationen für Landwirtschaft."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "bb-young",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:mleuv.brandenburg.de Niederlassungsbeihilfe Junglandwirte"
+    },
+    {
+      "id": "bb-match",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Brandenburg Flächenplattform Hofübergabe Junglandwirte"
+    }
+  ],
+  "leads": [
+    {
+      "id": "bb-niederlassungsbeihilfe",
+      "name": "Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte",
+      "url": "https://mleuv.brandenburg.de/mleuv/de/service/foerderung/landwirtschaft/niederlassungsbeihilfe-junglandwirte/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "brandenburg-niederlassungsbeihilfe-junglandwirte",
+      "reason": "Förderseite des Landes mit Altersgrenze, Nachweisen und Antragsfrist.",
+      "foundBy": "bb-young",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "bb-flaechenplattform",
+      "name": "Flächenplattform Nachhaltige Landwirtschaft Brandenburg",
+      "url": "https://flaechenplattform.de/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "brandenburg-flaechenplattform",
+      "reason": "Die Betreiberseite bietet eine kostenlose, aktuell befüllte Vermittlung von Flächen und Agrarimmobilien zwischen Eigentümern und Junglandwirten.",
+      "foundBy": "bb-match",
+      "checkedOn": "2026-09-14"
+    },
+    {
+      "id": "bb-existenzgruendungsbegleitung",
+      "name": "Existenzgründungsbegleitung Klimaresiliente Landwirtschaft in Brandenburg",
+      "url": "https://junglandwirte-brandenburg.de/existenzgruendung/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "brandenburg-klimaresiliente-landwirtschaft-gruendungsberatung",
+      "reason": "Projektseite mit kostenfreier Begleitung bei Gründung oder Übernahme eines Betriebs, Businessplan-Check und Bewerbungsweg.",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "bb-beratungsfoerderung-uebergabe",
+      "name": "Förderung von Beratungsdienstleistungen zur Betriebsübernahme und Betriebsabgabe",
+      "url": "https://mleuv.brandenburg.de/mleuv/de/service/foerderung/landwirtschaft/foerderung-von-beratungsdienstleistungen/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "brandenburg-beratungsfoerderung-betriebsuebergabe",
+      "reason": "Förderseite des Landes mit laufender Antragstellung durch anerkannte Beratungskräfte; die Beratungssteckbriefe nennen die Begleitung bei Betriebsübernahme und Betriebsabgabe.",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "bb-bbg-landpacht",
+      "name": "Landpachtangebote der Brandenburgischen Boden Gesellschaft",
+      "url": "https://bbg-immo.de/immobilien/landpacht-brandenburg/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "brandenburg-bbg-landpacht",
+      "reason": "Übersicht der aktuellen Verpachtungsangebote landeseigener Flächen nach Landkreisen, mit eigenem Zugang und verschieden von der Flächenplattform.",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "FOUND",
+      "leadId": "bb-niederlassungsbeihilfe",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "FOUND",
+      "leadId": "bb-flaechenplattform",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "bb-beratungsfoerderung-uebergabe",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Erste Länderpassage über ELER, Niederlassungsbeihilfe und Vermittlungsangebote; die Flächenplattform wurde aufgenommen, die Förderung bleibt bis zur direkten Detailprüfung offen."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Runde mit der nationalen Checkliste: Niederlassungsbeihilfe des Landes aufgenommen, Flächenplattform bestätigt."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Nachtrag zur Runde vom 2026-09-29: Existenzgründungsbegleitung, Beratungsförderung zur Betriebsübernahme und -abgabe und Landpachtangebote der BBG standen in der Edition, aber nicht im Brief; sie sind jetzt als ADMITTED erfasst. Die Prüfung zur Hofübergabeberatung steht auf FOUND mit der Beratungsförderung, deren Steckbrief die Begleitung bei Betriebsübernahme und Betriebsabgabe nennt. Außerdem fehlte im Zitat zur Existenzgründungsbegleitung das Leerzeichen in «Landbau Berlin-Brandenburg»; korrigiert und am 2026-09-30 erneut geprüft."
+    }
+  ]
+}

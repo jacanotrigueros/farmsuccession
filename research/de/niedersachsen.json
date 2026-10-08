@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "niedersachsen"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-21",
+  "context": [
+    "Die Landwirtschaftskammer Niedersachsen setzt die Landesförderung um; ihre Meldung zur Existenzgründungsförderung war beim Abruf nicht mehr verfügbar (Status 410).",
+    "Die Seite des Landwirtschaftsministeriums ist die lesbare Quelle des Programmträgers; der Junglandwirteverband ordnet die Förderung nur ein und nennt sie eine einmalige Förderung für bis zu 28 Betriebe.",
+    "Für den Antrag ist laut Ministerium der Nachweis einer sozioökonomischen Beratung nötig."
+  ],
+  "portals": [
+    {
+      "name": "Landwirtschaftskammer Niedersachsen",
+      "url": "https://www.lwk-niedersachsen.de/",
+      "what": "Beratung, Förderung und Bewilligung für landwirtschaftliche Betriebe."
+    },
+    {
+      "name": "Junglandwirte Niedersachsen",
+      "url": "https://www.junglandwirte-niedersachsen.de/",
+      "what": "Verbandsseite mit Einordnung der Landesförderung."
+    },
+    {
+      "name": "Nds. Ministerium für Ernährung, Landwirtschaft und Verbraucherschutz",
+      "url": "https://www.ml.niedersachsen.de/",
+      "what": "Programmseiten und Richtlinien der Landesförderung."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "ni-foerderung",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Niedersachsen Junglandwirte Förderung Niederlassung Hofbörse Hofnachfolge Landwirtschaftskammer Beratung Hofübergabe"
+    }
+  ],
+  "leads": [
+    {
+      "id": "ni-niederlassungsbeihilfe",
+      "name": "Existenzgründungsförderung für Junglandwirtinnen und Junglandwirte",
+      "url": "https://www.ml.niedersachsen.de/startseite/themen/landwirtschaft/agrarforderung/niedersachsen-fordert-existenzgrundungen-auf-hofen-245378.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "niedersachsen-niederlassungsbeihilfe-junglandwirte",
+      "reason": "Seite des Landwirtschaftsministeriums als Programmträger mit Förderhöhen, Voraussetzungen und Antragsfrist; Status UNKNOWN, weil nur das Verfahren 2025 belegt ist.",
+      "foundBy": "ni-foerderung",
+      "checkedOn": "2026-09-21"
+    },
+    {
+      "id": "ni-lwk-existenzgruendung",
+      "name": "Existenzgründungsförderung der Landwirtschaftskammer Niedersachsen",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Auch die vom Ministerium verlinkte Förderseite der Kammer antwortet mit 410; prüfen, ob die Kammer eine neue Antragsrunde veröffentlicht.",
+      "foundBy": "ni-foerderung",
+      "checkedOn": "2026-09-21",
+      "url": "https://www.agrarfoerderung-niedersachsen.de/agrarfoerderung/news/43262_Existenzgruendungsfoerderung_fuer_Junglandwirtinnen_und_Junglandwirte"
+    },
+    {
+      "id": "ni-junglandwirte-verband",
+      "name": "Meldung der Junglandwirte Niedersachsen zur Niederlassungsbeihilfe",
+      "url": "https://www.junglandwirte-niedersachsen.de/niederlassungsbeihilfe-foerdert-einmalig-bis-zu-28-junglandwirte/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Der Verband ordnet die Landesförderung ein, bietet aber keinen eigenen Dienst an: keine Quelle des Programmträgers.",
+      "foundBy": "ni-foerderung",
+      "checkedOn": "2026-09-21"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "FOUND",
+      "leadId": "ni-niederlassungsbeihilfe",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "NOT_FOUND",
+      "reason": "Eine Hof- oder Flächenbörse für Niedersachsen wurde in dieser Runde nicht geprüft.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "NOT_FOUND",
+      "reason": "Die sozioökonomische Beratung zur Hofübergabe wurde nicht auf einer eigenen Seite belegt.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: Landesniederlassungsbeihilfe aufgenommen; Hofbörse und Beratung offen."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Korrektur nach Audit: Landesförderung mit der Seite des Ministeriums statt des Verbands belegt und auf UNKNOWN gesetzt, weil nur das Antragsverfahren 2025 belegt ist."
+    }
+  ]
+}

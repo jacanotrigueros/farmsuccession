@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "saarland"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Das Landesportal saarland.de beschreibt die Existenzgründungsförderung als Maßnahme des Landesprogramms für den ländlichen Raum.",
+    "Die Landwirtschaftskammer für das Saarland unterstützt bei den Antragsunterlagen.",
+    "Suchergebnisse nennen eine kostenfreie Hofübergabeberatung von Kammer und Bauernverband; eine eigene Seite dazu fehlt noch."
+  ],
+  "portals": [
+    {
+      "name": "Landwirtschaftsportal des Saarlandes",
+      "url": "https://www.saarland.de/mukmav/DE/portale/landwirtschaft/",
+      "what": "Förderangebote und Informationen zur Landwirtschaft."
+    },
+    {
+      "name": "Landwirtschaftskammer für das Saarland",
+      "url": "https://www.lwk-saarland.de/",
+      "what": "Betriebswirtschaft, Förderung und Beratung."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "sl-foerderung",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Saarland Junglandwirte Förderung Niederlassung Hofnachfolge Beratung Landwirtschaftskammer Hofübergabe"
+    }
+  ],
+  "leads": [
+    {
+      "id": "sl-existenzgruendung",
+      "name": "Existenzgründungsförderung für Junglandwirte",
+      "url": "https://www.saarland.de/mukmav/DE/portale/landwirtschaft/informationen/existenzgruendungsfoerderung/existenzgruendungsfoerderung.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "saarland-existenzgruendungsfoerderung-junglandwirte",
+      "reason": "Landesseite mit Ziel der Beihilfe und ausdrücklicher Nennung außerfamiliärer Übernahmen.",
+      "foundBy": "sl-foerderung",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "sl-hofuebergabeberatung",
+      "name": "Kostenfreie Hofübergabeberatung von Kammer und Bauernverband",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "In Suchergebnissen als vom Land finanzierte Sparte der sozioökonomischen Beratung genannt; eigene Seite noch zu finden.",
+      "foundBy": "sl-foerderung",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "FOUND",
+      "leadId": "sl-existenzgruendung",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "NOT_FOUND",
+      "reason": "Eine Hof- oder Flächenbörse für das Saarland wurde nicht gefunden.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "NOT_FOUND",
+      "reason": "Die genannte kostenfreie Übergabeberatung wurde nicht auf einer eigenen Seite belegt.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: Existenzgründungsförderung aufgenommen; Übergabeberatung und Hofbörse offen."
+    }
+  ]
+}

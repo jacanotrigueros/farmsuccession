@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "hamburg"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Die Investitionsförderung für landwirtschaftliche Betriebe wird für Niedersachsen, Bremen und Hamburg gemeinsam geregelt.",
+    "Die Landwirtschaftskammer Hamburg bündelt Beratung, Ausbildung und Förderung für Land- und Gartenbau.",
+    "Das Forschungsprojekt FarmStarter Hamburg zielt ausdrücklich auf Gründung und Hofnachfolge."
+  ],
+  "portals": [
+    {
+      "name": "Landwirtschaftskammer Hamburg",
+      "url": "https://lwk-hamburg.de/",
+      "what": "Beratung, Förderung und Ausbildung für Land- und Gartenbau in Hamburg."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "hh-hofnachfolge",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "query": "Hamburg Landwirtschaft Förderung Junglandwirte Hofnachfolge Hofbörse Beratung Landwirtschaftskammer"
+    }
+  ],
+  "leads": [
+    {
+      "id": "hh-farmstarter",
+      "name": "FarmStarter Hamburg",
+      "url": "https://lwk-hamburg.de/2026/05/11/farmstarter-hamburg-gestartet-zukunft-fuer-hofnachfolge-und-gruendungen-in-der-landwirtschaft/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "hamburg-farmstarter",
+      "reason": "Meldung der Kammer mit Ziel und Gegenstand des Projekts.",
+      "foundBy": "hh-hofnachfolge",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "NOT_FOUND",
+      "reason": "Für Hamburg wurde keine eigene Landesförderung zur Niederlassung belegt; die Investitionsförderung ist länderübergreifend geregelt.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "NOT_FOUND",
+      "reason": "Eine Hof- oder Flächenbörse für Hamburg wurde nicht gefunden.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "hh-farmstarter",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: FarmStarter der Kammer aufgenommen; Landesförderung und Hofbörse offen."
+    }
+  ]
+}

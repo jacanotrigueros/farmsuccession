@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "mecklenburg-vorpommern"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Die Landgesellschaft Mecklenburg-Vorpommern bündelt Hofbörse, Flächenmanagement und Fördermittelberatung und ist die sichtbarste Landesstruktur für Hofübergaben.",
+    "Der Junglandwirte-Zuschuss ist als Aufschlag auf die Investitionsförderung des Landes beschrieben.",
+    "Eine Moderation bei familienfremder Hofnachfolge wird in Suchergebnissen genannt und sollte auf einer Landesseite belegt werden."
+  ],
+  "portals": [
+    {
+      "name": "Landgesellschaft Mecklenburg-Vorpommern",
+      "url": "https://www.lgmv.de/",
+      "what": "Hofbörse, Flächenmanagement und Fördermittelberatung."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "mv-hofboerse",
+      "kinds": ["SUCCESSION_SERVICE", "LAND_BANK", "FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "Mecklenburg-Vorpommern Junglandwirte Niederlassung Förderung Hofbörse Hofnachfolge Beratung Landgesellschaft"
+    }
+  ],
+  "leads": [
+    {
+      "id": "mv-hofboerse-lead",
+      "name": "Hofbörse und Betriebsverkäufe der Landgesellschaft",
+      "url": "https://www.lgmv.de/flaechenmanagement/hofboerse-betriebsverkaeufe/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "mecklenburg-vorpommern-hofboerse-landgesellschaft",
+      "reason": "Seite des Trägers mit Beschreibung der Vermittlung und Begleitung.",
+      "foundBy": "mv-hofboerse",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "mv-junglandwirte-zuschuss",
+      "name": "Junglandwirte-Zuschuss im Investitionsförderungsprogramm",
+      "url": "https://www.lgmv.de/foerdermittelmanagement/landwirte/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "mecklenburg-vorpommern-junglandwirte-zuschuss-investition",
+      "reason": "Übersicht der Landgesellschaft mit Fördersätzen und dem Zuschlag für Junglandwirte.",
+      "foundBy": "mv-hofboerse",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "FOUND",
+      "leadId": "mv-junglandwirte-zuschuss",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "FOUND",
+      "leadId": "mv-hofboerse-lead",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "mv-hofboerse-lead",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: Hofbörse, Beratung und Junglandwirte-Zuschuss aufgenommen."
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "COUNTRY",
+    "country": "DE"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-25",
+  "context": [
+    "Deutschland hat einen gemeinsamen nationalen GAP-Strategieplan; ELER-Förderung, Niederlassungsbeihilfen und Beratung werden jedoch überwiegend von den Bundesländern umgesetzt.",
+    "Die 16 Bundesländer sind deshalb die primären regionalen Rechercheeinheiten; Kreise und Gemeinden sind nur bei eigenen Angeboten aufzunehmen.",
+    "Wichtige Suchbegriffe sind Hofnachfolge, Hofübergabe, außerfamiliäre Übergabe, Existenzgründung, Niederlassungsbeihilfe und Junglandwirte.",
+    "Landwirtschaftskammern sind nicht in allen Ländern gleich organisiert; ihre konkrete öffentliche oder körperschaftliche Rolle ist je Land zu prüfen."
+  ],
+  "portals": [
+    {
+      "name": "BMELH GAP-Strategieplan",
+      "url": "https://www.bmleh.de/SharedDocs/Downloads/DE/_Landwirtschaft/EU-Agrarpolitik-Foerderung/gap-strategieplan-version-7-1.html",
+      "what": "Nationaler Programmrahmen der GAP 2023–2027."
+    },
+    {
+      "name": "DVS Netzwerk ländliche Räume",
+      "url": "https://www.dvs-gap-netzwerk.de/",
+      "what": "Bundesweite Informationen und Vernetzung zur GAP und ländlichen Entwicklung."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "de-state-entry",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "{region} Niederlassungsbeihilfe Junglandwirte Existenzgründung Landwirtschaft"
+    },
+    {
+      "id": "de-state-transfer",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "{region} Hofnachfolge Hofübergabe außerfamiliär Beratung Hofbörse"
+    },
+    {
+      "id": "de-land",
+      "kinds": ["LAND_BANK"],
+      "query": "{region} landwirtschaftliche Flächenbörse Landbank Pacht Existenzgründung"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Deutschland Hofnachfolge Hofübergabe Beratung"
+    }
+  ],
+  "leads": [
+    {
+      "id": "de-dvs-hofnachfolge",
+      "name": "DVS Themenseite Junglandwirte und Unternehmensnachfolge",
+      "url": "https://www.dvs-gap-netzwerk.de/",
+      "kind": "OTHER",
+      "status": "REJECTED",
+      "reason": "Die nationale Seite liefert Kontext und Vernetzung, aber keinen dauerhaft zugänglichen eigenen Beratungs-, Vermittlungs- oder Förderdienst.",
+      "foundBy": "de-state-transfer",
+      "checkedOn": "2026-09-14"
+    }
+  ],
+  "expectedInstruments": [
+    {
+      "id": "de-landesfoerderung-junglandwirte",
+      "name": "Landesförderung für Existenzgründung oder Niederlassung junger Landwirte",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "lookFor": "Niederlassungsprämie oder Junglandwirte-Zuschlag im ELER-Programm des Landes, in Richtlinien oder im Förderwegweiser des Landwirtschaftsministeriums. Die bundesweite Einkommensstützung für Junglandwirte gehört nicht auf die Landesebene."
+    },
+    {
+      "id": "de-hofboerse-flaechen",
+      "name": "Hof- oder Flächenbörse und Vermittlung außerfamiliärer Hofnachfolge",
+      "kinds": ["SUCCESSION_SERVICE", "LAND_BANK"],
+      "lookFor": "Hofbörsen, Flächenplattformen oder Vermittlungsangebote für außerfamiliäre Hofnachfolge von Land, Landwirtschaftskammer, Landgesellschaft oder Verbänden, mit Zugangsweg."
+    },
+    {
+      "id": "de-hofuebergabe-beratung",
+      "name": "Beratung und Seminare zur Hofübergabe",
+      "kinds": ["ADVICE", "TRAINING"],
+      "lookFor": "Angebote von Landwirtschaftsämtern oder -kammern, Bauernverband, Landjugend oder landwirtschaftlicher Familienberatung zu Hofübergabe und Generationenfolge, mit aktuellen Terminen oder Kontakt."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Deutschland als föderalen Testfall aufgenommen; nationale Methodik und Länderbegriffe erfasst, ohne Länderprogramme im nationalen Datensatz zu duplizieren."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Vorprüfung vor Veröffentlichung: Suchanfragen prepublication-2026-09-25 ausgeführt. Nur Rechercheansätze, keine vollständige Prüfung und kein Nachweis fehlender Angebote. Kandidaten, alle Angebotsfamilien, lokale Ebenen und praktische Angaben bleiben zu prüfen. Status und Datumsangaben der Edition werden dadurch nicht geändert."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "sachsen"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Das Förderportal des Freistaats führt die Beihilfe als Teil C II der Förderrichtlinie LIE/2023 und weist den Aufrufstand aus.",
+    "Der Beratungsdienst des Landesamtes deckt Hofübergabe und Existenzgründung ab und arbeitet nach eigener Angabe kostenfrei.",
+    "Für eine Hofbörse verweisen Suchergebnisse nur auf bundesweite private Portale, nicht auf ein Landesangebot."
+  ],
+  "portals": [
+    {
+      "name": "Förderportal des Freistaates Sachsen",
+      "url": "https://www.smul-foerderung.sachsen.de/",
+      "what": "Förderrichtlinien und Aufrufe für Landwirtschaft und ländlichen Raum."
+    },
+    {
+      "name": "Sächsisches Landesamt für Umwelt, Landwirtschaft und Geologie",
+      "url": "https://www.lfulg.sachsen.de/",
+      "what": "Fachbehörde mit Beratungsdienst und Bewilligungsstelle."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "sn-foerderung",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Sachsen Junglandwirte Förderung Niederlassung Hofnachfolge Hofbörse Beratung Landesamt Landwirtschaft"
+    }
+  ],
+  "leads": [
+    {
+      "id": "sn-existenzgruendung",
+      "name": "Teil C II. Existenzgründungen und Hofnachfolge",
+      "url": "https://www.smul-foerderung.sachsen.de/teil-c-ii-existenzgruendungen-und-hofnachfolge-13810.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "sachsen-existenzgruendungen-hofnachfolge",
+      "reason": "Förderportal des Landes mit Zuwendungszweck, Zugangsbedingungen, Förderhöhe und Aufrufstand.",
+      "foundBy": "sn-foerderung",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "sn-beratungsdienst",
+      "name": "Beratungsdienst Einkommens- und Vermögenssicherung",
+      "url": "https://www.lfulg.sachsen.de/beratungsdienst-7490.html",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "sachsen-beratungsdienst-hofuebergabe",
+      "reason": "Seite der Fachbehörde mit ausdrücklicher Begleitung der Hofübergabe und Angabe der Kostenfreiheit.",
+      "foundBy": "sn-foerderung",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "FOUND",
+      "leadId": "sn-existenzgruendung",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "NOT_FOUND",
+      "reason": "Eine Hof- oder Flächenbörse des Freistaats Sachsen wurde nicht gefunden.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "sn-beratungsdienst",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: Landesbeihilfe und Beratungsdienst aufgenommen; Hofbörse offen."
+    }
+  ]
+}

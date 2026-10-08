@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "sachsen-anhalt"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Die Ämter für Landwirtschaft, Flurneuordnung und Forsten setzen die Niederlassungsbeihilfe um und beschreiben sie auf ihren Seiten.",
+    "Die landeseigene Landgesellschaft verbindet Beratung für Einsteiger und Abgebende mit einer Hofbörse.",
+    "Die Seiten des Ministeriums (mwl.sachsen-anhalt.de) liefern beim automatischen Abruf den Status 404."
+  ],
+  "portals": [
+    {
+      "name": "Ämter für Landwirtschaft, Flurneuordnung und Forsten",
+      "url": "https://alff.sachsen-anhalt.de/",
+      "what": "Förderung, Beratung und Bewilligung für landwirtschaftliche Betriebe."
+    },
+    {
+      "name": "Landgesellschaft Sachsen-Anhalt mbH",
+      "url": "https://www.lgsa.de/",
+      "what": "Landeseigene Gesellschaft mit Hofbörse, Flächenmanagement und Beratung."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "st-foerderung",
+      "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Sachsen-Anhalt Landgesellschaft Hofbörse Junglandwirte Hofnachfolge Förderung Niederlassung"
+    }
+  ],
+  "leads": [
+    {
+      "id": "st-niederlassungsbeihilfe",
+      "name": "Niederlassungsbeihilfe für Junglandwirte",
+      "url": "https://alff.sachsen-anhalt.de/alff-sued/landwirtschaft/niederlassungsbeihilfe-fuer-junglandwirte",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "sachsen-anhalt-niederlassungsbeihilfe-junglandwirte",
+      "reason": "Amtsseite des Landes mit Zweck, Höhe und Antragsfrist der Beihilfe.",
+      "foundBy": "st-foerderung",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "st-lgsa",
+      "name": "Existenzgründung und Hofvermittlung der Landgesellschaft",
+      "url": "https://www.lgsa.de/de/landwirtschaft/junglandwirte-existenzgruender/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "sachsen-anhalt-lgsa-hofvermittlung-beratung",
+      "reason": "Seite der landeseigenen Gesellschaft mit Beratung für beide Seiten der Übergabe und eigener Hofbörse.",
+      "foundBy": "st-foerderung",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "st-mwl-netzwerk",
+      "name": "Netzwerk Junglandwirte des Landwirtschaftsministeriums",
+      "kind": "NETWORK",
+      "status": "TO_CHECK",
+      "reason": "Die Seiten des Ministeriums antworten automatischen Abrufen mit Status 404; manuell prüfen.",
+      "foundBy": "st-foerderung",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "FOUND",
+      "leadId": "st-niederlassungsbeihilfe",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "FOUND",
+      "leadId": "st-lgsa",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "st-lgsa",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: Niederlassungsbeihilfe und Angebot der Landgesellschaft aufgenommen; alle drei erwarteten Instrumente belegt."
+    }
+  ]
+}

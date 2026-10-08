@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "schleswig-holstein"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Die Landwirtschaftskammer gliedert ihr Übergabeangebot in nummerierte Schritte und nennt die außerfamiliäre Übergabe ausdrücklich als Option.",
+    "Die Landgesellschaft Schleswig-Holstein arbeitet mit einem Bodenfonds und dem freiwilligen Landtausch, betreibt aber keine Hofbörse.",
+    "Die Suche nach einer Landesbeihilfe für die Niederlassung führte nur zu allgemeiner Existenzgründungsförderung der Investitionsbank."
+  ],
+  "portals": [
+    {
+      "name": "Landwirtschaftskammer Schleswig-Holstein",
+      "url": "https://www.lksh.de/beratung",
+      "what": "Beratungsangebote, darunter Unternehmens-, sozioökonomische und Übergabeberatung."
+    },
+    {
+      "name": "Landgesellschaft Schleswig-Holstein",
+      "url": "https://www.lgsh.de/",
+      "what": "Flächenmanagement, Bodenfonds und freiwilliger Landtausch im ländlichen Raum."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "sh-foerderung",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE", "LAND_BANK"],
+      "query": "Schleswig-Holstein Junglandwirte Niederlassung Förderung Land Existenzgründung Hofbörse außerfamiliäre Hofnachfolge"
+    }
+  ],
+  "leads": [
+    {
+      "id": "sh-lksh-hofuebergabe",
+      "name": "Beratung zur Hofübergabe der Landwirtschaftskammer",
+      "url": "https://www.lksh.de/beratung/beratung-zur-hofuebergabe",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "schleswig-holstein-lksh-beratung-hofuebergabe",
+      "reason": "Seite der Kammer mit vollständig gegliedertem Beratungsangebot zur Übergabe und Übernahme.",
+      "foundBy": "sh-foerderung",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "sh-lgsh-agrarstruktur",
+      "name": "Flächen aus dem Bodenfonds der Landgesellschaft",
+      "url": "https://www.lgsh.de/flaechenmanagement/agrarstruktur/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "schleswig-holstein-lgsh-bodenfonds-agrarstruktur",
+      "reason": "Seite der landeseigenen Gesellschaft mit Beschreibung des Flächenerwerbs aus dem Bodenfonds.",
+      "foundBy": "sh-foerderung",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "NOT_FOUND",
+      "reason": "Eine eigene Landesbeihilfe für die Niederlassung junger Landwirte wurde nicht belegt; die Suche führte nur zu allgemeiner Gründungsförderung.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "FOUND",
+      "leadId": "sh-lgsh-agrarstruktur",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "sh-lksh-hofuebergabe",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: Übergabeberatung der Kammer und Flächenabgabe der Landgesellschaft aufgenommen; Landesbeihilfe offen."
+    }
+  ]
+}
