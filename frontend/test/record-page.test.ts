@@ -3,6 +3,8 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
+import { words } from "../src/lib/words.ts";
+
 /**
  * What a record page owes a reader.
  *
@@ -87,15 +89,20 @@ test("a record page never folds its evidence away behind something a reader has 
   }
 });
 
+/**
+ * The phrase a page uses for this is read from the site's own words, in the language the page declares,
+ * rather than listed here: the catalogue gains a language with every country, and a test naming the
+ * phrasings it happens to know would pass for those and say nothing at all about the new one.
+ */
 test("a dated application period always says which page said so, and when it was read", () => {
-  const readOn = /page read on|página leída el/u;
   for (const { resource, directory } of built) {
     if (!resource.calls || resource.calls.length === 0) continue;
     const html = pageOf(directory);
+    const language = /<html lang="([^"]+)"/u.exec(html)?.[1];
+    assert.ok(language, `${directory} does not declare the language it is written in`);
     const dates = html.slice(html.indexOf('id="dates"'), html.indexOf('id="access"'));
-    assert.match(
-      dates,
-      readOn,
+    assert.ok(
+      dates.includes(words(language).recordedOn),
       `${resource.id} states an application period without the date its source was read. A yearly edition cannot say whether something is open today; it can only say what a page said on a day.`,
     );
   }

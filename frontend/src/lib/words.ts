@@ -389,7 +389,203 @@ const ES = {
     "No se ha podido cargar el índice de búsqueda, así que la lista de abajo es todo lo que hay. A la página no le falta nada; sólo le falta poder escribir.",
 } as const satisfies Record<keyof typeof EN, string | readonly [string, string] | readonly (readonly [string, string])[]>;
 
-const WORDS = { en: EN, es: ES };
+/**
+ * German. The chrome of the country that arrived with this milestone, in the register this site uses for
+ * every other language: the plain word a reader would use, never the administrative one.
+ */
+const DE = {
+  siteName: "FarmSuccession",
+  tagline: "Hofnachfolge in Europa",
+  lead: "Finden Sie Flächen, Förderung, Ausbildung und Beratung, um in die Landwirtschaft einzusteigen, einen Betrieb zu übernehmen oder ihn zu übergeben.",
+  searchAcrossEurope: "Angebote in ganz Europa suchen",
+  browseAcrossEurope: "Alle Angebote in Europa ansehen",
+  statsLabel: "Das Verzeichnis in Zahlen",
+  statRecords: ["dokumentiertes Angebot", "dokumentierte Angebote"],
+  statCountries: ["Land", "Länder"],
+  statTerritories: ["Gebiet", "Gebiete"],
+  statSources: ["zitierte Quelle", "zitierte Quellen"],
+  trustSourced: "Quelle verlinkt",
+  trustDated: "Quellen datiert",
+  trustOpen: "Offen lizenzierte Daten",
+  countriesTitle: "Länder",
+  countriesLead: "{territories} in {countries}.",
+  statApplicable: ["geltendes Angebot", "geltende Angebote"],
+  euAlso: "Jede Zahl enthält die {n} europäischen Angebote, die in allen Ländern gelten.",
+  kindsTitle: "Weitere Angebotsarten",
+  newsCount: "{n} datierte Aktualisierungen in der Ausgabe {edition}",
+  editionAllDrafts:
+    "Ausgabe {edition}. Alle {files} Dateien sind Entwürfe: automatisch geprüft, menschliche Durchsicht steht aus. Prüfen Sie die offizielle Quelle, bevor Sie handeln.",
+  editionSomeDrafts:
+    "Ausgabe {edition}. {drafts} von {files} Dateien sind Entwürfe: automatisch geprüft, menschliche Durchsicht steht aus.",
+  europe: "Europa",
+  skip: "Zum Inhalt springen",
+  draftTitle: "Diese Seite hat noch niemand geprüft",
+  draftBody:
+    "Jede Angabe auf ihr nennt eine öffentliche Seite, das Datum ihres Abrufs und die Worte, die dort standen, und die automatischen Prüfungen sind bestanden. Freigegeben hat sie noch keine Person.",
+  publishedOn: "Veröffentlicht",
+  edition: "Ausgabe {year}",
+  whatThisIs: "Was das hier ist",
+  whereToLook: "Wo Sie nachsehen können",
+  siteNav: "Seiten dieser Website",
+  whereYouAre: "Wo Sie sind",
+  inherited: "Gilt hier von",
+  limits: "Was diese Seite nicht abdeckt",
+  coverageNote: "Wie dafür recherchiert wurde",
+  record: ["Eintrag", "Einträge"],
+  territory: ["Gebiet", "Gebiete"],
+  source: ["Quelle", "Quellen"],
+  readOn: "abgerufen am",
+  opensOfficialPage: "öffnet die offizielle Seite",
+  noRecords: "Noch kein Eintrag",
+  appliesHere: "Was hier gilt",
+  whatDoYouNeed: "Was möchten Sie klären?",
+  onThisPage: "Auf dieser Seite",
+  territoriesTitle: "Gebiete",
+  wholeCountry: "Das ganze Bundesgebiet",
+  sharedLayers: "Zusammenschlüsse mit eigener Ebene",
+  inheritedFromAbove: "Alles von den Ebenen darüber gilt auch hier und ist dort mit aufgeführt.",
+  notAService: "Dies ist ein Verzeichnis geprüfter Verweise und kein Ersatz für die amtlichen Stellen.",
+
+  // The project page.
+  aboutSlug: "projekt",
+  aboutTitle: "Über das Projekt",
+  aboutIntro:
+    "Unabhängiges Verzeichnis, betreut von José Antonio Cano Trigueros. Es bündelt Flächen, Förderung, Ausbildung und Beratung für den Einstieg in die Landwirtschaft, die Übernahme eines Betriebs oder seine Übergabe. Zuständig für Anträge und Leistungen sind die in jedem Eintrag verlinkten Organisationen.",
+  overviewTitle: "Was dieses Projekt ist",
+  overviewLead:
+    "FarmSuccession ist ein dokumentarisches Verzeichnis öffentlicher Angebote zur Hofnachfolge und zum Einstieg in die Landwirtschaft. Es hilft dabei, Flächen, Förderung, Ausbildung, Beratung und Übergabedienste zu finden; es ist weder Marktplatz noch Beratungsstelle oder Antragsportal.",
+  methodTitle: "Methode und Abdeckung",
+  methodLead:
+    "Das Verzeichnis ist nicht vollständig. Inhalte bleiben in ihrer Originalsprache, und die Suche über Sprachen hinweg übersetzt Ihre Suchbegriffe nicht. Automatische Prüfungen sind etwas anderes als eine menschliche Durchsicht. Ein Angebot in Betrieb hat nicht zwangsläufig eine offene Antragsfrist: Jeder Eintrag sagt, ob Sie jetzt einen Antrag stellen können und an welchem Tag eine Seite das so sagte.",
+  methodSteps: [
+    ["Vorrang für Primärquellen", "Öffentliche Stellen und die Organisationen, die das jeweilige Angebot bereitstellen."],
+    ["Wörtlich zitiert", "Jeder Eintrag trägt die Worte, die auf der Seite standen, damit sich seine Zusammenfassung daran prüfen lässt."],
+    [
+      "Maschinell geprüft",
+      "Struktur, Konsistenz und erreichbare Quellen. Diese Prüfungen ersetzen keine Person, und sie bestätigen nichts über die aktuelle Verfügbarkeit.",
+    ],
+    ["Datiert", "Jede Quelle nennt ihr Abrufdatum. Die Umstände können sich seitdem geändert haben."],
+  ],
+  notOfficial: "FarmSuccession ist kein offizieller Dienst und vertritt nicht die Verwaltungen oder Organisationen, auf die es verlinkt.",
+  contactTitle2: "Kontakt und Korrekturen",
+  contactLead:
+    "Etwas ist veraltet, ein Link führt ins Nichts, ein Angebot fehlt: Schreiben Sie es. Jeder Hinweis wird an öffentlichen Quellen geprüft, bevor sich hier etwas ändert.",
+  privacyTitle: "Datenschutz",
+  privacyLead:
+    "Diese Website nutzt keine Nutzungsanalyse, keine Werbe-Cookies und keine Benutzerkonten. Die Suche läuft in Ihrem Browser, und nichts, was Sie eingeben, verlässt ihn. Der Hostinganbieter kann technische Zugriffsprotokolle verarbeiten. Wenn Sie schreiben, teilen Sie genau das mit, was Sie selbst in die Nachricht setzen.",
+  // The project that held this domain before.
+  historySlug: "geschichte",
+  historyNav: "Das Projekt 2014-2016",
+  historyTitle: "Das Projekt European Farm Succession und diese Domain",
+  historyIntro:
+    "Zwischen 2016 und 2018 beherbergte diese Domain die Ergebnisse eines anderen europäischen Projekts. Diese Seite hält fest, was dieses Projekt war, was es hervorgebracht hat und wie es zur heutigen Website steht.",
+  historyObjectivesTitle: "Problem und Ziele",
+  historyObjectivesLead:
+    "Das Projekt reagierte auf eine alternde landwirtschaftliche Bevölkerung, auf Betriebe ohne feststehende Nachfolge und auf die Schwierigkeiten von Menschen, die ohne landwirtschaftliche Familie einsteigen. Die Partner teilten und passten Methoden für inner- und außerfamiliäre Übergaben an und wollten den Generationswechsel auf die europäische politische Agenda setzen.",
+  historyPartnersTitle: "Länder und Partner",
+  historyPartnersLead:
+    "Farm Succession in Europe war ein Erasmus+-Projekt (2014-2016), koordiniert von FRCIVAM Bretagne mit InterAFOCG in Frankreich, Terre-en-vue in Belgien, NEL in Österreich und Land & Co / Landgilde in den Niederlanden.",
+  historyResultsTitle: "Wichtigste Ergebnisse",
+  historyResultsLead:
+    "Die Partner teilten Methoden für inner- und außerfamiliäre Übergaben. Ihr wichtigstes erhaltenes Ergebnis ist ein 52-seitiger Leitfaden mit einem achtstufigen Übergabeprozess und zwölf praktischen Werkzeugen, vorgestellt auf der Brüsseler Konferenz am 7. und 8. November 2016.",
+  historyDocumentsTitle: "Originaldokumente und Erhaltung",
+  historyDocument: "Ursprünglichen Leitfaden von 2016 lesen (PDF, 3,9 MB)",
+  historyPreservation:
+    "Der ursprüngliche Leitfaden wurde wiedergefunden und liegt weiter unter der Adresse, die er hatte, damit Verweise von anderswo noch funktionieren. Von der gesonderten Konzeptnotiz und von den Eröffnungsfolien wurde keine Kopie gefunden; ihr Inhalt wird hier daher nicht rekonstruiert.",
+  historyCurrentTitle: "Verhältnis zur heutigen Website",
+  historyCurrentLead:
+    "Das ursprüngliche Projekt endete, und die Domain lief später aus. José Antonio Cano Trigueros registrierte sie 2026 erneut für dieses unabhängige, nicht kommerzielle Verzeichnis. Die heutige Website ist weder eine Fortsetzung noch eine Vertretung des früheren Konsortiums.",
+  backAbout: "Zurück zu Über das Projekt",
+  licenceTitle: "Lizenz",
+  licenceLead:
+    "Eigene Verzeichnisinhalte stehen unter CC BY 4.0. Zitate und verlinkte Materialien behalten die Rechte derjenigen, die sie veröffentlicht haben.",
+  trust:
+    "Jeder Eintrag stammt von einer öffentlichen Verwaltung oder von der Stelle, die den Dienst betreibt, und trägt seine eigenen Quellen und die Daten ihres Abrufs.",
+  optOut: "Wenn Ihre Organisation nicht im Verzeichnis erscheinen möchte, beantragen Sie die Entfernung:",
+  licence: "Daten, Website und Code unter CC BY 4.0. Die zitierten Auszüge gehören den öffentlichen Stellen, die sie veröffentlicht haben.",
+
+  // The record page, in the order a reader needs it.
+  offersTitle: "Was es bietet",
+  datesTitle: "Kann ich jetzt einen Antrag stellen?",
+  applyOpen: "Ja, der Aufruf ist offen",
+  applyOpenByDates: "Ja, laut den dokumentierten Daten: offen bis {date}",
+  applyUpcoming: "Noch nicht: der Aufruf ist noch nicht geöffnet",
+  applyClosed: "Nein: der Aufruf ist geschlossen",
+  applyDeadlinePassed: "Nein: die Frist endete am {date}",
+  applyShouldBeOpen: "Der Aufruf sollte am {date} öffnen; prüfen Sie die offizielle Seite.",
+  applyNoDates: "Die Quelle nennt keine Antragsdaten.",
+  applyAnnounced: "Nein: angekündigt, noch nicht in Betrieb",
+  applyHistorical: "Nein: es ist nicht mehr in Betrieb",
+  applyUnconfirmed: "Nicht bestätigt",
+  applyUnconfirmedDetail: "Die geprüften Quellen zeigen nicht, ob derzeit eine Antragsfrist läuft.",
+  checkedOn: "Stand geprüft am {date}",
+  periodsTitle: "Dokumentierte Aufrufe und Fristen",
+  opensLabel: "Beginn",
+  closesLabel: "Ende",
+  whoTitle: "Für wen es ist",
+  accessTitle: "Wie Sie es bekommen",
+  factsTitle: "Die Angaben",
+  figuresTitle: "Veröffentlichte Zahlen",
+  newsTitle: "Was in diesem Jahr passiert ist",
+  evidenceTitle: "Woher das kommt",
+  notesTitle: "Auch gut zu wissen",
+  contactTitle: "Wo Sie fragen können",
+  officialPage: "Zur offiziellen Seite",
+  noPeriodRecorded: "Die Quellen verzeichnen dafür keine Antragsfrist.",
+  periodsExplained: "Jeder Zeitraum ist das, was seine Quelle am Tag ihres Abrufs sagte, und keine Aussage über heute.",
+  from: "ab",
+  until: "bis",
+  recordedOn: "Seite abgerufen am",
+  asOf: "Zahl mit Stand",
+  quotesExplained:
+    "Wort für Wort von jeder Seite übernommen, damit jede Person nach denselben Worten suchen und sehen kann, ob sie noch dort stehen.",
+  sourceShort: "Quelle",
+  whatItIsRow: "Was es ist",
+  stateRow: "Stand",
+  runByRow: "Betrieben von",
+  bodyTypeRow: "Art der Stelle",
+  reachRow: "Wo es gilt",
+  costRow: "Kosten der Nutzung",
+  handlesRow: "Womit es sich befasst",
+  coversRow: "Umfasst",
+  availableInRow: "Verfügbar auf",
+  forRow: "Richtet sich an",
+  supportTypeRow: "Art der Unterstützung",
+  paysForRow: "Zahlt für",
+  taughtRow: "Wie unterrichtet wird",
+  qualifiesRow: "Gilt als die für die Niederlassungsbeihilfe verlangte Ausbildung",
+  latestPageDateRow: "Neuestes Datum auf der Seite selbst",
+  yes: "Ja",
+  no: "Nein",
+
+  // The search page.
+  searchHere: "Suchen in {where}",
+  searchEverywhere: "Im ganzen Verzeichnis suchen",
+  searchLabel: "Was suchen Sie?",
+  searchHereLabel: "Suchen, was in {where} gilt",
+  browseAll: "Alles ansehen, was in {where} gilt",
+  searchAction: "Suchen",
+  searchScoped: "Es wird alles durchsucht, was in {where} gilt: die europäische Ebene, das Land und das Gebiet selbst.",
+  searchWhole:
+    "Es werden alle Einträge der Ausgabe durchsucht, wo auch immer sie erfasst wurden. Jedes Ergebnis nennt das Gebiet, in dem es gilt.",
+  searchNeedsScript:
+    "Filtern während des Tippens braucht JavaScript, das dieser Browser nicht ausführt. Alles, was in die Suche fällt, steht vollständig darunter.",
+  result: ["Treffer", "Treffer"],
+  nothingMatched: "Nichts passt zu Ihrer Eingabe. Alles, was in die Suche fällt, steht weiter unten.",
+  narrowDown: "Eingrenzen",
+  kindFacet: "Art",
+  statusFacet: "Stand",
+  scopeFacet: "Ebene",
+  profileFacet: "Zielgruppe",
+  territoryFacet: "Gebiet",
+  countryFacet: "Land",
+  clearFilters: "Filter löschen",
+  everythingHere: "Alles, was hier gilt",
+  searchFailed:
+    "Der Suchindex konnte nicht geladen werden; die Liste unten ist daher alles, was es gibt. Der Seite fehlt nichts, nur das Tippen.",
+} as const satisfies Record<keyof typeof EN, string | readonly [string, string] | readonly (readonly [string, string])[]>;
+
+const WORDS = { en: EN, es: ES, de: DE };
 
 /**
  * The situations, in the words somebody would use for their own. The hint under each one is what tells a
@@ -409,6 +605,16 @@ const SITUATIONS = {
     money: { title: "Pagar la puesta en marcha", hint: "Ayudas, préstamos y avales para instalarse" },
     learn: { title: "Formarte, o que alguien te asesore", hint: "Cursos que habilitan, y personas que acompañan el proceso" },
     context: { title: "Las normas que hay detrás", hint: "Marcos, redes y los portales oficiales donde viven" },
+  },
+  de: {
+    land: { title: "Flächen finden", hint: "Flächen zum Pachten, zum Kaufen oder von jemandem, der sie abgibt" },
+    handover: {
+      title: "Den Betrieb übergeben oder übernehmen",
+      hint: "Hilfe dabei, einen Betrieb an die Person weiterzugeben, die ihn weiterführt",
+    },
+    money: { title: "Den Start bezahlen", hint: "Zuschüsse, Darlehen und Bürgschaften für die Niederlassung" },
+    learn: { title: "Sich ausbilden oder beraten lassen", hint: "Kurse, die qualifizieren, und Menschen, die begleiten" },
+    context: { title: "Die Regeln dahinter", hint: "Rechtsrahmen, Netzwerke und die amtlichen Portale, auf denen sie stehen" },
   },
 } as const satisfies Record<Language, Record<GoalId, { title: string; hint: string }>>;
 

@@ -51,6 +51,17 @@ export const kindLabel = vocabulary<Resource["kind"]>({
     NETWORK: "Red",
     OTHER: "Otro",
   },
+  de: {
+    LAND_BANK: "Flächen",
+    SUCCESSION_SERVICE: "Übernahme",
+    FINANCIAL_SUPPORT: "Geld",
+    TRAINING: "Ausbildung",
+    ADVICE: "Beratung",
+    OFFICIAL_PORTAL: "Amtliches Portal",
+    POLICY: "Regeln",
+    NETWORK: "Netzwerk",
+    OTHER: "Sonstiges",
+  },
 });
 
 /**
@@ -72,6 +83,13 @@ export const stateLabel = vocabulary<Resource["status"]>({
     DISCONTINUED: "ya no se ofrece",
     UNKNOWN: "no se pudo confirmar",
   },
+  de: {
+    ACTIVE: "in Betrieb",
+    ANNOUNCED_NOT_OPERATING: "angekündigt, nicht in Betrieb",
+    HISTORICAL: "beendet, als Nachweis erhalten",
+    DISCONTINUED: "wird nicht mehr angeboten",
+    UNKNOWN: "nicht bestätigt",
+  },
 });
 
 /** How far a resource reaches. Said as an extent a reader can place themselves in, not as a tier name. */
@@ -89,6 +107,13 @@ export const reachLabel = vocabulary<Scope["level"]>({
     REGIONAL: "Toda la región",
     SUBREGIONAL: "Parte de la región",
     LOCAL: "Uno o varios municipios",
+  },
+  de: {
+    EU: "Überall in der Europäischen Union",
+    NATIONAL: "Das ganze Bundesgebiet",
+    REGIONAL: "Das ganze Bundesland",
+    SUBREGIONAL: "Ein Teil des Bundeslandes",
+    LOCAL: "Eine oder mehrere Gemeinden",
   },
 });
 
@@ -108,6 +133,13 @@ export const operatorTypeLabel = vocabulary<Resource["operatorType"]>({
     MIXED: "Pública y privada a la vez",
     UNKNOWN: "Las fuentes no lo dicen",
   },
+  de: {
+    PUBLIC: "Öffentliche Stelle",
+    NONPROFIT: "Gemeinnützige Organisation",
+    PRIVATE: "Privates Unternehmen",
+    MIXED: "Öffentlich und privat gemeinsam",
+    UNKNOWN: "Die Quellen sagen es nicht",
+  },
 });
 
 export const costLabel = vocabulary<NonNullable<Resource["accessCostType"]>>({
@@ -122,6 +154,12 @@ export const costLabel = vocabulary<NonNullable<Resource["accessCostType"]>>({
     FEE_REQUIRED: "Tiene coste",
     NOT_APPLICABLE: "No hay nada que solicitar",
     UNKNOWN: "Las fuentes no lo dicen",
+  },
+  de: {
+    FREE: "Kostenlos",
+    FEE_REQUIRED: "Es fallen Kosten an",
+    NOT_APPLICABLE: "Es gibt nichts zu beantragen",
+    UNKNOWN: "Die Quellen sagen es nicht",
   },
 });
 
@@ -139,6 +177,13 @@ export const instrumentLabel = vocabulary<NonNullable<Resource["instrumentType"]
     GUARANTEE: "Aval para un préstamo",
     INTEREST_SUBSIDY: "Ayuda para los intereses de un préstamo",
     OTHER: "Otro tipo de apoyo",
+  },
+  de: {
+    GRANT: "Zuschuss",
+    LOAN: "Darlehen",
+    GUARANTEE: "Bürgschaft für ein Darlehen",
+    INTEREST_SUBSIDY: "Hilfe bei den Zinsen eines Darlehens",
+    OTHER: "Andere Art von Unterstützung",
   },
 });
 
@@ -159,21 +204,32 @@ export const purposeLabel = vocabulary<NonNullable<Resource["purposes"]>[number]
     RETIREMENT_SUCCESSION: "jubilarse y dejar el relevo",
     OTHER: "otra cosa",
   },
+  de: {
+    FIRST_ESTABLISHMENT: "sich erstmals niederlassen",
+    INVESTMENT: "in den Betrieb investieren",
+    LAND_ACQUISITION: "an Flächen kommen",
+    TRANSFER: "den Betrieb übergeben",
+    RETIREMENT_SUCCESSION: "in den Ruhestand gehen und die Nachfolge regeln",
+    OTHER: "etwas anderes",
+  },
 });
 
 export const assetLabel = vocabulary<NonNullable<Resource["assetTypes"]>[number]>({
   en: { PLOTS: "plots of land", WHOLE_HOLDINGS: "whole holdings" },
   es: { PLOTS: "parcelas", WHOLE_HOLDINGS: "explotaciones completas" },
+  de: { PLOTS: "Flurstücke", WHOLE_HOLDINGS: "ganze Betriebe" },
 });
 
 export const sectorLabel = vocabulary<NonNullable<Resource["sectors"]>[number]>({
   en: { AGRICULTURE: "crops", LIVESTOCK: "livestock", FORESTRY: "forestry" },
   es: { AGRICULTURE: "agricultura", LIVESTOCK: "ganadería", FORESTRY: "forestal" },
+  de: { AGRICULTURE: "Ackerbau", LIVESTOCK: "Tierhaltung", FORESTRY: "Forstwirtschaft" },
 });
 
 export const formatLabel = vocabulary<NonNullable<Resource["trainingFormats"]>[number]>({
   en: { IN_PERSON: "in person", ONLINE: "online", HYBRID: "part in person, part online", OTHER: "another format" },
   es: { IN_PERSON: "presencial", ONLINE: "en línea", HYBRID: "mixto, presencial y en línea", OTHER: "otro formato" },
+  de: { IN_PERSON: "in Präsenz", ONLINE: "online", HYBRID: "teils in Präsenz, teils online", OTHER: "anderes Format" },
 });
 
 /** Who it is for, in the words somebody would use about themselves rather than about a beneficiary class. */
@@ -196,10 +252,23 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
     LAND_SEEKER: "quien busca tierra",
     GENERAL: "cualquier persona",
   },
+  de: {
+    YOUNG_FARMER: "Junglandwirtinnen und Junglandwirte",
+    NEW_ENTRANT: "Menschen, die in die Landwirtschaft einsteigen",
+    SUCCESSOR: "wer einen Betrieb übernimmt",
+    TRANSFEROR: "wer einen Betrieb übergibt",
+    LANDOWNER: "Menschen, die Land besitzen",
+    LAND_SEEKER: "wer Flächen sucht",
+    GENERAL: "alle",
+  },
 });
 
 /** What "anyone" becomes once the source has also named somebody: an addition, not the whole answer. */
-const anyoneElse = vocabulary<"else">({ en: { else: "anyone else" }, es: { else: "cualquier otra persona" } });
+const anyoneElse = vocabulary<"else">({
+  en: { else: "anyone else" },
+  es: { else: "cualquier otra persona" },
+  de: { else: "alle anderen" },
+});
 
 /**
  * Who a record is for, read out as one answer.
@@ -234,11 +303,18 @@ export const callStateLabel = vocabulary<Call["state"]>({
     CLOSED: "ya cerrado",
     NOT_PUBLISHED: "sin plazo publicado",
   },
+  de: {
+    UPCOMING: "noch nicht geöffnet",
+    OPEN: "offen",
+    CLOSED: "bereits geschlossen",
+    NOT_PUBLISHED: "kein Zeitraum veröffentlicht",
+  },
 });
 
 export const channelLabel = vocabulary<ContactPoint["channel"]>({
   en: { EMAIL: "Email", PHONE: "Telephone", FORM: "Form", OFFICE: "Office" },
   es: { EMAIL: "Correo electrónico", PHONE: "Teléfono", FORM: "Formulario", OFFICE: "Oficina" },
+  de: { EMAIL: "E-Mail", PHONE: "Telefon", FORM: "Formular", OFFICE: "Dienststelle" },
 });
 
 /** What happened, as a thing that happened rather than as an event class. */
@@ -265,6 +341,17 @@ export const newsTypeLabel = vocabulary<NewsItem["type"]>({
     FIGURE: "Cifra publicada",
     OTHER: "Ocurrió",
   },
+  de: {
+    ANNOUNCEMENT: "Angekündigt",
+    LAUNCH: "Betrieb aufgenommen",
+    CALL_OPENED: "Ein Zeitraum wurde geöffnet",
+    CALL_CLOSED: "Ein Zeitraum wurde geschlossen",
+    LAW_OR_REGULATION: "Rechtsvorschrift veröffentlicht",
+    CHANGE: "Geändert",
+    DISCONTINUATION: "Beendet",
+    FIGURE: "Zahl veröffentlicht",
+    OTHER: "Geschehen",
+  },
 });
 
 const UNITS = countedVocabulary<Metric["unit"]>({
@@ -287,6 +374,16 @@ const UNITS = countedVocabulary<Metric["unit"]>({
     HOLDINGS: ["explotación", "explotaciones"],
     PEOPLE: ["persona", "personas"],
     HOURS: ["hora", "horas"],
+  },
+  de: {
+    EUR: ["Euro", "Euro"],
+    HECTARES: ["Hektar", "Hektar"],
+    PARCELS: ["Flurstück", "Flurstücke"],
+    OFFERS: ["Angebot", "Angebote"],
+    PROPERTIES: ["Grundstück", "Grundstücke"],
+    HOLDINGS: ["Betrieb", "Betriebe"],
+    PEOPLE: ["Person", "Personen"],
+    HOURS: ["Stunde", "Stunden"],
   },
 });
 
@@ -321,6 +418,17 @@ const LANGUAGE_NAMES = {
     gl: "gallego",
     it: "italiano",
     pt: "portugués",
+  },
+  de: {
+    ca: "Katalanisch",
+    de: "Deutsch",
+    en: "Englisch",
+    es: "Spanisch",
+    eu: "Baskisch",
+    fr: "Französisch",
+    gl: "Galicisch",
+    it: "Italienisch",
+    pt: "Portugiesisch",
   },
 } as const satisfies Record<Language, Record<string, string>>;
 
