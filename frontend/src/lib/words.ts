@@ -12,7 +12,27 @@ import { asLanguage, type Language } from "./language.ts";
 /** The English chrome, which is also the list every other language has to answer in full. */
 const EN = {
   siteName: "FarmSuccession",
-  tagline: "Public, sourced information about taking over or starting a farm in Europe",
+  tagline: "Farm succession across Europe",
+  lead: "Find land, funding, training and advice to start farming, take over a holding or hand one on.",
+  searchAcrossEurope: "Search resources across Europe",
+  browseAcrossEurope: "See every resource across Europe",
+  statsLabel: "The directory, by the numbers",
+  statRecords: ["documented resource", "documented resources"],
+  statCountries: ["country", "countries"],
+  statTerritories: ["territory", "territories"],
+  statSources: ["source cited", "sources cited"],
+  trustSourced: "Source-linked",
+  trustDated: "Sources dated",
+  trustOpen: "Openly licensed data",
+  countriesTitle: "Countries",
+  countriesLead: "{territories} across {countries}.",
+  statApplicable: ["applicable resource", "applicable resources"],
+  euAlso: "Each total includes the {n} European resources that apply in every country.",
+  kindsTitle: "Other types of resources",
+  newsCount: "{n} dated updates in the {edition} edition",
+  editionAllDrafts:
+    "{edition} edition. All {files} files are drafts: checked automatically, waiting for a person. Check the official source before acting.",
+  editionSomeDrafts: "{edition} edition. {drafts} of {files} files are drafts: checked automatically, waiting for a person.",
   europe: "Europe",
   skip: "Skip to the content",
   draftTitle: "Nobody has reviewed this page yet",
@@ -41,6 +61,60 @@ const EN = {
   sharedLayers: "Groupings with a layer of their own",
   inheritedFromAbove: "Everything above also applies here, and is listed with it.",
   notAService: "This is a directory of verified references, not a replacement for the official services.",
+
+  // The project page.
+  aboutSlug: "about",
+  aboutTitle: "About this project",
+  aboutIntro:
+    "An independent directory maintained by José Antonio Cano Trigueros. It brings together land, funding, training and advice to start farming, take over a holding or hand one on. Applications and services are handled by the organisations linked in each record.",
+  overviewTitle: "What this project is",
+  overviewLead:
+    "FarmSuccession is a documentary inventory of public resources for farm succession and access to farming. It helps people find land, funding, training, advice and transfer services; it is not a marketplace, an advisory service or an application portal.",
+  methodTitle: "Method and coverage",
+  methodLead:
+    "The directory is not exhaustive. Content stays in its original language, and searching across languages does not translate your words. Automated checks are separate from human review. A resource marked as operating does not necessarily have an open application period: each record says whether you can apply now, and on what date a page said so.",
+  methodSteps: [
+    ["Primary sources", "Public administrations and the bodies that run each resource."],
+    ["Quoted word for word", "Each record carries the words that were on the page, so its summary can be checked against them."],
+    [
+      "Checked by machine",
+      "Structure, consistency and reachable sources. These checks do not replace a person, and they confirm nothing about current availability.",
+    ],
+    ["Dated", "Every source says when it was read. Circumstances may have changed since."],
+  ],
+  notOfficial: "FarmSuccession is not an official service and does not represent the administrations or organisations it links to.",
+  contactTitle2: "Contact and corrections",
+  contactLead:
+    "Something out of date, a broken link, a resource missing: write and say so. Every suggestion is checked against public sources before anything changes here.",
+  privacyTitle: "Privacy",
+  privacyLead:
+    "This site has no analytics, no advertising cookies and no accounts. Searching runs in your browser and nothing you type leaves it. The hosting provider may keep technical access logs. Writing to us shares whatever you choose to put in the message.",
+  // The project that held this domain before.
+  historySlug: "history",
+  historyNav: "The 2014-2016 project",
+  historyTitle: "The European Farm Succession project and this domain",
+  historyIntro:
+    "Between 2016 and 2018 this domain hosted the results of a different European project. This page records what that project was, what it produced and how it relates to the present site.",
+  historyObjectivesTitle: "Problem and objectives",
+  historyObjectivesLead:
+    "The project responded to an ageing farming population, holdings without an identified successor and the difficulty faced by people entering farming from outside a farming family. The partners shared and adapted methods for family and extra-family transfer, and aimed to place generational renewal on the European policy agenda.",
+  historyPartnersTitle: "Countries and partners",
+  historyPartnersLead:
+    "Farm Succession in Europe was an Erasmus+ project (2014-2016), coordinated by FRCIVAM Bretagne with InterAFOCG in France, Terre-en-vue in Belgium, NEL in Austria and Land & Co / Landgilde in the Netherlands.",
+  historyResultsTitle: "Principal results",
+  historyResultsLead:
+    "The partners shared methods for family and extra-family transfer. Their main surviving output is a 52-page toolkit covering an eight-stage succession process and twelve practical tools, presented at the Brussels conference on 7 and 8 November 2016.",
+  historyDocumentsTitle: "Original documents and preservation",
+  historyDocument: "Read the original 2016 toolkit (PDF, 3.9 MB)",
+  historyPreservation:
+    "The original toolkit has been recovered and is kept at the address it had, so links to it from elsewhere still work. No copy of the separate concept note or of the opening slides has been located, so their contents are not reconstructed here.",
+  historyCurrentTitle: "Relationship with the current site",
+  historyCurrentLead:
+    "The original project ended and the domain later lapsed. José Antonio Cano Trigueros registered it again in 2026 for this independent, non-commercial inventory. The current site is not a continuation of, and does not represent, the former consortium.",
+  backAbout: "Return to About this project",
+  licenceTitle: "Licence",
+  licenceLead:
+    "Original directory content is offered under CC BY 4.0. Quotations and linked materials keep the rights of whoever published them.",
   trust:
     "Every record comes from a public administration or the body that runs the service, and carries its own sources and the dates they were read.",
   optOut: "If your organisation does not want to appear in the inventory, ask for it to be taken out:",
@@ -131,7 +205,28 @@ const EN = {
  */
 const ES = {
   siteName: "FarmSuccession",
-  tagline: "Información pública y con fuente sobre tomar el relevo de una explotación o empezar una en Europa",
+  tagline: "Relevo agrario en Europa",
+  lead: "Encuentra tierras, ayudas, formación y asesoramiento para incorporarte al campo, hacerte cargo de una explotación o traspasar la tuya.",
+  searchAcrossEurope: "Buscar recursos en toda Europa",
+  browseAcrossEurope: "Ver todos los recursos de Europa",
+  statsLabel: "El directorio en cifras",
+  statRecords: ["recurso documentado", "recursos documentados"],
+  statCountries: ["país", "países"],
+  statTerritories: ["territorio", "territorios"],
+  statSources: ["fuente citada", "fuentes citadas"],
+  trustSourced: "Con fuente enlazada",
+  trustDated: "Fuentes fechadas",
+  trustOpen: "Datos con licencia abierta",
+  countriesTitle: "Países",
+  countriesLead: "{territories} en {countries}.",
+  statApplicable: ["recurso aplicable", "recursos aplicables"],
+  euAlso: "Cada total incluye los {n} recursos europeos que se aplican en todos los países.",
+  kindsTitle: "Otros tipos de recursos",
+  newsCount: "{n} novedades fechadas en la edición {edition}",
+  editionAllDrafts:
+    "Edición {edition}. Los {files} archivos son borradores: comprobados automáticamente, a la espera de una persona. Comprueba la fuente oficial antes de actuar.",
+  editionSomeDrafts:
+    "Edición {edition}. {drafts} de {files} archivos son borradores: comprobados automáticamente, a la espera de una persona.",
   europe: "Europa",
   skip: "Ir al contenido",
   draftTitle: "Nadie ha revisado todavía esta página",
@@ -160,6 +255,58 @@ const ES = {
   sharedLayers: "Agrupaciones con capa propia",
   inheritedFromAbove: "Todo lo de las capas superiores se aplica también aquí, y aparece en la misma lista.",
   notAService: "Es un directorio de referencias verificadas, no un sustituto de los servicios oficiales.",
+
+  aboutSlug: "proyecto",
+  aboutTitle: "Sobre el proyecto",
+  aboutIntro:
+    "Directorio independiente mantenido por José Antonio Cano Trigueros. Reúne tierras, ayudas, formación y asesoramiento para incorporarse al campo, hacerse cargo de una explotación o traspasarla. Los trámites y servicios corresponden a las entidades enlazadas en cada ficha.",
+  overviewTitle: "Qué es este proyecto",
+  overviewLead:
+    "FarmSuccession es un inventario documental de recursos públicos para el relevo agrario y el acceso a la actividad. Sirve para encontrar tierra, ayudas, formación, asesoramiento y servicios de transmisión; no es un mercado, ni un servicio de asesoría, ni un portal de solicitudes.",
+  methodTitle: "Método y cobertura",
+  methodLead:
+    "El directorio no es exhaustivo. El contenido se mantiene en su idioma original, y buscar en varios idiomas no traduce tus palabras. Las comprobaciones automáticas no sustituyen la revisión de una persona. Que un recurso figure en funcionamiento no significa que haya un plazo abierto: cada ficha dice si se puede solicitar ahora, y en qué fecha lo decía una página.",
+  methodSteps: [
+    ["Fuentes primarias", "Administraciones públicas y las entidades que gestionan cada recurso."],
+    ["Citado palabra por palabra", "Cada ficha lleva las palabras que había en la página, para poder contrastar el resumen con ellas."],
+    [
+      "Comprobado por máquina",
+      "Estructura, coherencia y fuentes alcanzables. Estas comprobaciones no sustituyen a una persona y no confirman nada sobre la disponibilidad actual.",
+    ],
+    ["Fechado", "Cada fuente dice cuándo se leyó. Las circunstancias pueden haber cambiado desde entonces."],
+  ],
+  notOfficial: "FarmSuccession no es un servicio oficial y no representa a las administraciones ni a las entidades que enlaza.",
+  contactTitle2: "Contacto y correcciones",
+  contactLead:
+    "Algo desactualizado, un enlace roto, un recurso que falta: escríbenos y dilo. Cada aviso se comprueba contra fuentes públicas antes de que aquí cambie nada.",
+  privacyTitle: "Privacidad",
+  privacyLead:
+    "Este sitio no tiene analítica, ni cookies publicitarias, ni cuentas. La búsqueda se ejecuta en tu navegador y nada de lo que escribes sale de él. El proveedor de alojamiento puede conservar registros técnicos de acceso. Al escribirnos compartes lo que decidas poner en el mensaje.",
+  historySlug: "historia",
+  historyNav: "El proyecto de 2014-2016",
+  historyTitle: "El proyecto European Farm Succession y este dominio",
+  historyIntro:
+    "Entre 2016 y 2018 este dominio alojó los resultados de otro proyecto europeo. Esta página documenta qué fue, qué produjo y qué relación tiene con el sitio actual.",
+  historyObjectivesTitle: "Problema y objetivos",
+  historyObjectivesLead:
+    "El proyecto respondía al envejecimiento de la población agraria, a las explotaciones sin sucesor identificado y a las dificultades para incorporarse al campo desde fuera de una familia agraria. Los socios compartieron y adaptaron métodos para transmisiones familiares y extrafamiliares e intentaron situar el relevo generacional en la agenda política europea.",
+  historyPartnersTitle: "Países y socios",
+  historyPartnersLead:
+    "Farm Succession in Europe fue un proyecto Erasmus+ (2014-2016), coordinado por FRCIVAM Bretagne junto con InterAFOCG en Francia, Terre-en-vue en Bélgica, NEL en Austria y Land & Co / Landgilde en los Países Bajos.",
+  historyResultsTitle: "Resultados principales",
+  historyResultsLead:
+    "Los socios compartieron métodos para la transmisión familiar y extrafamiliar. Su principal resultado conservado es una guía de 52 páginas con un proceso de ocho fases y doce herramientas prácticas, presentada en la conferencia de Bruselas del 7 y 8 de noviembre de 2016.",
+  historyDocumentsTitle: "Documentos originales y conservación",
+  historyDocument: "Leer la guía original de 2016 (PDF, 3,9 MB)",
+  historyPreservation:
+    "Se ha recuperado la guía original y se conserva en la dirección que tenía, para que los enlaces que apuntan a ella desde fuera sigan funcionando. No se ha localizado copia de la nota conceptual ni de las diapositivas iniciales, así que aquí no se reconstruye su contenido.",
+  historyCurrentTitle: "Relación con el sitio actual",
+  historyCurrentLead:
+    "El proyecto original terminó y el dominio caducó después. José Antonio Cano Trigueros lo registró de nuevo en 2026 para este inventario independiente y no comercial. El sitio actual no continúa ni representa al antiguo consorcio.",
+  backAbout: "Volver a Sobre el proyecto",
+  licenceTitle: "Licencia",
+  licenceLead:
+    "El contenido original del directorio se ofrece con licencia CC BY 4.0. Las citas y los materiales enlazados conservan los derechos de quien los publicó.",
   trust:
     "Cada ficha procede de una administración pública o de la entidad que gestiona el servicio, y lleva sus propias fuentes y las fechas en que se leyeron.",
   optOut: "Si tu entidad no quiere aparecer en el inventario, solicita su retirada:",
@@ -240,7 +387,7 @@ const ES = {
   everythingHere: "Todo lo que se aplica aquí",
   searchFailed:
     "No se ha podido cargar el índice de búsqueda, así que la lista de abajo es todo lo que hay. A la página no le falta nada; sólo le falta poder escribir.",
-} as const satisfies Record<keyof typeof EN, string | readonly [string, string]>;
+} as const satisfies Record<keyof typeof EN, string | readonly [string, string] | readonly (readonly [string, string])[]>;
 
 const WORDS = { en: EN, es: ES };
 
@@ -272,7 +419,11 @@ export const situation = (goal: GoalId, language: string): { title: string; hint
  * the two tables are one thing and no page can come to depend on the words of a particular language.
  */
 export type Words = {
-  readonly [Key in keyof typeof EN]: (typeof EN)[Key] extends readonly [string, string] ? readonly [string, string] : string;
+  readonly [Key in keyof typeof EN]: (typeof EN)[Key] extends readonly [string, string]
+    ? readonly [string, string]
+    : (typeof EN)[Key] extends readonly (readonly [string, string])[]
+      ? readonly (readonly [string, string])[]
+      : string;
 };
 
 export const words = (language: string): Words => WORDS[asLanguage(language)];

@@ -20,6 +20,10 @@ const text = words(language);
 
 const country = current === "/" ? undefined : current.split("/")[1]?.toUpperCase();
 
+/** The pages about the project itself, in this page's own language, which is the one its reader can read. */
+const aboutPath = country ? `/${country.toLowerCase()}/${text.aboutSlug}/` : `/${text.aboutSlug}/`;
+const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` : `/${text.historySlug}/`;
+
 const places = [
   { href: "/", label: text.europe },
   ...countryTerritories().map((territory) => ({ href: href(territory.layer), label: territory.data.officialName })),
@@ -50,6 +54,18 @@ const places = [
       ))}
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={searchPath("/", country)}>
         {text.searchAction}
+      </a>
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={aboutPath}>
+        {text.aboutTitle}
+      </a>
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={historyPath}>
+        {text.historyNav}
+      </a>
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#method`}>
+        {text.methodTitle}
+      </a>
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#privacy`}>
+        {text.privacyTitle}
       </a>
     </nav>
 

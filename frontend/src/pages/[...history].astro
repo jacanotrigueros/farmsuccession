@@ -1,0 +1,82 @@
+---
+/**
+ * The project that held this domain before, and what this site has to do with it: nothing, which is
+ * exactly why the page exists.
+ *
+ * Between 2016 and 2018 farmsuccession.eu published the results of an Erasmus+ project. That project
+ * ended, the domain lapsed, and it was registered again in 2026 for this inventory. Somebody arriving from
+ * an old link, a citation or a bibliography deserves to find out what happened rather than a page that
+ * behaves as though the earlier work never existed — and the one document of it that survived is kept at
+ * the address it had, so those links still resolve.
+ */
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { countryTerritories, euTerritory, href, languageOf, type Territory } from "../lib/corpus.ts";
+import { words } from "../lib/words.ts";
+
+export function getStaticPaths() {
+  const europe = euTerritory();
+  const everywhere: Territory[] = [...(europe ? [europe] : []), ...countryTerritories()];
+  return everywhere.map((territory) => {
+    const language = languageOf(territory);
+    const where = territory.layer.level === "EU" ? "" : `${territory.layer.country.toLowerCase()}/`;
+    return { params: { history: `${where}${words(language).historySlug}` }, props: { territory } };
+  });
+}
+
+const { territory } = Astro.props;
+const language = languageOf(territory);
+const text = words(language);
+const home = href(territory.layer);
+const about = `${home === "/" ? "/" : home}${text.aboutSlug}/`;
+
+const sections = [
+  { id: "objectives", label: text.historyObjectivesTitle, body: text.historyObjectivesLead },
+  { id: "partners", label: text.historyPartnersTitle, body: text.historyPartnersLead },
+  { id: "results", label: text.historyResultsTitle, body: text.historyResultsLead },
+];
+---
+
+<SiteLayout title={`${text.historyTitle} · ${text.siteName}`} description={text.historyIntro} language={language} current={home}>
+  <div class="border-b border-line bg-card">
+    <div class="wrap py-10">
+      <h1 class="page-title max-w-4xl text-3xl text-balance sm:text-4xl">{text.historyTitle}</h1>
+      <p class="mt-5 max-w-3xl text-lg">{text.historyIntro}</p>
+      <p class="mt-3 max-w-3xl font-bold">{text.notOfficial}</p>
+    </div>
+  </div>
+
+  <div class="wrap pb-12">
+    <article class="max-w-3xl">
+      {sections.map((section, index) => (
+        <section id={section.id} class:list={[index === 0 ? "pt-10" : "mt-12 border-t border-line pt-8"]}>
+          <h2 class="scroll-mt-6 text-2xl font-bold">{section.label}</h2>
+          <p class="mt-4">{section.body}</p>
+        </section>
+      ))}
+
+      <section id="documents" class="mt-12 border-t border-line pt-8">
+        <h2 class="scroll-mt-6 text-2xl font-bold">{text.historyDocumentsTitle}</h2>
+        <p class="mt-4">
+          <a
+            class="inline-flex min-h-(--spacing-target) items-center font-bold underline"
+            href="/wp-content/uploads/2016/10/Farm-Succesion-Brochure.pdf"
+          >
+            {text.historyDocument}
+          </a>
+        </p>
+        <p class="meta mt-4">{text.historyPreservation}</p>
+      </section>
+
+      <section id="current-site" class="mt-12 border-t border-line pt-8">
+        <h2 class="scroll-mt-6 text-2xl font-bold">{text.historyCurrentTitle}</h2>
+        <p class="mt-4">{text.historyCurrentLead}</p>
+      </section>
+
+      <p class="mt-10">
+        <a class="inline-flex min-h-(--spacing-target) items-center font-bold underline" href={about}>
+          ← {text.backAbout}
+        </a>
+      </p>
+    </article>
+  </div>
+</SiteLayout>

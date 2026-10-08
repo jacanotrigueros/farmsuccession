@@ -113,10 +113,14 @@ test("nothing the site ships to a browser stores anything there", () => {
 
 test("every link inside the site reaches a page the build produced", () => {
   const built = new Set(pages.map(({ file }) => `/${file.replace(/index\.html$/u, "")}`));
+  const PUBLIC = path.join(import.meta.dirname, "..", "public");
   const assets = new Set(
-    readdirSync(path.join(import.meta.dirname, "..", "public"), { withFileTypes: true })
-      .filter((entry) => entry.isFile())
-      .map((entry) => `/${entry.name}`),
+    (function walk(dir: string): string[] {
+      return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+        const full = path.join(dir, entry.name);
+        return entry.isDirectory() ? walk(full) : [`/${path.relative(PUBLIC, full).split(path.sep).join("/")}`];
+      });
+    })(PUBLIC),
   );
   for (const { file, html } of pages) {
     for (const [, link] of html.matchAll(/<a\b[^>]*\bhref\s*=\s*["'](\/[^"'#]*)/giu)) {
@@ -127,22 +131,39 @@ test("every link inside the site reaches a page the build produced", () => {
   }
 });
 
-test("a page says it is unreviewed exactly when its data says so", () => {
+/**
+ * The home page counts the drafts rather than warning about one file, because it is about all of them;
+ * every page about a single territory or record carries the warning itself. Either way the claim has to
+ * follow the data, which is the one thing a reader cannot check for themselves.
+ */
+test("a page says what has not been reviewed, and the count follows the data", () => {
   const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
     .toSorted()
     .toReversed();
   const edition = editions[0];
   assert.ok(edition, "no edition to render");
-  const eu = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", edition, "eu.json"), "utf8")) as {
-    review: { status: string };
-  };
+
+  const files = (function walk(dir: string): { review: { status: string } }[] {
+    return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) return walk(full);
+      return entry.name.endsWith(".json") ? [JSON.parse(readFileSync(full, "utf8")) as { review: { status: string } }] : [];
+    });
+  })(path.join(REPOSITORY, "data", "editions", edition));
+  const drafts = files.filter(({ review }) => review.status === "DRAFT").length;
+
   const home = pages.find(({ file }) => file === "index.html");
   assert.ok(home, "no home page was built");
-  const warned = home.html.includes("Nobody has reviewed this page yet");
-  assert.equal(
-    warned,
-    eu.review.status === "DRAFT",
-    "the warning that nobody has reviewed a page is the one thing a reader has to be told first, and it has to follow the data",
+  const said = /All (\d+) files are drafts|(\d+) of (\d+) files are drafts/u.exec(home.html);
+  assert.ok(said, "the home page does not say how much of the edition nobody has checked yet");
+  const counted = Number(said[1] ?? said[2]);
+  assert.equal(counted, drafts, `the home page says ${counted} drafts and the edition has ${drafts}`);
+
+  const eu = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
+  assert.ok(eu, "no European record page was built");
+  assert.ok(
+    eu.html.includes("Nobody has reviewed this page yet"),
+    "a record page of a draft file does not carry the warning, which is the first thing its reader is owed",
   );
 });
 
