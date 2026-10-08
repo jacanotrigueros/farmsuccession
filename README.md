@@ -79,15 +79,16 @@ was taken —
 when, what it covered, and each URL with its status, HTTP code and, when it did not
 pass, why. `npm run report:sources` reads the series.
 
-The first two runs over the whole edition, on 8 October 2026, eight minutes apart:
+The runs over the whole edition on 8 October 2026, the first two eight minutes apart:
 
-|           | pages | PASS | FAIL | UNCHECKED |
-| --------- | ----- | ---- | ---- | --------- |
-| 22:15 UTC | 360   | 284  | 3    | 73        |
-| 22:23 UTC | 360   | 302  | 3    | 55        |
+|                                            | pages | PASS | FAIL | UNCHECKED |
+| ------------------------------------------ | ----- | ---- | ---- | --------- |
+| 22:15 UTC                                  | 360   | 284  | 3    | 73        |
+| 22:23 UTC                                  | 360   | 302  | 3    | 55        |
+| 22:58 UTC, after the certificate fix below | 360   | 289  | 3    | 68        |
 
 **Twenty pages gave a different answer in the second run than in the first**, and that
-is the number worth having. A single run reads like a measurement of the corpus and is
+is the number worth having. The third run makes the same point from the other side: it recovered eight pages no run had been able to read, and its total rose by five, because other pages went the other way in the meantime. A single run reads like a measurement of the corpus and is
 not one: it is a reading taken on one machine, on one network, at one moment. The
 series is what distinguishes a page that has gone from an evening when nothing could be
 reached — [`decisions/025`](decisions/025-a-source-is-gone-when-the-series-says-so.md)
@@ -106,13 +107,27 @@ What the two runs agree on:
   spread over many hosts, 18 refusals to verify a certificate chain, 12 HTTP 403 from
   hosts that decline automation, 2 DNS failures and 2 HTTP 404.
 
-The certificate failures are one finding, not eighteen: `www.mapa.gob.es` — the Spanish
-ministry, eight of the cited pages — serves a chain anchored in an FNMT root that the
-default store does not carry. `curl` fails on it too, and `openssl` says
-`Verify return code: 19`, so it is neither our bug nor a passing glitch.
+The certificate failures were one finding, not eighteen, and the series is what made
+it one. `www.mapa.gob.es` — the Spanish ministry, eight of the cited pages — serves a
+chain that includes the self-signed FNMT root the default store does not carry, so path
+building stopped there. `curl` failed on it too and `openssl` answered
+`Verify return code: 19`, so it was neither our bug nor a passing glitch.
+
 [`decisions/008`](decisions/008-complete-a-tls-chain.md) says what may be done about
-that and what may not: a cross-signed intermediate issued by a trusted root may be
-pinned, a trust anchor may never be added, and verification is never turned off.
+that and what may not: an intermediate issued and signed by a root the runtime already
+trusts may be pinned by fingerprint, a trust anchor may never be added, and verification
+is never turned off. FNMT publishes exactly such a certificate — the same
+`AC RAIZ FNMT-RCM SERVIDORES SEGUROS G2R`, cross-signed by the older `AC RAIZ FNMT-RCM`
+that the store does carry — and it is byte-identical to the one the ministry serves. It
+is now pinned in [`config/tls-intermediates.json`](config/tls-intermediates.json), and
+the eight pages read again: Spain's national layer went from 3 PASS and 8 UNCHECKED to
+**11 PASS, 0 FAIL, 0 UNCHECKED**.
+
+The self-signed twin FNMT publishes beside it was rejected: trusting it would add an
+anchor, which is the one thing that mechanism must never do. The two Gipuzkoa portals
+stay UNCHECKED for the same reason — their chain is anchored in Izenpe, which this
+runtime does not carry and which no cross-signed certificate links to a root that it
+does.
 
 ## How a territory becomes publishable
 

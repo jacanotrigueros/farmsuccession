@@ -165,6 +165,19 @@ release.
   one evening, every one of them a transport failure, and the next run read them fine.
   See [`decisions/025`](decisions/025-a-source-is-gone-when-the-series-says-so.md).
 
+### A chain completed, and one that cannot be
+
+- `www.mapa.gob.es` — the Spanish ministry, eight cited pages — served a chain including
+  the self-signed FNMT root the default store does not carry, so nothing could read them.
+  FNMT publishes the same certificate cross-signed by the older root that the store does
+  carry; it is byte-identical to the one the ministry serves, and it is now pinned by
+  fingerprint. Spain's national layer went from 3 PASS and 8 UNCHECKED to 11 PASS.
+- The self-signed twin published beside it was refused: trusting it would add an anchor,
+  which [`decisions/008`](decisions/008-complete-a-tls-chain.md) forbids and the checks
+  in `installIntermediates` reject on their own. The Gipuzkoa portals stay UNCHECKED for
+  that reason — their chain is anchored in Izenpe, and no cross-signed certificate links
+  it to a root this runtime trusts.
+
 ### Not here yet
 
 - Italy and Portugal: researched, not published here.
