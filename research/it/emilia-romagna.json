@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "emilia-romagna"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Il portale Agricoltura della Regione separa aiuti alle imprese, formazione e consulenza e bandi aperti.",
+    "Il 'pacchetto giovani' combina SRE01 per il primo insediamento e SRD01 per gli investimenti produttivi.",
+    "La pagina canonica del bando 2026 è sotto /sviluppo-rurale-23-27/opportunita/bandi/2026/; le scadenze vengono prorogate con determine dirigenziali elencate negli allegati, quindi la data va riletta a ogni passata.",
+    "Le pagine indicizzate dal portale talvolta vengono ricondotte alla homepage; in tal caso cercare la pagina nell'albero Sviluppo rurale 2023-2027 › Opportunità › Bandi invece di trattare la homepage come prova.",
+    "La homepage del portale è un indice generico: non è una risorsa di per sé.",
+    "Cercare anche Province, Comuni, GAL e servizi delle organizzazioni agricole quando offrono un percorso distinto.",
+    "Passata con la lista di controllo nazionale su un file esistente: restavano da compilare solo gli strumenti attesi.",
+    "Il Bollettino del 2016 presenta la Banca regionale della terra come PROGETTO DI LEGGE. Non trasformare il testo proposto in un inventario operativo senza una fonte successiva di attuazione.",
+    "Il bando SRH03 del 2025-2026 ammette domande degli organismi formatori: le sue finestre non sono automaticamente iscrizioni aperte per giovani agricoltori.",
+    "CIA Emilia Romagna descriveva assistenza diretta alle domande di insediamento del 2025; verificare separatamente l'offerta concreta sul bando 2026."
+  ],
+  "portals": [
+    {
+      "name": "Agricoltura, caccia e pesca — Regione Emilia-Romagna",
+      "url": "https://agricoltura.regione.emilia-romagna.it/",
+      "what": "Portale ufficiale per bandi, aiuti, formazione e consulenza agricola regionale."
+    },
+    {
+      "name": "Bandi Sviluppo rurale 2023-2027",
+      "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi",
+      "what": "Elenco dei bandi regionali del CSR per anno, con le pagine canoniche di ciascun bando."
+    },
+    {
+      "name": "Servizi all'impresa CIA Emilia Romagna",
+      "url": "https://emiliacentro.cia.it/allimpresa/",
+      "what": "Sedi e servizi CAA, compreso il supporto alle domande PSR e la valutazione della dimensione economica per i bandi giovani."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "er-young",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:agricoltura.regione.emilia-romagna.it SRE01 SRD01 pacchetto giovani primo insediamento"
+    },
+    {
+      "id": "er-young-open",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Emilia-Romagna SRE01 insediamento giovani agricoltori bando 2026"
+    },
+    {
+      "id": "er-transfer",
+      "kinds": ["SUCCESSION_SERVICE", "LAND_BANK", "ADVICE"],
+      "query": "site:agricoltura.regione.emilia-romagna.it ricambio generazionale subentro cessione azienda agricola"
+    },
+    {
+      "id": "er-banca-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Emilia-Romagna banca della terra terreni agricoli regionali giovani agricoltori"
+    },
+    {
+      "id": "er-training",
+      "kinds": ["TRAINING"],
+      "query": "site:agricoltura.regione.emilia-romagna.it SRH03 corso giovani imprenditori primo insediamento"
+    },
+    {
+      "id": "er-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "site:emiliaromagna.cia.it insediamento consulenza giovani"
+    },
+    {
+      "id": "er-land-local",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Emilia-Romagna comune GAL banca della terra terreni agricoli giovani subentro"
+    }
+  ],
+  "leads": [
+    {
+      "id": "er-pacchetto-giovani",
+      "name": "Pacchetto giovani SRE01 e SRD01",
+      "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/bando-2026-giovani-agricoltori",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "emilia-romagna-sre01-insediamento-giovani",
+      "reason": "Bando 2026 aperto: la pagina e la determina 17607 del 14 settembre confermano che le domande di sostegno SRE01/SRD01 scadono il 30 ottobre 2026 alle 13:00. Beneficiari, importi e domanda SIAG verificati sulle pagine regionali.",
+      "foundBy": "er-young-open",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "er-agricoltura-portale",
+      "name": "Portale Agricoltura, caccia e pesca",
+      "url": "https://agricoltura.regione.emilia-romagna.it/",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "REJECTED",
+      "reason": "Homepage generica del portale agricolo regionale: le citazioni sono solo voci di menu e non stabiliscono uno strumento per insediamento, subentro o trasferimento. Lo strumento concreto è il bando SRE01/SRD01.",
+      "foundBy": "er-young",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "er-banca-regionale-terra-proposta",
+      "name": "Progetto di legge Banca regionale della terra",
+      "url": "https://bur.regione.emilia-romagna.it/dettaglio-inserzione?i=b8a31c6c3c664f6ca9ee1a2b6f4ea339",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Il documento ufficiale è marcato PROGETTO DI LEGGE e risale al 2016. Le ricerche di inventario, lotti e procedura regionale attuale non hanno verificato una banca operativa. La notizia comunale trovata rinvia alla banca nazionale ISMEA e non costituisce un servizio regionale.",
+      "foundBy": "er-banca-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "er-srh03",
+      "name": "Bando SRH03 formazione degli imprenditori agricoli",
+      "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2025/srh03-formazione-degli-imprenditori-agricoli-degli-addetti-alle-imprese-operanti-nei-settori-agricoltura-zootecnia-industrie-alimentari-e-degli-altri-soggetti-privati-e-pubblici-funzionali-allo-sviluppo-delle-aree-rurali",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La pagina indica come beneficiari enti di formazione e altri soggetti accreditati, con termini per proposte e domande di sostegno degli erogatori. Non è una pagina di iscrizione a un corso concreto riconosciuto per il requisito SRE01.",
+      "foundBy": "er-training",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "er-cia-assistenza",
+      "name": "Assistenza CIA Emilia Romagna al primo insediamento",
+      "url": "https://emiliacentro.cia.it/allimpresa/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "emilia-romagna-cia-assistenza-insediamento",
+      "reason": "La pagina regionale dei servizi descrive supporto alle domande PSR e un controllo economico specifico dei bandi Insediamento Giovani; la comunicazione CIA sul bando 2025 offriva consulenza e presentazione delle domande. Stato UNKNOWN finché non sia confermata l'assistenza specifica sul bando 2026.",
+      "foundBy": "er-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "er-coldiretti-bando",
+      "name": "Coldiretti Emilia-Romagna — notizia Pacchetto Giovani 2026",
+      "url": "https://emilia-romagna.coldiretti.it/news/psr-2023-2027-pacchetto-giovani-2026/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina individuata descrive e diffonde il bando regionale, con una data anteriore alla proroga; non vi è stato verificato un servizio distinto di accompagnamento.",
+      "foundBy": "er-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "er-gal-bandi",
+      "name": "Indice dei bandi GAL 2026",
+      "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi-gal/2026",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "REJECTED",
+      "reason": "Indice generico esaminato senza una procedura concreta di accesso alla terra, insediamento o subentro verificabile nella pagina letta.",
+      "foundBy": "er-land-local",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "er-pacchetto-giovani",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Cercati inventario, lotti e assegnazioni attuali; il risultato regionale ufficiale era soltanto il progetto di legge del 2016. Un risultato comunale rimanda invece allo strumento nazionale ISMEA.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "NOT_FOUND",
+      "reason": "Cercati corsi per il requisito professionale SRE01 e consultato il bando SRH03: esso riguarda gli erogatori accreditati, non prova un corso concreto riconosciuto con iscrizioni accessibili ai nuovi agricoltori.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "FOUND",
+      "leadId": "er-cia-assistenza",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Prima passe regionale: individuato il vocabolario SRE01/SRD01 e il pacchetto giovani, ma nessuna risorsa pubblicata senza una pagina canonica leggibile e corrente."
+    },
+    {
+      "date": "2026-09-15",
+      "by": "CHATGPT (Codex)",
+      "summary": "Seconda passe: ammesso il portale agricolo regionale come risorsa di accesso; SRE01/SRD01 resta TO_CHECK perché non è stata verificata una pagina canonica corrente."
+    },
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Terza passe: trovata e verificata la pagina canonica del bando 2026 SRE01/SRD01 (aperto, scadenza prorogata al 30 ottobre 2026) e ammessa come risorsa; rifiutata la homepage generica ammessa nella passe precedente."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passata con la lista di controllo nazionale sul file esistente: confermato il bando di insediamento; banca della terra e formazione da verificare."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Passata 1.9.0: confermati bando SRE01/SRD01 e proroga con rettifica; aggiunta l'assistenza CIA con stato UNKNOWN. Respinta la presunta banca regionale fondata su un progetto di legge; SRH03 non è un'iscrizione a corsi per agricoltori. Restano da trovare un corso riconosciuto e servizi fondiari locali concreti."
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "lombardia"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Il catalogo bandi.regione.lombardia.it espone per ogni bando destinatari, importi, finestra di presentazione e allegati: è la fonte più completa e leggibile.",
+    "La Banca della Terra Lombarda è istituita da legge regionale del 2014 e si alimenta tramite i comuni; la pagina regionale aggiornata nel marzo 2026 distingue elenchi disponibili e avvisi pubblici.",
+    "Nel 2026 è pubblicato un fondo complementare distinto dal premio SRE01: è riservato a imprese già beneficiarie e la finestra annunciata non apre prima del 13 ottobre.",
+    "Le disposizioni SRE01 2026 esaminate elencano titoli agricoli o esperienza lavorativa per la competenza professionale; non si deve trasferire automaticamente il requisito di un corso di 150 ore da altri bandi o regioni.",
+    "La precedente URL regionale con /wps/portal/ redirige alla homepage: per la banca usare la nuova pagina /agricoltura/tutela-del-suolo-agricolo/banca-della-terra.",
+    "Una pagina comunale che raccoglie istanze per la Banca della Terra Lombarda non crea necessariamente una banca comunale distinta."
+  ],
+  "portals": [
+    {
+      "name": "Bandi e servizi di Regione Lombardia",
+      "url": "https://www.bandi.regione.lombardia.it/",
+      "what": "Schede dei bandi SRE01 e del fondo complementare con disposizioni, scadenze e accesso."
+    },
+    {
+      "name": "Agricoltura di Regione Lombardia",
+      "url": "https://www.regione.lombardia.it/agricoltura",
+      "what": "Politiche agricole, tutela del suolo e Banca della Terra."
+    },
+    {
+      "name": "SIGMATER",
+      "url": "https://www.catasto.servizirl.it/rlter/",
+      "what": "Visualizzatore catastale collegato dalla pagina della Banca della Terra; richiede verifica manuale delle particelle."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "lom-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Lombardia bando insediamento giovani agricoltori 2026 SRE01 CSR domanda SISCO"
+    },
+    {
+      "id": "lom-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Lombardia banca della terra terreni agricoli regionali giovani agricoltori ERSAF"
+    },
+    {
+      "id": "lom-fondo-sre01",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Lombardia fondo insediamento giovani agricoltori 2026 beneficiari SRE01 Bandi e Servizi"
+    },
+    {
+      "id": "lom-formazione",
+      "kinds": ["TRAINING"],
+      "query": "Lombardia SRE01 2026 formazione competenza professionale corso accreditato primo insediamento"
+    },
+    {
+      "id": "lom-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Lombardia CIA Coldiretti Confagricoltura servizio concreto passaggio generazionale subentro agricolo"
+    },
+    {
+      "id": "lom-comuni-gal",
+      "kinds": ["LAND_BANK", "TRAINING", "SUCCESSION_SERVICE"],
+      "query": "Lombardia comune GAL associazione fondiaria giovani agricoltori accesso terreni tutoraggio successione"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lom-bando-insediamento",
+      "name": "Insediamento giovani agricoltori, bando 2026",
+      "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/agricoltura/psn-pac-2023-2027-insediamento-giovani-agricoltori-sviluppo-rurale-bando-2026-RLM12026052310",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "lombardia-insediamento-giovani-agricoltori",
+      "reason": "Scheda e disposizioni dell'operatore lette: premio, condizioni territoriali, accesso Sis.Co. e finestra 16 febbraio–30 aprile 2026. La scheda indica «Chiuso»; l'allegato di luglio riguarda gli esiti istruttori, non nuove domande.",
+      "foundBy": "lom-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lom-banca-terra",
+      "name": "Banca della Terra Lombarda",
+      "url": "https://www.regione.lombardia.it/agricoltura/tutela-del-suolo-agricolo/banca-della-terra",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "lombardia-banca-della-terra",
+      "reason": "Pagina dell'operatore aggiornata il 17 marzo 2026: descrive elenchi pubblici e privati, richiesta ai proprietari e visualizzatore. L'allegato ZIP e le singole particelle non sono stati verificati.",
+      "foundBy": "lom-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lom-fondo-complementare",
+      "name": "Fondo per l'insediamento dei giovani agricoltori, anno 2026",
+      "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/fondo-l-insediamento-giovani-agricoltori-anno-2026-RLM12026053832",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "lombardia-fondo-insediamento-giovani-2026",
+      "reason": "Scheda, bando e FAQ letti: finanziamento de inversiones ulteriori per beneficiari SRE01, massimo 36.000 euro di contributo; la presentazione è UPCOMING dal 13 al 27 ottobre 2026. Distinto dal premio iniziale.",
+      "foundBy": "lom-fondo-sre01",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lom-sigmater",
+      "name": "Visualizzatore SIGMATER dei terreni",
+      "url": "https://www.catasto.servizirl.it/rlter/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Il collegamento della pagina regionale è stato aperto ma non ha restituito testo o particelle leggibili. Verificare con visualizzazione interattiva le particelle e le date, senza considerarlo una banca distinta.",
+      "foundBy": "lom-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lom-elenchi-zip",
+      "name": "Elenchi allegati dei terreni pubblici e privati",
+      "url": "https://www.regione.lombardia.it/agricoltura/tutela-del-suolo-agricolo/banca-della-terra",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La pagina regionale enlaza un ZIP con normativa ed elenchi, ma la lettura dell'allegato ha fallito. Scaricare e controllare elenchi, data propria e disponibilità prima di citare singoli terreni.",
+      "foundBy": "lom-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lom-milano-banca-terra",
+      "name": "Iscrizione comunale di terreni alla Banca della Terra Lombarda",
+      "url": "https://www.milanoabitare.org/it/web/guest/servizi/iscrizione-banca-della-terra-lombarda",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Il risultato di ricerca descrive una procedura del Comune di Milano, ma l'apertura diretta ha restituito 403. Leggere una pagina comunale alternativa prima di determinare se esiste una prestazione locale distinta dall'inventario regionale.",
+      "foundBy": "lom-comuni-gal",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lom-pregnana-banca-terra",
+      "name": "Avviso del Comune di Pregnana Milanese",
+      "url": "https://comune.pregnana.mi.it/documenti/banca-della-terra-lombardia/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Pagina letta: raccoglie istanze per la medesima Banca della Terra Lombarda, cita un termine del 2016 e non presenta un inventario comunale attuale e distinto.",
+      "foundBy": "lom-comuni-gal",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lom-cia-coltivare-futuri",
+      "name": "Coltivare futuri – CIA Centro Lombardia e Insor",
+      "url": "https://www.cia.it/news/notizie/cia-centro-lombardia-al-via-progetto-su-ricambio-generazionale/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "La pagina letta descrive questionari, analisi e una strategia di territorio sul ricambio generazionale, non un servizio accessibile di diagnosi, mediazione, matching o accompagnamento al subentro.",
+      "foundBy": "lom-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lom-cia-mandato-2026",
+      "name": "Impegno programmatico CIA Centro Lombardia per il ricambio",
+      "url": "https://www.cia.it/news/notizie/cia-centro-lombardia-amedeo-cattaneo-riconfermato-presidente/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina letta annuncia una priorità e un dialogo con scuole e istituzioni, senza procedura, contatto specifico o servizio di insediamento già erogato.",
+      "foundBy": "lom-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lom-corso-iap-annunci",
+      "name": "Annunci commerciali di corsi IAP da 150 ore",
+      "url": "https://milano.bakeca.it/dettaglio/corsi-formazione-professionale/corso-iap-milano-qualifica-di-imprenditore-agricolo-professionale-j9r5291141650",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "Pubblicità commerciale: non dimostra accreditamento dell'ente né validità per le condizioni professionali del bando lombardo SRE01 2026, che elenca altre prove di competenza.",
+      "foundBy": "lom-formazione",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "lom-ersaf-alpeggi",
+      "name": "Concessione degli alpeggi regionali ERSAF",
+      "url": "https://www.ersaf.lombardia.it/montagna/alpeggi-regionali/concessione-degli-alpeggi/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "La pagina dell'operatore riguarda concessioni patrimoniali di alpeggi regionali; non stabilisce uno strumento specifico per il primo accesso, il ricambio o la successione in un'azienda.",
+      "foundBy": "lom-terra",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "lom-bando-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "FOUND",
+      "leadId": "lom-banca-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "NOT_FOUND",
+      "reason": "Sono state esaminate le disposizioni SRE01 2026 e cercati corsi di operatori accreditati. Il bando elenca titoli agrari o esperienza lavorativa come prova di competenza; non è stato verificato un corso concreto ammesso per questo bando. Gli annunci commerciali di corsi da 150 ore non documentano tale condizione.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "NOT_FOUND",
+      "reason": "Ricerche su CIA, Coldiretti e Confagricoltura lombarde e apertura di due pagine CIA Centro Lombardia: documentano ricerca e intenzioni sul ricambio, ma non un servizio concreto e attuale di subentro o successione con via di accesso.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammessi il premio di primo insediamento e la Banca della Terra Lombarda."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-6)",
+      "summary": "Passata 1.9.0: confermati SRE01 2026 chiuso e Banca della Terra aggiornata; ammesso il fondo complementare con bando in apertura il 13 ottobre. Distinta la competenza professionale prevista dal bando da corsi commerciali generici. Restano da verificare elenchi e visualizzatore della terra e servizi specifici di organizzazioni agricole."
+    }
+  ]
+}

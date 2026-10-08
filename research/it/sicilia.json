@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "sicilia"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Il portale Sviluppo Rurale Sicilia 2023-2027 è il punto di partenza per interventi, bandi aperti, bandi chiusi e cronoprogramma.",
+    "Il precedente dominio PSR Sicilia mostra contenuti della programmazione 2014-2022 e date incoerenti; non usarlo per dimostrare un bando attuale senza una pagina specifica.",
+    "La Banca della Terra siciliana risulta istituita per legge, ma occorre trovare inventario, procedura o assegnazioni correnti prima di classificarla come attiva.",
+    "Espandere le ricerche con SRE01, primo insediamento, imprenditoria giovanile, ricambio generazionale, GAL e banca della terra.",
+    "Passata con la lista di controllo nazionale su un file esistente: restavano da compilare solo gli strumenti attesi.",
+    "SRE01 e SRE02 sono aiuti distinti: il secondo riguarda anche persone da 41 anni a meno di 61 anni.",
+    "La proroga annunciata nel settembre 2026 riguarda la documentazione dei bandi SRE01 e SRE02, non la presentazione di nuove domande.",
+    "Le pagine della Banca della Terra sul sito istituzionale hanno restituito timeout o errore 502 durante l'apertura; gli estratti del motore di ricerca non sostituiscono la lettura delle pagine. La pagina indicizzata dei beni disponibili sembra anteriore ai bandi documentati nel 2020 e 2021."
+  ],
+  "portals": [
+    {
+      "name": "Sviluppo Rurale Regione Sicilia",
+      "url": "https://svilupporurale.regione.sicilia.it/",
+      "what": "Portale ufficiale della programmazione rurale regionale con sezioni per interventi e bandi."
+    },
+    {
+      "name": "Banca della Terra di Sicilia",
+      "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/altri-contenuti/banca-della-terra-di-sicilia",
+      "what": "Indice istituzionale da riprovare per bandi, beni disponibili e riferimenti normativi."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "sicilia-sre01",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:regione.sicilia.it agricoltura SRE01 insediamento giovani agricoltori"
+    },
+    {
+      "id": "sicilia-land-bank",
+      "kinds": ["LAND_BANK"],
+      "query": "site:regione.sicilia.it agricoltura banca della terra inventario assegnazione"
+    },
+    {
+      "id": "sicilia-expanded",
+      "kinds": ["TRAINING", "ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Sicilia primo insediamento ricambio generazionale subentro azienda agricola GAL formazione"
+    },
+    {
+      "id": "sicilia-sre02-aggiornamenti",
+      "kinds": ["FINANCIAL_SUPPORT", "NEWS"],
+      "query": "site:svilupporurale.regione.sicilia.it SRE02 nuovi agricoltori graduatoria proroga domande documentazione"
+    },
+    {
+      "id": "sicilia-corso-operatore",
+      "kinds": ["TRAINING"],
+      "query": "Sicilia SRE01 SRE02 corso conduttore impresa agricola 150 ore ente iscrizione"
+    },
+    {
+      "id": "sicilia-organizzazioni-locali",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE", "LAND_BANK"],
+      "query": "Sicilia Cia Coldiretti Confagricoltura GAL sportello subentro azienda agricola ricambio generazionale banca terra"
+    }
+  ],
+  "leads": [
+    {
+      "id": "sicilia-portale-sviluppo-rurale",
+      "name": "Portale Sviluppo Rurale Regione Sicilia",
+      "url": "https://svilupporurale.regione.sicilia.it/",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "sicilia-portale-sviluppo-rurale",
+      "reason": "La pagina ufficiale aperta mostra interventi, bandi aperti e chiusi e cronoprogramma; le citazioni sono state ricontrollate.",
+      "foundBy": "portal",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sicilia-sre01-giovani",
+      "name": "SRE01 Insediamento giovani agricoltori",
+      "url": "https://svilupporurale.regione.sicilia.it/primo-insediamento-in-agricoltura/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "sicilia-sre01-insediamento-giovani",
+      "reason": "La pagina dell'operatore descrive premio, beneficiari e accesso; l'avviso del 29 maggio 2025 chiude le domande il 30 giugno 2025 e le graduatorie del 2026 attestano la gestione corrente. La proroga dell'ottobre 2026 riguarda documenti.",
+      "foundBy": "sicilia-sre01",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sicilia-banca-terra",
+      "name": "Banca della Terra di Sicilia",
+      "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/altri-contenuti/banca-della-terra-di-sicilia/bandi",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Le pagine istituzionali dei bandi, dei beni disponibili e dei riferimenti normativi hanno restituito timeout o 502 nell'apertura. Una pubblicazione istituzionale del 2023 descrive concessioni precedenti e l'indice segnala un atto del 2026, ma non dimostrano l'accesso a lotti correnti. Riprovare le pagine originali e aprire l'ultimo bando e l'inventario prima dell'ammissione.",
+      "foundBy": "sicilia-land-bank",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sicilia-sre02-nuovi",
+      "name": "SRE02 Insediamento nuovi agricoltori",
+      "url": "https://svilupporurale.regione.sicilia.it/primo-insediamento-in-agricoltura/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "sicilia-sre02-insediamento-nuovi",
+      "reason": "Intervento distinto per nuovi agricoltori da 41 a meno di 61 anni; la pagina dell'operatore indica premio e accesso, l'avviso successivo chiude le domande e la graduatoria definitiva è del 2026.",
+      "foundBy": "sicilia-sre02-aggiornamenti",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sicilia-assome-conduttore",
+      "name": "Corso Conduttore di Impresa Agricola — AssoMe Academy",
+      "url": "https://assome.org/product/corso-conduttore-impresa-agricola/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "La scheda del 28 settembre descriveva un corso di 150 ore per aspiranti agricoltori; il 30 settembre riporta soltanto nome, modalità online, sede e prezzo, senza destinatari, durata né finalità. Prossimo passo: trovare una pagina dell'operatore o della Regione che descriva il corso e il suo valore per il requisito formativo SRE01 o SRE02 prima di riammetterlo.",
+      "foundBy": "sicilia-corso-operatore",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "id": "sicilia-iblea-conduttore",
+      "name": "Corso Conduttore Impresa Agricola — MSR Iblea Formazione",
+      "url": "https://www.ibleaformazione.com/prodotto/corso-conduttore-impresa-agricola-ex-corso-capo-azienda-e-iap/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "La scheda collega il corso di 150 ore a SRE01 e SRE02, ma mostra 0,00 euro nel carrello e prevede l'invio successivo di un preventivo. Verificare costo, iscrizione effettiva e riconoscimento della specifica edizione prima di pubblicarla.",
+      "foundBy": "sicilia-corso-operatore",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sicilia-confapi-notizia-sre01",
+      "name": "Articolo Confapi Sicilia sul bando SRE01",
+      "url": "https://confapisicilia.it/sre01-insediamento-giovani-agricoltori/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "L'articolo del 2023 riassume e rimanda al bando regionale; non descrive un servizio proprio di insediamento o subentro.",
+      "foundBy": "sicilia-organizzazioni-locali",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "sicilia-sre01-giovani",
+      "reason": "SRE01 verificato sulla pagina regionale, con proroga delle domande al 30 giugno 2025 e graduatoria definitiva del 2026; la convocazione per nuovi richiedenti è chiusa.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Cercati bandi, inventario, beni disponibili e atti del 2026 della Banca della Terra. Le pagine operative istituzionali non si sono aperte (timeout o 502); la pista sicilia-banca-terra resta TO_CHECK, senza affermare che lo strumento non esista.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "NOT_FOUND",
+      "reason": "L'unico corso verificato, quello di AssoMe Academy, non è più descritto dalla sua scheda; resta la pista sicilia-assome-conduttore da riverificare.",
+      "checkedOn": "2026-09-30"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "NOT_FOUND",
+      "reason": "Cercati servizi propri di insediamento e subentro presso Cia, Coldiretti, Confagricoltura, Confapi e GAL siciliani. La pagina Confapi letta ripubblica soltanto SRE01; non è stato verificato un distinto servizio con percorso di accesso locale.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Passata iniziale sui portali e seconda ricerca con SRE01, primo insediamento e banca della terra; pubblicato solo il portale verificabile e lasciati due strumenti da approfondire."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passata con la lista di controllo nazionale sul file esistente: nessuno strumento atteso risulta ancora documentato oltre al portale regionale."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Passata 1.9.0: ricontrollato il portale e ammessi SRE01, SRE02 e un corso per aspiranti agricoltori; distinte la chiusura delle domande nel 2025 dalla proroga documentale del 2026. La Banca della Terra resta TO_CHECK per pagine operative illeggibili; nessun servizio autonomo delle organizzazioni agricole è stato verificato. Copertura PARTIAL e file DRAFT."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisione delle fonti: la scheda AssoMe del corso Conduttore di Impresa Agricola ha perso descrizione, destinatari e durata; il corso esce dall'edizione, la pista torna TO_CHECK e la verifica della formazione per l'insediamento passa a NOT_FOUND."
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "IT",
+  "region": "lazio",
+  "officialName": "Lazio",
+  "published": "2026-09-28",
+  "summary": "La Banca della Terra regionale comprende terreni agricoli destinati a future procedure di vendita, ma non è stata verificata un'asta attualmente accessibile. Roma Capitale assegna terreni agricoli comunali con bandi distinti; l'ultimo bando verificato è chiuso. Nel Lazio sono stati inoltre attivati corsi di 150 ore per giovani imprenditori agricoli, con iscrizioni già chiuse nelle edizioni esaminate. Non è stato verificato un bando regionale SRE01.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Verificati la notizia regionale sulla Banca della Terra, l'attività preparatoria sulle perizie, il bando comunale di Roma e la sua chiusura, il registro regionale degli enti formativi e l'offerta concreta di Aisfor. Restano da trovare una procedura regionale attuale di vendita dei terreni, un eventuale bando SRE01 e un servizio regionale delle organizzazioni agricole specifico per l'insediamento o il passaggio aziendale.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Regione Lazio bando insediamento giovani agricoltori 2026 SRE01 CSR lazioeuropa"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Lazio banca della terra terreni agricoli regionali assegnazione giovani ARSIAL"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:regione.lazio.it/documenti SRE01 insediamento giovani agricoltori"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Roma Capitale terre pubbliche bando giovani agricoltori assegnazione 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Lazio corso 150 ore IAP primo insediamento ENUIP ENAPRA Aisfor"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "CIA Coldiretti Confagricoltura Lazio consulenza primo insediamento subentro azienda agricola"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://regione.lazio.it/notizie/banca-terra-elenco-terreni-agricoli"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://regione.lazio.it/cittadini/agricoltura/Formazione-PSR-avvisi-reclutamento-selezione-allievi"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.comune.roma.it/web/it/bando-concorso.page?contentId=BEC1220040"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "it",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "lazio-banca-della-terra",
+      "name": "Banca della Terra del Lazio",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Lazio",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Elenco di terreni agricoli del patrimonio regionale individuati per successive procedure di dismissione e vendita; è prevista una prelazione a favore dei giovani agricoltori per una parte degli appezzamenti.",
+      "whoCanUseIt": "I terreni sono destinati a procedure di vendita; la notizia regionale prevede una prelazione all'acquisto per giovani agricoltori sul 50% degli appezzamenti.",
+      "howToAccess": "Seguire le eventuali procedure regionali di vendita. La notizia sull'aggiornamento dell'elenco non contiene una procedura di domanda o un'asta attualmente verificata.",
+      "accessUrl": "https://regione.lazio.it/notizie/banca-terra-elenco-terreni-agricoli",
+      "assetTypes": ["PLOTS"],
+      "languages": ["it"],
+      "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER"],
+      "notes": "La notizia è del 9 dicembre 2024. Un atto regionale del 2025 commissiona perizie su 364 terreni della Banca della Terra, ma riguarda la preparazione delle vendite: non costituisce un'asta aperta agli agricoltori.",
+      "sources": [
+        {
+          "url": "https://regione.lazio.it/notizie/banca-terra-elenco-terreni-agricoli",
+          "title": "Banca della terra, aggiornato l'elenco dei terreni agricoli del Lazio",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "La delibera aggiorna la Banca della Terra, l’elenco che contiene le aree del patrimonio regionale destinate all’agricoltura.",
+            "09/12/2024",
+            "con la previsione, per il 50% degli appezzamenti, di un diritto di prelazione all’acquisto al prezzo di aggiudicazione dell’asta"
+          ]
+        },
+        {
+          "url": "https://www.regione.lazio.it/amministrazione-trasparente/atti-procedure-affidamento/3481",
+          "title": "Dettaglio della procedura – perizie dei terreni della Banca della Terra",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "servizio di redazione perizie di stima valore di mercato n. 364 terreni agricoli appartenenti alla c.d. \"banca della terra\"",
+            "Determinazione n. G11938 del 18/09/2025"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lazio-roma-terre-pubbliche-agricole",
+      "name": "Bandi di Roma Capitale per l'assegnazione di terre pubbliche agricole",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Roma Capitale"
+      },
+      "operator": "Roma Capitale",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Assegnazione in locazione di terreni agricoli comunali mediante bandi per il recupero produttivo dell'Agro romano, con premialità per la nuova imprenditoria agricola giovanile.",
+      "whoCanUseIt": "Soggetti che rispettano i requisiti dei singoli bandi comunali; il bando del 2024 prevedeva imprenditori agricoli professionali o coltivatori diretti, anche in forma cooperativa, e una premialità per la nuova imprenditoria agricola giovanile.",
+      "howToAccess": "Consultare i bandi pubblicati da Roma Capitale per i singoli lotti. La finestra del bando del 2024 è conclusa; la pagina dell'ufficio comunale resta il riferimento per nuove iniziative.",
+      "accessUrl": "https://www.comune.roma.it/web/it/bando-concorso.page?contentId=BEC1220040",
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "languages": ["it"],
+      "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER", "NEW_ENTRANT"],
+      "calls": [
+        {
+          "name": "Bando terre pubbliche 2024 – Tor dei Cenci e Casale della Caccia",
+          "state": "CLOSED",
+          "sourceUrl": "https://www.comune.roma.it/web/it/notizia/agricoltura-tre-proposte-il-bando-terre-pubbliche.page"
+        }
+      ],
+      "notes": "La dichiarazione municipale di marzo 2026 conferma che Roma Capitale continua a lavorare alla messa a bando di terre pubbliche; non è stata individuata una nuova finestra di domanda aperta. Il bando del 2024 ha ricevuto candidature e un lotto è stato poi assegnato.",
+      "sources": [
+        {
+          "url": "https://www.comune.roma.it/web/it/bando-concorso.page?contentId=BEC1220040",
+          "title": "Bando pubblico per l'assegnazione di terre agricole di proprietà di Roma Capitale",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Bando pubblico per l'assegnazione di terre agricole di proprietà di Roma Capitale", "27 giu 2024"]
+        },
+        {
+          "url": "https://www.comune.roma.it/web/it/notizia/agricoltura-tre-proposte-il-bando-terre-pubbliche.page",
+          "title": "Agricoltura, tre proposte per nuovo bando terre pubbliche",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Alla scadenza dei termini per la presentazione delle proposte imprenditoriali", "1 ottobre 2024"]
+        },
+        {
+          "url": "https://www.comune.roma.it/web/it/notizia/agricoltura-per-superare-disuguaglianze-ambientali-e-sociali.page",
+          "title": "L'agricoltura per superare disuguaglianze ambientali e sociali",
+          "consultedOn": "2026-09-28",
+          "quotes": ["6 marzo 2026", "Roma Capitale sta mettendo a bando le terre agricole pubbliche per giovani agricoltori."]
+        }
+      ]
+    },
+    {
+      "id": "lazio-aisfor-corso-iap-150-ore",
+      "name": "Corso IAP di 150 ore di Aisfor – seconda edizione",
+      "kind": "TRAINING",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Aisfor",
+      "operatorType": "PRIVATE",
+      "whatItOffers": "Corso gratuito di 150 ore per la qualificazione professionale agricola, finanziato con la misura formativa del PSR Lazio; la seconda edizione prevede attività in presenza e a distanza.",
+      "whoCanUseIt": "La seconda edizione era rivolta a titolari, dipendenti e coadiuvanti familiari sotto i 41 anni di imprese agricole localizzate nel Lazio, secondo i requisiti dell'avviso.",
+      "howToAccess": "La selezione della seconda edizione si effettuava tramite l'avviso e il modulo pubblicati da Aisfor. Il termine di iscrizione è scaduto l'11 luglio 2026; rivolgersi all'operatore per le edizioni future.",
+      "accessUrl": "https://www.aisfor.it/corso/iap-2025-ed-2/",
+      "languages": ["it"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "calls": [
+        {
+          "name": "Iscrizioni alla seconda edizione",
+          "state": "CLOSED",
+          "closes": "2026-07-11",
+          "sourceUrl": "https://www.aisfor.it/corso/iap-2025-ed-2/"
+        }
+      ],
+      "notes": "La scheda indica la conclusione del corso il 30 ottobre 2026, ma non conferma se le lezioni si stiano effettivamente svolgendo alla data della consultazione. La misura formativa si riferisce al PSR della programmazione precedente; non è stato dimostrato che il corso soddisfi un futuro bando SRE01.",
+      "sources": [
+        {
+          "url": "https://www.aisfor.it/corso/iap-2025-ed-2/",
+          "title": "IAP 2025 ED 2 – Aisfor",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Fine: 30/10/2026",
+            "Durata del corso: 150 ore",
+            "Aperte fino al 11/07/2026 (ore 12.00) le iscrizioni",
+            "tutti i titolari di imprese agricole localizzate nella Regione Lazio con meno di 41 anni"
+          ]
+        }
+      ]
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "Non è stata verificata un'asta o una procedura attuale per richiedere i terreni della Banca della Terra regionale.",
+    "Non è stato trovato un bando regionale SRE01 della programmazione in corso con una finestra di domanda verificabile; il bando regionale per l'insediamento trovato appartiene alla programmazione precedente.",
+    "Per i bandi comunali di Roma non è stata verificata una nuova finestra di candidatura nel 2026.",
+    "Le iscrizioni alle edizioni formative esaminate sono chiuse; non è verificata l'equivalenza del corso Aisfor con i requisiti di un futuro bando SRE01.",
+    "Non è stato verificato un servizio regionale attuale delle organizzazioni agricole specifico per l'insediamento o il passaggio d'azienda; una pagina di UNICOOP Lazio relativa all'assistenza su Generazione Terra non è stata accessibile."
+  ]
+}

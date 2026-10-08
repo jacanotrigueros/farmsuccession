@@ -1,0 +1,223 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "provincia-autonoma-trento"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "La scheda italiana SRE01 è nuovamente leggibile. L'etichetta di servizio «Attivo» non riapre il III bando, scaduto il 9 febbraio 2026.",
+    "La Banca della Terra è prevista e coordinata a livello provinciale; il Comune di Trento pubblica un servizio proprio per raccogliere dichiarazioni e mettere gli interessati in contatto con i proprietari. Un comunicato del 2017 non dimostra la disponibilità attuale dell'inventario provinciale.",
+    "Il Brevetto Professionale di Imprenditore Agricolo della Fondazione Edmund Mach è esplicitamente collegato al requisito professionale per il primo insediamento.",
+    "La CIA Trentino pubblica separatamente consulenza per l'apertura di aziende e assistenza in contratti agrari e successioni.",
+    "Non usare le scadenze della Domanda Unica o delle domande di pagamento come scadenze per nuove domande SRE01."
+  ],
+  "portals": [
+    {
+      "name": "Provincia autonoma di Trento, servizi",
+      "url": "https://www.provincia.tn.it/",
+      "what": "Schede provinciali SRE01, aggiornamenti e moduli."
+    },
+    {
+      "name": "Ufficio stampa della Provincia autonoma di Trento",
+      "url": "https://www.ufficiostampa.provincia.tn.it/",
+      "what": "Comunicati provinciali e modifiche ai bandi."
+    },
+    {
+      "name": "Comune di Trento — Banca della terra",
+      "url": "https://www.comune.trento.it/Servizi/Banca-della-terra",
+      "what": "Percorso comunale per proprietari e coltivatori interessati."
+    },
+    {
+      "name": "Fondazione Edmund Mach — corsi agricoli",
+      "url": "https://cif.fmach.it/I-Corsi/Corsi-Agricoli/Brevetto-professionale-per-imprenditori-agricoli",
+      "what": "Programma, quota e iscrizioni al Brevetto Professionale di Imprenditore Agricolo."
+    },
+    {
+      "name": "CIA Trentino — servizi alle imprese",
+      "url": "https://www.cia.tn.it/imprese/",
+      "what": "Consulenza per l'avvio di aziende agricole e ufficio contratti agrari e successioni."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "tn-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Provincia autonoma di Trento premio primo insediamento giovani agricoltori 2026 bando domanda"
+    },
+    {
+      "id": "tn-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Trentino banca della terra terreni agricoli incolti comune assegnazione provincia"
+    },
+    {
+      "id": "tn-sre01-modifiche",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:provincia.tn.it SRE01 giovani agricoltori bando 2026 proroga deliberazione 1109"
+    },
+    {
+      "id": "tn-terra-inventario",
+      "kinds": ["LAND_BANK"],
+      "query": "site:trentinoagricoltura.it \"Banca della Terra\" elenco terreni"
+    },
+    {
+      "id": "tn-terra-comuni",
+      "kinds": ["LAND_BANK"],
+      "query": "site:comune.trento.it \"elenco\" \"banca della terra\" particelle"
+    },
+    {
+      "id": "tn-bpia",
+      "kinds": ["TRAINING"],
+      "query": "site:fmach.it Brevetto professionale imprenditori agricoli 2026 iscrizione 14 ottobre"
+    },
+    {
+      "id": "tn-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Trentino azienda agricola cessione subentro sportello consulenza associazione produttori"
+    },
+    {
+      "id": "tn-cia-successioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "site:cia.tn.it/imprese/ successioni apertura azienda agricola Trentino"
+    }
+  ],
+  "leads": [
+    {
+      "id": "tn-bando-insediamento",
+      "name": "Bando provinciale per l'insediamento dei giovani agricoltori",
+      "url": "https://www.provincia.tn.it/Servizi/Bando-Intervento-SRE01-Insediamento-giovani-agricoltori",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "trento-sostegno-insediamento-giovani",
+      "reason": "La scheda italiana è ora leggibile. Il III bando si è chiuso il 9 febbraio 2026; il servizio resta pubblicato come attivo.",
+      "foundBy": "tn-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tn-sre01-delibera-luglio",
+      "name": "Deliberazione provinciale SRE01 n. 1109 del 17 luglio 2026",
+      "url": "https://www.provincia.tn.it/Servizi/Bando-Intervento-SRE01-Insediamento-giovani-agricoltori",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "La scheda elenca la modifica e collega il testo integrale, ma l'apertura del collegamento ha restituito un errore. Consultare la deliberazione nel registro provinciale e verificare se cambia requisiti, importi o scadenze; non inferire una proroga.",
+      "foundBy": "tn-sre01-modifiche",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tn-banca-terra",
+      "name": "Banca della Terra del Trentino",
+      "url": "https://www.ufficiostampa.provincia.tn.it/Comunicati/I-terreni-agricoli-incolti-Tutti-nella-Banca-della-Terra",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "trento-banca-della-terra",
+      "reason": "La fonte provinciale descrive il meccanismo e i comuni hanno funzioni proprie; lo stato attuale dell'inventario provinciale non è stato verificato e la risorsa resta UNKNOWN.",
+      "foundBy": "tn-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tn-banca-terra-comune-trento",
+      "name": "Banca della terra del Comune di Trento",
+      "url": "https://www.comune.trento.it/Servizi/Banca-della-terra",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "trento-comune-banca-della-terra",
+      "reason": "Servizio comunale aggiornato nel 2026 con iscrizione dei terreni e ufficio di contatto per le persone interessate a coltivarli. Il numero e la disponibilità dei terreni restano da verificare.",
+      "foundBy": "tn-terra-comuni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tn-banca-terra-riva",
+      "name": "Banca della terra — Comune di Riva del Garda",
+      "url": "https://www.comune.rivadelgarda.tn.it/Amministrazione/Documenti-e-dati/Documenti-di-programmazione-e-rendicontazione/Banca-della-terra",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "La pagina consultata riassume e riproduce la Banca della Terra provinciale e il suo quadro normativo, senza dimostrare un inventario comunale diverso o un percorso di domanda proprio per i richiedenti.",
+      "foundBy": "tn-terra-comuni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tn-fem-bpia",
+      "name": "Brevetto Professionale di Imprenditore Agricolo — Fondazione Edmund Mach",
+      "url": "https://cif.fmach.it/I-Corsi/Corsi-Agricoli/Brevetto-professionale-per-imprenditori-agricoli",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "trento-fem-brevetto-imprenditore-agricolo",
+      "reason": "Pagina dell'ente di formazione con programma, quota ed edizione 2026/28; un comunicato dell'ente del 24 settembre conferma le iscrizioni fino al 14 ottobre.",
+      "foundBy": "tn-bpia",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tn-cia-avvio",
+      "name": "Consulenza CAA CIA per l'avvio di un'azienda agricola",
+      "url": "https://www.cia.tn.it/imprese/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "trento-cia-consulenza-avvio-azienda",
+      "reason": "La CIA trentina descrive espressamente una consulenza per avviare un'impresa agricola e pubblica i recapiti degli uffici.",
+      "foundBy": "tn-cia-successioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tn-cia-contratti-successioni",
+      "name": "Ufficio contratti agrari e successioni CIA Trentino",
+      "url": "https://www.cia.tn.it/imprese/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "trento-cia-contratti-successioni",
+      "reason": "Pagina propria con servizi distinti per contratti agrari, subentri, successioni e conciliazione.",
+      "foundBy": "tn-cia-successioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "tn-confagricoltura-contratti",
+      "name": "Assistenza contrattuale Confagricoltura del Trentino",
+      "url": "https://confagricolturatn.it/servizi-alle-imprese/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina descrive una consulenza generale per imprese che già conducono terreni in affitto, ma non indica un servizio concreto di ingresso, subentro o successione nelle aziende.",
+      "foundBy": "tn-organizzazioni",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "tn-bando-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "FOUND",
+      "leadId": "tn-banca-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "FOUND",
+      "leadId": "tn-fem-bpia",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "FOUND",
+      "leadId": "tn-cia-avvio",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammessi il bando provinciale di insediamento e la Banca della Terra trentina."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-6, prompt 1.9.0)",
+      "summary": "Riletta la scheda italiana SRE01 e chiuso il III bando; stato dell'inventario provinciale della Banca della Terra ridotto a UNKNOWN, con accesso comunale di Trento documentato separatamente. Ammessi corso BPIA 2026/28 e due servizi CIA per avvio e successione. Deliberazione SRE01 di luglio da verificare; edizione DRAFT e copertura PARTIAL."
+    }
+  ]
+}

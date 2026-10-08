@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "campania"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Il portale agricoltura.regione.campania.it pubblica una pagina per ogni intervento del complemento regionale, con scadenze, materiali e contatti.",
+    "La Banca della Terra Campana è istituita da legge regionale e disciplinata da un regolamento del 2018; l’elenco dei terreni sulla pagina è fermo a dicembre 2019.",
+    "Il bando di insediamento è stato prorogato dal 15 al 30 settembre 2026.",
+    "SRE01 si rivolge ai giovani agricoltori; SRE02 è un intervento distinto per nuovi agricoltori. La graduatoria SRE02 del 2026 non riapre il bando chiuso nel 2024.",
+    "Il bando SRH03 riguarda gli organismi formatori. Occorre verificare separatamente l'iscrizione dei partecipanti ai corsi di primo insediamento.",
+    "Il portale dei corsi collegato alla pagina regionale ha restituito un errore di accesso durante questa passata; non dedurre che le iscrizioni siano aperte o chiuse."
+  ],
+  "portals": [
+    {
+      "name": "Assessorato agricoltura della Regione Campania",
+      "url": "https://agricoltura.regione.campania.it/",
+      "what": "Interventi del complemento regionale, bandi, banca della terra e comunicati."
+    },
+    {
+      "name": "Formazione professionale in agricoltura",
+      "url": "https://agricoltura.regione.campania.it/formazione/formazione_index.html",
+      "what": "Indice regionale degli interventi formativi e dei corsi autofinanziati."
+    },
+    {
+      "name": "Bandi e avvisi in corso",
+      "url": "https://agricoltura.regione.campania.it/bandi.html",
+      "what": "Indice regionale delle convocazioni aperte e degli avvisi per organismi formatori."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "cam-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Campania bando SRE01 insediamento giovani agricoltori 2026 CSR"
+    },
+    {
+      "id": "cam-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Campania banca della terra terreni agricoli regionali giovani agricoltori assegnazione"
+    },
+    {
+      "id": "cam-nuovi-agricoltori",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Campania SRE02 insediamento nuovi agricoltori bando graduatoria"
+    },
+    {
+      "id": "cam-corso-primo-insediamento",
+      "kinds": ["TRAINING"],
+      "query": "Campania corso gestione manageriale impresa agricola primo insediamento iscrizione SRH03"
+    },
+    {
+      "id": "cam-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Campania Coldiretti CIA consulenza primo insediamento subentro giovani agricoltori sportello"
+    },
+    {
+      "id": "cam-locale",
+      "kinds": ["LAND_BANK", "ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Campania comune GAL associazione fondiaria terreni giovani agricoltori accompagnamento insediamento"
+    }
+  ],
+  "leads": [
+    {
+      "id": "cam-sre01",
+      "name": "Intervento per l’insediamento dei giovani agricoltori",
+      "url": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE01.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "campania-insediamento-giovani-agricoltori",
+      "reason": "Pagina dell'operatore, bando e proroga verificati: domande SIAN fino alle ore 16:00 del 30 settembre 2026, con premio e beneficiari documentati.",
+      "foundBy": "cam-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cam-banca-terra",
+      "name": "Banca della Terra Campana",
+      "url": "https://agricoltura.regione.campania.it/BTC/BTC.html",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "campania-banca-della-terra",
+      "reason": "Inventario e procedura previsti nella pagina ufficiale; risorsa mantenuta con stato UNKNOWN perché l'ultimo elenco visibile è di dicembre 2019 e non è stata verificata un'assegnazione attuale.",
+      "foundBy": "cam-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cam-sre02",
+      "name": "SRE02 — Insediamento nuovi agricoltori",
+      "url": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE02.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "campania-sre02-nuovi-agricoltori",
+      "reason": "Intervento distinto per nuovi agricoltori con pagina regionale e graduatoria 2026; il bando per nuove domande è chiuso dal 4 novembre 2024.",
+      "foundBy": "cam-nuovi-agricoltori",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cam-corso-primo-insediamento",
+      "name": "Corsi di gestione manageriale dell'impresa agricola",
+      "url": "https://agricoltura.regione.campania.it/comunicati/comunicato_02-10-24B.html",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "campania-corso-gestione-manageriale-primo-insediamento",
+      "reason": "La pagina regionale identifica il corso, gli enti e il modulo di iscrizione; le FAQ SRH03 ne confermano il collegamento al primo insediamento. Stato UNKNOWN: il modulo https://psrmisura-m1.regione.campania.it/index.php?RC=1 ha restituito 502 e occorre controllare direttamente l'accesso attuale.",
+      "foundBy": "cam-corso-primo-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cam-srh03",
+      "name": "SRH03 — Formazione degli imprenditori agricoli",
+      "url": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRH03.html",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La pagina descrive il finanziamento e la selezione degli organismi di formazione, con una preinformativa per il 2026; da sola non costituisce un'iscrizione distinta per gli agricoltori. Il corso di primo insediamento è registrato tramite la propria pagina.",
+      "foundBy": "cam-corso-primo-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cam-coldiretti-caa",
+      "name": "CAA Coldiretti Campania",
+      "url": "https://caa.coldiretti.it/dove-siamo/campania/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina verificata elenca uffici provinciali; la descrizione del servizio per le domande di primo insediamento figura in una pagina di ambito nazionale e non documenta uno strumento campano distinto.",
+      "foundBy": "cam-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cam-cia-caa",
+      "name": "Servizi CAA CIA",
+      "url": "https://caa.cia.it/servizi/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Servizi descritti per il CAA nazionale, senza un percorso campano distinto verificato; non duplicare a livello locale.",
+      "foundBy": "cam-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cam-coldiretti-psr-innovazione",
+      "name": "Coldiretti Campania — consulenza PSR innovazione",
+      "url": "https://campania.coldiretti.it/psr-innovazione/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina consultata descrive una consulenza aziendale ampia, ma non stabilisce una prestazione concreta per l'accesso, l'insediamento o la trasmissione delle aziende.",
+      "foundBy": "cam-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cam-legge-associazioni-fondiarie",
+      "name": "Legge regionale sulle associazioni fondiarie",
+      "url": "https://www.regione.campania.it/normativa/item.php?b79f7d70f28fffc18af20b3afb0a87ac=d596bbbfe589b5632f2d600919eab4a1&id_doc_type=1&id_tema=23&pgCode=G19I231R2035&refresh=on",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La ricerca ha trovato il quadro normativo; resta da individuare e aprire la pagina di un'associazione operativa con inventario, contatti o procedura propria prima di ammettere un servizio locale.",
+      "foundBy": "cam-locale",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "cam-sre01",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "FOUND",
+      "leadId": "cam-banca-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "FOUND",
+      "leadId": "cam-corso-primo-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "NOT_FOUND",
+      "reason": "Esaminate pagine Coldiretti Campania, CAA Coldiretti e CAA CIA e cercati servizi di primo insediamento e subentro: non verificato un servizio campano distinto; le pagine CAA specifiche del servizio sono nazionali.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammessi il bando di insediamento con scadenza aperta e la Banca della Terra Campana."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Passata 1.9.0: verificata la proroga SRE01; Banca della Terra corretta da ACTIVE a UNKNOWN; aggiunti SRE02 con bando chiuso e il corso di primo insediamento con disponibilità UNKNOWN. Esaminati SRH03, servizi CAA e piste locali; restano da verificare modulo corsi, assegnazioni fondiarie e servizi di associazioni fondiarie."
+    }
+  ]
+}

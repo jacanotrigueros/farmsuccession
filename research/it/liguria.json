@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "IT", "region": "liguria" },
+  "language": "it",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Il portale agricolo regionale agriligurianet.it descrive la banca regionale della terra e ospita la documentazione dei bandi del complemento regionale.",
+    "I comunicati della giunta regionale sono la fonte leggibile più diretta sugli importi dei bandi agricoli.",
+    "La banca regionale della terra è stata attivata con una deliberazione della giunta regionale del 2014."
+  ],
+  "portals": [
+    {
+      "name": "Agriligurianet",
+      "url": "https://www.agriligurianet.it/",
+      "what": "Portale agricolo regionale: politiche di sviluppo, bandi e banca regionale della terra."
+    },
+    {
+      "name": "Regione Liguria",
+      "url": "https://www.regione.liguria.it/",
+      "what": "Comunicati e provvedimenti regionali, compresi i bandi agricoli."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "lig-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Liguria bando SRE01 insediamento giovani agricoltori 2026 agriligurianet"
+    },
+    { "id": "lig-terra", "kinds": ["LAND_BANK"], "query": "Liguria banca della terra terreni agricoli incolti regione assegnazione" }
+  ],
+  "leads": [
+    {
+      "id": "lig-bando-insediamento",
+      "name": "Bando “Insediamento giovani agricoltori”",
+      "url": "https://www.regione.liguria.it/homepage-giunta/giunta-regionale/comunicati-stampa-della-giunta-regionale/item/46671-fondi-giovani-agricoltori.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "liguria-insediamento-giovani-agricoltori",
+      "reason": "Comunicato regionale con destinatari, requisito di età e importo massimo del premio.",
+      "foundBy": "lig-insediamento",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "lig-banca-terra",
+      "name": "Banca regionale della terra",
+      "url": "https://www.agriligurianet.it/en/impresa/politiche-di-sviluppo/banca-della-terra.html",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "liguria-banca-regionale-terra",
+      "reason": "Pagina del portale agricolo regionale che descrive finalità e contenuto della base dati.",
+      "foundBy": "lig-terra",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "lig-brt-revoca",
+      "name": "Revoca della disponibilità di terreni inseriti nella banca regionale della terra",
+      "url": "https://www.regione.liguria.it/home-page-agricoltura/come-fare-per/brt-revoca-terreni.html",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Procedura amministrativa collegata alla banca della terra; utile per documentare il funzionamento del servizio.",
+      "foundBy": "lig-terra",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    { "expectedId": "it-sre01-bando-regionale", "status": "FOUND", "leadId": "lig-bando-insediamento", "checkedOn": "2026-09-20" },
+    { "expectedId": "it-banca-terra-regionale", "status": "FOUND", "leadId": "lig-banca-terra", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "NOT_FOUND",
+      "reason": "Non è stato trovato un percorso formativo regionale collegato all’insediamento.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "NOT_FOUND",
+      "reason": "Non è stato verificato un servizio di insediamento o ricambio generazionale delle organizzazioni agricole liguri.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammessi il bando di insediamento e la banca regionale della terra."
+    }
+  ]
+}

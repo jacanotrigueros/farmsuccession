@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "calabria"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Il comunicato del portale istituzionale della Regione Calabria è la fonte leggibile più completa sul bando di insediamento: importi, requisiti e finestra di presentazione.",
+    "calabriapsr.it, portale del complemento regionale, espone soprattutto la navigazione e non restituisce il testo dei bandi agli strumenti automatici.",
+    "In Calabria non risulta una banca della terra regionale: i terreni pubblici passano dalla banca nazionale dell’ISMEA, che l’agenzia regionale ha divulgato con un avviso del 2020. Una divulgazione regionale di uno strumento nazionale non è una risorsa regionale.",
+    "La Regione ha pubblicato la graduatoria definitiva SRE01 il 5 febbraio 2026; la finestra per nuovi richiedenti del bando 2025 era già chiusa. Il comunicato annuncia ulteriori bandi, ma non ne dimostra l'apertura.",
+    "La pagina del patrimonio ARSAC individuata durante questa passata menziona assegnazioni puntuali nel 2026, ma ha restituito 403 all'apertura. Assegnazioni patrimoniali individuali non dimostrano da sole una banca della terra accessibile al pubblico.",
+    "La durata di 150 ore e l'accreditamento dichiarato di un ente formativo non provano automaticamente che il singolo corso soddisfi i requisiti del bando SRE01."
+  ],
+  "portals": [
+    {
+      "name": "Regione Calabria",
+      "url": "https://www.regione.calabria.it/",
+      "what": "Comunicati e provvedimenti regionali, compresi i bandi agricoli."
+    },
+    {
+      "name": "ARSAC",
+      "url": "https://www.arsacweb.it/",
+      "what": "Agenzia regionale per lo sviluppo agricolo: divulgazione, servizi e avvisi."
+    },
+    {
+      "name": "CSR Calabria",
+      "url": "https://www.calabriapsr.it/",
+      "what": "Bandi e allegati del complemento regionale; la pagina SRE01 ha restituito 403 all'apertura."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "cal-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Calabria bando SRE01 insediamento giovani agricoltori 2026 CSR calabriapsr"
+    },
+    {
+      "id": "cal-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Calabria banca della terra ARSAC terreni agricoli assegnazione giovani agricoltori"
+    },
+    {
+      "id": "cal-sre01-atti-2026",
+      "kinds": ["FINANCIAL_SUPPORT", "NEWS"],
+      "query": "site:regione.calabria.it SRE01 2026 bando graduatoria definitiva nuovo avviso"
+    },
+    {
+      "id": "cal-formazione-iap",
+      "kinds": ["TRAINING"],
+      "query": "Calabria corso IAP 150 ore 2026 iscrizioni ente accreditato primo insediamento"
+    },
+    {
+      "id": "cal-servizi-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Calabria CAA Coldiretti CIA Confagricoltura assistenza primo insediamento subentro azienda agricola"
+    },
+    {
+      "id": "cal-terra-locale",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Calabria comuni GAL banca terra agricoltura giovani 2026 assegnazione"
+    }
+  ],
+  "leads": [
+    {
+      "id": "cal-bando-insediamento",
+      "name": "Bando SRE01 Insediamento giovani agricoltori",
+      "url": "https://www.regione.calabria.it/presentato-bando-da-40-milioni-gallo-nuove-opportunita-per-i-giovani-agricoltori/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "calabria-insediamento-giovani-agricoltori",
+      "reason": "Conservato l'id: comunicato istituzionale del bando e graduatoria definitiva del 2026 aperti e letti. Finestra 2025 CLOSED; la successiva attuazione del programma non equivale ad apertura per nuove domande.",
+      "foundBy": "cal-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cal-banca-terre",
+      "name": "Terreni calabresi nella banca nazionale delle terre agricole",
+      "url": "https://www.arsacweb.it/banca-delle-terre-28-i-terreni-pubblici-messi-allasta-in-calabria/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Notizia dell’agenzia regionale del 20 febbraio 2020 sulle aste di quell’anno: divulga la banca nazionale delle terre agricole gestita dall’ISMEA, che opera a livello nazionale. Non è uno strumento regionale né prova l’operatività attuale; lo strumento nazionale resta una pista del brief nazionale e le condizioni del 2020 non vanno riportate al presente.",
+      "foundBy": "cal-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cal-psr-portale",
+      "name": "Portale del complemento regionale di sviluppo rurale",
+      "url": "https://www.calabriapsr.it/news/2241-bando-per-il-primo-insediamento-di-giovani-in-agricoltura-ai-sensi-del-psp-2023-2027-intervento-sre01",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "TO_CHECK",
+      "reason": "La pagina SRE01 del portale CSR ha restituito 403 all'apertura del 28 settembre 2026. Aprire l'avviso e gli allegati in un ambiente con accesso legittimo, confrontare eventuali rettifiche e ripetere il controllo automatico. Nel frattempo il comunicato della Regione, effettivamente letto, sostiene l'entrata SRE01.",
+      "foundBy": "cal-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cal-arsac-patrimonio",
+      "name": "Assegnazioni di beni agricoli della gestione ex ARSSA",
+      "url": "https://arsac.calabria.it/arssa-gestione-a-stralcio/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La ricerca individua delibere di assegnazione puntuale nel 2026, ma la pagina ha restituito 403 all'apertura. Verificare se esiste un inventario e una procedura pubblica per nuovi richiedenti; non equiparare le delibere individuali a una banca della terra.",
+      "foundBy": "cal-terra-locale",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cal-corso-iap-csu",
+      "name": "Corso IAP di CSU Academy",
+      "url": "https://www.csuacademy.it/corsi-regionali-in-calabria/corso-iap/",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "calabria-corso-iap-csu-academy",
+      "reason": "Pagina dell'ente aperta: corso di 150 ore, sedi calabresi, costo e modulo per richiedere iscrizione. L'idoneità del singolo attestato per SRE01 non è stata confermata con la Regione ed è espressamente omessa.",
+      "foundBy": "cal-formazione-iap",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cal-caa-coldiretti",
+      "name": "CAA Coldiretti: assistenza al primo insediamento negli sportelli calabresi",
+      "url": "https://caa.coldiretti.it/dove-siamo/calabria/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "calabria-caa-coldiretti-primo-insediamento",
+      "reason": "La pagina del servizio menziona esplicitamente le richieste di primo insediamento e la pagina territoriale documenta gli sportelli calabresi e l'accesso tramite le strutture provinciali.",
+      "foundBy": "cal-servizi-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cal-confagricoltura-generico",
+      "name": "Servizi di Confagricoltura Calabria",
+      "url": "https://www.confagricolturacalabria.it/servizi/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La pagina letta offre assistenza aziendale e gestione generica dei premi PAC, senza dimostrare un servizio specifico di ingresso, subentro o trasmissione distinto da quello già documentato.",
+      "foundBy": "cal-servizi-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cal-corso-confartigianato-cosenza",
+      "name": "Corso IAP annunciato da Confartigianato Cosenza",
+      "url": "https://www.confartigianatocosenza.it/2026/05/12/formazione-corso-iap-imprenditore-agricolo-professionale/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "L'annuncio di maggio 2026 indica 150 ore e un modulo di contatto, ma non è stata verificata una classe ancora iscrivibile a settembre né una conferma regionale dell'idoneità specifica per SRE01. Evitare un secondo corso pubblicato con disponibilità non dimostrata.",
+      "foundBy": "cal-formazione-iap",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cal-servizio-successione",
+      "name": "Mediazione locale della successione o cessione di aziende agricole",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "Ricerca estesa a organizzazioni, ARSAC, comuni e GAL senza una pagina leggibile che dimostri un servizio specifico e accessibile per cedenti e subentranti. Ripetere sulle fonti bloccate e approfondire gli operatori locali.",
+      "foundBy": "cal-servizi-organizzazioni",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "cal-bando-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "La pagina ARSAC del 2020 divulga ISMEA, strumento nazionale. Le delibere patrimoniali ARSAC del 2026 richiedono verifica ulteriore e la pagina ha restituito 403: non è stato provato un inventario o una procedura regionale aperta.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "FOUND",
+      "leadId": "cal-corso-iap-csu",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "FOUND",
+      "leadId": "cal-caa-coldiretti",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammessi il bando di insediamento e i terreni calabresi della banca nazionale delle terre."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Correzione dopo l’audit: ritirata la risorsa regionale sulla banca delle terre, che era la divulgazione del 2020 di uno strumento nazionale; lista di controllo corretta in NOT_FOUND."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-6)",
+      "summary": "Passata 1.9.0: confermata la chiusura della finestra SRE01 2025 e letta la graduatoria definitiva 2026; aggiunti un corso IAP di 150 ore con accesso pubblicato e l'assistenza locale del CAA Coldiretti. ISMEA resta nazionale. Le assegnazioni patrimoniali ARSAC, un ulteriore corso e l'annuncio di nuovi bandi restano da verificare; nessuna banca regionale operativa è stata dimostrata."
+    }
+  ]
+}

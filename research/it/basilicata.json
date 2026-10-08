@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "basilicata"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Il portale agricoltura.regione.basilicata.it elenca i bandi del complemento regionale e ospita le FAQ dei singoli interventi; è la fonte leggibile più affidabile per la regione.",
+    "basilicatacsr.it e www.regione.basilicata.it non hanno risposto agli strumenti automatici durante questa passata.",
+    "La Basilicata partecipa alla banca nazionale delle terre agricole gestita dall’istituto nazionale per i servizi al mercato agricolo.",
+    "Durante la passata del 28 settembre 2026 varie pagine HTML di SIA-RB, basilicatacsr.it e regione.basilicata.it hanno restituito timeout o 502 all'apertura, mentre i PDF dei bandi SRE01 e SRE02 erano leggibili.",
+    "Il programma ALSIA 2026-2028 descrive attività di costituzione della Banca regionale della terra lucana e la predisposizione della modulistica necessaria al suo funzionamento; non dimostra ancora un inventario accessibile o una procedura corrente di assegnazione.",
+    "SRE01 e SRE02 hanno destinatari e bandi distinti. La proroga di trasmissione della documentazione non deve essere scambiata per una nuova finestra di domanda dei beneficiari."
+  ],
+  "portals": [
+    {
+      "name": "Portale dell’agricoltura della Regione Basilicata",
+      "url": "https://agricoltura.regione.basilicata.it/",
+      "what": "Bandi del complemento regionale di sviluppo rurale, FAQ e servizi online per le domande."
+    },
+    {
+      "name": "CSR Basilicata",
+      "url": "https://basilicatacsr.it/",
+      "what": "Bandi, allegati, proroghe e avanzamento delle procedure SRE01 e SRE02; alcune pagine HTML non erano apribili durante questa passata."
+    },
+    {
+      "name": "ALSIA amministrazione trasparente",
+      "url": "https://trasparenza.alsia.it/opencms/Beni_immobili/Patrimonio.html",
+      "what": "Inventario patrimoniale e documenti programmatici; l'inventario patrimoniale da solo non dimostra una banca della terra operativa."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "bas-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Basilicata bando SRE01 insediamento giovani agricoltori 2026 CSR domanda"
+    },
+    {
+      "id": "bas-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Basilicata banca della terra ALSIA terreni agricoli regionali assegnazione giovani"
+    },
+    {
+      "id": "bas-sre02-proroghe",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:basilicatacsr.it SRE02 proroga domanda sostegno SIAN graduatoria 2026"
+    },
+    {
+      "id": "bas-alsia-operativita",
+      "kinds": ["LAND_BANK"],
+      "query": "site:alsia.it banca regionale terra lucana inventario terreni domanda assegnazione 2026"
+    },
+    {
+      "id": "bas-formazione-150",
+      "kinds": ["TRAINING"],
+      "query": "Basilicata corso 150 ore primo insediamento giovani agricoltori ente accreditato iscrizioni"
+    },
+    {
+      "id": "bas-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Basilicata CAA Coldiretti CIA primo insediamento subentro passaggio azienda agricola sportello"
+    },
+    {
+      "id": "bas-livelli-locali",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Matera Potenza comuni GAL banca terra agricola ricambio generazionale assegnazione terreni"
+    }
+  ],
+  "leads": [
+    {
+      "id": "bas-sre01",
+      "name": "Intervento per l’insediamento dei giovani agricoltori",
+      "url": "https://basilicatacsr.it/wp-content/uploads/2023/12/DGR851-2023-SRE01-APP.pdf",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "basilicata-insediamento-giovani-agricoltori",
+      "reason": "Bando originale e atto di proroga della fase II aperti e letti. Ultima fase di domanda verificata conclusa nel 2024; pagine successive non accessibili, quindi disponibilità attuale non confermata e stato del programma UNKNOWN. Il 30/09/2026 l'host basilicatacsr.it non risponde né alla verifica automatica (timeout di connessione) né al browser integrato di Claude Code. La lettura del 28/09 non indica lo strumento né la convalida della catena di certificati: la verifica manuale richiesta non è quindi documentata. Prossimo passo: riaprire i PDF quando l'host risponde, confermare le citazioni e documentarlo qui; se restano irraggiungibili, togliere la risorsa dall'edizione.",
+      "foundBy": "bas-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bas-sre02",
+      "name": "Intervento per l’insediamento dei nuovi agricoltori",
+      "url": "https://basilicatacsr.it/wp-content/uploads/2025/08/SRE02-2025-ALLEGATO-A-BANDO.pdf",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "basilicata-insediamento-nuovi-agricoltori",
+      "reason": "Bando originale aperto e letto: sostegno distinto per persone tra 41 anni compiuti e 61 non compiuti. La finestra originaria è scaduta; la proroga e gli atti del 2026 individuati non si sono aperti, perciò nessuna nuova finestra è affermata. Il 30/09/2026 l'host basilicatacsr.it non risponde né alla verifica automatica (timeout di connessione) né al browser integrato di Claude Code. La lettura del 28/09 non indica lo strumento né la convalida della catena di certificati: la verifica manuale richiesta non è quindi documentata. Prossimo passo: riaprire i PDF quando l'host risponde, confermare le citazioni e documentarlo qui; se restano irraggiungibili, togliere la risorsa dall'edizione.",
+      "foundBy": "bas-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bas-banca-terre",
+      "name": "Banca nazionale delle terre agricole in Basilicata",
+      "url": "https://www.ismea.it/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Strumento ISMEA nazionale, distinto da una banca regionale lucana. Non deve essere duplicato nel file regionale; la verifica dell'edizione nazionale spetta al brief e all'edizione Italia.",
+      "foundBy": "bas-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bas-banca-regionale-lucana",
+      "name": "Banca regionale della terra lucana",
+      "url": "https://trasparenza.alsia.it/opencms/export/sites/amministrazione-trasparente/.galleries/allegati/Altri_contentuti/PA-2026-2028-Parte-Speciale.pdf",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Il programma ALSIA 2026-2028, aperto e letto, prevede attività e modulistica per il funzionamento della banca. Cercare un inventario, una procedura di iscrizione o un bando di assegnazione attuale; nessuno è stato verificato in questa passata. Non trattarla come banca operativa.",
+      "foundBy": "bas-alsia-operativita",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bas-caa-coldiretti",
+      "name": "CAA Coldiretti: assistenza al primo insediamento nelle sedi lucane",
+      "url": "https://caa.coldiretti.it/dove-siamo/basilicata/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "basilicata-caa-coldiretti-primo-insediamento",
+      "reason": "La pagina del servizio specifica la preparazione di richieste di primo insediamento e quella territoriale indica gli sportelli di Matera e Potenza e la modalità di contatto. Non è stata attribuita gratuità.",
+      "foundBy": "bas-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bas-formazione-150",
+      "name": "Corsi da 150 ore per la competenza professionale SRE01/SRE02",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "I bandi aperti attestano il requisito formativo, ma non individuano un corso lucano attualmente accessibile e riconosciuto. Verificare un'offerta concreta presso enti accreditati, con pagina di iscrizione e riconoscimento pertinente; gli annunci commerciali non bastano.",
+      "foundBy": "bas-formazione-150",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bas-srh01-prestatori",
+      "name": "Avviso SRH01 per il riconoscimento dei prestatori di consulenza",
+      "url": "https://basilicatacsr.it/bando-csr/srh01-servizi-di-consulenza-disposizioni-attuative-avviso-pubblico-per-il-riconoscimento-dei-prestatori-di-servizi-di-consulenza-aziendale/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "L'avviso individuato riguarda il riconoscimento dei fornitori, non un servizio concreto di insediamento o successione con accesso per agricoltori.",
+      "foundBy": "bas-organizzazioni",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bas-successione-locale",
+      "name": "Servizio locale di cessione o mediazione di aziende agricole",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "Le ricerche su Regione, ALSIA, organizzazioni agricole, province, comuni e GAL non hanno prodotto una pagina operativa leggibile con servizio e accesso specifici. Ripetere la ricerca nei portali bloccati e nelle strutture locali.",
+      "foundBy": "bas-livelli-locali",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "bas-sre01",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "Il piano ALSIA 2026-2028 documenta la preparazione della Banca regionale della terra lucana, ma non è stato verificato un inventario accessibile o un bando attuale di assegnazione. Rimane la pista bas-banca-regionale-lucana; ISMEA è nazionale.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "NOT_FOUND",
+      "reason": "I bandi SRE01 e SRE02 menzionano corsi da 150 ore, ma la ricerca non ha verificato un corso regionale concreto, riconosciuto e attualmente iscrivibile. Rimane la pista bas-formazione-150.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "FOUND",
+      "leadId": "bas-caa-coldiretti",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammesso l’intervento per l’insediamento dei giovani; banca delle terre e formazione da verificare."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-6)",
+      "summary": "Passata 1.9.0: verificati i PDF dei bandi SRE01 e SRE02 e la proroga SRE01; ammessi SRE02 e l'assistenza al primo insediamento delle sedi lucane CAA Coldiretti. Corretta la disponibilità SRE01 a UNKNOWN; le finestre esaminate sono concluse. Il programma ALSIA non prova ancora l'accesso operativo alla banca della terra. Formazione specifica, successione locale e atti successivi non apribili restano da verificare."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revisione delle fonti: i PDF SRE01 e SRE02 su basilicatacsr.it non rispondono né alla verifica automatica né al browser; le piste indicano il passo successivo. Nessun dato modificato."
+    }
+  ]
+}

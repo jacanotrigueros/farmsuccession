@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "IT",
+  "region": "liguria",
+  "officialName": "Liguria",
+  "published": "2026-09-20",
+  "summary": "La Liguria finanzia il primo insediamento dei giovani agricoltori con un premio dedicato al ricambio generazionale e gestisce la Banca regionale della terra, una base dati dei terreni i cui proprietari si dichiarano disponibili a cederne il possesso o a gestirli in forma associata.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Ricerche sul bando regionale di insediamento e sulla banca regionale della terra. Il portale agricolo regionale espone la descrizione della banca della terra; il bando è citato dal comunicato della giunta.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Regione Liguria bando SRE01 insediamento giovani agricoltori 2026 agriligurianet"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Liguria banca della terra terreni agricoli incolti regione assegnazione"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.agriligurianet.it/en/impresa/politiche-di-sviluppo/banca-della-terra.html"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "it",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "liguria-insediamento-giovani-agricoltori",
+      "name": "Bando “Insediamento giovani agricoltori” della Regione Liguria",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Liguria",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Premio al primo insediamento per favorire il ricambio generazionale e la nascita di nuove imprese agricole sul territorio regionale.",
+      "whoCanUseIt": "Imprenditori agricoli con meno di quarantuno anni che si insediano per la prima volta come capi azienda.",
+      "howToAccess": "Presentare la domanda con il piano aziendale nella finestra temporale indicata dalla Regione, con la documentazione pubblicata sul portale agricolo regionale.",
+      "accessUrl": "https://www.regione.liguria.it/homepage-giunta/giunta-regionale/comunicati-stampa-della-giunta-regionale/item/46671-fondi-giovani-agricoltori.html",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["it"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Premio massimo per il primo insediamento",
+          "value": 35000,
+          "unit": "EUR",
+          "asOf": "2026-09-20",
+          "sourceUrl": "https://www.regione.liguria.it/homepage-giunta/giunta-regionale/comunicati-stampa-della-giunta-regionale/item/46671-fondi-giovani-agricoltori.html"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.regione.liguria.it/homepage-giunta/giunta-regionale/comunicati-stampa-della-giunta-regionale/item/46671-fondi-giovani-agricoltori.html",
+          "title": "Agricoltura, fondi per i giovani agricoltori e contributi per il primo insediamento - Regione Liguria",
+          "consultedOn": "2026-09-20",
+          "quotes": [
+            "è rivolto a imprenditori agricoli di età inferiore a 41 anni che si insediano per la prima volta come capi azienda e prevede un premio fino a 35 mila euro per favorire il ricambio generazionale e la nascita di nuove imprese agricole sul territorio regionale",
+            "Contributi fino a 35 mila euro per il primo insediamento",
+            "Il ricambio generazionale rappresenta una delle sfide più import"
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    },
+    {
+      "id": "liguria-banca-regionale-terra",
+      "name": "Banca regionale della terra della Liguria",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Liguria",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Base dati informatizzata con le coordinate catastali e le informazioni sui terreni liguri i cui proprietari si dichiarano disponibili a cedere il possesso a terzi o ad aderire a forme di gestione consorziata o associata.",
+      "whoCanUseIt": "Proprietari che vogliono rendere disponibili i propri terreni e imprese agricole o forestali che cercano superfici da recuperare.",
+      "howToAccess": "Consultare la base dati e seguire le procedure regionali di inserimento o richiesta dei terreni descritte sul portale agricolo.",
+      "accessUrl": "https://www.agriligurianet.it/en/impresa/politiche-di-sviluppo/banca-della-terra.html",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "FORESTRY"],
+      "languages": ["it"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.agriligurianet.it/en/impresa/politiche-di-sviluppo/banca-della-terra.html",
+          "title": "Banca regionale della terra - Agriligurianet",
+          "consultedOn": "2026-09-20",
+          "quotes": [
+            "Al fine di promuovere il recupero produttivo delle superfici agricole e forestali abbandonate, incolte o sottoutilizzate",
+            "La Brt consta di una base dati informatizzata in cui sono inserite le coordinate catastali e le ulteriori informazioni riguardanti i terreni situati in Liguria",
+            "i cui proprietari, o aventi causa, si dichiarino disponibili a cedere la detenzione o il possesso a terzi ovvero ad aderire a forme di gestione consorziata o associata dei fondi"
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "La finestra di presentazione delle domande del bando non è stata citata da fonte regionale diretta.",
+    "Le modalità operative per inserire o richiedere terreni nella banca regionale della terra non sono state verificate.",
+    "Non sono stati verificati percorsi formativi regionali collegati all’insediamento né servizi delle organizzazioni agricole."
+  ]
+}

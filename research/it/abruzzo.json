@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "abruzzo"
+  },
+  "language": "it",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "www.regione.abruzzo.it e www2.regione.abruzzo.it possono presentare una catena TLS incompleta per alcuni client automatici; in questa passata le pagine regionali sono state lette tramite web search e fonti di Amministrazione trasparente.",
+    "La Banca della Terra d’Abruzzo è istituita da legge regionale e disciplinata da regolamento; non è stato verificato nel 2026 un inventario regionale corrente consultabile con una procedura di assegnazione accessibile ai richiedenti.",
+    "Il Fondo per favorire il primo insediamento dei giovani nell'agricoltura attuato in base al DM 24 ottobre 2025 è distinto dal bando SRE01 del CSR Abruzzo 2023-2027.",
+    "Aggregatori privati di bandi come Obiettivo Europa non sono fonti ammissibili quando esistono fonti regionali o atti ufficiali."
+  ],
+  "portals": [
+    {
+      "name": "Regione Abruzzo",
+      "url": "https://www.regione.abruzzo.it/",
+      "what": "Portale regionale con notizie, bandi e pagine di accesso agli interventi agricoli."
+    },
+    {
+      "name": "Amministrazione trasparente Regione Abruzzo",
+      "url": "https://trasparenza.regione.abruzzo.it/",
+      "what": "Atti di approvazione, criteri e concessione utili per verificare l'attuazione effettiva degli strumenti."
+    },
+    {
+      "name": "BURA",
+      "url": "https://bura.regione.abruzzo.it/",
+      "what": "Leggi e regolamenti regionali, inclusa la disciplina della Banca della Terra."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "abr-insediamento",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Regione Abruzzo bando insediamento giovani agricoltori SRE01 2026 PSP domanda"
+    },
+    {
+      "id": "abr-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Abruzzo banca della terra terreni agricoli regione disponibili giovani"
+    },
+    {
+      "id": "abr-fondo-dm-2025",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Abruzzo Fondo primo insediamento giovani agricoltura DM 24 ottobre 2025 2026"
+    },
+    {
+      "id": "abr-formazione-2026",
+      "kinds": ["TRAINING"],
+      "query": "Regione Abruzzo formazione primo insediamento giovani agricoltori corso 2026"
+    },
+    {
+      "id": "abr-organizzazioni",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Abruzzo Coldiretti CIA Confagricoltura giovani agricoltori primo insediamento subentro servizio"
+    },
+    {
+      "id": "abr-livello-locale-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Abruzzo comune banca della terra terreni agricoli assegnazione inventario"
+    }
+  ],
+  "leads": [
+    {
+      "id": "abr-bando-insediamento",
+      "name": "Bando SRE01 - Insediamento giovani agricoltori",
+      "url": "https://www.regione.abruzzo.it/notizie/agricoltura-imprudente-altri-10-milioni-supportare-l-insediamento-di-giovani-agricoltori",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "reason": "La pagina ufficiale della Regione del 18 febbraio 2026 documenta apertura su SIAN, scadenza 10 aprile, budget di 10 milioni di euro, premio di 60.000 euro elevabile a 70.000 euro e destinatari under 41 al primo insediamento. L'atto di approvazione è disponibile anche in Amministrazione trasparente.",
+      "resourceId": "abruzzo-sre01-insediamento-giovani",
+      "foundBy": "abr-insediamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "abr-banca-della-terra",
+      "name": "Banca della Terra d’Abruzzo",
+      "url": "https://bura.regione.abruzzo.it/sites/bura.regione.abruzzo.it/archivio_bura/2015/Speciale_105_14_10.pdf",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "La L.R. 26/2015 e il regolamento 2/Reg. del 2017 istituiscono e disciplinano l'elenco regionale, ma la ricerca 2026 non ha individuato un inventario regionale corrente consultabile né una procedura attuale di assegnazione per i richiedenti. L'esistenza normativa non dimostra operatività corrente.",
+      "foundBy": "abr-terra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "abr-primo-insediamento-l36",
+      "name": "Fondo per favorire il primo insediamento dei giovani nell'agricoltura",
+      "url": "https://www.regione.abruzzo.it/new/node/1744",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "reason": "La Regione pubblica una pagina specifica del Fondo con scadenza 6 luglio 2026. Atti di concessione di settembre 2026 in Amministrazione trasparente identificano esplicitamente il Fondo per il primo insediamento e il DM 0575481 del 24 ottobre 2025, dimostrando che la misura è stata attuata. È distinta dal SRE01.",
+      "resourceId": "abruzzo-fondo-primo-insediamento-giovani",
+      "foundBy": "abr-fondo-dm-2025",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "abr-srh03-formazione-2026",
+      "name": "Intervento SRH03 - Formazione imprenditori agricoli - Avviso 2026",
+      "url": "https://www.regione.abruzzo.it/novita/intervento-srh03-formazione-imprenditori-agricoli-addetti-imprese-avviso-pubblico-anno-2026",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "L'avviso sostiene formazione e aggiornamento professionale generali e indica come beneficiari gli organismi di formazione; la pagina non stabilisce un corso specifico o una qualifica richiesta per il primo insediamento dei giovani agricoltori.",
+      "foundBy": "abr-formazione-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "abr-lanciano-banca-terra",
+      "name": "Comune di Lanciano - adesione alla Banca della Terra d'Abruzzo",
+      "url": "https://www.halleyweb.com/c069046/po/mostra_news.php?area=H&id=1108",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "La pagina comunale del 2023 invita i proprietari a iscrivere terreni al censimento regionale, ma non offre nel 2026 un inventario consultabile o una procedura corrente per i richiedenti di terreni; non basta per dimostrare un servizio locale operativo di accesso alla terra.",
+      "foundBy": "abr-livello-locale-terra",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "abr-bando-insediamento",
+      "checkedOn": "2026-09-28",
+      "reason": "Bando SRE01 regionale verificato su pagina ufficiale e atto di approvazione; finestra 2026 chiusa il 10 aprile."
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "NOT_FOUND",
+      "reason": "La Banca della Terra è prevista e regolamentata, ma non è stato verificato un inventario regionale corrente o un meccanismo attuale di assegnazione/accesso nel 2026.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-formazione-insediamento",
+      "status": "NOT_FOUND",
+      "reason": "L'avviso SRH03 2026 è formazione agraria generale tramite organismi formatori; non è stato verificato un corso specifico riconosciuto per la capacità professionale del primo insediamento.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "it-organizzazioni-servizi",
+      "status": "NOT_FOUND",
+      "reason": "Le ricerche su Coldiretti, CIA e Confagricoltura non hanno prodotto una pagina regionale che descriva un servizio concreto e distinto per insediamento, subentro, successione o accesso alla terra con una via di accesso verificabile.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Prima passata con la lista di controllo nazionale: ammesso il bando per l’insediamento tramite una scheda di terze parti; sito regionale irraggiungibile."
+    },
+    {
+      "date": "2026-09-21",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Correzione dopo l’audit: ritirata la risorsa sul bando SRE01 citata da un aggregatore privato; il comunicato regionale è stato letto ma resta da verificare per il certificato incompleto."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revisione completa con prompt 1.9.0: ammessi SRE01 e il distinto Fondo per il primo insediamento sulla base di fonti regionali e atti di concessione; Banca della Terra mantenuta fuori per mancata prova di accesso operativo 2026; SRH03 respinto come formazione generale; nessun servizio specifico di organizzazioni agricole verificato."
+    }
+  ]
+}
