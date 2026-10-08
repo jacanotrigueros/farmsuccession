@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "bremen"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Die Investitionsförderung für landwirtschaftliche Betriebe wird für Niedersachsen, Bremen und Hamburg gemeinsam geregelt.",
+    "Die Landwirtschaftskammer Bremen nennt die sozioökonomische Beratung zu Hofaufgaben und Hofnachfolge ausdrücklich unter ihren Aufgaben.",
+    "Das Entwicklungskonzept Landwirtschaft des Landes sieht eine Ansprechperson für Hofnachfolge vor; das ist noch zu prüfen."
+  ],
+  "portals": [
+    {
+      "name": "Landwirtschaftskammer Bremen",
+      "url": "https://landwirtschaftskammer-bremen.de/",
+      "what": "Beratung, Förderung und Ausbildung für die bremische Landwirtschaft."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "hb-beratung",
+      "kinds": ["ADVICE", "FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
+      "query": "Bremen Landwirtschaft Förderung Junglandwirte Hofnachfolge Landwirtschaftskammer Beratung"
+    }
+  ],
+  "leads": [
+    {
+      "id": "hb-lwk-aufgaben",
+      "name": "Kammeraufgaben der Landwirtschaftskammer Bremen",
+      "url": "https://landwirtschaftskammer-bremen.de/organisation/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "bremen-lwk-sozieokonomische-beratung",
+      "reason": "Aufgabenbeschreibung der Kammer mit ausdrücklicher Nennung der sozioökonomischen Beratung zu Hofaufgaben und Hofnachfolge.",
+      "foundBy": "hb-beratung",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "hb-entwicklungskonzept",
+      "name": "Entwicklungskonzept Landwirtschaft des Landes Bremen",
+      "kind": "POLICY",
+      "status": "TO_CHECK",
+      "reason": "Sieht laut Suchergebnis eine Ansprechperson und Vernetzung für außerfamiliäre Hofnachfolge vor; Dokument nicht gelesen.",
+      "foundBy": "hb-beratung",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "NOT_FOUND",
+      "reason": "Für Bremen wurde keine eigene Landesförderung zur Niederlassung belegt; die Investitionsförderung ist länderübergreifend geregelt.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "NOT_FOUND",
+      "reason": "Eine Hof- oder Flächenbörse für Bremen wurde nicht gefunden.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "hb-lwk-aufgaben",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: sozioökonomische Beratung der Kammer aufgenommen; Landesförderung und Hofbörse offen."
+    }
+  ]
+}

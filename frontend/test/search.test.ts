@@ -7,6 +7,7 @@ import {
   effectiveFilters,
   facetsOf,
   queryFromState,
+  regionSlug,
   scopeFromPath,
   searchPath,
   stateFromQuery,
@@ -92,7 +93,7 @@ test("a territory sends a reader to its own country's search, with itself alread
   assert.equal(territorySearchUrl("/", "ES", "galicia"), "/es/buscar/?territory=ES%2Fgalicia");
   for (const snapshot of all.filter((one) => one.schemaId === "regional-snapshot")) {
     const iso = snapshot.country ?? "";
-    const html = page(`/${iso.toLowerCase()}/${snapshot.region}/`);
+    const html = page(`/${iso.toLowerCase()}/${regionSlug(iso)}/${snapshot.region}/`);
     assert.ok(
       html.includes(`value="${iso}/${snapshot.region}"`),
       `${snapshot.region} does not pin itself when it sends a reader to search, so the search would answer for the whole country`,

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "thueringen"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Das Thüringer Landesverwaltungsamt veröffentlicht ELER-Förderprogramme mit Bedingungen, Downloads und Kontakt auf eigenen Detailseiten.",
+    "Die Junglandwirteförderung deckt Neugründung, inner- und außerfamiliäre Hofübernahme sowie den Generationswechsel in juristischen Personen ab.",
+    "Das Programm läuft im GAP-Zeitraum weiter, obwohl die jährliche Antragsfrist 2026 bereits am 31. Januar endete.",
+    "Programmstatus und Antragsfenster müssen deshalb getrennt modelliert werden: ACTIVE ist mit einem CLOSED-Aufruf vereinbar.",
+    "Runde mit der nationalen Checkliste auf einer bestehenden Datei: es fehlten nur die erwarteten Instrumente."
+  ],
+  "portals": [
+    {
+      "name": "Thüringer Landesverwaltungsamt — ELER",
+      "url": "https://www.aw-landesverwaltungsamt.thueringen.de/foerderung/eler",
+      "what": "Offizieller Zugang zu ELER-Maßnahmen, Anträgen, Downloads und Beratung."
+    },
+    {
+      "name": "Förderportal Thüringen",
+      "url": "https://www.aw-landesverwaltungsamt.thueringen.de/",
+      "what": "Förderübersicht, Förderlotse und Kontakt des Landesverwaltungsamtes."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "th-young",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:aw-landesverwaltungsamt.thueringen.de Niederlassung Junglandwirte Förderung"
+    },
+    {
+      "id": "th-transfer",
+      "kinds": ["SUCCESSION_SERVICE", "LAND_BANK", "ADVICE"],
+      "query": "Thüringen Hofnachfolge Hofübergabe Existenzgründung Landwirtschaft Beratung"
+    }
+  ],
+  "leads": [
+    {
+      "id": "th-junglandwirte",
+      "name": "ELER — Förderung zur Niederlassung von Junglandwirten",
+      "url": "https://www.aw-landesverwaltungsamt.thueringen.de/foerderung/foerderung-a-z/eler-junglandwirtefoerderung",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "thueringen-niederlassung-junglandwirte",
+      "reason": "Die offizielle Detailseite belegt ein laufendes Förderprogramm, aktuelle Unterlagen von 2026, Hofübernahme als Fördergegenstand und eine geschlossene Jahresfrist 2026.",
+      "foundBy": "th-young",
+      "checkedOn": "2026-09-14"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "FOUND",
+      "leadId": "th-junglandwirte",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "NOT_FOUND",
+      "reason": "Eine Hof- oder Flächenbörse für Thüringen wurde in dieser Runde nicht belegt.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "NOT_FOUND",
+      "reason": "Ein Beratungs- oder Seminarangebot zur Hofübergabe wurde in dieser Runde nicht belegt.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Erste Länderpassage: die Niederlassungsförderung wurde mit geschlossenem 2026-Antragsfenster aufgenommen; Vermittlung und lokale Beratung bleiben offen."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Runde mit der nationalen Checkliste: Landesförderung bestätigt; Hofbörse und Übergabeberatung offen."
+    }
+  ]
+}

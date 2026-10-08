@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "nordrhein-westfalen"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Die Landwirtschaftskammer Nordrhein-Westfalen bietet sowohl Gründungsberatung als auch einen Einstieg in die Hofübergabe an.",
+    "Die NRW-Initiative außerfamiliäre Hofnachfolge betreibt eine eigene Vertrauensstelle, die Such- und Hofprofile abgleicht und den Kontakt begleitet.",
+    "Die Initiative veröffentlicht rollenbezogene Kontaktwege; diese sind als Kontaktpunkte geeignet. Namentlich zugeordnete Direktkontakte der Kammer werden nicht übernommen.",
+    "Kreisstellen sind Ausführungsstellen der Kammer und nur dann eigene lokale Ressourcen, wenn sie einen eigenständigen Dienst oder Bestand veröffentlichen.",
+    "Runde mit der nationalen Checkliste auf einer bestehenden Datei: es fehlten nur die erwarteten Instrumente."
+  ],
+  "portals": [
+    {
+      "name": "Landwirtschaftskammer Nordrhein-Westfalen — Unternehmensführung",
+      "url": "https://www.landwirtschaftskammer.de/landwirtschaft/beratung/index.htm",
+      "what": "Einstieg in Hofübergabe, Existenzgründung, Finanzierung und sozioökonomische Beratung."
+    },
+    {
+      "name": "NRW-Initiative außerfamiliäre Hofnachfolge",
+      "url": "https://hofnachfolge-nrw.de/",
+      "what": "Operative Vermittlung, Ablauf, Zielgruppen, Gebühren und institutionelle Kontaktwege."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "nrw-hofnachfolge",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "site:landwirtschaftskammer.de Nordrhein-Westfalen Hofnachfolge Hofübergabe Beratung"
+    },
+    {
+      "id": "nrw-existenz",
+      "kinds": ["ADVICE", "FINANCIAL_SUPPORT"],
+      "query": "site:landwirtschaftskammer.de Nordrhein-Westfalen Existenzgründung Landwirtschaft Förderung"
+    },
+    {
+      "id": "nrw-local",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Nordrhein-Westfalen Kreis Gemeinde Hofbörse Flächenbörse landwirtschaftliche Betriebe"
+    }
+  ],
+  "leads": [
+    {
+      "id": "nrw-ausserfamiliaere-hofnachfolge",
+      "name": "NRW-Initiative außerfamiliäre Hofnachfolge",
+      "url": "https://hofnachfolge-nrw.de/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "nordrhein-westfalen-ausserfamiliaere-hofnachfolge",
+      "reason": "Die Betreiberseite belegt eine aktive Vertrauensstelle, Matching und Begleitung sowie rollenbezogene E-Mail und Telefon.",
+      "foundBy": "nrw-hofnachfolge",
+      "checkedOn": "2026-09-15"
+    },
+    {
+      "id": "nrw-existenzgruendungsberatung",
+      "name": "Existenzgründungsberatung Landwirtschaft",
+      "url": "https://www.landwirtschaftskammer.de/landwirtschaft/beratung/existenz/index.htm",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "nordrhein-westfalen-existenzgruendungsberatung-landwirtschaft",
+      "reason": "Die Kammer beschreibt eine Begleitung von Hofnachfolge, Hofübernahme und Gründung sowie den Zugang über Kreisstellen.",
+      "foundBy": "nrw-existenz",
+      "checkedOn": "2026-09-15"
+    },
+    {
+      "id": "nrw-hofuebergabe-seite",
+      "name": "Hofübergabe — Landwirtschaftskammer NRW",
+      "url": "https://www.landwirtschaftskammer.de/landwirtschaft/beratung/generationswechsel/index.htm",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Die Seite beschreibt dieselbe Beratungsfamilie und verweist auf die bereits erfasste Initiative; ohne eigenen getrennten Zugang würde ein dritter Eintrag die Angebote fragmentieren.",
+      "foundBy": "nrw-hofnachfolge",
+      "checkedOn": "2026-09-15"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "NOT_FOUND",
+      "reason": "Eine eigene Landesförderung für die Niederlassung junger Landwirte wurde in dieser Runde nicht belegt.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "FOUND",
+      "leadId": "nrw-ausserfamiliaere-hofnachfolge",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "nrw-existenzgruendungsberatung",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CHATGPT (Codex)",
+      "summary": "Breitensuche über Kammer, Initiative und Kreisbegriffe, danach Vertiefung in Matching und Gründung; zwei Ressourcen aufgenommen und eine überlappende Seite verworfen."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Runde mit der nationalen Checkliste: Vermittlung außerfamiliärer Hofnachfolge und Existenzgründungsberatung bestätigt; Landesförderung offen."
+    }
+  ]
+}

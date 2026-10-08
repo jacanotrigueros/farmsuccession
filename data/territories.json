@@ -14,6 +14,209 @@
       "hubs": [],
       "regions": []
     },
+    "DE": {
+      "name": "Deutschland",
+      "lang": "de",
+      "hubLabel": "Bundesländer",
+      "leafLevel": "state",
+      "leafLabel": "Bundesländer",
+      "sources": [
+        {
+          "url": "https://www.bundesrat.de/EN/funktionen-en/funktion-en/funktion-en-node.html",
+          "authority": "Bundesrat",
+          "purpose": "federal-state structure"
+        },
+        {
+          "url": "https://www.bmleh.de/SharedDocs/Downloads/DE/_Landwirtschaft/EU-Agrarpolitik-Foerderung/gap-strategieplan-version-7-1.html",
+          "authority": "Bundesministerium für Landwirtschaft, Ernährung und Heimat",
+          "purpose": "CAP strategic-plan governance"
+        }
+      ],
+      "rationale": "Die 16 Bundesländer sind sowohl Navigationsknoten als auch Dokumentationseinheiten. Die GAP besitzt einen nationalen Strategieplan, die konkrete ELER-Förderung und landwirtschaftliche Beratung werden jedoch wesentlich auf Länderebene umgesetzt.",
+      "hubs": [
+        {
+          "slug": "baden-wuerttemberg",
+          "name": "Baden-Württemberg",
+          "members": ["baden-wuerttemberg"]
+        },
+        {
+          "slug": "bayern",
+          "name": "Bayern",
+          "members": ["bayern"]
+        },
+        {
+          "slug": "berlin",
+          "name": "Berlin",
+          "members": ["berlin"]
+        },
+        {
+          "slug": "brandenburg",
+          "name": "Brandenburg",
+          "members": ["brandenburg"]
+        },
+        {
+          "slug": "bremen",
+          "name": "Bremen",
+          "members": ["bremen"]
+        },
+        {
+          "slug": "hamburg",
+          "name": "Hamburg",
+          "members": ["hamburg"]
+        },
+        {
+          "slug": "hessen",
+          "name": "Hessen",
+          "members": ["hessen"]
+        },
+        {
+          "slug": "mecklenburg-vorpommern",
+          "name": "Mecklenburg-Vorpommern",
+          "members": ["mecklenburg-vorpommern"]
+        },
+        {
+          "slug": "niedersachsen",
+          "name": "Niedersachsen",
+          "members": ["niedersachsen"]
+        },
+        {
+          "slug": "nordrhein-westfalen",
+          "name": "Nordrhein-Westfalen",
+          "members": ["nordrhein-westfalen"]
+        },
+        {
+          "slug": "rheinland-pfalz",
+          "name": "Rheinland-Pfalz",
+          "members": ["rheinland-pfalz"]
+        },
+        {
+          "slug": "saarland",
+          "name": "Saarland",
+          "members": ["saarland"]
+        },
+        {
+          "slug": "sachsen",
+          "name": "Sachsen",
+          "members": ["sachsen"]
+        },
+        {
+          "slug": "sachsen-anhalt",
+          "name": "Sachsen-Anhalt",
+          "members": ["sachsen-anhalt"]
+        },
+        {
+          "slug": "schleswig-holstein",
+          "name": "Schleswig-Holstein",
+          "members": ["schleswig-holstein"]
+        },
+        {
+          "slug": "thueringen",
+          "name": "Thüringen",
+          "members": ["thueringen"]
+        }
+      ],
+      "regions": [
+        {
+          "slug": "baden-wuerttemberg",
+          "name": "Baden-Württemberg",
+          "inPhrase": "in Baden-Württemberg",
+          "parentHub": "baden-wuerttemberg"
+        },
+        {
+          "slug": "bayern",
+          "name": "Bayern",
+          "inPhrase": "in Bayern",
+          "parentHub": "bayern"
+        },
+        {
+          "slug": "berlin",
+          "name": "Berlin",
+          "inPhrase": "in Berlin",
+          "parentHub": "berlin",
+          "kind": "city-state"
+        },
+        {
+          "slug": "brandenburg",
+          "name": "Brandenburg",
+          "inPhrase": "in Brandenburg",
+          "parentHub": "brandenburg"
+        },
+        {
+          "slug": "bremen",
+          "name": "Bremen",
+          "inPhrase": "in Bremen",
+          "parentHub": "bremen",
+          "kind": "city-state"
+        },
+        {
+          "slug": "hamburg",
+          "name": "Hamburg",
+          "inPhrase": "in Hamburg",
+          "parentHub": "hamburg",
+          "kind": "city-state"
+        },
+        {
+          "slug": "hessen",
+          "name": "Hessen",
+          "inPhrase": "in Hessen",
+          "parentHub": "hessen"
+        },
+        {
+          "slug": "mecklenburg-vorpommern",
+          "name": "Mecklenburg-Vorpommern",
+          "inPhrase": "in Mecklenburg-Vorpommern",
+          "parentHub": "mecklenburg-vorpommern"
+        },
+        {
+          "slug": "niedersachsen",
+          "name": "Niedersachsen",
+          "inPhrase": "in Niedersachsen",
+          "parentHub": "niedersachsen"
+        },
+        {
+          "slug": "nordrhein-westfalen",
+          "name": "Nordrhein-Westfalen",
+          "inPhrase": "in Nordrhein-Westfalen",
+          "parentHub": "nordrhein-westfalen"
+        },
+        {
+          "slug": "rheinland-pfalz",
+          "name": "Rheinland-Pfalz",
+          "inPhrase": "in Rheinland-Pfalz",
+          "parentHub": "rheinland-pfalz"
+        },
+        {
+          "slug": "saarland",
+          "name": "Saarland",
+          "inPhrase": "im Saarland",
+          "parentHub": "saarland"
+        },
+        {
+          "slug": "sachsen",
+          "name": "Sachsen",
+          "inPhrase": "in Sachsen",
+          "parentHub": "sachsen"
+        },
+        {
+          "slug": "sachsen-anhalt",
+          "name": "Sachsen-Anhalt",
+          "inPhrase": "in Sachsen-Anhalt",
+          "parentHub": "sachsen-anhalt"
+        },
+        {
+          "slug": "schleswig-holstein",
+          "name": "Schleswig-Holstein",
+          "inPhrase": "in Schleswig-Holstein",
+          "parentHub": "schleswig-holstein"
+        },
+        {
+          "slug": "thueringen",
+          "name": "Thüringen",
+          "inPhrase": "in Thüringen",
+          "parentHub": "thueringen"
+        }
+      ]
+    },
     "ES": {
       "name": "España",
       "lang": "es",

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "rheinland-pfalz"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "Die Förderseite des Landesdienstleistungszentrums (dlr.rlp.de) antwortet automatischen Werkzeugen mit einem Zugriffsverbot (403).",
+    "Presseberichte nennen eine Landesprämie für die Hofübernahme; eine Landesquelle fehlt bislang.",
+    "Die Landwirtschaftskammer beschreibt ihre Rolle bei der Hofübergabe ausdrücklich als Teilunterstützung."
+  ],
+  "portals": [
+    {
+      "name": "Landwirtschaftskammer Rheinland-Pfalz",
+      "url": "https://www.lwk-rlp.de/beratung",
+      "what": "Beratungsangebote, darunter betriebswirtschaftliche Beratung und Förderberatung."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "rp-foerderung",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Rheinland-Pfalz Junglandwirte Förderung Niederlassung Hofbörse Hofnachfolge Beratung Landwirtschaftskammer"
+    }
+  ],
+  "leads": [
+    {
+      "id": "rp-lwk-hofuebergabe",
+      "name": "Betriebswirtschaftliche Begleitung der Hofübergabe",
+      "url": "https://www.lwk-rlp.de/beratung/betriebswirtschaftliche-beratung",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "rheinland-pfalz-lwk-hofuebergabe-begleitung",
+      "reason": "Seite der Kammer mit ausdrücklicher Beschreibung der Teilleistungen zur Hofübergabe und der öffentlichen Kofinanzierung.",
+      "foundBy": "rp-foerderung",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "rp-niederlassungsbeihilfe",
+      "name": "Niederlassungsbeihilfe für Junglandwirte des Landes",
+      "url": "https://www.dlr.rlp.de/Foerderung/Foerderprogramme/Niederlassungsbeihilfe-Junglandwirte-NLB",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Landesprogramm, dessen Seite automatischen Zugriff verweigert (403); manuell prüfen.",
+      "foundBy": "rp-foerderung",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "NOT_FOUND",
+      "reason": "Die Seite der Landesniederlassungsbeihilfe verweigert den automatischen Zugriff; die Prämie wurde nicht zitierfähig belegt.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "NOT_FOUND",
+      "reason": "Eine Hof- oder Flächenbörse für Rheinland-Pfalz wurde nicht gefunden.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "rp-lwk-hofuebergabe",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: Übergabebegleitung der Kammer aufgenommen; Landesprämie wegen Zugriffssperre offen."
+    }
+  ]
+}

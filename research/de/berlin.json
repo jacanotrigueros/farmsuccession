@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "DE", "region": "berlin" },
+  "language": "de",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Berlin ist ein Stadtstaat: die landwirtschaftlichen Flächen der landeseigenen Stadtgüter liegen überwiegend in Brandenburg.",
+    "Die Seite der Berliner Stadtgüter gibt den Inhalt nicht in lesbarer Form an automatische Werkzeuge aus.",
+    "Die Junglandwirte-Einkommensstützung ist bundesweit geregelt und zählt laut Checkliste nicht als Landesinstrument."
+  ],
+  "portals": [
+    {
+      "name": "Berliner Stadtgüter",
+      "url": "https://berlinerstadtgueter.de/",
+      "what": "Landeseigene Immobiliengesellschaft, die landwirtschaftliche Flächen verpachtet."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "be-landwirtschaft",
+      "kinds": ["FINANCIAL_SUPPORT", "LAND_BANK", "ADVICE"],
+      "query": "Berlin Landwirtschaft Förderung Junglandwirte Hofnachfolge Stadtgüter Flächen Pachtvergabe"
+    }
+  ],
+  "leads": [
+    {
+      "id": "be-stadtgueter-pacht",
+      "name": "Verpachtung landwirtschaftlicher Flächen der Berliner Stadtgüter",
+      "url": "https://berlinerstadtgueter.de/leistungen/angebote/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Die Gesellschaft verpachtet landwirtschaftliche Flächen, die Seite liefert aber nur Navigation; zudem liegen die Flächen überwiegend in Brandenburg.",
+      "foundBy": "be-landwirtschaft",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "be-niederlassungsbeihilfe",
+      "name": "Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte in Berlin",
+      "url": "https://mleuv.brandenburg.de/mleuv/de/service/foerderung/landwirtschaft/niederlassungsbeihilfe-junglandwirte/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "berlin-niederlassungsbeihilfe-junglandwirte",
+      "reason": "Die gemeinsame Richtlinie von Brandenburg und Berlin schließt Berliner Betriebsstätten ausdrücklich ein. Dieselbe Richtlinie und Zugangsseite stehen auch bei brandenburg-niederlassungsbeihilfe-junglandwirte; es gibt keinen gemeinsamen Hub für beide Länder, deshalb ist sie in beiden Regionen erfasst. Ob das eine doppelte Erfassung ist, entscheidet eine Person bei der Prüfung.",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "FOUND",
+      "leadId": "be-niederlassungsbeihilfe",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "NOT_FOUND",
+      "reason": "Die Flächenvergabe der landeseigenen Gesellschaft betrifft vor allem Brandenburg und ist nicht zitierfähig beschrieben.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "NOT_FOUND",
+      "reason": "Für Berlin wurde kein Beratungs- oder Seminarangebot zur Hofübergabe gefunden.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erste Runde mit der nationalen Checkliste: keine Ressource aufgenommen; Flächen der Stadtgüter liegen in Brandenburg."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Nachtrag zur Runde vom 2026-09-29: Die in die Edition aufgenommene Niederlassungsbeihilfe hatte keine Spur im Brief; sie ist jetzt als ADMITTED erfasst und die Prüfung der Landesförderung steht auf FOUND. Der Hinweis der Ressource nannte Leserinnen und Lesern eine interne Kennung und das Datenmodell; er beschreibt jetzt nur die gemeinsame Richtlinie. Die Frage der doppelten Erfassung mit Brandenburg steht in der Spur."
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "DE",
+  "region": "schleswig-holstein",
+  "officialName": "Schleswig-Holstein",
+  "published": "2026-09-20",
+  "summary": "In Schleswig-Holstein führt die Landwirtschaftskammer durch die Hofübergabe — von den wirtschaftlichen Voraussetzungen über den Übergabevertrag bis zur Frage, ob eine außerfamiliäre Übergabe in Betracht kommt —, während die Landgesellschaft Flächen aus ihrem Bodenfonds an Betriebe abgibt.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Recherche zur Landesförderung, zur Hofbörse und zur Übergabeberatung in Schleswig-Holstein. Belegt sind die Übergabeberatung der Kammer und die Flächenabgabe der Landgesellschaft; eine eigene Landesbeihilfe für die Niederlassung wurde nicht gefunden.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Schleswig-Holstein Junglandwirte Niederlassung Förderung Land Existenzgründung Hofbörse außerfamiliäre Hofnachfolge"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.lksh.de/beratung/beratung-zur-hofuebergabe"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.lgsh.de/flaechenmanagement/agrarstruktur/"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "de",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "schleswig-holstein-lksh-beratung-hofuebergabe",
+      "name": "Beratung zur Hofübergabe der Landwirtschaftskammer Schleswig-Holstein",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Landwirtschaftskammer Schleswig-Holstein",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Beratung mit einem festen Fahrplan für Übergabe und Übernahme: Prüfung der wirtschaftlichen Voraussetzungen, Betrachtung der persönlichen und familiären Lage einschließlich einer möglichen außerfamiliären Übergabe, Gestaltung des Hofübergabevertrags mit Altenteil, Altersvorsorge und Abfindung der weichenden Erben, Besonderheiten von Nebenerwerbs- und verpachteten Betrieben sowie zeitlicher Ablauf und Problemanalyse.",
+      "whoCanUseIt": "Betriebsleiterinnen, Betriebsleiter und Hofnachfolgende in Schleswig-Holstein, die eine Übergabe oder Übernahme planen.",
+      "howToAccess": "Kontakt zu den Beraterinnen und Beratern der Landwirtschaftskammer Schleswig-Holstein aufnehmen.",
+      "accessUrl": "https://www.lksh.de/beratung/beratung-zur-hofuebergabe",
+      "languages": ["de"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "YOUNG_FARMER"],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "value": "+49 4331 9453-0",
+          "label": "Landwirtschaftskammer Schleswig-Holstein",
+          "sourceUrl": "https://www.lksh.de/beratung/beratung-zur-hofuebergabe"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.lksh.de/beratung/beratung-zur-hofuebergabe",
+          "title": "Beratung zur Hofübergabe - Landwirtschaftskammer Schleswig-Holstein",
+          "consultedOn": "2026-09-20",
+          "quotes": [
+            "Sie wollen den Betrieb übergeben / übernehmen und dafür einen Fahrplan entwickeln? Die Landwirtschaftskammer bietet folgendes Beratungsangebot an:",
+            "Überprüfung der wirtschaftlichen Voraussetzungen Der Hof - Existenzgrundlage für mehrere Generationen?",
+            "Kommt eine außerfamiliäre Hofübergabe in Betracht?",
+            "Hofübergabevertrag - Was ist vertraglich zu regeln? - Wie hoch sollte das Altenteil sein? - Welche Rolle spielt die Altersvorsorge? - Wie werden die weichenden Erben abgefunden?",
+            "+49 4331 9453-0"
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    },
+    {
+      "id": "schleswig-holstein-lgsh-bodenfonds-agrarstruktur",
+      "name": "Flächen aus dem Bodenfonds der Landgesellschaft Schleswig-Holstein",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Landgesellschaft Schleswig-Holstein mbH",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Beschaffung, Bevorratung und Verwertung von Flächen im ländlichen Raum: Landwirtschaftliche Betriebe können Flächen aus dem eigenen Bodenfonds zur Aufstockung oder Arrondierung erwerben, etwa im Rahmen eines Landtauschverfahrens; auch Betriebsumsiedlungen werden begleitet.",
+      "whoCanUseIt": "Landwirtschaftliche Betriebe in Schleswig-Holstein, die Flächen aufstocken, arrondieren oder tauschen wollen.",
+      "howToAccess": "Die Landgesellschaft Schleswig-Holstein über die Ansprechpartner des Flächenmanagements kontaktieren.",
+      "accessUrl": "https://www.lgsh.de/flaechenmanagement/agrarstruktur/",
+      "languages": ["de"],
+      "assetTypes": ["PLOTS"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "notes": "Die Landgesellschaft betreibt keine Hofbörse mit Angeboten und Gesuchen; sie gibt Flächen aus eigenem Bestand ab.",
+      "sources": [
+        {
+          "url": "https://www.lgsh.de/flaechenmanagement/agrarstruktur/",
+          "title": "Agrarstruktur - Landgesellschaft Schleswig-Holstein",
+          "consultedOn": "2026-09-20",
+          "quotes": [
+            "Gerade im Bereich der Landwirtschaft bietet die Zusammenarbeit mit der Landgesellschaft vielfältige Möglichkeiten.",
+            "Flächen aus dem eigenen Bodenfonds können landwirtschaftliche Betriebe zur Aufstockung bzw. zur Arrondierung z.B. im Rahmen eines Landtauschverfahrens erwerben.",
+            "Die Umsiedlung landwirtschaftlicher Betriebe wird durch die Landgesellschaft begleitet, koordiniert und durchgeführt."
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "Eine eigene Landesbeihilfe für die Niederlassung junger Landwirtinnen und Landwirte wurde in dieser Runde nicht belegt; die Suche führte nur zu allgemeiner Gründungsförderung.",
+    "Die Landgesellschaft führt keine Hofbörse; belegt ist die Abgabe von Flächen aus dem Bodenfonds.",
+    "Ob und in welcher Höhe die Übergabeberatung der Kammer etwas kostet, stand nicht auf der gelesenen Seite."
+  ]
+}

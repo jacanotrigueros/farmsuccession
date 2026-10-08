@@ -28,50 +28,57 @@ Two consequences that shape the whole design:
 This repository is being built in milestones, and it says where it is rather
 than describing what it intends to be.
 
-| Area                                                         | State                                                                |
-| ------------------------------------------------------------ | -------------------------------------------------------------------- |
-| Data contracts (`schema/`) and the types generated from them | Settled at `schemaVersion` 1.0.0                                     |
-| Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                                 |
-| Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                                   |
-| Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`            |
-| The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                         |
-| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                   |
-| Published data                                               | The 2026 edition of the EU layer and Spain: 33 files, 132 records    |
-| The rest of Europe                                           | Researched, not published here yet: France, Italy, Portugal, Germany |
-| The site                                                     | Builds from the data: 198 pages, one script on search; not published |
+| Area                                                         | State                                                                      |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| Data contracts (`schema/`) and the types generated from them | Settled at `schemaVersion` 1.0.0                                           |
+| Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                                       |
+| Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                                         |
+| Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`                  |
+| The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                               |
+| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                         |
+| Published data                                               | The 2026 edition of the EU layer, Spain and Germany: 50 files, 168 records |
+| The rest of Europe                                           | Researched, not published here yet: France, Italy, Portugal                |
+| The site                                                     | Builds from the data: 227 pages, one script on search; not published       |
 
 ## What is published today
 
-The 2026 edition covers the European layer, Spain, its three multi-island and
-multi-province groupings, and its 28 regional territories: **132 records**, each
-with the page it came from, the date that page was read and the words that were on
-it — 231 sources, 651 quotes, 225 distinct pages — plus 18 dated developments of the
-year and the 33 research briefs that say how each territory was searched, including
-the 115 leads that were considered and rejected.
+The 2026 edition covers the European layer; Spain, with its three multi-island and
+multi-province groupings and its 28 regional territories; and Germany, with its 16
+Länder: **168 records**, each with the page it came from, the date that page was read
+and the words that were on it — 274 sources, 793 quotes, 266 distinct pages — plus 18
+dated developments of the year and the 50 research briefs that say how each territory
+was searched, including the 128 leads that were considered and rejected.
 
 [**What the 2026 research found**](research/findings-2026.md) is the account of that
 work territory by territory: what each pass published, what it looked for and did not
 find, what it considered and left out with the reason, and what it has still to
 settle. It is generated from the data by `npm run report`, and `npm run check` fails
 while the committed copy is stale, so the conclusions cannot drift from the evidence.
-Read on its own it answers the question the records cannot: establishment aid was
-found in all 28 regional territories, a succession or cessation aid in 11, a land bank
-in 21, an entry course in 21, and an advisory service of a farmers' organisation in 13.
+Read on its own it answers the question the records cannot. In Spain, establishment
+aid was found in all 28 regional territories, a succession or cessation aid in 11, a
+land bank in 21, an entry course in 21, and an advisory service of a farmers'
+organisation in 13. Germany divides differently: nothing operative was found at
+national level, every one of the 16 Länder documents something, and what they document
+is establishment aid in 9, a handover advisory service in 10, a farm-transfer or
+matching service in 5, a land exchange in 2 and a qualifying course in 1.
 
-`npm run validate` reports `33 edition file(s) and 33 research brief(s) checked: 0
-error(s), 0 warning(s), 0 for review`. The count is printed on purpose: a check that
-passes over nothing must never read as a clean run.
+`npm run validate` reports `50 edition file(s) and 50 research brief(s) checked: 0
+error(s), 0 warning(s), 1 for review`. The count is printed on purpose: a check that
+passes over nothing must never read as a clean run. The one for review is a question
+rather than a defect — two records, in Berlin and in Brandenburg, cite the same page,
+because the two Länder fund establishment through one joint directive, and each record
+says so.
 
-Re-reading all 230 cited pages on 2 October 2026 gave **218 PASS, 1 FAIL and 11
-UNCHECKED**, and all three numbers are published rather than summarised into a
-percentage:
+Re-reading all 230 pages the European layer and Spain cite, on 2 October 2026, gave
+**218 PASS, 1 FAIL and 11 UNCHECKED**, and all three numbers are published rather than
+summarised into a percentage:
 
 - the **FAIL** is a municipal land bank whose procedure page the city removed between
   the research pass and that run — gone for a browser too. The record is still here,
   still saying what the page said on the day it was read, and the finding is written
   in that territory's brief, because a page going away is not by itself evidence that
   an instrument stopped operating and that call belongs to a person.
-- the **UNCHECKED** pages come from five of the 106 hosts the edition cites: two
+- the **UNCHECKED** pages come from five of the 106 hosts that run covered: two
   pages of a municipal portal that answers 403 to anything automated, five pages on
   the two portals of a provincial council whose certificate authority the runtime
   does not carry (see [`decisions/008`](decisions/008-complete-a-tls-chain.md) for
@@ -83,6 +90,11 @@ That last one is the honest shape of live checking: two runs an hour apart diffe
 on six pages. A run is a reading taken at a moment, which is why its result lives in
 `reports/` and never gates a commit, and why UNCHECKED exists instead of being folded
 into either of the other two.
+
+Germany was re-read Land by Land on 8 October 2026, 42 fetches in all: **40 PASS, 0
+FAIL and 2 UNCHECKED**. Every quote was found again on the page it was taken from. The
+two UNCHECKED are both pages of one advisory service whose host answers 403 to anything
+automated, which is a question for a person and not a verdict on the record.
 
 ## How a territory becomes publishable
 

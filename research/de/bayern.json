@@ -1,0 +1,249 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "DE",
+    "region": "bayern"
+  },
+  "language": "de",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "Die Förderseiten des Staatsministeriums (stmelf.bayern.de) sind lesbar; Merkblätter liegen als PDF vor.",
+    "Die Einkommensstützung für Junglandwirte wird bundesweit über den Mehrfachantrag gewährt und gehört auf die Länderebene Deutschland, nicht nach Bayern.",
+    "Beratung zur Hofübergabe bieten die Ämter für Ernährung, Landwirtschaft und Forsten; eine zentrale lesbare Seite dazu ist noch zu finden.",
+    "Der Bayerische Bauernverband beschreibt die Generationenfolgeberatung inklusive außerfamiliärer Hofnachfolge auf einer eigenen Seite.",
+    "Die staatliche Übersicht über schwierige Lebenssituationen nennt mehrere kirchliche Familienberatungsstellen; für einen Eintrag ist jeweils die eigene aktuelle Angebots- und Zugangsseite des Trägers zu prüfen.",
+    "NEU.LAND. nennt Hofnachfolger und Quereinsteiger, beschreibt sein Gründerzentrum aber überwiegend für Diversifizierung und neue Geschäftsfelder; daraus folgt noch kein allgemeiner Dienst zur Hofvermittlung oder Erstniederlassung."
+  ],
+  "portals": [
+    {
+      "name": "StMELF — Förderung",
+      "url": "https://www.stmelf.bayern.de/foerderung/index.html",
+      "what": "Förderprogramme des Bayerischen Staatsministeriums für Landwirtschaft."
+    },
+    {
+      "name": "StMELF — Hilfsangebote für schwierige Lebenssituationen",
+      "url": "https://www.stmelf.bayern.de/landwirtschaft/hilfsangebote-fuer-schwierige-lebenssituationen",
+      "what": "Übersicht der landwirtschaftlichen Familienberatungen und weiterer Hilfen."
+    },
+    {
+      "name": "BBV — Seminare zur Hofübergabe",
+      "url": "https://www.bayerischerbauernverband.de/hofuebergabe-seminare",
+      "what": "Veranstaltungen und Anmeldelinks für Hofübergeber und Hofübernehmer."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "by-junglandwirte",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Bayern Junglandwirte Förderung Niederlassung Hofübergabe Hofbörse 2026"
+    },
+    {
+      "id": "by-hofuebergabe",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "Bayern Hofübergabe Beratung Amt für Ernährung Landwirtschaft Existenzgründung außerfamiliäre Hofnachfolge Hofbörse"
+    },
+    {
+      "id": "by-afp",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "StMELF Bayern Förderung Junglandwirte Zuschuss Agrarinvestitionsförderprogramm Junglandwirtezuschlag 2026"
+    },
+    {
+      "id": "by-hofboerse",
+      "kinds": ["SUCCESSION_SERVICE", "LAND_BANK", "ADVICE"],
+      "query": "Bayern Hofbörse Hofnachfolge Vermittlung Landwirtschaft BBV außerfamiliäre Hofübergabe Beratung"
+    },
+    {
+      "id": "by-familienberatung-kirchen",
+      "kinds": ["ADVICE"],
+      "query": "Bayern Betriebsübergabe landwirtschaftliche Familienberatung Hofnachfolge kirchliche"
+    },
+    {
+      "id": "by-lokale-vermittlung",
+      "kinds": ["SUCCESSION_SERVICE", "LAND_BANK"],
+      "query": "Bayern außerfamiliäre Hofnachfolge Vermittlung Hofbörse Landkreis Verein"
+    },
+    {
+      "id": "by-gruenderzentrum",
+      "kinds": ["ADVICE", "TRAINING"],
+      "query": "Bayern NEU.LAND. Hofnachfolger Quereinsteiger Gründungscoaching Zugang"
+    }
+  ],
+  "leads": [
+    {
+      "id": "by-jes",
+      "name": "Einkommensstützung für Junglandwirte",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Bundesweites Instrument der GAP-Direktzahlungen; gehört auf die Ebene Deutschland.",
+      "foundBy": "by-junglandwirte",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-afp",
+      "name": "Agrarinvestitionsförderprogramm (AFP)",
+      "url": "https://www.stmelf.bayern.de/foerderung/einzelbetriebliche-investitionsfoerderung-eif-teil-a",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Die aktuelle Betreiberseite beschreibt eine allgemeine Investitionsförderung für Unternehmen. Die dort genannte laufende Antragsrunde bis 30.09.2026 begründet keinen eigenen Niederlassungszuschuss für junge oder neue Landwirte.",
+      "foundBy": "by-afp",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-hofuebergabe-beratung",
+      "name": "Generationenfolgeberatung und Hofübergabe des Bayerischen Bauernverbands",
+      "url": "https://www.bayerischerbauernverband.de/hofuebergabe",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "bayern-bbv-hofuebergabe-beratung",
+      "reason": "Die weiterhin erreichbare Betreiberseite beschreibt individuelle Beratung und den Zugang über die BBV-Geschäftsstelle. Kostenhöhe und Mitgliedschaftsbedingungen bleiben unklar.",
+      "foundBy": "by-hofboerse",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-eu-starterpaket",
+      "name": "Starterpaket für Junglandwirte ab 2027",
+      "kind": "POLICY",
+      "status": "REJECTED",
+      "reason": "Vorschlag auf EU-Ebene für die nächste GAP, kein bayerisches Instrument.",
+      "foundBy": "by-junglandwirte",
+      "checkedOn": "2026-09-15"
+    },
+    {
+      "id": "by-bbv-hofuebergabe-seminare",
+      "name": "BBV-Seminare zur Hofübergabe",
+      "url": "https://www.bayerischerbauernverband.de/hofuebergabe-seminare",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "bayern-bbv-hofuebergabe-seminare",
+      "reason": "Eigene aktuelle Seminarseite des Betreibers mit Online-Reihe für Herbst 2026 und Anmeldelinks; eine Bildungsleistung neben der individuellen Beratung.",
+      "foundBy": "by-hofuebergabe",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-evangelische-familienberatung",
+      "name": "Landwirtschaftliche Familienberatung der Evangelischen Kirche in Bayern",
+      "url": "https://landwirtschaftliche-familienberatung.de/einrichtungen/ihre-region/bayern",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "bayern-evangelische-landwirtschaftliche-familienberatung",
+      "reason": "Die eigene Kontaktseite nennt Hofnachfolge ausdrücklich als Beratungsanlass und zeigt einen Zugangsweg. Die verlinkte Unterseite /beratung/ antwortete hingegen mit 404; Kosten und genaue Zuständigkeit bleiben offen.",
+      "foundBy": "by-familienberatung-kirchen",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-passau-familienberatung",
+      "name": "Ländliche Familienberatung im Bistum Passau",
+      "url": "https://www.bistum-passau.de/beratung-seelsorge/familie-kinder/laendliche-familienberatung",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "bayern-passau-laendliche-familienberatung",
+      "reason": "Die eigene Betreiberseite nennt Übergänge, landwirtschaftliche Familien, kostenlosen Zugang und Kontakt zur Beratungsstelle; die staatliche Übersicht ordnet die kirchliche Familienberatung auch der Betriebsübergabe zu.",
+      "foundBy": "by-familienberatung-kirchen",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-aelf-hofuebergabe",
+      "name": "Hofübergabeberatung der Ämter für Ernährung, Landwirtschaft und Forsten",
+      "url": "https://www.aelf-ff.bayern.de/amt/verbundberatung/index.php",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Die geöffnete AELF-Seite beschreibt allgemeine staatliche und Verbundberatung, aber keinen hinreichend konkreten Hofübergabedienst. Eine aktuelle spezifische Betreiberseite und der Zugang sind noch zu finden.",
+      "foundBy": "by-hofuebergabe",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-hofsuchtbauer",
+      "name": "Hof sucht Bauer",
+      "url": "https://www.hofsuchtbauer.de/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "Die Hofbörse wird überregional betrieben und ist kein eigenständiges bayerisches Angebot; sie gehört gegebenenfalls in eine breitere Ebene.",
+      "foundBy": "by-hofboerse",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-vertrauensstelle-hofuebergabe",
+      "name": "Vertrauensstelle Hofübergabe",
+      "url": "https://www.vertrauensstelle-hofuebergabe.de/so-laeufts/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "Die geöffnete Vermittlungsseite belegt keinen eigens auf Bayern begrenzten Dienst oder Zugang; daher kein regionaler Eintrag.",
+      "foundBy": "by-lokale-vermittlung",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-neu-land",
+      "name": "Landwirtschaftliches Gründerzentrum NEU.LAND.",
+      "url": "https://www.gruenderzentrum.lfl.bayern.de/322025/index.php",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Das geöffnete Konzept richtet die Angebote auf Diversifizierung und neue Geschäftsfelder aus. Die Erwähnung von Hofnachfolgern und Quereinsteigern allein belegt keinen konkreten Dienst für Niederlassung oder Hofübergabe.",
+      "foundBy": "by-gruenderzentrum",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-wuerzburg-familienberatung",
+      "name": "Ländliche Familienberatung im Bistum Würzburg",
+      "url": "https://www.lfb-wuerzburg.de/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Die in der Ministeriumsübersicht verlinkte Betreiberseite antwortete beim Öffnen mit 502. Angebot, räumliche Zuständigkeit und Zugang auf einer lesbaren aktuellen Trägerseite prüfen; bis dahin kein Editionseintrag.",
+      "foundBy": "by-familienberatung-kirchen",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "by-freiwilliger-nutzungstausch",
+      "name": "Freiwilliger Nutzungstausch",
+      "url": "https://www.stmelf.bayern.de/landentwicklung/flurneuordnung/freiwilliger-nutzungstausch",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Das Verfahren ordnet vorhandene Pachtflächen zur besseren Bewirtschaftung neu; die Betreiberseite beschreibt keine Hof- oder Flächenbörse für neue Betriebe oder Hofnachfolge.",
+      "foundBy": "by-hofboerse",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "de-landesfoerderung-junglandwirte",
+      "status": "NOT_FOUND",
+      "reason": "Förderwegweiser, aktuelles AFP und Suchanfragen nach Niederlassungsprämie, Existenzgründung und Junglandwirtezuschlag geprüft; belegt wurden nur allgemeine Investitionsförderung und die bundesweite Direktzahlung, keine eigenständige bayerische Niederlassungsbeihilfe.",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "de-hofboerse-flaechen",
+      "status": "NOT_FOUND",
+      "reason": "Nach Landes-, Verbands- und lokalen Börsen gesucht; gefundene Hofvermittlungen waren überregional, der Freiwillige Nutzungstausch keine Vermittlung für Hofnachfolge. Einzelne lokale Angebote bleiben möglich.",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "de-hofuebergabe-beratung",
+      "status": "FOUND",
+      "leadId": "by-hofuebergabe-beratung",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Erster Durchgang ohne zugelassene Ressource: bundesweite und allgemeine Förderungen abgelehnt, Hofübergabe-Beratung der Ämter noch zu prüfen."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Runde mit der nationalen Checkliste: Generationenfolgeberatung des Bauernverbands aufgenommen; Landesförderung und Hofbörse offen."
+    },
+    {
+      "date": "2026-09-29",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Durchgang nach Prompt 1.9.0: BBV-Beratung erneut geprüft; BBV-Seminare sowie evangelische und Passauer Familienberatung ergänzt. Allgemeines AFP, überregionale Börsen und Diversifizierungsangebot abgegrenzt. AELF-Fachangebot und unlesbare Würzburger Betreiberseite bleiben offen."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Quellenprüfung: Die gesamte Domain lfb-bauernnotruf.de antwortet mit 404, auch die Startseite; das Evangelische Bildungszentrum Hesselberg verlinkt noch darauf. Die Bundesarbeitsgemeinschaft der Landwirtschaftlichen Familienberatungen führt den Dienst weiter mit Anschrift in Gerolfingen, und ihre Einrichtungsseite nennt die anstehende Betriebsübergabe oder -aufgabe als Beratungsthema. Quelle und Zugang zeigen jetzt auf dieses Verzeichnis; der Status ist UNKNOWN, bis eine eigene Seite des Dienstes den aktuellen Betrieb zeigt. Die Passauer Seite trennt Wörter mit weichen Trennstrichen; seit der Prüfer sie ignoriert, werden ihre Zitate wieder gefunden."
+    }
+  ]
+}
