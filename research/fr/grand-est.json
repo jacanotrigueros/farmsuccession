@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "grand-est"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-25",
+  "context": [
+    "Les fiches d'aides régionales lisibles sont publiées sur beeurope.grandest.fr.",
+    "La page transmission de la Chambre régionale réunit le Point Info Transmission, le programme AITA et les contacts départementaux.",
+    "Le Point Info Transmission relève du dispositif national d'accueil; ne retenir localement que ce qui est propre à la région, comme les aides AITA.",
+    "La Safer Grand Est publie ses annonces légales et un guide pour candidater à une vente ou à une location de foncier."
+  ],
+  "portals": [
+    {
+      "name": "BE EUROPE — Région Grand Est",
+      "url": "https://beeurope.grandest.fr/",
+      "what": "Fiches des aides régionales et européennes."
+    },
+    {
+      "name": "Chambre régionale d'agriculture Grand Est",
+      "url": "https://grandest.chambres-agriculture.fr/",
+      "what": "Installation, transmission et accompagnement des agriculteurs."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "ge-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "grandest.fr aide installation nouvel agriculteur 41 50 ans Région Grand Est"
+    },
+    {
+      "id": "ge-transmission",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Grand Est Région aide installation jeunes agriculteurs transmission exploitation 2026"
+    },
+    {
+      "id": "ge-safer-query",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Grand Est annonces légales installation transmission foncier"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Grand Est installation transmission agriculture accompagnement"
+    }
+  ],
+  "leads": [
+    {
+      "id": "ge-aina",
+      "name": "Aide à l’installation du nouvel agriculteur (AINA)",
+      "url": "https://beeurope.grandest.fr/aides/aide-a-linstallation-du-nouvel-agriculteur-aina/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "grand-est-aide-installation-nouvel-agriculteur",
+      "reason": "Fiche régionale avec objet, conditions d'âge et de diplôme et montants.",
+      "foundBy": "ge-installation",
+      "checkedOn": "2026-09-15"
+    },
+    {
+      "id": "ge-point-info-transmission",
+      "name": "Point Info Transmission Grand Est",
+      "url": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "grand-est-point-info-transmission",
+      "reason": "Page de la Chambre régionale décrivant le guichet gratuit, l'audit, le RDI et les aides AITA.",
+      "foundBy": "ge-transmission",
+      "checkedOn": "2026-09-15"
+    },
+    {
+      "id": "ge-dja",
+      "name": "Dotation Jeunes Agriculteurs",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Dispositif national géré avec les services de l'État, pas une ressource propre à la région.",
+      "foundBy": "ge-transmission",
+      "checkedOn": "2026-09-15"
+    },
+    {
+      "id": "ge-safer",
+      "name": "Safer Grand Est",
+      "url": "https://www.safer-grand-est.fr/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "grand-est-safer-grand-est",
+      "reason": "Site de l’opérateur foncier régional décrivant l’installation, la transmission et l’accès aux annonces.",
+      "foundBy": "ge-safer-query",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "FOUND",
+      "leadId": "ge-aina",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "ge-point-info-transmission",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "ge-safer",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "Aucune association régionale d’accompagnement à l’installation n’a été vérifiée dans cette passe.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe: admises l'aide régionale AINA et la page Point Info Transmission avec les aides AITA; Safer et échelons départementaux à examiner."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passe avec la liste de contrôle nationale : Safer Grand Est admise, aide AINA et Point Info Transmission confirmés."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Repérage préliminaire avant publication : requêtes prepublication-2026-09-25 exécutées. Découverte uniquement, sans revue complète ni preuve d’absence. Restent à vérifier les candidats, toutes les familles, les échelons locaux et les détails pratiques. Ce repérage ne modifie ni les statuts ni les dates de l’édition."
+    }
+  ]
+}

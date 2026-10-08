@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "FR",
+  "region": "grand-est",
+  "officialName": "Grand Est",
+  "published": "2026-09-20",
+  "summary": "Le Grand Est complète les aides nationales par une aide régionale à l'installation des nouveaux agriculteurs de plus de quarante ans, et les Chambres d'agriculture y animent un guichet gratuit et des aides du programme AITA pour préparer la transmission des exploitations.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Vérifiées la fiche régionale de l'aide à l'installation du nouvel agriculteur et la page transmission de la Chambre régionale d'agriculture. Les services départementaux, la Safer et les initiatives foncières locales restent à explorer.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Grand Est Région aide installation jeunes agriculteurs transmission exploitation 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "grandest.fr aide installation nouvel agriculteur 41 50 ans Région Grand Est"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Safer Grand Est annonces légales installation transmission foncier"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "fr",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "grand-est-aide-installation-nouvel-agriculteur",
+      "name": "Aide à l’installation du nouvel agriculteur (AINA)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Région Grand Est",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Aide régionale cofinancée par le FEADER pour une première installation viable et durable, avec un montant de base majoré pour le suivi et la formation après l'installation.",
+      "whoCanUseIt": "Personnes âgées de 41 à 50 ans, titulaires d'un diplôme agricole de niveau 4 ou plus, qui s'installent pour la première fois comme chef d'exploitation dans le Grand Est.",
+      "accessUrl": "https://beeurope.grandest.fr/aides/aide-a-linstallation-du-nouvel-agriculteur-aina/",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Montant de base pour une installation à titre principal",
+          "value": 10000,
+          "unit": "EUR",
+          "asOf": "2026-09-15",
+          "sourceUrl": "https://beeurope.grandest.fr/aides/aide-a-linstallation-du-nouvel-agriculteur-aina/"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Montant maximum avec majorations pour une installation à titre principal",
+          "value": 13000,
+          "unit": "EUR",
+          "asOf": "2026-09-15",
+          "sourceUrl": "https://beeurope.grandest.fr/aides/aide-a-linstallation-du-nouvel-agriculteur-aina/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://beeurope.grandest.fr/aides/aide-a-linstallation-du-nouvel-agriculteur-aina/",
+          "title": "Aide à l’installation du nouvel agriculteur (AINA) - BE EUROPE",
+          "consultedOn": "2026-09-15",
+          "quotes": [
+            "Le présent dispositif a pour objet de soutenir des projets d’installation viable et durable en agriculture.",
+            "Être âgé d’au moins 41 ans et de 50 ans au plus à la date de dépôt de la demande d’aide",
+            "Être détenteur d’un diplôme agricole de niveau 4 ou supérieur au plus tard au dépôt de la demande d’aide",
+            "S’installer pour la première fois comme chef d’exploitation.",
+            "Montant de base 10 000 €",
+            "Montant maximum (avec l’ensemble des majorations) 13 000 €",
+            "Le financement des dossiers éligibles à ce dispositif est assuré par les fonds FEADER (60%)"
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    },
+    {
+      "id": "grand-est-point-info-transmission",
+      "name": "Point Info Transmission et aides AITA à la transmission",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Chambres d'agriculture du Grand Est",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Guichet unique et gratuit pour les exploitants qui envisagent la retraite, une réorientation ou la recherche d'un associé, avec audit de transmission, inscription au Répertoire Départ Installation et aides du programme AITA pour les transmissions hors cadre familial.",
+      "whoCanUseIt": "Exploitants du Grand Est qui préparent leur départ, leur réorientation professionnelle ou l'arrivée d'un associé.",
+      "accessUrl": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation",
+      "accessCostType": "FREE",
+      "languages": ["fr"],
+      "targetProfiles": ["TRANSFEROR"],
+      "notes": "Le Point Info Transmission s'inscrit dans le dispositif national d'accueil installation-transmission; il est retenu ici pour les aides régionales du programme AITA qu'il présente.",
+      "sources": [
+        {
+          "url": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation",
+          "title": "Je transmets mon exploitation - Chambre d'agriculture Grand Est",
+          "consultedOn": "2026-09-15",
+          "quotes": [
+            "Le Point Info Transmission (PIT) est un guichet unique et gratuit pour répondre aux questions des exploitants envisageant de prendre leur retraite, se réorienter professionnellement ou à la recherche d’un associé.",
+            "Une inscription au Répertoire Départ Installation si vous recherchez un repreneur ou un associé.",
+            "Les aides du programme AITA volet 5 sont mises en place pour inciter et favoriser les transmissions Hors Cadre Familial à destination directe des futurs cédants",
+            "Cette aide est destinée à encourager l’audit d’une exploitation à céder pour faciliter la démarche de transmission-installation"
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    },
+    {
+      "id": "grand-est-safer-grand-est",
+      "name": "Safer Grand Est",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer Grand Est",
+      "operatorType": "MIXED",
+      "whatItOffers": "Opérateur foncier régional qui accompagne les projets d’installation en agriculture ou viticulture, la transmission d’une exploitation, la vente ou la location de biens, et publie ses annonces de terres, bois et vignes avec un guide pour candidater.",
+      "whoCanUseIt": "Porteurs de projet qui cherchent des terres, des bois ou des vignes, exploitants qui veulent transmettre, pérenniser, vendre ou louer, investisseurs et collectivités.",
+      "howToAccess": "Consulter les annonces légales et le guide pour candidater à une vente ou une location de foncier, et contacter la Safer pour un projet d’installation ou de transmission.",
+      "accessUrl": "https://www.safer-grand-est.fr/",
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "languages": ["fr"],
+      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "TRANSFEROR", "LANDOWNER"],
+      "sources": [
+        {
+          "url": "https://www.safer-grand-est.fr/",
+          "title": "Safer Grand Est",
+          "consultedOn": "2026-09-20",
+          "quotes": [
+            "M'installer en Agriculture / Viticulture",
+            "Transmettre mon exploitation",
+            "Vous cherchez des terres, des bois ou des vignes ? Retrouvez toutes nos annonces de bien en vente et en location",
+            "Télécharger le Guide pour candidater à une vente ou une location de foncier"
+          ]
+        }
+      ],
+      "generatorId": "claude-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "La fiche régionale de l'aide AINA ne précise pas de période de dépôt; les dates doivent être vérifiées auprès de la Région.",
+    "La Safer Grand Est, les services départementaux et les initiatives foncières locales n'ont pas été examinés dans cette passe."
+  ]
+}

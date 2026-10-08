@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "FR", "region": "martinique" },
+  "language": "fr",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "La Collectivité territoriale de Martinique est autorité de gestion régionale des mesures non surfaciques du fonds européen agricole.",
+    "Le portail Europe Martinique publie la liste des dispositifs ouverts et les fiches d’intervention ; les dépôts passent par une application dédiée.",
+    "Les pages trouvées sur la Safer de Martinique renvoient des erreurs : chercher son site propre lors d’une prochaine passe."
+  ],
+  "portals": [
+    {
+      "name": "Europe Martinique",
+      "url": "https://www.europe-martinique.com/",
+      "what": "Programmes européens martiniquais, dont le fonds agricole et ses dispositifs."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "mq-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Collectivité territoriale de Martinique aide installation jeunes agriculteurs FEADER 2026"
+    },
+    { "id": "mq-safer", "kinds": ["LAND_BANK"], "query": "Safer Martinique foncier agricole installation appels à candidature site" }
+  ],
+  "leads": [
+    {
+      "id": "mq-feader-demarrage",
+      "name": "Aide au démarrage (jeunes et nouveaux agriculteurs) du programme européen martiniquais",
+      "url": "https://www.europe-martinique.com/feader-23-27/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "martinique-feader-aide-demarrage",
+      "reason": "Page officielle du programme décrivant les aides au démarrage et l’autorité de gestion régionale.",
+      "foundBy": "mq-installation",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "mq-safer-martinique",
+      "name": "Safer de Martinique",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Présentée par des sources tierces comme opérateur foncier local, mais aucune page lisible n’a été trouvée dans cette passe.",
+      "foundBy": "mq-safer",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    { "expectedId": "fr-aide-regionale-installation", "status": "FOUND", "leadId": "mq-feader-demarrage", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "NOT_FOUND",
+      "reason": "Aucun dispositif d’accompagnement à la transmission propre au territoire n’a été vérifié.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "NOT_FOUND",
+      "reason": "Les pages consultées sur la Safer de Martinique ont renvoyé une erreur ; aucun dispositif foncier local n’a pu être cité.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "Aucune association d’accompagnement à l’installation propre au territoire n’a été vérifiée.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe avec la liste de contrôle nationale : aide au démarrage du programme européen admise ; Safer locale introuvable."
+    }
+  ]
+}

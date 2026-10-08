@@ -1,0 +1,297 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "FR",
+  "region": "bretagne",
+  "officialName": "Bretagne",
+  "published": "2026-09-28",
+  "summary": "La Bretagne combine AGRI Install pour la première installation, AGRI Transmission pour préparer les exploitations à céder, le RDI et la Safer pour la mise en relation et le foncier, ainsi que Terre de Liens et les CIVAM pour l'accompagnement installation-transmission.",
+  "coverage": {
+    "status": "SEARCHED",
+    "note": "Revue régionale 1.9.0 des quatre familles françaises, avec vérification de la Région Bretagne, de la Chambre d'agriculture, de la Safer Bretagne, de Terre de Liens Bretagne, de la FRCIVAM Bretagne et de pistes départementales/EPCI. AGRI Install et le RDI ont été revalidés ; AGRI Transmission, Safer Bretagne, Terre de Liens Bretagne et l'offre installation-transmission des CIVAM ont été admis. L'espace-test de Menez-Meur est actuellement en pause et n'est pas présenté comme ressource active.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.bretagne.bzh/aides/fiches/agri-install/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.bretagne.bzh/aides/fiches/agri-transmission/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://bretagne.chambres-agriculture.fr/detail-dossier/trouver-une-ferme-avec-le-rdi"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.safer-bretagne.fr/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://terredeliens.org/bretagne/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.civam.org/fr-civam-bretagne/actions/installation-transmission-bretagne/"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Bretagne département EPCI commune espace-test agricole transmission installation"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Côtes-d'Armor Finistère Ille-et-Vilaine Morbihan agriculture installation transmission espace-test foncier"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "fr",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "bretagne-agri-install",
+      "name": "AGRI Install",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Région Bretagne",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Deux subventions de trésorerie pour soutenir la première installation agricole : la Dotation Jeune Agriculteur (DJA) pour les jeunes agriculteurs et le Soutien à l'Installation en Agriculture (SIA) pour d'autres nouveaux installés éligibles.",
+      "whoCanUseIt": "Porteurs de projet qui s'installent comme chefs d'exploitation en Bretagne et respectent les conditions d'âge, de compétence, d'expérience et de viabilité publiées.",
+      "howToAccess": "Solliciter une structure d'accompagnement, puis déposer la demande en ligne par le lien du dispositif correspondant. Le Point accueil installation oriente sur les démarches.",
+      "accessUrl": "https://www.bretagne.bzh/aides/fiches/agri-install/",
+      "sectors": ["AGRICULTURE", "LIVESTOCK"],
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "accessCostType": "NOT_APPLICABLE",
+      "languages": ["fr"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "lastEvidenceDate": "2025-11-03",
+      "sources": [
+        {
+          "url": "https://www.bretagne.bzh/aides/fiches/agri-install/",
+          "title": "AGRI Install — Aide à l'installation en agriculture",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Aide à l’installation en agriculture",
+            "Aide disponible",
+            "Cette aide vise à soutenir l’installation en agriculture et à faciliter l’accès au foncier agricole.",
+            "AGRI Install se décline en 2 aides à la trésorerie pour tout nouvel installé, sous forme de subvention",
+            "A compter du 3 novembre 2025, de nouvelles modalités entrent en vigueur."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "bretagne-agri-transmission",
+      "name": "AGRI Transmission",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Région Bretagne",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Prend en charge une partie d'un diagnostic complet de l'exploitation et d'un plan d'actions destiné à renforcer sa transmissibilité avant une cession.",
+      "whoCanUseIt": "Entreprises agricoles dont le siège est en Bretagne et comprenant au moins un associé exploitant âgé de 45 à 65 ans, souhaitant engager une réflexion sur la transmission.",
+      "howToAccess": "Choisir un organisme de conseil agréé par la Région et le contacter. L'organisme dépose la demande d'aide, réalise le diagnostic et déduit l'aide régionale de la facture.",
+      "accessUrl": "https://www.bretagne.bzh/aides/fiches/agri-transmission/",
+      "instrumentType": "GRANT",
+      "purposes": ["TRANSFER"],
+      "languages": ["fr"],
+      "targetProfiles": ["TRANSFEROR"],
+      "sources": [
+        {
+          "url": "https://www.bretagne.bzh/aides/fiches/agri-transmission/",
+          "title": "AGRI Transmission",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Date limite : 31/12/2027 23:59",
+            "Disposer d’un socle en conseil stratégique qui renforcera l’attractivité de l’entreprise et facilitera sa reprise.",
+            "elle correspond à 80 % maximum des dépenses éligibles et est plafonnée à 1000 € HT.",
+            "comprenant au moins un associé exploitant ayant entre 45 et 65 ans à la date du dépôt de la demande",
+            "L’organisme fait la démarche de dépôt de demande d’aide auprès de la Région. L’exploitant n’a aucune démarche à effectuer."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "bretagne-repertoire-depart-installation",
+      "name": "Répertoire Départ Installation en Bretagne",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Chambre d'agriculture de Bretagne",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Un site et des conseillers dédiés pour rechercher une ferme, diffuser une exploitation à transmettre et mettre en relation cédants et candidats à la reprise.",
+      "whoCanUseIt": "Porteurs de projet qui cherchent une exploitation ou un associé, et agriculteurs qui cherchent un repreneur ou un associé.",
+      "howToAccess": "Consulter la page RDI pour chercher une ferme ou la page complémentaire destinée aux exploitants qui cherchent un repreneur.",
+      "accessUrl": "https://bretagne.chambres-agriculture.fr/detail-dossier/trouver-une-ferme-avec-le-rdi",
+      "assetTypes": ["WHOLE_HOLDINGS"],
+      "sectors": ["AGRICULTURE"],
+      "accessCostType": "UNKNOWN",
+      "languages": ["fr"],
+      "targetProfiles": ["SUCCESSOR", "TRANSFEROR", "LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://bretagne.chambres-agriculture.fr/detail-dossier/trouver-une-ferme-avec-le-rdi",
+          "title": "Trouver une ferme avec le RDI",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Le RDI vous aide à trouver votre future ferme en Bretagne.",
+            "Un site et surtout des conseillers dédiés vous aident dans votre projet."
+          ]
+        },
+        {
+          "url": "https://bretagne.chambres-agriculture.fr/detail-dossier/trouver-un-repreneur-avec-le-rdi",
+          "title": "Trouver un repreneur avec le RDI",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Le RDI favorise la transmission des entreprises agricoles en mettant en contact les repreneurs et les cédants. Découvrez les étapes."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "bretagne-safer-bretagne",
+      "name": "Safer Bretagne",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer Bretagne",
+      "operatorType": "MIXED",
+      "whatItOffers": "Accompagnement foncier régional pour trouver une exploitation ou du foncier, négocier et sécuriser la transmission, avec appels à candidatures en vente et en location.",
+      "whoCanUseIt": "Futurs agriculteurs, agriculteurs en recherche de foncier, propriétaires et exploitants qui souhaitent vendre ou transmettre en Bretagne.",
+      "howToAccess": "Consulter les appels à candidatures et les parcours « Je m'installe », « Je cherche du foncier » ou « Je transmets mon exploitation », puis contacter la Safer Bretagne.",
+      "accessUrl": "https://www.safer-bretagne.fr/",
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "languages": ["fr"],
+      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR", "LANDOWNER"],
+      "lastEvidenceDate": "2026-07-02",
+      "sources": [
+        {
+          "url": "https://www.safer-bretagne.fr/",
+          "title": "Safer Bretagne",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Je transmets mon exploitation", "Je m’installe", "Je cherche du foncier", "Appels à candidatures"]
+        },
+        {
+          "url": "https://www.safer-bretagne.fr/agriculteurs/futurs-agriculteurs/",
+          "title": "Futurs agriculteurs - Safer Bretagne",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "La Safer Bretagne agit en faveur de l’installation",
+            "Pour trouver une exploitation viable qui corresponde à son projet.",
+            "La Safer propose un accompagnement personnalisé"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "bretagne-terre-de-liens",
+      "name": "Terre de Liens Bretagne",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Terre de Liens Bretagne - Liamm an douar",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Accompagnement des porteurs de projet d'installation et des transmetteurs sur le volet foncier, ainsi que soutien aux acquisitions citoyennes de fermes et formations liées au foncier et à la transmission.",
+      "whoCanUseIt": "Porteurs de projet agricole et agriculteurs ou propriétaires préparant une transmission en Bretagne, notamment pour des projets d'agriculture biologique et paysanne.",
+      "howToAccess": "Utiliser le formulaire « Nous contacter » de la page Bretagne de Terre de Liens pour demander un accompagnement installation-transmission ou foncier.",
+      "accessUrl": "https://terredeliens.org/bretagne/",
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR", "SUCCESSOR", "LANDOWNER"],
+      "lastEvidenceDate": "2026-09-17",
+      "sources": [
+        {
+          "url": "https://terredeliens.org/bretagne/",
+          "title": "Terre de Liens Bretagne",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Accompagnement des porteur·euse·s de projet d’installations agricoles et des transmetteu·euse·s sur le volet foncier.",
+            "Accompagnement à l’acquisition citoyenne de fermes.",
+            "Formation transmission en lien avec les CIVAM"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "bretagne-frcivam-installation-transmission",
+      "name": "Accompagnement installation-transmission des CIVAM de Bretagne",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "FRCIVAM Bretagne",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Coordonne et propose avec les groupes CIVAM et le collectif InPACT des parcours d'installation et de transmission : formations d'émergence, accompagnement aux demandes DJA/SIA, accompagnement et formation des cédants et des binômes cédant-repreneur.",
+      "whoCanUseIt": "Porteurs de projet agricole, nouveaux installés, cédants et binômes cédant-repreneur accompagnés par les structures CIVAM/InPACT en Bretagne.",
+      "howToAccess": "Consulter la page installation-transmission de la FRCIVAM Bretagne et contacter le réseau via son adresse institutionnelle ou l'un des groupes territoriaux listés.",
+      "accessUrl": "https://www.civam.org/fr-civam-bretagne/actions/installation-transmission-bretagne/",
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER", "TRANSFEROR", "SUCCESSOR"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "FRCIVAM Bretagne",
+          "value": "bretagne@civam.org",
+          "sourceUrl": "https://www.civam.org/fr-civam-bretagne/actions/installation-transmission-bretagne/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.civam.org/fr-civam-bretagne/actions/installation-transmission-bretagne/",
+          "title": "Agir pour le renouvellement des générations de paysan·nes",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Les formations émergence à destination des porteurs et porteuses de projets : « De l’idée au projet »",
+            "L’accompagnement au dépôt de demande de Dotation Jeunes Agriculteurs (DJA) et de Soutien à l’Installation Agricole (SIA)",
+            "L’accompagnement et la formation des cédant·es et des binômes cédant·es-repeneur·euse dans leur projet de transmission de leur ferme.",
+            "bretagne@civam.org"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "Les fenêtres de dépôt d'AGRI Install ne sont pas modélisées car la fiche consultée ne publie pas de dates de début et de fin applicables à toutes les demandes.",
+    "Le coût du service RDI n'est pas indiqué sur la page retenue et reste inconnu.",
+    "L'espace-test agricole de Menez-Meur est actuellement indiqué comme en pause et n'accueille plus de nouveaux porteurs de projet ; il n'est donc pas publié comme ressource active.",
+    "Le projet « Ma ferme, demain » du Parc naturel régional d'Armorique travaille sur la transmissibilité de fermes du Finistère, mais la page consultée ne fournit pas encore de voie d'accès générale pour les candidats ; il reste hors inventaire publié."
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "corse"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-25",
+  "context": [
+    "L'ODARC regroupe sur son site l'installation, le foncier et les aides publiques propres à la Corse.",
+    "Le parcours d'installation combine un Point accueil Installation et une Cellule Jeunes Agriculteurs de l'ODARC avec des contacts pour la Haute-Corse et la Corse-du-Sud.",
+    "Une page toujours publiée mais datée de 2021 ne suffit pas, à elle seule, à affirmer que le service fonctionne encore en 2026.",
+    "Les appels communaux de cession d'exploitation sont des opportunités locales datées ; ils ne doivent pas être transformés en banques foncières permanentes.",
+    "Passe avec la liste de contrôle nationale sur un fichier existant : seuls les instruments attendus restaient à renseigner.",
+    "La Corse n’a pas de Safer : l’office foncier et les dispositifs fonciers insulaires restent à vérifier lors d’une prochaine passe."
+  ],
+  "portals": [
+    {
+      "name": "ODARC",
+      "url": "https://www.odarc.corsica/L-installation_r22.html",
+      "what": "Portail territorial pour l'installation, le foncier, les aides et les contacts agricoles en Corse."
+    },
+    {
+      "name": "Devenir agriculteur en Corse",
+      "url": "https://www.deveniragriculteur.corsica/",
+      "what": "Point d'entrée cité par l'ODARC pour les premiers contacts d'installation."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "corse-installation",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT"],
+      "query": "site:odarc.corsica installation jeune agriculteur transmission Corse"
+    },
+    {
+      "id": "corse-local",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "site:odarc.corsica commune appel candidatures cession exploitation agricole"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Corse installation transmission agriculture accompagnement"
+    }
+  ],
+  "leads": [
+    {
+      "id": "corse-cellule-ja",
+      "name": "Cellule Jeunes Agriculteurs de l'ODARC",
+      "url": "https://www.odarc.corsica/Pour-tous-vos-projets-la-Cellule-JA-_a158.html",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "corse-cellule-ja",
+      "reason": "La page officielle décrit un accompagnement technique, humain et financier de la création aux premières années, mais sa date de 2021 impose un statut public UNKNOWN.",
+      "foundBy": "corse-installation",
+      "checkedOn": "2026-09-14"
+    },
+    {
+      "id": "corse-serra-fiumorbu-2025",
+      "name": "Appel à candidatures maraîchage de Serra di Fium'Orbu",
+      "url": "https://www.odarc.corsica/la-commune-de-Serra-di-Fium-Orbu-lance-une-offre-aux-fins-de-relancer-l-agriculture-sur-son-territoire_a510.html",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "REJECTED",
+      "reason": "L'opportunité locale concernait la cession d'une exploitation avec une échéance en décembre 2025 ; elle est conservée comme vocabulaire de recherche, pas comme service permanent.",
+      "foundBy": "corse-local",
+      "checkedOn": "2026-09-14"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "NOT_FOUND",
+      "reason": "La fiche de l’aide à l’installation de l’ODARC n’a pas été vérifiée dans cette passe ; seule la cellule d’accompagnement a été retenue.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "corse-cellule-ja",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "NOT_FOUND",
+      "reason": "La Corse ne relève pas d’une Safer régionale comme le continent ; aucun dispositif foncier insulaire n’a été vérifié.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "Aucune association insulaire d’accompagnement à l’installation n’a été vérifiée dans cette passe.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Première passe insulaire : le service régional d'accompagnement est publié avec une disponibilité inconnue et l'appel communal expiré est conservé uniquement comme piste historique."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passe avec la liste de contrôle nationale sur le fichier existant : cellule Jeunes Agriculteurs retenue pour l’accompagnement ; aide régionale et foncier à vérifier."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Repérage préliminaire avant publication : requêtes prepublication-2026-09-25 exécutées. Découverte uniquement, sans revue complète ni preuve d’absence. Restent à vérifier les candidats, toutes les familles, les échelons locaux et les détails pratiques. Ce repérage ne modifie ni les statuts ni les dates de l’édition."
+    }
+  ]
+}

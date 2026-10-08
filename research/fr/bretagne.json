@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "bretagne"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-30",
+  "context": [
+    "La Région Bretagne regroupe la DJA et son soutien régional complémentaire sous le nom AGRI Install.",
+    "AGRI Transmission finance un diagnostic de transmissibilité pour les exploitations dont au moins un associé exploitant a 45 à 65 ans ; la demande est déposée par un organisme de conseil agréé.",
+    "La Chambre d'agriculture de Bretagne présente le Répertoire Départ Installation comme un site et un accompagnement pour chercher une ferme ou un repreneur.",
+    "La Safer Bretagne dispose de parcours actuels « Je m'installe », « Je cherche du foncier » et « Je transmets mon exploitation », avec appels à candidatures en vente et en location.",
+    "Terre de Liens Bretagne et la FRCIVAM Bretagne décrivent des accompagnements concrets installation-transmission accessibles à l'échelle régionale.",
+    "Les espaces-test doivent être vérifiés opérateur par opérateur : Menez-Meur est explicitement en pause en 2026 et ne doit pas être présenté comme actif."
+  ],
+  "portals": [
+    {
+      "name": "Région Bretagne — AGRI Install",
+      "url": "https://www.bretagne.bzh/aides/fiches/agri-install/",
+      "what": "Aide régionale et européenne à la première installation."
+    },
+    {
+      "name": "Région Bretagne — AGRI Transmission",
+      "url": "https://www.bretagne.bzh/aides/fiches/agri-transmission/",
+      "what": "Diagnostic et accompagnement des exploitations préparant leur transmission."
+    },
+    {
+      "name": "Chambre d'agriculture de Bretagne — RDI",
+      "url": "https://bretagne.chambres-agriculture.fr/detail-dossier/trouver-une-ferme-avec-le-rdi",
+      "what": "Recherche de ferme et mise en relation cédants-repreneurs."
+    },
+    {
+      "name": "Safer Bretagne",
+      "url": "https://www.safer-bretagne.fr/",
+      "what": "Foncier, installation, transmission et appels à candidatures."
+    },
+    {
+      "name": "Terre de Liens Bretagne",
+      "url": "https://terredeliens.org/bretagne/",
+      "what": "Accompagnement foncier installation-transmission."
+    },
+    {
+      "name": "FRCIVAM Bretagne — installation-transmission",
+      "url": "https://www.civam.org/fr-civam-bretagne/actions/installation-transmission-bretagne/",
+      "what": "Formations et accompagnements des porteurs de projet, cédants et binômes."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "bretagne-aides-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:bretagne.bzh/aides/fiches jeune agriculteur installation transmission"
+    },
+    {
+      "id": "bretagne-rdi",
+      "kinds": ["SUCCESSION_SERVICE", "LAND_BANK"],
+      "query": "site:bretagne.chambres-agriculture.fr Répertoire Départ Installation ferme repreneur"
+    },
+    {
+      "id": "bretagne-local",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "TRAINING", "ADVICE"],
+      "query": "Bretagne département EPCI commune espace-test agricole transmission installation"
+    },
+    {
+      "id": "bretagne-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Bretagne installation transmission foncier agricole appels candidatures"
+    },
+    {
+      "id": "bretagne-associations",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Terre de Liens Bretagne CIVAM installation transmission accompagnement"
+    },
+    {
+      "id": "bretagne-departements-2026",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "TRAINING", "ADVICE"],
+      "query": "Côtes-d'Armor Finistère Ille-et-Vilaine Morbihan agriculture installation transmission espace-test foncier"
+    },
+    {
+      "id": "prepublication-2026-09-25-1",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
+      "query": "Bretagne installation transmission agriculture accompagnement"
+    }
+  ],
+  "leads": [
+    {
+      "id": "bretagne-agri-install",
+      "name": "AGRI Install",
+      "url": "https://www.bretagne.bzh/aides/fiches/agri-install/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "bretagne-agri-install",
+      "reason": "Fiche régionale active revalidée le 28 septembre 2026 ; elle décrit l'aide, les profils, le dépôt et le PAI. Le 30/09/2026, la vérification automatique reçoit 403 et le navigateur intégré de Claude Code tombe sur un défi Cloudflare (« Un momento… »), qui n'a pas été contourné. La lecture du 28/09 ne précise ni l'outil ni la validation de la chaîne de certificats : la vérification manuelle exigée n'est donc pas documentée. Prochaine étape : qu'une personne ouvre la fiche dans son navigateur, confirme les citations et le documente ici ; sinon, retirer la ressource de l'édition.",
+      "foundBy": "bretagne-aides-installation",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bretagne-rdi",
+      "name": "Répertoire Départ Installation en Bretagne",
+      "url": "https://bretagne.chambres-agriculture.fr/detail-dossier/trouver-une-ferme-avec-le-rdi",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "bretagne-repertoire-depart-installation",
+      "reason": "Service régional actuel de recherche de ferme et mise en relation cédants-repreneurs revalidé.",
+      "foundBy": "bretagne-rdi",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bretagne-agri-transmission",
+      "name": "AGRI Transmission",
+      "kind": "FINANCIAL_SUPPORT",
+      "url": "https://www.bretagne.bzh/aides/fiches/agri-transmission/",
+      "status": "ADMITTED",
+      "resourceId": "bretagne-agri-transmission",
+      "reason": "La fiche actuelle fixe une échéance au 31 décembre 2027, décrit le diagnostic de transmissibilité, les bénéficiaires, le taux/plafond et le parcours via un organisme agréé. Le 30/09/2026, la vérification automatique reçoit 403 et le navigateur intégré de Claude Code tombe sur un défi Cloudflare (« Un momento… »), qui n'a pas été contourné. La lecture du 28/09 ne précise ni l'outil ni la validation de la chaîne de certificats : la vérification manuelle exigée n'est donc pas documentée. Prochaine étape : qu'une personne ouvre la fiche dans son navigateur, confirme les citations et le documente ici ; sinon, retirer la ressource de l'édition.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "prepublication-2026-09-25"
+    },
+    {
+      "id": "bretagne-safer-bretagne",
+      "name": "Safer Bretagne",
+      "kind": "LAND_BANK",
+      "url": "https://www.safer-bretagne.fr/",
+      "status": "ADMITTED",
+      "resourceId": "bretagne-safer-bretagne",
+      "reason": "Le site actuel propose des parcours explicites d'installation, recherche de foncier et transmission ainsi que des appels à candidatures vente/location.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "bretagne-safer"
+    },
+    {
+      "id": "bretagne-terre-de-liens",
+      "name": "Terre de Liens Bretagne",
+      "kind": "SUCCESSION_SERVICE",
+      "url": "https://terredeliens.org/bretagne/",
+      "status": "ADMITTED",
+      "resourceId": "bretagne-terre-de-liens",
+      "reason": "La page territoriale actuelle décrit explicitement l'accompagnement des porteurs de projet et transmetteurs sur le foncier et fournit une voie de contact.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "bretagne-associations"
+    },
+    {
+      "id": "bretagne-frcivam-installation-transmission",
+      "name": "Accompagnement installation-transmission des CIVAM de Bretagne",
+      "kind": "ADVICE",
+      "url": "https://www.civam.org/fr-civam-bretagne/actions/installation-transmission-bretagne/",
+      "status": "ADMITTED",
+      "resourceId": "bretagne-frcivam-installation-transmission",
+      "reason": "La FRCIVAM décrit des services concrets : formations d'émergence, aide DJA/SIA et accompagnement/formation des cédants et binômes, avec contact institutionnel.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "bretagne-associations"
+    },
+    {
+      "id": "bretagne-eta-menez-meur",
+      "name": "Espace-test agricole du Menez-Meur",
+      "kind": "TRAINING",
+      "url": "https://www.reneta.fr/ETA-du-Menez-Meur",
+      "status": "REJECTED",
+      "reason": "La page RENETA indique explicitement que le dispositif est actuellement en pause et n'accueille plus de nouveaux porteurs de projet ; ne pas le publier comme actif.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "bretagne-departements-2026"
+    },
+    {
+      "id": "bretagne-ma-ferme-demain",
+      "name": "Ma ferme, demain — Parc naturel régional d'Armorique",
+      "kind": "SUCCESSION_SERVICE",
+      "url": "https://www.pnr-armorique.fr/le-parc-en-action/les-missions-du-parc/economie-durable/agriculture-et-alimentation/",
+      "status": "REJECTED",
+      "reason": "Expérimentation pertinente sur des fermes du Finistère, mais la page décrit une phase d'identification/scénarisation avant futurs appels et ne fournit pas de voie d'accès générale actuelle pour les repreneurs ; insuffisant pour une ressource opérationnelle distincte.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "bretagne-departements-2026"
+    },
+    {
+      "id": "bretagne-stage-parrainage-cpi",
+      "name": "Stage de parrainage CPI",
+      "kind": "TRAINING",
+      "url": "https://ideo.bretagne.bzh/formations/installation-en-agriculture-stage-de-parrainage-cpi",
+      "status": "REJECTED",
+      "reason": "Formation pertinente et actuellement référencée, mais l'édition privilégie les instruments distincts déjà opérés par la Chambre/RDI et la Région ; la page régionale d'orientation est un catalogue de formation et ne démontre pas à elle seule un instrument régional distinct à publier.",
+      "checkedOn": "2026-09-28",
+      "foundBy": "bretagne-local"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "FOUND",
+      "leadId": "bretagne-agri-install",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "bretagne-agri-transmission",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "bretagne-safer-bretagne",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "FOUND",
+      "leadId": "bretagne-terre-de-liens",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-15",
+      "by": "CHATGPT (Codex)",
+      "summary": "Passe initiale puis expansion vers RDI, départements et espaces-test ; AGRI Install et le RDI ont été admis, les opérateurs locaux restent à vérifier."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passe avec la liste de contrôle nationale sur le fichier existant : aide régionale et RDI retenus, Safer et associations à vérifier."
+    },
+    {
+      "date": "2026-09-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Repérage préliminaire avant publication : requêtes prepublication-2026-09-25 exécutées. Découverte uniquement, sans revue complète ni preuve d’absence. Restent à vérifier les candidats, toutes les familles, les échelons locaux et les détails pratiques. Ce repérage ne modifie ni les statuts ni les dates de l’édition."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revue 1.9.0 complète des quatre familles françaises. AGRI Install et RDI revalidés ; AGRI Transmission, Safer Bretagne, Terre de Liens Bretagne et l'accompagnement installation-transmission des CIVAM admis. Menez-Meur rejeté comme ressource active car en pause ; Ma ferme, demain reste hors inventaire faute de voie d'accès générale actuelle."
+    },
+    {
+      "date": "2026-09-30",
+      "by": "CLAUDE (Claude Code)",
+      "summary": "Revue des sources : les deux fiches régionales AGRI Install et AGRI Transmission restent sans vérification manuelle documentée (403 automatique, défi Cloudflare dans le navigateur) ; les pistes disent l'étape suivante. Aucune donnée modifiée."
+    }
+  ]
+}

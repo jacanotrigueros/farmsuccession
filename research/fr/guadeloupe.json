@@ -1,0 +1,233 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "guadeloupe"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-29",
+  "context": [
+    "Depuis 2023, la dotation jeunes agriculteurs est gérée par la Région Guadeloupe dans son intervention stratégique FEADER 75.01.",
+    "Le portail Europe Guadeloupe décrit les aides régionales du FEADER et sert de source lisible quand le site de la Région ne l'est pas.",
+    "La Safer de Guadeloupe publie ses appels à candidatures par les services de l'État (préfecture et DAAF).",
+    "La page du financement FEADER indique un dépôt en continu, tandis que la page distincte de dépôt précise qu'Euro-PAC est le seul moyen de transmettre une demande FEADER.",
+    "La Safer conserve en ligne un avis de septembre 2026 dont le délai est passé. La page des appels indique qu'aucun appel n'est actuellement ouvert : ne pas confondre avis consultable et candidature ouverte.",
+    "Un document régional mentionne une aide à l'installation des agriculteurs de plus de 40 ans, mais une mention dans une délibération ne démontre pas son fonctionnement actuel.",
+    "Les recherches sur les espaces-tests doivent distinguer Vieux-Habitants en Guadeloupe et Le Lamentin en Martinique ; pour la commune guadeloupéenne, vérifier l'opérateur et l'adresse exacte."
+  ],
+  "portals": [
+    {
+      "name": "Europe Guadeloupe",
+      "url": "https://www.europe-guadeloupe.fr/",
+      "what": "Fiches des financements européens régionaux, dont le FEADER installation."
+    },
+    {
+      "name": "Safer Guadeloupe",
+      "url": "https://saferguadeloupe.com/",
+      "what": "Missions foncières, achat, location, vente et transmission de biens ruraux."
+    },
+    {
+      "name": "Dépôt des aides FEADER — Europe Guadeloupe",
+      "url": "https://www.europe-guadeloupe.fr/jai-un-projet/faire-une-demande-daide/",
+      "what": "Instructions pour déposer une demande FEADER sur Euro-PAC."
+    },
+    {
+      "name": "Guadeloupe AgroCampus",
+      "url": "https://guadeloupeagrocampus.fr/cfppa/autres-formations/ceppp-et-stage-21-heures",
+      "what": "Préinscription au CEPPP et au stage de 21 heures."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "gp-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Région Guadeloupe aide installation jeunes agriculteurs FEADER dotation 2026 chambre agriculture point accueil installation"
+    },
+    {
+      "id": "gp-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Guadeloupe installation transmission foncier agricole agriculteurs site officiel"
+    },
+    {
+      "id": "gp-transmission-2026",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Guadeloupe transmission exploitation agricole point info transmission répertoire départ installation 2026"
+    },
+    {
+      "id": "gp-plus-40-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Guadeloupe dispositif aide installation agriculteurs plus de 40 ans 2026 dossier Région"
+    },
+    {
+      "id": "gp-espace-test-2026",
+      "kinds": ["TRAINING", "ADVICE"],
+      "query": "Guadeloupe espace test agricole Vieux-Habitants Petra Patrimonia AgroCampus Lamentin 2026"
+    },
+    {
+      "id": "gp-associations-2026",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Guadeloupe APECA ADEAR CIVAM association accompagnement installation transmission agricole"
+    },
+    {
+      "id": "gp-foncier-local-2026",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Guadeloupe Département commune intercommunalité Marie-Galante Petit-Canal Port-Louis foncier installation agriculteurs appel candidatures"
+    }
+  ],
+  "leads": [
+    {
+      "id": "gp-feader-installation",
+      "name": "Aides à l'installation en agriculture (FEADER Région Guadeloupe)",
+      "url": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_aides-a-linstallation-en-agriculture/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "guadeloupe-feader-aide-installation",
+      "reason": "La fiche régionale relue donne les bénéficiaires, les montants et le dépôt en continu. La page de demande FEADER confirme Euro-PAC comme voie de dépôt.",
+      "foundBy": "gp-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-safer-guadeloupe",
+      "name": "Safer de Guadeloupe",
+      "url": "https://saferguadeloupe.com/appel-a-projet-ou-candidature/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "guadeloupe-safer-guadeloupe",
+      "reason": "L'opérateur présente l'accompagnement foncier et ses fiches de candidature ; sa page précise qu'aucun appel n'est ouvert. L'avis de septembre 2026 a fermé le 21 septembre.",
+      "foundBy": "gp-safer",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-appels-candidatures-safer",
+      "name": "Appels à candidatures de la Safer de Guadeloupe pour l'installation d'agriculteurs",
+      "url": "https://saferguadeloupe.com/wp-content/uploads/2026/09/Avis-dAppel-candidature-du-7-09-2026.pdf",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "guadeloupe-safer-guadeloupe",
+      "reason": "Avis de l'opérateur lu et intégré à la ressource Safer : candidature close le 21 septembre 2026. Ne crée pas une deuxième ressource pour une liste de parcelles.",
+      "foundBy": "gp-safer",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-stage-21-heures",
+      "name": "CEPPP et stage de 21 heures de Guadeloupe AgroCampus",
+      "url": "https://guadeloupeagrocampus.fr/cfppa/autres-formations/ceppp-et-stage-21-heures",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "guadeloupe-agrocampus-stage-21-heures",
+      "reason": "Le CFPPA décrit sa formation de préinstallation, son renouvellement régulier et une préinscription ; aucune prochaine session datée n'est annoncée.",
+      "foundBy": "gp-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-pait-chambre",
+      "name": "Point Accueil Installation et accompagnement de la Chambre d'agriculture",
+      "url": "https://guadeloupe.chambres-agriculture.fr/je-suis-future-agriculteur-trice",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "La page apparaît dans les résultats, mais son ouverture n'a pas fourni de texte lisible. Vérifier directement l'offre actuelle, le parcours d'accès et un éventuel service propre aux cédants.",
+      "foundBy": "gp-transmission-2026",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-installation-plus-40",
+      "name": "Aide à l'installation des agriculteurs de plus de 40 ans",
+      "url": "https://www.regionguadeloupe.fr/fileadmin/Site_Region_Guadeloupe/Annonces_legales_et_deliberations/2025/CP_25_318_Autorisation_donnee_au_president_du_conseil_regional.pdf",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Une délibération indexée mentionne ce dispositif, mais le PDF n'a pas été lisible dans cette passe. Trouver la fiche de l'opérateur et une procédure actuelle avant d'établir son fonctionnement, son âge exact et ses montants.",
+      "foundBy": "gp-plus-40-2026",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-espace-test-vieux-habitants",
+      "name": "Espace-test agricole de Vieux-Habitants",
+      "url": "https://www.facebook.com/vieuxhabitants/posts/-appel-%C3%A0-candidatures-espace-test-agricole-du-cfppa-de-vieux-habitants-le-cfppa-/1432185655605122/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Une publication municipale repérée annonce des candidatures, mais son ouverture a été bloquée. Trouver une page lisible du CFPPA ou de Petra Patrimonia décrivant le service, les conditions et sa situation actuelle.",
+      "foundBy": "gp-espace-test-2026",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-espace-test-lamentin",
+      "name": "Espace-test agricole annoncé au Lamentin de Guadeloupe",
+      "url": "https://fr.linkedin.com/posts/patricia-duravel-26772896_appel%C3%A0candidatures-espacetestagricole-activity-7424441842445746176-FKkZ",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Une publication personnelle lisible décrit le projet, mais il manque la page propre de l'opérateur et une confirmation de la disponibilité actuelle ; vérifier aussi la commune pour éviter la confusion avec Le Lamentin en Martinique.",
+      "foundBy": "gp-espace-test-2026",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-apeca",
+      "name": "APECA — Agriculture Paysanne et Écologique dans la Caraïbe",
+      "url": "https://www.agriculturepaysanne.org/Un-Reseau",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "La présence de l'association dans l'annuaire ne décrit pas un service actuel et concret d'installation, transmission ou accès à la terre. Une offre propre de l'opérateur pourrait motiver une nouvelle évaluation.",
+      "foundBy": "gp-associations-2026",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-foncier-departemental",
+      "name": "Projet départemental de mobilisation de foncier pour l'installation",
+      "url": "https://www.cg971.fr/bilan-mi-mandat-agriculture/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Le bilan publié en juillet 2026 parle d'un appel à projets encore en élaboration tout en évoquant un lancement en 2025. Rechercher un avis et une démarche de candidature effectivement ouverts avant admission.",
+      "foundBy": "gp-foncier-local-2026",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-ariaag",
+      "name": "ARIAAG — investissements agricoles et agrotransformation",
+      "url": "https://aides.regionguadeloupe.fr/L-ARIAAG-Aide-Regionale-a-l-Investissement-pour-le-developpement-des-unites-de-",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "La page n'a pas pu être ouverte et le résultat disponible décrit une aide générale à l'investissement productif ; la présence d'un critère de majoration pour jeunes ne démontre pas une aide dédiée à l'entrée, à la reprise ou à la transmission.",
+      "foundBy": "gp-installation",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "FOUND",
+      "leadId": "gp-feader-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "NOT_FOUND",
+      "reason": "La Safer accompagne des ventes foncières, mais aucun volet régional distinct AITA, stage de parrainage ou service de conseil aux cédants n'a pu être vérifié. La page de la Chambre reste illisible et gp-pait-chambre demeure TO_CHECK.",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "gp-safer-guadeloupe",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "La recherche APECA, ADEAR, CIVAM, RENETA et Petra Patrimonia n'a pas permis de lire une page propre établissant un service associatif actuellement accessible. Les espaces-tests repérés restent TO_CHECK.",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe avec la liste de contrôle nationale : aide FEADER régionale à l'installation et Safer de Guadeloupe admises."
+    },
+    {
+      "date": "2026-09-29",
+      "by": "CHATGPT (GPT-6)",
+      "summary": "Passe 1.9.0 : DJA FEADER relue avec dépôt continu sur Euro-PAC ; Safer confirmée, dernier avis clos le 21 septembre et aucun appel ouvert ; stage de 21 heures du CFPPA ajouté. Aide aux plus de 40 ans, Chambre, deux espaces-tests et foncier départemental restent à vérifier. APECA et aide générale ARIAAG non admises. Recherche élargie aux associations, aux communes et aux appels."
+    }
+  ]
+}

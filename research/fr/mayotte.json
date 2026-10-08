@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "FR", "region": "mayotte" },
+  "language": "fr",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "daaf.mayotte.agriculture.gouv.fr n’a pas répondu lors de cette passe (délai de connexion dépassé).",
+    "epfam.fr, site de l’établissement public foncier et d’aménagement qui exerce le rôle d’opérateur foncier rural, présente un certificat expiré.",
+    "Le domaine europe-a-mayotte.fr, cité par les moteurs comme portail des fonds européens, redirige vers un contenu commercial sans rapport : ne pas le citer."
+  ],
+  "portals": [],
+  "openData": [],
+  "queries": [
+    {
+      "id": "yt-installation",
+      "kinds": ["FINANCIAL_SUPPORT", "LAND_BANK"],
+      "query": "Mayotte aide installation jeunes agriculteurs FEADER 2026 Département dispositif agriculture foncier"
+    }
+  ],
+  "leads": [
+    {
+      "id": "yt-epfam",
+      "name": "Établissement public foncier et d’aménagement de Mayotte",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Exerce le rôle d’opérateur foncier rural selon le plan régional de l’agriculture durable, mais son site présente un certificat expiré.",
+      "foundBy": "yt-installation",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "yt-daaf-aides",
+      "name": "Aides à l’installation (services agricoles de l’État à Mayotte)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Site injoignable lors de cette passe ; réessayer à la prochaine mise à jour.",
+      "foundBy": "yt-installation",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "yt-europe-a-mayotte",
+      "name": "Portail des fonds européens à Mayotte",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "REJECTED",
+      "reason": "Le domaine redirige vers un contenu commercial sans rapport avec l’agriculture : source inutilisable.",
+      "foundBy": "yt-installation",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "NOT_FOUND",
+      "reason": "Aucune source officielle lisible : le site des services agricoles de l’État n’a pas répondu.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "NOT_FOUND",
+      "reason": "Aucun dispositif d’accompagnement à la transmission propre au territoire n’a été trouvé.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "NOT_FOUND",
+      "reason": "L’établissement foncier qui exerce le rôle d’opérateur rural a un site au certificat expiré.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "Aucune association d’accompagnement à l’installation propre au territoire n’a été trouvée.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe sans ressource admise : sources officielles injoignables ou non fiables, portail des fonds européens détourné."
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "hauts-de-france"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-29",
+  "context": [
+    "Le guide des aides de la Région (guide-aides.hautsdefrance.fr) publie une fiche par dispositif, lisible automatiquement, avec objectifs, bénéficiaires et critères.",
+    "Le Point Accueil Installation Transmission (PAIT) est le passage obligé avant une demande d'aide régionale à l'installation.",
+    "Le site régional hautsdefrance-sinstallertransmettreenagriculture.fr rassemble l'actualité de l'installation-transmission et reste à vérifier.",
+    "Les fiches régionales ARSI et Activ' ton installation, ainsi que le portail du PAIT, ont renvoyé une erreur 403 le 29 septembre 2026. Les extraits de recherche ne constituent pas une vérification.",
+    "La page propre de la Safer Hauts-de-France décrit les candidatures foncières, le portage et son accompagnement à l'installation.",
+    "Initiatives Paysannes documente séparément son accompagnement des candidats à l'installation et celui des cédants. Terre de Liens Hauts-de-France décrit un accompagnement foncier territorial.",
+    "Le Germoir d'Ambricourt et À Petits PAS à Sains-du-Nord décrivent deux espaces-test distincts ; les annonces de places trouvées ne démontrent pas une disponibilité actuelle.",
+    "Pévèle Carembault distingue son aide immobilière à candidature permanente du complément local à l'ARSI, dont seule une présentation datée de 2025 a été lue."
+  ],
+  "portals": [
+    {
+      "name": "Guide des aides de la Région Hauts-de-France",
+      "url": "https://guide-aides.hautsdefrance.fr/",
+      "what": "Fiches des dispositifs régionaux, actuellement bloquées à la lecture par une réponse 403."
+    },
+    {
+      "name": "Safer Hauts-de-France",
+      "url": "https://www.saferhautsdefrance.fr/",
+      "what": "Accompagnement foncier à l'installation, portage et appels à candidatures."
+    },
+    {
+      "name": "PAIT Hauts-de-France",
+      "url": "https://hautsdefrance-sinstallertransmettreenagriculture.fr/",
+      "what": "Parcours territorial d'installation et de transmission ; contenu actuel à vérifier après erreur 403."
+    },
+    {
+      "name": "Initiatives Paysannes",
+      "url": "https://www.agriculturepaysanne.org/initiativespaysannes",
+      "what": "Accompagnement propre de l'association à l'installation et à la transmission."
+    },
+    {
+      "name": "Terre de Liens Hauts-de-France",
+      "url": "https://terredeliens.org/hauts-de-france/",
+      "what": "Accompagnement foncier des candidats et des futurs cédants."
+    },
+    {
+      "name": "Démarches Pévèle Carembault",
+      "url": "https://demarches.pevelecarembault.fr/economie/demande-daide-linvestissement-immobilier-pour-exploitation-agricole",
+      "what": "Formulaire de l'aide intercommunale à l'investissement immobilier agricole."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "hdf-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Région Hauts-de-France aide installation jeunes agriculteurs 2026 dispositif transmission agriculture"
+    },
+    {
+      "id": "hdf-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Hauts-de-France s'installer transmettre foncier agricole site officiel"
+    },
+    {
+      "id": "hdf-associations",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE", "TRAINING"],
+      "query": "Hauts-de-France Initiatives Paysannes Terre de Liens À Petits PAS Germoir accompagnement installation transmission espace-test"
+    },
+    {
+      "id": "hdf-epci",
+      "kinds": ["FINANCIAL_SUPPORT", "LAND_BANK"],
+      "query": "Hauts-de-France communauté de communes commune aide installation reprise exploitation agricole foncier Pévèle Carembault"
+    },
+    {
+      "id": "hdf-pait-departements",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "PAIT Aisne Nord Oise Pas-de-Calais Somme répertoire départ installation conseil transmission 2026"
+    }
+  ],
+  "leads": [
+    {
+      "id": "hdf-arsi",
+      "name": "Aide régionale spécifique à l'installation (ARSI)",
+      "url": "https://guide-aides.hautsdefrance.fr/dispositif833",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "La fiche de la Région a renvoyé 403. La page de la collectivité cofinanceuse Pévèle Carembault décrit l'ARSI en 2025, mais ne vérifie pas la fiche ni la disponibilité régionale en 2026. L'identifiant hauts-de-france-arsi a été retiré du brouillon de cette édition en attendant une page officielle lisible.",
+      "foundBy": "hdf-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-activ-ton-installation",
+      "name": "Activ' ton installation - Prépare ta transmission",
+      "url": "https://guide-aides.hautsdefrance.fr/dispositif709",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "La fiche de la Région a renvoyé 403. Les pages des structures partenaires prouvent leurs propres services, mais ne permettent pas de vérifier l'appel régional ni ses conditions actuelles. L'identifiant hauts-de-france-activ-ton-installation reste réservé pour une vérification ultérieure.",
+      "foundBy": "hdf-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-safer-hdf",
+      "name": "Safer Hauts-de-France, rubrique m'installer",
+      "url": "https://www.saferhautsdefrance.fr/exploitants-porteurs-de-projet/agricole/m-installer/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-safer-foncier",
+      "reason": "Page propre de la Safer ouverte : détaille le portage, l'accès aux appels fonciers et la candidature.",
+      "foundBy": "hdf-safer",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-initiatives-installation",
+      "name": "Installation avec Initiatives Paysannes",
+      "url": "https://www.agriculturepaysanne.org/L-accompagnement",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-initiatives-paysannes-installation",
+      "reason": "L'association décrit son accompagnement individuel, les ateliers et son contact territorial.",
+      "foundBy": "hdf-associations",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-initiatives-transmission",
+      "name": "Transmission avec Initiatives Paysannes",
+      "url": "https://www.agriculturepaysanne.org/Notre-accompagnement-1588",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-initiatives-paysannes-transmission",
+      "reason": "L'association décrit un suivi propre des cédants, avec recherche et rencontre de repreneurs ; la prise en charge financière reste conditionnelle.",
+      "foundBy": "hdf-associations",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-terre-de-liens",
+      "name": "Terre de Liens Hauts-de-France",
+      "url": "https://terredeliens.org/hauts-de-france/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-terre-de-liens-accompagnement",
+      "reason": "L'association territoriale décrit son propre accompagnement des porteurs, cédants et propriétaires.",
+      "foundBy": "hdf-associations",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-germoir",
+      "name": "Espace-test agricole du Germoir",
+      "url": "https://legermoir-ambricourt.fr/les-activites/lespace-test-agricole/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-germoir-espace-test",
+      "reason": "Page de l'opérateur décrivant l'espace-test agricole permanent à Ambricourt et son contact.",
+      "foundBy": "hdf-associations",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-a-petits-pas",
+      "name": "Espace-test agricole du Cœur de l'Avesnois",
+      "url": "https://apetitspas.net/entreprenariat/lespace-test-agricole/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-a-petits-pas-espace-test",
+      "reason": "Page de l'opérateur décrivant l'espace-test permanent à Sains-du-Nord et l'accompagnement de la couveuse Chrysalide.",
+      "foundBy": "hdf-associations",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-chrysalide",
+      "name": "Couveuse Chrysalide d'À Petits PAS",
+      "url": "https://apetitspas.net/entreprenariat/tout-sur-la-couveuse-2/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Le test agricole de Sains-du-Nord et son accompagnement par Chrysalide figurent déjà ensemble dans hdf-a-petits-pas ; la couveuse générale couvre aussi de nombreux métiers et la créer ici comme seconde ressource du même parcours local ferait doublon.",
+      "foundBy": "hdf-associations",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-pevele-immobilier",
+      "name": "Aide immobilière pour exploitation agricole de Pévèle Carembault",
+      "url": "https://demarches.pevelecarembault.fr/economie/demande-daide-linvestissement-immobilier-pour-exploitation-agricole",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-pevele-investissement-installation",
+      "reason": "Démarche propre de l'intercommunalité avec formulaire, règlement lié, montant maximal et indication d'appel permanent.",
+      "foundBy": "hdf-epci",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-pevele-arsi",
+      "name": "Complément de Pévèle Carembault à l'ARSI",
+      "url": "https://www.pevelecarembault.fr/actualites/pevele-carembault-accompagne-les-agriculteurs",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-pevele-complement-arsi",
+      "reason": "Page propre de la collectivité confirmant le complément local de 2025 et le dossier unique ; ressource classée UNKNOWN faute de preuve de disponibilité en 2026.",
+      "foundBy": "hdf-epci",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-pait",
+      "name": "Point Accueil Installation Transmission Hauts-de-France",
+      "url": "https://hautsdefrance-sinstallertransmettreenagriculture.fr/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Le portail actuel a renvoyé 403 ; les guides historiques des Chambres d'agriculture et les mentions de partenaires ne permettent pas de vérifier les modalités actuelles des cinq départements. Reprendre la vérification sur une page propre lisible du PAIT ou de chaque chambre.",
+      "foundBy": "hdf-pait-departements",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-objectif-terres",
+      "name": "Annonces Objectif Terres affichées sur Terre de Liens",
+      "url": "https://terredeliens.org/hauts-de-france/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "La page régionale réaffiche des annonces du portail national, dont plusieurs situées hors des Hauts-de-France ; ce portail partagé n'est pas un inventaire propre à l'association régionale.",
+      "foundBy": "hdf-associations",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "NOT_FOUND",
+      "reason": "L'ARSI est décrite par des pages locales, mais la fiche de son opérateur régional renvoie 403 ; la piste hdf-arsi demeure TO_CHECK et la couverture PARTIAL.",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "hdf-initiatives-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "hdf-safer-hdf",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "FOUND",
+      "leadId": "hdf-initiatives-installation",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe avec la liste de contrôle nationale : aide régionale à l'installation et dispositif d'accompagnement installation-transmission admis ; Safer à vérifier."
+    },
+    {
+      "date": "2026-09-29",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Safer vérifiée ; services propres d'Initiatives Paysannes et Terre de Liens, deux espaces-test et deux aides de Pévèle Carembault documentés. Fiches régionales ARSI et Activ' ton installation retirées provisoirement de l'édition après blocage 403, identifiants conservés comme pistes TO_CHECK. PAIT et détails des appels restent à vérifier."
+    }
+  ]
+}

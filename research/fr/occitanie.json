@@ -1,0 +1,317 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "occitanie"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-29",
+  "context": [
+    "La Région Occitanie finance des structures labellisées pour conseiller les candidats à l'installation et les cédants sans repreneur.",
+    "Les opérateurs de proximité comprennent les chambres départementales et les associations départementales pour le développement de l'emploi agricole et rural.",
+    "Les acronymes locaux DNA, DJA, CEFI, AITA, RDI et PAIT doivent être recherchés en plus des termes génériques.",
+    "Les pages départementales qui exécutent un dispositif régional ne sont distinctes que si elles apportent un inventaire, un accès ou un service local propre.",
+    "Passe avec la liste de contrôle nationale sur un fichier existant : seuls les instruments attendus restaient à renseigner.",
+    "Les tableaux de périodes DJA et DNA séparent « date de début d'éligibilité » et « périodes de dépôt » : le dépôt est continu en 2026, sans date d'ouverture à inférer de la première colonne.",
+    "La Safer, la Foncière Agricole et les ADEAR offrent des voies foncières différentes. Une annonce immobilière isolée n'est pas un instrument supplémentaire.",
+    "Une page de l'ADEAR 31 indique ne plus avoir de personnel et réoriente vers des ADEAR limitrophes ; ne pas qualifier son accompagnement d'ACTIVE sans nouvelle vérification.",
+    "La fiche détaillée CEFI du portail Me former en région a expiré pendant l'ouverture ; le parcours d'inscription reste à établir."
+  ],
+  "portals": [
+    {
+      "name": "Région Occitanie",
+      "url": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide",
+      "what": "Annonce officielle des accompagnements régionaux à l'installation et à la transmission en 2026."
+    },
+    {
+      "name": "Europe en Occitanie — Euro-pac",
+      "url": "https://www.europe-en-occitanie.eu/Euro-pac",
+      "what": "Accès officiel aux demandes et appels FEADER Occitanie."
+    },
+    {
+      "name": "Région Occitanie — Agriculture",
+      "url": "https://www.laregion.fr/Agriculture-Viticulture-Alimentation",
+      "what": "Entrée vers DJA, DNA, CEFI et les autres instruments régionaux."
+    },
+    {
+      "name": "Safer Occitanie — S'installer",
+      "url": "https://www.safer-occitanie.com/fr/page/s-installer.php",
+      "what": "Parcours foncier de la Safer et accès aux appels à candidatures."
+    },
+    {
+      "name": "ARAC — Foncière Agricole",
+      "url": "https://www.arac-occitanie.fr/les-filiales-de-larac/la-fonciere-agricole-doccitanie/",
+      "what": "Conditions et contact de l'opérateur de portage foncier."
+    },
+    {
+      "name": "ARDEAR Occitanie",
+      "url": "https://www.agriculturepaysanne.org/S-installer-607",
+      "what": "Orientation vers les associations départementales pour l'installation."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "occitanie-installation-transmission",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "site:laregion.fr agriculture installation transmission exploitation Occitanie"
+    },
+    {
+      "id": "occitanie-expanded-vocabulary",
+      "kinds": ["FINANCIAL_SUPPORT", "TRAINING", "SUCCESSION_SERVICE"],
+      "query": "Occitanie DNA DJA CEFI AITA RDI PAIT transmission installation"
+    },
+    {
+      "id": "occitanie-local-levels",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "Occitanie département EPCI commune ferme à reprendre foncier installation transmission"
+    },
+    {
+      "id": "occitanie-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Occitanie installation transmission foncier agricole annonces"
+    },
+    {
+      "id": "occitanie-dja-dna-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:europe-en-occitanie.eu Dotation Jeune Agriculteur Dotation Nouvel Agriculteur périodes dépôt 2026"
+    },
+    {
+      "id": "occitanie-fonciere",
+      "kinds": ["LAND_BANK"],
+      "query": "site:arac-occitanie.fr Foncière Agricole d'Occitanie installation portage"
+    },
+    {
+      "id": "occitanie-adear-services",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE", "LAND_BANK"],
+      "query": "site:agriculturepaysanne.org Gard Lot Occitanie accompagner transmission carte fermes installation"
+    },
+    {
+      "id": "occitanie-terre-de-liens",
+      "kinds": ["ADVICE", "LAND_BANK"],
+      "query": "site:terredeliens.org/languedoc-roussillon OR site:terredeliens.org/midi-pyrenees installation transmission foncier"
+    },
+    {
+      "id": "occitanie-local-followup",
+      "kinds": ["LAND_BANK", "ADVICE", "TRAINING"],
+      "query": "site:occitanie.fr \"ferme communale\" installation agricole"
+    }
+  ],
+  "leads": [
+    {
+      "id": "occitanie-accompagnement-installation",
+      "name": "Accompagnement à l'installation en agriculture",
+      "url": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-accompagnement-installation",
+      "reason": "La Région confirme des conseils financés en 2026. Le guichet concret auprès des organismes labellisés reste à enrichir ; aucune échéance d'appel aux opérateurs n'est attribuée aux agriculteurs.",
+      "foundBy": "occitanie-installation-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-accompagnement-pretransmission",
+      "name": "Accompagnement pré-transmission des exploitations",
+      "url": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-accompagnement-pretransmission",
+      "reason": "Financement régional 2026 de diagnostics et suivis pour les cédants sans repreneur ; l'ancien appel à sélection d'opérateurs est clos et n'est pas une période pour les cédants.",
+      "foundBy": "occitanie-installation-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-europac",
+      "name": "Portail Euro-pac",
+      "url": "https://www.europe-en-occitanie.eu/Euro-pac",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-europac",
+      "reason": "Le portail reste le point officiel de dépôt des demandes FEADER régionales.",
+      "foundBy": "portal",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-cefi",
+      "name": "Contrat Emploi Formation Installation",
+      "url": "https://www.laregion.fr/Agriculture-Viticulture-Alimentation",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-cefi",
+      "reason": "La Région décrit un stage de reprise ou association et annonce son renouvellement en février 2026. La fiche détaillée liée n'a pas répondu ; confirmer ensuite l'inscription individuelle.",
+      "foundBy": "occitanie-expanded-vocabulary",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-cefi-fiche-detaillee",
+      "name": "Fiche détaillée du CEFI",
+      "url": "https://www.meformerenregion.fr/recherche/fiche-formation?q=+Contrat+Emploi+Formation+Installation+agricole",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Le lien de modalités fourni par la Région a expiré lors de l'ouverture ; vérifier directement la fiche ou contacter l'opérateur pour confirmer candidature, calendrier et organisme compétent.",
+      "foundBy": "occitanie-expanded-vocabulary",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-dja",
+      "name": "Dotation Jeune Agriculteur",
+      "url": "https://www.europe-en-occitanie.eu/Dotation-Jeune-Agriculteur-FEADER-23-27",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-dja",
+      "reason": "Fiche régionale et tableau 2026 ouverts ; dépôt continu et candidature via Euro-pac. La date de début d'éligibilité n'a pas été transposée en date d'ouverture.",
+      "foundBy": "occitanie-dja-dna-2026",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-dna",
+      "name": "Dotation Nouvel Agriculteur",
+      "url": "https://www.europe-en-occitanie.eu/Dotation-Nouvel-Agriculteur-FEADER-23-27",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-dna",
+      "reason": "La Région distingue les nouveaux installés de plus de 40 ans et publie le dépôt continu en 2026 sur Euro-pac.",
+      "foundBy": "occitanie-dja-dna-2026",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-safer-foncier",
+      "name": "Safer Occitanie — installation et foncier",
+      "url": "https://www.safer-occitanie.com/fr/page/s-installer.php",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-safer-foncier",
+      "reason": "La Safer décrit son propre parcours de proposition de biens, de candidatures et d'accès foncier ; les annonces ponctuelles ne sont pas dupliquées.",
+      "foundBy": "occitanie-safer",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-fonciere",
+      "name": "Foncière Agricole d'Occitanie",
+      "url": "https://www.arac-occitanie.fr/les-filiales-de-larac/la-fonciere-agricole-doccitanie/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-fonciere-agricole",
+      "reason": "L'opérateur publie ses conditions, le dépôt de demande et son propre service de portage et location du foncier ; distinct des appels d'attribution de la Safer.",
+      "foundBy": "occitanie-fonciere",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-tdl-languedoc",
+      "name": "Accompagnement foncier de Terre de Liens Languedoc-Roussillon",
+      "url": "https://terredeliens.org/languedoc-roussillon/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-terre-de-liens-languedoc-roussillon",
+      "reason": "L'association territoriale assure accueil, conseil et orientation pour l'installation et la transmission foncière.",
+      "foundBy": "occitanie-terre-de-liens",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-tdl-midi-pyrenees",
+      "name": "Terre de Liens Midi-Pyrénées",
+      "url": "https://terredeliens.org/midi-pyrenees/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "La recherche a trouvé une association territoriale et un accueil de candidats et cédants, mais l'ouverture de la page a échoué dans cette passe. Rouvrir sa page officielle avant de créer une entrée.",
+      "foundBy": "occitanie-terre-de-liens",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-addearg",
+      "name": "Accompagnement à la transmission de l'ADDEARG",
+      "url": "https://www.agriculturepaysanne.org/Transmettre-139",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-addearg-transmission",
+      "reason": "L'association du Gard décrit un accompagnement individuel et un travail avec le binôme cédant-repreneur, avec sa propre voie de contact.",
+      "foundBy": "occitanie-adear-services",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-adear-lot",
+      "name": "Carte des fermes en transmission de l'ADEAR du Lot",
+      "url": "https://www.agriculturepaysanne.org/Acceder-au-foncier-et-s-equiper",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-adear-lot-carte-transmission",
+      "reason": "L'ADEAR fournit un accès départemental à sa carte de fermes en transmission ; les plateformes partenaires citées sur la même page n'ont pas été dupliquées.",
+      "foundBy": "occitanie-adear-services",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-adear31",
+      "name": "Accompagnement DNA de l'ADEAR 31",
+      "url": "https://www.agriculturepaysanne.org/La-Pass-installation",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "La page décrit l'accompagnement mais indique que l'association n'a actuellement plus de salariés et oriente vers une ADEAR limitrophe. Vérifier la reprise du service avant admission.",
+      "foundBy": "occitanie-adear-services",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-formation-generique",
+      "name": "Formation professionnelle agricole FEADER",
+      "url": "https://www.laregion.fr/Agriculture-Viticulture-Alimentation",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "La catégorie générale de formation agricole ne définit pas sur cette page un cours propre à l'entrée ou à la reprise ; le CEFI, lui, satisfait cette condition.",
+      "foundBy": "occitanie-expanded-vocabulary",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-annonces-safer",
+      "name": "Annonces individuelles de la Safer",
+      "url": "https://occitanie.annonces-safer.fr/vente-propriete-agricole/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Les biens isolés ne sont pas chacun une ressource. Le parcours foncier et les appels de la Safer sont documentés dans une seule fiche de service régional.",
+      "foundBy": "occitanie-safer",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "FOUND",
+      "leadId": "occitanie-dja",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "occitanie-accompagnement-pretransmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "occitanie-safer-foncier",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "FOUND",
+      "leadId": "occitanie-tdl-languedoc",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Passe initiale par les portails régionaux puis expansion avec DNA, DJA, CEFI, AITA, RDI et PAIT ; trois ressources admises et le CEFI reste à vérifier."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passe avec la liste de contrôle nationale sur le fichier existant : aides régionales à l'installation et à la pré-transmission retenues ; Safer à vérifier."
+    },
+    {
+      "date": "2026-09-29",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Revalidation des trois fiches existantes ; ajout des dotations DJA et DNA, du CEFI, de la Safer, de la Foncière Agricole et de services associatifs dans le Gard, le Lot et le Languedoc-Roussillon. Dépôt continu 2026 distingué de l'éligibilité ; accès détaillé CEFI et autres départements encore partiels."
+    }
+  ]
+}

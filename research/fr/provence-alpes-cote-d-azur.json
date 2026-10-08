@@ -1,0 +1,250 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "provence-alpes-cote-d-azur"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-29",
+  "context": [
+    "Le portail europe.maregionsud.fr publie les appels à projets du programme régional agricole, dont l'aide à l'installation.",
+    "La Safer régionale publie ses appels à candidatures par département, parfois avec visite obligatoire, y compris pour des tests d'activité agricole.",
+    "Les attributions de la Safer valent autorisation d'exploiter depuis la loi d'avenir agricole.",
+    "Deux pages actuelles de la Région indiquent des clôtures différentes pour la DJA : 31/12/2027 sur maregionsud.fr et 31/12/2028 sur europe.maregionsud.fr. Vérifier l'appel applicable et ses modifications avant d'inscrire une date de clôture.",
+    "Le réseau ARDEAR et les ADEAR départementales proposent un accompagnement à la transmission et des formations à l'installation. Une page locale de l'ADEAR 13 présentait des liens indésirables dans son pied de page : privilégier les pages propres du réseau dont l'intégrité et l'accès sont vérifiables.",
+    "Les petites annonces Objectif Terres sont d'ampleur plus large que la région et ne deviennent pas une nouvelle bourse régionale parce qu'elles sont intégrées à la page de Terre de Liens PACA."
+  ],
+  "portals": [
+    {
+      "name": "Europe en Région Sud",
+      "url": "https://europe.maregionsud.fr/",
+      "what": "Appels à projets des programmes européens régionaux, dont l'agriculture."
+    },
+    {
+      "name": "Safer Provence-Alpes-Côte d'Azur",
+      "url": "https://www.safer-paca.com/",
+      "what": "Appels à candidatures, propriétés rurales et opérations foncières."
+    },
+    {
+      "name": "Région Sud — Dotation Jeunes Agriculteurs",
+      "url": "https://www.maregionsud.fr/vos-aides/detail/dotation-jeunes-agriculteurs",
+      "what": "Conditions et accès annoncés par la Région pour la DJA ; échéance à confronter au portail FEADER."
+    },
+    {
+      "name": "ARDEAR Provence-Alpes-Côte d'Azur",
+      "url": "https://www.agriculturepaysanne.org/ardear-paca",
+      "what": "Entrée du réseau régional pour transmission, installation et formations."
+    },
+    {
+      "name": "Terre de Liens PACA",
+      "url": "https://terredeliens.org/provence-alpes-c%C3%B4te-dazur/",
+      "what": "Accompagnement territorial des projets d'accès au foncier et de transmission."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "paca-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Région Sud Provence-Alpes-Côte d'Azur aide installation agriculture FEADER dotation 2026"
+    },
+    {
+      "id": "paca-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer PACA appels à candidatures foncier agricole installation"
+    },
+    {
+      "id": "paca-transmission",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "PACA Point accueil installation transmission chambre agriculture RDI 2026"
+    },
+    {
+      "id": "paca-associations",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Provence Alpes Côte d'Azur ADEAR Terre de Liens installation transmission accompagnement 2026"
+    },
+    {
+      "id": "paca-financement-complementaire",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:initiative-sud.com prêt honneur FEADER agriculteurs région sud"
+    },
+    {
+      "id": "paca-formation-reprise",
+      "kinds": ["TRAINING"],
+      "query": "site:agriculturepaysanne.org/ardear-paca \"Chiffrer\" 2026"
+    },
+    {
+      "id": "paca-espaces-test",
+      "kinds": ["ADVICE", "TRAINING"],
+      "query": "site:agriculturepaysanne.org PACA espaces test agricoles installation ADEAR"
+    }
+  ],
+  "leads": [
+    {
+      "id": "paca-aide-installation",
+      "name": "Aide à l'installation en agriculture (programme régional)",
+      "url": "https://www.maregionsud.fr/vos-aides/detail/dotation-jeunes-agriculteurs",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "provence-alpes-cote-d-azur-aide-installation",
+      "reason": "La Région décrit le dispositif, ses conditions et le dépôt. La page Région annonce le 31/12/2027, tandis que le portail Europe en Région Sud annonce le 31/12/2028. Convocation actuellement présentée comme accessible, clôture omise en attendant de résoudre les versions applicables.",
+      "foundBy": "paca-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-safer-appels",
+      "name": "Appels à candidatures de la Safer Provence-Alpes-Côte d'Azur",
+      "url": "https://www.safer-paca.com/appels-a-candidatures/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "provence-alpes-cote-d-azur-safer-appels-candidatures",
+      "reason": "La page propre de la Safer donne accès aux appels par département, à la vente et à la location. La fenêtre intégrée et chaque échéance individuelle demandent une lecture distincte.",
+      "foundBy": "paca-safer",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-terre-de-liens",
+      "name": "Accompagnement de Terre de Liens PACA",
+      "url": "https://terredeliens.org/provence-alpes-c%C3%B4te-dazur/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "provence-alpes-cote-d-azur-terre-de-liens-accompagnement",
+      "reason": "L'association territoriale décrit son propre accompagnement des porteurs de projet et des propriétaires cédants, avec un accès par la page régionale. Les annonces nationales intégrées ne sont pas recopiées comme un instrument local.",
+      "foundBy": "paca-associations",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-ardear-transmission",
+      "name": "Accompagnement à la transmission des ADEAR de PACA",
+      "url": "https://www.agriculturepaysanne.org/Transmettre-433",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "provence-alpes-cote-d-azur-ardear-transmission",
+      "reason": "La page du réseau décrit l'évaluation, la mise en lien avec des personnes en installation et le rendez-vous auprès de l'ADEAR départementale.",
+      "foundBy": "paca-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-ecopaysans",
+      "name": "Parcours Ecopaysans",
+      "url": "https://www.agriculturepaysanne.org/Les-inscriptions-pour-l-automne-sur-Ecopaysan-sont-toujours-possibles",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "provence-alpes-cote-d-azur-ecopaysans",
+      "reason": "La page de l'ARDEAR décrit un parcours collectif de quatre mois pour l'installation et donne une adresse de contact pour les inscriptions d'automne. Équivalence éventuelle avec les exigences DJA non établie.",
+      "foundBy": "paca-associations",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-pret-honneur",
+      "name": "Prêt d'honneur agricole FEADER",
+      "url": "https://www.initiative-sud.com/pret-dhonneur-agricole-feader.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "provence-alpes-cote-d-azur-pret-honneur-agricole-feader",
+      "reason": "L'opérateur donne un accès par ses associations locales et la Région le cite encore dans son pack 2026. Aucune période de dépôt ni montant actuel n'a été fixé à partir de la documentation plus ancienne.",
+      "foundBy": "paca-financement-complementaire",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-ardear-chiffrer",
+      "name": "Chiffrer son projet de création, de reprise ou développement",
+      "url": "https://www.agriculturepaysanne.org/formations/detail.php?id=10422",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "provence-alpes-cote-d-azur-ardear-chiffrer-projet",
+      "reason": "Fiche actuelle de formation certifiante avec programme, public, séance d'octobre 2026 et préinscription. La certification ne suffit pas à démontrer une qualification pour la DJA.",
+      "foundBy": "paca-formation-reprise",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-points-accueil",
+      "name": "Points Accueil Installation et Transmission-Retraite des Chambres d'agriculture",
+      "url": "https://paca.chambres-agriculture.fr/nos-services/vous-etes-agriculteur/transmettre-votre-entreprise/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "La recherche et la page de la Région signalent les services, mais l'ouverture de la page propre des Chambres a été bloquée. Ouvrir la page de l'opérateur par un accès vérifié, confirmer les missions et les coordonnées institutionnelles avant tout nouvel item.",
+      "foundBy": "paca-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-aita",
+      "name": "Programme AITA en région PACA",
+      "url": "https://draaf.paca.agriculture.gouv.fr/mise-en-oeuvre-du-programme-pour-l-accompagnement-de-l-installation-et-de-la-a868.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "La page DRAAF et son accès aux mesures ont expiré lors de l'ouverture. Vérifier la version 2026 de chaque aide, le bénéficiaire réel et le dépôt ; l'appel repéré pour agréer des structures de conseil n'est pas une demande ouverte aux nouveaux exploitants.",
+      "foundBy": "paca-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-espaces-test",
+      "name": "Espaces-tests agricoles présentés par l'ARDEAR PACA",
+      "url": "https://www.agriculturepaysanne.org/Les-Espaces-Test-Agricoles-en-Provence-Alpes-Cote-d-Azur-1999",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "La page présente le fonctionnement et un état des lieux daté de 2022, sans démontrer pour chaque lieu un gestionnaire, une place actuelle et une voie d'entrée. Examiner les espaces-tests actifs un par un.",
+      "foundBy": "paca-espaces-test",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-adear13",
+      "name": "Accompagnement à l'installation de l'ADEAR 13",
+      "url": "https://www.adear13.org/-Etre-accompagne-par-l-ADEAR-",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "La page décrit un service départemental distinct, mais le pied de page consulté contenait des liens étrangers au site. Vérifier l'intégrité de l'accès et trouver une page propre fiable avant admission.",
+      "foundBy": "paca-associations",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "paca-terre-de-provence-frais-foncier",
+      "name": "Aide aux frais de notaire et d'arpentage de Terre de Provence Agglomération",
+      "url": "https://www.terredeprovence-agglo.com/page/sinstaller-developper-son-exploitation",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "La collectivité mentionne une prise en charge partielle pour l'acquisition d'un terrain agricole. Vérifier la délibération ou le règlement, le territoire éligible et la demande auprès de l'opérateur avant admission.",
+      "foundBy": "paca-espaces-test",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "FOUND",
+      "leadId": "paca-aide-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "paca-ardear-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "paca-safer-appels",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "FOUND",
+      "leadId": "paca-terre-de-liens",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe avec la liste de contrôle nationale : aide régionale à l'installation et appels à candidatures de la Safer admis."
+    },
+    {
+      "date": "2026-09-29",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Nouvelle passe selon le prompt 1.9.0 : DJA et Safer réexaminées ; accompagnements Terre de Liens et ARDEAR, parcours Ecopaysans, prêt d'honneur et formation au chiffrage ajoutés. Échéance DJA contradictoire omise. Pages des Chambres, AITA, espaces-tests et pistes locales laissées à vérifier."
+    }
+  ]
+}

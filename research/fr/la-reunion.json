@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": { "level": "REGION", "country": "FR", "region": "la-reunion" },
+  "language": "fr",
+  "updatedOn": "2026-09-20",
+  "context": [
+    "L’aide à l’installation réunionnaise est cofinancée par le fonds européen agricole et le Département ; ses pages officielles n’étaient pas lisibles lors de cette passe.",
+    "daaf.reunion.agriculture.gouv.fr a expiré, departement974.fr renvoie un accès refusé (403) et agribio.reunion.chambagri.fr présente un certificat non vérifiable.",
+    "La Safer Réunion applique des frais de candidature par dossier, avec des exceptions indiquées dans l’avis."
+  ],
+  "portals": [
+    {
+      "name": "Safer Réunion",
+      "url": "https://www.safer-reunion.fr/",
+      "what": "Évaluation, vente, transmission et appels à candidature fonciers."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "re-installation",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Région Réunion aide installation jeunes agriculteurs FEADER DJA 2026 dispositif"
+    },
+    { "id": "re-safer", "kinds": ["LAND_BANK"], "query": "Safer Réunion installation foncier agricole appels à candidatures site officiel" }
+  ],
+  "leads": [
+    {
+      "id": "re-safer-candidature",
+      "name": "Appel à candidature de la Safer Réunion",
+      "url": "https://www.safer-reunion.fr/appel-a-candidature",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "la-reunion-safer-appel-candidature",
+      "reason": "Page de l’opérateur décrivant la rétrocession, les candidats visés et la procédure.",
+      "foundBy": "re-safer",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "re-dja-departement",
+      "name": "Dotation jeunes agriculteurs à La Réunion",
+      "url": "https://www.departement974.fr/aide/aide-demarrage-des-activites-agricoles-1-installation-des-jeunes-agriculteurs-dotation-pret",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Fiche du Département renvoyant un accès refusé (403) : à vérifier à la main ou par une autre source officielle.",
+      "foundBy": "re-installation",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "re-daaf-aides-installation",
+      "name": "Les aides à l’installation (services agricoles de l’État à La Réunion)",
+      "url": "https://daaf.reunion.agriculture.gouv.fr/les-aides-a-l-installation-a708.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Connexion expirée lors de cette passe ; réessayer à la prochaine mise à jour.",
+      "foundBy": "re-installation",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "NOT_FOUND",
+      "reason": "Les pages officielles de l’aide à l’installation ont expiré ou renvoyé un accès refusé lors de cette passe.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "NOT_FOUND",
+      "reason": "Aucun dispositif d’accompagnement à la transmission propre au territoire n’a été vérifié.",
+      "checkedOn": "2026-09-20"
+    },
+    { "expectedId": "fr-safer-foncier", "status": "FOUND", "leadId": "re-safer-candidature", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "NOT_FOUND",
+      "reason": "Aucune association d’accompagnement à l’installation propre au territoire n’a été vérifiée.",
+      "checkedOn": "2026-09-20"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Première passe avec la liste de contrôle nationale : Safer Réunion admise ; aide à l’installation inaccessible sur les sites officiels."
+    }
+  ]
+}

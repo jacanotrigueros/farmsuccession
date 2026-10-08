@@ -1,0 +1,329 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "nouvelle-aquitaine"
+  },
+  "language": "fr",
+  "updatedOn": "2026-09-29",
+  "context": [
+    "La Safer Nouvelle-Aquitaine dispose d'une page régionale lisible qui décrit directement l'installation, la transmission et l'accès au foncier.",
+    "Les pages de la Chambre régionale d'agriculture Nouvelle-Aquitaine renvoient actuellement une erreur 403; rechercher des pages départementales ou des documents officiels alternatifs.",
+    "Les appels régionaux qui labellisent des organismes ne constituent pas eux-mêmes un service direct pour le candidat; il faut retrouver les structures labellisées et leurs voies d'accès.",
+    "La Région gère les aides FEADER sur le portail Europe en Nouvelle-Aquitaine.",
+    "Étendre la recherche aux départements et aux chambres uniquement pour des services ou accès distincts, sans dupliquer les dispositifs régionaux.",
+    "Passe avec la liste de contrôle nationale sur un fichier existant : seuls les instruments attendus restaient à renseigner.",
+    "Le guichet DNJA régional distingue les jeunes agriculteurs des nouveaux agriculteurs ; les dates des appels destinés aux organismes de conseil ne sont pas des échéances de candidature des agriculteurs.",
+    "Les associations Terre de Liens Aquitaine, Limousin et Poitou-Charentes ont des parcours territoriaux distincts au sein de Nouvelle-Aquitaine.",
+    "L'ANICAP décrit le Plan Capr'1, mais sa page ne démontre pas une activité actuelle datée."
+  ],
+  "portals": [
+    {
+      "name": "Safer Nouvelle-Aquitaine — Agriculteurs",
+      "url": "https://www.saferna.fr/agriculteurs/",
+      "what": "Parcours régionaux d'installation, transmission, vente et location de foncier agricole."
+    },
+    {
+      "name": "Europe en Nouvelle-Aquitaine",
+      "url": "https://europe-en-nouvelle-aquitaine.eu/fr",
+      "what": "Aides et appels à projets européens gérés par la Région."
+    },
+    {
+      "name": "Guide des aides de Nouvelle-Aquitaine",
+      "url": "https://les-aides.nouvelle-aquitaine.fr/agriculture",
+      "what": "Fiches régionales de la DNJA, du prêt d'honneur et des conseils pré-installation."
+    },
+    {
+      "name": "Terre de Liens Aquitaine",
+      "url": "https://terredeliens.org/aquitaine/",
+      "what": "Accueil foncier dans les départements de l'ancienne Aquitaine."
+    },
+    {
+      "name": "Terre de Liens Limousin",
+      "url": "https://terredeliens.org/limousin/",
+      "what": "Recherche et transmission de foncier en Limousin."
+    },
+    {
+      "name": "Terre de Liens Poitou-Charentes",
+      "url": "https://terredeliens.org/poitou-charentes/",
+      "what": "Accompagnement territorial d'accès aux terres."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "na-safer-installation-transmission",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "query": "site:saferna.fr installation transmission Nouvelle-Aquitaine exploitation agricole"
+    },
+    {
+      "id": "na-installation",
+      "kinds": ["ADVICE", "FINANCIAL_SUPPORT"],
+      "query": "site:europe-en-nouvelle-aquitaine.eu installation agriculture jeune agriculteur aide 2026"
+    },
+    {
+      "id": "na-lower-levels",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "ADVICE"],
+      "query": "Nouvelle-Aquitaine département répertoire départ installation transmission exploitation"
+    },
+    {
+      "id": "na-chambers",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE", "TRAINING"],
+      "query": "site:nouvelle-aquitaine.chambres-agriculture.fr installation transmission agriculture"
+    },
+    {
+      "id": "na-dnja-pret",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:les-aides.nouvelle-aquitaine.fr dotation nouveaux jeunes agriculteurs prêt honneur installation"
+    },
+    {
+      "id": "na-associations-departements",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE", "TRAINING"],
+      "query": "site:agriculturepaysanne.org Gironde Béarn Limousin installation transmission stage paysan"
+    },
+    {
+      "id": "na-terre-de-liens-territoires",
+      "kinds": ["LAND_BANK", "ADVICE"],
+      "query": "site:terredeliens.org/aquitaine OR site:terredeliens.org/limousin OR site:terredeliens.org/poitou-charentes installation transmission foncier"
+    },
+    {
+      "id": "na-caprins",
+      "kinds": ["SUCCESSION_SERVICE", "TRAINING"],
+      "query": "Nouvelle-Aquitaine Plan Capr'1 transmission exploitation caprine ANICAP"
+    },
+    {
+      "id": "na-local-test-followup",
+      "kinds": ["LAND_BANK", "ADVICE", "TRAINING"],
+      "query": "Nouvelle-Aquitaine département EPCI commune transmission ferme espace-test agricole"
+    }
+  ],
+  "leads": [
+    {
+      "id": "na-accompagnement-installation-2026",
+      "name": "Accompagnement à l'installation 2026",
+      "url": "https://europe-en-nouvelle-aquitaine.eu/fr/appels-%C3%A0-projets/appel-projets-feader-accompagnement-linstallation-2026.html",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "L'appel ouvert jusqu'au 31 décembre 2026 finance des organismes sélectionnés ; il ne constitue pas lui-même un service distinct accessible directement au candidat. Le diagnostic pré-installation dispose d'une fiche d'accès régionale propre.",
+      "foundBy": "na-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-safer-installation-transmission",
+      "name": "Accompagnement à l'installation et à la transmission par la Safer Nouvelle-Aquitaine",
+      "url": "https://www.saferna.fr/agriculteurs/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-safer-installation-transmission",
+      "reason": "Le parcours officiel décrit l'accès au foncier et la transmission ; la source et les coordonnées institutionnelles ont été revérifiées.",
+      "foundBy": "na-safer-installation-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-chambers-installation-transmission",
+      "name": "Services des Chambres d'agriculture de Nouvelle-Aquitaine",
+      "url": "https://nouvelle-aquitaine.chambres-agriculture.fr/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "L'ouverture de la page régionale a renvoyé 403 ; un résultat de recherche décrit le PAIT mais ne suffit pas à établir une fiche de service propre. Ouvrir une page départementale de l'opérateur avec parcours et compétence vérifiables.",
+      "foundBy": "na-chambers",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-dnja",
+      "name": "Dotation Nouveaux et Jeunes Agriculteurs",
+      "url": "https://les-aides.nouvelle-aquitaine.fr/economie-et-emploi/installation-dotation-nouveaux-et-jeunes-agriculteurs-dnja",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-dnja",
+      "reason": "La Région publie les bénéficiaires et la voie de dépôt ; le portail Europe distingue les dossiers des jeunes et nouveaux agriculteurs. Aucune échéance d'appel aux organismes n'a été attribuée aux agriculteurs.",
+      "foundBy": "na-dnja-pret",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-pret-honneur",
+      "name": "Prêt d'honneur Initiative Agri Nouvelle-Aquitaine",
+      "url": "https://les-aides.nouvelle-aquitaine.fr/economie-et-emploi/installation-pret-dhonneur-initiative-nouvelle-aquitaine",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-pret-honneur-initiative",
+      "reason": "Fiche régionale d'un prêt pour la création ou reprise, avec examen au fil de l'eau et dépôt auprès de la plateforme Initiative départementale.",
+      "foundBy": "na-dnja-pret",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-diagnostic-pre-installation",
+      "name": "Diagnostic individuel pré-installation",
+      "url": "https://les-aides.nouvelle-aquitaine.fr/economie-et-emploi/accompagnement-individuel-pre-installation-diagnostic",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-diagnostic-pre-installation",
+      "reason": "La fiche indique le service concret et le parcours PAIT puis organisme sélectionné ; le financement de l'organisme n'est pas présenté comme versement direct au candidat.",
+      "foundBy": "na-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-etude-economique",
+      "name": "Étude économique individuelle pré-installation",
+      "url": "https://les-aides.nouvelle-aquitaine.fr/economie-et-emploi/accompagnement-individuel-pre-installation-etude-economique",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "La fiche régionale décrit une prestation distincte et obligatoire dans certains parcours ; vérifier les organismes accessibles et la relation exacte avec le diagnostic avant de créer une entrée distincte ou d'enrichir celle-ci.",
+      "foundBy": "na-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-suivi-post-installation",
+      "name": "Suivi individuel post-installation",
+      "url": "https://les-aides.nouvelle-aquitaine.fr/economie-et-emploi/accompagnement-individuel-post-installation-suivi",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Fiche repérée et page de sélection 2026 évoquant le suivi ; vérifier la voie d'accès actuelle et les organismes avant admission.",
+      "foundBy": "na-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-selection-organismes-2026",
+      "name": "Sélection 2026 des organismes de conseil à l'installation",
+      "url": "https://www.europe-en-nouvelle-aquitaine.eu/fr/appels-%C3%A0-projets/appel-candidatures-selection-des-organismes-de-conseil-et-daccompagnement",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Appel à candidatures pour les structures du 17 septembre au 19 octobre 2026, pas un service supplémentaire destiné aux exploitants ; son ouverture est conservée comme actualité datée.",
+      "foundBy": "na-installation",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-plan-capr1",
+      "name": "Plan Capr'1",
+      "url": "https://anicap-na.org/espace-eleveur/transmettre-mon-exploitation/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-plan-capr1",
+      "reason": "L'ANICAP décrit la préparation de la transmission caprine et la rencontre avec des repreneurs ; statut de fonctionnement actuel UNKNOWN faute de date probante.",
+      "foundBy": "na-caprins",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-agap-gironde",
+      "name": "Accompagnement à l'installation de l'AGAP",
+      "url": "https://www.agriculturepaysanne.org/Nos-actions-1721",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-agap-gironde-installation",
+      "reason": "L'association décrit sa propre prestation en Gironde et une adresse institutionnelle de contact ; fonctionnement 2026 non daté, donc statut UNKNOWN.",
+      "foundBy": "na-associations-departements",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-abdea-bearn",
+      "name": "Accompagnement de l'ABDEA en Béarn",
+      "url": "https://www.agriculturepaysanne.org/Nouvelle-rubrique-No-1322",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "La page décrit installation, transmission et accueils collectifs, mais le parcours spécifique de prestation et sa disponibilité restent à préciser avant une fiche autonome.",
+      "foundBy": "na-associations-departements",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-terre-de-liens-aquitaine",
+      "name": "Accueil foncier de Terre de Liens Aquitaine",
+      "url": "https://terredeliens.org/aquitaine/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-terre-de-liens-aquitaine",
+      "reason": "L'association territoriale décrit l'accueil des candidats et cédants, ainsi que des rendez-vous et visites dans son propre périmètre.",
+      "foundBy": "na-terre-de-liens-territoires",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-terre-de-liens-limousin",
+      "name": "Accompagnement foncier de Terre de Liens Limousin",
+      "url": "https://terredeliens.org/limousin/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-terre-de-liens-limousin",
+      "reason": "L'association décrit explicitement son accueil et ses démarches locales de recherche et de transmission du foncier.",
+      "foundBy": "na-terre-de-liens-territoires",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-terre-de-liens-poitou-charentes",
+      "name": "Accompagnement foncier de Terre de Liens Poitou-Charentes",
+      "url": "https://terredeliens.org/poitou-charentes/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-terre-de-liens-poitou-charentes",
+      "reason": "L'association territoriale décrit son accompagnement à l'accès aux terres et un parcours local de contact.",
+      "foundBy": "na-terre-de-liens-territoires",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-aita-animation-2026",
+      "name": "AITA animation et communication 2026",
+      "url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-actions-d-a3984.html?id_rub=209",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "La page DRAAF a expiré pendant son ouverture. L'appel paraît viser des actions d'organismes ; rouvrir le texte officiel et identifier les services effectifs avant toute admission.",
+      "foundBy": "na-lower-levels",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "na-rdi-departemental",
+      "name": "Répertoire Départ Installation dans les départements",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "L'ANICAP renvoie au répertoire, mais il faut ouvrir une page de l'opérateur et déterminer si l'accès est national ou si un département fournit un service propre avant de l'inscrire localement.",
+      "foundBy": "na-lower-levels",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "FOUND",
+      "leadId": "na-dnja",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "na-safer-installation-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "na-safer-installation-transmission",
+      "checkedOn": "2026-09-29"
+    },
+    {
+      "expectedId": "fr-associations-installation",
+      "status": "FOUND",
+      "leadId": "na-agap-gironde",
+      "checkedOn": "2026-09-29"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Première passe du portail régional et expansion vers les organismes labellisés et les niveaux départementaux; aucun service n'est publié sans page d'accès directe."
+    },
+    {
+      "date": "2026-09-15",
+      "by": "CHATGPT (Codex)",
+      "summary": "Deuxième passe: la Safer Nouvelle-Aquitaine a été vérifiée sur sa page officielle et admise comme service régional d'installation et de transmission; les pistes FEADER et Chambres restent à vérifier à cause de pages non accessibles."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passe avec la liste de contrôle nationale sur le fichier existant : Safer retenue pour le foncier et la transmission ; aide régionale et associations à vérifier."
+    },
+    {
+      "date": "2026-09-29",
+      "by": "CHATGPT (gpt-6)",
+      "summary": "Revalidation de la Safer ; ajout de la DNJA, du prêt d'honneur, du diagnostic, du Plan Capr'1, de l'AGAP et de trois services territoriaux de Terre de Liens. L'appel destiné aux organismes a été distingué des demandes des agriculteurs. Le blocage 403 des pages des Chambres et des pistes départementales restent à résoudre."
+    }
+  ]
+}

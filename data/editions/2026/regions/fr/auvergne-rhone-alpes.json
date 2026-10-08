@@ -1,0 +1,144 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "FR",
+  "region": "auvergne-rhone-alpes",
+  "officialName": "Auvergne-Rhône-Alpes",
+  "published": "2026-09-30",
+  "summary": "Auvergne-Rhône-Alpes dispose d'une Safer active pour l'accès au foncier et la transmission et d'un accompagnement territorial de Terre de Liens en Rhône-Alpes. La Dotation Jeunes Agriculteurs régionale et le programme AITA restent à revérifier faute de source consultable.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Revue 1.9.0 des quatre familles attendues pour la France. La DJA régionale a été revalidée dans le programme FEADER 2023-2027 et dans les documents du CRIT de juin 2026. La Safer AuRA a été revalidée avec son site actif et ses appels à candidatures. Terre de Liens Rhône-Alpes a été admis comme accompagnement territorial explicite à l'installation, la transmission et la cession. L'AITA 2026 reste non admis comme aide individuelle active car, au 24 juin 2026, sa mise en œuvre annuelle était encore indiquée comme en attente d'information du ministère.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "Programme régional FEADER 2023-2027 Auvergne-Rhône-Alpes, version septembre 2025"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/documents-du-crit-du-24-juin-2026-a6658.html"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://safer-aura.fr/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://terredeliens.org/rhone-alpes/nous-contacter/"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Auvergne-Rhône-Alpes aide installation jeunes agriculteurs Région 2026 DJA transmission"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Auvergne-Rhône-Alpes AITA transmission cédant 2026"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Terre de Liens Auvergne Rhône-Alpes installation transmission foncier 2026"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "fr",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5.6 Sol",
+        "promptVersion": "1.9.0"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "auvergne-rhone-alpes-safer-aura",
+      "name": "Safer Auvergne-Rhône-Alpes",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer Auvergne-Rhône-Alpes",
+      "operatorType": "MIXED",
+      "whatItOffers": "Accompagne les futurs agriculteurs dans leurs recherches et démarches d'installation, les cédants dans la transmission de leur exploitation et publie les biens agricoles disponibles à la vente ou à la location via des appels à candidatures.",
+      "whoCanUseIt": "Porteurs de projet agricole, futurs agriculteurs, exploitants qui souhaitent transmettre, vendre ou louer, et propriétaires fonciers.",
+      "howToAccess": "Consulter les appels à candidatures, déposer un dossier dans le délai affiché pour un bien ou contacter un conseiller Safer pour un projet d'installation ou de transmission.",
+      "accessUrl": "https://safer-aura.fr/",
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "languages": ["fr"],
+      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "TRANSFEROR", "LANDOWNER"],
+      "lastEvidenceDate": "2026-09-23",
+      "sources": [
+        {
+          "url": "https://safer-aura.fr/",
+          "title": "Safer Auvergne-Rhône-Alpes",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Futurs agriculteurs : nous vous accompagnons dans vos recherches et démarches d'installation.",
+            "Transmettez sereinement votre exploitation",
+            "La Safer est votre partenaire pour tous vos projets fonciers qu’il s’agisse de la création, la vente, l'achat ou de la reprise d’une exploitation."
+          ]
+        },
+        {
+          "url": "https://safer-aura.fr/appels-a-candidatures/",
+          "title": "Appels à candidatures - Safer Auvergne-Rhône-Alpes",
+          "consultedOn": "2026-09-30",
+          "quotes": [
+            "En cas d'intérêt, vous avez alors un délai de 15 jours, à compter de la date de parution de l'annonce, pour nous adresser votre candidature."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "auvergne-rhone-alpes-terre-de-liens-rhone-alpes",
+      "name": "Terre de Liens Rhône-Alpes - accompagnement installation et transmission",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Rhône-Alpes"
+      },
+      "operator": "Terre de Liens Rhône-Alpes",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Accueil et mise en relation territoriale pour les personnes ayant un projet d'installation, de transmission ou de cession d'une ferme, avec une demande d'accompagnement orientée via la plateforme Objectif Terres.",
+      "whoCanUseIt": "Porteurs de projet d'installation, agriculteurs cédants et personnes préparant la transmission d'une ferme en Rhône-Alpes.",
+      "howToAccess": "Remplir une demande d'accompagnement sur Objectif Terres depuis la page de contact de Terre de Liens Rhône-Alpes afin d'être mis en relation avec les bénévoles du territoire.",
+      "accessUrl": "https://terredeliens.org/rhone-alpes/nous-contacter/",
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "TRANSFEROR", "SUCCESSOR", "LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://terredeliens.org/rhone-alpes/nous-contacter/",
+          "title": "Nous contacter - Terre de Liens Rhône-Alpes",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "Vous avez un projet d'installation, de transmission ou de cession d'une ferme",
+            "merci de remplir une demande d'accompagnement sur le site Objectif Terres.",
+            "Pour faciliter la mise en relation avec les bénévoles Terre de Liens de votre territoire"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "La Dotation Jeunes Agriculteurs régionale n'est plus présentée : le lien de la délibération régionale a expiré, la page de la DRAAF ne répond pas à la vérification automatique et la fiche d'aide de la Région est protégée contre les robots. Elle reste à revérifier avant toute candidature.",
+    "Selon le comité régional de juin 2026, la mise en œuvre AITA 2026 était encore en attente d'information du ministère ; les aides individuelles AITA ne sont donc pas publiées ici comme ouvertes en 2026.",
+    "Terre de Liens Auvergne est actif et a publié des appels à candidatures en 2026, mais cette passe n'ajoute pas un second service associatif faute d'une page d'accès à l'accompagnement aussi explicite que celle de Rhône-Alpes."
+  ]
+}
