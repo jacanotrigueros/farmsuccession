@@ -113,10 +113,14 @@ test("nothing the site ships to a browser stores anything there", () => {
 
 test("every link inside the site reaches a page the build produced", () => {
   const built = new Set(pages.map(({ file }) => `/${file.replace(/index\.html$/u, "")}`));
+  const PUBLIC = path.join(import.meta.dirname, "..", "public");
   const assets = new Set(
-    readdirSync(path.join(import.meta.dirname, "..", "public"), { withFileTypes: true })
-      .filter((entry) => entry.isFile())
-      .map((entry) => `/${entry.name}`),
+    (function walk(dir: string): string[] {
+      return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+        const full = path.join(dir, entry.name);
+        return entry.isDirectory() ? walk(full) : [`/${path.relative(PUBLIC, full).split(path.sep).join("/")}`];
+      });
+    })(PUBLIC),
   );
   for (const { file, html } of pages) {
     for (const [, link] of html.matchAll(/<a\b[^>]*\bhref\s*=\s*["'](\/[^"'#]*)/giu)) {

@@ -89,6 +89,29 @@ const EN = {
   privacyTitle: "Privacy",
   privacyLead:
     "This site has no analytics, no advertising cookies and no accounts. Searching runs in your browser and nothing you type leaves it. The hosting provider may keep technical access logs. Writing to us shares whatever you choose to put in the message.",
+  // The project that held this domain before.
+  historySlug: "history",
+  historyNav: "The 2014-2016 project",
+  historyTitle: "The European Farm Succession project and this domain",
+  historyIntro:
+    "Between 2016 and 2018 this domain hosted the results of a different European project. This page records what that project was, what it produced and how it relates to the present site.",
+  historyObjectivesTitle: "Problem and objectives",
+  historyObjectivesLead:
+    "The project responded to an ageing farming population, holdings without an identified successor and the difficulty faced by people entering farming from outside a farming family. The partners shared and adapted methods for family and extra-family transfer, and aimed to place generational renewal on the European policy agenda.",
+  historyPartnersTitle: "Countries and partners",
+  historyPartnersLead:
+    "Farm Succession in Europe was an Erasmus+ project (2014-2016), coordinated by FRCIVAM Bretagne with InterAFOCG in France, Terre-en-vue in Belgium, NEL in Austria and Land & Co / Landgilde in the Netherlands.",
+  historyResultsTitle: "Principal results",
+  historyResultsLead:
+    "The partners shared methods for family and extra-family transfer. Their main surviving output is a 52-page toolkit covering an eight-stage succession process and twelve practical tools, presented at the Brussels conference on 7 and 8 November 2016.",
+  historyDocumentsTitle: "Original documents and preservation",
+  historyDocument: "Read the original 2016 toolkit (PDF, 3.9 MB)",
+  historyPreservation:
+    "The original toolkit has been recovered and is kept at the address it had, so links to it from elsewhere still work. No copy of the separate concept note or of the opening slides has been located, so their contents are not reconstructed here.",
+  historyCurrentTitle: "Relationship with the current site",
+  historyCurrentLead:
+    "The original project ended and the domain later lapsed. José Antonio Cano Trigueros registered it again in 2026 for this independent, non-commercial inventory. The current site is not a continuation of, and does not represent, the former consortium.",
+  backAbout: "Return to About this project",
   licenceTitle: "Licence",
   licenceLead:
     "Original directory content is offered under CC BY 4.0. Quotations and linked materials keep the rights of whoever published them.",
@@ -259,6 +282,28 @@ const ES = {
   privacyTitle: "Privacidad",
   privacyLead:
     "Este sitio no tiene analítica, ni cookies publicitarias, ni cuentas. La búsqueda se ejecuta en tu navegador y nada de lo que escribes sale de él. El proveedor de alojamiento puede conservar registros técnicos de acceso. Al escribirnos compartes lo que decidas poner en el mensaje.",
+  historySlug: "historia",
+  historyNav: "El proyecto de 2014-2016",
+  historyTitle: "El proyecto European Farm Succession y este dominio",
+  historyIntro:
+    "Entre 2016 y 2018 este dominio alojó los resultados de otro proyecto europeo. Esta página documenta qué fue, qué produjo y qué relación tiene con el sitio actual.",
+  historyObjectivesTitle: "Problema y objetivos",
+  historyObjectivesLead:
+    "El proyecto respondía al envejecimiento de la población agraria, a las explotaciones sin sucesor identificado y a las dificultades para incorporarse al campo desde fuera de una familia agraria. Los socios compartieron y adaptaron métodos para transmisiones familiares y extrafamiliares e intentaron situar el relevo generacional en la agenda política europea.",
+  historyPartnersTitle: "Países y socios",
+  historyPartnersLead:
+    "Farm Succession in Europe fue un proyecto Erasmus+ (2014-2016), coordinado por FRCIVAM Bretagne junto con InterAFOCG en Francia, Terre-en-vue en Bélgica, NEL en Austria y Land & Co / Landgilde en los Países Bajos.",
+  historyResultsTitle: "Resultados principales",
+  historyResultsLead:
+    "Los socios compartieron métodos para la transmisión familiar y extrafamiliar. Su principal resultado conservado es una guía de 52 páginas con un proceso de ocho fases y doce herramientas prácticas, presentada en la conferencia de Bruselas del 7 y 8 de noviembre de 2016.",
+  historyDocumentsTitle: "Documentos originales y conservación",
+  historyDocument: "Leer la guía original de 2016 (PDF, 3,9 MB)",
+  historyPreservation:
+    "Se ha recuperado la guía original y se conserva en la dirección que tenía, para que los enlaces que apuntan a ella desde fuera sigan funcionando. No se ha localizado copia de la nota conceptual ni de las diapositivas iniciales, así que aquí no se reconstruye su contenido.",
+  historyCurrentTitle: "Relación con el sitio actual",
+  historyCurrentLead:
+    "El proyecto original terminó y el dominio caducó después. José Antonio Cano Trigueros lo registró de nuevo en 2026 para este inventario independiente y no comercial. El sitio actual no continúa ni representa al antiguo consorcio.",
+  backAbout: "Volver a Sobre el proyecto",
   licenceTitle: "Licencia",
   licenceLead:
     "El contenido original del directorio se ofrece con licencia CC BY 4.0. Las citas y los materiales enlazados conservan los derechos de quien los publicó.",

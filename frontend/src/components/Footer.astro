@@ -20,8 +20,9 @@ const text = words(language);
 
 const country = current === "/" ? undefined : current.split("/")[1]?.toUpperCase();
 
-/** The project page of this page's own language, which is the one its reader can read. */
+/** The pages about the project itself, in this page's own language, which is the one its reader can read. */
 const aboutPath = country ? `/${country.toLowerCase()}/${text.aboutSlug}/` : `/${text.aboutSlug}/`;
+const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` : `/${text.historySlug}/`;
 
 const places = [
   { href: "/", label: text.europe },
@@ -56,6 +57,9 @@ const places = [
       </a>
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={aboutPath}>
         {text.aboutTitle}
+      </a>
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={historyPath}>
+        {text.historyNav}
       </a>
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#method`}>
         {text.methodTitle}
