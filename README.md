@@ -45,7 +45,7 @@ The 2026 edition covers the European layer; Spain, with its three multi-island a
 multi-province groupings and its 28 regional territories; Germany, with its 16 Länder;
 France, with its 18 régions; Italy, with its 19 regions and two autonomous provinces; and
 Portugal, with its 9: **319 records**, each with the page it came from, the date that
-page was read and the words that were on it — 511 sources, 1,550 quotes, 494 distinct
+page was read and the words that were on it — 511 sources, 1,547 quotes, 493 distinct
 pages — plus 31 dated developments of the year and the 101 research briefs that say how
 each territory was searched, including the 231 leads that were considered and rejected.
 
