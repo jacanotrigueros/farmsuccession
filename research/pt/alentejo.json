@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "PT",
+    "region": "alentejo"
+  },
+  "language": "pt",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "Alentejo é uma região NUTS II; CCDR Alentejo, municípios, comunidades intermunicipais, associações de desenvolvimento local e GAL são níveis funcionais a pesquisar.",
+    "Muitas páginas municipais denominadas Bolsa de Terras apenas reproduzem e ligam a Bolsa Nacional de Terras gerida pela DGADR.",
+    "Uma entidade gestora local só constitui recurso próprio se mostrar inventário, formulário, contacto operacional ou mediação própria.",
+    "As páginas protegidas por desafios automáticos não podem sustentar citações verificáveis; manter a pista até encontrar uma fonte oficial legível.",
+    "Passagem com a lista de verificação nacional sobre um ficheiro existente: faltavam apenas os instrumentos esperados.",
+    "O Gabinete de Vila Viçosa está operativo, mas a Bolsa de Terras anunciada pela mesma parceria é apenas um projeto-piloto previsto."
+  ],
+  "portals": [
+    {
+      "name": "CCDR Alentejo",
+      "url": "https://www.ccdr-a.gov.pt/",
+      "what": "Portal regional para políticas, avisos e programas com incidência no Alentejo."
+    },
+    {
+      "name": "ADL Litoral Alentejano",
+      "url": "https://litoralalentejano.pt/",
+      "what": "Associação de desenvolvimento dos cinco concelhos do Litoral Alentejano e possível entidade local da bolsa de terras."
+    },
+    {
+      "name": "AJAP Vila Viçosa",
+      "url": "https://ajap.pt/ajap-reforca-apoio-de-proximidade-aos-agricultores-com-novo-gabinete-tecnico-em-vila-vicosa/",
+      "what": "Atendimento local a agricultores e assistência específica a jovens agricultores."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "alentejo-land",
+      "kinds": ["LAND_BANK"],
+      "query": "Alentejo município associação desenvolvimento local bolsa de terras agricultura"
+    },
+    {
+      "id": "alentejo-entry",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE", "TRAINING"],
+      "query": "site:ccdr-a.gov.pt jovens agricultores instalação Alentejo apoio formação"
+    },
+    {
+      "id": "alentejo-expanded-operators",
+      "kinds": ["LAND_BANK", "ADVICE"],
+      "query": "Alentejo DGADR entidade gestora operacional bolsa terras ADL GAL"
+    },
+    {
+      "id": "alentejo-ajap-vila-vicosa",
+      "kinds": ["LAND_BANK", "ADVICE", "TRAINING"],
+      "query": "site:ajap.pt Vila Viçosa C.5.5 bolsa terras formação"
+    }
+  ],
+  "leads": [
+    {
+      "id": "alentejo-evora-bolsa-terras",
+      "name": "Página Bolsa de Terras do Município de Évora",
+      "url": "https://www.cm-evora.pt/municipe/areas-de-acao/ambiente/bolsa-de-terras/",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "A página reproduz a Bolsa Nacional de Terras e identifica a DGADR como gestora; não mostra serviço municipal distinto.",
+      "foundBy": "alentejo-land",
+      "checkedOn": "2026-09-14"
+    },
+    {
+      "id": "alentejo-adl-bolsa-terras",
+      "name": "Bolsa de Terras da ADL Litoral Alentejano",
+      "url": "https://litoralalentejano.pt/servicos/bolsa-de-terras/",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "A página aparece como serviço próprio, mas o conteúdo está bloqueado por um desafio automático; falta verificar inventário, acesso e atividade atual.",
+      "foundBy": "alentejo-expanded-operators"
+    },
+    {
+      "id": "pt-alentejo-vila-vicosa-gabinete-agricultor",
+      "name": "Gabinete de Apoio ao Agricultor de Vila Viçosa",
+      "url": "https://ajap.pt/ajap-reforca-apoio-de-proximidade-aos-agricultores-com-novo-gabinete-tecnico-em-vila-vicosa/",
+      "kind": "ADVICE",
+      "area": "Vila Viçosa",
+      "status": "ADMITTED",
+      "resourceId": "pt-alentejo-vila-vicosa-gabinete-agricultor",
+      "reason": "O operador documenta a abertura em setembro de 2026, o serviço a jovens agricultores e o horário semanal de acesso.",
+      "foundBy": "AJAP Vila Viçosa",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "pt-alentejo-vila-vicosa-bolsa-piloto",
+      "name": "Projeto-piloto de Bolsa de Terras de Vila Viçosa",
+      "url": "https://ajap.pt/ajap-reforca-apoio-de-proximidade-aos-agricultores-com-novo-gabinete-tecnico-em-vila-vicosa/",
+      "kind": "LAND_BANK",
+      "area": "Vila Viçosa",
+      "status": "TO_CHECK",
+      "reason": "A AJAP descreve apenas apoio à implementação futura; procurar plataforma, inventário ou inscrição operacional.",
+      "foundBy": "AJAP Vila Viçosa"
+    },
+    {
+      "id": "pt-alentejo-acos-formacao-base",
+      "name": "Formação base para jovens agricultores ACOS",
+      "url": "https://www.acos.pt/servicos/formacao-profissional/oferta-formativa/cursos-financiados/agricultura-sustentavel",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "A página de inscrição bloqueou a leitura; confirmar curso, turma e acesso diretamente com fonte verificável.",
+      "foundBy": "alentejo-entry"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "pt-bolsa-terras-local",
+      "status": "NOT_FOUND",
+      "reason": "Évora remete para a bolsa nacional; ADL Litoral ficou bloqueada e a bolsa de Vila Viçosa é apenas um projeto-piloto previsto.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-apoio-regional-instalacao",
+      "status": "NOT_APPLICABLE",
+      "reason": "No continente o apoio à instalação de jovens agricultores é nacional; não há um apoio regional próprio do Alentejo.",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "pt-servicos-acompanhamento",
+      "status": "FOUND",
+      "checkedOn": "2026-09-28",
+      "leadId": "pt-alentejo-vila-vicosa-gabinete-agricultor"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-14",
+      "by": "CHATGPT (Codex)",
+      "summary": "Primeira pesquisa regional e expansão por municípios, ADL e GAL; rejeitada a duplicação nacional de Évora e mantida a ADL como pista ainda não verificável."
+    },
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Passagem com a lista de verificação nacional sobre o ficheiro existente: sem recursos regionais admitidos; apoio à instalação é nacional."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Verificado o novo gabinete AJAP de Vila Viçosa para jovens agricultores; bolsa-piloto e formação não demonstradas como operativas."
+    }
+  ]
+}

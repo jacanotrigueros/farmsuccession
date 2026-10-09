@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "PT",
+    "region": "algarve"
+  },
+  "language": "pt",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "No continente, o prémio à instalação de jovens agricultores é nacional: nas regiões do continente o instrumento regional equivalente não se aplica.",
+    "A CCDR Algarve assumiu funções regionais agrícolas; as páginas antigas da DRAP relativas ao PDR2020 não provam apoio atual à primeira instalação.",
+    "O gabinete municipal de Lagoa inclui apoio à instalação e é prestado em colaboração com a Associação Vicentina, com contacto institucional próprio."
+  ],
+  "portals": [
+    {
+      "name": "Direção Regional de Agricultura e Pescas do Algarve",
+      "url": "https://www.drapalgarve.gov.pt/pt/",
+      "what": "Serviços regionais de agricultura, apoios e incentivos; conteúdo não legível nesta passagem."
+    },
+    {
+      "name": "Gabinete de Apoio ao Agricultor de Lagoa",
+      "url": "https://cmlagoaalgarve.hq3.cityfy.pt/investir/gabinete-de-apoio-ao-agricultor",
+      "what": "Aconselhamento técnico local e orientação para a instalação agroalimentar."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "alg-bolsa",
+      "kinds": ["LAND_BANK"],
+      "query": "Algarve bolsa de terras municipal câmara municipal terrenos agrícolas candidatura"
+    },
+    {
+      "id": "alg-acompanhamento",
+      "kinds": ["ADVICE", "FINANCIAL_SUPPORT"],
+      "query": "Direção Regional de Agricultura e Pescas do Algarve apoio jovens agricultores instalação acompanhamento"
+    },
+    {
+      "id": "alg-lagoa-vicentina",
+      "kinds": ["ADVICE"],
+      "query": "Gabinete de Apoio ao Agricultor Lagoa Vicentina instalação"
+    },
+    {
+      "id": "alg-bolsa-municipios-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "Algarve bolsa de terras município jovem agricultor formação instalação sucessão"
+    }
+  ],
+  "leads": [
+    {
+      "id": "alg-drap",
+      "name": "Direção Regional de Agricultura e Pescas do Algarve",
+      "url": "https://www.drapalgarve.gov.pt/pt/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "As páginas consultadas descrevem funções gerais ou o PDR2020, sem serviço atual específico de instalação ou relevo acessível ao agricultor.",
+      "foundBy": "alg-acompanhamento",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "alg-bolsas-municipais",
+      "name": "Bolsas de terras municipais no Algarve",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Pesquisa regional e municipal sem bolsa própria confirmada; procurar novos operadores locais e inscrições antes de concluir ausência.",
+      "foundBy": "alg-bolsa",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "alg-gabinete-lagoa",
+      "name": "Gabinete de Apoio ao Agricultor de Lagoa",
+      "url": "https://cmlagoaalgarve.hq3.cityfy.pt/investir/gabinete-de-apoio-ao-agricultor",
+      "kind": "ADVICE",
+      "area": "Lagoa",
+      "status": "ADMITTED",
+      "resourceId": "algarve-gabinete-apoio-agricultor-lagoa",
+      "reason": "Município e associação prestadora descrevem a instalação agrícola, atendimento e contacto institucional do gabinete.",
+      "foundBy": "alg-lagoa-vicentina",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "pt-bolsa-terras-local",
+      "status": "NOT_FOUND",
+      "reason": "Pesquisas por bolsas municipais algarvias e pela AMAL não identificaram serviço próprio distinto; a pesquisa mantém cobertura parcial.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-apoio-regional-instalacao",
+      "status": "NOT_APPLICABLE",
+      "reason": "O prémio C.2.2.1 do PEPAC é continental e encontra-se na camada Portugal; não foi verificado apoio próprio da região do Algarve.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-servicos-acompanhamento",
+      "status": "FOUND",
+      "checkedOn": "2026-09-28",
+      "leadId": "alg-gabinete-lagoa"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primeira passagem com a lista de verificação nacional: nenhum recurso regional admitido; fontes regionais pouco legíveis."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Verificado o gabinete de Lagoa para instalação agrária; apoio nacional, bolsas locais e formação foram separados sem duplicações."
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "country-snapshot",
+  "edition": "2026",
+  "country": "PT",
+  "officialName": "Portugal",
+  "published": "2026-09-28",
+  "summary": "No continente existem apoios à primeira instalação e acompanhamento técnico de jovens agricultores. A antiga Bolsa Nacional de Terras foi revogada; a operação do novo Banco e Bolsa continua por verificar. Uma ajuda a novos produtores pecuários esgotou a dotação.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Foram consultados a Lei 49/2023, PEPAC C.5.5 e IFAP para corrigir a ficha histórica de terras e registar apoio específico à entrada. A operação do novo SiBBT, formação nacional e instrumentos autónomos continuam por aprofundar.",
+    "methods": [
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://agricultura.gov.pt/portal/reg-notif-bolsa-nacional-de-terras"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://pepacc.pt/concursos/premio-instalacao-jovens-agricultores-1o-concurso-4o-periodo/"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Portugal PEPAC apoio instalação jovens agricultores C.2.2.1"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://diariodarepublica.pt/dr/detalhe/lei/49-2023-220280193"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://pepacc.pt/acompanhamento-tecnico-especializado-para-jovens-agricultores/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.ifap.pt/portal/novos-prod-pec-regras"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.ifap.pt/portal/temprss/-/asset_publisher/8NqcGH0YvyEu/content/id/58933030"
+      }
+    ]
+  },
+  "review": {
+    "status": "DRAFT"
+  },
+  "metadata": {
+    "language": "pt",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "Codex",
+        "promptVersion": "1.9.0",
+        "processedAt": "2026-09-28"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "pt-bolsa-nacional-terras",
+      "name": "Bolsa Nacional de Terras (regime histórico)",
+      "kind": "LAND_BANK",
+      "status": "HISTORICAL",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Direção-Geral de Agricultura e Desenvolvimento Rural",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Reunia terrenos para arrendamento, venda ou cedência sob regime anterior, posteriormente revogado. A estrutura foi substituída por Banco e Bolsa de Terras sob regulamentação posterior.",
+      "howToAccess": "Consultar a página histórica; não foi verificado acesso operacional ao novo sistema de Banco e Bolsa de Terras.",
+      "accessUrl": "https://agricultura.gov.pt/portal/reg-notif-bolsa-nacional-de-terras",
+      "languages": ["pt"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://agricultura.gov.pt/portal/reg-notif-bolsa-nacional-de-terras",
+          "title": "Bolsa Nacional de Terras",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "A entidade gestora da bolsa de terras é o Ministério da Agricultura, através da Direção-Geral de Agricultura e Desenvolvimento Rural (DGADR).",
+            "a bolsa de terras permite uma fácil disponibilização de terras para arrendamento, venda ou para outros tipos de cedência",
+            "Texto atualizado em: 02 Junho 2021 16:36"
+          ]
+        }
+      ],
+      "notes": "A página consultada descreve a gestão histórica sob DGADR. Legislação posterior revogou esse regime e criou uma estrutura distinta. Não foi verificada operacionalidade do novo sistema de Banco e Bolsa de Terras.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "pt-premio-instalacao-jovens",
+      "name": "Prémio instalação jovens agricultores",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "PEPAC no Continente",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Prémio para a primeira instalação de jovens agricultores, articulado com o investimento produtivo para jovens agricultores.",
+      "whoCanUseIt": "Jovens agricultores elegíveis à primeira instalação no PEPAC no Continente; esta intervenção não é a ajuda própria dos Açores ou da Madeira.",
+      "accessUrl": "https://pepacc.pt/concursos/premio-instalacao-jovens-agricultores-1o-concurso-4o-periodo/",
+      "languages": ["pt"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://pepacc.pt/concursos/premio-instalacao-jovens-agricultores-1o-concurso-4o-periodo/",
+          "title": "Prémio instalação jovens agricultores",
+          "consultedOn": "2026-09-14",
+          "quotes": [
+            "Prémio instalação jovens agricultores",
+            "O candidato singular ou coletivo cumpre este critério desde que não tenha registo de início de atividade com CAE agrícola"
+          ]
+        }
+      ],
+      "notes": "A página consultada documenta a medida e os critérios, mas não mostra um período aberto na data da consulta.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "pt-acompanhamento-tecnico-jovens",
+      "name": "Acompanhamento técnico especializado para jovens agricultores",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "PEPAC no Continente e entidades prestadoras aprovadas",
+      "operatorType": "MIXED",
+      "whatItOffers": "Acompanhamento técnico especializado durante três anos aos jovens agricultores com projeto de instalação nas intervenções C.2.2.1 e C.2.2.2 do PEPAC no Continente.",
+      "whoCanUseIt": "Jovens agricultores com projeto aprovado nas intervenções de instalação do PEPAC no Continente, sujeitos à condição de acompanhamento técnico.",
+      "howToAccess": "Escolher uma entidade da lista oficial de prestadores e formalizar contrato de acompanhamento antes do primeiro pedido de pagamento.",
+      "accessUrl": "https://pepacc.pt/acompanhamento-tecnico-especializado-para-jovens-agricultores/",
+      "languages": ["pt"],
+      "targetProfiles": ["YOUNG_FARMER"],
+      "lastEvidenceDate": "2026-01-29",
+      "sources": [
+        {
+          "url": "https://pepacc.pt/acompanhamento-tecnico-especializado-para-jovens-agricultores/",
+          "title": "Acompanhamento técnico especializado para Jovens Agricultores",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "é obrigatória a celebração de um Contrato de Acompanhamento Técnico Especializado com uma das entidades prestadoras deste serviço",
+            "O acompanhamento técnico especializado tem de ocorrer por um período de três anos",
+            "três visitas por ano"
+          ]
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2026/01/Entidades-prestadoras-de-Servicos-de-Acompanhamento-Tecnico-Especializado.pdf",
+          "title": "Lista de entidades prestadoras de serviços de acompanhamento técnico especializado",
+          "consultedOn": "2026-09-28",
+          "quotes": ["Apoio à Instalação do Jovem Agricultor,", "associado às tipologias C.2.2.1 e C.2.2.2 do PEPAC"]
+        }
+      ],
+      "notes": "A candidatura de acompanhamento financia entidades prestadoras; o jovem adere mediante contrato. Aplica-se ao PEPAC no Continente, não aos programas regionais dos Açores e da Madeira.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "pt-novos-produtores-pecuarios-2026",
+      "name": "Apoio à instalação de novos produtores pecuários",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Instituto de Financiamento da Agricultura e Pescas",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Prémio de 30 000 euros repartido em cinco anos e apoio à aquisição de bovinos, ovinos ou caprinos para primeira instalação em pastorícia extensiva.",
+      "whoCanUseIt": "Produtores que assumem pela primeira vez titularidade e gestão direta de uma exploração pecuária elegível nas freguesias indicadas na portaria reguladora.",
+      "howToAccess": "Consultar as regras e o aviso no IFAP; a dotação da abertura de 2026 está esgotada.",
+      "accessUrl": "https://www.ifap.pt/portal/novos-prod-pec-regras",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT", "INVESTMENT"],
+      "sectors": ["LIVESTOCK"],
+      "languages": ["pt"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prémio de instalação de novo produtor pecuário",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2026-05-22",
+          "sourceUrl": "https://www.ifap.pt/portal/novos-prod-pec-regras"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.ifap.pt/portal/novos-prod-pec-regras",
+          "title": "Novos Produtores Pecuários — Regras e Informações Básicas",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "assumam formalmente a titularidade e a gestão direta de uma exploração pecuária de bovinos, ovinos ou caprinos, pela primeira vez",
+            "e que se instalem nas freguesias previstas no anexo II da citada portaria.",
+            "Prémio à instalação no valor global de 30 000 €"
+          ]
+        },
+        {
+          "url": "https://www.ifap.pt/portal/temprss/-/asset_publisher/8NqcGH0YvyEu/content/id/58933030",
+          "title": "Elevada adesão esgota verbas para instalação de novos produtores pecuários",
+          "consultedOn": "2026-09-28",
+          "quotes": [
+            "as dotações financeiras destinadas aos apoios para a instalação de novos produtores pecuários encontram-se, à data, totalmente esgotadas."
+          ]
+        }
+      ],
+      "notes": "Programa de 2026 com elegibilidade territorial restrita às freguesias da norma; dotação esgotada. A inclusão na camada Portugal não significa elegibilidade em todo o país ou nas regiões autónomas.",
+      "generatorId": "chatgpt-1"
+    }
+  ],
+  "news": [],
+  "limitations": [
+    "A antiga Bolsa Nacional de Terras foi revogada; não se confirmou o inventário nem o acesso ao novo Banco, Bolsa ou respetivo Sistema de Informação.",
+    "O prémio de instalação e o acompanhamento técnico aplicam-se ao PEPAC no Continente; Açores e Madeira têm programas próprios.",
+    "A ajuda a novos produtores pecuários esgotou a dotação e limita-se às freguesias elegíveis indicadas na regulamentação específica."
+  ]
+}

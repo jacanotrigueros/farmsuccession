@@ -989,6 +989,121 @@
           "parentHub": "veneto"
         }
       ]
+    },
+    "PT": {
+      "name": "Portugal",
+      "lang": "pt",
+      "hubLabel": "Regiões de navegação",
+      "leafLevel": "NUTS2_2024",
+      "leafLabel": "Regiões NUTS II 2024",
+      "sources": [
+        {
+          "url": "https://www.ine.pt/ine_novidades/PIN2025/",
+          "authority": "Instituto Nacional de Estatística",
+          "purpose": "NUTS II 2024"
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2025/03/OT_C431_24fev2025_signed.pdf",
+          "authority": "PEPAC Portugal",
+          "purpose": "agricultural territorial use"
+        }
+      ],
+      "rationale": "As 9 NUTS II 2024 são as folhas documentais. Para navegação, Lisboa e Vale do Tejo agrega Oeste e Vale do Tejo, Grande Lisboa e Península de Setúbal porque existe como identidade administrativa/agrária reconhecível, sem apagar a separação NUTS II usada pelo PEPAC. Os restantes hubs coincidem com uma folha.",
+      "hubs": [
+        {
+          "slug": "norte",
+          "name": "Norte",
+          "members": ["norte"]
+        },
+        {
+          "slug": "centro",
+          "name": "Centro",
+          "members": ["centro"]
+        },
+        {
+          "slug": "lisboa-e-vale-do-tejo",
+          "name": "Lisboa e Vale do Tejo",
+          "members": ["oeste-e-vale-do-tejo", "grande-lisboa", "peninsula-de-setubal"]
+        },
+        {
+          "slug": "alentejo",
+          "name": "Alentejo",
+          "members": ["alentejo"]
+        },
+        {
+          "slug": "algarve",
+          "name": "Algarve",
+          "members": ["algarve"]
+        },
+        {
+          "slug": "regiao-autonoma-dos-acores",
+          "name": "Açores",
+          "members": ["regiao-autonoma-dos-acores"]
+        },
+        {
+          "slug": "regiao-autonoma-da-madeira",
+          "name": "Madeira",
+          "members": ["regiao-autonoma-da-madeira"]
+        }
+      ],
+      "regions": [
+        {
+          "slug": "norte",
+          "name": "Norte",
+          "inPhrase": "no Norte",
+          "parentHub": "norte"
+        },
+        {
+          "slug": "centro",
+          "name": "Centro",
+          "inPhrase": "no Centro",
+          "parentHub": "centro"
+        },
+        {
+          "slug": "oeste-e-vale-do-tejo",
+          "name": "Oeste e Vale do Tejo",
+          "inPhrase": "no Oeste e Vale do Tejo",
+          "parentHub": "lisboa-e-vale-do-tejo"
+        },
+        {
+          "slug": "grande-lisboa",
+          "name": "Grande Lisboa",
+          "inPhrase": "na Grande Lisboa",
+          "parentHub": "lisboa-e-vale-do-tejo"
+        },
+        {
+          "slug": "peninsula-de-setubal",
+          "name": "Península de Setúbal",
+          "inPhrase": "na Península de Setúbal",
+          "parentHub": "lisboa-e-vale-do-tejo"
+        },
+        {
+          "slug": "alentejo",
+          "name": "Alentejo",
+          "inPhrase": "no Alentejo",
+          "parentHub": "alentejo"
+        },
+        {
+          "slug": "algarve",
+          "name": "Algarve",
+          "inPhrase": "no Algarve",
+          "parentHub": "algarve"
+        },
+        {
+          "slug": "regiao-autonoma-dos-acores",
+          "name": "Região Autónoma dos Açores",
+          "inPhrase": "na Região Autónoma dos Açores",
+          "parentHub": "regiao-autonoma-dos-acores",
+          "kind": "autonomous-region"
+        },
+        {
+          "slug": "regiao-autonoma-da-madeira",
+          "name": "Região Autónoma da Madeira",
+          "inPhrase": "na Região Autónoma da Madeira",
+          "parentHub": "regiao-autonoma-da-madeira",
+          "kind": "autonomous-region"
+        }
+      ]
     }
   }
 }

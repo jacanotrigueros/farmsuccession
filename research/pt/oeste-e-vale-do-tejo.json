@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "PT",
+    "region": "oeste-e-vale-do-tejo"
+  },
+  "language": "pt",
+  "updatedOn": "2026-09-28",
+  "context": [
+    "No continente o prémio à instalação e o acompanhamento técnico C.5.5 são instrumentos nacionais e não se repetem na região.",
+    "A passagem de 2026-09-28 alargou a pesquisa a câmaras, AJAP/CAP, formação e vestígios do antigo sistema de Bolsa de Terras.",
+    "Referências antigas ao Balcão Rural de Foros de Salvaterra e a gabinetes AJAP no Ribatejo/Oeste não demonstram funcionamento atual e não devem ser reutilizadas sem uma página operacional contemporânea.",
+    "Sessões, concursos e conferências realizados em Santarém ou Torres Vedras são discovery, não serviços regionais permanentes.",
+    "A formação técnica atual da AJAP encontrada é predominantemente à distância e não estabelece por si só qualificação regional específica para primeira instalação."
+  ],
+  "portals": [
+    {
+      "name": "AJAP — Associação dos Jovens Agricultores de Portugal",
+      "url": "https://ajap.pt/",
+      "what": "Notícias e iniciativas atuais; distinguir serviços permanentes de eventos nacionais realizados na região."
+    },
+    {
+      "name": "AJAP — Formação",
+      "url": "https://formacao.ajap.pt/default.aspx",
+      "what": "Oferta formativa atual; verificar ligação explícita à primeira instalação antes de admitir."
+    }
+  ],
+  "openData": [],
+  "queries": [
+    {
+      "id": "ovt-bolsa",
+      "kinds": ["LAND_BANK"],
+      "query": "bolsa de terras municipal Oeste Vale do Tejo Santarém Torres Vedras Cadaval terrenos agrícolas câmara"
+    },
+    {
+      "id": "ovt-bolsa-santarem",
+      "kinds": ["LAND_BANK"],
+      "query": "\"bolsa de terras\" \"Santarém\" agricultura município"
+    },
+    {
+      "id": "ovt-bolsa-torres-vedras",
+      "kinds": ["LAND_BANK"],
+      "query": "\"bolsa de terras\" \"Torres Vedras\" agricultura município"
+    },
+    {
+      "id": "ovt-advice-2026",
+      "kinds": ["ADVICE"],
+      "query": "\"jovens agricultores\" Santarém aconselhamento associação 2026"
+    },
+    {
+      "id": "ovt-gabinete",
+      "kinds": ["ADVICE"],
+      "query": "\"Gabinete de Apoio ao Agricultor\" Santarém"
+    },
+    {
+      "id": "ovt-training-2026",
+      "kinds": ["TRAINING"],
+      "query": "\"formação jovens agricultores\" Santarém 2026 agricultura"
+    },
+    {
+      "id": "ovt-balcao-salvaterra",
+      "kinds": ["LAND_BANK", "ADVICE"],
+      "query": "\"Balcão Rural\" Salvaterra Bolsa de Terras"
+    }
+  ],
+  "leads": [
+    {
+      "id": "ovt-bolsas-municipais",
+      "name": "Bolsas de terras municipais no Oeste e Vale do Tejo",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "A pesquisa geral e as expansões por concelhos não localizaram uma página atual com inventário, inscrição ou intermediação municipal verificável. Isto documenta a passagem, não prova inexistência.",
+      "foundBy": "ovt-bolsa",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ovt-balcao-rural-salvaterra",
+      "name": "Balcão Rural de Foros de Salvaterra",
+      "kind": "LAND_BANK",
+      "status": "REJECTED",
+      "reason": "Só foi localizado em publicações históricas da AJAP ligadas à antiga rede/Bolsa de Terras; não foi encontrada uma página operacional contemporânea que demonstre inventário ou acesso em 2026.",
+      "foundBy": "ovt-balcao-salvaterra",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ovt-rural-innovation-challenges",
+      "name": "Rural Innovation Challenges em Santarém",
+      "url": "https://ajap.pt/concurso-rural-innovation-challenges-na-escola-superior-agraria-de-santarem/",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "reason": "Sessão de esclarecimentos de um concurso nacional realizada em Santarém em abril de 2026; é um evento pontual e não um serviço permanente de acompanhamento regional.",
+      "foundBy": "ovt-advice-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ovt-cap-concurso-jovens-2026",
+      "name": "Concurso Nacional de Jovens Agricultores 2026",
+      "url": "https://cap.pt/2026/04/30/concurso-nacional-de-jovens-agricultores-inscricoes-abertas/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Concurso nacional de reconhecimento de projetos, com cerimónia em Santarém; não é um apoio regional à primeira instalação e não deve duplicar-se como instrumento local.",
+      "foundBy": "ovt-advice-2026",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "ovt-ajap-formacao-atual",
+      "name": "Formação AJAP 2026",
+      "url": "https://formacao.ajap.pt/default.aspx",
+      "kind": "TRAINING",
+      "status": "REJECTED",
+      "reason": "A oferta atual encontrada é nacional/à distância ou formação técnica genérica; as páginas consultadas não demonstram uma formação local do Oeste e Vale do Tejo especificamente ligada à primeira instalação.",
+      "foundBy": "ovt-training-2026",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "pt-bolsa-terras-local",
+      "status": "NOT_FOUND",
+      "reason": "Depois de pesquisas gerais e por municípios não foi localizada uma bolsa municipal/intermunicipal atual com inventário, inscrição ou mecanismo de intermediação verificável; referências a balcões rurais eram históricas.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-apoio-regional-instalacao",
+      "status": "NOT_APPLICABLE",
+      "reason": "No continente o apoio à instalação de jovens agricultores é nacional; não foi identificado um apoio financeiro próprio do Oeste e Vale do Tejo.",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "pt-servicos-acompanhamento",
+      "status": "NOT_FOUND",
+      "reason": "Foram pesquisadas organizações e iniciativas em Santarém/Torres Vedras; os resultados concretos eram eventos/concursos nacionais ou referências históricas, não um serviço regional/local atual de instalação, sucessão ou acesso à terra.",
+      "checkedOn": "2026-09-28"
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-09-20",
+      "by": "CLAUDE (claude-opus-5)",
+      "summary": "Primeira passagem com a lista de verificação nacional: nenhum recurso regional encontrado."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "CHATGPT (GPT-5.6 Sol)",
+      "summary": "Revisão alargada: pesquisadas bolsas municipais, serviços de acompanhamento e formação; antigos balcões AJAP/Bolsa de Terras tratados como históricos e eventos/concursos nacionais rejeitados como recursos locais. Nenhum recurso regional admissível foi demonstrado."
+    }
+  ]
+}

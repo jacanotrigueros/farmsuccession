@@ -40,13 +40,11 @@ It reads `data/editions` by default and takes a directory as its second argument
 
 The numbers in the records were measured over the whole corpus one research sweep
 produced: 101 edition files and 101 briefs, across the EU layer and five countries.
-What this repository publishes is the part of that work which is finished and
-checked — the EU layer, Spain, Germany, France and Italy, 91 files — and Portugal
-arrives with its own milestone. So the command run here today reads those 91 files and
-reports the same shape over almost the whole sample: 1,946 pieces of reader-facing
-prose where a record says 2,085, and 198 amounts in euros where a record says 200.
-The distributions hold, and a record that names a number says which of the two it came
-from.
+That is now the corpus this repository publishes, so the sample and the thing it was a
+sample of have become the same: the command run here today reads those 101 files and
+reports 2,086 pieces of reader-facing prose and 200 amounts in euros, against the 2,085
+and 200 the thresholds were set from. The one extra piece of prose is a correction made
+on the way in, which is the only honest reason for a measurement to move.
 
 ## The records
 
