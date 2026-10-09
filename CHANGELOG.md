@@ -150,6 +150,34 @@ release.
   French page. It is the first thing a keyboard or screen-reader user meets, and it was
   invisible to every check because it only appears when focused. Fixed, and now a test.
 
+### A reading says whose page it was
+
+- Every reading in `reports/checks/` now records the territories whose records cite the
+  page, so a sweep of the whole edition says whose each of its pages is instead of saying
+  only "all". It was 69% blind before: of the 502 pages the series had seen, 347 had only
+  ever been read by a sweep that recorded no territory, so the series could not say how
+  much of Spain's evidence had been read, on which day, or name one Spanish page to go
+  and open.
+- `npm run report:sources` reports territory by territory, grouped by country, worst
+  first: how much of what each territory cites has been read, on how many days, which of
+  its pages somebody has to act on, and which of its pages **no run has ever read** — a
+  gap no single run can report, because a run only knows what it checked.
+- Coverage is counted against what the corpus cites today, not against the ledger, so a
+  page added after the last sweep shows up as unread rather than staying invisible. The
+  8 territories that document no instrument at all are reported as citing nothing, never
+  as unread: a false alarm repeated every run teaches somebody to ignore the real ones.
+- The second day of readings corrected the verdict itself. The sweep of 9 October gave the
+  corpus a second day for the first time, fourteen pages had now failed twice, and the
+  ledger called all fourteen GONE. Eleven were hosts answering 403 to an automated request
+  or pages that answered 200 and cannot be read by a checker — UNCHECKED readings, which
+  prove nothing either way, and the code was counting any HTTP status as an answer. GONE
+  is 3: two pages that have lost a quoted sentence and one that answers 404. An over-eager
+  GONE is the dangerous direction, because it sends somebody to rewrite correct records.
+- Nothing already recorded was rewritten. A run whose results carry no attribution is
+  read at its scope when that scope is one territory, and counted as unattributed when it
+  is not, which leaves the three sweeps of 8 October attributed to nobody for good. See
+  [`decisions/026`](decisions/026-a-reading-says-which-territory-it-was-about.md).
+
 ### The checks keep their results
 
 - Every live check writes its own file under `reports/checks/`, committed, named for the

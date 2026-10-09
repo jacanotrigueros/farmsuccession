@@ -82,7 +82,13 @@ Every cited page is re-read against the live web, and every run is kept:
 [`reports/checks/`](reports/checks/) holds one file per run, named for the instant it
 was taken —
 when, what it covered, and each URL with its status, HTTP code and, when it did not
-pass, why. `npm run report:sources` reads the series.
+pass, why. Each reading also records the territories whose records cite the page, so a
+sweep of the whole edition says whose each of its pages is rather than saying only "all".
+
+`npm run report:sources` reads the series, and reports it territory by territory: how
+much of what each territory cites has been read, on how many days, which of its pages
+somebody has to act on, and which of its pages no run has ever read. That last one is a
+question no single run can answer, because a run only knows what it checked.
 
 The runs over the whole edition on 8 October 2026, the first two eight minutes apart:
 

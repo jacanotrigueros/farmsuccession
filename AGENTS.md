@@ -207,7 +207,9 @@ page as verified, and never "fix" one by removing the quote.
 
 **A verdict about a source comes from the series of runs, never from the run in
 front of you.** Every run writes `reports/checks/<when>--<scope>.json`, which is
-committed as a file of its own, and `npm run report:sources` reads the series: a page is only GONE after it
+committed as a file of its own, and `npm run report:sources` reads the series territory by
+territory — never pass a territory spec to a sweep to get that detail, every reading
+already records which territories cite the page. A page is only GONE after it
 answered with a refusal, or lost its quotes, on two different days, and silence
 never becomes GONE at all. A run where half or more of what it checked never
 answered is a reading about the machine it ran on, and its totals are not a

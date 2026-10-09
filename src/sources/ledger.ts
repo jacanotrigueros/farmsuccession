@@ -23,6 +23,12 @@
  * checks running at once would interleave and quietly destroy both records. A run that writes its own
  * new file shares nothing with any other run, and a record nobody needs can be deleted without the rest
  * losing their meaning.
+ *
+ * Each reading also records which territories cite the page, because the series is read by whoever has
+ * to correct a record and records belong to territories. A sweep that only said "all" could report that
+ * one page of five hundred was gone without being able to say whose page it was: on 2026-10-09, 347 of
+ * the 502 pages the series had seen had only ever been read by such a sweep. Those three sweeps stay
+ * unattributed, because a reading that was taken is not edited afterwards. `decisions/026`.
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
@@ -42,7 +48,49 @@ export type LedgerResult = {
   httpStatus: number | null;
   /** Only for a result that is not a PASS: the first note of the report, which says what happened. */
   note?: string;
+  /**
+   * The territories whose records cite this page, as territory specs: `eu`, `es`, `es/aragon`. A page
+   * cited from two territories belongs to both, because the verdict on it is a verdict on both records.
+   *
+   * It is kept per result rather than per run because the alternative is a sweep of the whole edition
+   * that can only ever say "all", and 69% of this series was read that way: nothing in those readings
+   * can say which of their pages were Spain's.
+   */
+  territories?: string[];
 };
+
+/**
+ * The territory a citation came from. The planner records who cites each page as `<edition file>#<id>`,
+ * and the file's own path is the territory: `2026/eu.json`, `2026/countries/es.json`,
+ * `2026/regions/es/aragon.json`, `2026/hubs/es/canarias.json`.
+ *
+ * Returns null rather than guessing, so a reference this does not recognise is counted as unattributed
+ * instead of being filed under a territory that may not exist.
+ */
+export function territoryOf(citedBy: string): string | null {
+  const parts = (citedBy.split("#")[0] ?? "")
+    .replace(/\.json$/u, "")
+    .split("/")
+    .filter((part) => part !== "" && !/^\d{4}$/u.test(part));
+  const [kind, iso, slug] = parts;
+  if (kind === "eu" && iso === undefined) return "eu";
+  if (kind === "countries" && iso !== undefined && slug === undefined) return iso;
+  if ((kind === "regions" || kind === "hubs") && iso !== undefined && slug !== undefined) return `${iso}/${slug}`;
+  return null;
+}
+
+/** Whether a string is a territory spec, which is what lets an older run's scope stand in for attribution. */
+const isSpec = (scope: string): boolean => /^(?:eu|[a-z]{2}(?:\/[a-z0-9-]+)?)$/u.test(scope);
+
+/**
+ * What a reading was about. A result records it; a run taken before results did falls back to its own
+ * scope, which is the right answer for the per-territory runs and no answer at all for the sweeps —
+ * `decisions/026`. Readings are never edited afterwards, so the sweeps stay unattributed for good.
+ */
+export function territoriesOf(run: LedgerRun, result: LedgerResult): string[] {
+  if (result.territories && result.territories.length > 0) return result.territories;
+  return isSpec(run.scope) ? [run.scope] : [];
+}
 
 /** One run: what was checked, when, and what came back. One file of the series. */
 export type LedgerRun = {
@@ -54,12 +102,16 @@ export type LedgerRun = {
   results: LedgerResult[];
 };
 
-const resultOf = (report: CheckReport): LedgerResult => ({
-  url: report.url,
-  status: report.status,
-  httpStatus: report.httpStatus,
-  ...(report.status === "PASS" ? {} : { note: report.notes[0] ?? "" }),
-});
+const resultOf = (report: CheckReport): LedgerResult => {
+  const territories = [...new Set(report.citedBy.map(territoryOf).filter((spec): spec is string => spec !== null))].toSorted();
+  return {
+    url: report.url,
+    status: report.status,
+    httpStatus: report.httpStatus,
+    ...(report.status === "PASS" ? {} : { note: report.notes[0] ?? "" }),
+    ...(territories.length > 0 ? { territories } : {}),
+  };
+};
 
 /**
  * What a run is called: the instant it was taken, then what it covered. Sorting the directory by name
@@ -130,9 +182,15 @@ export function readRuns(checksDir = CHECKS_DIR): LedgerRun[] {
  * What the series says about one URL.
  *
  * `GONE` is the only verdict that asks somebody to change a record, and it is deliberately the hardest
- * to reach: the page has to have answered with a refusal, or lost its quotes, on two different days.
- * `UNREACHABLE` is the other kind of repeated failure — nobody answered at all — and it is not evidence
- * about the page, because that is exactly what a dropping network looks like from here.
+ * to reach: the page has to have *failed* on two different days — an address that is gone, a page saying
+ * it does not exist, or a quote that is no longer there.
+ *
+ * Every other repeated failure is `UNREACHABLE`, and the second day of this series is why that is drawn
+ * where it is. On 2026-10-09 the same corpus was swept again and fourteen pages had now failed twice;
+ * eleven of them had answered `403` to an automated request, or answered `200` with a page this checker
+ * cannot read. Those are facts about a host's policy and about this checker, not about the citation —
+ * `decisions/007` — and calling them GONE would have sent somebody to rewrite eleven correct records.
+ * An UNCHECKED reading never counts towards GONE, whatever status code arrived with it.
  */
 export type Verdict = "HEALTHY" | "FLAKY" | "UNREACHABLE" | "GONE" | "NEW";
 
@@ -142,40 +200,123 @@ export type UrlHistory = {
   observations: { day: string; status: CheckStatus; httpStatus: number | null; note?: string }[];
   /** Distinct days on which this URL was checked, which is what a verdict is allowed to rest on. */
   days: number;
+  /** Every territory any run attributed this page to, so a verdict can be read where it has consequences. */
+  territories: string[];
 };
 
 const dayOf = (iso: string): string => iso.slice(0, 10);
 
-/** A failure that came from an answer, rather than from nobody answering. */
-const answered = (result: { status: CheckStatus; httpStatus: number | null }): boolean =>
-  result.status === "FAIL" || result.httpStatus !== null;
-
 export function historyOf(runs: readonly LedgerRun[]): UrlHistory[] {
-  const byUrl = new Map<string, UrlHistory["observations"]>();
+  const byUrl = new Map<string, { observations: UrlHistory["observations"]; territories: Set<string> }>();
   for (const run of runs) {
     for (const result of run.results) {
-      const observations = byUrl.get(result.url) ?? [];
-      observations.push({
+      const seen = byUrl.get(result.url) ?? { observations: [], territories: new Set<string>() };
+      seen.observations.push({
         day: dayOf(run.checkedAt),
         status: result.status,
         httpStatus: result.httpStatus,
         ...(result.note === undefined ? {} : { note: result.note }),
       });
-      byUrl.set(result.url, observations);
+      for (const territory of territoriesOf(run, result)) seen.territories.add(territory);
+      byUrl.set(result.url, seen);
     }
   }
 
-  return [...byUrl.entries()].map(([url, observations]) => {
+  return [...byUrl.entries()].map(([url, { observations, territories }]) => {
     const days = new Set(observations.map((observation) => observation.day)).size;
     const passes = observations.filter((observation) => observation.status === "PASS").length;
+    // The days it actually failed on, which is what GONE rests on. An UNCHECKED day is not one of them,
+    // whatever status code came with it: that is the whole of `decisions/007`.
+    const failedOn = new Set(observations.filter((observation) => observation.status === "FAIL").map((observation) => observation.day))
+      .size;
     const verdict = ((): Verdict => {
       if (passes === observations.length) return "HEALTHY";
       if (passes > 0) return "FLAKY";
+      if (failedOn >= 2) return "GONE";
       if (days < 2) return "NEW";
-      return observations.every((observation) => answered(observation)) ? "GONE" : "UNREACHABLE";
+      return "UNREACHABLE";
     })();
-    return { url, verdict, observations, days };
+    return { url, verdict, observations, days, territories: [...territories].toSorted() };
   });
+}
+
+/**
+ * What the series says about one territory: how much of its evidence has been read, on how many days,
+ * and which of its pages somebody has to act on.
+ *
+ * This is the unit a verdict is acted on in. A page is GONE or UNREACHABLE on its own, but the record
+ * that has to be corrected belongs to a territory, and "1 of 494 pages is gone" tells nobody whose
+ * afternoon that is. A page cited by two territories is counted in both.
+ */
+export type TerritorySeries = {
+  territory: string;
+  /** The pages this territory cites today, from the data rather than from the ledger. Empty: it documents nothing. */
+  cites: string[];
+  /** The distinct pages of its own that any run has read, so a country can be counted without double-counting. */
+  read: string[];
+  /** The pages it cites that no run has ever read. The gap a single run cannot see, because a run only knows what it checked. */
+  unread: string[];
+  /** Distinct days on which something of this territory's was read. */
+  days: number;
+  /** The last day a page of this territory's was read, or null for a territory no run has reached. */
+  lastRead: string | null;
+  counts: Record<Verdict, number>;
+  /** Its pages that are neither healthy nor too new to judge: what somebody has to do something about. */
+  open: UrlHistory[];
+};
+
+/** What a territory cites now, which is what its readings are coverage *of*. */
+export type TerritoryPages = { territory: string; urls: readonly string[] };
+
+const noCounts = (): Record<Verdict, number> => ({ HEALTHY: 0, FLAKY: 0, UNREACHABLE: 0, GONE: 0, NEW: 0 });
+
+/**
+ * The series grouped by territory, worst first.
+ *
+ * `cited` is the corpus as it stands — what each territory cites today — and it is what makes two
+ * different silences tell apart. A territory that cites twelve pages and has had none read is a gap
+ * somebody has to close; a territory that cites nothing has nothing to read, and three of them do:
+ * Italy nationally, Oeste e Vale do Tejo and Península de Setúbal document no instrument at all. The
+ * ledger alone cannot distinguish them, and would report both as unread every run, for ever.
+ */
+export function byTerritory(runs: readonly LedgerRun[], cited: readonly TerritoryPages[] = []): TerritorySeries[] {
+  const histories = historyOf(runs);
+  type Seen = { read: Set<string>; days: Set<string>; counts: Record<Verdict, number>; open: UrlHistory[] };
+  const series = new Map<string, Seen>();
+  const of = (territory: string): Seen => {
+    const seen = series.get(territory) ?? { read: new Set<string>(), days: new Set<string>(), counts: noCounts(), open: [] };
+    series.set(territory, seen);
+    return seen;
+  };
+  for (const { territory } of cited) of(territory);
+
+  for (const history of histories) {
+    for (const territory of history.territories) {
+      const seen = of(territory);
+      seen.read.add(history.url);
+      for (const observation of history.observations) seen.days.add(observation.day);
+      seen.counts[history.verdict] += 1;
+      if (history.verdict !== "HEALTHY" && history.verdict !== "NEW") seen.open.push(history);
+    }
+  }
+
+  const rank = (entry: TerritorySeries): number =>
+    entry.counts.GONE * 1000 + entry.counts.UNREACHABLE * 100 + entry.unread.length * 10 + entry.counts.FLAKY;
+  return [...series.entries()]
+    .map(([territory, seen]) => {
+      const cites = [...(cited.find((entry) => entry.territory === territory)?.urls ?? [])].toSorted();
+      return {
+        territory,
+        cites,
+        read: [...seen.read].toSorted(),
+        unread: cites.filter((url) => !seen.read.has(url)),
+        days: seen.days.size,
+        lastRead: [...seen.days].toSorted().at(-1) ?? null,
+        counts: seen.counts,
+        open: seen.open.toSorted((a, b) => a.url.localeCompare(b.url)),
+      };
+    })
+    .toSorted((a, b) => rank(b) - rank(a) || a.read.length - b.read.length || a.territory.localeCompare(b.territory));
 }
 
 /**

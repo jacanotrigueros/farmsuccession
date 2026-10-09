@@ -75,3 +75,4 @@ on the way in, which is the only honest reason for a measurement to move.
 | [023](023-a-country-is-data-a-catalogue-entry-and-a-language.md) | A country is data, a catalogue entry and a language            |
 | [024](024-a-territory-lives-under-a-segment-of-its-own.md)       | A territory lives under a segment of its own                   |
 | [025](025-a-source-is-gone-when-the-series-says-so.md)           | A source is gone when the series says so, not when a run does  |
+| [026](026-a-reading-says-which-territory-it-was-about.md)        | A reading says which territory it was about                    |
