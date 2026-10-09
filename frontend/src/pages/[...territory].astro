@@ -14,6 +14,7 @@
  * came from is printed on the record, because it is the difference between a national scheme and a
  * municipal one, and because it tells them which page to watch for changes.
  */
+import { Icon } from "astro-icon/components";
 import DraftNotice from "../components/DraftNotice.astro";
 import Needs from "../components/Needs.astro";
 import SearchBox from "../components/SearchBox.astro";
@@ -31,6 +32,7 @@ import {
   view,
 } from "../lib/corpus.ts";
 import { GOALS, goalOf } from "../lib/goals.ts";
+import { ICON } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
 import { counted, editionNamed, situation, words } from "../lib/words.ts";
 import { queryFromState, searchPath } from "../../public/search-scope.js";
@@ -73,6 +75,22 @@ const sections = [
 const trail = layers.slice(0, -1);
 
 /**
+ * What this territory holds, counted from what the page is about to show rather than from the file: a
+ * reader gets everything that applies here, so that is what the figures are about. The territories line
+ * only appears where there are any, because "0 territories" is noise on a region.
+ */
+const applicable = resources.map(({ resource }) => resource);
+const figures = [
+  { icon: ICON.resources, value: applicable.length, label: counted(applicable.length, text.statApplicable) },
+  ...(children.length > 0 ? [{ icon: ICON.territory, value: children.length, label: counted(children.length, text.statTerritories) }] : []),
+  {
+    icon: ICON.sources,
+    value: new Set(applicable.flatMap(({ sources }) => sources.map(({ url }) => url))).size,
+    label: counted(new Set(applicable.flatMap(({ sources }) => sources.map(({ url }) => url))).size, text.statSources),
+  },
+];
+
+/**
  * Searching from a territory searches its country, with this territory already chosen — never the European
  * search, which would show a reader schemes that do not apply where they are. A country searches itself.
  */
@@ -81,7 +99,7 @@ const pinnedQuery = queryFromState({ selected: Object.fromEntries(pinned.map((f)
 ---
 
 <TerritoryLayout
-  title={`${territory.data.officialName} — ${text.siteName}`}
+  title={`${text.territoryTitle.replace("{where}", territory.data.officialName)} · ${text.siteName}`}
   description={territory.data.summary}
   language={language}
   current={href(territory.layer)}
@@ -110,6 +128,7 @@ const pinnedQuery = queryFromState({ selected: Object.fromEntries(pinned.map((f)
         id="here"
         label={text.searchHereLabel.replace("{where}", territory.data.officialName)}
         button={text.searchAction}
+        examples={text.searchExamples}
         pinned={pinned}
       />
       <a
@@ -118,6 +137,20 @@ const pinnedQuery = queryFromState({ selected: Object.fromEntries(pinned.map((f)
       >
         {text.browseAll.replace("{where}", territory.data.officialName)}
       </a>
+    </div>
+
+    <div class="mt-8 rounded-lg bg-page p-5">
+      <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3" aria-label={text.statsLabel}>
+        {figures.map((figure) => (
+          <li class="flex items-center gap-3">
+            <Icon name={figure.icon} aria-hidden="true" class="size-5 shrink-0 text-brand" />
+            <p>
+              <span class="block text-2xl font-bold text-brand tabular-nums">{figure.value}</span>
+              <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
+            </p>
+          </li>
+        ))}
+      </ul>
     </div>
   </header>
 

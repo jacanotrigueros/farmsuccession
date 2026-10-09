@@ -95,7 +95,13 @@ const trust = [
       <p class="mt-4 max-w-3xl text-lg text-muted">{text.lead}</p>
 
       <div class="mt-8 max-w-3xl">
-        <SearchBox action={searchUrl("/")} id="home-q" label={text.searchAcrossEurope} button={text.searchAction} />
+        <SearchBox
+          action={searchUrl("/")}
+          id="home-q"
+          label={text.searchAcrossEurope}
+          button={text.searchAction}
+          examples={text.searchExamples}
+        />
         <a href={searchUrl("/")} class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
           {text.browseAcrossEurope}
         </a>

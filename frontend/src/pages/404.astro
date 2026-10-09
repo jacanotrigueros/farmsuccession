@@ -1,0 +1,72 @@
+---
+/**
+ * The page a reader gets for an address that does not exist. GitHub Pages serves this one file for every
+ * unknown path, which is the whole difficulty: the site is written in six languages, and the file cannot
+ * know which of them the person who mistyped was reading.
+ *
+ * So it says it in all of them, without a line of JavaScript. The heading is English, because the layer
+ * this page belongs to is; under it, every country says the same two sentences in its own language and
+ * offers the way back into itself. A reader who was in Spain and lost their way reads Spanish, in the
+ * second block of the page, on an address that was never built.
+ *
+ * The alternative was one block, swapped by a script that reads the broken path — tidier for whoever can
+ * run it, and nothing at all for whoever cannot. This page is for somebody who already took a wrong turn.
+ */
+import SearchBox from "../components/SearchBox.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { countryTerritories, euTerritory, href, languageOf } from "../lib/corpus.ts";
+import { words } from "../lib/words.ts";
+import { searchUrl } from "../../public/search-scope.js";
+
+const europe = euTerritory();
+if (!europe) throw new Error("no European layer: the page that recovers a reader has nowhere to send them");
+
+const language = languageOf(europe);
+const text = words(language);
+
+/** Every country, in its own language, so one of these blocks is the reader's. */
+const ways = countryTerritories()
+  .filter((territory) => territory.layer.level === "COUNTRY")
+  .map((territory) => ({ territory, language: languageOf(territory), text: words(languageOf(territory)) }));
+---
+
+<SiteLayout title={`${text.notFoundTitle} · ${text.siteName}`} description={text.notFoundText} language={language}>
+  <div class="py-10">
+    <h1 class="page-title text-3xl text-balance sm:text-4xl">{text.notFoundTitle}</h1>
+    <p class="mt-4 max-w-3xl text-lg">{text.notFoundText}</p>
+
+    <div class="mt-8">
+      <SearchBox
+        action={searchUrl("/")}
+        id="lost-q"
+        label={text.searchAcrossEurope}
+        button={text.searchAction}
+        examples={text.searchExamples}
+      />
+      <a href="/" class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
+        {text.startHere}
+      </a>
+    </div>
+
+    <section class="mt-10 border-t border-line pt-8" aria-labelledby="countries">
+      <h2 id="countries" class="text-2xl font-bold">
+        {text.countriesTitle}
+      </h2>
+      <ul class="mt-4 grid gap-x-8 gap-y-6 sm:grid-cols-2">
+        {ways.map(({ territory, language: own, text: here }) => (
+          <li lang={own === language ? undefined : own}>
+            <h3 class="text-lg font-bold">{territory.data.officialName}</h3>
+            <p class="mt-1 text-muted">{here.notFoundText}</p>
+            <a
+              href={href(territory.layer)}
+              hreflang={own}
+              class="mt-1 inline-flex min-h-(--spacing-target) items-center font-bold underline"
+            >
+              {here.startHere}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</SiteLayout>
