@@ -6,7 +6,18 @@ import { test } from "node:test";
 
 import { reportSources } from "../scripts/report-sources.ts";
 import type { CheckReport } from "../src/sources/check.ts";
-import { byHost, fileNameOf, historyOf, looksLikeOurSide, readRuns, recordRun, type LedgerRun } from "../src/sources/ledger.ts";
+import {
+  byHost,
+  byTerritory,
+  fileNameOf,
+  historyOf,
+  type LedgerRun,
+  looksLikeOurSide,
+  readRuns,
+  recordRun,
+  territoriesOf,
+  territoryOf,
+} from "../src/sources/ledger.ts";
 
 /**
  * The rules this file protects are the ones the French sweep of 2026-10-08 taught, and all of them say
@@ -139,6 +150,38 @@ test("silence is never read as a dead page, however often it repeats", () => {
   );
 });
 
+/**
+ * The rule the second day of the real series found, on 2026-10-09. Fourteen pages had failed twice by
+ * then and eleven of them had only ever refused an automated request or served a page this checker
+ * cannot read: `barriosproductores.madrid.es` and `bretagne.bzh` answering 403, Bolzano answering 200
+ * with a page that needs a browser. Calling those GONE would have sent somebody to rewrite eleven
+ * correct records. A reading that could not read the page is UNCHECKED, and UNCHECKED never counts
+ * towards GONE, whatever status code arrived with it — `decisions/007`.
+ */
+test("a host refusing an automaton is never read as a dead page, however often it refuses", () => {
+  const refused = historyOf([
+    run("2026-10-08T20:00:00.000Z", [report("https://portal.example/", "UNCHECKED", 403, "HTTP 403: host refused an automated request")]),
+    run("2026-10-09T09:00:00.000Z", [report("https://portal.example/", "UNCHECKED", 403, "HTTP 403: host refused an automated request")]),
+  ]);
+  assert.equal(
+    refused[0]?.verdict,
+    "UNREACHABLE",
+    "a host declining automation was read as evidence that the citation is dead, which would send somebody to rewrite a correct record",
+  );
+
+  const unreadable = historyOf([
+    run("2026-10-08T20:00:00.000Z", [report("https://shell.example/", "UNCHECKED", 200, "content type application/pdf could not be read")]),
+    run("2026-10-09T09:00:00.000Z", [report("https://shell.example/", "UNCHECKED", 200, "content type application/pdf could not be read")]),
+  ]);
+  assert.equal(unreadable[0]?.verdict, "UNREACHABLE", "a page that answered but could not be read was counted as a page that is gone");
+
+  const mixed = historyOf([
+    run("2026-10-08T20:00:00.000Z", [report("https://half.example/", "FAIL", 404, "HTTP 404")]),
+    run("2026-10-09T09:00:00.000Z", [report("https://half.example/", "UNCHECKED", null, "no response")]),
+  ]);
+  assert.equal(mixed[0]?.verdict, "UNREACHABLE", "one failure and one silence were counted as a failure on two days");
+});
+
 test("a page that has ever passed is flaky, not broken", () => {
   const url = "https://bretagne.example/";
   const histories = historyOf([
@@ -211,4 +254,99 @@ test("the report says what has to be acted on, and says nothing when nothing has
   assert.match(text, /### GONE: 1/u);
   assert.match(text, /https:\/\/gone\.example\//u, "a page the series says is gone is not named, so nobody can act on it");
   assert.doesNotMatch(text, /https:\/\/ok\.example\//u, "a page that has always passed is listed among the ones to act on");
+});
+
+/**
+ * The second lesson of the series, learnt on 2026-10-09: a verdict nobody can attribute is a verdict
+ * nobody acts on. Several of the first runs were sweeps of a whole edition, and all any of them could
+ * say was "all" — so "one cited page of 494 is gone" named no record, no territory and no country.
+ * Attribution is per reading, because that is the only level at which it is a fact rather than a
+ * reconstruction.
+ */
+test("a territory is read from where its pages are cited, not from how the run was invoked", () => {
+  assert.equal(territoryOf("2026/eu.json#x"), "eu");
+  assert.equal(territoryOf("2026/countries/es.json#es-cultiva"), "es");
+  assert.equal(territoryOf("2026/regions/es/aragon.json#aragon-ayuda"), "es/aragon");
+  assert.equal(territoryOf("2026/hubs/es/canarias.json#news:x"), "es/canarias");
+  assert.equal(territoryOf("whatever.json#x"), null, "a reference nobody recognises was filed under a territory anyway");
+});
+
+test("a sweep of the whole edition still records whose pages it read", () => {
+  const file = ledger();
+  const shared: CheckReport = {
+    ...report("https://shared.example/", "PASS", 200),
+    citedBy: ["2026/countries/es.json#a", "2026/regions/es/aragon.json#b"],
+  };
+  const { run: recorded } = recordRun(
+    {
+      edition: "2026",
+      scope: "all",
+      totals: { pass: 2, fail: 0, unchecked: 0 },
+      reports: [shared, { ...report("https://only-pt.example/", "PASS", 200), citedBy: ["2026/regions/pt/algarve.json#c"] }],
+      checkedAt: "2026-10-09T09:00:00.000Z",
+    },
+    file,
+  );
+  assert.deepEqual(
+    recorded.results[0]?.territories,
+    ["es", "es/aragon"],
+    "a whole-edition sweep recorded no territory for a page, so its verdict belongs to nobody",
+  );
+
+  const series = byTerritory(readRuns(file), [
+    { territory: "es", urls: ["https://shared.example/"] },
+    { territory: "es/aragon", urls: ["https://shared.example/", "https://never-read.example/"] },
+    { territory: "pt/algarve", urls: ["https://only-pt.example/"] },
+    // A region that documents no instrument at all, which three of the real ones do.
+    { territory: "it", urls: [] },
+  ]);
+  const of = (territory: string): (typeof series)[number] | undefined => series.find((entry) => entry.territory === territory);
+  assert.equal(of("es")?.read.length, 1);
+  assert.equal(of("es/aragon")?.read.length, 1, "a page cited by two territories was counted in one of them only");
+  assert.deepEqual(
+    of("es/aragon")?.unread,
+    ["https://never-read.example/"],
+    "a page a territory cites and no run has ever read is not reported as unread",
+  );
+  assert.equal(of("pt/algarve")?.unread.length, 0);
+  assert.deepEqual({ cites: of("it")?.cites, read: of("it")?.read, lastRead: of("it")?.lastRead }, { cites: [], read: [], lastRead: null });
+});
+
+test("a run taken before attribution is read at the scope it recorded, and a sweep at none", () => {
+  const territory = run("2026-10-08T20:00:00.000Z", [report("https://a.example/", "PASS", 200)]);
+  const result = territory.results[0] ?? { url: "", status: "PASS" as const, httpStatus: null };
+  assert.deepEqual(
+    territoriesOf(territory, result),
+    ["fr/occitanie"],
+    "a per-territory run from before attribution lost the territory its own name records",
+  );
+  assert.deepEqual(
+    territoriesOf({ ...territory, scope: "all" }, result),
+    [],
+    "a sweep that recorded no attribution was given one anyway, which invents a fact about where a page is cited",
+  );
+});
+
+test("the report names the territories nobody has read, which no single run can", () => {
+  const file = ledger();
+  recordRun(
+    {
+      edition: "2026",
+      scope: "es/aragon",
+      totals: { pass: 1, fail: 0, unchecked: 0 },
+      reports: [{ ...report("https://aragon.example/", "PASS", 200), citedBy: ["2026/regions/es/aragon.json#a"] }],
+      checkedAt: "2026-10-09T09:00:00.000Z",
+    },
+    file,
+  );
+  const text = reportSources(file, [
+    { territory: "es/aragon", urls: ["https://aragon.example/"] },
+    { territory: "it/sicilia", urls: ["https://sicilia.example/"] },
+    { territory: "it", urls: [] },
+  ]).lines.join("\n");
+  assert.match(text, /### territory by territory: 1 of 2 fully read, 1 with nothing to read/u);
+  assert.match(text, /es\/aragon\s+1 of\s+1 page\(s\)/u, "a territory that was read is not reported with how much of it was read");
+  assert.match(text, /it\/sicilia\s+0 of\s+1 page\(s\)\s+never read/u, "a territory whose evidence nobody has ever checked is not named");
+  assert.match(text, /UNREAD\s+https:\/\/sicilia\.example\//u, "the page nobody has read is not named, so nobody can go and read it");
+  assert.match(text, /it\s+cites nothing/u, "a territory that documents nothing is reported as unread, which it will be for ever");
 });
