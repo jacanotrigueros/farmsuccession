@@ -327,6 +327,40 @@ test("a run taken before attribution is read at the scope it recorded, and a swe
   );
 });
 
+/**
+ * What happened on 2026-10-09, an hour after the series produced its first three verdicts. Two of the
+ * three records were corrected by dropping the page: a Navarre news feed that could never keep its
+ * quote, and a Zaragoza procedure page that is gone. The readings stay for ever, so the series went on
+ * reporting both as GONE — work nobody has to do, at the top of the list of work somebody does.
+ */
+test("a page no record cites any more is evidence, not work", () => {
+  const file = ledger();
+  for (const day of ["2026-10-08T20:00:00.000Z", "2026-10-09T09:00:00.000Z"]) {
+    recordRun(
+      {
+        edition: "2026",
+        scope: "es/navarra",
+        totals: { pass: 0, fail: 2, unchecked: 0 },
+        reports: [
+          { ...report("https://feed.example/", "FAIL", 200, "1 of 1 quote(s) not found"), citedBy: ["2026/regions/es/navarra.json#a"] },
+          { ...report("https://still.example/", "FAIL", 404, "HTTP 404"), citedBy: ["2026/regions/es/navarra.json#b"] },
+        ],
+        checkedAt: day,
+      },
+      file,
+    );
+  }
+
+  // The corpus as it stands now: the feed left the record, the other page is still cited.
+  const { lines, gone } = reportSources(file, [{ territory: "es/navarra", urls: ["https://still.example/"] }]);
+  const text = lines.join("\n");
+  assert.equal(gone, 1, "a page that left every record is still counted as a record to correct");
+  assert.match(text, /### GONE: 1/u);
+  assert.match(text, /1 more no longer cited by any record/u, "the reading that proves the work was done is not accounted for at all");
+  assert.match(text, /https:\/\/still\.example\//u);
+  assert.doesNotMatch(text, /https:\/\/feed\.example\//u, "a page nobody cites any more is named among the pages to act on");
+});
+
 test("the report names the territories nobody has read, which no single run can", () => {
   const file = ledger();
   recordRun(

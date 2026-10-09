@@ -290,8 +290,18 @@ export function byTerritory(runs: readonly LedgerRun[], cited: readonly Territor
   };
   for (const { territory } of cited) of(territory);
 
+  /**
+   * Whether a reading is still about this territory's evidence. A reading is kept for ever, so a page a
+   * record dropped — because the series said it was gone and somebody corrected the record — stays in
+   * the series and would otherwise be counted against that territory for the rest of the project. It is
+   * the evidence the work was done, not work; it belongs in the readings and not in the totals.
+   */
+  const corpus = new Map(cited.map(({ territory, urls }) => [territory, new Set(urls)]));
+  const about = (territory: string, url: string): boolean => corpus.get(territory)?.has(url) ?? corpus.size === 0;
+
   for (const history of histories) {
     for (const territory of history.territories) {
+      if (!about(territory, history.url)) continue;
       const seen = of(territory);
       seen.read.add(history.url);
       for (const observation of history.observations) seen.days.add(observation.day);

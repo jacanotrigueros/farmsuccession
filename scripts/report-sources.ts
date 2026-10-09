@@ -110,6 +110,15 @@ function territorySection(series: readonly TerritorySeries[], runs: readonly Ret
 function render(histories: readonly UrlHistory[], runs: ReturnType<typeof readRuns>, cited: readonly TerritoryPages[]): string[] {
   const lines: string[] = [];
   const days = new Set(runs.map((run) => run.checkedAt.slice(0, 10)));
+  /**
+   * The pages the corpus cites now. A reading is kept for ever, so the series goes on knowing about a
+   * page that has since left every record — the two that left on 2026-10-09 when the records the series
+   * sent somebody to correct were corrected. Those are not work: they are the evidence that the work was
+   * done. Naming them among the pages to act on is how a list of three real problems becomes a list
+   * nobody reads.
+   */
+  const current = new Set(cited.flatMap((territory) => territory.urls));
+  const stillCited = (history: UrlHistory): boolean => current.size === 0 || current.has(history.url);
   lines.push(
     `${runs.length} run(s) recorded on ${days.size} day(s), covering ${histories.length} cited page(s)`,
     `from ${runs[0]?.checkedAt.slice(0, 10) ?? "—"} to ${runs.at(-1)?.checkedAt.slice(0, 10) ?? "—"}`,
@@ -117,8 +126,12 @@ function render(histories: readonly UrlHistory[], runs: ReturnType<typeof readRu
   );
 
   for (const verdict of ORDER) {
-    const group = histories.filter((history) => history.verdict === verdict);
+    const group = histories.filter((history) => history.verdict === verdict).filter((history) => stillCited(history));
+    const retired = histories.filter((history) => history.verdict === verdict).length - group.length;
     lines.push(`### ${verdict}: ${group.length}`, `  ${EXPLAIN[verdict]}`);
+    if (retired > 0) {
+      lines.push(`  ${retired} more no longer cited by any record: the record was corrected, and the readings stay as the evidence of it`);
+    }
     // Every page somebody has to do something about is named; the healthy ones are a count.
     if (verdict !== "HEALTHY" && verdict !== "NEW") {
       for (const history of group.toSorted((a, b) => b.observations.length - a.observations.length)) {
@@ -179,7 +192,10 @@ export function reportSources(checksDir = CHECKS_DIR, cited: readonly TerritoryP
     return { lines: ["no run has been recorded yet: run npm run check:sources, and the series starts there"], gone: 0 };
   }
   const histories = historyOf(runs);
-  return { lines: render(histories, runs, cited), gone: histories.filter((history) => history.verdict === "GONE").length };
+  const current = new Set(cited.flatMap((territory) => territory.urls));
+  // The number that means work: a page the series says is gone and some record still points a reader at.
+  const gone = histories.filter((history) => history.verdict === "GONE" && (current.size === 0 || current.has(history.url))).length;
+  return { lines: render(histories, runs, cited), gone };
 }
 
 if (isEntryPoint(import.meta.url)) {
