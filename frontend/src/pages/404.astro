@@ -31,24 +31,31 @@ const ways = countryTerritories()
 ---
 
 <SiteLayout title={`${text.notFoundTitle} · ${text.siteName}`} description={text.notFoundText} language={language}>
-  <div class="py-10">
-    <h1 class="page-title text-3xl text-balance sm:text-4xl">{text.notFoundTitle}</h1>
-    <p class="mt-4 max-w-3xl text-lg">{text.notFoundText}</p>
+  {/* The band every page of this site opens with, so the page that says you are lost still looks like the
+    site you were in. There is no trail above its title: nothing sits above an address that was never
+    built. */}
+  <div class="border-b border-line bg-card">
+    <div class="wrap py-10">
+      <h1 class="page-title text-3xl text-balance sm:text-4xl">{text.notFoundTitle}</h1>
+      <p class="mt-4 max-w-3xl text-lg">{text.notFoundText}</p>
 
-    <div class="mt-8">
-      <SearchBox
-        action={searchUrl("/")}
-        id="lost-q"
-        label={text.searchAcrossEurope}
-        button={text.searchAction}
-        examples={text.searchExamples}
-      />
-      <a href="/" class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
-        {text.startHere}
-      </a>
+      <div class="mt-8">
+        <SearchBox
+          action={searchUrl("/")}
+          id="lost-q"
+          label={text.searchAcrossEurope}
+          button={text.searchAction}
+          examples={text.searchExamples}
+        />
+        <a href="/" class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
+          {text.startHere}
+        </a>
+      </div>
     </div>
+  </div>
 
-    <section class="mt-10 border-t border-line pt-8" aria-labelledby="countries">
+  <div class="wrap py-12">
+    <section aria-labelledby="countries">
       <h2 id="countries" class="text-2xl font-bold">
         {text.countriesTitle}
       </h2>
