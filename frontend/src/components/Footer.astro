@@ -32,14 +32,14 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
 <footer class="mt-16 border-t border-line bg-card">
   <div class="wrap grid gap-8 py-10 md:grid-cols-[2fr_1fr_1fr]">
     <div>
-      <a href="/" class="text-lg font-bold text-brand-strong no-underline">
+      <a href="/" class="inline-flex min-h-(--spacing-target) items-center text-lg font-bold text-brand-strong no-underline">
         {text.siteName}
       </a>
       <p class="meta mt-2 max-w-3xl">{text.trust}</p>
       <p class="meta mt-3">{editionNamed(currentEdition, language)}</p>
       <p class="meta mt-3">
         {text.optOut}{" "}
-        <a class="underline" href="mailto:contact@farmsuccession.eu">
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href="mailto:contact@farmsuccession.eu">
           contact@farmsuccession.eu
         </a>
       </p>

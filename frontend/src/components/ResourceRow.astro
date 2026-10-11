@@ -56,7 +56,7 @@ const from = recordedIn.layer.level === "EU" ? text.europe : recordedIn.data.off
   </div>
 
   <Title class="mt-2 text-lg leading-snug font-semibold">
-    <a href={recordHref(resource.id)} class="inline-flex min-h-(--spacing-target) items-center">
+    <a href={recordHref(resource.id, recordedIn)} class="inline-flex min-h-(--spacing-target) items-center">
       {resource.name}
     </a>
   </Title>

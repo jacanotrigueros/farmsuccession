@@ -11,30 +11,33 @@
  * across the edition and already carries its territory. Every territory that inherits the record links
  * here rather than carrying a copy of the evidence at an address of its own.
  */
-import ApplyNow from "../../components/ApplyNow.astro";
-import CallWindows from "../../components/CallWindows.astro";
-import DraftNotice from "../../components/DraftNotice.astro";
-import Evidence from "../../components/Evidence.astro";
-import FactList from "../../components/FactList.astro";
-import KindTag from "../../components/KindTag.astro";
-import StatusTag from "../../components/StatusTag.astro";
-import SourceRef from "../../components/SourceRef.astro";
-import PageIndex from "../../components/PageIndex.astro";
-import SiteLayout from "../../layouts/SiteLayout.astro";
+import { Icon } from "astro-icon/components";
+import ApplyNow from "../components/ApplyNow.astro";
+import CallWindows from "../components/CallWindows.astro";
+import DraftNotice from "../components/DraftNotice.astro";
+import Evidence from "../components/Evidence.astro";
+import FactList from "../components/FactList.astro";
+import KindTag from "../components/KindTag.astro";
+import StatusTag from "../components/StatusTag.astro";
+import SourceRef from "../components/SourceRef.astro";
+import PageIndex from "../components/PageIndex.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
 import {
   currentEdition,
   href,
   isDraft,
   languageOf,
   newsAbout,
+  recordHref,
   records,
   territories,
   view,
   leafLayers,
   type RecordedResource,
-} from "../../lib/corpus.ts";
-import { goalOf } from "../../lib/goals.ts";
-import { dateIn, listIn } from "../../lib/language.ts";
+} from "../lib/corpus.ts";
+import { goalOf } from "../lib/goals.ts";
+import { ICON } from "../lib/icons.ts";
+import { dateIn, listIn } from "../lib/language.ts";
 import {
   assetLabel,
   audience,
@@ -51,11 +54,14 @@ import {
   reachLabel,
   sectorLabel,
   stateLabel,
-} from "../../lib/vocabulary.ts";
-import { counted, editionNamed, words } from "../../lib/words.ts";
+} from "../lib/vocabulary.ts";
+import { counted, editionNamed, words } from "../lib/words.ts";
 
 export function getStaticPaths() {
-  return records().map(({ resource, territory }: RecordedResource) => ({ params: { id: resource.id }, props: { resource, territory } }));
+  return records().map(({ resource, territory }: RecordedResource) => ({
+    params: { record: recordHref(resource.id, territory).slice(1, -1) },
+    props: { resource, territory },
+  }));
 }
 
 const { resource, territory } = Astro.props;
@@ -145,7 +151,6 @@ const facts: Array<{ label: string; value: string; datetime?: string }> = [
 ];
 
 const sections = [
-  { id: "offers", label: text.offersTitle },
   ...(resource.calls && resource.calls.length > 0 ? [{ id: "dates", label: text.periodsTitle, count: resource.calls.length }] : []),
   { id: "access", label: text.accessTitle },
   ...(resource.whoCanUseIt ? [{ id: "who", label: text.whoTitle }] : []),
@@ -214,7 +219,6 @@ const reaches = leafLayers(territory.layer, territories)
             </li>
           </ol>
         </nav>
-        <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{resource.name}</h1>
         <p class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
           {/* The tags carry this page's own words; the index carries the codes, in the hidden spans above,
             so a result can be described in the language of whichever page found it. */}
@@ -224,9 +228,33 @@ const reaches = leafLayers(territory.layer, territories)
           <span>
             <StatusTag status={resource.status} language={language} />
           </span>
-          <span class="meta" data-pagefind-meta="operator">
-            {resource.operator}
+        </p>
+        <h1 class="page-title mt-3 text-3xl text-balance sm:text-4xl">{resource.name}</h1>
+        <p class="meta mt-3 flex flex-wrap items-start gap-x-4 gap-y-1">
+          <span class="inline-flex min-w-0 items-start gap-1.5">
+            <Icon name={ICON.territory} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
+            <span>{territory.layer.level === "EU" ? text.europe : territory.data.officialName}</span>
           </span>
+          <span class="inline-flex min-w-0 items-start gap-1.5" data-pagefind-meta="operator">
+            <Icon name={ICON.operator} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
+            <span>{resource.operator}</span>
+          </span>
+        </p>
+
+        {/* What it offers, and what to do about it, before the index rather than three sections below. */}
+        <p class="mt-5 max-w-3xl text-lg" data-pagefind-meta="summary">
+          {resource.whatItOffers}
+        </p>
+        <ApplyNow resource={resource} language={language} />
+        <p class="mt-5">
+          <a
+            href={resource.accessUrl}
+            rel="noopener"
+            class="inline-flex min-h-(--spacing-target) items-center gap-2 rounded-sm bg-brand px-5 py-3 font-semibold text-on-brand no-underline"
+          >
+            {text.officialPage}
+            <Icon name={ICON.external} aria-hidden="true" class="size-4 shrink-0" />
+          </a>
         </p>
       </header>
     </div>
@@ -239,16 +267,6 @@ const reaches = leafLayers(territory.layer, territories)
           <DraftNotice language={language} />
         </div>
       )}
-
-      <section class="border-t border-line py-8" aria-labelledby="offers">
-        <h2 id="offers" class="scroll-mt-6 text-2xl font-bold">
-          {text.offersTitle}
-        </h2>
-        <p class="mt-3 max-w-3xl text-lg" data-pagefind-meta="summary">
-          {resource.whatItOffers}
-        </p>
-        <ApplyNow resource={resource} language={language} />
-      </section>
 
       {resource.calls && resource.calls.length > 0 && (
         <section class="border-t border-line py-8" aria-labelledby="dates">
@@ -266,20 +284,6 @@ const reaches = leafLayers(territory.layer, territories)
           {text.accessTitle}
         </h2>
         {resource.howToAccess && <p class="mt-3 max-w-3xl">{resource.howToAccess}</p>}
-        <p class="mt-5">
-          <a
-            href={resource.accessUrl}
-            rel="noopener"
-            class="inline-flex min-h-(--spacing-target) items-center gap-2 rounded-sm bg-brand px-5 py-3 font-semibold text-on-brand no-underline"
-          >
-            {text.officialPage}
-            <svg viewBox="0 0 24 24" class="size-4 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 4h6v6" stroke-linecap="round" stroke-linejoin="round"></path>
-              <path d="M20 4 10 14" stroke-linecap="round"></path>
-              <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </a>
-        </p>
         {resource.contactPoints && (
           <>
             <h3 class="mt-8 text-lg font-bold">{text.contactTitle}</h3>
@@ -372,7 +376,7 @@ const reaches = leafLayers(territory.layer, territories)
                 <ul class="mt-1">
                   {item.sources.map((source) => (
                     <li class="text-meta text-muted">
-                      <a href={source.url} rel="noopener" class="break-words">
+                      <a href={source.url} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center break-words">
                         {source.title}
                       </a>
                       {", "}

@@ -40,7 +40,7 @@ function builtPages(dir = DIST): string[] {
 function published(): Map<string, string> {
   const dates = new Map<string, string>();
   for (const territory of territoriesOf()) dates.set(href(territory.layer), territory.data.published);
-  for (const { resource, territory } of records()) dates.set(recordHref(resource.id), territory.data.published);
+  for (const { resource, territory } of records()) dates.set(recordHref(resource.id, territory), territory.data.published);
   return dates;
 }
 

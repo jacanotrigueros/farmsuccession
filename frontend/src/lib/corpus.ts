@@ -16,7 +16,7 @@ import type { LoadedSnapshot } from "../../../src/editions.ts";
 import type { Layer } from "../../../src/layers.ts";
 import type { Call, ContactPoint, EditionSnapshot, Metric, NewsItem, Resource, Source } from "../../../src/types/edition.ts";
 import type { Territories } from "../../../src/types/territories.ts";
-import { regionSlug } from "../../public/search-scope.js";
+import { recordSlug, regionSlug } from "../../public/search-scope.js";
 
 /**
  * The repository's modules are loaded from the repository, not bundled into the site.
@@ -153,7 +153,10 @@ export const records = (edition = currentEdition): RecordedResource[] =>
  * however they got there. It also survives a record changing layer between editions, which a territorial
  * path would not.
  */
-export const recordHref = (id: string): string => `/resources/${id}/`;
+export function recordHref(id: string, recordedIn: Territory): string {
+  if (recordedIn.layer.level === "EU") return `/resources/${id}/`;
+  return `/${recordedIn.layer.country.toLowerCase()}/${recordSlug(recordedIn.layer.country)}/${id}/`;
+}
 
 /**
  * This edition's news about one record, wherever it was reported.

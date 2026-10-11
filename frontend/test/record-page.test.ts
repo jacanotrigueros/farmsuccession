@@ -3,6 +3,8 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
+import { recordSlug } from "../public/search-scope.js";
+
 import { words } from "../src/lib/words.ts";
 
 /**
@@ -33,13 +35,17 @@ function snapshots(dir: string): Snapshot[] {
   });
 }
 
-/** Where the site puts a record: one address that names the record and nothing else. */
-const recordDirectory = (id: string): string => path.join("resources", id);
+/**
+ * Where the site puts a record: under the country that recorded it, in that country's word for a record,
+ * and at the root for the European layer, whose page is the root of the site.
+ */
+const recordDirectory = (id: string, country?: string): string =>
+  country ? path.join(country.toLowerCase(), recordSlug(country), id) : path.join("resources", id);
 
 const built = snapshots(path.join(EDITIONS, edition)).flatMap((snapshot) =>
   snapshot.resources.map((resource) => ({
     resource,
-    directory: recordDirectory(resource.id),
+    directory: recordDirectory(resource.id, snapshot.country),
   })),
 );
 

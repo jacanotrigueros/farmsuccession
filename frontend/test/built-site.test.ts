@@ -3,7 +3,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
-import { regionSlug, SEARCH_SLUGS } from "../public/search-scope.js";
+import { recordSlug, regionSlug, SEARCH_SLUGS } from "../public/search-scope.js";
 import { words } from "../src/lib/words.ts";
 
 /**
@@ -188,7 +188,7 @@ test("a territory never shares a namespace with a page of the site", () => {
 
   for (const [iso, { lang }] of countries) {
     const text = words(lang);
-    const own = new Set([text.aboutSlug, text.historySlug, SEARCH_SLUGS[iso] ?? "", regionSlug(iso)]);
+    const own = new Set([text.aboutSlug, text.historySlug, SEARCH_SLUGS[iso] ?? "", regionSlug(iso), recordSlug(iso)]);
     const published = new Set(
       pages
         .map(({ file }) => file.split(path.sep))
