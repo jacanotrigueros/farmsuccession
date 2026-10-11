@@ -127,6 +127,12 @@ const trust = [
             </li>
           ))}
         </ul>
+        {/* The note belongs with the figures it qualifies: this is how much there is, and this is how
+            much of it a person has been over. */}
+        <p class="meta mt-3 flex items-start gap-2">
+          <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
+          <span>{editionNote}</span>
+        </p>
       </div>
     </div>
   </section>
@@ -171,11 +177,4 @@ const trust = [
       />
     </div>
   </section>
-
-  <div class="wrap py-8">
-    <p class="meta flex items-start gap-2">
-      <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
-      <span>{editionNote}</span>
-    </p>
-  </div>
 </SiteLayout>
