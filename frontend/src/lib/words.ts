@@ -78,6 +78,9 @@ const EN = {
   // The project page.
   aboutSlug: "about",
   aboutTitle: "About this project",
+  stewardshipTitle: "Who maintains it",
+  stewardshipLead:
+    "José Antonio Cano Trigueros maintains the site as an independent, non-commercial project. It has no external funding, consortium or institutional backing.",
   aboutIntro:
     "An independent directory maintained by José Antonio Cano Trigueros. It brings together land, funding, training and advice to start farming, take over a holding or hand one on. Applications and services are handled by the organisations linked in each record.",
   overviewTitle: "What this project is",
@@ -284,6 +287,9 @@ const ES = {
 
   aboutSlug: "proyecto",
   aboutTitle: "Sobre el proyecto",
+  stewardshipTitle: "Quién lo mantiene",
+  stewardshipLead:
+    "José Antonio Cano Trigueros mantiene el sitio como proyecto independiente y no comercial. No tiene financiación externa, consorcio ni respaldo institucional.",
   aboutIntro:
     "Directorio independiente mantenido por José Antonio Cano Trigueros. Reúne tierras, ayudas, formación y asesoramiento para incorporarse al campo, hacerse cargo de una explotación o traspasarla. Los trámites y servicios corresponden a las entidades enlazadas en cada ficha.",
   overviewTitle: "Qué es este proyecto",
@@ -488,6 +494,9 @@ const DE = {
   // The project page.
   aboutSlug: "projekt",
   aboutTitle: "Über das Projekt",
+  stewardshipTitle: "Wer es betreibt",
+  stewardshipLead:
+    "José Antonio Cano Trigueros betreibt die Website als unabhängiges, nicht kommerzielles Projekt. Sie hat keine externe Finanzierung, kein Konsortium und keine institutionelle Trägerschaft.",
   aboutIntro:
     "Unabhängiges Verzeichnis, betreut von José Antonio Cano Trigueros. Es bündelt Flächen, Förderung, Ausbildung und Beratung für den Einstieg in die Landwirtschaft, die Übernahme eines Betriebs oder seine Übergabe. Zuständig für Anträge und Leistungen sind die in jedem Eintrag verlinkten Organisationen.",
   overviewTitle: "Was dieses Projekt ist",
@@ -695,6 +704,9 @@ const FR = {
   // The project page.
   aboutSlug: "projet",
   aboutTitle: "À propos du projet",
+  stewardshipTitle: "Qui le maintient",
+  stewardshipLead:
+    "José Antonio Cano Trigueros maintient le site comme un projet indépendant et non commercial. Il ne bénéficie d’aucun financement externe, consortium ou soutien institutionnel.",
   aboutIntro:
     "Annuaire indépendant maintenu par José Antonio Cano Trigueros. Il rassemble des terres, des aides, des formations et des conseils pour s’installer, reprendre une exploitation ou transmettre la sienne. Les démarches relèvent des organismes indiqués dans chaque fiche.",
   overviewTitle: "Ce qu’est ce projet",
@@ -902,6 +914,9 @@ const IT = {
   // The project page.
   aboutSlug: "progetto",
   aboutTitle: "Il progetto",
+  stewardshipTitle: "Chi lo gestisce",
+  stewardshipLead:
+    "José Antonio Cano Trigueros gestisce il sito come progetto indipendente e non commerciale. Non dispone di finanziamenti esterni, consorzi o sostegno istituzionale.",
   aboutIntro:
     "Elenco indipendente curato da José Antonio Cano Trigueros. Raccoglie terreni, aiuti, formazione e consulenza per iniziare un’attività agricola, rilevare un’azienda o cedere la propria. Le domande e i servizi sono gestiti dagli enti indicati in ogni scheda.",
   overviewTitle: "Che cos’è questo progetto",
@@ -1111,6 +1126,9 @@ const PT = {
   // The project page.
   aboutSlug: "projeto",
   aboutTitle: "Sobre o projeto",
+  stewardshipTitle: "Quem o mantém",
+  stewardshipLead:
+    "José Antonio Cano Trigueros mantém o sítio como um projeto independente e não comercial. Não tem financiamento externo, consórcio nem apoio institucional.",
   aboutIntro:
     "Diretório independente mantido por José Antonio Cano Trigueros. Reúne terras, apoios, formação e aconselhamento para iniciar a atividade agrícola, assumir uma exploração ou transmitir a sua. As candidaturas e os serviços são tratados pelas entidades indicadas em cada ficha.",
   overviewTitle: "O que é este projeto",

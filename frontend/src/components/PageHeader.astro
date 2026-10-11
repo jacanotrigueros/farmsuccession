@@ -31,7 +31,7 @@ const { crumbs, crumbsLabel, eyebrow, title, lead, flag, flagAlt } = Astro.props
       {flag && <img src={flag} alt={flagAlt ?? ""} width="40" height="30" class="h-[0.7em] w-auto rounded-xs ring-1 ring-line" />}
       <span>{title}</span>
     </h1>
-    {lead && <p class="mt-4 max-w-3xl text-lg">{lead}</p>}
+    {lead && <p class="mt-4 text-lg">{lead}</p>}
     <slot />
   </div>
 </div>

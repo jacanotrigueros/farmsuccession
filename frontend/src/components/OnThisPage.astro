@@ -1,0 +1,38 @@
+---
+/**
+ * The sections of a page of prose, as a card beside the text.
+ *
+ * A page that is read rather than scanned keeps its measure — about seventy characters, which is where
+ * `max-w-3xl` comes from — and on a wide screen that leaves a column of empty page to the right of it.
+ * Empty is what makes the text look pushed into the corner rather than set in a column on purpose, so
+ * the column has the page's own sections in it, where somebody who came for one of them can see it
+ * without scrolling. It follows the reader down the page, and on a narrow screen it goes back to being
+ * what it is: a short list above the text.
+ *
+ * This is the other shape of the same idea as `PageIndex`, which is a strip across a page whose content
+ * is already full width. A territory or a record has no empty column to fill; a page of prose does.
+ */
+import { words } from "../lib/words.ts";
+
+type Props = {
+  sections: readonly { id: string; label: string }[];
+  language: string;
+};
+const { sections, language } = Astro.props;
+const text = words(language);
+---
+
+<aside aria-labelledby="on-this-page" class="card self-start p-5 lg:sticky lg:top-4">
+  <h2 id="on-this-page" class="eyebrow">
+    {text.onThisPage}
+  </h2>
+  <ul class="mt-2">
+    {sections.map((section) => (
+      <li>
+        <a href={`#${section.id}`} class="flex min-h-(--spacing-target) items-center font-bold text-brand-strong underline">
+          {section.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</aside>
