@@ -19,7 +19,8 @@ import DraftNotice from "../components/DraftNotice.astro";
 import Needs from "../components/Needs.astro";
 import SearchBox from "../components/SearchBox.astro";
 import ResourceRow from "../components/ResourceRow.astro";
-import TerritoryLayout from "../layouts/TerritoryLayout.astro";
+import PageIndex from "../components/PageIndex.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
 import {
   countryTerritories,
   currentEdition,
@@ -116,147 +117,152 @@ const pinned = territory.layer.level === "REGION" ? [{ name: "territory", value:
 const pinnedQuery = queryFromState({ selected: Object.fromEntries(pinned.map((f) => [f.name, [f.value]])) }, country || undefined);
 ---
 
-<TerritoryLayout
+<SiteLayout
   title={`${text.territoryTitle.replace("{where}", territory.data.officialName)} · ${text.siteName}`}
   description={territory.data.summary}
   language={language}
   current={href(territory.layer)}
-  sections={sections}
 >
-  <header class="py-10">
-    <nav aria-label={text.whereYouAre} class="text-meta text-muted">
-      <ol class="flex flex-wrap gap-x-2">
-        {trail.map((above) => (
-          <li>
-            <a href={href(above.layer)} class="inline-flex min-h-(--spacing-target) items-center">
-              {above.layer.level === "EU" ? text.europe : above.data.officialName}
-            </a>
-            <span aria-hidden="true"> ›</span>
-          </li>
-        ))}
-        <li aria-current="page">{territory.data.officialName}</li>
-      </ol>
-    </nav>
-    <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{territory.data.officialName}</h1>
-    <p class="mt-4 max-w-3xl text-lg">{territory.data.summary}</p>
+  <div class="wrap">
+    <header class="py-10">
+      <nav aria-label={text.whereYouAre} class="text-meta text-muted">
+        <ol class="flex flex-wrap gap-x-2">
+          {trail.map((above) => (
+            <li>
+              <a href={href(above.layer)} class="inline-flex min-h-(--spacing-target) items-center">
+                {above.layer.level === "EU" ? text.europe : above.data.officialName}
+              </a>
+              <span aria-hidden="true"> ›</span>
+            </li>
+          ))}
+          <li aria-current="page">{territory.data.officialName}</li>
+        </ol>
+      </nav>
+      <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{territory.data.officialName}</h1>
+      <p class="mt-4 max-w-3xl text-lg">{territory.data.summary}</p>
 
-    <div class="mt-8">
-      <SearchBox
-        action={searchPath("/", country || undefined)}
-        id="here"
-        label={text.searchHereLabel.replace("{where}", territory.data.officialName)}
-        button={text.searchAction}
-        examples={text.searchExamples}
-        pinned={pinned}
-      />
-      <a
-        href={searchPath("/", country || undefined) + pinnedQuery}
-        class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
-      >
-        {text.browseAll.replace("{where}", territory.data.officialName)}
-      </a>
-    </div>
+      <div class="mt-8">
+        <SearchBox
+          action={searchPath("/", country || undefined)}
+          id="here"
+          label={text.searchHereLabel.replace("{where}", territory.data.officialName)}
+          button={text.searchAction}
+          examples={text.searchExamples}
+          pinned={pinned}
+        />
+        <a
+          href={searchPath("/", country || undefined) + pinnedQuery}
+          class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
+        >
+          {text.browseAll.replace("{where}", territory.data.officialName)}
+        </a>
+      </div>
 
-    <div class="mt-8 rounded-lg bg-page p-5">
-      <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3" aria-label={text.statsLabel}>
-        {figures.map((figure) => (
-          <li class="flex items-center gap-3">
-            <Icon name={figure.icon} aria-hidden="true" class="size-5 shrink-0 text-brand" />
-            <p>
-              <span class="block text-2xl font-bold text-brand tabular-nums">{figure.value}</span>
-              <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
-            </p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </header>
+      <div class="mt-8 rounded-lg bg-page p-5">
+        <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3" aria-label={text.statsLabel}>
+          {figures.map((figure) => (
+            <li class="flex items-center gap-3">
+              <Icon name={figure.icon} aria-hidden="true" class="size-5 shrink-0 text-brand" />
+              <p>
+                <span class="block text-2xl font-bold text-brand tabular-nums">{figure.value}</span>
+                <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </header>
 
-  {isDraft(territory) && (
-    <div class="pb-8">
-      <DraftNotice language={language} />
-    </div>
-  )}
+    {isDraft(territory) && (
+      <div class="pb-8">
+        <DraftNotice language={language} />
+      </div>
+    )}
+  </div>
 
-  <section class="border-t border-line py-8" aria-labelledby="needs">
-    <Needs resources={resources.map(({ resource }) => resource)} language={language} hrefFor={(goal) => `#${goal}`} />
-    <p class="meta mt-6 max-w-3xl">{text.inheritedFromAbove}</p>
-  </section>
+  <PageIndex sections={sections} language={language} />
 
-  {(children.length > 0 || groupings.length > 0) && (
-    <section class="border-t border-line py-8" aria-labelledby="territories">
-      <h2 id="territories" class="scroll-mt-6 text-2xl font-bold">
-        {text.territoriesTitle}
-      </h2>
-      {groupings.length > 0 && (
-        <>
-          <h3 class="mt-4 text-meta font-semibold tracking-wide text-muted uppercase">{text.sharedLayers}</h3>
-          <ul class="mt-2 flex flex-wrap gap-x-5">
-            {groupings.map((grouping) => (
-              <li>
-                <a href={href(grouping.layer)} class="flex min-h-(--spacing-target) items-center">
-                  {grouping.data.officialName}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-      <ul class="mt-4 grid gap-x-6 sm:grid-cols-2">
-        {children.map((child) => (
-          <li class="border-t border-line">
-            <a href={href(child.layer)} class="flex min-h-(--spacing-target) items-center justify-between gap-3 no-underline">
-              <span class="text-ink">{child.data.officialName}</span>
-              <span class="text-meta text-muted">{child.data.resources.length}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+  <div class="wrap">
+    <section class="border-t border-line py-8" aria-labelledby="needs">
+      <Needs resources={resources.map(({ resource }) => resource)} language={language} hrefFor={(goal) => `#${goal}`} />
+      <p class="meta mt-6 max-w-3xl">{text.inheritedFromAbove}</p>
     </section>
-  )}
 
-  {answered.map(({ goal, groups }) => (
-    <section class="border-t border-line py-8" aria-labelledby={goal.id}>
-      <h2 id={goal.id} class="scroll-mt-6 text-2xl font-bold">
-        {situation(goal.id, language).title}
-      </h2>
-      <p class="mt-1 max-w-3xl text-muted">{situation(goal.id, language).hint}</p>
-      {groups.map(({ from, inherited, name, items }) => (
-        <div class="mt-4">
-          <h3 class="text-meta font-semibold tracking-wide text-muted uppercase">
-            {inherited ? `${text.inherited} ${name}` : text.ownRecords.replace("{where}", name)}
-          </h3>
-          <div class="mt-1">
-            {items.map((resource) => (
-              <ResourceRow resource={resource} language={language} recordedIn={from} titleAs="h4" />
-            ))}
+    {(children.length > 0 || groupings.length > 0) && (
+      <section class="border-t border-line py-8" aria-labelledby="territories">
+        <h2 id="territories" class="scroll-mt-6 text-2xl font-bold">
+          {text.territoriesTitle}
+        </h2>
+        {groupings.length > 0 && (
+          <>
+            <h3 class="mt-4 text-meta font-semibold tracking-wide text-muted uppercase">{text.sharedLayers}</h3>
+            <ul class="mt-2 flex flex-wrap gap-x-5">
+              {groupings.map((grouping) => (
+                <li>
+                  <a href={href(grouping.layer)} class="flex min-h-(--spacing-target) items-center">
+                    {grouping.data.officialName}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+        <ul class="mt-4 grid gap-x-6 sm:grid-cols-2">
+          {children.map((child) => (
+            <li class="border-t border-line">
+              <a href={href(child.layer)} class="flex min-h-(--spacing-target) items-center justify-between gap-3 no-underline">
+                <span class="text-ink">{child.data.officialName}</span>
+                <span class="text-meta text-muted">{child.data.resources.length}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {answered.map(({ goal, groups }) => (
+      <section class="border-t border-line py-8" aria-labelledby={goal.id}>
+        <h2 id={goal.id} class="scroll-mt-6 text-2xl font-bold">
+          {situation(goal.id, language).title}
+        </h2>
+        <p class="mt-1 max-w-3xl text-muted">{situation(goal.id, language).hint}</p>
+        {groups.map(({ from, inherited, name, items }) => (
+          <div class="mt-4">
+            <h3 class="text-meta font-semibold tracking-wide text-muted uppercase">
+              {inherited ? `${text.inherited} ${name}` : text.ownRecords.replace("{where}", name)}
+            </h3>
+            <div class="mt-1">
+              {items.map((resource) => (
+                <ResourceRow resource={resource} language={language} recordedIn={from} titleAs="h4" />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-    </section>
-  ))}
-
-  {territory.data.limitations.length > 0 && (
-    <section class="border-t border-line py-8" aria-labelledby="limits">
-      <h2 id="limits" class="scroll-mt-6 text-2xl font-bold">
-        {text.limits}
-      </h2>
-      <ul class="mt-3 max-w-3xl list-disc space-y-2 ps-5">
-        {territory.data.limitations.map((limitation) => (
-          <li>{limitation}</li>
         ))}
-      </ul>
-    </section>
-  )}
+      </section>
+    ))}
 
-  <section class="border-t border-line py-8" aria-labelledby="coverage">
-    <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
-      {text.coverageNote}
-    </h2>
-    <p class="mt-2 max-w-3xl text-muted">{territory.data.coverage.note}</p>
-    <p class="mt-6 text-meta text-muted">
-      {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
-      <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
-    </p>
-  </section>
-</TerritoryLayout>
+    {territory.data.limitations.length > 0 && (
+      <section class="border-t border-line py-8" aria-labelledby="limits">
+        <h2 id="limits" class="scroll-mt-6 text-2xl font-bold">
+          {text.limits}
+        </h2>
+        <ul class="mt-3 max-w-3xl list-disc space-y-2 ps-5">
+          {territory.data.limitations.map((limitation) => (
+            <li>{limitation}</li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section class="border-t border-line py-8" aria-labelledby="coverage">
+      <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
+        {text.coverageNote}
+      </h2>
+      <p class="mt-2 max-w-3xl text-muted">{territory.data.coverage.note}</p>
+      <p class="mt-6 text-meta text-muted">
+        {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
+        <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
+      </p>
+    </section>
+  </div>
+</SiteLayout>

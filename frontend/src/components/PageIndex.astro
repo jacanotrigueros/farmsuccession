@@ -1,7 +1,11 @@
 ---
 /**
- * What is on this page, for a reader who wants one section of a long one. It appears only where there is
- * room for it, because on a phone an index of a page you are already on is a second page to scroll past.
+ * What is on this page, as a strip of links under the title.
+ *
+ * It is a strip of its own — its own background and rule — so it reads as navigation rather than as the
+ * first thing in the first section. The links wrap onto a second line rather than scrolling sideways,
+ * because a link that is off the edge of a phone is a link nobody uses, and each one carries how many
+ * records that section holds, which is what a reader is deciding between.
  */
 import { words } from "../lib/words.ts";
 
@@ -10,16 +14,17 @@ const { sections, language } = Astro.props;
 const text = words(language);
 ---
 
-<nav aria-label={text.onThisPage} class="text-meta">
-  <h2 class="font-semibold tracking-wide text-muted uppercase">{text.onThisPage}</h2>
-  <ul class="mt-2">
+<nav aria-label={text.onThisPage} class="border-y border-line bg-card" data-pagefind-ignore>
+  <div class="wrap flex flex-wrap items-center gap-2 py-3">
+    <span class="meta me-2 font-bold">{text.onThisPage}</span>
     {sections.map(({ id, label, count }) => (
-      <li>
-        <a href={`#${id}`} class="flex min-h-(--spacing-target) items-center justify-between gap-3 no-underline">
-          <span class="text-muted hover:text-ink">{label}</span>
-          {count !== undefined && <span class="text-muted">{count}</span>}
-        </a>
-      </li>
+      <a
+        href={`#${id}`}
+        class="inline-flex min-h-(--spacing-target) items-center gap-2 rounded-full border border-line-strong px-4 text-meta font-bold text-brand-strong no-underline hover:border-brand hover:bg-brand-tint"
+      >
+        {label}
+        {count !== undefined && <span class="text-muted tabular-nums">{count}</span>}
+      </a>
     ))}
-  </ul>
+  </div>
 </nav>
