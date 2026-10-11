@@ -200,7 +200,7 @@ const reaches = leafLayers(territory.layer, territories)
     <div class="wrap">
       <header class="py-10">
         <nav aria-label={text.whereYouAre} class="text-meta text-muted" data-pagefind-ignore>
-          <ol class="flex flex-wrap gap-x-2">
+          <ol class="flex flex-wrap items-center gap-x-2">
             {trail.map((above) => (
               <li>
                 <a href={href(above.layer)} class="inline-flex min-h-(--spacing-target) items-center">
@@ -209,7 +209,9 @@ const reaches = leafLayers(territory.layer, territories)
                 <span aria-hidden="true"> ›</span>
               </li>
             ))}
-            <li aria-current="page">{resource.name}</li>
+            <li aria-current="page" class="inline-flex min-h-(--spacing-target) items-center font-semibold text-ink">
+              {resource.name}
+            </li>
           </ol>
         </nav>
         <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{resource.name}</h1>
