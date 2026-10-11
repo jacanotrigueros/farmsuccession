@@ -28,6 +28,80 @@ const countedVocabulary =
   (key: Key, howMany: number, language: string): string =>
     tables[asLanguage(language)][key][howMany === 1 ? 0 : 1];
 
+/**
+ * What each kind is, in one line: the label alone says "Rules 3", which tells nobody what a rule is doing
+ * in a list of things to apply for. Shown where kinds are listed rather than beside every record, because
+ * a reader who has opened a record is past needing the category explained.
+ */
+export const kindBlurb = vocabulary<Resource["kind"]>({
+  en: {
+    FINANCIAL_SUPPORT: "Grants, premiums and loans to set up, invest or take over a holding.",
+    LAND_BANK: "Land banks and exchanges that match available land with people looking for it.",
+    SUCCESSION_SERVICE: "Services that pair someone handing over a holding with someone who wants to continue it.",
+    TRAINING: "Courses and schools for the qualifications many aids require.",
+    ADVICE: "Support to plan a handover, a start in farming or its management.",
+    NETWORK: "Networks and territorial agreements that connect the people involved in succession.",
+    POLICY: "Public rules and strategies that frame generational renewal.",
+    OFFICIAL_PORTAL: "Official portals that gather information and procedures.",
+    OTHER: "Other resources related to farm succession.",
+  },
+  es: {
+    FINANCIAL_SUPPORT: "Ayudas, primas y préstamos para instalarse, invertir o hacerse cargo de una explotación.",
+    LAND_BANK: "Bancos y bolsas que ponen en contacto tierras disponibles con quien busca dónde cultivar.",
+    SUCCESSION_SERVICE: "Servicios que emparejan a quien cede una explotación con quien quiere continuarla.",
+    TRAINING: "Cursos y escuelas para obtener la capacitación que exigen muchas ayudas.",
+    ADVICE: "Acompañamiento para planificar el traspaso, la instalación o la gestión.",
+    NETWORK: "Redes y pactos territoriales que conectan a quienes intervienen en el relevo.",
+    POLICY: "Normas y estrategias públicas que enmarcan el relevo generacional.",
+    OFFICIAL_PORTAL: "Portales oficiales que reúnen información y trámites.",
+    OTHER: "Otros recursos relacionados con el relevo agrario.",
+  },
+  de: {
+    FINANCIAL_SUPPORT: "Zuschüsse, Prämien und Darlehen für Gründung, Investition oder Übernahme eines Betriebs.",
+    LAND_BANK: "Flächenbörsen, die verfügbare Flächen und Suchende zusammenbringen.",
+    SUCCESSION_SERVICE: "Dienste, die Abgebende und Übernehmende von Höfen zusammenbringen.",
+    TRAINING: "Kurse und Schulen für die Qualifikation, die viele Förderungen verlangen.",
+    ADVICE: "Begleitung bei der Planung von Übergabe, Gründung oder Betriebsführung.",
+    NETWORK: "Netzwerke und regionale Bündnisse, die die Beteiligten der Hofnachfolge verbinden.",
+    POLICY: "Öffentliche Regeln und Strategien für den Generationswechsel.",
+    OFFICIAL_PORTAL: "Offizielle Portale mit Informationen und Verfahren.",
+    OTHER: "Weitere Angebote rund um die Hofnachfolge.",
+  },
+  fr: {
+    FINANCIAL_SUPPORT: "Aides, primes et prêts pour s’installer, investir ou reprendre une exploitation.",
+    LAND_BANK: "Banques et bourses qui mettent en relation des terres disponibles et ceux qui en cherchent.",
+    SUCCESSION_SERVICE: "Services qui mettent en relation cédants et repreneurs d’exploitations.",
+    TRAINING: "Cours et écoles pour obtenir la capacité exigée par de nombreuses aides.",
+    ADVICE: "Accompagnement pour préparer la transmission, l’installation ou la gestion.",
+    NETWORK: "Réseaux et pactes territoriaux qui relient les acteurs de la transmission.",
+    POLICY: "Règles et stratégies publiques qui encadrent le renouvellement des générations.",
+    OFFICIAL_PORTAL: "Portails officiels qui rassemblent informations et démarches.",
+    OTHER: "Autres ressources liées à la transmission agricole.",
+  },
+  it: {
+    FINANCIAL_SUPPORT: "Aiuti, premi e prestiti per insediarsi, investire o rilevare un’azienda.",
+    LAND_BANK: "Banche e borse che mettono in contatto terreni disponibili con chi li cerca.",
+    SUCCESSION_SERVICE: "Servizi che mettono in contatto chi cede un’azienda con chi vuole continuarla.",
+    TRAINING: "Corsi e scuole per ottenere la qualifica richiesta da molti aiuti.",
+    ADVICE: "Accompagnamento per pianificare la cessione, l’insediamento o la gestione.",
+    NETWORK: "Reti e patti territoriali che collegano i protagonisti del ricambio.",
+    POLICY: "Norme e strategie pubbliche che inquadrano il ricambio generazionale.",
+    OFFICIAL_PORTAL: "Portali ufficiali che raccolgono informazioni e procedure.",
+    OTHER: "Altre risorse legate al ricambio generazionale agricolo.",
+  },
+  pt: {
+    FINANCIAL_SUPPORT: "Apoios, prémios e empréstimos para se instalar, investir ou assumir uma exploração.",
+    LAND_BANK: "Bolsas que põem em contacto terras disponíveis com quem procura onde cultivar.",
+    SUCCESSION_SERVICE: "Serviços que juntam quem cede uma exploração a quem a quer continuar.",
+    TRAINING: "Cursos e escolas para obter a formação exigida por muitos apoios.",
+    ADVICE: "Acompanhamento para planear a transmissão, a instalação ou a gestão.",
+    NETWORK: "Redes e pactos territoriais que ligam os intervenientes na sucessão.",
+    POLICY: "Normas e estratégias públicas que enquadram a renovação geracional.",
+    OFFICIAL_PORTAL: "Portais oficiais que reúnem informação e procedimentos.",
+    OTHER: "Outros recursos relacionados com a sucessão agrícola.",
+  },
+});
+
 export const kindLabel = vocabulary<Resource["kind"]>({
   en: {
     LAND_BANK: "Land",

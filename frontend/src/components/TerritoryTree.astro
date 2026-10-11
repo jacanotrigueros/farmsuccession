@@ -1,10 +1,15 @@
 ---
 /**
- * Every territory, on every page, so moving from one to another is one click rather than three.
+ * Where the reader is, and everywhere they can go from it without leaving the country they are in.
  *
- * It is a plain list of links inside a `<details>` that the browser opens and closes on its own — no
- * script, and it still works with none. On a narrow screen it sits after the content instead of pushing it
- * down, because somebody on a phone came for the page they opened, not for the index.
+ * It used to list all five countries and every territory of each: on a German page, Spain's twenty-eight
+ * regions. That is not navigation, it is an index of the site printed beside every page, and the one thing
+ * a reader on a German page will not do next is open Aragón. So it shows the branch they are in — Europe
+ * above, this country, its groupings and its territories — and changing country stays where it already is,
+ * in the control at the top of every page.
+ *
+ * It is a plain list of links, with no script. On a narrow screen it sits after the content instead of
+ * pushing it down, because somebody on a phone came for the page they opened, not for the index.
  */
 import { countryTerritories, euTerritory, href, hubTerritories, regionsOf, type Territory } from "../lib/corpus.ts";
 import { words } from "../lib/words.ts";
@@ -14,14 +19,13 @@ const { current, language } = Astro.props;
 const text = words(language);
 
 const europe = euTerritory();
-const branches = countryTerritories().map((country) => {
-  const iso = country.layer.level === "EU" ? "" : country.layer.country;
-  const groupings = hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === iso);
-  const children: Territory[] = [...groupings, ...regionsOf(iso)].toSorted((a, b) =>
-    a.data.officialName.localeCompare(b.data.officialName),
-  );
-  return { country, children, holdsCurrent: [country, ...children].some((territory) => href(territory.layer) === current) };
-});
+
+/** The country the reader is in, read from the address of the page they are on. */
+const iso = (current.split("/")[1] ?? "").toUpperCase();
+const here = countryTerritories().find(({ layer }) => layer.level === "COUNTRY" && layer.country === iso);
+const groupings = hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === iso);
+const children: Territory[] = [...groupings, ...regionsOf(iso)].toSorted((a, b) => a.data.officialName.localeCompare(b.data.officialName));
+const branches = here ? [{ country: here, children, holdsCurrent: true }] : [];
 
 const linkClass = (to: string): string =>
   `flex min-h-(--spacing-target) items-center no-underline ${to === current ? "font-semibold text-ink" : "text-muted hover:text-ink"}`;

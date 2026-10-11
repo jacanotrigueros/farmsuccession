@@ -37,8 +37,8 @@ const language = languageOf(europe);
 const text = words(language);
 const stats = corpusStats();
 
-/** A flag is two regional indicator letters, so a country never needs an image to be recognised. */
-const flagOf = (code: string): string => String.fromCodePoint(...[...code.toUpperCase()].map((letter) => 0x1f1a5 + letter.charCodeAt(0)));
+/** The flag of a country, as a file: a flag emoji is two letters on any system without a glyph for the pair. */
+const flagOf = (code: string): string => `/img/flags/${code.toLowerCase()}.svg`;
 
 /**
  * What a country card counts is what applies inside it — its own records, its groupings', its regions'
@@ -145,9 +145,7 @@ const trust = [
         {countries.map((country) => (
           <li>
             <a href={country.href} class="card card-link flex min-h-full items-center gap-3 p-5 no-underline">
-              <span aria-hidden="true" class="text-3xl leading-none">
-                {country.flag}
-              </span>
+              <img src={country.flag} alt="" width="36" height="27" class="h-7 w-9 shrink-0 rounded-xs border border-line object-cover" />
               <span class="flex min-w-0 flex-1 flex-col">
                 <span class="text-lg font-bold text-ink">{country.name}</span>
                 <span class="meta">

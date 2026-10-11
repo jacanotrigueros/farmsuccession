@@ -15,7 +15,7 @@ import { Icon } from "astro-icon/components";
 import type { Resource } from "../lib/corpus.ts";
 import { GOALS, goalOf, type GoalId } from "../lib/goals.ts";
 import { ICON, kindIcon } from "../lib/icons.ts";
-import { kindLabel } from "../lib/vocabulary.ts";
+import { kindBlurb, kindLabel } from "../lib/vocabulary.ts";
 import { counted, situation, words } from "../lib/words.ts";
 
 type Props = {
@@ -83,15 +83,18 @@ const others = [...new Set(resources.filter((resource) => goalOf(resource.kind) 
           <span class="tag-kind inline-flex size-9 shrink-0 items-center justify-center rounded-lg">
             <Icon name={kindIcon(kind)} aria-hidden="true" class="size-5" />
           </span>
-          <p class="flex min-w-0 flex-1 items-baseline justify-between gap-3">
-            <a
-              href={hrefForKind ? hrefForKind(kind) : hrefFor("context")}
-              class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline"
-            >
-              {kindLabel(kind, language)}
-            </a>
-            <span class="meta tabular-nums">{count}</span>
-          </p>
+          <div class="min-w-0 flex-1">
+            <p class="flex items-baseline justify-between gap-3">
+              <a
+                href={hrefForKind ? hrefForKind(kind) : hrefFor("context")}
+                class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline"
+              >
+                {kindLabel(kind, language)}
+              </a>
+              <span class="meta tabular-nums">{count}</span>
+            </p>
+            <p class="meta mt-0.5">{kindBlurb(kind, language)}</p>
+          </div>
         </li>
       ))}
     </ul>

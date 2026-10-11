@@ -415,3 +415,35 @@ test("a filter names a territory, and never shows the slug in its link", () => {
   }
   assert.ok(checked > 0, "no territory filter was built at all, so this check proved nothing");
 });
+
+/**
+ * Every image is a file this site ships. The flags used to be emoji — two regional indicator letters,
+ * which Windows has no glyph for, so most readers saw "ES" where the page meant Spain. A file always
+ * draws, and a file that is missing is a broken image, which is why the build is asked to prove it ships
+ * every one it asks for.
+ */
+test("every image a page asks for is a file the site ships", () => {
+  const PUBLIC = path.join(import.meta.dirname, "..", "public");
+  const assets = new Set(
+    (function walk(dir: string): string[] {
+      return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+        const full = path.join(dir, entry.name);
+        return entry.isDirectory() ? walk(full) : [`/${path.relative(PUBLIC, full).split(path.sep).join("/")}`];
+      });
+    })(PUBLIC),
+  );
+
+  let checked = 0;
+  for (const { file, html } of pages) {
+    for (const [, src] of html.matchAll(/<img\b[^>]*\bsrc="(\/[^"]*)"/gu)) {
+      assert.ok(assets.has(src ?? ""), `${file} asks for ${src}, which this site does not ship`);
+      checked += 1;
+    }
+    assert.doesNotMatch(
+      html,
+      /[\u{1F1E6}-\u{1F1FF}]/u,
+      `${file} draws a flag as a pair of regional indicator letters, which most systems render as letters`,
+    );
+  }
+  assert.ok(checked > 0, "no page asked for an image at all, so this check proved nothing");
+});
