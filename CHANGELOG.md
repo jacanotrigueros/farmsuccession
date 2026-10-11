@@ -150,6 +150,34 @@ release.
   French page. It is the first thing a keyboard or screen-reader user meets, and it was
   invisible to every check because it only appears when focused. Fixed, and now a test.
 
+### What a reader meets before the page, and what a page says about itself
+
+- **Titles say what the page is about.** Every territory page was called "España —
+  FarmSuccession", which is a name and tells a searcher nothing; it now reads "España:
+  relevo generacional y acceso a la tierra", in the page's own language. The description
+  stays the territory's own summary, which is written from its data.
+- **An address that does not exist answers in six languages.** One file serves every
+  unknown path, so it says what happened in all of them: an English heading and the
+  European search, then every country saying it in its own language with the way back
+  into itself. No script decides which one a reader sees —
+  [`decisions/027`](decisions/027-the-page-for-somebody-already-lost-asks-for-nothing.md).
+- **A sitemap and a robots file.** The sitemap is written from the pages the build
+  produced rather than from the routes meant to produce them, so it cannot list a page
+  that does not exist or miss one that does. Its dates are the days the data says each
+  territory published its evidence, and nothing else carries a date at all: a lastmod
+  invented here would be a claim about freshness.
+- **Each record says which layer it comes from, once.** A situation keeps its single
+  list, ordered from the closest layer outwards, with a heading where the layer changes:
+  what the territory recorded, then what applies from the country, then from Europe. An
+  aid or a course recorded for the country and not for the region is one a reader can use
+  anywhere inside it, and the page now says so without a line of small print per record.
+- **A search box shows what kind of word goes in it**, and a territory page counts what it
+  holds — records that apply, territories inside, sources cited — before a reader scrolls
+  it.
+- A filter offered three territories as "el-hierro", "formentera" and "fuerteventura":
+  the names were read from the records, so the only ones that could lose a name were the
+  three that document nothing of their own. They are read from the catalogue now.
+
 ### A reading says whose page it was
 
 - Every reading in `reports/checks/` now records the territories whose records cite the
