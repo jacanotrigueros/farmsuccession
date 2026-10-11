@@ -48,9 +48,7 @@ const EN = {
   editionSomeDrafts: "{edition} edition. {drafts} of {files} files are drafts: checked automatically, waiting for a person.",
   europe: "Europe",
   skip: "Skip to the content",
-  draftTitle: "Nobody has reviewed this page yet",
-  draftBody:
-    "Every claim on it cites a public page, the date it was read and the words that were on it, and automatic checks have passed. A person has not signed it off.",
+  draftNotice: "Automatic draft: no person has reviewed this record. Check the official source before applying or making a decision.",
   publishedOn: "Published",
   edition: "{year} edition",
   whatThisIs: "What this is",
@@ -101,8 +99,11 @@ const EN = {
   ],
   notOfficial: "FarmSuccession is not an official service and does not represent the administrations or organisations it links to.",
   contactTitle2: "Contact and corrections",
-  contactLead:
-    "Something out of date, a broken link, a resource missing: write and say so. Every suggestion is checked against public sources before anything changes here.",
+  contactLead: "To propose a correction, send:",
+  correctionSteps: ["the URL of the record", "the information that should change", "a public source that supports the change"],
+  noPersonalPapers: "Do not send personal application documents.",
+  removalLead:
+    "If you or your organisation would rather not appear in the inventory, write to the address below and the information will be removed.",
   privacyTitle: "Privacy",
   privacyLead:
     "This site has no analytics, no advertising cookies and no accounts. Searching runs in your browser and nothing you type leaves it. The hosting provider may keep technical access logs. Writing to us shares whatever you choose to put in the message.",
@@ -259,9 +260,8 @@ const ES = {
     "Edición {edition}. {drafts} de {files} archivos son borradores: comprobados automáticamente, a la espera de una persona.",
   europe: "Europa",
   skip: "Ir al contenido",
-  draftTitle: "Nadie ha revisado todavía esta página",
-  draftBody:
-    "Cada dato cita una página pública, la fecha en que se leyó y las palabras que había en ella, y ha pasado las comprobaciones automáticas. Una persona no la ha dado por buena.",
+  draftNotice:
+    "Borrador automático: esta ficha no ha sido revisada por una persona. Comprueba la fuente oficial antes de solicitar la ayuda o tomar una decisión.",
   publishedOn: "Publicado",
   edition: "edición {year}",
   whatThisIs: "Qué es esto",
@@ -311,8 +311,10 @@ const ES = {
   ],
   notOfficial: "FarmSuccession no es un servicio oficial y no representa a las administraciones ni a las entidades que enlaza.",
   contactTitle2: "Contacto y correcciones",
-  contactLead:
-    "Algo desactualizado, un enlace roto, un recurso que falta: escríbenos y dilo. Cada aviso se comprueba contra fuentes públicas antes de que aquí cambie nada.",
+  contactLead: "Para proponer una corrección, envía:",
+  correctionSteps: ["la URL de la ficha", "el dato que debe corregirse", "una fuente pública que respalde el cambio"],
+  noPersonalPapers: "No envíes documentación personal de solicitudes.",
+  removalLead: "Si tú o tu entidad no queréis aparecer en el inventario, escribe a la dirección siguiente y se retirará la información.",
   privacyTitle: "Privacidad",
   privacyLead:
     "Este sitio no tiene analítica, ni cookies publicitarias, ni cuentas. La búsqueda se ejecuta en tu navegador y nada de lo que escribes sale de él. El proveedor de alojamiento puede conservar registros técnicos de acceso. Al escribirnos compartes lo que decidas poner en el mensaje.",
@@ -421,7 +423,7 @@ const ES = {
   everythingHere: "Todo lo que se aplica aquí",
   searchFailed:
     "No se ha podido cargar el índice de búsqueda, así que la lista de abajo es todo lo que hay. A la página no le falta nada; sólo le falta poder escribir.",
-} as const satisfies Record<keyof typeof EN, string | readonly [string, string] | readonly (readonly [string, string])[]>;
+} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
 
 /**
  * German. The chrome of the country that arrived with this milestone, in the register this site uses for
@@ -466,9 +468,8 @@ const DE = {
     "Ausgabe {edition}. {drafts} von {files} Dateien sind Entwürfe: automatisch geprüft, menschliche Durchsicht steht aus.",
   europe: "Europa",
   skip: "Zum Inhalt springen",
-  draftTitle: "Diese Seite hat noch niemand geprüft",
-  draftBody:
-    "Jede Angabe auf ihr nennt eine öffentliche Seite, das Datum ihres Abrufs und die Worte, die dort standen, und die automatischen Prüfungen sind bestanden. Freigegeben hat sie noch keine Person.",
+  draftNotice:
+    "Automatischer Entwurf: Niemand hat diesen Eintrag geprüft. Prüfen Sie die offizielle Quelle, bevor Sie einen Antrag stellen oder entscheiden.",
   publishedOn: "Veröffentlicht",
   edition: "Ausgabe {year}",
   whatThisIs: "Was das hier ist",
@@ -519,8 +520,11 @@ const DE = {
   ],
   notOfficial: "FarmSuccession ist kein offizieller Dienst und vertritt nicht die Verwaltungen oder Organisationen, auf die es verlinkt.",
   contactTitle2: "Kontakt und Korrekturen",
-  contactLead:
-    "Etwas ist veraltet, ein Link führt ins Nichts, ein Angebot fehlt: Schreiben Sie es. Jeder Hinweis wird an öffentlichen Quellen geprüft, bevor sich hier etwas ändert.",
+  contactLead: "Für eine Korrektur senden Sie bitte:",
+  correctionSteps: ["die URL des Eintrags", "die zu korrigierende Angabe", "eine öffentliche Quelle, die die Änderung belegt"],
+  noPersonalPapers: "Senden Sie keine persönlichen Antragsunterlagen.",
+  removalLead:
+    "Wenn Sie oder Ihre Organisation nicht im Verzeichnis erscheinen möchten, schreiben Sie an die untenstehende Adresse; die Angaben werden entfernt.",
   privacyTitle: "Datenschutz",
   privacyLead:
     "Diese Website nutzt keine Nutzungsanalyse, keine Werbe-Cookies und keine Benutzerkonten. Die Suche läuft in Ihrem Browser, und nichts, was Sie eingeben, verlässt ihn. Der Hostinganbieter kann technische Zugriffsprotokolle verarbeiten. Wenn Sie schreiben, teilen Sie genau das mit, was Sie selbst in die Nachricht setzen.",
@@ -634,7 +638,7 @@ const DE = {
   everythingHere: "Alles, was hier gilt",
   searchFailed:
     "Der Suchindex konnte nicht geladen werden; die Liste unten ist daher alles, was es gibt. Der Seite fehlt nichts, nur das Tippen.",
-} as const satisfies Record<keyof typeof EN, string | readonly [string, string] | readonly (readonly [string, string])[]>;
+} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
 
 /** French, the chrome of the country that arrived with this milestone. */
 const FR = {
@@ -677,9 +681,8 @@ const FR = {
     "Édition {edition}. {drafts} fichiers sur {files} sont des brouillons : vérifiés automatiquement, en attente d’une relecture humaine.",
   europe: "Europe",
   skip: "Aller au contenu",
-  draftTitle: "Personne n’a encore relu cette page",
-  draftBody:
-    "Chaque information qu’elle porte cite une page publique, la date à laquelle elle a été consultée et les mots qui s’y trouvaient, et les contrôles automatiques sont passés. Aucune personne ne l’a validée.",
+  draftNotice:
+    "Brouillon automatique : aucune personne n’a relu cette fiche. Vérifiez la source officielle avant de candidater ou de prendre une décision.",
   publishedOn: "Publié",
   edition: "Édition {year}",
   whatThisIs: "Ce dont il s’agit",
@@ -731,8 +734,11 @@ const FR = {
   notOfficial:
     "FarmSuccession n’est pas un service officiel et ne représente pas les administrations ou organismes vers lesquels il renvoie.",
   contactTitle2: "Contact et corrections",
-  contactLead:
-    "Une information périmée, un lien mort, une ressource absente : écrivez-le. Chaque signalement est vérifié sur des sources publiques avant que quoi que ce soit ne change ici.",
+  contactLead: "Pour proposer une correction, envoyez :",
+  correctionSteps: ["l’URL de la fiche", "l’information à corriger", "une source publique qui justifie la modification"],
+  noPersonalPapers: "N’envoyez pas de documents personnels de candidature.",
+  removalLead:
+    "Si vous ou votre organisme ne souhaitez pas figurer dans l’inventaire, écrivez à l’adresse ci-dessous et les informations seront retirées.",
   privacyTitle: "Confidentialité",
   privacyLead:
     "Ce site n’utilise ni mesure d’audience, ni cookies publicitaires, ni comptes utilisateurs. La recherche s’exécute dans votre navigateur et rien de ce que vous tapez n’en sort. L’hébergeur peut traiter des journaux techniques d’accès. Nous écrire partage exactement ce que vous choisissez de mettre dans le message.",
@@ -846,7 +852,7 @@ const FR = {
   everythingHere: "Tout ce qui s’applique ici",
   searchFailed:
     "L’index de recherche n’a pas pu être chargé, la liste ci-dessous est donc tout ce qu’il y a. Il ne manque rien à la page, seulement la frappe.",
-} as const satisfies Record<keyof typeof EN, string | readonly [string, string] | readonly (readonly [string, string])[]>;
+} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
 
 /** Italian, the chrome of the country that arrived with this milestone. */
 const IT = {
@@ -888,9 +894,8 @@ const IT = {
     "Edizione {edition}. {drafts} file su {files} sono bozze: controllate automaticamente, in attesa di una revisione umana.",
   europe: "Europa",
   skip: "Vai al contenuto",
-  draftTitle: "Nessuno ha ancora rivisto questa pagina",
-  draftBody:
-    "Ogni informazione che riporta cita una pagina pubblica, la data in cui è stata consultata e le parole che vi si trovavano, e i controlli automatici sono superati. Nessuna persona l’ha approvata.",
+  draftNotice:
+    "Bozza automatica: nessuna persona ha rivisto questa scheda. Verifica la fonte ufficiale prima di presentare domanda o prendere una decisione.",
   publishedOn: "Pubblicato",
   edition: "Edizione {year}",
   whatThisIs: "Di cosa si tratta",
@@ -944,8 +949,11 @@ const IT = {
   ],
   notOfficial: "FarmSuccession non è un servizio ufficiale e non rappresenta le amministrazioni o gli enti ai quali rimanda.",
   contactTitle2: "Contatti e correzioni",
-  contactLead:
-    "Qualcosa non è aggiornato, un collegamento non porta da nessuna parte, manca una risorsa: scrivilo. Ogni segnalazione viene verificata su fonti pubbliche prima che qui cambi qualcosa.",
+  contactLead: "Per proporre una correzione, invia:",
+  correctionSteps: ["l’URL della scheda", "il dato da correggere", "una fonte pubblica che giustifichi la modifica"],
+  noPersonalPapers: "Non inviare documenti personali di domanda.",
+  removalLead:
+    "Se tu o la tua organizzazione preferite non comparire nell’inventario, scrivete all’indirizzo seguente e le informazioni saranno rimosse.",
   privacyTitle: "Riservatezza",
   privacyLead:
     "Questo sito non usa analisi del traffico, cookie pubblicitari o account. La ricerca funziona nel tuo browser e nulla di ciò che scrivi esce da lì. Il fornitore di hosting può trattare log tecnici di accesso. Scrivendoci condividi esattamente ciò che scegli di mettere nel messaggio.",
@@ -1059,7 +1067,7 @@ const IT = {
   everythingHere: "Tutto ciò che si applica qui",
   searchFailed:
     "Non è stato possibile caricare l’indice di ricerca, quindi l’elenco qui sotto è tutto quello che c’è. Alla pagina non manca nulla, manca solo la scrittura.",
-} as const satisfies Record<keyof typeof EN, string | readonly [string, string] | readonly (readonly [string, string])[]>;
+} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
 
 /** Portuguese, the chrome of the last country of the edition. */
 const PT = {
@@ -1101,9 +1109,8 @@ const PT = {
     "Edição {edition}. {drafts} de {files} ficheiros são rascunhos: verificados automaticamente, a aguardar revisão humana.",
   europe: "Europa",
   skip: "Saltar para o conteúdo",
-  draftTitle: "Ainda ninguém reviu esta página",
-  draftBody:
-    "Cada informação que traz cita uma página pública, a data em que foi consultada e as palavras que lá estavam, e as verificações automáticas passaram. Nenhuma pessoa a aprovou.",
+  draftNotice:
+    "Rascunho automático: esta ficha não foi revista por uma pessoa. Confirme na fonte oficial antes de se candidatar ou tomar uma decisão.",
   publishedOn: "Publicado",
   edition: "Edição {year}",
   whatThisIs: "O que é isto",
@@ -1154,8 +1161,11 @@ const PT = {
   ],
   notOfficial: "O FarmSuccession não é um serviço oficial e não representa as administrações ou entidades para que remete.",
   contactTitle2: "Contacto e correções",
-  contactLead:
-    "Algo desatualizado, uma ligação que não leva a lado nenhum, um recurso em falta: escreva-o. Cada indicação é verificada em fontes públicas antes de aqui mudar seja o que for.",
+  contactLead: "Para propor uma correção, envie:",
+  correctionSteps: ["o URL da ficha", "o dado a corrigir", "uma fonte pública que justifique a alteração"],
+  noPersonalPapers: "Não envie documentos pessoais de candidatura.",
+  removalLead:
+    "Se você ou a sua entidade preferirem não constar do inventário, escreva para o endereço abaixo e a informação será removida.",
   privacyTitle: "Privacidade",
   privacyLead:
     "Este sítio não usa análise de tráfego, cookies publicitários nem contas. A pesquisa corre no seu navegador e nada do que escreve sai dele. O fornecedor de alojamento pode tratar registos técnicos de acesso. Escrever-nos partilha exatamente o que escolher pôr na mensagem.",
@@ -1269,7 +1279,7 @@ const PT = {
   everythingHere: "Tudo o que se aplica aqui",
   searchFailed:
     "Não foi possível carregar o índice de pesquisa, por isso a lista abaixo é tudo o que há. Não falta nada à página, falta-lhe apenas poder escrever.",
-} as const satisfies Record<keyof typeof EN, string | readonly [string, string] | readonly (readonly [string, string])[]>;
+} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
 
 const WORDS = { en: EN, es: ES, de: DE, fr: FR, it: IT, pt: PT };
 
@@ -1345,7 +1355,10 @@ export type Words = {
     ? readonly [string, string]
     : (typeof EN)[Key] extends readonly (readonly [string, string])[]
       ? readonly (readonly [string, string])[]
-      : string;
+      : // A plain list of sentences — the steps of a correction — where only the count has to match.
+        (typeof EN)[Key] extends readonly string[]
+        ? readonly string[]
+        : string;
 };
 
 export const words = (language: string): Words => WORDS[asLanguage(language)];

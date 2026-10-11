@@ -169,7 +169,7 @@ test("a page says what has not been reviewed, and the count follows the data", (
   const eu = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
   assert.ok(eu, "no European record page was built");
   assert.ok(
-    eu.html.includes("Nobody has reviewed this page yet"),
+    eu.html.includes(words("en").draftNotice),
     "a record page of a draft file does not carry the warning, which is the first thing its reader is owed",
   );
 });

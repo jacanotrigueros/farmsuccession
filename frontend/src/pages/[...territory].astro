@@ -71,18 +71,19 @@ const groupings = territory.layer.level === "COUNTRY" ? hubTerritories().filter(
  * An archipelago or a set of provinces that publishes a layer of its own is not a peer of the regions
  * under it, and listing it as one more link above a flat grid of twenty-eight made a reader work out the
  * relationship from the names. A grouping is a box with its own territories in it, and it says how many
- * records it holds for all of them. A region that belongs to no grouping is a card on its own, and the
- * order is the catalogue's: a grouping appears where its first territory would have.
+ * records it holds for all of them.
+ *
+ * The plain territories come first and the groupings after them, rather than each grouping sitting where
+ * its first territory would have: a box that spans the three columns in the middle of the grid breaks
+ * the rows around it and leaves half-empty lines above and below itself.
  */
 const hubOf = (child: Territory): Territory | undefined => view(child).layers.find(({ layer }) => layer.level === "HUB");
-const placed = new Set<Territory>();
-const under = children.flatMap((child) => {
-  const hub = hubOf(child);
-  if (hub === undefined) return [{ hub: undefined, members: [child] }];
-  if (placed.has(hub)) return [];
-  placed.add(hub);
-  return [{ hub, members: children.filter((each) => hubOf(each) === hub) }];
-});
+const under = [
+  ...children.filter((child) => hubOf(child) === undefined).map((child) => ({ hub: undefined, members: [child] })),
+  ...groupings
+    .map((hub) => ({ hub, members: children.filter((child) => hubOf(child) === hub) }))
+    .filter(({ members }) => members.length > 0),
+];
 
 /** What this territory recorded itself, and what reaches it from a wider layer, closest layer first. */
 const own = resources.filter(({ from }) => from === territory).map(({ resource }) => ({ resource, recordedIn: territory }));

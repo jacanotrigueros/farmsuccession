@@ -1,30 +1,28 @@
 ---
 /**
- * The most important sentence on a page nobody has reviewed, and therefore the one that may not be the
- * quietest thing on it. One component, so it looks the same on every layer: in the first version of this
- * site the same warning appeared three times in three different weights, and the weakest of them was on
- * the page that needed it most.
+ * The most important sentence on a page nobody has reviewed: one line, in one shape, everywhere a page
+ * or a record says so.
  *
- * It says what the automatic checks did guarantee, so a reader can tell "unreviewed" from "unsourced" —
- * which are very different things, and only one of them is a reason to distrust what is here.
+ * It used to be a heading and a paragraph in a filled box, on the grounds that the most important
+ * sentence on the page may not be the quietest thing on it. In the band at the top of a page that put
+ * four lines of warning above the title of the thing the reader came for, and read as more important
+ * than the page itself — which is a different lie from the one it was guarding against. It is a line of
+ * metadata with a rule down its side now: impossible to miss, impossible to mistake for the page.
+ *
+ * It says "automatic draft" rather than "unreviewed", because a reader can tell those apart: everything
+ * on the page cites a public source, a date and the words that were on it, and automatic checks have
+ * passed. What has not happened is a person signing it off.
  */
+import { Icon } from "astro-icon/components";
+import { ICON } from "../lib/icons.ts";
 import { words } from "../lib/words.ts";
 
-type Props = { language: string };
-const { language } = Astro.props;
+type Props = { language: string; class?: string };
+const { language, class: className } = Astro.props;
 const text = words(language);
 ---
 
-<aside class="flex gap-3 rounded-sm border-s-4 border-accent-line bg-accent-tint px-4 py-3" aria-labelledby="draft-title">
-  <svg viewBox="0 0 24 24" class="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M12 9v4" stroke-linecap="round"></path>
-    <path d="M12 17h.01" stroke-linecap="round"></path>
-    <path d="M10.3 3.9 2.4 17.5A2 2 0 0 0 4.1 20.5h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke-linejoin="round"></path>
-  </svg>
-  <div>
-    <p id="draft-title" class="font-semibold text-ink">
-      {text.draftTitle}
-    </p>
-    <p class="mt-1 max-w-3xl text-ink">{text.draftBody}</p>
-  </div>
-</aside>
+<p class:list={["flex items-start gap-3 rounded-r-lg border-s-3 border-accent-line bg-card px-4 py-3 text-meta", className]} role="note">
+  <Icon name={ICON.draft} aria-hidden="true" class="size-5 shrink-0 text-accent" />
+  <span class="text-pretty">{text.draftNotice}</span>
+</p>
