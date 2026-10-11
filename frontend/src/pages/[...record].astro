@@ -41,7 +41,7 @@ import {
   type RecordedResource,
 } from "../lib/corpus.ts";
 import { goalOf } from "../lib/goals.ts";
-import { ICON } from "../lib/icons.ts";
+import { ICON, kindIcon, PRACTICAL_ICON } from "../lib/icons.ts";
 import { dateIn, listIn } from "../lib/language.ts";
 import {
   assetLabel,
@@ -58,6 +58,7 @@ import {
   quantity,
   reachLabel,
   sectorLabel,
+  standing,
   stateLabel,
 } from "../lib/vocabulary.ts";
 import { counted, editionNamed, words } from "../lib/words.ts";
@@ -77,25 +78,34 @@ const text = words(language);
 const sourceNumber = new Map(resource.sources.map((source, index) => [source.url, index + 1]));
 
 const news = newsAbout(resource.id);
+/** How much evidence there is, which is what the way down to it says rather than naming the section. */
+const quotes = resource.sources.reduce((total, source) => total + source.quotes.length, 0);
 const place = territory.layer.level === "EU" ? text.europe : territory.data.officialName;
 
-const facts: Array<{ label: string; value: string; datetime?: string }> = [
-  { label: text.whatItIsRow, value: kindLabel(resource.kind, language) },
-  { label: text.stateRow, value: stateLabel(resource.status, language) },
-  { label: text.runByRow, value: resource.operator },
-  { label: text.bodyTypeRow, value: operatorTypeLabel(resource.operatorType, language) },
+const facts: Array<{ label: string; value: string; icon: string; datetime?: string; href?: string }> = [
+  { label: text.territoryRow, value: place, icon: ICON.territory, href: href(territory.layer) },
+  { label: text.whatItIsRow, value: kindLabel(resource.kind, language), icon: kindIcon(resource.kind) },
+  { label: text.stateRow, value: stateLabel(resource.status, language), icon: ICON.status },
+  { label: text.runByRow, value: resource.operator, icon: ICON.operator },
+  { label: text.bodyTypeRow, value: operatorTypeLabel(resource.operatorType, language), icon: ICON.body },
   {
     label: text.reachRow,
+    icon: ICON.scope,
     value: resource.scope.area
       ? `${reachLabel(resource.scope.level, language)} — ${resource.scope.area}`
       : reachLabel(resource.scope.level, language),
   },
-  ...(resource.accessCostType ? [{ label: text.costRow, value: costLabel(resource.accessCostType, language) }] : []),
-  ...(resource.instrumentType ? [{ label: text.supportTypeRow, value: instrumentLabel(resource.instrumentType, language) }] : []),
+  ...(resource.accessCostType
+    ? [{ label: text.costRow, value: costLabel(resource.accessCostType, language), icon: PRACTICAL_ICON.accessCostType! }]
+    : []),
+  ...(resource.instrumentType
+    ? [{ label: text.supportTypeRow, value: instrumentLabel(resource.instrumentType, language), icon: PRACTICAL_ICON.instrumentType! }]
+    : []),
   ...(resource.purposes
     ? [
         {
           label: text.paysForRow,
+          icon: PRACTICAL_ICON.purposes!,
           value: listIn(
             resource.purposes.map((purpose) => purposeLabel(purpose, language)),
             language,
@@ -107,6 +117,7 @@ const facts: Array<{ label: string; value: string; datetime?: string }> = [
     ? [
         {
           label: text.handlesRow,
+          icon: PRACTICAL_ICON.assetTypes!,
           value: listIn(
             resource.assetTypes.map((asset) => assetLabel(asset, language)),
             language,
@@ -118,6 +129,7 @@ const facts: Array<{ label: string; value: string; datetime?: string }> = [
     ? [
         {
           label: text.coversRow,
+          icon: PRACTICAL_ICON.sectors!,
           value: listIn(
             resource.sectors.map((sector) => sectorLabel(sector, language)),
             language,
@@ -129,6 +141,7 @@ const facts: Array<{ label: string; value: string; datetime?: string }> = [
     ? [
         {
           label: text.taughtRow,
+          icon: PRACTICAL_ICON.trainingFormats!,
           value: listIn(
             resource.trainingFormats.map((format) => formatLabel(format, language)),
             language,
@@ -138,12 +151,15 @@ const facts: Array<{ label: string; value: string; datetime?: string }> = [
     : []),
   ...(resource.qualifiesForEstablishmentAid === undefined
     ? []
-    : [{ label: text.qualifiesRow, value: resource.qualifiesForEstablishmentAid ? text.yes : text.no }]),
-  ...(resource.targetProfiles ? [{ label: text.forRow, value: audience(resource.targetProfiles, language) }] : []),
+    : [{ label: text.qualifiesRow, value: resource.qualifiesForEstablishmentAid ? text.yes : text.no, icon: ICON.checked }]),
+  ...(resource.targetProfiles
+    ? [{ label: text.forRow, value: standing(audience(resource.targetProfiles, language), language), icon: ICON.profile }]
+    : []),
   ...(resource.languages
     ? [
         {
           label: text.availableInRow,
+          icon: PRACTICAL_ICON.languages!,
           value: listIn(
             resource.languages.map((code) => languageName(code, language)),
             language,
@@ -152,19 +168,26 @@ const facts: Array<{ label: string; value: string; datetime?: string }> = [
       ]
     : []),
   ...(resource.lastEvidenceDate
-    ? [{ label: text.latestPageDateRow, value: dateIn(resource.lastEvidenceDate, language), datetime: resource.lastEvidenceDate }]
+    ? [
+        {
+          label: text.latestPageDateRow,
+          value: dateIn(resource.lastEvidenceDate, language),
+          datetime: resource.lastEvidenceDate,
+          icon: ICON.date,
+        },
+      ]
     : []),
 ];
 
 const sections = [
-  ...(resource.calls && resource.calls.length > 0 ? [{ id: "dates", label: text.periodsTitle, count: resource.calls.length }] : []),
+  ...(resource.calls && resource.calls.length > 0 ? [{ id: "dates", label: text.navPeriods }] : []),
   { id: "access", label: text.accessTitle },
   ...(resource.whoCanUseIt ? [{ id: "who", label: text.whoTitle }] : []),
-  { id: "facts", label: text.factsTitle, count: facts.length },
-  ...(resource.metrics ? [{ id: "figures", label: text.figuresTitle, count: resource.metrics.length }] : []),
-  ...(news.length > 0 ? [{ id: "news", label: text.newsTitle, count: news.length }] : []),
+  { id: "facts", label: text.factsTitle },
+  ...(resource.metrics ? [{ id: "figures", label: text.navFigures }] : []),
+  ...(news.length > 0 ? [{ id: "news", label: text.navNews }] : []),
   ...(resource.notes ? [{ id: "notes", label: text.notesTitle }] : []),
-  { id: "evidence", label: text.evidenceTitle, count: resource.sources.length },
+  { id: "evidence", label: text.navEvidence },
 ];
 
 const trail = view(territory).layers;
@@ -260,7 +283,7 @@ const reaches = leafLayers(territory.layer, territories)
           </a>
           <a href="#evidence" class="btn btn-quiet">
             <Icon name={ICON.evidence} aria-hidden="true" class="size-5 shrink-0" />
-            {text.evidenceTitle} · {counted(resource.sources.length, text.source)}
+            {counted(resource.sources.length, text.source)} · {counted(quotes, text.quote)}
           </a>
         </p>
       </div>

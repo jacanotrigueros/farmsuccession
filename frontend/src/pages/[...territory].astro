@@ -97,13 +97,14 @@ const inheritedGroups = [...layers]
   .filter(({ items }) => items.length > 0);
 const inheritedCount = inheritedGroups.reduce((total, { items }) => total + items.length, 0);
 
+/** Short names for the strip: the headings themselves are sentences, and six of them do not fit a line. */
 const sections = [
-  ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle, count: children.length }] : []),
-  { id: "needs", label: text.whatDoYouNeed },
-  { id: "own", label: text.ownRecords.replace("{where}", name), count: own.length },
-  ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav, count: inheritedCount }] : []),
-  ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
-  { id: "coverage", label: text.coverageNote },
+  ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle }] : []),
+  { id: "needs", label: text.navNeeds },
+  { id: "own", label: text.navOwn },
+  ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav }] : []),
+  ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.navLimits }] : []),
+  { id: "coverage", label: text.navCoverage },
 ];
 
 /**

@@ -33,6 +33,7 @@ export const ICON = {
   search: "lucide:search",
   territory: "lucide:map-pin",
   operator: "lucide:building-2",
+  body: "lucide:landmark",
   external: "lucide:external-link",
   evidence: "lucide:quote",
   date: "lucide:calendar-check",

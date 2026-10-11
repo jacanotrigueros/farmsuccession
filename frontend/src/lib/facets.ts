@@ -10,7 +10,7 @@
  * a search be shared between languages: the link carries codes, the page carries words.
  */
 import { leafLayers, territories, type Resource, type Territory } from "./corpus.ts";
-import { kindLabel, profileLabel, reachLabel, stateLabel } from "./vocabulary.ts";
+import { kindLabel, profileLabel, reachLabel, standing, stateLabel } from "./vocabulary.ts";
 import { words } from "./words.ts";
 
 export type Facet = { name: string; legend: string; options: { value: string; label: string; count: number }[] };
@@ -82,7 +82,7 @@ export function facetsFor(listed: readonly Listed[], language: string, country?:
       options: tally(
         listed,
         (e) => e.resource.targetProfiles ?? [],
-        (profile) => profileLabel(profile, language),
+        (profile) => standing(profileLabel(profile, language), language),
       ),
     },
   ];
