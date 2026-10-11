@@ -9,43 +9,68 @@
  * exactly what the repository's own source check does every year, and it is the reason a claim whose page
  * has changed can be found rather than quietly inherited.
  *
+ * The number is a badge rather than a bracket, because the claims above point at it by number and a
+ * reader following one has to be able to find it at a glance. The quotes are set in the serif the site
+ * keeps for quoted evidence: a quotation must never read like the site's own words.
+ *
  * The date is the date the page was read, not today. Every claim drawn from a page is a claim about that
  * page on that day.
  */
+import { Icon } from "astro-icon/components";
 import type { Source } from "../lib/corpus.ts";
+import { ICON } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
 import { words } from "../lib/words.ts";
 
 type Props = { sources: readonly Source[]; language: string };
 const { sources, language } = Astro.props;
 const text = words(language);
+
+/** The site a page lives on, which is what a reader recognises before they read the title. */
+const hostOf = (url: string): string => {
+  try {
+    return new URL(url).hostname.replace(/^www\./u, "");
+  } catch {
+    return url;
+  }
+};
 ---
 
-<p class="max-w-3xl text-muted">{text.quotesExplained}</p>
+<p class="max-w-3xl text-lg text-muted">{text.quotesExplained}</p>
 
-<ol class="mt-5 space-y-6">
+<ol class="mt-8 grid gap-8">
   {sources.map((source, index) => (
-    <li id={`source-${index + 1}`} class="scroll-mt-6 grid grid-cols-[2.5rem_minmax(0,1fr)]">
-      <span class="text-muted" aria-hidden="true">
-        [{index + 1}]
+    <li id={`source-${index + 1}`} class="grid scroll-mt-6 gap-x-4 gap-y-2 sm:grid-cols-[2.5rem_minmax(0,1fr)]">
+      <span
+        class="inline-flex size-10 items-center justify-center rounded-full bg-brand font-serif text-lg text-on-brand"
+        aria-hidden="true"
+      >
+        {index + 1}
       </span>
-      <div>
-        <p>
-          <a href={source.url} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center">
+      <div class="min-w-0">
+        <h3 class="text-lg leading-snug font-bold">
+          <span class="sr-only">{`${index + 1}. `}</span>
+          <a href={source.url} rel="noopener" class="[overflow-wrap:anywhere]">
             {source.title}
           </a>
+        </h3>
+        <p class="meta mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
+          <span class="inline-flex min-w-0 items-center gap-1.5">
+            <Icon name={ICON.external} aria-hidden="true" class="size-4 shrink-0" />
+            <span class="[overflow-wrap:anywhere]">{hostOf(source.url)}</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <Icon name={ICON.date} aria-hidden="true" class="size-4 shrink-0" />
+            <span>
+              {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, language)}</time>
+            </span>
+          </span>
         </p>
-        <p class="text-meta break-words text-muted">{source.url}</p>
-        <p class="text-meta text-muted">
-          {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, language)}</time>
-        </p>
-        <ul class="mt-2 space-y-2">
-          {source.quotes.map((quote) => (
-            <li>
-              <blockquote class="border-s-2 border-line ps-3 text-muted italic">{quote}</blockquote>
-            </li>
-          ))}
-        </ul>
+        {source.quotes.map((quote) => (
+          <blockquote cite={source.url} class="mt-3 border-s-3 border-accent-line ps-4 font-serif text-lg leading-relaxed text-ink">
+            {quote}
+          </blockquote>
+        ))}
       </div>
     </li>
   ))}

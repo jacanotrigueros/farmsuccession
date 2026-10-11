@@ -411,11 +411,11 @@ const reaches = leafLayers(territory.layer, territories)
 
     <section class="border-t border-line bg-card" aria-labelledby="evidence">
       <div class="wrap py-12">
-        <h2 id="evidence" class="scroll-mt-6 text-2xl font-bold">
+        <h2 id="evidence" class="flex scroll-mt-6 items-center gap-2 text-2xl font-bold">
+          <Icon name={ICON.evidence} aria-hidden="true" class="size-7 shrink-0 text-brand" />
           {text.evidenceTitle}
         </h2>
-        <p class="mt-1 text-meta text-muted">{counted(resource.sources.length, text.source)}</p>
-        <div class="mt-4">
+        <div class="mt-2">
           <Evidence sources={resource.sources} language={language} />
         </div>
         <p class="mt-8 text-meta text-muted">
