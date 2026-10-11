@@ -341,3 +341,77 @@ test("a search box shows what kind of word goes in it, in the page's language", 
     );
   }
 });
+
+/**
+ * A territory shows what applies in it, which is its own records and everything above it, and the
+ * difference matters: an aid or a course recorded for the country and not for the region is one a reader
+ * keeps if they move, and one they can use wherever they are inside it. So no record is ever listed
+ * without a heading above it saying whose layer it comes from, and the layers run closest first.
+ */
+test("a record is never listed without saying which layer it comes from", () => {
+  const territories = pages.filter(({ file }) => {
+    const parts = file.split(path.sep);
+    const iso = parts[0] ?? "";
+    if (!/^[a-z]{2}$/u.test(iso)) return false;
+    return parts.length === 2 || parts[1] === regionSlug(iso.toUpperCase());
+  });
+  assert.ok(territories.length > 0, "no territory page was built: this check would pass without checking anything");
+
+  let grouped = 0;
+  for (const { file, html } of territories) {
+    const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const text = words(language);
+    // Only the lists of records: the headings between a situation and whatever follows it.
+    const headings = [...html.matchAll(/<(h[234])\b[^>]*>([\s\S]*?)<\/\1>/gu)].map(([, level, inner]) => ({
+      level: level ?? "",
+      text: (inner ?? "")
+        .replaceAll(/<[^>]*>/gu, " ")
+        .replaceAll(/\s+/gu, " ")
+        .trim(),
+    }));
+
+    let group = "";
+    for (const heading of headings) {
+      if (heading.level === "h2") group = "";
+      if (heading.level === "h3") {
+        // "Für {where} erfasst" is a template with the name in the middle, so it is matched as one.
+        const own = new RegExp(`^${text.ownRecords.replaceAll(/[.*+?^$()|[\]\\]/gu, "\\$&").replace("{where}", ".+")}$`, "u");
+        group = own.test(heading.text) || heading.text.startsWith(text.inherited) ? heading.text : "";
+        if (group) grouped += 1;
+      }
+      if (heading.level === "h4") {
+        assert.ok(group, `${file} lists "${heading.text}" with nothing above it saying which layer recorded it`);
+      }
+    }
+  }
+  assert.ok(grouped > 0, "no list of records was grouped by layer at all, so this check proved nothing");
+});
+
+/**
+ * A filter offers a territory by its name, never by the fragment of URL that identifies it. The three
+ * that lost their name were the three that document nothing of their own — El Hierro, Formentera and
+ * Fuerteventura — because the names were read from the records, and those are exactly the territories no
+ * record could name. They are in the filter because what Europe and the country record applies there too.
+ */
+test("a filter names a territory, and never shows the slug in its link", () => {
+  const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
+    jurisdictions: Record<string, { regions: { slug: string; name: string }[] }>;
+  };
+  const names = new Map<string, string>();
+  for (const [iso, { regions }] of Object.entries(catalogue.jurisdictions)) {
+    for (const region of regions) names.set(`${iso}/${region.slug}`, region.name);
+  }
+
+  let checked = 0;
+  for (const { file, html } of pages) {
+    for (const [, value, label] of html.matchAll(
+      /<input type="checkbox" name="territory" value="([^"]+)"[^>]*>\s*<span[^>]*>([^<]*)<\/span>/gu,
+    )) {
+      const expected = names.get(value ?? "");
+      assert.ok(expected, `${file} offers a filter for ${value}, which the catalogue does not know`);
+      assert.equal(label, expected, `${file} offers "${label}" where the catalogue calls that territory "${expected}"`);
+      checked += 1;
+    }
+  }
+  assert.ok(checked > 0, "no territory filter was built at all, so this check proved nothing");
+});

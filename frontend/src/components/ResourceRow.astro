@@ -19,8 +19,17 @@ import KindTag from "./KindTag.astro";
 import StatusTag from "./StatusTag.astro";
 import { counted, words } from "../lib/words.ts";
 
-type Props = { resource: Resource; language: string; recordedIn: Territory; inherited?: boolean; showKind?: boolean };
-const { resource, language, recordedIn, inherited = false, showKind = true } = Astro.props;
+type Props = {
+  resource: Resource;
+  language: string;
+  recordedIn: Territory;
+  inherited?: boolean;
+  showKind?: boolean;
+  /** The level this title takes, which depends on what the list it sits in is headed by. */
+  titleAs?: "h3" | "h4";
+};
+const { resource, language, recordedIn, inherited = false, showKind = true, titleAs = "h3" } = Astro.props;
+const Title = titleAs;
 const text = words(language);
 
 const consulted = resource.sources
@@ -33,11 +42,11 @@ const from = recordedIn.layer.level === "EU" ? text.europe : recordedIn.data.off
 
 <article class="border-t border-line py-5 first:border-t-0">
   <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-    <h3 class="text-lg font-semibold">
+    <Title class="text-lg font-semibold">
       <a href={recordHref(resource.id)} class="inline-flex min-h-(--spacing-target) items-center">
         {resource.name}
       </a>
-    </h3>
+    </Title>
     {showKind && <KindTag kind={resource.kind} language={language} />}
     <StatusTag status={resource.status} language={language} />
   </div>

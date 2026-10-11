@@ -59,11 +59,29 @@ const children =
       : [];
 const groupings = territory.layer.level === "COUNTRY" ? hubTerritories().filter(({ layer }) => layer.country === country) : [];
 
-/** Only the situations this territory can actually answer: a heading with nothing under it answers nobody. */
-const answered = GOALS.map((goal) => ({
-  goal,
-  found: resources.filter(({ resource }) => goalOf(resource.kind) === goal.id),
-})).filter(({ found }) => found.length > 0);
+/**
+ * Only the situations this territory can actually answer: a heading with nothing under it answers nobody.
+ *
+ * Inside each one the records are grouped by the layer that recorded them, closest first — this territory,
+ * then the country, then Europe — because "this is ours" and "this applies in the whole country" are
+ * different answers to the same question, and the second one travels with the reader.
+ */
+const closestFirst = [...layers].toReversed();
+const answered = GOALS.map((goal) => {
+  const found = resources.filter(({ resource }) => goalOf(resource.kind) === goal.id);
+  return {
+    goal,
+    found,
+    groups: closestFirst
+      .map((layer) => ({
+        from: layer,
+        inherited: layer !== territory,
+        name: layer.layer.level === "EU" ? text.europe : layer.data.officialName,
+        items: found.filter(({ from }) => from === layer).map(({ resource }) => resource),
+      }))
+      .filter(({ items }) => items.length > 0),
+  };
+}).filter(({ found }) => found.length > 0);
 
 const sections = [
   ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle, count: children.length }] : []),
@@ -197,17 +215,24 @@ const pinnedQuery = queryFromState({ selected: Object.fromEntries(pinned.map((f)
     </section>
   )}
 
-  {answered.map(({ goal, found }) => (
+  {answered.map(({ goal, groups }) => (
     <section class="border-t border-line py-8" aria-labelledby={goal.id}>
       <h2 id={goal.id} class="scroll-mt-6 text-2xl font-bold">
         {situation(goal.id, language).title}
       </h2>
       <p class="mt-1 max-w-3xl text-muted">{situation(goal.id, language).hint}</p>
-      <div class="mt-4">
-        {found.map(({ resource, from, inherited }) => (
-          <ResourceRow resource={resource} language={language} recordedIn={from} inherited={inherited} />
-        ))}
-      </div>
+      {groups.map(({ from, inherited, name, items }) => (
+        <div class="mt-4">
+          <h3 class="text-meta font-semibold tracking-wide text-muted uppercase">
+            {inherited ? `${text.inherited} ${name}` : text.ownRecords.replace("{where}", name)}
+          </h3>
+          <div class="mt-1">
+            {items.map((resource) => (
+              <ResourceRow resource={resource} language={language} recordedIn={from} titleAs="h4" />
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
   ))}
 
