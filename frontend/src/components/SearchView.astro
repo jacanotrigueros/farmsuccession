@@ -17,7 +17,7 @@ import Breadcrumbs from "./Breadcrumbs.astro";
 import ResourceCard from "./ResourceCard.astro";
 import type { Resource, Territory } from "../lib/corpus.ts";
 import { ICON, kindIcon } from "../lib/icons.ts";
-import { kindLabel, profileLabel, reachLabel, stateLabel } from "../lib/vocabulary.ts";
+import { kindLabel, stateLabel } from "../lib/vocabulary.ts";
 import { counted, words } from "../lib/words.ts";
 
 type Listed = { resource: Resource; from: Territory; inherited: boolean };
@@ -25,8 +25,6 @@ type Facet = { name: string; legend: string; options: { value: string; label: st
 
 type Props = {
   language: string;
-  /** The ISO code of the country this search is fixed to, or nothing for the European scope. */
-  country?: string;
   /** Where this search sits: the layers above it, widest first. */
   crumbs: { label: string; href: string }[];
   title: string;
@@ -36,7 +34,7 @@ type Props = {
   languages: string[];
   inherits: string[];
 };
-const { language, country, crumbs, title, lead, listed, facets, languages, inherits } = Astro.props;
+const { language, crumbs, title, lead, listed, facets, languages, inherits } = Astro.props;
 const text = words(language);
 
 const kinds = [...new Set(listed.map(({ resource }) => resource.kind))];

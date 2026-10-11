@@ -29,7 +29,9 @@ const aboutPath = country ? `/${country.toLowerCase()}/${text.aboutSlug}/` : `/$
 const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` : `/${text.historySlug}/`;
 ---
 
-<footer class="mt-16 border-t border-line bg-card">
+{/* No margin above it: every page ends in a band with a rule under it, and a gap between that rule and
+  the footer's own reads as an empty strip of page rather than as space. */}
+<footer class="border-t border-line bg-card">
   <div class="wrap grid gap-8 py-10 md:grid-cols-[2fr_1fr_1fr]">
     <div>
       <a href="/" class="inline-flex min-h-(--spacing-target) items-center text-lg font-bold text-brand-strong no-underline">

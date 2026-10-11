@@ -63,7 +63,8 @@ const children =
     : hubSlug === undefined
       ? []
       : regionsOf(country).filter((region) => view(region).layers.some(({ layer }) => layer.level === "HUB" && layer.hub === hubSlug));
-const groupings = territory.layer.level === "COUNTRY" ? hubTerritories().filter(({ layer }) => layer.country === country) : [];
+const groupings =
+  territory.layer.level === "COUNTRY" ? hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === country) : [];
 
 /**
  * The territories of this one, with the ones that belong to a grouping kept inside it.

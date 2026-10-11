@@ -46,7 +46,6 @@ const lead = text.searchScoped.replace("{where}", territory.data.officialName);
 <SiteLayout title={`${title} — ${text.siteName}`} description={lead} language={language} current={`/${iso.toLowerCase()}/`} noindex>
   <SearchView
     language={language}
-    country={iso}
     crumbs={[
       { label: text.europe, href: "/" },
       { label: territory.data.officialName, href: `/${iso.toLowerCase()}/` },
