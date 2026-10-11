@@ -77,3 +77,4 @@ on the way in, which is the only honest reason for a measurement to move.
 | [025](025-a-source-is-gone-when-the-series-says-so.md)            | A source is gone when the series says so, not when a run does  |
 | [026](026-a-reading-says-which-territory-it-was-about.md)         | A reading says which territory it was about                    |
 | [027](027-the-page-for-somebody-already-lost-asks-for-nothing.md) | The page for somebody already lost asks for nothing            |
+| [028](028-a-page-may-ask-not-to-be-indexed.md)                    | A page may ask not to be indexed, and the sitemap reads that   |

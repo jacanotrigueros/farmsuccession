@@ -150,6 +150,40 @@ release.
   French page. It is the first thing a keyboard or screen-reader user meets, and it was
   invisible to every check because it only appears when focused. Fixed, and now a test.
 
+### The shapes of the closed design
+
+- **Every page opens with the same band**: where you are, what the page is called, what it
+  is about, and whatever that page needs a reader to have before the content. The trail
+  above the title is one component, with the page's own name left off a record where the
+  title repeats it immediately, and it is published as structured data so a search engine
+  is told what a reader is shown.
+- **A record in a list is a card**: kind and status, the name, what it offers, and the
+  three things that make it checkable — where it applies, who runs it, how many pages were
+  read and when. The whole box is the link. A search result is the same card without its
+  box, from the same template, so a result and a listed record cannot drift apart.
+- **A territory says what it recorded and what reaches it**, in two groups rather than
+  interleaved: its own records, then one group per wider layer, closest first, each naming
+  the layer and counting it. Its figures count everything documented anywhere inside it —
+  which is what a search from that page returns — and a line underneath says how that
+  total breaks down.
+- **A record page answers before it shows its working.** The band carries the summary, the
+  answer to "can I apply today" and the two ways out: the official page, and the evidence,
+  as a button saying how many sources there are. The facts sit beside the text as a panel,
+  and the evidence closes the page at full width, numbered, each source with the site it
+  lives on, the day it was read and its quotes in the serif this site keeps for quoted
+  evidence.
+- **The filters of a search are a column beside the results**, each group folding, instead
+  of a wall of twenty-eight checkboxes above them. What starts hidden is the field and the
+  filters, never the list under them: without the index, that list is the whole answer.
+- **A page may ask not to be indexed** (`decisions/028`): the six regions that have
+  documented nothing of their own, and the six search pages, carry `noindex, follow` and
+  are left out of the sitemap, which reads the rule off the built page rather than working
+  it out a second time. Nothing is hidden from a reader: the pages stay, their links are
+  followed, and each of them says in its own words that nothing has been recorded for that
+  territory itself.
+- The page that answers an address which does not exist had never been inside the
+  container that holds the site's margins; it is, and it has the band too.
+
 ### The pass against the design this repository is converging on
 
 - **A record lives under the country that recorded it**: `/es/recursos/<id>/`, `/de/angebote/<id>/`, in
