@@ -72,6 +72,7 @@ const EN = {
   territoriesTitle: "Territories",
   wholeCountry: "The whole country",
   sharedLayers: "Groupings with a layer of their own",
+  sharedRecords: ["record common to all its territories", "records common to all its territories"],
   inheritedFromAbove: "Everything above also applies here, and is listed with it.",
   notAService: "This is a directory of verified references, not a replacement for the official services.",
 
@@ -282,6 +283,7 @@ const ES = {
   territoriesTitle: "Territorios",
   wholeCountry: "Todo el país",
   sharedLayers: "Agrupaciones con capa propia",
+  sharedRecords: ["ficha común a todos sus territorios", "fichas comunes a todos sus territorios"],
   inheritedFromAbove: "Todo lo de las capas superiores se aplica también aquí, y aparece en la misma lista.",
   notAService: "Es un directorio de referencias verificadas, no un sustituto de los servicios oficiales.",
 
@@ -488,6 +490,7 @@ const DE = {
   territoriesTitle: "Gebiete",
   wholeCountry: "Das ganze Bundesgebiet",
   sharedLayers: "Zusammenschlüsse mit eigener Ebene",
+  sharedRecords: ["gemeinsamer Eintrag für alle seine Gebiete", "gemeinsame Einträge für alle seine Gebiete"],
   inheritedFromAbove: "Alles von den Ebenen darüber gilt auch hier und ist dort mit aufgeführt.",
   notAService: "Dies ist ein Verzeichnis geprüfter Verweise und kein Ersatz für die amtlichen Stellen.",
 
@@ -698,6 +701,7 @@ const FR = {
   territoriesTitle: "Territoires",
   wholeCountry: "Tout le pays",
   sharedLayers: "Regroupements ayant leur propre échelle",
+  sharedRecords: ["fiche commune à tous ses territoires", "fiches communes à tous ses territoires"],
   inheritedFromAbove: "Tout ce qui vient des échelles au-dessus s’applique aussi ici, et y est listé.",
   notAService: "Ceci est un annuaire de références vérifiées, et non un remplacement des services officiels.",
 
@@ -908,6 +912,7 @@ const IT = {
   territoriesTitle: "Territori",
   wholeCountry: "Tutto il paese",
   sharedLayers: "Raggruppamenti con un proprio ambito",
+  sharedRecords: ["scheda comune a tutti i suoi territori", "schede comuni a tutti i suoi territori"],
   inheritedFromAbove: "Tutto ciò che viene dagli ambiti superiori si applica anche qui, ed è elencato insieme.",
   notAService: "Questo è un elenco di riferimenti verificati, non un sostituto dei servizi ufficiali.",
 
@@ -1120,6 +1125,7 @@ const PT = {
   territoriesTitle: "Territórios",
   wholeCountry: "Todo o país",
   sharedLayers: "Agrupamentos com âmbito próprio",
+  sharedRecords: ["ficha comum a todos os seus territórios", "fichas comuns a todos os seus territórios"],
   inheritedFromAbove: "Tudo o que vem dos âmbitos acima também se aplica aqui, e está listado com eles.",
   notAService: "Isto é um diretório de referências verificadas, não um substituto dos serviços oficiais.",
 
@@ -1276,14 +1282,14 @@ const SITUATIONS = {
     land: { title: "Find land", hint: "Land to rent, to buy, or to take on from somebody leaving it" },
     handover: { title: "Hand the holding over, or take one on", hint: "Help with passing a farm to whoever will keep it going" },
     money: { title: "Pay for starting out", hint: "Aid, loans and guarantees for setting up as a farmer" },
-    learn: { title: "Learn, or get somebody to advise you", hint: "Courses that qualify you, and people who walk you through it" },
+    learn: { title: "Train for it", hint: "Courses that qualify you, and the schools that run them" },
     context: { title: "The rules behind all of it", hint: "Frameworks, networks and the official portals they live on" },
   },
   es: {
     land: { title: "Encontrar tierra", hint: "Tierra para arrendar, comprar o hacerse cargo de quien la deja" },
     handover: { title: "Dejar la explotación, o hacerse cargo", hint: "Ayuda para pasar una explotación a quien va a continuarla" },
     money: { title: "Pagar la puesta en marcha", hint: "Ayudas, préstamos y avales para instalarse" },
-    learn: { title: "Formarte, o que alguien te asesore", hint: "Cursos que habilitan, y personas que acompañan el proceso" },
+    learn: { title: "Formarte", hint: "Cursos que habilitan, y las escuelas que los imparten" },
     context: { title: "Las normas que hay detrás", hint: "Marcos, redes y los portales oficiales donde viven" },
   },
   de: {
@@ -1293,7 +1299,7 @@ const SITUATIONS = {
       hint: "Hilfe dabei, einen Betrieb an die Person weiterzugeben, die ihn weiterführt",
     },
     money: { title: "Den Start bezahlen", hint: "Zuschüsse, Darlehen und Bürgschaften für die Niederlassung" },
-    learn: { title: "Sich ausbilden oder beraten lassen", hint: "Kurse, die qualifizieren, und Menschen, die begleiten" },
+    learn: { title: "Sich ausbilden", hint: "Kurse, die qualifizieren, und die Schulen, die sie anbieten" },
     context: { title: "Die Regeln dahinter", hint: "Rechtsrahmen, Netzwerke und die amtlichen Portale, auf denen sie stehen" },
   },
   fr: {
@@ -1303,7 +1309,7 @@ const SITUATIONS = {
       hint: "De l’aide pour transmettre une exploitation à qui la fera vivre",
     },
     money: { title: "Payer l’installation", hint: "Aides, prêts et garanties pour s’installer" },
-    learn: { title: "Se former, ou se faire accompagner", hint: "Des formations qui donnent la capacité, et des gens qui accompagnent" },
+    learn: { title: "Se former", hint: "Des formations qui donnent la capacité, et les écoles qui les dispensent" },
     context: { title: "Les règles derrière tout cela", hint: "Cadres, réseaux et portails officiels où ils se trouvent" },
   },
   it: {
@@ -1313,7 +1319,7 @@ const SITUATIONS = {
       hint: "Aiuto per passare un’azienda a chi la porterà avanti",
     },
     money: { title: "Pagare l’avvio", hint: "Aiuti, prestiti e garanzie per insediarsi" },
-    learn: { title: "Formarsi, o farsi seguire", hint: "Corsi che danno la qualifica, e persone che accompagnano" },
+    learn: { title: "Formarsi", hint: "Corsi che danno la qualifica, e le scuole che li tengono" },
     context: { title: "Le norme dietro a tutto questo", hint: "Quadri normativi, reti e i portali ufficiali dove si trovano" },
   },
   pt: {
@@ -1323,7 +1329,7 @@ const SITUATIONS = {
       hint: "Ajuda para passar uma exploração a quem a vai continuar",
     },
     money: { title: "Pagar o arranque", hint: "Apoios, empréstimos e garantias para se instalar" },
-    learn: { title: "Formar-se, ou ter quem o acompanhe", hint: "Cursos que habilitam, e pessoas que acompanham" },
+    learn: { title: "Formar-se", hint: "Cursos que habilitam, e as escolas que os dão" },
     context: { title: "As normas por trás disto", hint: "Enquadramentos, redes e os portais oficiais onde estão" },
   },
 } as const satisfies Record<Language, Record<GoalId, { title: string; hint: string }>>;

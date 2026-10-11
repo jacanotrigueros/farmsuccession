@@ -51,13 +51,38 @@ const { layers, resources } = view(territory);
 const name = territory.data.officialName;
 
 const country = territory.layer.level === "EU" ? "" : territory.layer.country;
+/**
+ * The territories under this one. A region's grouping is not written on the region — a region is a
+ * country and a slug, and which grouping it belongs to is the catalogue's business — so it is read from
+ * the layers above it, which is the one place that answer is worked out.
+ */
+const hubSlug = territory.layer.level === "HUB" ? territory.layer.hub : undefined;
 const children =
   territory.layer.level === "COUNTRY"
     ? regionsOf(country)
-    : territory.layer.level === "HUB"
-      ? regionsOf(country).filter(({ layer }) => layer.level === "REGION" && layer.hub === territory.layer.hub)
-      : [];
+    : hubSlug === undefined
+      ? []
+      : regionsOf(country).filter((region) => view(region).layers.some(({ layer }) => layer.level === "HUB" && layer.hub === hubSlug));
 const groupings = territory.layer.level === "COUNTRY" ? hubTerritories().filter(({ layer }) => layer.country === country) : [];
+
+/**
+ * The territories of this one, with the ones that belong to a grouping kept inside it.
+ *
+ * An archipelago or a set of provinces that publishes a layer of its own is not a peer of the regions
+ * under it, and listing it as one more link above a flat grid of twenty-eight made a reader work out the
+ * relationship from the names. A grouping is a box with its own territories in it, and it says how many
+ * records it holds for all of them. A region that belongs to no grouping is a card on its own, and the
+ * order is the catalogue's: a grouping appears where its first territory would have.
+ */
+const hubOf = (child: Territory): Territory | undefined => view(child).layers.find(({ layer }) => layer.level === "HUB");
+const placed = new Set<Territory>();
+const under = children.flatMap((child) => {
+  const hub = hubOf(child);
+  if (hub === undefined) return [{ hub: undefined, members: [child] }];
+  if (placed.has(hub)) return [];
+  placed.add(hub);
+  return [{ hub, members: children.filter((each) => hubOf(each) === hub) }];
+});
 
 /** What this territory recorded itself, and what reaches it from a wider layer, closest layer first. */
 const own = resources.filter(({ from }) => from === territory).map(({ resource }) => ({ resource, recordedIn: territory }));
@@ -185,33 +210,44 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
       <h2 id="territories" class="scroll-mt-6 text-2xl font-bold">
         {text.territoriesTitle}
       </h2>
-      {groupings.length > 0 && (
-        <>
-          <h3 class="eyebrow mt-6">{text.sharedLayers}</h3>
-          <ul class="mt-2 flex flex-wrap gap-x-6">
-            {groupings.map((grouping) => (
+      <ul class="territory-list mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {under.map(({ hub, members }) =>
+          hub ? (
+            <li class="card p-4 sm:col-span-2 lg:col-span-3">
+              <h3 class="text-lg font-bold">
+                <a href={href(hub.layer)}>{hub.data.officialName}</a>
+              </h3>
+              {hub.data.resources.length > 0 && <p class="meta mt-1">{counted(hub.data.resources.length, text.sharedRecords)}</p>}
+              <ul class="territory-list mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {members.map((child) => (
+                  <li>
+                    <a href={href(child.layer)} class="territory-link card card-link">
+                      <span class="font-bold text-ink">{child.data.officialName}</span>
+                      <span class="meta">
+                        {text.territoryCounts
+                          .replace("{own}", String(child.data.resources.length))
+                          .replace("{total}", String(view(child).resources.length))}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ) : (
+            members.map((child) => (
               <li>
-                <a href={href(grouping.layer)} class="flex min-h-(--spacing-target) items-center font-bold">
-                  {grouping.data.officialName}
+                <a href={href(child.layer)} class="territory-link card card-link">
+                  <span class="font-bold text-ink">{child.data.officialName}</span>
+                  <span class="meta">
+                    {text.territoryCounts
+                      .replace("{own}", String(child.data.resources.length))
+                      .replace("{total}", String(view(child).resources.length))}
+                  </span>
                 </a>
               </li>
-            ))}
-          </ul>
-        </>
-      )}
-      <ul class="territory-list mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {children.map((child) => (
-          <li>
-            <a href={href(child.layer)} class="territory-link card card-link">
-              <span class="font-bold text-ink">{child.data.officialName}</span>
-              <span class="meta">
-                {text.territoryCounts
-                  .replace("{own}", String(child.data.resources.length))
-                  .replace("{total}", String(view(child).resources.length))}
-              </span>
-            </a>
-          </li>
-        ))}
+            ))
+          ),
+        )}
       </ul>
     </section>
   )}
@@ -237,7 +273,7 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
         <ResourceList items={own} language={language} />
       </div>
     ) : (
-      <p class="mt-3 max-w-3xl">{text.noneOwn.replace("{where}", name)}</p>
+      <p class="mt-3">{text.noneOwn.replace("{where}", name)}</p>
     )}
   </section>
 
@@ -246,7 +282,7 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
       <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold">
         {text.alsoApplies.replace("{where}", name)}
       </h2>
-      <p class="meta mt-2 max-w-3xl">{text.alsoAppliesLead}</p>
+      <p class="meta mt-2">{text.alsoAppliesLead}</p>
       {inheritedGroups.map(({ name: from, items }) => (
         <details class="inherited-group mt-6 border-t border-line pt-4" open>
           <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
@@ -284,7 +320,9 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
     <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
       {text.coverageNote}
     </h2>
-    <p class="mt-2 max-w-3xl text-muted">{territory.data.coverage.note}</p>
+    {/* The last paragraph of the page, with nothing beside it: held to a reading measure it read as
+      pushed into the corner, so it takes the width of the section it closes. */}
+    <p class="mt-2 text-muted">{territory.data.coverage.note}</p>
     <p class="mt-6 text-meta text-muted">
       {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
       <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>

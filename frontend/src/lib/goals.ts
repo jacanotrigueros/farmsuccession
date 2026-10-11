@@ -8,8 +8,11 @@
  * framework" and "Land bank" are not how anybody describes their own need out loud.
  *
  * So the sections of a territory page are these, and the record's kind stays on the record as a tag. The
- * mapping is deliberate and not a taxonomy: one situation can be answered by two kinds, and the last group
- * is everything that is context rather than something to apply for.
+ * mapping is deliberate and not a taxonomy: the last group is everything that is context rather than
+ * something to apply for, and it is also where a kind goes when it answers a situation the four cards
+ * do not name. Advice is one of those: somebody who wants to be walked through a handover is not
+ * looking for a course, and folding the two together hid twenty-four records of one behind the name of
+ * the other.
  */
 import type { Resource } from "../../../src/types/edition.ts";
 
@@ -19,8 +22,8 @@ export const GOALS = [
   { id: "land", kinds: ["LAND_BANK"] },
   { id: "handover", kinds: ["SUCCESSION_SERVICE"] },
   { id: "money", kinds: ["FINANCIAL_SUPPORT"] },
-  { id: "learn", kinds: ["TRAINING", "ADVICE"] },
-  { id: "context", kinds: ["POLICY", "NETWORK", "OFFICIAL_PORTAL", "OTHER"] },
+  { id: "learn", kinds: ["TRAINING"] },
+  { id: "context", kinds: ["ADVICE", "POLICY", "NETWORK", "OFFICIAL_PORTAL", "OTHER"] },
 ] as const satisfies readonly Goal[];
 
 export type GoalId = (typeof GOALS)[number]["id"];
