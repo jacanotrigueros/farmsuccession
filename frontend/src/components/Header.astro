@@ -12,7 +12,7 @@
  */
 import { Icon } from "astro-icon/components";
 import { countryTerritories, euTerritory, href } from "../lib/corpus.ts";
-import { ICON } from "../lib/icons.ts";
+import { flagOf, ICON } from "../lib/icons.ts";
 import { words } from "../lib/words.ts";
 import { searchPath } from "../../public/search-scope.js";
 
@@ -21,7 +21,6 @@ const { current = "/", language } = Astro.props;
 const text = words(language);
 
 /** The flag of a country, as a file: a flag emoji is two letters on any system without a glyph for the pair. */
-const flagOf = (code: string): string => `/img/flags/${code.toLowerCase()}.svg`;
 
 const europe = euTerritory();
 /** The country a page belongs to, which is also the scope its search button leads to. */

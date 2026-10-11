@@ -1,0 +1,18 @@
+---
+/** A grid of record cards. Two columns, because a third makes the summary of each one too narrow to read. */
+import ResourceCard from "./ResourceCard.astro";
+import type { Resource, Territory } from "../lib/corpus.ts";
+
+type Props = {
+  items: readonly { resource: Resource; recordedIn: Territory }[];
+  language: string;
+  level?: "h2" | "h3" | "h4";
+};
+const { items, language, level = "h3" } = Astro.props;
+---
+
+<ul class="grid gap-5 md:grid-cols-2">
+  {items.map(({ resource, recordedIn }) => (
+    <ResourceCard resource={resource} recordedIn={recordedIn} language={language} level={level} />
+  ))}
+</ul>

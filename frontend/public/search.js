@@ -4,7 +4,8 @@
  * Everything it needs is already in the page: the scope, the languages its bundles cover, the words for
  * every code, and the markup of a result as a template the server rendered. This file only fills things
  * in. If it never runs, the page is still the complete list of what is in scope — which is why the field
- * and the filters start hidden and are revealed once the index has answered.
+ * and the filters start hidden and are revealed once the index has answered, while the list under them is
+ * part of the page from the start.
  *
  * The URL is kept in step with every change, so any view of a search can be shared or kept. The route
  * fixes the scope and the query string can only narrow it: `search-scope.js` owns that rule, and the same
@@ -19,9 +20,11 @@ const results = document.querySelector("[data-results]");
 const resultsHeading = document.querySelector("[data-results-heading]");
 const resultsList = document.querySelector("[data-results-list]");
 const everything = document.querySelector("[data-everything]");
+const askBlock = document.querySelector("[data-field]");
+const filterBlock = document.querySelector("[data-filters]");
 const template = document.querySelector("template[data-result]");
 
-if (form && state && results && resultsHeading && resultsList && everything && template) {
+if (form && state && results && resultsHeading && resultsList && everything && template && askBlock && filterBlock) {
   const words = JSON.parse(form.dataset.strings);
   const labels = JSON.parse(form.dataset.labels);
   const languages = JSON.parse(form.dataset.languages);
@@ -63,6 +66,12 @@ if (form && state && results && resultsHeading && resultsList && everything && t
 
     row.querySelector("[data-result-operator]").textContent = result.meta.operator ?? "";
     row.querySelector("[data-result-territory]").textContent = result.meta.territory ?? "";
+    // The place and the body that runs it carry the same icons here as on every other list of records.
+    for (const which of ["territory", "operator"]) {
+      const slot = row.querySelector(`[data-result-${which}-icon]`);
+      const drawing = document.querySelector(`template[data-icon-for="__${which}"]`);
+      if (slot && drawing) slot.append(drawing.content.cloneNode(true));
+    }
     // The excerpt is this site's own text, taken from the page the result points at, with the words that
     // matched marked. It comes from the index this build produced and from nowhere else.
     row.querySelector("[data-result-excerpt]").innerHTML = result.excerpt;
@@ -145,7 +154,8 @@ if (form && state && results && resultsHeading && resultsList && everything && t
       }
     }
 
-    show(form, true);
+    show(askBlock, true);
+    show(filterBlock, true);
     await run();
 
     form.addEventListener("submit", (event) => event.preventDefault());

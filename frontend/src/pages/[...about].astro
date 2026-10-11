@@ -9,6 +9,7 @@
  * of those is looking for one page, so it is one page with named sections rather than five.
  */
 import { Icon } from "astro-icon/components";
+import PageHeader from "../components/PageHeader.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { countryTerritories, currentEdition, euTerritory, href, languageOf, type Territory } from "../lib/corpus.ts";
 import { ICON } from "../lib/icons.ts";
@@ -39,13 +40,15 @@ const sections = [
 ---
 
 <SiteLayout title={`${text.aboutTitle} · ${text.siteName}`} description={text.aboutIntro} language={language} current={home}>
-  <div class="wrap">
-    <header class="max-w-3xl py-10">
-      <p class="eyebrow">{editionNamed(currentEdition, language)}</p>
-      <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{text.aboutTitle}</h1>
-      <p class="mt-4 text-lg">{text.aboutIntro}</p>
-    </header>
+  <PageHeader
+    crumbs={[{ label: territory.layer.level === "EU" ? text.europe : territory.data.officialName, href: home }]}
+    crumbsLabel={text.whereYouAre}
+    eyebrow={editionNamed(currentEdition, language)}
+    title={text.aboutTitle}
+    lead={text.aboutIntro}
+  />
 
+  <div class="wrap">
     <nav aria-label={text.onThisPage} class="max-w-3xl border-t border-line py-4">
       <ul class="flex flex-wrap gap-x-6">
         {sections.map((section) => (

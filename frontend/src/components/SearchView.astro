@@ -13,9 +13,10 @@
  * European page is still described in the words of the page the reader is on.
  */
 import { Icon } from "astro-icon/components";
-import ResourceRow from "./ResourceRow.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import ResourceCard from "./ResourceCard.astro";
 import type { Resource, Territory } from "../lib/corpus.ts";
-import { kindIcon } from "../lib/icons.ts";
+import { ICON, kindIcon } from "../lib/icons.ts";
 import { kindLabel, profileLabel, reachLabel, stateLabel } from "../lib/vocabulary.ts";
 import { counted, words } from "../lib/words.ts";
 
@@ -26,6 +27,8 @@ type Props = {
   language: string;
   /** The ISO code of the country this search is fixed to, or nothing for the European scope. */
   country?: string;
+  /** Where this search sits: the layers above it, widest first. */
+  crumbs: { label: string; href: string }[];
   title: string;
   lead: string;
   listed: Listed[];
@@ -33,10 +36,17 @@ type Props = {
   languages: string[];
   inherits: string[];
 };
-const { language, country, title, lead, listed, facets, languages, inherits } = Astro.props;
+const { language, country, crumbs, title, lead, listed, facets, languages, inherits } = Astro.props;
 const text = words(language);
 
 const kinds = [...new Set(listed.map(({ resource }) => resource.kind))];
+
+/**
+ * The groups that open themselves. A reader narrows by what a thing is and by whether it is operating
+ * far more often than by anything else; the rest are there when they are wanted, and folded away they
+ * leave the whole list of filters readable without scrolling past it.
+ */
+const OPEN = new Set(["kind", "status"]);
 
 /** Everything the client would otherwise have to translate, in the language of this page. */
 const labels = {
@@ -45,105 +55,143 @@ const labels = {
 };
 ---
 
-<header class="py-10">
-  <h1 class="page-title text-3xl text-balance sm:text-4xl">{title}</h1>
-  <p class="mt-4 max-w-3xl text-lg">{lead}</p>
+<header class="border-b border-line bg-card">
+  <div class="wrap py-10">
+    <Breadcrumbs items={crumbs} current={title} label={text.whereYouAre} />
+    <h1 class="page-title mt-1 text-3xl text-balance sm:text-4xl">{title}</h1>
+    <p class="mt-4 max-w-3xl text-lg">{lead}</p>
+  </div>
 </header>
 
-<form
-  id="search"
-  role="search"
-  hidden
-  class="border-t border-line py-6"
-  data-search
-  data-languages={JSON.stringify(languages)}
-  data-inherits={JSON.stringify(inherits)}
-  data-labels={JSON.stringify(labels)}
-  data-strings={JSON.stringify({ one: text.result[0], many: text.result[1], nothing: text.nothingMatched, failed: text.searchFailed })}
->
-  <label for="query" class="block font-bold">
-    {text.searchLabel}
-  </label>
-  <div class="mt-2 flex flex-wrap gap-3">
-    <input
-      id="query"
-      name="q"
-      type="search"
-      placeholder={text.searchExamples}
-      autocomplete="off"
-      class="min-h-14 min-w-0 flex-1 rounded-lg border-2 border-line-strong bg-card px-4 text-lg focus:border-brand"
-    />
-    <button type="submit" class="btn btn-primary min-h-14 text-lg">
-      {text.searchAction}
-    </button>
-  </div>
+<div class="wrap py-10">
+  <form
+    id="search"
+    role="search"
+    data-search
+    data-languages={JSON.stringify(languages)}
+    data-inherits={JSON.stringify(inherits)}
+    data-labels={JSON.stringify(labels)}
+    data-strings={JSON.stringify({ one: text.result[0], many: text.result[1], nothing: text.nothingMatched, failed: text.searchFailed })}
+  >
+    <div hidden data-field>
+      <label for="query" class="block font-bold">
+        {text.searchLabel}
+      </label>
+      <div class="mt-2 flex max-w-4xl flex-wrap gap-3">
+        <input
+          id="query"
+          name="q"
+          type="search"
+          placeholder={text.searchExamples}
+          autocomplete="off"
+          class="min-h-14 min-w-0 flex-1 rounded-lg border-2 border-line-strong bg-card px-4 text-lg focus:border-brand"
+        />
+        <button type="submit" class="btn btn-primary min-h-14 text-lg">
+          {text.searchAction}
+        </button>
+      </div>
+    </div>
 
-  <div class="mt-6 flex flex-wrap items-baseline justify-between gap-3">
-    <h2 class="text-lg font-bold">{text.narrowDown}</h2>
-    <button type="reset" class="inline-flex min-h-(--spacing-target) items-center text-brand-strong underline">
-      {text.clearFilters}
-    </button>
-  </div>
+    <div class="mt-8 flex flex-col gap-8 lg:flex-row">
+      {/*
+       * The filters are a column of their own rather than a band across the top: a country has
+       * twenty-eight territories, and twenty-eight checkboxes above the results pushed the results off
+       * the screen. Each group folds, and the two a reader actually chooses from open already.
+       */}
+      <aside
+        hidden
+        data-filters
+        aria-labelledby="narrow"
+        class="lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:w-72 lg:shrink-0 lg:self-start lg:overflow-y-auto"
+      >
+        <div class="flex flex-wrap items-baseline justify-between gap-3">
+          <h2 id="narrow" class="text-lg font-bold">
+            {text.narrowDown}
+          </h2>
+          <button type="reset" class="inline-flex min-h-(--spacing-target) items-center text-meta text-brand-strong underline">
+            {text.clearFilters}
+          </button>
+        </div>
+        {facets.map((facet) => (
+          <details class="border-b border-line py-1" open={OPEN.has(facet.name)}>
+            <summary class="flex min-h-(--spacing-target) cursor-pointer items-center gap-2 rounded-md px-2 font-bold hover:bg-brand-tint">
+              {facet.legend}
+            </summary>
+            <fieldset class="pb-2">
+              <legend class="sr-only">{facet.legend}</legend>
+              {facet.options.map((option) => (
+                <label class="flex min-h-(--spacing-target) cursor-pointer items-center gap-3 rounded-md px-2 hover:bg-brand-tint has-checked:bg-brand-tint has-checked:font-bold">
+                  <input type="checkbox" name={facet.name} value={option.value} class="size-5 shrink-0 accent-brand" />
+                  <span class="min-w-0 flex-1">{option.label}</span>
+                  <span class="meta tabular-nums" data-count>
+                    {option.count}
+                  </span>
+                </label>
+              ))}
+            </fieldset>
+          </details>
+        ))}
+      </aside>
 
-  <div class="mt-2 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
-    {facets.map((facet) => (
-      <fieldset>
-        <legend class="meta font-bold tracking-wide uppercase">{facet.legend}</legend>
-        <ul class="mt-1">
-          {facet.options.map((option) => (
-            <li>
-              <label class="flex min-h-(--spacing-target) items-center gap-2">
-                <input type="checkbox" name={facet.name} value={option.value} class="size-5 shrink-0" />
-                <span class="min-w-0 flex-1">{option.label}</span>
-                <span class="meta tabular-nums" data-count>
-                  {option.count}
-                </span>
-              </label>
-            </li>
-          ))}
-        </ul>
-      </fieldset>
-    ))}
-  </div>
-</form>
+      <div class="min-w-0 flex-1">
+        <p id="search-state" class="py-4 text-muted" hidden aria-live="polite" data-state></p>
 
-<p id="search-state" class="border-t border-line py-4 text-muted" hidden aria-live="polite" data-state></p>
+        <section aria-labelledby="results" hidden data-results>
+          <h2 id="results" class="scroll-mt-6 text-2xl font-bold" data-results-heading></h2>
+          <ul class="mt-4" data-results-list></ul>
+        </section>
 
-<section class="border-t border-line py-8" aria-labelledby="results" hidden data-results>
-  <h2 id="results" class="scroll-mt-6 text-2xl font-bold" data-results-heading></h2>
-  <div class="mt-4" data-results-list></div>
-</section>
-
-<section class="border-t border-line py-8" aria-labelledby="everything" data-everything>
-  <h2 id="everything" class="scroll-mt-6 text-2xl font-bold">
-    {text.everythingHere}
-  </h2>
-  <p class="meta mt-1">{counted(listed.length, text.record)}</p>
-  <noscript>
-    <p class="mt-3 max-w-3xl text-muted">{text.searchNeedsScript}</p>
-  </noscript>
-  <div class="mt-4">
-    {listed.map(({ resource, from, inherited }) => (
-      <ResourceRow resource={resource} language={language} recordedIn={from} inherited={inherited} />
-    ))}
-  </div>
-</section>
+        <section aria-labelledby="everything" data-everything>
+          <h2 id="everything" class="scroll-mt-6 text-2xl font-bold">
+            {text.everythingHere}
+          </h2>
+          <p class="meta mt-1">{counted(listed.length, text.record)}</p>
+          <noscript>
+            <p class="mt-3 max-w-3xl text-muted">{text.searchNeedsScript}</p>
+          </noscript>
+          <ul class="mt-4">
+            {listed.map(({ resource, from }) => (
+              <ResourceCard resource={resource} recordedIn={from} language={language} compact />
+            ))}
+          </ul>
+        </section>
+      </div>
+    </div>
+  </form>
+</div>
 
 {/* The markup of a result, and each kind's icon, rendered here so the client never has to invent either. */}
 <template data-result>
-  <article class="border-t border-line py-5 first:border-t-0">
+  <li class="result-row relative flex min-w-0 flex-col border-b border-line py-5 hyphens-auto [overflow-wrap:anywhere]">
     <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
-      <h3 class="text-lg font-bold">
-        <a data-result-link class="inline-flex min-h-(--spacing-target) items-center"></a>
-      </h3>
       <span class="tag tag-kind" data-result-kind></span>
       <span class="tag tag-status" data-result-status></span>
     </div>
-    <p class="meta mt-1">
-      <span data-result-operator></span> · <span data-result-territory></span>
+    <h3 class="mt-3 text-lg leading-snug font-bold">
+      <a
+        data-result-link
+        class="text-brand-strong underline decoration-1 underline-offset-3 after:absolute after:inset-0 hover:decoration-2"
+      ></a>
+    </h3>
+    <p class="mt-3" data-result-excerpt></p>
+    <p class="meta mt-3 flex flex-wrap items-start gap-x-4 gap-y-1">
+      <span class="inline-flex items-start gap-1.5">
+        <span class="mt-0.5 inline-flex size-4 shrink-0" data-result-territory-icon></span>
+        <span data-result-territory></span>
+      </span>
+      <span class="inline-flex min-w-0 items-start gap-1.5">
+        <span class="mt-0.5 inline-flex size-4 shrink-0" data-result-operator-icon></span>
+        <span data-result-operator></span>
+      </span>
     </p>
-    <p class="mt-2 max-w-3xl" data-result-excerpt></p>
-  </article>
+  </li>
+</template>
+{/* The two icons a result carries, rendered once here so the client can clone them into each row. */}
+<template data-icon-for="__territory">
+  <Icon name={ICON.territory} aria-hidden="true" class="size-4" />
+</template>
+<template data-icon-for="__operator">
+  <Icon name={ICON.operator} aria-hidden="true" class="size-4" />
 </template>
 {kinds.map((kind) => (
   <template data-icon-for={kind}>
@@ -152,3 +200,14 @@ const labels = {
 ))}
 
 <script is:inline type="module" src="/search.js" defer></script>
+
+<style>
+  /* The same divided row a listed record uses: the rule belongs to the first result as much as to the
+     rest, except at the top of the list, where it would double the heading's own. */
+  .result-row:first-child {
+    padding-top: 0;
+  }
+  .result-row:focus-within {
+    background: var(--color-brand-tint);
+  }
+</style>

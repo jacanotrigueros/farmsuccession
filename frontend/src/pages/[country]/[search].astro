@@ -43,17 +43,19 @@ const title = text.searchHere.replace("{where}", territory.data.officialName);
 const lead = text.searchScoped.replace("{where}", territory.data.officialName);
 ---
 
-<SiteLayout title={`${title} — ${text.siteName}`} description={lead} language={language} current={`/${iso.toLowerCase()}/`}>
-  <div class="wrap">
-    <SearchView
-      language={language}
-      country={iso}
-      title={title}
-      lead={lead}
-      listed={listed}
-      facets={facetsFor(listed, language, iso)}
-      languages={languages}
-      inherits={["EU"]}
-    />
-  </div>
+<SiteLayout title={`${title} — ${text.siteName}`} description={lead} language={language} current={`/${iso.toLowerCase()}/`} noindex>
+  <SearchView
+    language={language}
+    country={iso}
+    crumbs={[
+      { label: text.europe, href: "/" },
+      { label: territory.data.officialName, href: `/${iso.toLowerCase()}/` },
+    ]}
+    title={title}
+    lead={lead}
+    listed={listed}
+    facets={facetsFor(listed, language, iso)}
+    languages={languages}
+    inherits={["EU"]}
+  />
 </SiteLayout>

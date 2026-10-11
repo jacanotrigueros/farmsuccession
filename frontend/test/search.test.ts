@@ -140,12 +140,22 @@ test("a search page is complete before any search runs", () => {
 
 test("the search field is not shown until it can search", () => {
   for (const route of ["/search/", ...countries.map((country) => searchPath("/", country))]) {
-    const form = /<form[^>]*\bid="search"[^>]*>/u.exec(page(route))?.[0] ?? "";
-    assert.match(
-      form,
-      /\bhidden\b/u,
-      `${route} shows its search field in the markup. A field that cannot search yet answers a reader by doing nothing.`,
-    );
+    const html = page(route);
+    for (const [what, attribute] of [
+      ["field", "data-field"],
+      ["filters", "data-filters"],
+    ] as const) {
+      const block = new RegExp(`<[a-z]+[^>]*\\b${attribute}\\b[^>]*>`, "u").exec(html)?.[0] ?? "";
+      assert.match(
+        block,
+        /\bhidden\b/u,
+        `${route} shows its search ${what} in the markup. A control that cannot do anything yet answers a reader by doing nothing.`,
+      );
+    }
+    // The list itself is the page, and it is never hidden: without the index it is the whole answer.
+    const list = /<section[^>]*\bdata-everything\b[^>]*>/u.exec(html)?.[0] ?? "";
+    assert.ok(list !== "", `${route} does not list what is in scope at all`);
+    assert.doesNotMatch(list, /\bhidden\b/u, `${route} hides the list of what is in scope until a script runs`);
   }
 });
 

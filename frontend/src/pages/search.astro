@@ -30,16 +30,15 @@ const listed: Listed[] = everywhere.flatMap((from) =>
 const languages = [...new Set(everywhere.map((territory) => languageOf(territory)))].toSorted();
 ---
 
-<SiteLayout title={`${text.searchEverywhere} — ${text.siteName}`} description={text.searchWhole} language={language} current="/">
-  <div class="wrap">
-    <SearchView
-      language={language}
-      title={text.searchEverywhere}
-      lead={text.searchWhole}
-      listed={listed}
-      facets={facetsFor(listed, language)}
-      languages={languages}
-      inherits={[]}
-    />
-  </div>
+<SiteLayout title={`${text.searchEverywhere} — ${text.siteName}`} description={text.searchWhole} language={language} current="/" noindex>
+  <SearchView
+    language={language}
+    crumbs={[{ label: text.europe, href: "/" }]}
+    title={text.searchEverywhere}
+    lead={text.searchWhole}
+    listed={listed}
+    facets={facetsFor(listed, language)}
+    languages={languages}
+    inherits={[]}
+  />
 </SiteLayout>

@@ -24,7 +24,7 @@ import {
   regionsOf,
 } from "../lib/corpus.ts";
 import { GOALS } from "../lib/goals.ts";
-import { ICON } from "../lib/icons.ts";
+import { flagOf, ICON } from "../lib/icons.ts";
 import { counted, editionNamed, words } from "../lib/words.ts";
 import { searchUrl } from "../../public/search-scope.js";
 
@@ -38,7 +38,6 @@ const text = words(language);
 const stats = corpusStats();
 
 /** The flag of a country, as a file: a flag emoji is two letters on any system without a glyph for the pair. */
-const flagOf = (code: string): string => `/img/flags/${code.toLowerCase()}.svg`;
 
 /**
  * What a country card counts is what applies inside it — its own records, its groupings', its regions'

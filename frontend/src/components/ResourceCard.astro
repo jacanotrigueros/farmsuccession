@@ -1,0 +1,123 @@
+---
+/**
+ * One record as a reader meets it in a list: what kind of thing it is and whether it is operating, then
+ * what it is called, what it offers, and underneath the three things that make it checkable — where it
+ * applies, who runs it, and when the pages behind it were last read.
+ *
+ * The whole card is the link. The title carries the underline, and an overlay on it covers the card, so a
+ * finger can land anywhere on the box and a screen reader is still read one link with the record's name.
+ *
+ * `compact` drops the box for a divided row — the search results, which are scanned twenty at a time,
+ * where a box is weight a reader does not need. A handful of records on a territory page is a different
+ * job: there the box is what separates one record from the next.
+ *
+ * The state is always printed, even when it is the expected one, because "this exists" and "you can apply
+ * today" are different claims and this project exists to keep them apart.
+ */
+import { Icon } from "astro-icon/components";
+import KindTag from "./KindTag.astro";
+import StatusTag from "./StatusTag.astro";
+import { recordHref, type Resource, type Territory } from "../lib/corpus.ts";
+import { ICON } from "../lib/icons.ts";
+import { dateIn } from "../lib/language.ts";
+import { counted, words } from "../lib/words.ts";
+
+type Props = {
+  resource: Resource;
+  /** The territory whose file recorded it: its address, and the place a reader is told it comes from. */
+  recordedIn: Territory;
+  language: string;
+  level?: "h2" | "h3" | "h4";
+  compact?: boolean;
+};
+const { resource, recordedIn, language, level = "h3", compact = false } = Astro.props;
+const Heading = level;
+const text = words(language);
+
+const place = recordedIn.layer.level === "EU" ? text.europe : recordedIn.data.officialName;
+const consulted = resource.sources
+  .map((source) => source.consultedOn)
+  .toSorted()
+  .at(-1);
+---
+
+<li
+  class:list={[
+    "relative flex min-w-0 flex-col hyphens-auto [overflow-wrap:anywhere]",
+    compact ? "result-row border-b border-line py-5" : "resource-card card card-link p-5",
+  ]}
+  data-kind={resource.kind}
+  data-status={resource.status}
+>
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+    <KindTag kind={resource.kind} language={language} />
+    <StatusTag status={resource.status} language={language} />
+  </div>
+  <Heading data-record class="mt-3 text-lg leading-snug font-bold">
+    <a
+      href={recordHref(resource.id, recordedIn)}
+      class="text-brand-strong underline decoration-1 underline-offset-3 after:absolute after:inset-0 hover:decoration-2"
+    >
+      {resource.name}
+    </a>
+  </Heading>
+  <p class:list={["mt-3", compact ? "line-clamp-2" : "line-clamp-3"]}>{resource.whatItOffers}</p>
+  {compact ? (
+    <p class="meta mt-3 flex flex-wrap items-start gap-x-4 gap-y-1">
+      <span class="inline-flex items-start gap-1.5">
+        <Icon name={ICON.territory} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
+        <span>{place}</span>
+      </span>
+      <span class="inline-flex min-w-0 items-start gap-1.5">
+        <Icon name={ICON.operator} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
+        <span>{resource.operator}</span>
+      </span>
+    </p>
+  ) : (
+    <div class="mt-5 border-t border-line pt-3">
+      <p class="meta flex items-start gap-1.5">
+        <Icon name={ICON.territory} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
+        <span>{place}</span>
+      </p>
+      <p class="meta mt-1 flex items-start gap-1.5">
+        <Icon name={ICON.operator} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
+        <span>{resource.operator}</span>
+      </p>
+      <p class="meta mt-1 flex items-start gap-1.5">
+        <Icon name={ICON.evidence} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
+        <span>
+          {counted(resource.sources.length, text.source)}
+          {consulted && (
+            <>
+              {", "}
+              {text.readOn} <time datetime={consulted}>{dateIn(consulted, language)}</time>
+            </>
+          )}
+        </span>
+      </p>
+    </div>
+  )}
+</li>
+
+<style>
+  /* The kind's own colour, as a line along the top of its card: a list of twenty is scannable by colour
+     before it is read, and the colour is the one the kind's tag already uses. */
+  .resource-card {
+    border-top: 3px solid var(--color-brand-tint);
+  }
+  .resource-card:focus-within {
+    border-color: var(--color-brand);
+  }
+  /* Inside a card the kind reads as the card's own label rather than as a pill on top of a pill. */
+  .resource-card :global(.tag-kind) {
+    background: transparent;
+    padding-inline: 0;
+    --tw-ring-color: transparent;
+  }
+  .result-row:first-child {
+    padding-top: 0;
+  }
+  .result-row:focus-within {
+    background: var(--color-brand-tint);
+  }
+</style>
