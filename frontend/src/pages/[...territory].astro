@@ -14,11 +14,13 @@
  * came from is printed on the record, because it is the difference between a national scheme and a
  * municipal one, and because it tells them which page to watch for changes.
  */
+import { Icon } from "astro-icon/components";
 import DraftNotice from "../components/DraftNotice.astro";
 import Needs from "../components/Needs.astro";
 import SearchBox from "../components/SearchBox.astro";
 import ResourceRow from "../components/ResourceRow.astro";
-import TerritoryLayout from "../layouts/TerritoryLayout.astro";
+import PageIndex from "../components/PageIndex.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
 import {
   countryTerritories,
   currentEdition,
@@ -31,6 +33,7 @@ import {
   view,
 } from "../lib/corpus.ts";
 import { GOALS, goalOf } from "../lib/goals.ts";
+import { ICON } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
 import { counted, editionNamed, situation, words } from "../lib/words.ts";
 import { queryFromState, searchPath } from "../../public/search-scope.js";
@@ -57,11 +60,29 @@ const children =
       : [];
 const groupings = territory.layer.level === "COUNTRY" ? hubTerritories().filter(({ layer }) => layer.country === country) : [];
 
-/** Only the situations this territory can actually answer: a heading with nothing under it answers nobody. */
-const answered = GOALS.map((goal) => ({
-  goal,
-  found: resources.filter(({ resource }) => goalOf(resource.kind) === goal.id),
-})).filter(({ found }) => found.length > 0);
+/**
+ * Only the situations this territory can actually answer: a heading with nothing under it answers nobody.
+ *
+ * Inside each one the records are grouped by the layer that recorded them, closest first — this territory,
+ * then the country, then Europe — because "this is ours" and "this applies in the whole country" are
+ * different answers to the same question, and the second one travels with the reader.
+ */
+const closestFirst = [...layers].toReversed();
+const answered = GOALS.map((goal) => {
+  const found = resources.filter(({ resource }) => goalOf(resource.kind) === goal.id);
+  return {
+    goal,
+    found,
+    groups: closestFirst
+      .map((layer) => ({
+        from: layer,
+        inherited: layer !== territory,
+        name: layer.layer.level === "EU" ? text.europe : layer.data.officialName,
+        items: found.filter(({ from }) => from === layer).map(({ resource }) => resource),
+      }))
+      .filter(({ items }) => items.length > 0),
+  };
+}).filter(({ found }) => found.length > 0);
 
 const sections = [
   ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle, count: children.length }] : []),
@@ -73,6 +94,22 @@ const sections = [
 const trail = layers.slice(0, -1);
 
 /**
+ * What this territory holds, counted from what the page is about to show rather than from the file: a
+ * reader gets everything that applies here, so that is what the figures are about. The territories line
+ * only appears where there are any, because "0 territories" is noise on a region.
+ */
+const applicable = resources.map(({ resource }) => resource);
+const figures = [
+  { icon: ICON.resources, value: applicable.length, label: counted(applicable.length, text.statApplicable) },
+  ...(children.length > 0 ? [{ icon: ICON.territory, value: children.length, label: counted(children.length, text.statTerritories) }] : []),
+  {
+    icon: ICON.sources,
+    value: new Set(applicable.flatMap(({ sources }) => sources.map(({ url }) => url))).size,
+    label: counted(new Set(applicable.flatMap(({ sources }) => sources.map(({ url }) => url))).size, text.statSources),
+  },
+];
+
+/**
  * Searching from a territory searches its country, with this territory already chosen — never the European
  * search, which would show a reader schemes that do not apply where they are. A country searches itself.
  */
@@ -80,125 +117,154 @@ const pinned = territory.layer.level === "REGION" ? [{ name: "territory", value:
 const pinnedQuery = queryFromState({ selected: Object.fromEntries(pinned.map((f) => [f.name, [f.value]])) }, country || undefined);
 ---
 
-<TerritoryLayout
-  title={`${territory.data.officialName} — ${text.siteName}`}
+<SiteLayout
+  title={`${text.territoryTitle.replace("{where}", territory.data.officialName)} · ${text.siteName}`}
   description={territory.data.summary}
   language={language}
   current={href(territory.layer)}
-  sections={sections}
 >
-  <header class="py-10">
-    <nav aria-label={text.whereYouAre} class="text-meta text-muted">
-      <ol class="flex flex-wrap gap-x-2">
-        {trail.map((above) => (
-          <li>
-            <a href={href(above.layer)} class="inline-flex min-h-(--spacing-target) items-center">
-              {above.layer.level === "EU" ? text.europe : above.data.officialName}
-            </a>
-            <span aria-hidden="true"> ›</span>
+  <div class="wrap">
+    <header class="py-10">
+      <nav aria-label={text.whereYouAre} class="text-meta text-muted">
+        <ol class="flex flex-wrap items-center gap-x-2">
+          {trail.map((above) => (
+            <li>
+              <a href={href(above.layer)} class="inline-flex min-h-(--spacing-target) items-center">
+                {above.layer.level === "EU" ? text.europe : above.data.officialName}
+              </a>
+              <span aria-hidden="true"> ›</span>
+            </li>
+          ))}
+          <li aria-current="page" class="inline-flex min-h-(--spacing-target) items-center font-semibold text-ink">
+            {territory.data.officialName}
           </li>
-        ))}
-        <li aria-current="page">{territory.data.officialName}</li>
-      </ol>
-    </nav>
-    <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{territory.data.officialName}</h1>
-    <p class="mt-4 max-w-3xl text-lg">{territory.data.summary}</p>
+        </ol>
+      </nav>
+      <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{territory.data.officialName}</h1>
+      <p class="mt-4 max-w-3xl text-lg">{territory.data.summary}</p>
 
-    <div class="mt-8">
-      <SearchBox
-        action={searchPath("/", country || undefined)}
-        id="here"
-        label={text.searchHereLabel.replace("{where}", territory.data.officialName)}
-        button={text.searchAction}
-        pinned={pinned}
-      />
-      <a
-        href={searchPath("/", country || undefined) + pinnedQuery}
-        class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
-      >
-        {text.browseAll.replace("{where}", territory.data.officialName)}
-      </a>
-    </div>
-  </header>
-
-  {isDraft(territory) && (
-    <div class="pb-8">
-      <DraftNotice language={language} />
-    </div>
-  )}
-
-  <section class="border-t border-line py-8" aria-labelledby="needs">
-    <Needs resources={resources.map(({ resource }) => resource)} language={language} hrefFor={(goal) => `#${goal}`} />
-    <p class="meta mt-6 max-w-3xl">{text.inheritedFromAbove}</p>
-  </section>
-
-  {(children.length > 0 || groupings.length > 0) && (
-    <section class="border-t border-line py-8" aria-labelledby="territories">
-      <h2 id="territories" class="scroll-mt-6 text-2xl font-bold">
-        {text.territoriesTitle}
-      </h2>
-      {groupings.length > 0 && (
-        <>
-          <h3 class="mt-4 text-meta font-semibold tracking-wide text-muted uppercase">{text.sharedLayers}</h3>
-          <ul class="mt-2 flex flex-wrap gap-x-5">
-            {groupings.map((grouping) => (
-              <li>
-                <a href={href(grouping.layer)} class="flex min-h-(--spacing-target) items-center">
-                  {grouping.data.officialName}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-      <ul class="mt-4 grid gap-x-6 sm:grid-cols-2">
-        {children.map((child) => (
-          <li class="border-t border-line">
-            <a href={href(child.layer)} class="flex min-h-(--spacing-target) items-center justify-between gap-3 no-underline">
-              <span class="text-ink">{child.data.officialName}</span>
-              <span class="text-meta text-muted">{child.data.resources.length}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )}
-
-  {answered.map(({ goal, found }) => (
-    <section class="border-t border-line py-8" aria-labelledby={goal.id}>
-      <h2 id={goal.id} class="scroll-mt-6 text-2xl font-bold">
-        {situation(goal.id, language).title}
-      </h2>
-      <p class="mt-1 max-w-3xl text-muted">{situation(goal.id, language).hint}</p>
-      <div class="mt-4">
-        {found.map(({ resource, from, inherited }) => (
-          <ResourceRow resource={resource} language={language} recordedIn={from} inherited={inherited} />
-        ))}
+      <div class="mt-8">
+        <SearchBox
+          action={searchPath("/", country || undefined)}
+          id="here"
+          label={text.searchHereLabel.replace("{where}", territory.data.officialName)}
+          button={text.searchAction}
+          examples={text.searchExamples}
+          pinned={pinned}
+        />
+        <a
+          href={searchPath("/", country || undefined) + pinnedQuery}
+          class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
+        >
+          {text.browseAll.replace("{where}", territory.data.officialName)}
+        </a>
       </div>
-    </section>
-  ))}
 
-  {territory.data.limitations.length > 0 && (
-    <section class="border-t border-line py-8" aria-labelledby="limits">
-      <h2 id="limits" class="scroll-mt-6 text-2xl font-bold">
-        {text.limits}
-      </h2>
-      <ul class="mt-3 max-w-3xl list-disc space-y-2 ps-5">
-        {territory.data.limitations.map((limitation) => (
-          <li>{limitation}</li>
+      <div class="mt-8 rounded-lg bg-page p-5">
+        <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3" aria-label={text.statsLabel}>
+          {figures.map((figure) => (
+            <li class="flex items-center gap-3">
+              <Icon name={figure.icon} aria-hidden="true" class="size-5 shrink-0 text-brand" />
+              <p>
+                <span class="block text-2xl font-bold text-brand tabular-nums">{figure.value}</span>
+                <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </header>
+
+    {isDraft(territory) && (
+      <div class="pb-8">
+        <DraftNotice language={language} />
+      </div>
+    )}
+  </div>
+
+  <PageIndex sections={sections} language={language} />
+
+  <div class="wrap">
+    <section class="border-t border-line py-8" aria-labelledby="needs">
+      <Needs resources={resources.map(({ resource }) => resource)} language={language} hrefFor={(goal) => `#${goal}`} />
+      <p class="meta mt-6 max-w-3xl">{text.inheritedFromAbove}</p>
+    </section>
+
+    {(children.length > 0 || groupings.length > 0) && (
+      <section class="border-t border-line py-8" aria-labelledby="territories">
+        <h2 id="territories" class="scroll-mt-6 text-2xl font-bold">
+          {text.territoriesTitle}
+        </h2>
+        {groupings.length > 0 && (
+          <>
+            <h3 class="mt-4 text-meta font-semibold tracking-wide text-muted uppercase">{text.sharedLayers}</h3>
+            <ul class="mt-2 flex flex-wrap gap-x-5">
+              {groupings.map((grouping) => (
+                <li>
+                  <a href={href(grouping.layer)} class="flex min-h-(--spacing-target) items-center">
+                    {grouping.data.officialName}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+        <ul class="mt-4 grid gap-x-6 sm:grid-cols-2">
+          {children.map((child) => (
+            <li class="border-t border-line">
+              <a href={href(child.layer)} class="flex min-h-(--spacing-target) items-center justify-between gap-3 no-underline">
+                <span class="text-ink">{child.data.officialName}</span>
+                <span class="text-meta text-muted">{child.data.resources.length}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {answered.map(({ goal, groups }) => (
+      <section class="border-t border-line py-8" aria-labelledby={goal.id}>
+        <h2 id={goal.id} class="scroll-mt-6 text-2xl font-bold">
+          {situation(goal.id, language).title}
+        </h2>
+        <p class="mt-1 max-w-3xl text-muted">{situation(goal.id, language).hint}</p>
+        {groups.map(({ from, inherited, name, items }) => (
+          <div class="mt-4">
+            <h3 class="text-meta font-semibold tracking-wide text-muted uppercase">
+              {inherited ? `${text.inherited} ${name}` : text.ownRecords.replace("{where}", name)}
+            </h3>
+            <div class="mt-1">
+              {items.map((resource) => (
+                <ResourceRow resource={resource} language={language} recordedIn={from} titleAs="h4" />
+              ))}
+            </div>
+          </div>
         ))}
-      </ul>
-    </section>
-  )}
+      </section>
+    ))}
 
-  <section class="border-t border-line py-8" aria-labelledby="coverage">
-    <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
-      {text.coverageNote}
-    </h2>
-    <p class="mt-2 max-w-3xl text-muted">{territory.data.coverage.note}</p>
-    <p class="mt-6 text-meta text-muted">
-      {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
-      <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
-    </p>
-  </section>
-</TerritoryLayout>
+    {territory.data.limitations.length > 0 && (
+      <section class="border-t border-line py-8" aria-labelledby="limits">
+        <h2 id="limits" class="scroll-mt-6 text-2xl font-bold">
+          {text.limits}
+        </h2>
+        <ul class="mt-3 max-w-3xl list-disc space-y-2 ps-5">
+          {territory.data.limitations.map((limitation) => (
+            <li>{limitation}</li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section class="border-t border-line py-8" aria-labelledby="coverage">
+      <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
+        {text.coverageNote}
+      </h2>
+      <p class="mt-2 max-w-3xl text-muted">{territory.data.coverage.note}</p>
+      <p class="mt-6 text-meta text-muted">
+        {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
+        <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
+      </p>
+    </section>
+  </div>
+</SiteLayout>

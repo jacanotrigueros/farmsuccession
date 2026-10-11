@@ -4,8 +4,8 @@
  * searching.
  *
  * The territory control is a `<details>`, which the browser opens and closes on its own — no script, and
- * it still works with none. The flag beside each name is a pair of regional indicator letters rather than
- * an image, so it costs nothing to fetch and renders in the reader's own system font.
+ * it still works with none. The flag beside each name is a file of this site's own, because the emoji it
+ * used to be is a pair of letters on any system without a glyph for the pair, which is most of them.
  *
  * The search button leads to the search page of the territory the reader is on: written in the same
  * language as the page they came from, and complete before anything is typed.
@@ -20,8 +20,8 @@ type Props = { current?: string; language: string };
 const { current = "/", language } = Astro.props;
 const text = words(language);
 
-/** Two regional indicator letters. The European Union is not an ISO country, and still has a flag. */
-const flagOf = (code: string): string => String.fromCodePoint(...[...code.toUpperCase()].map((letter) => 0x1f1a5 + letter.charCodeAt(0)));
+/** The flag of a country, as a file: a flag emoji is two letters on any system without a glyph for the pair. */
+const flagOf = (code: string): string => `/img/flags/${code.toLowerCase()}.svg`;
 
 const europe = euTerritory();
 /** The country a page belongs to, which is also the scope its search button leads to. */
@@ -53,9 +53,7 @@ const here = places.filter((place) => current.startsWith(place.href)).toSorted((
         <details class="territory-picker relative">
           <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center justify-between gap-2 rounded-lg border border-line-strong bg-card px-3 font-bold text-brand-strong hover:border-brand">
             <span class="flex min-w-0 items-center gap-2">
-              <span aria-hidden="true" class="text-lg leading-none">
-                {here?.flag}
-              </span>
+              <img src={here?.flag} alt="" width="24" height="18" class="h-4.5 w-6 shrink-0 rounded-xs border border-line object-cover" />
               <span class="min-w-0 truncate">{here?.label}</span>
             </span>
             <Icon name="lucide:chevron-down" aria-hidden="true" class="territory-chevron size-4 shrink-0" />
@@ -69,9 +67,13 @@ const here = places.filter((place) => current.startsWith(place.href)).toSorted((
                   class="flex min-h-(--spacing-target) items-center justify-between gap-3 rounded-lg px-3 font-bold text-ink no-underline hover:bg-brand-tint aria-[current]:bg-brand-tint aria-[current]:text-brand-strong"
                 >
                   <span class="flex items-center gap-2">
-                    <span aria-hidden="true" class="text-lg leading-none">
-                      {place.flag}
-                    </span>
+                    <img
+                      src={place.flag}
+                      alt=""
+                      width="24"
+                      height="18"
+                      class="h-4.5 w-6 shrink-0 rounded-xs border border-line object-cover"
+                    />
                     {place.label}
                   </span>
                   {place.href === here?.href && <Icon name="lucide:check" aria-hidden="true" class="size-4 shrink-0" />}

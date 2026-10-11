@@ -40,6 +40,18 @@ export const REGION_SLUGS = { ES: "regiones", FR: "regions", IT: "regioni", PT: 
 export const regionSlug = (country) => REGION_SLUGS[country] ?? "regions";
 
 /**
+ * The segment a country's records live under, in that country's own language. A record is published once,
+ * under the country that recorded it, so an id only has to be unique inside one country and the address
+ * says whose the record is.
+ *
+ * @type {Record<string, string>}
+ */
+export const RECORD_SLUGS = { ES: "recursos", FR: "ressources", IT: "risorse", PT: "recursos", DE: "angebote" };
+
+/** @param {string} country */
+export const recordSlug = (country) => RECORD_SLUGS[country] ?? "resources";
+
+/**
  * The facets a reader can choose from, as the schema's own codes. Country is not one of them inside a
  * country: there the route already fixed it, and offering it would be offering to leave.
  */

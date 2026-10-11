@@ -4,6 +4,7 @@ import path from "node:path";
 import { test } from "node:test";
 
 import {
+  recordSlug,
   effectiveFilters,
   facetsOf,
   queryFromState,
@@ -102,11 +103,15 @@ test("a territory sends a reader to its own country's search, with itself alread
   }
 });
 
+/** The address of a record, which is under the country that recorded it. */
+const recordHref = (resource: { id: string }, snapshot: { country?: string }): string =>
+  snapshot.country ? `/${snapshot.country.toLowerCase()}/${recordSlug(snapshot.country)}/${resource.id}/` : `/resources/${resource.id}/`;
+
 test("a search page is complete before any search runs", () => {
   const european = page("/search/");
   for (const snapshot of all) {
     for (const resource of snapshot.resources) {
-      assert.ok(european.includes(`/resources/${resource.id}/`), `the European search page does not list ${resource.id}`);
+      assert.ok(european.includes(recordHref(resource, snapshot)), `the European search page does not list ${resource.id}`);
     }
   }
 
@@ -116,7 +121,7 @@ test("a search page is complete before any search runs", () => {
     for (const snapshot of inside) {
       for (const resource of snapshot.resources) {
         assert.ok(
-          html.includes(`/resources/${resource.id}/`),
+          html.includes(recordHref(resource, snapshot)),
           `the ${country} search page does not list ${resource.id}. Without the index this list is the whole answer.`,
         );
       }
@@ -125,7 +130,7 @@ test("a search page is complete before any search runs", () => {
     for (const snapshot of elsewhere) {
       for (const resource of snapshot.resources) {
         assert.ok(
-          !html.includes(`/resources/${resource.id}/`),
+          !html.includes(recordHref(resource, snapshot)),
           `the ${country} search page lists ${resource.id}, which does not apply there`,
         );
       }

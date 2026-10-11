@@ -28,6 +28,80 @@ const countedVocabulary =
   (key: Key, howMany: number, language: string): string =>
     tables[asLanguage(language)][key][howMany === 1 ? 0 : 1];
 
+/**
+ * What each kind is, in one line: the label alone says "Rules 3", which tells nobody what a rule is doing
+ * in a list of things to apply for. Shown where kinds are listed rather than beside every record, because
+ * a reader who has opened a record is past needing the category explained.
+ */
+export const kindBlurb = vocabulary<Resource["kind"]>({
+  en: {
+    FINANCIAL_SUPPORT: "Grants, premiums and loans to set up, invest or take over a holding.",
+    LAND_BANK: "Land banks and exchanges that match available land with people looking for it.",
+    SUCCESSION_SERVICE: "Services that pair someone handing over a holding with someone who wants to continue it.",
+    TRAINING: "Courses and schools for the qualifications many aids require.",
+    ADVICE: "Support to plan a handover, a start in farming or its management.",
+    NETWORK: "Networks and territorial agreements that connect the people involved in succession.",
+    POLICY: "Public rules and strategies that frame generational renewal.",
+    OFFICIAL_PORTAL: "Official portals that gather information and procedures.",
+    OTHER: "Other resources related to farm succession.",
+  },
+  es: {
+    FINANCIAL_SUPPORT: "Ayudas, primas y préstamos para instalarse, invertir o hacerse cargo de una explotación.",
+    LAND_BANK: "Bancos y bolsas que ponen en contacto tierras disponibles con quien busca dónde cultivar.",
+    SUCCESSION_SERVICE: "Servicios que emparejan a quien cede una explotación con quien quiere continuarla.",
+    TRAINING: "Cursos y escuelas para obtener la capacitación que exigen muchas ayudas.",
+    ADVICE: "Acompañamiento para planificar el traspaso, la instalación o la gestión.",
+    NETWORK: "Redes y pactos territoriales que conectan a quienes intervienen en el relevo.",
+    POLICY: "Normas y estrategias públicas que enmarcan el relevo generacional.",
+    OFFICIAL_PORTAL: "Portales oficiales que reúnen información y trámites.",
+    OTHER: "Otros recursos relacionados con el relevo agrario.",
+  },
+  de: {
+    FINANCIAL_SUPPORT: "Zuschüsse, Prämien und Darlehen für Gründung, Investition oder Übernahme eines Betriebs.",
+    LAND_BANK: "Flächenbörsen, die verfügbare Flächen und Suchende zusammenbringen.",
+    SUCCESSION_SERVICE: "Dienste, die Abgebende und Übernehmende von Höfen zusammenbringen.",
+    TRAINING: "Kurse und Schulen für die Qualifikation, die viele Förderungen verlangen.",
+    ADVICE: "Begleitung bei der Planung von Übergabe, Gründung oder Betriebsführung.",
+    NETWORK: "Netzwerke und regionale Bündnisse, die die Beteiligten der Hofnachfolge verbinden.",
+    POLICY: "Öffentliche Regeln und Strategien für den Generationswechsel.",
+    OFFICIAL_PORTAL: "Offizielle Portale mit Informationen und Verfahren.",
+    OTHER: "Weitere Angebote rund um die Hofnachfolge.",
+  },
+  fr: {
+    FINANCIAL_SUPPORT: "Aides, primes et prêts pour s’installer, investir ou reprendre une exploitation.",
+    LAND_BANK: "Banques et bourses qui mettent en relation des terres disponibles et ceux qui en cherchent.",
+    SUCCESSION_SERVICE: "Services qui mettent en relation cédants et repreneurs d’exploitations.",
+    TRAINING: "Cours et écoles pour obtenir la capacité exigée par de nombreuses aides.",
+    ADVICE: "Accompagnement pour préparer la transmission, l’installation ou la gestion.",
+    NETWORK: "Réseaux et pactes territoriaux qui relient les acteurs de la transmission.",
+    POLICY: "Règles et stratégies publiques qui encadrent le renouvellement des générations.",
+    OFFICIAL_PORTAL: "Portails officiels qui rassemblent informations et démarches.",
+    OTHER: "Autres ressources liées à la transmission agricole.",
+  },
+  it: {
+    FINANCIAL_SUPPORT: "Aiuti, premi e prestiti per insediarsi, investire o rilevare un’azienda.",
+    LAND_BANK: "Banche e borse che mettono in contatto terreni disponibili con chi li cerca.",
+    SUCCESSION_SERVICE: "Servizi che mettono in contatto chi cede un’azienda con chi vuole continuarla.",
+    TRAINING: "Corsi e scuole per ottenere la qualifica richiesta da molti aiuti.",
+    ADVICE: "Accompagnamento per pianificare la cessione, l’insediamento o la gestione.",
+    NETWORK: "Reti e patti territoriali che collegano i protagonisti del ricambio.",
+    POLICY: "Norme e strategie pubbliche che inquadrano il ricambio generazionale.",
+    OFFICIAL_PORTAL: "Portali ufficiali che raccolgono informazioni e procedure.",
+    OTHER: "Altre risorse legate al ricambio generazionale agricolo.",
+  },
+  pt: {
+    FINANCIAL_SUPPORT: "Apoios, prémios e empréstimos para se instalar, investir ou assumir uma exploração.",
+    LAND_BANK: "Bolsas que põem em contacto terras disponíveis com quem procura onde cultivar.",
+    SUCCESSION_SERVICE: "Serviços que juntam quem cede uma exploração a quem a quer continuar.",
+    TRAINING: "Cursos e escolas para obter a formação exigida por muitos apoios.",
+    ADVICE: "Acompanhamento para planear a transmissão, a instalação ou a gestão.",
+    NETWORK: "Redes e pactos territoriais que ligam os intervenientes na sucessão.",
+    POLICY: "Normas e estratégias públicas que enquadram a renovação geracional.",
+    OFFICIAL_PORTAL: "Portais oficiais que reúnem informação e procedimentos.",
+    OTHER: "Outros recursos relacionados com a sucessão agrícola.",
+  },
+});
+
 export const kindLabel = vocabulary<Resource["kind"]>({
   en: {
     LAND_BANK: "Land",
@@ -103,46 +177,46 @@ export const kindLabel = vocabulary<Resource["kind"]>({
  */
 export const stateLabel = vocabulary<Resource["status"]>({
   en: {
-    ACTIVE: "operating",
-    ANNOUNCED_NOT_OPERATING: "announced, not operating",
-    HISTORICAL: "closed, kept for the record",
-    DISCONTINUED: "no longer offered",
-    UNKNOWN: "could not be confirmed",
+    ACTIVE: "Operating",
+    ANNOUNCED_NOT_OPERATING: "Announced, not operating",
+    HISTORICAL: "Closed, kept for the record",
+    DISCONTINUED: "No longer offered",
+    UNKNOWN: "Could not be confirmed",
   },
   es: {
-    ACTIVE: "en funcionamiento",
-    ANNOUNCED_NOT_OPERATING: "anunciado, sin funcionar",
-    HISTORICAL: "cerrado, se conserva como registro",
-    DISCONTINUED: "ya no se ofrece",
-    UNKNOWN: "no se pudo confirmar",
+    ACTIVE: "En funcionamiento",
+    ANNOUNCED_NOT_OPERATING: "Anunciado, sin funcionar",
+    HISTORICAL: "Cerrado, se conserva como registro",
+    DISCONTINUED: "Ya no se ofrece",
+    UNKNOWN: "No se pudo confirmar",
   },
   de: {
-    ACTIVE: "in Betrieb",
-    ANNOUNCED_NOT_OPERATING: "angekündigt, nicht in Betrieb",
-    HISTORICAL: "beendet, als Nachweis erhalten",
-    DISCONTINUED: "wird nicht mehr angeboten",
-    UNKNOWN: "nicht bestätigt",
+    ACTIVE: "In Betrieb",
+    ANNOUNCED_NOT_OPERATING: "Angekündigt, nicht in Betrieb",
+    HISTORICAL: "Beendet, als Nachweis erhalten",
+    DISCONTINUED: "Wird nicht mehr angeboten",
+    UNKNOWN: "Nicht bestätigt",
   },
   fr: {
-    ACTIVE: "en service",
-    ANNOUNCED_NOT_OPERATING: "annoncé, pas encore en service",
-    HISTORICAL: "terminé, conservé comme trace",
-    DISCONTINUED: "n’est plus proposé",
-    UNKNOWN: "n’a pas pu être confirmé",
+    ACTIVE: "En service",
+    ANNOUNCED_NOT_OPERATING: "Annoncé, pas encore en service",
+    HISTORICAL: "Terminé, conservé comme trace",
+    DISCONTINUED: "N’est plus proposé",
+    UNKNOWN: "N’a pas pu être confirmé",
   },
   it: {
-    ACTIVE: "in funzione",
-    ANNOUNCED_NOT_OPERATING: "annunciato, non in funzione",
-    HISTORICAL: "concluso, conservato come traccia",
-    DISCONTINUED: "non è più offerto",
-    UNKNOWN: "non è stato possibile confermarlo",
+    ACTIVE: "In funzione",
+    ANNOUNCED_NOT_OPERATING: "Annunciato, non in funzione",
+    HISTORICAL: "Concluso, conservato come traccia",
+    DISCONTINUED: "Non è più offerto",
+    UNKNOWN: "Non è stato possibile confermarlo",
   },
   pt: {
-    ACTIVE: "em funcionamento",
-    ANNOUNCED_NOT_OPERATING: "anunciado, sem funcionar",
-    HISTORICAL: "terminado, guardado como registo",
-    DISCONTINUED: "já não é oferecido",
-    UNKNOWN: "não foi possível confirmar",
+    ACTIVE: "Em funcionamento",
+    ANNOUNCED_NOT_OPERATING: "Anunciado, sem funcionar",
+    HISTORICAL: "Terminado, guardado como registo",
+    DISCONTINUED: "Já não é oferecido",
+    UNKNOWN: "Não foi possível confirmar",
   },
 });
 

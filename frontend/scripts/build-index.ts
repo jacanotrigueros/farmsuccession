@@ -28,16 +28,25 @@ const OUT = path.join(DIST, "pagefind");
  */
 const UNUSED = /^pagefind-(ui|component-ui|modular-ui)\.(js|css)$|^pagefind-highlight\.js$/u;
 
-/** Every built record page, with the language it declares and the country it was filed under. */
-function recordPages(dir = path.join(DIST, "resources")): { url: string; html: string; language: string; country: string }[] {
+/**
+ * Every built record page, with the language it declares and the country it was filed under.
+ *
+ * A record page is one that declares itself the body of a search result — `data-pagefind-body` — and not
+ * one that happens to sit in a particular folder. Records live under the country that recorded them, so
+ * there is no one folder to look in, and asking the page what it is was always the better question.
+ */
+function recordPages(dir = DIST): { url: string; html: string; language: string; country: string }[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    if (!entry.isDirectory()) return [];
-    const file = path.join(dir, entry.name, "index.html");
-    const html = readFileSync(file, "utf8");
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) return recordPages(full);
+    if (entry.name !== "index.html") return [];
+    const html = readFileSync(full, "utf8");
+    if (!html.includes("data-pagefind-body")) return [];
+    const url = `/${path.relative(DIST, dir).split(path.sep).join("/")}/`;
     const language = /<html[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const country = /data-pagefind-filter="country:([^"]+)"/u.exec(html)?.[1] ?? "";
-    if (!language || !country) throw new Error(`${entry.name} has no language or no country: the index could not say where it belongs`);
-    return [{ url: `/resources/${entry.name}/`, html, language, country }];
+    if (!language || !country) throw new Error(`${url} has no language or no country: the index could not say where it belongs`);
+    return [{ url, html, language, country }];
   });
 }
 

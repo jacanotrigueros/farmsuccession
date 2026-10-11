@@ -37,8 +37,8 @@ const language = languageOf(europe);
 const text = words(language);
 const stats = corpusStats();
 
-/** A flag is two regional indicator letters, so a country never needs an image to be recognised. */
-const flagOf = (code: string): string => String.fromCodePoint(...[...code.toUpperCase()].map((letter) => 0x1f1a5 + letter.charCodeAt(0)));
+/** The flag of a country, as a file: a flag emoji is two letters on any system without a glyph for the pair. */
+const flagOf = (code: string): string => `/img/flags/${code.toLowerCase()}.svg`;
 
 /**
  * What a country card counts is what applies inside it — its own records, its groupings', its regions'
@@ -95,7 +95,13 @@ const trust = [
       <p class="mt-4 max-w-3xl text-lg text-muted">{text.lead}</p>
 
       <div class="mt-8 max-w-3xl">
-        <SearchBox action={searchUrl("/")} id="home-q" label={text.searchAcrossEurope} button={text.searchAction} />
+        <SearchBox
+          action={searchUrl("/")}
+          id="home-q"
+          label={text.searchAcrossEurope}
+          button={text.searchAction}
+          examples={text.searchExamples}
+        />
         <a href={searchUrl("/")} class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
           {text.browseAcrossEurope}
         </a>
@@ -121,6 +127,12 @@ const trust = [
             </li>
           ))}
         </ul>
+        {/* The note belongs with the figures it qualifies: this is how much there is, and this is how
+            much of it a person has been over. */}
+        <p class="meta mt-3 flex items-start gap-2">
+          <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
+          <span>{editionNote}</span>
+        </p>
       </div>
     </div>
   </section>
@@ -139,9 +151,7 @@ const trust = [
         {countries.map((country) => (
           <li>
             <a href={country.href} class="card card-link flex min-h-full items-center gap-3 p-5 no-underline">
-              <span aria-hidden="true" class="text-3xl leading-none">
-                {country.flag}
-              </span>
+              <img src={country.flag} alt="" width="36" height="27" class="h-7 w-9 shrink-0 rounded-xs border border-line object-cover" />
               <span class="flex min-w-0 flex-1 flex-col">
                 <span class="text-lg font-bold text-ink">{country.name}</span>
                 <span class="meta">
@@ -167,11 +177,4 @@ const trust = [
       />
     </div>
   </section>
-
-  <div class="wrap py-8">
-    <p class="meta flex items-start gap-2">
-      <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
-      <span>{editionNote}</span>
-    </p>
-  </div>
 </SiteLayout>

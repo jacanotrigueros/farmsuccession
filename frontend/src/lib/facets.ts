@@ -38,11 +38,14 @@ const countryOf = (entry: Listed): string => (entry.from.layer.level === "EU" ? 
 export function facetsFor(listed: readonly Listed[], language: string, country?: string): Facet[] {
   const text = words(language);
 
-  /** The name of each region, from the catalogue, so a facet never shows a slug. */
+  /**
+   * The name of each region, from the catalogue rather than from the records: a territory that documents
+   * nothing of its own still appears here, because what the layers above it record applies there too, and
+   * it is exactly the one whose name no record could have supplied.
+   */
   const regionNames = new Map<string, string>();
-  for (const entry of listed) {
-    if (entry.from.layer.level === "REGION")
-      regionNames.set(`${entry.from.layer.country}/${entry.from.layer.region}`, entry.from.data.officialName);
+  for (const [iso, jurisdiction] of Object.entries(territories.jurisdictions)) {
+    for (const region of jurisdiction.regions) regionNames.set(`${iso}/${region.slug}`, region.name);
   }
 
   const facets: Facet[] = [
@@ -88,9 +91,7 @@ export function facetsFor(listed: readonly Listed[], language: string, country?:
     facets.push({
       name: "territory",
       legend: text.territoryFacet,
-      options: tally(listed, reachOf, (value) => regionNames.get(value) ?? value.split("/")[1] ?? value).filter(({ value }) =>
-        value.startsWith(`${country}/`),
-      ),
+      options: tally(listed, reachOf, (value) => regionNames.get(value) ?? value).filter(({ value }) => value.startsWith(`${country}/`)),
     });
   } else {
     facets.push({

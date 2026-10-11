@@ -3,7 +3,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
-import { regionSlug, SEARCH_SLUGS } from "../public/search-scope.js";
+import { recordSlug, regionSlug, SEARCH_SLUGS } from "../public/search-scope.js";
 import { words } from "../src/lib/words.ts";
 
 /**
@@ -188,7 +188,7 @@ test("a territory never shares a namespace with a page of the site", () => {
 
   for (const [iso, { lang }] of countries) {
     const text = words(lang);
-    const own = new Set([text.aboutSlug, text.historySlug, SEARCH_SLUGS[iso] ?? "", regionSlug(iso)]);
+    const own = new Set([text.aboutSlug, text.historySlug, SEARCH_SLUGS[iso] ?? "", regionSlug(iso), recordSlug(iso)]);
     const published = new Set(
       pages
         .map(({ file }) => file.split(path.sep))
@@ -225,4 +225,225 @@ test("a page declares the language its text is actually written in", () => {
   const home = pages.find(({ file }) => file === "index.html");
   assert.ok(home, "no home page was built");
   assert.match(home.html, /<html lang="en"/u, "the European layer is written in English, and a screen reader has to be told");
+});
+
+/**
+ * What a reader who mistyped an address gets, and what a crawler is told. Both are easy to leave out —
+ * nothing on the site links to either — and both are how somebody arrives at all.
+ */
+test("the page for an address that does not exist speaks every language of the site", () => {
+  const notFound = pages.find(({ file }) => file === "404.html");
+  assert.ok(notFound, "the build produced no 404 page: an unknown address would answer with nothing at all");
+
+  const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
+    jurisdictions: Record<string, { lang: string }>;
+  };
+  const countries = Object.entries(catalogue.jurisdictions).filter(([iso]) => iso !== "EU");
+  for (const [iso, { lang }] of countries) {
+    assert.match(
+      notFound.html,
+      new RegExp(`href="/${iso.toLowerCase()}/"`, "u"),
+      `the 404 page offers no way back into ${iso}, so a reader lost under /${iso.toLowerCase()}/ is sent to another country`,
+    );
+    assert.ok(
+      notFound.html.includes(words(lang).notFoundText),
+      `the 404 page does not say what happened in ${lang}. One file answers every unknown address on a site written in six languages, so it says it in all of them.`,
+    );
+  }
+});
+
+test("the sitemap lists every page the build produced, and nothing else", () => {
+  const xml = readFileSync(path.join(DIST, "sitemap.xml"), "utf8");
+  const listed = new Set([...xml.matchAll(/<loc>https:\/\/farmsuccession\.eu([^<]*)<\/loc>/gu)].map(([, url]) => url ?? ""));
+  const built = pages.filter(({ file }) => file.endsWith("index.html")).map(({ file }) => `/${file.replace(/index\.html$/u, "")}`);
+
+  for (const page of built) {
+    assert.ok(listed.has(page), `${page} was built and is not in the sitemap, so nothing will find it unless a page links to it`);
+  }
+  for (const url of listed) {
+    assert.ok(built.includes(url), `the sitemap offers ${url}, which the build did not produce`);
+  }
+  assert.ok(!xml.includes("/404/"), "the sitemap offers the page for addresses that do not exist");
+});
+
+/**
+ * A date in a sitemap is a claim about freshness, which is the one claim this project is not allowed to
+ * invent. So every lastmod has to be the day a territory's own file says its evidence was published.
+ */
+test("every date in the sitemap is a date the data gives", () => {
+  const xml = readFileSync(path.join(DIST, "sitemap.xml"), "utf8");
+  const editions = path.join(REPOSITORY, "data", "editions");
+  const dates = new Set(
+    (function walk(dir: string): string[] {
+      return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) return walk(full);
+        const data = JSON.parse(readFileSync(full, "utf8")) as { published?: string };
+        return data.published ? [data.published] : [];
+      });
+    })(editions),
+  );
+  assert.ok(dates.size > 0, "no published date in the data: this check would pass without checking anything");
+
+  const stated = [...xml.matchAll(/<lastmod>([^<]*)<\/lastmod>/gu)].map(([, date]) => date ?? "");
+  assert.ok(stated.length > 0, "the sitemap carries no dates at all");
+  for (const date of stated) {
+    assert.ok(dates.has(date), `the sitemap says a page changed on ${date}, which no edition file says about anything`);
+  }
+});
+
+test("robots.txt sends a crawler to the sitemap and keeps nothing from it", () => {
+  const robots = readFileSync(path.join(import.meta.dirname, "..", "public", "robots.txt"), "utf8");
+  assert.match(robots, /Sitemap: https:\/\/farmsuccession\.eu\/sitemap\.xml/u, "robots.txt does not say where the sitemap is");
+  assert.doesNotMatch(
+    robots,
+    /Disallow: \/\s*$/mu,
+    "robots.txt hides part of the site. Everything here is public evidence meant to be found.",
+  );
+});
+
+/**
+ * A title is what a search result and a shared link show, and for five milestones every territory page
+ * offered the bare name of the place — "España — FarmSuccession" — which says nothing about what is on
+ * it. It says what the page is about now, in the page's own language.
+ */
+test("a territory page says in its title what the page is about", () => {
+  // A territory is a country page, or a page under that country's own segment for territories, and
+  // nothing else: /de/ and /de/regionen/bayern/ are territories, /de/geschichte/ is a page of the site.
+  const territories = pages.filter(({ file }) => {
+    const parts = file.split(path.sep);
+    const iso = parts[0] ?? "";
+    if (!/^[a-z]{2}$/u.test(iso)) return false;
+    return parts.length === 2 || parts[1] === regionSlug(iso.toUpperCase());
+  });
+  assert.ok(territories.length > 0, "no territory page was built: this check would pass without checking anything");
+
+  for (const { file, html } of territories) {
+    const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const title = /<title>([^<]*)<\/title>/u.exec(html)?.[1] ?? "";
+    const about = words(language).territoryTitle.replace("{where}", "").trim();
+    assert.ok(
+      title.includes(about),
+      `${file} is titled "${title}", which is a name and not a subject. A reader meets this in a search result before they meet the page.`,
+    );
+  }
+});
+
+test("a search box shows what kind of word goes in it, in the page's language", () => {
+  const boxes = pages.filter(({ html }) => html.includes('type="search"'));
+  assert.ok(boxes.length > 0, "no page offers a search box: this check would pass without checking anything");
+
+  for (const { file, html } of boxes) {
+    const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    assert.ok(
+      html.includes(`placeholder="${words(language).searchExamples}"`),
+      `the search box on ${file} is an empty box with a label. Somebody who has never searched a catalogue is left guessing what belongs in it.`,
+    );
+  }
+});
+
+/**
+ * A territory shows what applies in it, which is its own records and everything above it, and the
+ * difference matters: an aid or a course recorded for the country and not for the region is one a reader
+ * keeps if they move, and one they can use wherever they are inside it. So no record is ever listed
+ * without a heading above it saying whose layer it comes from, and the layers run closest first.
+ */
+test("a record is never listed without saying which layer it comes from", () => {
+  const territories = pages.filter(({ file }) => {
+    const parts = file.split(path.sep);
+    const iso = parts[0] ?? "";
+    if (!/^[a-z]{2}$/u.test(iso)) return false;
+    return parts.length === 2 || parts[1] === regionSlug(iso.toUpperCase());
+  });
+  assert.ok(territories.length > 0, "no territory page was built: this check would pass without checking anything");
+
+  let grouped = 0;
+  for (const { file, html } of territories) {
+    const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const text = words(language);
+    // Only the lists of records: the headings between a situation and whatever follows it.
+    const headings = [...html.matchAll(/<(h[234])\b[^>]*>([\s\S]*?)<\/\1>/gu)].map(([, level, inner]) => ({
+      level: level ?? "",
+      text: (inner ?? "")
+        .replaceAll(/<[^>]*>/gu, " ")
+        .replaceAll(/\s+/gu, " ")
+        .trim(),
+    }));
+
+    let group = "";
+    for (const heading of headings) {
+      if (heading.level === "h2") group = "";
+      if (heading.level === "h3") {
+        // "Für {where} erfasst" is a template with the name in the middle, so it is matched as one.
+        const own = new RegExp(`^${text.ownRecords.replaceAll(/[.*+?^$()|[\]\\]/gu, "\\$&").replace("{where}", ".+")}$`, "u");
+        group = own.test(heading.text) || heading.text.startsWith(text.inherited) ? heading.text : "";
+        if (group) grouped += 1;
+      }
+      if (heading.level === "h4") {
+        assert.ok(group, `${file} lists "${heading.text}" with nothing above it saying which layer recorded it`);
+      }
+    }
+  }
+  assert.ok(grouped > 0, "no list of records was grouped by layer at all, so this check proved nothing");
+});
+
+/**
+ * A filter offers a territory by its name, never by the fragment of URL that identifies it. The three
+ * that lost their name were the three that document nothing of their own — El Hierro, Formentera and
+ * Fuerteventura — because the names were read from the records, and those are exactly the territories no
+ * record could name. They are in the filter because what Europe and the country record applies there too.
+ */
+test("a filter names a territory, and never shows the slug in its link", () => {
+  const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
+    jurisdictions: Record<string, { regions: { slug: string; name: string }[] }>;
+  };
+  const names = new Map<string, string>();
+  for (const [iso, { regions }] of Object.entries(catalogue.jurisdictions)) {
+    for (const region of regions) names.set(`${iso}/${region.slug}`, region.name);
+  }
+
+  let checked = 0;
+  for (const { file, html } of pages) {
+    for (const [, value, label] of html.matchAll(
+      /<input type="checkbox" name="territory" value="([^"]+)"[^>]*>\s*<span[^>]*>([^<]*)<\/span>/gu,
+    )) {
+      const expected = names.get(value ?? "");
+      assert.ok(expected, `${file} offers a filter for ${value}, which the catalogue does not know`);
+      assert.equal(label, expected, `${file} offers "${label}" where the catalogue calls that territory "${expected}"`);
+      checked += 1;
+    }
+  }
+  assert.ok(checked > 0, "no territory filter was built at all, so this check proved nothing");
+});
+
+/**
+ * Every image is a file this site ships. The flags used to be emoji — two regional indicator letters,
+ * which Windows has no glyph for, so most readers saw "ES" where the page meant Spain. A file always
+ * draws, and a file that is missing is a broken image, which is why the build is asked to prove it ships
+ * every one it asks for.
+ */
+test("every image a page asks for is a file the site ships", () => {
+  const PUBLIC = path.join(import.meta.dirname, "..", "public");
+  const assets = new Set(
+    (function walk(dir: string): string[] {
+      return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+        const full = path.join(dir, entry.name);
+        return entry.isDirectory() ? walk(full) : [`/${path.relative(PUBLIC, full).split(path.sep).join("/")}`];
+      });
+    })(PUBLIC),
+  );
+
+  let checked = 0;
+  for (const { file, html } of pages) {
+    for (const [, src] of html.matchAll(/<img\b[^>]*\bsrc="(\/[^"]*)"/gu)) {
+      assert.ok(assets.has(src ?? ""), `${file} asks for ${src}, which this site does not ship`);
+      checked += 1;
+    }
+    assert.doesNotMatch(
+      html,
+      /[\u{1F1E6}-\u{1F1FF}]/u,
+      `${file} draws a flag as a pair of regional indicator letters, which most systems render as letters`,
+    );
+  }
+  assert.ok(checked > 0, "no page asked for an image at all, so this check proved nothing");
 });

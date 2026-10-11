@@ -150,6 +150,56 @@ release.
   French page. It is the first thing a keyboard or screen-reader user meets, and it was
   invisible to every check because it only appears when focused. Fixed, and now a test.
 
+### The pass against the design this repository is converging on
+
+- **A record lives under the country that recorded it**: `/es/recursos/<id>/`, `/de/angebote/<id>/`, in
+  that country's own word for a record, with the European layer keeping `/resources/<id>/`. The flat
+  namespace said nothing about where a record applies and made every id unique or colliding across the
+  whole of Europe. The search index and the sitemap find a record page by what it declares about itself
+  rather than by the folder it sits in.
+- **The page takes the width of the page.** Two rails — an index of every territory on one side, the
+  page's own sections on the other — left the content about 600 pixels wide on a 1280 screen, and the
+  cards, the breadcrumb and the lists inside it were all paying for that. What is on this page is a strip
+  of links under the title; the index of territories is gone, because moving around inside a country is
+  what the country page, the breadcrumb and the control at the top are for.
+- **A record page answers in the order the questions come**: what kind of thing it is and whether it is
+  operating, what it is called, where it applies and who runs it, what it offers, whether you can apply
+  today, and the way to the official page — then the detail.
+- **Flags are files.** A flag emoji is a pair of regional indicator letters and Windows ships no glyph for
+  the pair, so most readers saw `ES` where the page meant Spain.
+- Each kind in "other types of resources" carries the line that says what it is; every state is
+  capitalised, like the kinds beside them; the page you are on no longer sits higher than the trail behind
+  it; the four links that were 19 to 24 pixels tall are targets again; and the edition note sits with the
+  figures it qualifies instead of having a band of the page to itself.
+
+### What a reader meets before the page, and what a page says about itself
+
+- **Titles say what the page is about.** Every territory page was called "España —
+  FarmSuccession", which is a name and tells a searcher nothing; it now reads "España:
+  relevo generacional y acceso a la tierra", in the page's own language. The description
+  stays the territory's own summary, which is written from its data.
+- **An address that does not exist answers in six languages.** One file serves every
+  unknown path, so it says what happened in all of them: an English heading and the
+  European search, then every country saying it in its own language with the way back
+  into itself. No script decides which one a reader sees —
+  [`decisions/027`](decisions/027-the-page-for-somebody-already-lost-asks-for-nothing.md).
+- **A sitemap and a robots file.** The sitemap is written from the pages the build
+  produced rather than from the routes meant to produce them, so it cannot list a page
+  that does not exist or miss one that does. Its dates are the days the data says each
+  territory published its evidence, and nothing else carries a date at all: a lastmod
+  invented here would be a claim about freshness.
+- **Each record says which layer it comes from, once.** A situation keeps its single
+  list, ordered from the closest layer outwards, with a heading where the layer changes:
+  what the territory recorded, then what applies from the country, then from Europe. An
+  aid or a course recorded for the country and not for the region is one a reader can use
+  anywhere inside it, and the page now says so without a line of small print per record.
+- **A search box shows what kind of word goes in it**, and a territory page counts what it
+  holds — records that apply, territories inside, sources cited — before a reader scrolls
+  it.
+- A filter offered three territories as "el-hierro", "formentera" and "fuerteventura":
+  the names were read from the records, so the only ones that could lose a name were the
+  three that document nothing of their own. They are read from the catalogue now.
+
 ### A reading says whose page it was
 
 - Every reading in `reports/checks/` now records the territories whose records cite the

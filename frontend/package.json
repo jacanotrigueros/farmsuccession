@@ -6,7 +6,7 @@
   "description": "The static site: it renders the editions the gate has already judged, and decides nothing about what is publishable.",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/build-index.ts",
+    "build": "astro build && node scripts/build-index.ts && node scripts/sitemap.ts",
     "preview": "astro preview",
     "typecheck": "tsc --project tsconfig.check.json",
     "test": "node --test \"test/**/*.test.ts\"",
