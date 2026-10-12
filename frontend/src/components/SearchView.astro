@@ -7,6 +7,13 @@
  * and the filters are hidden until the index has answered, because a control that cannot do anything is
  * worse than no control.
  *
+ * There is no band at the top. The breadcrumb, the title, what the scope holds, the box and the results
+ * are one column of one page: a reader is here to search, and a coloured strip between the title and the
+ * box only separates the question from the thing that answers it.
+ *
+ * Results come a page at a time rather than as one list of everything: a hundred and thirty rows is not
+ * a result, it is the catalogue again, and nothing in it says where a reader is.
+ *
  * What the client needs is handed to it from here rather than fetched or guessed: which languages the
  * bundles of this scope cover, the words for every code, a result's markup as a template, and one template
  * per kind holding its icon. All of it in the language of this page, so a Spanish record found from the
@@ -17,24 +24,28 @@ import Breadcrumbs from "./Breadcrumbs.astro";
 import ResourceCard from "./ResourceCard.astro";
 import type { Resource, Territory } from "../lib/corpus.ts";
 import { ICON, kindIcon } from "../lib/icons.ts";
-import { kindLabel, stateLabel } from "../lib/vocabulary.ts";
 import { counted, words } from "../lib/words.ts";
+import { searchPath } from "../../public/search-scope.js";
 
 type Listed = { resource: Resource; from: Territory; inherited: boolean };
-type Facet = { name: string; legend: string; options: { value: string; label: string; count: number }[] };
+type FacetOption = { value: string; label: string; count: number; group?: string };
+type Facet = { name: string; legend: string; icon: string; options: FacetOption[] };
 
 type Props = {
   language: string;
   /** Where this search sits: the layers above it, widest first. */
   crumbs: { label: string; href: string }[];
   title: string;
-  lead: string;
+  /** The scope in a word, as the summary and the European note name it. */
+  place: string;
+  /** The country this search cannot leave, where there is one. */
+  country?: string;
   listed: Listed[];
   facets: Facet[];
   languages: string[];
   inherits: string[];
 };
-const { language, crumbs, title, lead, listed, facets, languages, inherits } = Astro.props;
+const { language, crumbs, title, place, country, listed, facets, languages, inherits } = Astro.props;
 const text = words(language);
 
 const kinds = [...new Set(listed.map(({ resource }) => resource.kind))];
@@ -46,117 +57,236 @@ const kinds = [...new Set(listed.map(({ resource }) => resource.kind))];
  */
 const OPEN = new Set(["kind", "status"]);
 
+/** The options of a facet, kept inside the country each belongs to where they have one. */
+const grouped = (options: FacetOption[]): [string, FacetOption[]][] => {
+  const byGroup = new Map<string, FacetOption[]>();
+  for (const option of options) byGroup.set(option.group ?? "", [...(byGroup.get(option.group ?? "") ?? []), option]);
+  return [...byGroup];
+};
+
+/** The class of one option's row, which is the same whether it stands alone or inside a country. */
+const option =
+  "flex min-h-(--spacing-target) cursor-pointer items-center gap-3 rounded-md px-2 hover:bg-brand-tint has-checked:bg-brand-tint has-checked:font-bold data-empty:text-muted";
+
+/** What the scope holds, before a word is typed: the figure the summary falls back to. */
+const available = (listed.length === 1 ? text.available[0] : text.available[1])
+  .replace("{count}", counted(listed.length, text.record))
+  .replace("{where}", place);
+
 /** Everything the client would otherwise have to translate, in the language of this page. */
 const labels = {
-  kind: Object.fromEntries(kinds.map((kind) => [kind, kindLabel(kind, language)])),
-  status: Object.fromEntries([...new Set(listed.map(({ resource }) => resource.status))].map((s) => [s, stateLabel(s, language)])),
+  titles: Object.fromEntries(facets.map((facet) => [facet.name, facet.legend])),
+  options: Object.fromEntries(
+    facets.map((facet) => [facet.name, Object.fromEntries(facet.options.map((option) => [option.value, option.label]))]),
+  ),
+};
+const strings = {
+  result: text.result,
+  loading: text.loading,
+  nothing: text.nothingMatched,
+  failed: text.searchFailed,
+  resultsFor: text.resultsFor,
+  filtered: text.filteredResults,
+  pageOf: text.pageOf,
+  range: text.shownRange,
+  pageLabel: text.pageLabel,
+  previous: text.previousPage,
+  next: text.nextPage,
+  remove: text.removeFilter,
+  showResults: text.showResults,
 };
 ---
 
-<header class="border-b border-line bg-card">
-  <div class="wrap py-10">
-    <Breadcrumbs items={crumbs} current={title} label={text.whereYouAre} />
-    <h1 class="page-title mt-1 text-3xl text-balance sm:text-4xl">{title}</h1>
-    <p class="mt-4 text-lg">{lead}</p>
-  </div>
-</header>
+<form
+  id="search"
+  role="search"
+  data-search
+  data-languages={JSON.stringify(languages)}
+  data-inherits={JSON.stringify(inherits)}
+  data-labels={JSON.stringify(labels)}
+  data-strings={JSON.stringify(strings)}
+  class="wrap py-12"
+>
+  <Breadcrumbs items={crumbs} current={text.searchAction} label={text.whereYouAre} />
+  <h1 id="search-title" class="page-title mt-1 text-3xl text-balance sm:text-4xl">
+    {title}
+  </h1>
+  {/* What the scope holds, which the client rewrites into what the current search found. */}
+  <p class="mt-2 text-lg font-bold text-ink" data-summary data-default={available}>
+    {available}
+  </p>
+  {country && <p class="meta mt-1">{text.includesEuropean.replace("{where}", place)}</p>}
+  <p class="mt-3 max-w-3xl" data-hint>
+    {text.browseHint}
+  </p>
 
-<div class="wrap py-10">
-  <form
-    id="search"
-    role="search"
-    data-search
-    data-languages={JSON.stringify(languages)}
-    data-inherits={JSON.stringify(inherits)}
-    data-labels={JSON.stringify(labels)}
-    data-strings={JSON.stringify({ one: text.result[0], many: text.result[1], nothing: text.nothingMatched, failed: text.searchFailed })}
-  >
-    <div hidden data-field>
-      <label for="query" class="block font-bold">
-        {text.searchLabel}
-      </label>
-      <div class="mt-2 flex max-w-4xl flex-wrap gap-3">
-        <input
-          id="query"
-          name="q"
-          type="search"
-          placeholder={text.searchExamples}
-          autocomplete="off"
-          class="min-h-14 min-w-0 flex-1 rounded-lg border-2 border-line-strong bg-card px-4 text-lg focus:border-brand"
-        />
-        <button type="submit" class="btn btn-primary min-h-14 text-lg">
-          {text.searchAction}
-        </button>
-      </div>
-    </div>
-
-    <div class="mt-8 flex flex-col gap-8 lg:flex-row">
-      {/*
-       * The filters are a column of their own rather than a band across the top: a country has
-       * twenty-eight territories, and twenty-eight checkboxes above the results pushed the results off
-       * the screen. Each group folds, and the two a reader actually chooses from open already.
-       */}
-      <aside
+  <div hidden data-field class="mt-5 flex max-w-4xl flex-col gap-3 sm:flex-row">
+    <label for="query" class="sr-only">
+      {text.searchAction}
+    </label>
+    <div class="relative flex-1">
+      <Icon name={ICON.search} aria-hidden="true" class="pointer-events-none absolute top-1/2 left-4 size-6 -translate-y-1/2 text-muted" />
+      <input
+        id="query"
+        name="q"
+        type="search"
+        placeholder={text.searchExamples}
+        autocomplete="off"
+        class="min-h-14 w-full rounded-lg border-2 border-line-strong bg-card pr-14 pl-13 text-lg focus:border-brand"
+      />
+      <button
+        type="button"
+        data-clear-query
         hidden
-        data-filters
-        aria-labelledby="narrow"
-        class="lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:w-72 lg:shrink-0 lg:self-start lg:overflow-y-auto"
+        aria-label={text.clearQuery}
+        class="absolute top-1/2 right-1 flex size-12 -translate-y-1/2 items-center justify-center rounded-md text-brand-strong hover:bg-brand-tint"
       >
-        <div class="flex flex-wrap items-baseline justify-between gap-3">
-          <h2 id="narrow" class="text-lg font-bold">
-            {text.narrowDown}
-          </h2>
-          <button type="reset" class="inline-flex min-h-(--spacing-target) items-center text-meta text-brand-strong underline">
+        <Icon name="lucide:x" aria-hidden="true" class="size-5" />
+      </button>
+    </div>
+    <button type="submit" class="btn btn-primary min-h-14 text-lg">
+      {text.searchAction}
+    </button>
+  </div>
+
+  {country && (
+    <p class="mt-3">
+      <a
+        href={searchPath("/", undefined)}
+        class="inline-flex min-h-(--spacing-target) items-center gap-2 font-bold text-brand-strong underline underline-offset-2"
+      >
+        <Icon name={ICON.europe} aria-hidden="true" class="size-5" />
+        {text.widenToEurope}
+      </a>
+    </p>
+  )}
+
+  <div class="mt-10 grid gap-8 border-t border-line pt-8 lg:grid-cols-[18rem_minmax(0,1fr)]">
+    {/*
+     * The filters are a column of their own rather than a band across the top: a country has
+     * twenty-eight territories, and twenty-eight checkboxes above the results pushed the results off
+     * the screen. On a phone the whole panel folds behind one button, and each group folds inside it.
+     */}
+    <aside
+      hidden
+      data-filters
+      aria-labelledby="narrow"
+      class="lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:self-start lg:overflow-y-auto lg:[scrollbar-gutter:stable]"
+    >
+      <h2 id="narrow" class="sr-only">
+        {text.narrowDown}
+      </h2>
+      {/* Open in the markup, and folded by the search client on a narrow screen at the moment it makes
+        the filters usable: a panel that folds itself from a script of its own would be a script this
+        page cannot have. */}
+      <details id="narrow-panel" open class="rounded-lg border border-line bg-card lg:border-0 lg:bg-transparent">
+        <summary class="flex min-h-12 cursor-pointer list-none items-center gap-2 rounded-lg px-4 font-bold text-brand-strong lg:hidden">
+          <Icon name={ICON.filters} aria-hidden="true" class="size-5" />
+          {text.narrowDown}
+          <span data-filter-count></span>
+          <Icon name={ICON.chevronDown} aria-hidden="true" class="panel-chevron ms-auto size-5" />
+        </summary>
+        <div class="px-2 pb-2 lg:pe-3 lg:ps-0">
+          {facets.map((facet) => (
+            <details class="border-b border-line py-1" open={OPEN.has(facet.name)} data-group>
+              <summary class="flex min-h-(--spacing-target) cursor-pointer items-center gap-2 rounded-md px-2 font-bold hover:bg-brand-tint">
+                <Icon name={facet.icon} aria-hidden="true" class="size-5 text-brand" />
+                {facet.legend}
+                <span data-group-count={facet.name}></span>
+              </summary>
+              <fieldset class="pb-2">
+                <legend class="sr-only">{facet.legend}</legend>
+                {facet.name === "territory" && country === undefined
+                  ? grouped(facet.options).map(([group, inside]) => (
+                      <details class="ms-1" data-group>
+                        <summary class="flex min-h-(--spacing-target) cursor-pointer items-center rounded-md px-2 hover:bg-brand-tint">
+                          {group} <span class="meta ms-auto">{inside.length}</span>
+                        </summary>
+                        {inside.map((each) => (
+                          <label class:list={[option, "ms-3"]}>
+                            <input type="checkbox" name={facet.name} value={each.value} class="size-5 shrink-0 accent-brand" />
+                            <span class="min-w-0 flex-1">{each.label}</span>
+                            <span class="meta tabular-nums" data-count>
+                              {each.count}
+                            </span>
+                          </label>
+                        ))}
+                      </details>
+                    ))
+                  : facet.options.map((each) => (
+                      <label class={option}>
+                        <input type="checkbox" name={facet.name} value={each.value} class="size-5 shrink-0 accent-brand" />
+                        <span class="min-w-0 flex-1">{each.label}</span>
+                        <span class="meta tabular-nums" data-count>
+                          {each.count}
+                        </span>
+                      </label>
+                    ))}
+              </fieldset>
+            </details>
+          ))}
+          <button type="button" class="btn btn-quiet mt-4 w-full" data-clear-filters hidden>
             {text.clearFilters}
           </button>
+          <button type="button" class="btn btn-primary mt-3 w-full lg:hidden" data-show-results>
+            {text.loading}
+          </button>
         </div>
-        {facets.map((facet) => (
-          <details class="border-b border-line py-1" open={OPEN.has(facet.name)}>
-            <summary class="flex min-h-(--spacing-target) cursor-pointer items-center gap-2 rounded-md px-2 font-bold hover:bg-brand-tint">
-              {facet.legend}
-            </summary>
-            <fieldset class="pb-2">
-              <legend class="sr-only">{facet.legend}</legend>
-              {facet.options.map((option) => (
-                <label class="flex min-h-(--spacing-target) cursor-pointer items-center gap-3 rounded-md px-2 hover:bg-brand-tint has-checked:bg-brand-tint has-checked:font-bold">
-                  <input type="checkbox" name={facet.name} value={option.value} class="size-5 shrink-0 accent-brand" />
-                  <span class="min-w-0 flex-1">{option.label}</span>
-                  <span class="meta tabular-nums" data-count>
-                    {option.count}
-                  </span>
-                </label>
-              ))}
-            </fieldset>
-          </details>
-        ))}
-      </aside>
+      </details>
+    </aside>
 
-      <div class="min-w-0 flex-1">
-        <p id="search-state" class="py-4 text-muted" hidden aria-live="polite" data-state></p>
-
-        <section aria-labelledby="results" hidden data-results>
-          <h2 id="results" class="scroll-mt-6 text-2xl font-bold" data-results-heading></h2>
-          <ul class="mt-4" data-results-list></ul>
-        </section>
-
-        <section aria-labelledby="everything" data-everything>
-          <h2 id="everything" class="scroll-mt-6 text-2xl font-bold">
-            {text.everythingHere}
-          </h2>
-          <p class="meta mt-1">{counted(listed.length, text.record)}</p>
-          <noscript>
-            <p class="mt-3 max-w-3xl text-muted">{text.searchNeedsScript}</p>
-          </noscript>
-          <ul class="mt-4">
-            {listed.map(({ resource, from }) => (
-              <ResourceCard resource={resource} recordedIn={from} language={language} compact />
-            ))}
-          </ul>
-        </section>
+    <div class="min-w-0">
+      <h2 id="results" class="sr-only" tabindex="-1">
+        {text.resultsHeading}
+      </h2>
+      <div class="flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-3">
+        <p
+          class="meta font-bold text-ink data-empty:w-full data-empty:rounded-lg data-empty:border data-empty:border-brand data-empty:bg-brand-tint data-empty:px-4 data-empty:py-3"
+          data-state
+          aria-live="polite"
+          role="status"
+        >
+          {text.loading}
+        </p>
+        <button type="reset" hidden data-reset class="min-h-(--spacing-target) text-meta font-bold text-brand-strong underline">
+          {text.resetSearch}
+        </button>
       </div>
+
+      <div class="mt-3 flex flex-wrap gap-3" data-recovery hidden>
+        <button type="button" class="btn btn-primary" data-retry>
+          {text.searchRetry}
+        </button>
+        <a href="/#countries" class="btn btn-quiet">
+          {text.browseCountries}
+        </a>
+      </div>
+
+      <div class="mt-3 flex flex-wrap items-center gap-2" data-active hidden role="group" aria-label={text.activeFilters}></div>
+
+      <ul class="mt-6 grid" data-results-list></ul>
+      <nav class="mt-8 flex flex-wrap items-center justify-between gap-4" data-pagination hidden aria-label={text.pagination}>
+        <p class="meta" data-progress aria-live="polite"></p>
+        <ul class="flex flex-wrap items-center gap-1" data-pages></ul>
+      </nav>
+
+      <section aria-labelledby="everything" data-everything>
+        <h2 id="everything" class="scroll-mt-6 text-2xl font-bold">
+          {text.everythingHere}
+        </h2>
+        <p class="meta mt-1">{counted(listed.length, text.record)}</p>
+        <noscript>
+          <p class="mt-3 max-w-3xl text-muted">{text.searchNeedsScript}</p>
+        </noscript>
+        <ul class="mt-4">
+          {listed.map(({ resource, from }) => (
+            <ResourceCard resource={resource} recordedIn={from} language={language} compact />
+          ))}
+        </ul>
+      </section>
     </div>
-  </form>
-</div>
+  </div>
+</form>
 
 {/* The markup of a result, and each kind's icon, rendered here so the client never has to invent either. */}
 <template data-result>
@@ -184,6 +314,18 @@ const labels = {
     </p>
   </li>
 </template>
+{/* One chosen filter, as a chip that removes itself. */}
+<template data-chip>
+  <button
+    type="button"
+    class="btn min-h-(--spacing-target) max-w-full gap-2 rounded-lg border border-brand bg-brand-tint px-3 py-2 text-start text-meta text-brand-strong"
+  >
+    <span data-chip-label class="min-w-0 [overflow-wrap:anywhere]"></span>
+    <span aria-hidden="true" class="shrink-0">
+      ✕
+    </span>
+  </button>
+</template>
 {/* The two icons a result carries, rendered once here so the client can clone them into each row. */}
 <template data-icon-for="__territory">
   <Icon name={ICON.territory} aria-hidden="true" class="size-4" />
@@ -207,5 +349,16 @@ const labels = {
   }
   .result-row:focus-within {
     background: var(--color-brand-tint);
+  }
+  #narrow-panel > summary::-webkit-details-marker {
+    display: none;
+  }
+  #narrow-panel[open] > summary .panel-chevron {
+    transform: rotate(180deg);
+  }
+  /* The box has a clear button of its own: a target of its own size, which keeps the filters. */
+  #query::-webkit-search-cancel-button {
+    appearance: none;
+    display: none;
   }
 </style>

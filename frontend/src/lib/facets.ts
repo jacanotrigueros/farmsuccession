@@ -9,11 +9,13 @@
  * Every value is a code from the schema and every label is a word from `vocabulary.ts`. That is what lets
  * a search be shared between languages: the link carries codes, the page carries words.
  */
-import { leafLayers, territories, type Resource, type Territory } from "./corpus.ts";
+import { countryTerritories, leafLayers, territories, type Resource, type Territory } from "./corpus.ts";
+import { ICON } from "./icons.ts";
 import { kindLabel, profileLabel, reachLabel, standing, stateLabel } from "./vocabulary.ts";
 import { words } from "./words.ts";
 
-export type Facet = { name: string; legend: string; options: { value: string; label: string; count: number }[] };
+export type FacetOption = { value: string; label: string; count: number; group?: string };
+export type Facet = { name: string; legend: string; icon: string; options: FacetOption[] };
 export type Listed = { resource: Resource; from: Territory; inherited: boolean };
 
 /** How many of the listed records answer to each value, with the values nothing answers to left out. */
@@ -21,12 +23,15 @@ function tally<Value extends string>(
   listed: readonly Listed[],
   valuesOf: (entry: Listed) => readonly Value[],
   label: (value: Value) => string,
-): { value: string; label: string; count: number }[] {
+): FacetOption[] {
   const counts = new Map<Value, number>();
   for (const entry of listed) for (const value of valuesOf(entry)) counts.set(value, (counts.get(value) ?? 0) + 1);
+  // Most answered first, and the catch-all last whatever it counts: "Other" is where a reader looks
+  // when nothing above it fitted, and a list that opens with it has buried its own answers.
+  const last = (value: string) => (value === "OTHER" ? 1 : 0);
   return [...counts]
     .map(([value, count]) => ({ value, label: label(value), count }))
-    .toSorted((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+    .toSorted((a, b) => last(a.value) - last(b.value) || b.count - a.count || a.label.localeCompare(b.label));
 }
 
 /** Every region a record reaches, which is where a reader can ask for it by territory. */
@@ -48,10 +53,19 @@ export function facetsFor(listed: readonly Listed[], language: string, country?:
     for (const region of jurisdiction.regions) regionNames.set(`${iso}/${region.slug}`, region.name);
   }
 
+  /** The name of each country, which is what a reader chooses by — never the two letters of its code. */
+  const countryNames = new Map(
+    countryTerritories().flatMap((territory) =>
+      territory.layer.level === "EU" ? [] : [[territory.layer.country, territory.data.officialName] as const],
+    ),
+  );
+  const countryName = (code: string) => (code === "EU" ? text.euName : (countryNames.get(code) ?? code));
+
   const facets: Facet[] = [
     {
       name: "kind",
       legend: text.kindFacet,
+      icon: ICON.kind,
       options: tally(
         listed,
         (e) => [e.resource.kind],
@@ -61,15 +75,27 @@ export function facetsFor(listed: readonly Listed[], language: string, country?:
     {
       name: "status",
       legend: text.statusFacet,
+      icon: ICON.status,
       options: tally(
         listed,
         (e) => [e.resource.status],
         (status) => stateLabel(status, language),
       ),
     },
+    ...(country
+      ? []
+      : [
+          {
+            name: "country",
+            legend: text.countryFacet,
+            icon: ICON.europe,
+            options: tally(listed, (entry) => [countryOf(entry)], countryName),
+          },
+        ]),
     {
       name: "scope",
       legend: text.scopeFacet,
+      icon: ICON.scope,
       options: tally(
         listed,
         (e) => [e.resource.scope.level],
@@ -79,31 +105,23 @@ export function facetsFor(listed: readonly Listed[], language: string, country?:
     {
       name: "profile",
       legend: text.profileFacet,
+      icon: ICON.profile,
       options: tally(
         listed,
         (e) => e.resource.targetProfiles ?? [],
         (profile) => standing(profileLabel(profile, language), language),
       ),
     },
-  ];
-
-  if (country) {
-    facets.push({
+    {
       name: "territory",
       legend: text.territoryFacet,
-      options: tally(listed, reachOf, (value) => regionNames.get(value) ?? value).filter(({ value }) => value.startsWith(`${country}/`)),
-    });
-  } else {
-    facets.push({
-      name: "country",
-      legend: text.countryFacet,
-      options: tally(
-        listed,
-        (entry) => [countryOf(entry)],
-        (code) => (code === "EU" ? text.europe : code),
-      ),
-    });
-  }
+      icon: ICON.territory,
+      options: tally(listed, reachOf, (value) => regionNames.get(value) ?? value)
+        .filter(({ value }) => !country || value.startsWith(`${country}/`))
+        .map((option) => ({ ...option, group: countryName(option.value.split("/")[0] ?? "") }))
+        .toSorted((a, b) => (a.group ?? "").localeCompare(b.group ?? "", language) || a.label.localeCompare(b.label, language)),
+    },
+  ];
 
   return facets.filter(({ options }) => options.length > 1);
 }
