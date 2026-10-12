@@ -15,7 +15,7 @@ import { Icon } from "astro-icon/components";
 import DraftNotice from "../components/DraftNotice.astro";
 import Needs from "../components/Needs.astro";
 import PageHeader from "../components/PageHeader.astro";
-import PageIndex from "../components/PageIndex.astro";
+import KindStrip from "../components/KindStrip.astro";
 import ResourceList from "../components/ResourceList.astro";
 import SearchBox from "../components/SearchBox.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
@@ -102,15 +102,6 @@ const inheritedCount = inheritedGroups.reduce((total, { items }) => total + item
 
 /** A country speaks of itself as a country: what it runs is national, not "its own layer". */
 const isCountry = territory.layer.level === "COUNTRY";
-
-/** The strip names the sections it leads to. Coverage closes the page and is not one of its answers. */
-const sections = [
-  ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle }] : []),
-  { id: "needs", label: text.navNeeds },
-  ...(isCountry && own.length === 0 ? [] : [{ id: "own", label: isCountry ? text.wholeCountryTitle : text.navOwn }]),
-  ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav }] : []),
-  ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
-];
 
 /**
  * What applies anywhere at or below this territory, which is what "applicable here" means on a page that
@@ -261,7 +252,13 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
     </div>
   </PageHeader>
 
-  <PageIndex sections={sections} language={language} />
+  {narrows && (
+    <KindStrip
+      kinds={kinds.map(({ kind, label }) => ({ kind, label, href: searchHere([kind]) }))}
+      everything={searchPath("/", country || undefined) + pinnedQuery}
+      language={language}
+    />
+  )}
 
   {(children.length > 0 || groupings.length > 0) && (
     <section class="wrap py-12" aria-labelledby="territories">
@@ -326,29 +323,6 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
         {own.length > 0 && !isCountry && <span class="meta font-normal">{` ${counted(own.length, text.record)}`}</span>}
       </h2>
       {isCountry && own.length > 0 && <p class="meta mt-1 max-w-3xl">{nationalLead}</p>}
-      {/*
-        Narrowing where the records are. Everything here is already on the page a reader is looking at,
-        and until now the only way to see one kind of it was to leave for the search and come back. The
-        control offers the kinds this page actually holds, and carries no counts: the figures are at the
-        top of the page, and a number on a control is one more thing to read before it can be used.
-      */}
-      {narrows && (
-        <div hidden data-filter class="mt-6 flex flex-wrap items-center gap-3">
-          <label for="only" class="font-bold">
-            {text.filterByKind}
-          </label>
-          <select
-            id="only"
-            name="only"
-            class="min-h-(--spacing-target) rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-          >
-            <option value="">{text.allKinds}</option>
-            {kinds.map(({ kind, label }) => (
-              <option value={kind}>{label}</option>
-            ))}
-          </select>
-        </div>
-      )}
       {own.length > 0 ? (
         <div class="mt-6">
           <ResourceList items={own} language={language} />

@@ -26,7 +26,7 @@ const EN = {
   navNeeds: "What you need to solve",
   navOwn: "Specific resources",
   filterByKind: "Show only",
-  allKinds: "Everything here",
+  allKinds: "Everything",
   alsoAppliesLead: "European, national or regional instruments that also cover this territory. Each is documented once, in its own scope.",
   noneOwn: "No resources specific to {where} documented yet.",
   territoryCounts: "{own} · {total} in total",
@@ -270,7 +270,7 @@ const ES = {
   navNeeds: "Qué necesitas resolver",
   navOwn: "Recursos específicos",
   filterByKind: "Mostrar solo",
-  allKinds: "Todo lo que hay aquí",
+  allKinds: "Todo",
   alsoAppliesLead:
     "Instrumentos europeos, estatales o autonómicos que también cubren este territorio. Cada uno se documenta una sola vez, en su propio ámbito.",
   noneOwn: "No hemos documentado recursos específicos de {where}.",
@@ -516,7 +516,7 @@ const DE = {
   navNeeds: "Was Sie klären möchten",
   navOwn: "Eigene Angebote",
   filterByKind: "Nur anzeigen",
-  allKinds: "Alles hier",
+  allKinds: "Alles",
   alsoAppliesLead:
     "Europäische, nationale oder regionale Instrumente, die auch dieses Gebiet abdecken. Jedes ist nur einmal dokumentiert, auf seiner eigenen Ebene.",
   noneOwn: "Noch keine Angebote speziell für {where} dokumentiert.",
@@ -764,7 +764,7 @@ const FR = {
   navNeeds: "Ce que vous voulez résoudre",
   navOwn: "Ressources propres",
   filterByKind: "Afficher seulement",
-  allKinds: "Tout ce qu’il y a ici",
+  allKinds: "Tout",
   alsoAppliesLead:
     "Instruments européens, nationaux ou régionaux qui couvrent aussi ce territoire. Chacun est documenté une seule fois, à sa propre échelle.",
   noneOwn: "Aucune ressource propre à ce territoire n’est documentée pour le moment.",
@@ -1015,7 +1015,7 @@ const IT = {
   navNeeds: "Cosa devi risolvere",
   navOwn: "Risorse specifiche",
   filterByKind: "Mostra solo",
-  allKinds: "Tutto quello che c’è qui",
+  allKinds: "Tutto",
   alsoAppliesLead:
     "Strumenti europei, nazionali o regionali che coprono anche questo territorio. Ciascuno è documentato una sola volta, nel proprio ambito.",
   noneOwn: "Non abbiamo ancora documentato risorse specifiche di questo territorio.",
@@ -1263,7 +1263,7 @@ const PT = {
   navNeeds: "O que precisa de resolver",
   navOwn: "Recursos específicos",
   filterByKind: "Mostrar apenas",
-  allKinds: "Tudo o que há aqui",
+  allKinds: "Tudo",
   alsoAppliesLead:
     "Instrumentos europeus, nacionais ou regionais que também abrangem este território. Cada um é documentado uma só vez, no seu próprio âmbito.",
   noneOwn: "Ainda não documentámos recursos específicos deste território.",
