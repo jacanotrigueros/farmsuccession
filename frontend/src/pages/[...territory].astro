@@ -34,6 +34,7 @@ import { GOALS } from "../lib/goals.ts";
 import { flagOf, ICON } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
 import { coverageLabel } from "../lib/vocabulary.ts";
+import { kindLabel } from "../lib/vocabulary.ts";
 import { counted, editionNamed, words } from "../lib/words.ts";
 import { queryFromState, searchPath, searchUrl } from "../../public/search-scope.js";
 
@@ -152,6 +153,23 @@ const split = text.applicableSplit
   .replace("{own}", String(own.length + below))
   .replace("{where}", name)
   .replace("{inherited}", counted(inheritedCount, text.europeanRecord));
+
+/**
+ * The kinds something on this page actually is, in the order the lists use, so the control can only ever
+ * narrow to something that is there. The catch-all goes last, where a reader looks once nothing above it
+ * has fitted.
+ */
+const lastOf = (kind: string) => (kind === "OTHER" ? 1 : 0);
+const kinds = [...new Set([...own, ...inheritedGroups.flatMap(({ items }) => items)].map(({ resource }) => resource.kind))]
+  .map((kind) => ({ kind, label: kindLabel(kind, language) }))
+  .toSorted((a, b) => lastOf(a.kind) - lastOf(b.kind) || a.label.localeCompare(b.label, language));
+
+/**
+ * Whether this page has anything to narrow: more than one kind of record, and a section of its own to
+ * hold the control. A country that documented nothing itself has no such section, and the handful of
+ * European records that reach it are not a list anybody needs to filter.
+ */
+const narrows = kinds.length > 1 && !(isCountry && own.length === 0);
 
 /** What a territory card says: written for it, and applicable there in total. */
 const countsOf = (child: Territory): string =>
@@ -308,6 +326,29 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
         {own.length > 0 && !isCountry && <span class="meta font-normal">{` ${counted(own.length, text.record)}`}</span>}
       </h2>
       {isCountry && own.length > 0 && <p class="meta mt-1 max-w-3xl">{nationalLead}</p>}
+      {/*
+        Narrowing where the records are. Everything here is already on the page a reader is looking at,
+        and until now the only way to see one kind of it was to leave for the search and come back. The
+        control offers the kinds this page actually holds, and carries no counts: the figures are at the
+        top of the page, and a number on a control is one more thing to read before it can be used.
+      */}
+      {narrows && (
+        <div hidden data-filter class="mt-6 flex flex-wrap items-center gap-3">
+          <label for="only" class="font-bold">
+            {text.filterByKind}
+          </label>
+          <select
+            id="only"
+            name="only"
+            class="min-h-(--spacing-target) rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
+          >
+            <option value="">{text.allKinds}</option>
+            {kinds.map(({ kind, label }) => (
+              <option value={kind}>{label}</option>
+            ))}
+          </select>
+        </div>
+      )}
       {own.length > 0 ? (
         <div class="mt-6">
           <ResourceList items={own} language={language} />
@@ -325,7 +366,7 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
       </h2>
       <p class="meta mt-2 max-w-3xl">{text.alsoAppliesLead}</p>
       {inheritedGroups.map(({ name: from, items }) => (
-        <details class="inherited-group mt-6 border-t border-line pt-4" open>
+        <details data-record-group class="inherited-group mt-6 border-t border-line pt-4" open>
           <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
             <h3 data-layer class="flex flex-wrap items-baseline gap-x-2 text-xl font-bold">
               {from}
@@ -371,6 +412,7 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
       <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
     </p>
   </section>
+  {narrows && <script is:inline type="module" src="/filter.js" defer />}
 </SiteLayout>
 
 <style>

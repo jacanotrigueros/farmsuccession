@@ -11,7 +11,7 @@ type Props = {
 const { items, language, level = "h3" } = Astro.props;
 ---
 
-<ul class="grid gap-5 md:grid-cols-2">
+<ul data-records class="grid gap-5 md:grid-cols-2">
   {items.map(({ resource, recordedIn }) => (
     <ResourceCard resource={resource} recordedIn={recordedIn} language={language} level={level} />
   ))}

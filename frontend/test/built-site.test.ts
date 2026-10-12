@@ -45,6 +45,7 @@ test("a page ships JavaScript only for what it actually carries", () => {
     const allowed = new Set<string>();
     if (html.includes("data-search")) allowed.add("/search.js");
     if (html.includes('class="apply')) allowed.add("/apply.js");
+    if (html.includes("data-filter")) allowed.add("/filter.js");
 
     for (const [, src] of html.matchAll(/<script[^>]*\ssrc="([^"]+)"/giu)) {
       assert.ok(
