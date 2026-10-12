@@ -8,13 +8,11 @@
  * do not establish, what happens to a message you send, and who owns the words. A reader looking for any
  * of those is looking for one page, so it is one page with named sections rather than five.
  */
-import { Icon } from "astro-icon/components";
 import OnThisPage from "../components/OnThisPage.astro";
 import PageHeader from "../components/PageHeader.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
-import { countryTerritories, currentEdition, euTerritory, href, languageOf, type Territory } from "../lib/corpus.ts";
-import { ICON } from "../lib/icons.ts";
-import { editionNamed, words } from "../lib/words.ts";
+import { countryTerritories, euTerritory, href, languageOf, type Territory } from "../lib/corpus.ts";
+import { words } from "../lib/words.ts";
 
 export function getStaticPaths() {
   const europe = euTerritory();
@@ -33,22 +31,26 @@ const home = href(territory.layer);
 
 const sections = [
   { id: "overview", label: text.overviewTitle },
-  { id: "who", label: text.stewardshipTitle },
   { id: "method", label: text.methodTitle },
+  { id: "history-2016", label: text.historySection },
   { id: "contact", label: text.contactTitle2 },
   { id: "privacy", label: text.privacyTitle },
   { id: "licence", label: text.licenceTitle },
 ];
+
+/** The history page of this language, which the section about the domain's own past leads to. */
+const historyPath = territory.layer.level === "EU" ? `/${text.historySlug}/` : `${home}${text.historySlug}/`;
 ---
 
 <SiteLayout title={`${text.aboutTitle} · ${text.siteName}`} description={text.aboutIntro} language={language} current={home}>
   <PageHeader
     crumbs={[{ label: territory.layer.level === "EU" ? text.europe : territory.data.officialName, href: home }]}
     crumbsLabel={text.whereYouAre}
-    eyebrow={editionNamed(currentEdition, language)}
     title={text.aboutTitle}
     lead={text.aboutIntro}
-  />
+  >
+    <p class="mt-3 max-w-3xl font-bold">{text.notOfficial}</p>
+  </PageHeader>
 
   <div class="wrap grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
     <div class="grid max-w-3xl content-start">
@@ -57,18 +59,9 @@ const sections = [
           {text.overviewTitle}
         </h2>
         <p class="mt-3">{text.overviewLead}</p>
-        <p class="notice mt-4">
-          <Icon name={ICON.limits} aria-hidden="true" class="mt-0.5 size-5 shrink-0 text-accent" />
-          <span>{text.notOfficial}</span>
-        </p>
-      </section>
-
-      {/* Who stands behind the claims, before how they are made: a directory of public aid that does not
-      say who keeps it is asking to be taken for an official one. */}
-      <section class="border-t border-line py-8" aria-labelledby="who">
-        <h2 id="who" class="scroll-mt-6 text-2xl font-bold">
-          {text.stewardshipTitle}
-        </h2>
+        {/* Who stands behind the claims, with what the project is: a directory of public aid that does
+          not say who keeps it is asking to be taken for an official one. */}
+        <h3 class="mt-7 text-xl font-bold">{text.stewardshipTitle}</h3>
         <p class="mt-3">{text.stewardshipLead}</p>
       </section>
 
@@ -76,7 +69,13 @@ const sections = [
         <h2 id="method" class="scroll-mt-6 text-2xl font-bold">
           {text.methodTitle}
         </h2>
-        <p class="mt-3">{text.methodLead}</p>
+        <p class="mt-3">{text.criteriaIntro}</p>
+        <ul class="mt-3 list-disc space-y-1 ps-6">
+          {text.criteriaItems.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p class="mt-5">{text.methodLead}</p>
         {/* Each step is a card rather than a row of a list: they are four separate things that happen to
           every record, not four lines of one definition, and on a page of running text the boxes are
           what says so without a word. */}
@@ -88,6 +87,21 @@ const sections = [
             </li>
           ))}
         </ol>
+      </section>
+
+      {/* The domain had a life before this inventory, and somebody who followed an old link to it is
+        owed that in the open rather than as a surprise. */}
+      <section class="border-t border-line py-8" aria-labelledby="history-2016">
+        <h2 id="history-2016" class="scroll-mt-6 text-2xl font-bold">
+          {text.historySection}
+        </h2>
+        <p class="mt-3">{text.historyLead}</p>
+        <p class="mt-3">{text.historyResultsLead}</p>
+        <p class="mt-4">
+          <a class="inline-flex min-h-(--spacing-target) items-center font-bold text-brand-strong underline" href={historyPath}>
+            {text.historyMore}
+          </a>
+        </p>
       </section>
 
       <section class="border-t border-line py-8" aria-labelledby="contact">

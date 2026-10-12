@@ -161,7 +161,7 @@ test("a page says what has not been reviewed, and the count follows the data", (
 
   const home = pages.find(({ file }) => file === "index.html");
   assert.ok(home, "no home page was built");
-  const said = /All (\d+) files are drafts|(\d+) of (\d+) files are drafts/u.exec(home.html);
+  const said = /All (\d+) files of the edition are drafts|(\d+) of (\d+) files of the edition are drafts/u.exec(home.html);
   assert.ok(said, "the home page does not say how much of the edition nobody has checked yet");
   const counted = Number(said[1] ?? said[2]);
   assert.equal(counted, drafts, `the home page says ${counted} drafts and the edition has ${drafts}`);
@@ -410,9 +410,11 @@ test("a record is never listed without saying which layer it comes from", () => 
     let group = "";
     for (const heading of headings) {
       if (heading.level === "h2") {
-        // The records of this territory hang from the heading that names it; the ones that reach it from
-        // a wider layer hang from a heading naming that layer, one level further down.
-        group = says(text.ownRecords).test(heading.text) ? heading.text : "";
+        // The records of this territory hang from the heading that names it — "the whole country" on a
+        // country, the territory's name below one — and the ones that reach it from a wider layer hang
+        // from a heading naming that layer, one level further down.
+        const own = says(text.ownRecords).test(heading.text) || heading.text.startsWith(text.wholeCountryTitle);
+        group = own ? heading.text : "";
         if (group) grouped += 1;
       }
       if (heading.level === "h3" && heading.attributes.includes("data-layer")) {

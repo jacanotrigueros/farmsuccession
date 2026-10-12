@@ -30,6 +30,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 import {
   currentEdition,
   href,
+  placeOf,
   isDraft,
   languageOf,
   newsAbout,
@@ -41,24 +42,21 @@ import {
   type RecordedResource,
 } from "../lib/corpus.ts";
 import { goalOf } from "../lib/goals.ts";
-import { ICON, kindIcon, PRACTICAL_ICON } from "../lib/icons.ts";
-import { dateIn, listIn } from "../lib/language.ts";
+import { ICON, PRACTICAL_ICON } from "../lib/icons.ts";
+import { dateIn } from "../lib/language.ts";
 import {
   assetLabel,
-  audience,
   channelLabel,
   costLabel,
   formatLabel,
   instrumentLabel,
-  kindLabel,
   languageName,
   newsTypeLabel,
-  operatorTypeLabel,
+  profileLabel,
   purposeLabel,
   quantity,
   reachLabel,
   sectorLabel,
-  standing,
   stateLabel,
 } from "../lib/vocabulary.ts";
 import { counted, editionNamed, words } from "../lib/words.ts";
@@ -78,25 +76,31 @@ const text = words(language);
 const sourceNumber = new Map(resource.sources.map((source, index) => [source.url, index + 1]));
 
 const news = newsAbout(resource.id);
+/** What one beneficiary can receive, which leads, and everything else, which follows. */
+const forYou = (resource.metrics ?? []).filter((metric) => metric.measure.includes("_PER_BENEFICIARY_"));
+const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure.includes("_PER_BENEFICIARY_"));
+
 /** How much evidence there is, which is what the way down to it says rather than naming the section. */
 const quotes = resource.sources.reduce((total, source) => total + source.quotes.length, 0);
-const place = territory.layer.level === "EU" ? text.europe : territory.data.officialName;
+const place = placeOf(territory, text.euName);
 
 const facts: Array<{ label: string; value: string; icon: string; datetime?: string; href?: string }> = [
   { label: text.territoryRow, value: place, icon: ICON.territory, href: href(territory.layer) },
-  { label: text.whatItIsRow, value: kindLabel(resource.kind, language), icon: kindIcon(resource.kind) },
-  { label: text.stateRow, value: stateLabel(resource.status, language), icon: ICON.status },
-  { label: text.runByRow, value: resource.operator, icon: ICON.operator },
-  { label: text.bodyTypeRow, value: operatorTypeLabel(resource.operatorType, language), icon: ICON.body },
   {
     label: text.reachRow,
     icon: ICON.scope,
     value: resource.scope.area
-      ? `${reachLabel(resource.scope.level, language)} — ${resource.scope.area}`
+      ? `${reachLabel(resource.scope.level, language)} · ${resource.scope.area}`
       : reachLabel(resource.scope.level, language),
   },
-  ...(resource.accessCostType
-    ? [{ label: text.costRow, value: costLabel(resource.accessCostType, language), icon: PRACTICAL_ICON.accessCostType! }]
+  ...(resource.targetProfiles
+    ? [
+        {
+          label: text.forRow,
+          icon: ICON.profile,
+          value: resource.targetProfiles.map((profile) => profileLabel(profile, language)).join(" · "),
+        },
+      ]
     : []),
   ...(resource.instrumentType
     ? [{ label: text.supportTypeRow, value: instrumentLabel(resource.instrumentType, language), icon: PRACTICAL_ICON.instrumentType! }]
@@ -106,10 +110,7 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
         {
           label: text.paysForRow,
           icon: PRACTICAL_ICON.purposes!,
-          value: listIn(
-            resource.purposes.map((purpose) => purposeLabel(purpose, language)),
-            language,
-          ),
+          value: resource.purposes.map((purpose) => purposeLabel(purpose, language)).join(" · "),
         },
       ]
     : []),
@@ -118,10 +119,7 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
         {
           label: text.handlesRow,
           icon: PRACTICAL_ICON.assetTypes!,
-          value: listIn(
-            resource.assetTypes.map((asset) => assetLabel(asset, language)),
-            language,
-          ),
+          value: resource.assetTypes.map((asset) => assetLabel(asset, language)).join(" · "),
         },
       ]
     : []),
@@ -130,10 +128,7 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
         {
           label: text.coversRow,
           icon: PRACTICAL_ICON.sectors!,
-          value: listIn(
-            resource.sectors.map((sector) => sectorLabel(sector, language)),
-            language,
-          ),
+          value: resource.sectors.map((sector) => sectorLabel(sector, language)).join(" · "),
         },
       ]
     : []),
@@ -142,31 +137,24 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
         {
           label: text.taughtRow,
           icon: PRACTICAL_ICON.trainingFormats!,
-          value: listIn(
-            resource.trainingFormats.map((format) => formatLabel(format, language)),
-            language,
-          ),
+          value: resource.trainingFormats.map((format) => formatLabel(format, language)).join(" · "),
         },
       ]
     : []),
-  ...(resource.qualifiesForEstablishmentAid === undefined
-    ? []
-    : [{ label: text.qualifiesRow, value: resource.qualifiesForEstablishmentAid ? text.yes : text.no, icon: ICON.checked }]),
-  ...(resource.targetProfiles
-    ? [{ label: text.forRow, value: standing(audience(resource.targetProfiles, language), language), icon: ICON.profile }]
+  ...(resource.accessCostType
+    ? [{ label: text.costRow, value: costLabel(resource.accessCostType, language), icon: PRACTICAL_ICON.accessCostType! }]
     : []),
   ...(resource.languages
     ? [
         {
           label: text.availableInRow,
           icon: PRACTICAL_ICON.languages!,
-          value: listIn(
-            resource.languages.map((code) => languageName(code, language)),
-            language,
-          ),
+          value: resource.languages.map((code) => languageName(code, language)).join(" · "),
         },
       ]
     : []),
+  { label: text.runByRow, value: resource.operator, icon: ICON.operator },
+  { label: text.stateRow, value: stateLabel(resource.status, language), icon: ICON.status },
   ...(resource.lastEvidenceDate
     ? [
         {
@@ -177,17 +165,21 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
         },
       ]
     : []),
+  {
+    label: editionNamed(currentEdition, language),
+    value: `${text.publishedOn} ${dateIn(territory.data.published, language)}`,
+    datetime: territory.data.published,
+    icon: ICON.date,
+  },
 ];
 
 const sections = [
-  ...(resource.calls && resource.calls.length > 0 ? [{ id: "dates", label: text.navPeriods }] : []),
-  { id: "access", label: text.accessTitle },
   ...(resource.whoCanUseIt ? [{ id: "who", label: text.whoTitle }] : []),
+  { id: "access", label: text.accessTitle },
+  ...(resource.calls && resource.calls.length > 0 ? [{ id: "dates", label: text.navPeriods }] : []),
+  ...(resource.contactPoints ? [{ id: "contacts", label: text.contactTitle }] : []),
   { id: "facts", label: text.factsTitle },
-  ...(resource.metrics ? [{ id: "figures", label: text.navFigures }] : []),
-  ...(news.length > 0 ? [{ id: "news", label: text.navNews }] : []),
-  ...(resource.notes ? [{ id: "notes", label: text.notesTitle }] : []),
-  { id: "evidence", label: text.navEvidence },
+  { id: "evidence", label: text.evidenceTitle },
 ];
 
 const trail = view(territory).layers;
@@ -216,11 +208,7 @@ const reaches = leafLayers(territory.layer, territories)
    * choosing a region returns exactly what that region's own page lists — its own records and the ones it
    * inherits — and never a neighbour's.
    */}
-  <div
-    data-pagefind-body
-    data-pagefind-meta="territory[data-territory]"
-    data-territory={territory.layer.level === "EU" ? text.europe : territory.data.officialName}
-  >
+  <div data-pagefind-body data-pagefind-meta="territory[data-territory]" data-territory={place}>
     <span hidden data-pagefind-filter={`country:${country || "EU"}`} data-pagefind-meta={`country:${country || "EU"}`}></span>
     <span hidden data-pagefind-filter={`kind:${resource.kind}`} data-pagefind-meta={`kind:${resource.kind}`}></span>
     <span hidden data-pagefind-filter={`status:${resource.status}`} data-pagefind-meta={`status:${resource.status}`}></span>
@@ -280,6 +268,7 @@ const reaches = leafLayers(territory.layer, territories)
           <a href={resource.accessUrl} rel="noopener" class="btn btn-primary">
             <Icon name={ICON.external} aria-hidden="true" class="size-5 shrink-0" />
             {text.officialPage}
+            <span class="sr-only"> ({text.externalSite})</span>
           </a>
           <a href="#evidence" class="btn btn-quiet">
             <Icon name={ICON.evidence} aria-hidden="true" class="size-5 shrink-0" />
@@ -293,56 +282,6 @@ const reaches = leafLayers(territory.layer, territories)
 
     <div class="wrap grid gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_20rem]">
       <div class="grid content-start gap-10">
-        {resource.calls && resource.calls.length > 0 && (
-          <section aria-labelledby="dates">
-            <h2 id="dates" class="scroll-mt-6 text-2xl font-bold">
-              {text.periodsTitle}
-            </h2>
-            <div class="mt-4">
-              <CallWindows calls={resource.calls} sources={resource.sources} language={language} />
-            </div>
-          </section>
-        )}
-
-        <section aria-labelledby="access">
-          <h2 id="access" class="scroll-mt-6 text-2xl font-bold">
-            {text.accessTitle}
-          </h2>
-          {resource.howToAccess && <p class="mt-3 max-w-3xl">{resource.howToAccess}</p>}
-          {resource.contactPoints && (
-            <>
-              <h3 class="mt-8 text-lg font-bold">{text.contactTitle}</h3>
-              <ul class="mt-2">
-                {resource.contactPoints.map((contact) => {
-                  const cited = sourceNumber.get(contact.sourceUrl);
-                  return (
-                    <li class="border-t border-line py-2">
-                      <span class="text-meta text-muted">
-                        {channelLabel(contact.channel, language)} · {contact.label}
-                      </span>
-                      <p class="flex min-h-(--spacing-target) flex-wrap items-center gap-x-2">
-                        {contact.channel === "EMAIL" && (
-                          <a href={`mailto:${contact.value}`} class="break-words">
-                            {contact.value}
-                          </a>
-                        )}
-                        {contact.channel === "PHONE" && <a href={`tel:${contact.value.replace(/\s/gu, "")}`}>{contact.value}</a>}
-                        {contact.channel === "FORM" && (
-                          <a href={contact.value} rel="noopener" class="break-words">
-                            {contact.value}
-                          </a>
-                        )}
-                        {contact.channel === "OFFICE" && <span>{contact.value}</span>}
-                        {cited && <SourceRef number={cited} language={language} />}
-                      </p>
-                    </li>
-                  );
-                })}
-              </ul>
-            </>
-          )}
-        </section>
-
         {resource.whoCanUseIt && (
           <section aria-labelledby="who">
             <h2 id="who" class="scroll-mt-6 text-2xl font-bold">
@@ -352,13 +291,62 @@ const reaches = leafLayers(territory.layer, territories)
           </section>
         )}
 
-        {resource.metrics && (
+        <section aria-labelledby="access">
+          <h2 id="access" class="scroll-mt-6 text-2xl font-bold">
+            {text.accessTitle}
+          </h2>
+          {resource.howToAccess && <p class="mt-3 max-w-3xl">{resource.howToAccess}</p>}
+        </section>
+
+        {resource.notes && (
+          <section class="notice" aria-labelledby="notes">
+            <Icon name={ICON.note} aria-hidden="true" class="mt-1 size-5 shrink-0 text-accent" />
+            <div>
+              <h2 id="notes" class="scroll-mt-6 text-xl font-bold">
+                {text.notesTitle}
+              </h2>
+              <p class="mt-2">{resource.notes}</p>
+            </div>
+          </section>
+        )}
+
+        {/*
+          What one person can receive leads, as cards: it is the figure somebody came for, and a reader
+          who finds "48.000 €" first knows in one second whether to keep reading. A total budget, a
+          number of plots or of hours trained is about the instrument rather than about them, so it
+          follows in a list, quieter. Each figure says the day it was published and which source said so,
+          because a figure without a date is a rumour.
+        */}
+        {forYou.length > 0 && (
           <section aria-labelledby="figures">
             <h2 id="figures" class="scroll-mt-6 text-2xl font-bold">
-              {text.figuresTitle}
+              {text.howMuchTitle}
+            </h2>
+            <ul class="mt-5 grid gap-4 sm:grid-cols-2">
+              {forYou.map((metric) => {
+                const cited = sourceNumber.get(metric.sourceUrl);
+                return (
+                  <li class="rounded-r-lg border-s-4 border-accent bg-accent-tint p-5">
+                    <span class="block text-2xl font-bold text-ink tabular-nums">{quantity(metric.value, metric.unit, language)}</span>
+                    <span class="mt-1 block">{metric.label}</span>
+                    <span class="meta mt-1 block">
+                      {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, language)}</time>{" "}
+                      {cited && <SourceRef number={cited} language={language} />}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
+        {otherFigures.length > 0 && (
+          <section aria-labelledby={forYou.length > 0 ? "other-figures" : "figures"}>
+            <h2 id={forYou.length > 0 ? "other-figures" : "figures"} class="scroll-mt-6 text-2xl font-bold">
+              {forYou.length > 0 ? text.otherFiguresTitle : text.figuresTitle}
             </h2>
             <ul class="mt-4 divide-y divide-line border-y border-line">
-              {resource.metrics.map((metric) => {
+              {otherFigures.map((metric) => {
                 const cited = sourceNumber.get(metric.sourceUrl);
                 return (
                   <li class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
@@ -375,6 +363,48 @@ const reaches = leafLayers(territory.layer, territories)
                   </li>
                 );
               })}
+            </ul>
+          </section>
+        )}
+
+        {resource.calls && resource.calls.length > 0 && (
+          <section aria-labelledby="dates">
+            <h2 id="dates" class="scroll-mt-6 text-2xl font-bold">
+              {text.periodsTitle}
+            </h2>
+            <div class="mt-4">
+              <CallWindows calls={resource.calls} sources={resource.sources} language={language} />
+            </div>
+          </section>
+        )}
+
+        {resource.contactPoints && (
+          <section aria-labelledby="contacts">
+            <h2 id="contacts" class="scroll-mt-6 text-2xl font-bold">
+              {text.contactTitle}
+            </h2>
+            <ul class="mt-5 grid gap-4">
+              {resource.contactPoints.map((contact) => (
+                <li class="card p-5 [overflow-wrap:anywhere]">
+                  <p class="font-bold">{contact.label}</p>
+                  <p class="meta">{channelLabel(contact.channel, language)}</p>
+                  <p class="flex min-h-(--spacing-target) flex-wrap items-center gap-x-2">
+                    {contact.channel === "EMAIL" && <a href={`mailto:${contact.value}`}>{contact.value}</a>}
+                    {contact.channel === "PHONE" && <a href={`tel:${contact.value.replace(/\s/gu, "")}`}>{contact.value}</a>}
+                    {contact.channel === "FORM" && (
+                      <a href={contact.value} rel="noopener">
+                        {contact.value}
+                      </a>
+                    )}
+                    {contact.channel === "OFFICE" && <span>{contact.value}</span>}
+                  </p>
+                  <p>
+                    <a href={contact.sourceUrl} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center underline">
+                      {text.sourceShort}
+                    </a>
+                  </p>
+                </li>
+              ))}
             </ul>
           </section>
         )}
@@ -408,18 +438,6 @@ const reaches = leafLayers(territory.layer, territories)
             </ul>
           </section>
         )}
-
-        {resource.notes && (
-          <section class="notice" aria-labelledby="notes">
-            <Icon name={ICON.note} aria-hidden="true" class="mt-1 size-5 shrink-0 text-accent" />
-            <div>
-              <h2 id="notes" class="scroll-mt-6 text-xl font-bold">
-                {text.notesTitle}
-              </h2>
-              <p class="mt-2">{resource.notes}</p>
-            </div>
-          </section>
-        )}
       </div>
 
       {/* The facts are a panel rather than a section: they are what the record is, not a step of reading
@@ -441,10 +459,6 @@ const reaches = leafLayers(territory.layer, territories)
         <div class="mt-2">
           <Evidence sources={resource.sources} language={language} />
         </div>
-        <p class="mt-8 text-meta text-muted">
-          {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
-          <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
-        </p>
       </div>
     </section>
   </div>

@@ -98,7 +98,7 @@ const trust = [
           action={searchUrl("/")}
           id="home-q"
           label={text.searchAcrossEurope}
-          button={text.searchAction}
+          button={text.searchEverywhere}
           examples={text.searchExamples}
         />
         <a href={searchUrl("/")} class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
@@ -126,12 +126,6 @@ const trust = [
             </li>
           ))}
         </ul>
-        {/* The note belongs with the figures it qualifies: this is how much there is, and this is how
-            much of it a person has been over. */}
-        <p class="meta mt-3 flex items-start gap-2">
-          <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
-          <span>{editionNote}</span>
-        </p>
       </div>
     </div>
   </section>
@@ -154,7 +148,7 @@ const trust = [
               <span class="flex min-w-0 flex-1 flex-col">
                 <span class="text-lg font-bold text-ink">{country.name}</span>
                 <span class="meta">
-                  {counted(country.records, text.statApplicable)} · {counted(country.territories, text.statTerritories)}
+                  {counted(country.records, text.cardApplicable)} · {counted(country.territories, text.statTerritories)}
                 </span>
               </span>
               <Icon name={ICON.chevron} aria-hidden="true" class="size-5 shrink-0 text-muted" />
@@ -176,4 +170,16 @@ const trust = [
       />
     </div>
   </section>
+
+  <div class="wrap py-8">
+    <p class="flex items-start gap-2 text-meta text-muted">
+      <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
+      <span>
+        {editionNote}{" "}
+        <a href={`/${text.aboutSlug}/#method`} class="font-bold underline">
+          {text.methodTitle}
+        </a>
+      </span>
+    </p>
+  </div>
 </SiteLayout>

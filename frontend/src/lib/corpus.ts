@@ -126,6 +126,21 @@ export function href(layer: Layer): string {
   return `/${country}/${regionSlug(layer.country)}/${inside}/`;
 }
 
+/**
+ * Where a territory is, as a line a reader can place: the country, and the territory inside it.
+ *
+ * A region's own name is not enough on a list that mixes territories of several countries, and it is not
+ * enough on a record either — "Andalucía" says where only to somebody who already knows. The country
+ * comes first, as the postal order of a place does.
+ */
+export function placeOf(territory: Territory, europe: string): string {
+  if (territory.layer.level === "EU") return europe;
+  const iso = territory.layer.country;
+  const country = countryTerritories(territory.file.slice(0, 4)).find(({ layer }) => layer.level === "COUNTRY" && layer.country === iso);
+  const name = country?.data.officialName ?? iso;
+  return territory.layer.level === "COUNTRY" ? name : `${name} · ${territory.data.officialName}`;
+}
+
 /** The language a territory's text is written in, which is the language the page is in. */
 export const languageOf = (territory: Territory): string => territory.data.metadata.language;
 

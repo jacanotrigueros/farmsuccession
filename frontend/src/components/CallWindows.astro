@@ -1,63 +1,78 @@
 ---
 /**
- * The application periods of a record, directly under what it offers.
+ * The application periods of a record, under what it offers.
  *
- * "Can I apply now?" is the question a reader actually arrives with, and the answer used to be at the
- * bottom of the page, under the figures and the practical details. It is here instead, immediately after
- * the summary, which is where GOV.UK puts it on a grant page and where somebody scanning on a phone will
- * see it.
+ * "Can I apply now?" is the question a reader arrives with, and the answer used to be at the bottom of
+ * the page, under the figures and the practical details. It is here instead, with how to access the
+ * resource, which is where a public grant service puts it.
  *
  * What it must never do is answer that question by looking at today's date. A period's state was judged
  * against the day its source was read; this site is published once a year and cannot know what the page
- * says this afternoon. So every period is printed as a dated statement about a page — "was open, read on 30
- * September 2026" — with a link to the page itself, which is the only thing that can answer for today.
+ * says this afternoon. So the state is named as what it was at the date of consultation — "Estado en la
+ * fecha de consulta: Cerrada", and the date under it — and the caveat above the list says it once for
+ * all of them.
+ *
+ * One card per period, with the two dates named rather than run together in a sentence: a reader
+ * checking whether they have missed a deadline is looking for one date, and "Cierre" above it finds it
+ * faster than reading a line to the end.
  */
 import type { Call, Source } from "../lib/corpus.ts";
 import { dateIn } from "../lib/language.ts";
 import { callStateLabel } from "../lib/vocabulary.ts";
 import { words } from "../lib/words.ts";
-import SourceRef from "./SourceRef.astro";
 
 type Props = { calls: readonly Call[]; sources: readonly Source[]; language: string };
 const { calls, sources, language } = Astro.props;
 const text = words(language);
 
-const numbered = new Map(sources.map((source, index) => [source.url, { number: index + 1, consultedOn: source.consultedOn }]));
-
-/** The window as a reader reads it: both dates where the source gives both, one where it gives one. */
-function window(call: Call): string {
-  if (call.opens && call.closes) return `${text.from} ${dateIn(call.opens, language)} ${text.until} ${dateIn(call.closes, language)}`;
-  if (call.opens) return `${text.from} ${dateIn(call.opens, language)}`;
-  if (call.closes) return `${text.until} ${dateIn(call.closes, language)}`;
-  return "";
-}
+const consulted = new Map(sources.map((source) => [source.url, source.consultedOn]));
 ---
 
 {calls.length === 0 ? (
-  <p class="max-w-3xl">{text.noPeriodRecorded}</p>
+  <p>{text.noPeriodRecorded}</p>
 ) : (
   <>
-    <ul class="space-y-3">
+    <p class="meta max-w-3xl">{text.periodsExplained}</p>
+    <ul class="mt-5 grid gap-4">
       {calls.map((call) => {
-        const cited = numbered.get(call.sourceUrl);
-        const period = window(call);
+        const read = consulted.get(call.sourceUrl);
         return (
-          <li class="border-s-2 border-accent ps-4">
-            <p class="font-semibold">{call.name}</p>
-            <p>
-              {callStateLabel(call.state, language)}
-              {period && <>, {period}</>}
+          <li class="card p-5">
+            <h3 class="font-bold">{call.name}</h3>
+            <p class="mt-2">
+              {text.asConsulted}: <strong>{callStateLabel(call.state, language)}</strong>
             </p>
-            {cited && (
-              <p class="text-meta text-muted">
-                {text.recordedOn} <time datetime={cited.consultedOn}>{dateIn(cited.consultedOn, language)}</time>{" "}
-                <SourceRef number={cited.number} language={language} />
+            {read && (
+              <p class="meta">
+                {text.recordedOn} <time datetime={read}>{dateIn(read, language)}</time>
               </p>
             )}
+            {(call.opens || call.closes) && (
+              <dl class="mt-3 flex flex-wrap gap-x-8 gap-y-2">
+                {call.opens && (
+                  <div>
+                    <dt class="meta">{text.opensLabel}</dt>
+                    <dd class="font-semibold tabular-nums">
+                      <time datetime={call.opens}>{dateIn(call.opens, language)}</time>
+                    </dd>
+                  </div>
+                )}
+                {call.closes && (
+                  <div>
+                    <dt class="meta">{text.closesLabel}</dt>
+                    <dd class="font-semibold tabular-nums">
+                      <time datetime={call.closes}>{dateIn(call.closes, language)}</time>
+                    </dd>
+                  </div>
+                )}
+              </dl>
+            )}
+            <a class="mt-3 inline-flex min-h-(--spacing-target) items-center underline" href={call.sourceUrl} rel="noopener">
+              {text.sourceShort}
+            </a>
           </li>
         );
       })}
     </ul>
-    <p class="mt-4 max-w-3xl text-meta text-muted">{text.periodsExplained}</p>
   </>
 )}

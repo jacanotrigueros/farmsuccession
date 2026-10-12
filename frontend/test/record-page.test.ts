@@ -106,7 +106,8 @@ test("a dated application period always says which page said so, and when it was
     const html = pageOf(directory);
     const language = /<html lang="([^"]+)"/u.exec(html)?.[1];
     assert.ok(language, `${directory} does not declare the language it is written in`);
-    const dates = html.slice(html.indexOf('id="dates"'), html.indexOf('id="access"'));
+    const from = html.indexOf('id="dates"');
+    const dates = html.slice(from, html.indexOf("</section>", from));
     assert.ok(
       dates.includes(words(language).recordedOn),
       `${resource.id} states an application period without the date its source was read. A yearly edition cannot say whether something is open today; it can only say what a page said on a day.`,

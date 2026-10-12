@@ -52,25 +52,29 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
         {text.countriesTitle}
       </a>
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={searchPath("/", country)}>
-        {text.searchAction}
+        {text.searchEverywhere}
       </a>
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={aboutPath}>
         {text.aboutTitle}
       </a>
+    </nav>
+
+    <nav aria-label={text.aboutTitle} class="grid content-start">
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={historyPath}>
         {text.historyNav}
       </a>
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#method`}>
         {text.methodTitle}
       </a>
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#contact`}>
+        {text.contactTitle2}
+      </a>
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#privacy`}>
         {text.privacyTitle}
       </a>
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#licence`}>
+        {text.licenceTitle} · CC BY 4.0
+      </a>
     </nav>
-
-    <div class="grid content-start">
-      <p class="meta">{text.notAService}</p>
-      <p class="meta mt-3">{text.licence}</p>
-    </div>
   </div>
 </footer>

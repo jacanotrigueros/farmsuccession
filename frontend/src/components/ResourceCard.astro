@@ -1,8 +1,9 @@
 ---
 /**
  * One record as a reader meets it in a list: what kind of thing it is and whether it is operating, then
- * what it is called, what it offers, and underneath the three things that make it checkable — where it
- * applies, who runs it, and when the pages behind it were last read.
+ * what it is called, what it offers, and underneath the two things that place it — where it applies and
+ * who runs it. How many sources it carries is a question about the record, answered on the record's own
+ * page; in a list of twenty it was a third row of small print under every one of them.
  *
  * The whole card is the link. The title carries the underline, and an overlay on it covers the card, so a
  * finger can land anywhere on the box and a screen reader is still read one link with the record's name.
@@ -17,10 +18,9 @@
 import { Icon } from "astro-icon/components";
 import KindTag from "./KindTag.astro";
 import StatusTag from "./StatusTag.astro";
-import { recordHref, type Resource, type Territory } from "../lib/corpus.ts";
+import { placeOf, recordHref, type Resource, type Territory } from "../lib/corpus.ts";
 import { ICON } from "../lib/icons.ts";
-import { dateIn } from "../lib/language.ts";
-import { counted, words } from "../lib/words.ts";
+import { words } from "../lib/words.ts";
 
 type Props = {
   resource: Resource;
@@ -34,11 +34,7 @@ const { resource, recordedIn, language, level = "h3", compact = false } = Astro.
 const Heading = level;
 const text = words(language);
 
-const place = recordedIn.layer.level === "EU" ? text.europe : recordedIn.data.officialName;
-const consulted = resource.sources
-  .map((source) => source.consultedOn)
-  .toSorted()
-  .at(-1);
+const place = placeOf(recordedIn, text.euName);
 ---
 
 <li
@@ -82,18 +78,6 @@ const consulted = resource.sources
       <p class="meta mt-1 flex items-start gap-1.5">
         <Icon name={ICON.operator} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
         <span>{resource.operator}</span>
-      </p>
-      <p class="meta mt-1 flex items-start gap-1.5">
-        <Icon name={ICON.evidence} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
-        <span>
-          {counted(resource.sources.length, text.source)}
-          {consulted && (
-            <>
-              {", "}
-              {text.readOn} <time datetime={consulted}>{dateIn(consulted, language)}</time>
-            </>
-          )}
-        </span>
       </p>
     </div>
   )}

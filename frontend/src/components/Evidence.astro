@@ -58,6 +58,7 @@ const hostOf = (url: string): string => {
           <span class="inline-flex min-w-0 items-center gap-1.5">
             <Icon name={ICON.external} aria-hidden="true" class="size-4 shrink-0" />
             <span class="[overflow-wrap:anywhere]">{hostOf(source.url)}</span>
+            <span class="sr-only">({text.externalSite})</span>
           </span>
           <span class="inline-flex items-center gap-1.5">
             <Icon name={ICON.date} aria-hidden="true" class="size-4 shrink-0" />
