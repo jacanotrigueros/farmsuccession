@@ -161,7 +161,7 @@ test("a page says what has not been reviewed, and the count follows the data", (
 
   const home = pages.find(({ file }) => file === "index.html");
   assert.ok(home, "no home page was built");
-  const said = /All (\d+) files of the edition are drafts|(\d+) of (\d+) files of the edition are drafts/u.exec(home.html);
+  const said = /All (\d+) of its files are drafts|(\d+) of its (\d+) files are drafts/u.exec(home.html);
   assert.ok(said, "the home page does not say how much of the edition nobody has checked yet");
   const counted = Number(said[1] ?? said[2]);
   assert.equal(counted, drafts, `the home page says ${counted} drafts and the edition has ${drafts}`);
