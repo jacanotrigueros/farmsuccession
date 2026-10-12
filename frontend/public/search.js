@@ -48,6 +48,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
   const recovery = document.querySelector("[data-recovery]");
   const reset = document.querySelector("[data-reset]");
   const clearQuery = document.querySelector("[data-clear-query]");
+  const chosenRow = document.querySelector("[data-chosen]");
   const clearFilters = document.querySelector("[data-clear-filters]");
   const showResults = document.querySelector("[data-show-results]");
   const panel = document.querySelector("#narrow-panel");
@@ -133,6 +134,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
       }
     }
     show(active, active.children.length > 0);
+    show(chosenRow, active.children.length > 0);
   }
 
   let engine;
@@ -242,7 +244,6 @@ if (form && state && resultsList && everything && template && askBlock && filter
     show(everything, false);
     show(reset, narrowed);
     show(hint, !narrowed);
-    show(clearFilters, howMany > 0);
     show(clearQuery, field.value !== "");
     if (summary) {
       summary.textContent = term

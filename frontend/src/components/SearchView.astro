@@ -225,10 +225,7 @@ const strings = {
               </fieldset>
             </details>
           ))}
-          <button type="button" class="btn btn-quiet mt-4 w-full" data-clear-filters hidden>
-            {text.clearFilters}
-          </button>
-          <button type="button" class="btn btn-primary mt-3 w-full lg:hidden" data-show-results>
+          <button type="button" class="btn btn-primary mt-4 w-full lg:hidden" data-show-results>
             {text.loading}
           </button>
         </div>
@@ -262,7 +259,13 @@ const strings = {
         </a>
       </div>
 
-      <div class="mt-3 flex flex-wrap items-center gap-2" data-active hidden role="group" aria-label={text.activeFilters}></div>
+      {/* What the reader chose, and the one way to drop all of it, in the same line above the results. */}
+      <div class="mt-3 flex flex-wrap items-center gap-3" data-chosen hidden>
+        <div class="flex flex-wrap items-center gap-2" data-active role="group" aria-label={text.activeFilters}></div>
+        <button type="button" class="min-h-(--spacing-target) text-meta font-bold text-brand-strong underline" data-clear-filters>
+          {text.clearFilters}
+        </button>
+      </div>
 
       <ul class="mt-6 grid" data-results-list></ul>
       <nav class="mt-8 flex flex-wrap items-center justify-between gap-4" data-pagination hidden aria-label={text.pagination}>
