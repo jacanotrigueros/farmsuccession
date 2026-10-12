@@ -52,14 +52,11 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
         {text.countriesTitle}
       </a>
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={searchPath("/", country)}>
-        {text.searchEverywhere}
+        {text.searchAction}
       </a>
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={aboutPath}>
         {text.aboutTitle}
       </a>
-    </nav>
-
-    <nav aria-label={text.aboutTitle} class="grid content-start">
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={historyPath}>
         {text.historyNav}
       </a>
@@ -72,9 +69,13 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#privacy`}>
         {text.privacyTitle}
       </a>
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#licence`}>
-        {text.licenceTitle} · CC BY 4.0
-      </a>
     </nav>
+
+    {/* What the site is and whose the words are: two sentences a reader can check the whole inventory
+      against, beside the pages rather than folded into one of them. */}
+    <div class="grid content-start">
+      <p class="meta">{text.notAService}</p>
+      <p class="meta mt-3">{text.licence}</p>
+    </div>
   </div>
 </footer>
