@@ -19,8 +19,8 @@ import type { Resource } from "../../../src/types/edition.ts";
 export type Goal = { id: string; kinds: ReadonlyArray<Resource["kind"]> };
 
 export const GOALS = [
-  { id: "land", kinds: ["LAND_BANK"] },
   { id: "handover", kinds: ["SUCCESSION_SERVICE"] },
+  { id: "land", kinds: ["LAND_BANK"] },
   { id: "money", kinds: ["FINANCIAL_SUPPORT"] },
   { id: "learn", kinds: ["TRAINING"] },
   { id: "context", kinds: ["ADVICE", "POLICY", "NETWORK", "OFFICIAL_PORTAL", "OTHER"] },
