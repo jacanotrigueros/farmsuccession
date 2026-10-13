@@ -1,0 +1,37 @@
+---
+/**
+ * The band at the top of a page: where it sits, what it is called, and what it is about — and then
+ * whatever that page needs a reader to have before the content, in the slot.
+ *
+ * It is a band rather than a stretch of the page because the first screen has to say where you are
+ * without being read: the card colour and the rule under it separate the page's identity from its
+ * contents, and every page of the site does it the same way, which is what makes the site read as one
+ * site. The breadcrumb stops at the parent, because the title is the next thing on the page.
+ */
+import Breadcrumbs from "./Breadcrumbs.astro";
+
+type Props = {
+  crumbs: readonly { label: string; href: string }[];
+  crumbsLabel: string;
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  /** A country's own flag, as the file this site ships — never a region's, which has no flag here. */
+  flag?: string;
+  flagAlt?: string;
+};
+const { crumbs, crumbsLabel, eyebrow, title, lead, flag, flagAlt } = Astro.props;
+---
+
+<div class="border-b border-line bg-card">
+  <div class="wrap py-8">
+    <Breadcrumbs items={crumbs} current={title} showCurrent={false} label={crumbsLabel} />
+    {eyebrow && <p class="eyebrow mt-3">{eyebrow}</p>}
+    <h1 class="page-title mt-1 flex flex-wrap items-center gap-x-3 text-3xl text-balance sm:text-4xl">
+      {flag && <img src={flag} alt={flagAlt ?? ""} width="40" height="30" class="h-[0.7em] w-auto rounded-xs ring-1 ring-line" />}
+      <span>{title}</span>
+    </h1>
+    {lead && <p class="mt-4 text-lg">{lead}</p>}
+    <slot />
+  </div>
+</div>

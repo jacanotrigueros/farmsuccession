@@ -43,9 +43,10 @@ const goals = GOALS.filter((goal) => goal.id in ILLUSTRATION).map((goal) => ({
 }));
 
 /** Everything that is context rather than an answer, counted by kind and in the order the data gives. */
+const last = (kind: Resource["kind"]) => (kind === "OTHER" ? 1 : 0);
 const others = [...new Set(resources.filter((resource) => goalOf(resource.kind) === "context").map((resource) => resource.kind))]
   .map((kind) => ({ kind, count: resources.filter((resource) => resource.kind === kind).length }))
-  .toSorted((a, b) => b.count - a.count);
+  .toSorted((a, b) => last(a.kind) - last(b.kind) || b.count - a.count);
 ---
 
 <h2 id="needs" class="scroll-mt-6 text-2xl font-bold">

@@ -45,6 +45,7 @@ test("a page ships JavaScript only for what it actually carries", () => {
     const allowed = new Set<string>();
     if (html.includes("data-search")) allowed.add("/search.js");
     if (html.includes('class="apply')) allowed.add("/apply.js");
+    if (html.includes("data-filter")) allowed.add("/filter.js");
 
     for (const [, src] of html.matchAll(/<script[^>]*\ssrc="([^"]+)"/giu)) {
       assert.ok(
@@ -52,7 +53,11 @@ test("a page ships JavaScript only for what it actually carries", () => {
         `${file} loads ${src}, and nothing on it needs that: a page that is only read is read without JavaScript`,
       );
     }
-    const written = [...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/giu)].map(([, body]) => (body ?? "").trim());
+    // A block of application/ld+json is the page's own breadcrumb, as data a search engine reads. No
+    // browser executes it, so it is not the thing this rule is about.
+    const written = [...html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/giu)]
+      .filter(([, attributes]) => !(attributes ?? "").includes("application/ld+json"))
+      .map(([, , body]) => (body ?? "").trim());
     assert.ok(
       written.every((body) => body === ""),
       `${file} has an inline script, which cannot be read before it runs or audited afterwards`,
@@ -157,7 +162,7 @@ test("a page says what has not been reviewed, and the count follows the data", (
 
   const home = pages.find(({ file }) => file === "index.html");
   assert.ok(home, "no home page was built");
-  const said = /All (\d+) files are drafts|(\d+) of (\d+) files are drafts/u.exec(home.html);
+  const said = /All (\d+) of its files are drafts|(\d+) of its (\d+) files are drafts/u.exec(home.html);
   assert.ok(said, "the home page does not say how much of the edition nobody has checked yet");
   const counted = Number(said[1] ?? said[2]);
   assert.equal(counted, drafts, `the home page says ${counted} drafts and the edition has ${drafts}`);
@@ -165,7 +170,7 @@ test("a page says what has not been reviewed, and the count follows the data", (
   const eu = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
   assert.ok(eu, "no European record page was built");
   assert.ok(
-    eu.html.includes("Nobody has reviewed this page yet"),
+    eu.html.includes(words("en").draftNotice),
     "a record page of a draft file does not carry the warning, which is the first thing its reader is owed",
   );
 });
@@ -252,18 +257,49 @@ test("the page for an address that does not exist speaks every language of the s
   }
 });
 
-test("the sitemap lists every page the build produced, and nothing else", () => {
+test("the sitemap lists every page the build produced, except the ones that ask not to be listed", () => {
   const xml = readFileSync(path.join(DIST, "sitemap.xml"), "utf8");
   const listed = new Set([...xml.matchAll(/<loc>https:\/\/farmsuccession\.eu([^<]*)<\/loc>/gu)].map(([, url]) => url ?? ""));
-  const built = pages.filter(({ file }) => file.endsWith("index.html")).map(({ file }) => `/${file.replace(/index\.html$/u, "")}`);
+  const built = pages.filter(({ file }) => file.endsWith("index.html"));
+  const asked = (html: string) => /<meta\s+name="robots"\s+content="noindex/u.test(html);
+  const address = ({ file }: { file: string }) => `/${file.replace(/index\.html$/u, "")}`;
 
-  for (const page of built) {
+  const offered = built.filter(({ html }) => !asked(html)).map(address);
+  for (const page of offered) {
     assert.ok(listed.has(page), `${page} was built and is not in the sitemap, so nothing will find it unless a page links to it`);
   }
   for (const url of listed) {
-    assert.ok(built.includes(url), `the sitemap offers ${url}, which the build did not produce`);
+    assert.ok(offered.includes(url), `the sitemap offers ${url}, which the build did not produce or which asked not to be indexed`);
+  }
+  // A page that carries noindex and a page a sitemap offers are the same page saying two opposite things.
+  const quiet = built.filter(({ html }) => asked(html)).map(address);
+  assert.ok(quiet.length > 0, "no page asked to stay out of the index, so this check proved nothing");
+  for (const page of quiet) {
+    assert.ok(!listed.has(page), `${page} asks search engines not to index it and the sitemap offers it anyway`);
   }
   assert.ok(!xml.includes("/404/"), "the sitemap offers the page for addresses that do not exist");
+});
+
+/**
+ * Which pages those are: a search, which is not a document of its own, and a region that documented
+ * nothing itself, whose list is the list its country and the European layer already publish. Both stay
+ * reachable and their links are followed — this is about what a search engine is asked to keep a copy of.
+ */
+test("a region that documented nothing of its own is not offered as a page to index", () => {
+  const quiet = pages.filter(({ html }) => /<meta\s+name="robots"\s+content="noindex/u.test(html)).map(({ file }) => file);
+  const searches = quiet.filter((file) => !file.split(path.sep).includes(regionSlug((file.split(path.sep)[0] ?? "").toUpperCase())));
+  assert.ok(searches.length > 0, "no search page asked to stay out of the index");
+
+  const regions = quiet.filter((file) => file.split(path.sep).includes(regionSlug((file.split(path.sep)[0] ?? "").toUpperCase())));
+  assert.ok(regions.length > 0, "no region asked to stay out of the index, and some region documents nothing of its own");
+  for (const file of regions) {
+    const { html } = pages.find((page) => page.file === file)!;
+    const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    assert.ok(
+      html.includes(words(language).noneOwn.split("{where}")[0]!.trim()),
+      `${file} is kept out of the index without saying on the page that it documents nothing of its own`,
+    );
+  }
 });
 
 /**
@@ -361,25 +397,31 @@ test("a record is never listed without saying which layer it comes from", () => 
   for (const { file, html } of territories) {
     const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const text = words(language);
-    // Only the lists of records: the headings between a situation and whatever follows it.
-    const headings = [...html.matchAll(/<(h[234])\b[^>]*>([\s\S]*?)<\/\1>/gu)].map(([, level, inner]) => ({
+    const headings = [...html.matchAll(/<(h[234])\b([^>]*)>([\s\S]*?)<\/\1>/gu)].map(([, level, attributes, inner]) => ({
       level: level ?? "",
+      attributes: attributes ?? "",
       text: (inner ?? "")
         .replaceAll(/<[^>]*>/gu, " ")
         .replaceAll(/\s+/gu, " ")
         .trim(),
     }));
 
+    // A template with the name in the middle — "Für {where} erfasst" — is matched as one.
+    const says = (template: string) => new RegExp(`^${template.replaceAll(/[.*+?^$()|[\]\\]/gu, "\\$&").replace("{where}", ".+")}`, "u");
     let group = "";
     for (const heading of headings) {
-      if (heading.level === "h2") group = "";
-      if (heading.level === "h3") {
-        // "Für {where} erfasst" is a template with the name in the middle, so it is matched as one.
-        const own = new RegExp(`^${text.ownRecords.replaceAll(/[.*+?^$()|[\]\\]/gu, "\\$&").replace("{where}", ".+")}$`, "u");
-        group = own.test(heading.text) || heading.text.startsWith(text.inherited) ? heading.text : "";
+      if (heading.level === "h2") {
+        // The records of this territory hang from the heading that names it — "the whole country" on a
+        // country, the territory's name below one — and the ones that reach it from a wider layer hang
+        // from a heading naming that layer, one level further down.
+        const own = says(text.ownRecords).test(heading.text) || heading.text.startsWith(text.wholeCountryTitle);
+        group = own ? heading.text : "";
         if (group) grouped += 1;
       }
-      if (heading.level === "h4") {
+      if (heading.level === "h3" && heading.attributes.includes("data-layer")) {
+        group = heading.text;
+        grouped += 1;
+      } else if (heading.attributes.includes("data-record")) {
         assert.ok(group, `${file} lists "${heading.text}" with nothing above it saying which layer recorded it`);
       }
     }
@@ -446,4 +488,30 @@ test("every image a page asks for is a file the site ships", () => {
     );
   }
   assert.ok(checked > 0, "no page asked for an image at all, so this check proved nothing");
+});
+
+/**
+ * A figure beside a list is rewritten when a reader narrows the page, so it carries the two sentences it
+ * can become — one record, or several — with the number left out. Writing a count into a page without
+ * them is how a heading ends up saying "undefined" the first time somebody uses the control.
+ */
+test("a figure the filter rewrites says what it becomes at one record and at several", () => {
+  let checked = 0;
+  for (const { file, html } of pages) {
+    for (const [tag] of html.matchAll(/<[a-z0-9]+\b[^>]*\sdata-figure\b[^>]*>/gu)) {
+      const one = /\sdata-one="([^"]*)"/u.exec(tag)?.[1];
+      const many = /\sdata-many="([^"]*)"/u.exec(tag)?.[1];
+      assert.ok(
+        one?.includes("{n}") && many?.includes("{n}"),
+        `${file} counts something without saying what it reads at one record and at several: ${tag}`,
+      );
+      assert.match(
+        html,
+        /<script[^>]*src="\/filter\.js"/u,
+        `${file} carries a figure to rewrite and never loads the script that rewrites it`,
+      );
+      checked += 1;
+    }
+  }
+  assert.ok(checked > 0, "no page carried a figure the filter rewrites, so this check proved nothing");
 });

@@ -33,6 +33,7 @@ export const ICON = {
   search: "lucide:search",
   territory: "lucide:map-pin",
   operator: "lucide:building-2",
+  body: "lucide:landmark",
   external: "lucide:external-link",
   evidence: "lucide:quote",
   date: "lucide:calendar-check",
@@ -51,4 +52,12 @@ export const ICON = {
   resources: "lucide:file-text",
   sources: "lucide:database",
   chevron: "lucide:chevron-right",
+  chevronDown: "lucide:chevron-down",
 } as const;
+
+/**
+ * The flag of a country, as a file this site ships. It is never a glyph: a flag emoji is a pair of
+ * regional indicator letters, and a system with no glyph for the pair draws the letters themselves, so
+ * most readers on Windows saw ES where the page meant Spain.
+ */
+export const flagOf = (country: string): string => `/img/flags/${country.toLowerCase()}.svg`;

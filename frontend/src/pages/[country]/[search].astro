@@ -39,21 +39,29 @@ const listed: Listed[] = inside.flatMap((from) =>
 );
 
 const languages = [...new Set(inside.map((each) => languageOf(each)))].toSorted();
-const title = text.searchHere.replace("{where}", territory.data.officialName);
-const lead = text.searchScoped.replace("{where}", territory.data.officialName);
+const name = territory.data.officialName;
+const title = text.searchHere.replace("{where}", name);
 ---
 
-<SiteLayout title={`${title} — ${text.siteName}`} description={lead} language={language} current={`/${iso.toLowerCase()}/`}>
-  <div class="wrap">
-    <SearchView
-      language={language}
-      country={iso}
-      title={title}
-      lead={lead}
-      listed={listed}
-      facets={facetsFor(listed, language, iso)}
-      languages={languages}
-      inherits={["EU"]}
-    />
-  </div>
+<SiteLayout
+  title={`${title} — ${text.siteName}`}
+  description={text.browseHint}
+  language={language}
+  current={`/${iso.toLowerCase()}/`}
+  noindex
+>
+  <SearchView
+    language={language}
+    crumbs={[
+      { label: text.europe, href: "/" },
+      { label: name, href: `/${iso.toLowerCase()}/` },
+    ]}
+    title={title}
+    place={name}
+    country={iso}
+    listed={listed}
+    facets={facetsFor(listed, language, iso)}
+    languages={languages}
+    inherits={["EU"]}
+  />
 </SiteLayout>

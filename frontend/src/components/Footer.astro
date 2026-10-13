@@ -29,7 +29,9 @@ const aboutPath = country ? `/${country.toLowerCase()}/${text.aboutSlug}/` : `/$
 const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` : `/${text.historySlug}/`;
 ---
 
-<footer class="mt-16 border-t border-line bg-card">
+{/* No margin above it: every page ends in a band with a rule under it, and a gap between that rule and
+  the footer's own reads as an empty strip of page rather than as space. */}
+<footer class="border-t border-line bg-card">
   <div class="wrap grid gap-8 py-10 md:grid-cols-[2fr_1fr_1fr]">
     <div>
       <a href="/" class="inline-flex min-h-(--spacing-target) items-center text-lg font-bold text-brand-strong no-underline">
@@ -61,11 +63,16 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#method`}>
         {text.methodTitle}
       </a>
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#contact`}>
+        {text.contactTitle2}
+      </a>
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#privacy`}>
         {text.privacyTitle}
       </a>
     </nav>
 
+    {/* What the site is and whose the words are: two sentences a reader can check the whole inventory
+      against, beside the pages rather than folded into one of them. */}
     <div class="grid content-start">
       <p class="meta">{text.notAService}</p>
       <p class="meta mt-3">{text.licence}</p>

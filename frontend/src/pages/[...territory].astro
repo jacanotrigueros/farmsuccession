@@ -4,22 +4,20 @@
  * a region. One route, because they are the same page — what differs is how much a reader inherits before
  * reaching it, and that is data.
  *
- * The page is ordered by what somebody came to sort out, not by what kind of thing the data model says a
- * record is: find land, hand the holding over, pay for starting out, learn or be advised, and the rules
- * behind all of it. The kind stays on each record as a tag, where it is a useful detail rather than a
- * vocabulary a reader has to translate their own situation into before they can begin.
- *
- * The records are listed in one sequence rather than split into "yours" and "inherited". A reader looking
- * for land does not care which layer recorded it; they care what applies where they are. Where a record
- * came from is printed on the record, because it is the difference between a national scheme and a
- * municipal one, and because it tells them which page to watch for changes.
+ * The page is a band that says where you are and what applies here, a strip of its own sections, the
+ * territories under it, what a reader might have come to sort out, and then the records themselves in two
+ * groups: the ones this territory recorded, and the ones that reach it from a wider layer. The split is
+ * the point. "This is ours" and "this applies in the whole country" are different answers to the same
+ * question, no figure on the page credits a territory with another layer's instruments, and a reader who
+ * wants to know which page to watch for a change can see it without opening the record.
  */
 import { Icon } from "astro-icon/components";
 import DraftNotice from "../components/DraftNotice.astro";
 import Needs from "../components/Needs.astro";
-import SearchBox from "../components/SearchBox.astro";
-import ResourceRow from "../components/ResourceRow.astro";
+import PageHeader from "../components/PageHeader.astro";
 import PageIndex from "../components/PageIndex.astro";
+import ResourceList from "../components/ResourceList.astro";
+import SearchBox from "../components/SearchBox.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
   countryTerritories,
@@ -32,11 +30,13 @@ import {
   type Territory,
   view,
 } from "../lib/corpus.ts";
-import { GOALS, goalOf } from "../lib/goals.ts";
-import { ICON } from "../lib/icons.ts";
+import { GOALS } from "../lib/goals.ts";
+import { flagOf, ICON } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
-import { counted, editionNamed, situation, words } from "../lib/words.ts";
-import { queryFromState, searchPath } from "../../public/search-scope.js";
+import { coverageLabel } from "../lib/vocabulary.ts";
+import { kindLabel } from "../lib/vocabulary.ts";
+import { counted, editionNamed, words } from "../lib/words.ts";
+import { queryFromState, searchPath, searchUrl } from "../../public/search-scope.js";
 
 export function getStaticPaths() {
   // Written out here rather than in a helper: Astro lifts this function into a module of its own, where
@@ -50,221 +50,455 @@ const { territory } = Astro.props;
 const language = languageOf(territory);
 const text = words(language);
 const { layers, resources } = view(territory);
+const name = territory.data.officialName;
 
 const country = territory.layer.level === "EU" ? "" : territory.layer.country;
+/**
+ * The territories under this one. A region's grouping is not written on the region — a region is a
+ * country and a slug, and which grouping it belongs to is the catalogue's business — so it is read from
+ * the layers above it, which is the one place that answer is worked out.
+ */
+const hubSlug = territory.layer.level === "HUB" ? territory.layer.hub : undefined;
 const children =
   territory.layer.level === "COUNTRY"
     ? regionsOf(country)
-    : territory.layer.level === "HUB"
-      ? regionsOf(country).filter(({ layer }) => layer.level === "REGION" && layer.hub === territory.layer.hub)
-      : [];
-const groupings = territory.layer.level === "COUNTRY" ? hubTerritories().filter(({ layer }) => layer.country === country) : [];
+    : hubSlug === undefined
+      ? []
+      : regionsOf(country).filter((region) => view(region).layers.some(({ layer }) => layer.level === "HUB" && layer.hub === hubSlug));
+const groupings =
+  territory.layer.level === "COUNTRY" ? hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === country) : [];
 
 /**
- * Only the situations this territory can actually answer: a heading with nothing under it answers nobody.
+ * The territories of this one, with the ones that belong to a grouping kept inside it.
  *
- * Inside each one the records are grouped by the layer that recorded them, closest first — this territory,
- * then the country, then Europe — because "this is ours" and "this applies in the whole country" are
- * different answers to the same question, and the second one travels with the reader.
+ * An archipelago or a set of provinces that publishes a layer of its own is not a peer of the regions
+ * under it, and listing it as one more link above a flat grid of twenty-eight made a reader work out the
+ * relationship from the names. A grouping is a box with its own territories in it, and it says how many
+ * records it holds for all of them.
+ *
+ * The plain territories come first and the groupings after them, rather than each grouping sitting where
+ * its first territory would have: a box that spans the three columns in the middle of the grid breaks
+ * the rows around it and leaves half-empty lines above and below itself.
  */
-const closestFirst = [...layers].toReversed();
-const answered = GOALS.map((goal) => {
-  const found = resources.filter(({ resource }) => goalOf(resource.kind) === goal.id);
-  return {
-    goal,
-    found,
-    groups: closestFirst
-      .map((layer) => ({
-        from: layer,
-        inherited: layer !== territory,
-        name: layer.layer.level === "EU" ? text.europe : layer.data.officialName,
-        items: found.filter(({ from }) => from === layer).map(({ resource }) => resource),
-      }))
-      .filter(({ items }) => items.length > 0),
-  };
-}).filter(({ found }) => found.length > 0);
-
-const sections = [
-  ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle, count: children.length }] : []),
-  ...answered.map(({ goal, found }) => ({ id: goal.id, label: situation(goal.id, language).title, count: found.length })),
-  ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
-  { id: "coverage", label: text.coverageNote },
+const hubOf = (child: Territory): Territory | undefined => view(child).layers.find(({ layer }) => layer.level === "HUB");
+const under = [
+  ...children.filter((child) => hubOf(child) === undefined).map((child) => ({ hub: undefined, members: [child] })),
+  ...groupings
+    .map((hub) => ({ hub, members: children.filter((child) => hubOf(child) === hub) }))
+    .filter(({ members }) => members.length > 0),
 ];
 
-const trail = layers.slice(0, -1);
+/** What this territory recorded itself, and what reaches it from a wider layer, closest layer first. */
+const own = resources.filter(({ from }) => from === territory).map(({ resource }) => ({ resource, recordedIn: territory }));
+const inheritedGroups = [...layers]
+  .toReversed()
+  .filter((layer) => layer !== territory)
+  .map((layer) => ({
+    name: layer.layer.level === "EU" ? text.euName : layer.data.officialName,
+    items: resources.filter(({ from }) => from === layer).map(({ resource }) => ({ resource, recordedIn: layer })),
+  }))
+  .filter(({ items }) => items.length > 0);
+const inheritedCount = inheritedGroups.reduce((total, { items }) => total + items.length, 0);
+
+/** A country speaks of itself as a country: what it runs is national, not "its own layer". */
+const isCountry = territory.layer.level === "COUNTRY";
+
+/** The strip names the sections it leads to. Coverage closes the page and is not one of its answers. */
+const sections = [
+  ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle }] : []),
+  { id: "needs", label: text.navNeeds },
+  ...(isCountry && own.length === 0 ? [] : [{ id: "own", label: isCountry ? text.wholeCountryTitle : text.navOwn }]),
+  ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav }] : []),
+  ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
+];
 
 /**
- * What this territory holds, counted from what the page is about to show rather than from the file: a
- * reader gets everything that applies here, so that is what the figures are about. The territories line
- * only appears where there are any, because "0 territories" is noise on a region.
+ * What applies anywhere at or below this territory, which is what "applicable here" means on a page that
+ * has territories under it: a reader on Spain is being told what the whole of Spain documents, not only
+ * what the state wrote. The line under the figures says how that total breaks down, because the page
+ * itself lists the records of this layer and names the territories that hold the rest.
+ *
+ * Every figure is counted from what the page is about to show rather than read from the file. The
+ * territories line only appears where there are any, because "0 territories" is noise on a region.
  */
 const applicable = resources.map(({ resource }) => resource);
-const figures = [
-  { icon: ICON.resources, value: applicable.length, label: counted(applicable.length, text.statApplicable) },
-  ...(children.length > 0 ? [{ icon: ICON.territory, value: children.length, label: counted(children.length, text.statTerritories) }] : []),
-  {
-    icon: ICON.sources,
-    value: new Set(applicable.flatMap(({ sources }) => sources.map(({ url }) => url))).size,
-    label: counted(new Set(applicable.flatMap(({ sources }) => sources.map(({ url }) => url))).size, text.statSources),
-  },
-];
+const underneath = [...children, ...groupings].flatMap((under) => under.data.resources);
+const below = underneath.length;
+/** Everything a search from this page can return, which is what its figures and its guide are about. */
+const everythingHere = [...applicable, ...underneath];
+const cited = new Set(everythingHere.flatMap(({ sources }) => sources.map(({ url }) => url))).size;
+const quoted = everythingHere.reduce((total, { sources }) => total + sources.reduce((n, source) => n + source.quotes.length, 0), 0);
+
+/** A count with its noun, in a phrase that names the place it is about. */
+const about = (forms: readonly [string, string], howMany: number): string => counted(howMany, forms).replace("{where}", name);
+
+/**
+ * A country answers with everything that applies in it, how many territories it has and how much
+ * evidence is behind that. A territory answers with the two figures that are actually different there:
+ * what was written for it, and what reaches it from a wider layer.
+ */
+const figures = isCountry
+  ? [
+      { icon: ICON.resources, value: everythingHere.length, label: about(text.statApplicable, everythingHere.length) },
+      { icon: ICON.territory, value: children.length, label: counted(children.length, text.statTerritories) },
+      { icon: ICON.sources, value: cited, label: counted(cited, text.statSources) },
+      { icon: ICON.evidence, value: quoted, label: counted(quoted, text.statQuotes) },
+    ]
+  : [
+      { icon: ICON.resources, value: own.length, label: about(text.statOwn, own.length) },
+      { icon: ICON.scope, value: inheritedCount, label: about(text.statOtherScopes, inheritedCount) },
+    ];
+/** How the country's total divides: what the country itself documented, and what Europe adds to it. */
+const split = text.applicableSplit
+  .replace("{own}", String(own.length + below))
+  .replace("{where}", name)
+  .replace("{inherited}", counted(inheritedCount, text.europeanRecord));
+
+/**
+ * The kinds something on this page actually is, in the order the lists use, so the control can only ever
+ * narrow to something that is there. The catch-all goes last, where a reader looks once nothing above it
+ * has fitted.
+ */
+const lastOf = (kind: string) => (kind === "OTHER" ? 1 : 0);
+const kinds = [...new Set([...own, ...inheritedGroups.flatMap(({ items }) => items)].map(({ resource }) => resource.kind))]
+  .map((kind) => ({ kind, label: kindLabel(kind, language) }))
+  .toSorted((a, b) => lastOf(a.kind) - lastOf(b.kind) || a.label.localeCompare(b.label, language));
+
+/**
+ * Whether this page has anything to narrow: more than one kind of record, and a section of its own to
+ * hold the control. A country that documented nothing itself has no such section, and the handful of
+ * European records that reach it are not a list anybody needs to filter.
+ */
+const narrows = kinds.length > 1 && !(isCountry && own.length === 0);
+
+/** What a territory card says: written for it, and applicable there in total. */
+const countsOf = (child: Territory): string =>
+  text.territoryCounts
+    .replace("{own}", counted(child.data.resources.length, text.territoryOwnWord))
+    .replace("{total}", counted(view(child).resources.length, text.territoryTotalWord));
+
+/** The records of a grouping are the ones its territories share: the search that shows them is theirs. */
+const slugOf = (place: Territory): string => (place.layer.level === "REGION" ? `${country}/${place.layer.region}` : "");
+const sharedSearch = (members: Territory[]): string =>
+  searchUrl("/", { country: country || null, selected: { territory: members.map(slugOf).filter(Boolean) } });
+
+/** The heading of the records this territory recorded, and the sentence under a country's own. */
+const alsoTitle = (inheritedCount === 1 ? text.alsoApplies[0] : text.alsoApplies[1])
+  .replace("{count}", counted(inheritedCount, text.record))
+  .replace("{where}", name);
+const nationalLead = text.wholeCountryLead.replace("{count}", counted(own.length, text.record)).replace("{where}", name);
+
+/**
+ * A count the page shows is a count of what the page is showing, and narrowing it changes both. Every
+ * figure beside a list carries the two sentences it can be — one record, or several — with the number
+ * left out, so the script can say the truth about three records in the language it was written in rather
+ * than swap a digit inside a sentence that no longer agrees with itself.
+ *
+ * A page with nothing to narrow carries none of this: its figures are written once and stay true.
+ *
+ * The figures at the top of the page are not among them either: they describe the territory, which a
+ * filter does not change, and they sit above the control that narrows the lists.
+ */
+const saying = (template: string, word: string) => template.replace("{count}", `{n} ${word}`).replace("{where}", name);
+const howMany = (one: string, many = one) =>
+  narrows ? { "data-figure": "", "data-one": saying(one, text.record[0]), "data-many": saying(many, text.record[1]) } : {};
+const recordCount = howMany("{count}");
 
 /**
  * Searching from a territory searches its country, with this territory already chosen — never the European
  * search, which would show a reader schemes that do not apply where they are. A country searches itself.
  */
 const pinned = territory.layer.level === "REGION" ? [{ name: "territory", value: `${country}/${territory.layer.region}` }] : [];
-const pinnedQuery = queryFromState({ selected: Object.fromEntries(pinned.map((f) => [f.name, [f.value]])) }, country || undefined);
+const selected = Object.fromEntries(pinned.map((field) => [field.name, [field.value]]));
+const pinnedQuery = queryFromState({ selected }, country || undefined);
+const searchHere = (kinds: readonly string[]) => searchUrl("/", { country: country || null, selected: { ...selected, kind: [...kinds] } });
+
+/**
+ * A region that recorded nothing of its own is left out of search engines' indexes, and stays a page.
+ * It is a true and useful page — everything that applies there does apply there — but what it lists is
+ * what its sibling regions list, and asking an index to carry twenty-eight copies of one national list is
+ * asking it to choose between them. It stays reachable, its links are followed, and it is in no sitemap.
+ */
+const indexed = territory.layer.level !== "REGION" || own.length > 0;
 ---
 
 <SiteLayout
-  title={`${text.territoryTitle.replace("{where}", territory.data.officialName)} · ${text.siteName}`}
+  title={`${text.territoryTitle.replace("{where}", name)} · ${text.siteName}`}
   description={territory.data.summary}
   language={language}
   current={href(territory.layer)}
+  noindex={!indexed}
 >
-  <div class="wrap">
-    <header class="py-10">
-      <nav aria-label={text.whereYouAre} class="text-meta text-muted">
-        <ol class="flex flex-wrap items-center gap-x-2">
-          {trail.map((above) => (
-            <li>
-              <a href={href(above.layer)} class="inline-flex min-h-(--spacing-target) items-center">
-                {above.layer.level === "EU" ? text.europe : above.data.officialName}
-              </a>
-              <span aria-hidden="true"> ›</span>
-            </li>
-          ))}
-          <li aria-current="page" class="inline-flex min-h-(--spacing-target) items-center font-semibold text-ink">
-            {territory.data.officialName}
-          </li>
-        </ol>
-      </nav>
-      <h1 class="page-title mt-2 text-3xl text-balance sm:text-4xl">{territory.data.officialName}</h1>
-      <p class="mt-4 max-w-3xl text-lg">{territory.data.summary}</p>
-
-      <div class="mt-8">
-        <SearchBox
-          action={searchPath("/", country || undefined)}
-          id="here"
-          label={text.searchHereLabel.replace("{where}", territory.data.officialName)}
-          button={text.searchAction}
-          examples={text.searchExamples}
-          pinned={pinned}
-        />
-        <a
-          href={searchPath("/", country || undefined) + pinnedQuery}
-          class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
-        >
-          {text.browseAll.replace("{where}", territory.data.officialName)}
-        </a>
-      </div>
-
-      <div class="mt-8 rounded-lg bg-page p-5">
-        <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3" aria-label={text.statsLabel}>
-          {figures.map((figure) => (
-            <li class="flex items-center gap-3">
-              <Icon name={figure.icon} aria-hidden="true" class="size-5 shrink-0 text-brand" />
-              <p>
-                <span class="block text-2xl font-bold text-brand tabular-nums">{figure.value}</span>
-                <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </header>
-
+  <PageHeader
+    crumbs={layers.slice(0, -1).map((above) => ({
+      label: above.layer.level === "EU" ? text.europe : above.data.officialName,
+      href: href(above.layer),
+    }))}
+    crumbsLabel={text.whereYouAre}
+    eyebrow={`${text.siteName} · ${editionNamed(currentEdition, language)}`}
+    title={text.territoryTitle.replace("{where}", name)}
+    lead={territory.data.summary}
+    flag={territory.layer.level === "COUNTRY" ? flagOf(country) : undefined}
+  >
     {isDraft(territory) && (
-      <div class="pb-8">
+      <div class="mt-6">
         <DraftNotice language={language} />
       </div>
     )}
-  </div>
+    <div class="mt-8">
+      <SearchBox
+        action={searchPath("/", country || undefined)}
+        id="here"
+        label={text.searchHereLabel.replace("{where}", name)}
+        button={text.searchAction}
+        examples={text.searchExamples}
+        pinned={pinned}
+      />
+      <a
+        href={searchPath("/", country || undefined) + pinnedQuery}
+        class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
+      >
+        {text.browseAll.replace("{where}", name)}
+      </a>
+    </div>
+    <div class="mt-8 rounded-lg bg-page p-5">
+      <ul class:list={["grid grid-cols-2 gap-4", isCountry && "sm:grid-cols-4"]} aria-label={text.statsLabel}>
+        {figures.map((figure) => (
+          <li class="flex items-center gap-3">
+            <Icon name={figure.icon} aria-hidden="true" class="size-5 shrink-0 text-brand" />
+            <p>
+              <span class="block text-2xl font-bold text-brand tabular-nums">{figure.value}</span>
+              <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
+            </p>
+          </li>
+        ))}
+      </ul>
+      {isCountry && <p class="meta mt-4 border-t border-line pt-4">{split}</p>}
+    </div>
+  </PageHeader>
 
   <PageIndex sections={sections} language={language} />
 
-  <div class="wrap">
-    <section class="border-t border-line py-8" aria-labelledby="needs">
-      <Needs resources={resources.map(({ resource }) => resource)} language={language} hrefFor={(goal) => `#${goal}`} />
-      <p class="meta mt-6 max-w-3xl">{text.inheritedFromAbove}</p>
-    </section>
-
-    {(children.length > 0 || groupings.length > 0) && (
-      <section class="border-t border-line py-8" aria-labelledby="territories">
-        <h2 id="territories" class="scroll-mt-6 text-2xl font-bold">
-          {text.territoriesTitle}
-        </h2>
-        {groupings.length > 0 && (
-          <>
-            <h3 class="mt-4 text-meta font-semibold tracking-wide text-muted uppercase">{text.sharedLayers}</h3>
-            <ul class="mt-2 flex flex-wrap gap-x-5">
-              {groupings.map((grouping) => (
-                <li>
-                  <a href={href(grouping.layer)} class="flex min-h-(--spacing-target) items-center">
-                    {grouping.data.officialName}
+  {(children.length > 0 || groupings.length > 0) && (
+    <section class="wrap py-12" aria-labelledby="territories">
+      <h2 id="territories" class="scroll-mt-6 text-2xl font-bold">
+        {text.territoriesTitle}
+      </h2>
+      <ul class="territory-list mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {under.map(({ hub, members }) =>
+          hub ? (
+            <li class="card p-4 sm:col-span-2 lg:col-span-3">
+              <h3 class="text-lg font-bold">
+                <a href={href(hub.layer)}>{hub.data.officialName}</a>
+              </h3>
+              {hub.data.resources.length > 0 && (
+                <p class="meta mt-1">
+                  <a class="inline-flex min-h-(--spacing-target) items-center underline" href={sharedSearch(members)}>
+                    {counted(hub.data.resources.length, text.sharedRecords)}
                   </a>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-        <ul class="mt-4 grid gap-x-6 sm:grid-cols-2">
-          {children.map((child) => (
-            <li class="border-t border-line">
-              <a href={href(child.layer)} class="flex min-h-(--spacing-target) items-center justify-between gap-3 no-underline">
-                <span class="text-ink">{child.data.officialName}</span>
-                <span class="text-meta text-muted">{child.data.resources.length}</span>
-              </a>
+                </p>
+              )}
+              <ul class="territory-list mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {members.map((child) => (
+                  <li>
+                    <a href={href(child.layer)} class="territory-link card card-link">
+                      <span class="font-bold text-ink">{child.data.officialName}</span>
+                      <span class="meta">{countsOf(child)}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </li>
-          ))}
-        </ul>
-      </section>
-    )}
+          ) : (
+            members.map((child) => (
+              <li>
+                <a href={href(child.layer)} class="territory-link card card-link">
+                  <span class="font-bold text-ink">{child.data.officialName}</span>
+                  <span class="meta">{countsOf(child)}</span>
+                </a>
+              </li>
+            ))
+          ),
+        )}
+      </ul>
+    </section>
+  )}
 
-    {answered.map(({ goal, groups }) => (
-      <section class="border-t border-line py-8" aria-labelledby={goal.id}>
-        <h2 id={goal.id} class="scroll-mt-6 text-2xl font-bold">
-          {situation(goal.id, language).title}
-        </h2>
-        <p class="mt-1 max-w-3xl text-muted">{situation(goal.id, language).hint}</p>
-        {groups.map(({ from, inherited, name, items }) => (
-          <div class="mt-4">
-            <h3 class="text-meta font-semibold tracking-wide text-muted uppercase">
-              {inherited ? `${text.inherited} ${name}` : text.ownRecords.replace("{where}", name)}
+  <section class="border-y border-line bg-card" aria-labelledby="needs">
+    <div class="wrap py-12">
+      <Needs
+        resources={everythingHere}
+        language={language}
+        hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
+        hrefForKind={(kind) => searchHere([kind])}
+      />
+    </div>
+  </section>
+
+  {!(isCountry && own.length === 0) && (
+    <section class="wrap py-12" aria-labelledby="own">
+      <h2 id="own" class="flex scroll-mt-6 flex-wrap items-baseline gap-x-3 text-2xl font-bold">
+        {isCountry ? text.wholeCountryTitle : text.ownRecords.replace("{where}", name)}
+        {own.length > 0 && !isCountry && (
+          <span class="meta font-normal" {...recordCount}>
+            {counted(own.length, text.record)}
+          </span>
+        )}
+      </h2>
+      {isCountry && own.length > 0 && (
+        <p class="meta mt-1 max-w-3xl" {...howMany(text.wholeCountryLead)}>
+          {nationalLead}
+        </p>
+      )}
+      {/*
+        Narrowing where the records are. Everything here is already on the page a reader is looking at,
+        and until now the only way to see one kind of it was to leave for the search and come back. The
+        control offers the kinds this page actually holds, and carries no counts: the figures are at the
+        top of the page, and a number on a control is one more thing to read before it can be used.
+      */}
+      {narrows && (
+        <div hidden data-filter class="mt-6 flex flex-wrap items-center gap-3">
+          <label for="only" class="font-bold">
+            {text.filterByKind}
+          </label>
+          <select
+            id="only"
+            name="only"
+            class="min-h-(--spacing-target) rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
+          >
+            <option value="">{text.allKinds}</option>
+            {kinds.map(({ kind, label }) => (
+              <option value={kind}>{label}</option>
+            ))}
+          </select>
+        </div>
+      )}
+      {own.length > 0 ? (
+        <div class="mt-6">
+          <ResourceList items={own} language={language} />
+        </div>
+      ) : (
+        <p class="mt-3 max-w-3xl">{text.noneOwn.replace("{where}", name)}</p>
+      )}
+      {/*
+        What is left when the choice empties this list. It can only ever be read next to records of
+        another scope further down the page — the control offers no kind this page does not hold — so it
+        says where those are rather than leaving a heading above nothing.
+      */}
+      {narrows && own.length > 0 && (
+        <p hidden data-none class="mt-6 max-w-3xl">
+          {text.noneOfThisKind}
+        </p>
+      )}
+    </section>
+  )}
+
+  {inheritedCount > 0 && (
+    <section class="wrap pb-12" aria-labelledby="inherited">
+      <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...howMany(text.alsoApplies[0], text.alsoApplies[1])}>
+        {alsoTitle}
+      </h2>
+      <p class="meta mt-2 max-w-3xl">{text.alsoAppliesLead}</p>
+      {inheritedGroups.map(({ name: from, items }) => (
+        <details data-record-group class="inherited-group mt-6 border-t border-line pt-4" open>
+          <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
+            <h3 data-layer class="flex flex-wrap items-baseline gap-x-2 text-xl font-bold">
+              {from}
+              <span class="meta font-normal">
+                {" · "}
+                <span {...recordCount}>{counted(items.length, text.record)}</span>
+              </span>
             </h3>
-            <div class="mt-1">
-              {items.map((resource) => (
-                <ResourceRow resource={resource} language={language} recordedIn={from} titleAs="h4" />
-              ))}
-            </div>
+            <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron ml-auto size-5 shrink-0 text-brand-strong" />
+          </summary>
+          <div class="mt-4">
+            <ResourceList items={items} language={language} level="h4" />
           </div>
-        ))}
-      </section>
-    ))}
+        </details>
+      ))}
+    </section>
+  )}
 
-    {territory.data.limitations.length > 0 && (
-      <section class="border-t border-line py-8" aria-labelledby="limits">
-        <h2 id="limits" class="scroll-mt-6 text-2xl font-bold">
+  {territory.data.limitations.length > 0 && (
+    <section class="wrap pb-12" aria-labelledby="limits">
+      <div class="card p-6 sm:p-8">
+        <h2 id="limits" class="flex scroll-mt-6 items-center gap-2 text-2xl font-bold">
+          <Icon name={ICON.limits} aria-hidden="true" class="size-6 shrink-0 text-accent" />
           {text.limits}
         </h2>
-        <ul class="mt-3 max-w-3xl list-disc space-y-2 ps-5">
+        <ul class="mt-3 list-disc space-y-2 ps-6">
           {territory.data.limitations.map((limitation) => (
             <li>{limitation}</li>
           ))}
         </ul>
-      </section>
-    )}
-
-    <section class="border-t border-line py-8" aria-labelledby="coverage">
-      <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
-        {text.coverageNote}
-      </h2>
-      <p class="mt-2 max-w-3xl text-muted">{territory.data.coverage.note}</p>
-      <p class="mt-6 text-meta text-muted">
-        {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
-        <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
-      </p>
+      </div>
     </section>
-  </div>
+  )}
+
+  <section class="wrap border-t border-line py-8" aria-labelledby="coverage">
+    <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
+      {text.coverageNote}
+    </h2>
+    {/* The last paragraph of the page, with nothing beside it: held to a reading measure it read as
+      pushed into the corner, so it takes the width of the section it closes. */}
+    <p class="mt-2 text-muted">
+      <strong class="text-ink">{coverageLabel(territory.data.coverage.status, language)}.</strong> {territory.data.coverage.note}
+    </p>
+    <p class="mt-6 text-meta text-muted">
+      {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
+      <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
+    </p>
+  </section>
+  {narrows && <script is:inline type="module" src="/filter.js" defer />}
 </SiteLayout>
+
+<style>
+  /* A territory is a card with a chevron: the whole box is the target, and the arrow says it leads
+     somewhere. The count under the name is the territory's own records, not what it inherits. */
+  .territory-link {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.875rem 2.5rem 0.875rem 1rem;
+    text-decoration: none;
+  }
+  .territory-link::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 0.25rem);
+    right: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 2px solid var(--color-brand);
+    border-right: 2px solid var(--color-brand);
+    transform: rotate(45deg);
+  }
+  .territory-link:hover,
+  .territory-link:focus-visible {
+    background: var(--color-brand-tint);
+  }
+  /* On a phone, twenty-eight boxes are twenty-eight screens: the same list, as rows of about 60px. */
+  @media (max-width: 599px) {
+    .territory-list {
+      gap: 0;
+    }
+    .territory-list > li > .territory-link {
+      min-height: 3.75rem;
+      padding-block: 0.5rem;
+      border-width: 0 0 1px;
+      border-radius: 0;
+    }
+    .territory-list > li:first-child > .territory-link {
+      border-top-width: 1px;
+    }
+  }
+  .inherited-group > summary::-webkit-details-marker {
+    display: none;
+  }
+  .inherited-group[open] > summary :global(.group-chevron) {
+    transform: rotate(180deg);
+  }
+</style>

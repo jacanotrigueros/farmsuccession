@@ -19,9 +19,15 @@ type Props = {
   language: string;
   /** The page a reader is on, so the header can say so without a page having to tell it twice. */
   current?: string;
+  /**
+   * A page that is true and useful but that a search engine should not carry a copy of: a region whose
+   * list is its country's list, a search page, which is not a document of its own. It stays reachable and
+   * its links are followed.
+   */
+  noindex?: boolean;
 };
 
-const { title, description, language, current } = Astro.props;
+const { title, description, language, current, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const socialCard = new URL("/social-card.png", Astro.site).href;
 ---
@@ -34,6 +40,7 @@ const socialCard = new URL("/social-card.png", Astro.site).href;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />

@@ -37,7 +37,7 @@ than describing what it intends to be.
 | The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                                |
 | The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                          |
 | Published data                                               | The 2026 edition of the EU layer and five countries: 101 files, 319 records |
-| The site                                                     | Builds from the data: 438 pages, one script on search; not published        |
+| The site                                                     | Builds from the data: 439 pages, one script on search; not published        |
 
 ## What is published today
 

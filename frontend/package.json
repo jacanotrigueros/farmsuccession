@@ -8,7 +8,7 @@
     "dev": "astro dev",
     "build": "astro build && node scripts/build-index.ts && node scripts/sitemap.ts",
     "preview": "astro preview",
-    "typecheck": "tsc --project tsconfig.check.json",
+    "typecheck": "tsc --project tsconfig.check.json && astro check",
     "test": "node --test \"test/**/*.test.ts\"",
     "check": "npm run typecheck && npm run build && npm test"
   },
@@ -20,8 +20,10 @@
     "astro-icon": "1.2.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@tailwindcss/vite": "4.3.3",
     "pagefind": "1.5.2",
-    "tailwindcss": "4.3.3"
+    "tailwindcss": "4.3.3",
+    "typescript": "^6.0.3"
   }
 }

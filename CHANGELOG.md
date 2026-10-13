@@ -150,6 +150,40 @@ release.
   French page. It is the first thing a keyboard or screen-reader user meets, and it was
   invisible to every check because it only appears when focused. Fixed, and now a test.
 
+### The shapes of the closed design
+
+- **Every page opens with the same band**: where you are, what the page is called, what it
+  is about, and whatever that page needs a reader to have before the content. The trail
+  above the title is one component, with the page's own name left off a record where the
+  title repeats it immediately, and it is published as structured data so a search engine
+  is told what a reader is shown.
+- **A record in a list is a card**: kind and status, the name, what it offers, and the
+  three things that make it checkable — where it applies, who runs it, how many pages were
+  read and when. The whole box is the link. A search result is the same card without its
+  box, from the same template, so a result and a listed record cannot drift apart.
+- **A territory says what it recorded and what reaches it**, in two groups rather than
+  interleaved: its own records, then one group per wider layer, closest first, each naming
+  the layer and counting it. Its figures count everything documented anywhere inside it —
+  which is what a search from that page returns — and a line underneath says how that
+  total breaks down.
+- **A record page answers before it shows its working.** The band carries the summary, the
+  answer to "can I apply today" and the two ways out: the official page, and the evidence,
+  as a button saying how many sources there are. The facts sit beside the text as a panel,
+  and the evidence closes the page at full width, numbered, each source with the site it
+  lives on, the day it was read and its quotes in the serif this site keeps for quoted
+  evidence.
+- **The filters of a search are a column beside the results**, each group folding, instead
+  of a wall of twenty-eight checkboxes above them. What starts hidden is the field and the
+  filters, never the list under them: without the index, that list is the whole answer.
+- **A page may ask not to be indexed** (`decisions/028`): the six regions that have
+  documented nothing of their own, and the six search pages, carry `noindex, follow` and
+  are left out of the sitemap, which reads the rule off the built page rather than working
+  it out a second time. Nothing is hidden from a reader: the pages stay, their links are
+  followed, and each of them says in its own words that nothing has been recorded for that
+  territory itself.
+- The page that answers an address which does not exist had never been inside the
+  container that holds the site's margins; it is, and it has the band too.
+
 ### The pass against the design this repository is converging on
 
 - **A record lives under the country that recorded it**: `/es/recursos/<id>/`, `/de/angebote/<id>/`, in
@@ -298,6 +332,33 @@ release.
 - The same page also shows a call nobody had recorded: the prize is open from 2 October to
   18 December, so the record now answers "can I apply now?" where before it had no dates
   at all.
+
+### The design, closed
+
+- **The site says what the validated design says.** The chrome was rewritten against it in all
+  six languages: what a record's rows are called and the order they answer in, the names of the
+  kinds and of the states, the figures of a territory and the sentence that breaks them down,
+  the words of the search and of the pages around it. Where the two differed, the validated
+  design won.
+- **A search answers a page at a time**: twenty results, the filters in a column beside them
+  with the count each one would return, a chip for everything chosen, a link that clears them
+  all at once, and a way back to the European search when a country has nothing. What a reader
+  without the index gets is unchanged — the complete list is in the markup, and it is the whole
+  answer.
+- **A territory can be narrowed where its records are.** The strip under the title is the map
+  of the page again — the sections it has, and nothing else — and the narrowing sits inside the
+  records, offering only the kinds that page actually holds. Choosing one rewrites every figure
+  beside a list with the list, drops a layer or a section that has nothing left in it along with
+  its link in the strip, and says where the records of other scopes are when the choice empties
+  the list it narrows. Without the script none of this is missed: the page is complete, and
+  every one of those kinds is a link to the search.
+- **A figure can no longer say one thing while the page shows another**: a count that a reader
+  can change carries the two sentences it can become, one record or several, so what is written
+  stays a sentence in its own language — and a page that ships a figure like that has to ship
+  the script that keeps it true.
+- The links of the footer are one list rather than four columns of one; the button under the
+  home page's search no longer repeats the words above it; and an English edition is the
+  "2026 edition", not the "Edition 2026".
 
 ### Not here yet
 
