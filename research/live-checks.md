@@ -118,9 +118,18 @@ The five evidence failures were opened by hand the same evening, and all five we
   checker, and the whole Spanish section of that site is gone while the site itself is alive. Where the service moved
   needs a person, and `decisions/025` wants a second day before this is called gone.
 
+Every one of the thirty-four territories holding a failed or unread page was read a second time the same evening,
+one territory at a time so each reading says whose it was: 193 pass, the same 5 fail, 45 unread. The five failures are
+therefore the corpus and not the connection, and all five were corrected the same night — the Lombardy call set to open
+with the window the page shows, the Veneto date moved to the 19th, the Andalusian citation moved off the page's own
+updated-on stamp and onto a published resolution, and the València land bank re-cited to the municipal procedure in the
+city's electronic office, with the claims that only the dead pages supported removed. The four territories pass their
+own gate now.
+
 `check:links` adds three addresses that no record cites as evidence but a reader can still meet: a Palmela council PDF
 and a Zaragoza procedure, both 404, cited by the coverage method of their territories, and `ismea.it` redirecting its
-own root to a page the citation should name instead.
+own root to a page the citation now names instead. The Zaragoza and Palmela links stay as they were read: a method is
+what somebody did on a day, and what those two did is done.
 
 The 72 and 83 unreadable are the same hosts as ever — the Galician portal, Gipuzkoa, Nouvelle-Aquitaine, Hesse's LLH,
 Brandenburg, the Spanish grant database — none of which has ever answered this checker. A note for whoever automates

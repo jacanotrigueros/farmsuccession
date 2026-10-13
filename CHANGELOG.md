@@ -4,11 +4,12 @@ What changed, written for somebody deciding whether to trust the data rather tha
 for somebody reading the diff. Each entry says what became possible and what
 became impossible.
 
-Nothing is released yet: `master` holds no version, and the entries below describe
-work merged into `develop`. The first release will be tagged when there is data to
-release.
+Version 1.0.0 is the 2026 edition: one European layer and five countries, read
+back against their own sources before being closed on 13 October 2026. The site
+it describes is built from this data and is not published yet; that is the next
+thing, and not a part of this version.
 
-## Unreleased
+## 1.0.0 — 2026-10-13
 
 ### The data contracts
 
@@ -359,6 +360,22 @@ release.
 - The links of the footer are one list rather than four columns of one; the button under the
   home page's search no longer repeats the words above it; and an English edition is the
   "2026 edition", not the "Edition 2026".
+
+### Read back before being closed
+
+- **Every cited page was read again, and every address asked whether it answers**, which this repository
+  had never done over the whole corpus at once: 500 cited pages, 423 of them still saying what the records
+  say they say, and 583 addresses of which 495 answered. The unread ones are a handful of portals that
+  have never spoken to an automated reader, not a corpus of dead links, and the series in
+  `reports/checks/` is what tells one from the other.
+- **The five pages that had changed were corrected the same night**: a Lombardy call that opened that
+  morning and was still recorded as upcoming, a Veneto course that had moved a week, an Andalusian
+  citation resting on a page's own updated-on stamp, and a València land bank whose pages had gone from a
+  site that is still alive — re-cited to the municipal procedure, with the claims only the dead pages
+  supported removed.
+- [`research/live-checks.md`](research/live-checks.md) now holds what the checks mean, what each answer is
+  worth, and what every pass has found, so the next edition starts from the readings rather than from
+  somebody's memory of them.
 
 ### Not here yet
 
