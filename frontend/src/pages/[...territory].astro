@@ -189,6 +189,22 @@ const alsoTitle = (inheritedCount === 1 ? text.alsoApplies[0] : text.alsoApplies
 const nationalLead = text.wholeCountryLead.replace("{count}", counted(own.length, text.record)).replace("{where}", name);
 
 /**
+ * A count the page shows is a count of what the page is showing, and narrowing it changes both. Every
+ * figure beside a list carries the two sentences it can be — one record, or several — with the number
+ * left out, so the script can say the truth about three records in the language it was written in rather
+ * than swap a digit inside a sentence that no longer agrees with itself.
+ *
+ * The figures at the top of the page are not among them: they describe the territory, which a filter does
+ * not change, and they sit above the control that narrows the lists.
+ */
+const howMany = (template: string) => ({
+  "data-count": "",
+  "data-one": template.replace("{count}", `{n} ${text.record[0]}`).replace("{where}", name),
+  "data-many": template.replace("{count}", `{n} ${text.record[1]}`).replace("{where}", name),
+});
+const recordCount = howMany("{count}");
+
+/**
  * Searching from a territory searches its country, with this territory already chosen — never the European
  * search, which would show a reader schemes that do not apply where they are. A country searches itself.
  */
@@ -323,9 +339,17 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
     <section class="wrap py-12" aria-labelledby="own">
       <h2 id="own" class="flex scroll-mt-6 flex-wrap items-baseline gap-x-3 text-2xl font-bold">
         {isCountry ? text.wholeCountryTitle : text.ownRecords.replace("{where}", name)}
-        {own.length > 0 && !isCountry && <span class="meta font-normal">{` ${counted(own.length, text.record)}`}</span>}
+        {own.length > 0 && !isCountry && (
+          <span class="meta font-normal" {...recordCount}>
+            {counted(own.length, text.record)}
+          </span>
+        )}
       </h2>
-      {isCountry && own.length > 0 && <p class="meta mt-1 max-w-3xl">{nationalLead}</p>}
+      {isCountry && own.length > 0 && (
+        <p class="meta mt-1 max-w-3xl" {...howMany(text.wholeCountryLead)}>
+          {nationalLead}
+        </p>
+      )}
       {/*
         Narrowing where the records are. Everything here is already on the page a reader is looking at,
         and until now the only way to see one kind of it was to leave for the search and come back. The
@@ -361,7 +385,13 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
 
   {inheritedCount > 0 && (
     <section class="wrap pb-12" aria-labelledby="inherited">
-      <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold">
+      <h2
+        id="inherited"
+        class="scroll-mt-6 text-2xl font-bold"
+        data-count
+        data-one={text.alsoApplies[0].replace("{count}", `{n} ${text.record[0]}`).replace("{where}", name)}
+        data-many={text.alsoApplies[1].replace("{count}", `{n} ${text.record[1]}`).replace("{where}", name)}
+      >
         {alsoTitle}
       </h2>
       <p class="meta mt-2 max-w-3xl">{text.alsoAppliesLead}</p>
@@ -370,7 +400,10 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
           <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
             <h3 data-layer class="flex flex-wrap items-baseline gap-x-2 text-xl font-bold">
               {from}
-              <span class="meta font-normal">{` · ${counted(items.length, text.record)}`}</span>
+              <span class="meta font-normal">
+                {" · "}
+                <span {...recordCount}>{counted(items.length, text.record)}</span>
+              </span>
             </h3>
             <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron ml-auto size-5 shrink-0 text-brand-strong" />
           </summary>
