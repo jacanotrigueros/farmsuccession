@@ -1,0 +1,37 @@
+# Everything `npm run check` runs, on a machine that is not the maintainer's.
+#
+# Started by hand and never by an event. The gate already runs before every commit and every push
+# through the git hooks, so a workflow triggered on push would spend the month's minutes proving what
+# the push had just proved — and minutes are only free while a repository is public. This exists for
+# the cases a laptop cannot answer: a clean checkout, a dependency bump, somebody else's fork.
+name: Checks
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            frontend/package-lock.json
+
+      # Two npm projects, one repository: the site reads the data and the types the gate validates.
+      - run: npm ci
+      - run: npm ci --prefix frontend
+
+      - name: The repository gate
+        run: npm run check
+
+      - name: The site gate, which builds it
+        run: npm run check --prefix frontend

@@ -247,6 +247,31 @@ their full result to `reports/`.
 three answers is worth, why a single run is a reading rather than a verdict, and
 what to do with a page the series says is gone.
 
+## Publishing
+
+The site is built from the data and published to GitHub Pages by a workflow that
+runs only when somebody starts it — Actions, "Publish the site", Run workflow.
+A second one, "Checks", runs the whole gate on a clean checkout. Neither reacts
+to a push: the gate already runs before every commit and every push here, the
+minutes are a monthly budget while a repository is private, and publishing an
+edition is a decision rather than a consequence of merging.
+
+Before the first publication, two things that do not belong in a file:
+
+- enable Pages for the repository with **GitHub Actions** as its source. Pages
+  for a private repository needs a paid plan, and Actions minutes are free only
+  while a repository is public, so the usual order is public first;
+- to answer at the project's own domain, point the DNS at GitHub — the four
+  apex `A` records it documents for Pages (185.199.108.153 through
+  185.199.111.153) and a `CNAME` for `www` — and set the repository variable
+  `SITE_DOMAIN` to the domain. The workflow writes the `CNAME` file from it.
+  Without that variable the site publishes at the `github.io` address and
+  nothing breaks.
+
+The pages name `https://farmsuccession.eu` in their canonical links and in the
+sitemap either way: that is the address this project has decided on, and a test
+keeps the build saying it.
+
 ## Repository layout
 
 | Path         | What is in it                                                         |

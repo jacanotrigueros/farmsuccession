@@ -1,0 +1,74 @@
+# Build the site from the data and publish it to GitHub Pages.
+#
+# Started by hand, like everything here. Publishing is an editorial act — somebody decides that what
+# the repository says today is what the public should read today — and an edition that republished
+# itself on every merge would make that decision by accident.
+#
+# Two things have to be true before the first run, and neither belongs in a file:
+#
+#   1. Pages is enabled for this repository with "GitHub Actions" as its source. While the repository
+#      is private that needs a paid plan; on the free one, make it public first. Minutes are free for
+#      public repositories and come out of the monthly allowance for private ones.
+#   2. If the site is to answer at its own domain, set the repository variable SITE_DOMAIN to it (for
+#      example farmsuccession.eu) and point the DNS at GitHub first. Without the variable the site
+#      publishes at the github.io address and nothing breaks; the canonical links in the pages name
+#      the project's domain either way, because that is the address the project has decided on.
+name: Publish the site
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One publication at a time, and never cancel one that is already going out.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            frontend/package-lock.json
+
+      - run: npm ci
+      - run: npm ci --prefix frontend
+
+      # Offline and seconds long: nothing reaches a reader that the gate would refuse. The rest of the
+      # gate ran before this commit existed; this is the part that is about the published data itself.
+      - name: What is about to be published still validates
+        run: npm run validate
+
+      - name: Build the site, its search bundles and its sitemap
+        run: npm run build --prefix frontend
+
+      - name: Name the domain, when there is one
+        if: vars.SITE_DOMAIN != ''
+        run: echo "${{ vars.SITE_DOMAIN }}" > frontend/dist/CNAME
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
