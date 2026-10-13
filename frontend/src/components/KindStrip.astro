@@ -1,11 +1,14 @@
 ---
 /**
- * The strip under a territory's title: what kind of thing to show.
+ * The strip above a territory's records: what kind of thing to show.
  *
  * It is the same strip the rest of the site uses to say what is on a page — its own band, its own rule,
  * pills that wrap rather than scroll sideways — doing the one thing a reader of a territory actually
  * wants from it. "En esta página" named five sections a reader could already see by scrolling; this
  * names the kinds of record the page holds, and choosing one shows only those.
+ *
+ * It closes the band above it rather than opening one of its own: the page already runs a band straight
+ * into the records, and a filter a reader meets there is a filter of the records, which is what it is.
  *
  * Every pill is a link to the search for that kind, so it works with no JavaScript at all and keeps
  * working if the script never loads. Where the script does run it stops the link and narrows the lists
@@ -27,7 +30,7 @@ const pill =
   "kind-pill inline-flex min-h-(--spacing-target) items-center rounded-full border border-line-strong px-4 text-meta font-bold text-brand-strong no-underline hover:border-brand hover:bg-brand-tint";
 ---
 
-<div data-filter class="border-y border-line bg-card" data-pagefind-ignore>
+<div data-filter class="border-b border-line bg-card" data-pagefind-ignore>
   <div class="wrap flex flex-wrap items-center gap-2 py-3" role="group" aria-label={text.filterByKind}>
     <span class="meta me-2 font-bold">{text.filterByKind}</span>
     <a href={everything} class={pill} data-kind-pill="" aria-current="true">
