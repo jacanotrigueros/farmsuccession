@@ -27,6 +27,7 @@ const EN = {
   navOwn: "Specific resources",
   filterByKind: "Show only",
   allKinds: "Everything",
+  noneOfThisKind: "No resources of this kind at this scope. The ones that reach here from other scopes are below.",
   alsoAppliesLead: "European, national or regional instruments that also cover this territory. Each is documented once, in its own scope.",
   noneOwn: "No resources specific to {where} documented yet.",
   territoryCounts: "{own} · {total} in total",
@@ -271,6 +272,7 @@ const ES = {
   navOwn: "Recursos específicos",
   filterByKind: "Mostrar solo",
   allKinds: "Todo",
+  noneOfThisKind: "No hay recursos de este tipo en este ámbito. Los que se aplican aquí desde otros ámbitos están más abajo.",
   alsoAppliesLead:
     "Instrumentos europeos, estatales o autonómicos que también cubren este territorio. Cada uno se documenta una sola vez, en su propio ámbito.",
   noneOwn: "No hemos documentado recursos específicos de {where}.",
@@ -517,6 +519,7 @@ const DE = {
   navOwn: "Eigene Angebote",
   filterByKind: "Nur anzeigen",
   allKinds: "Alles",
+  noneOfThisKind: "Keine Angebote dieser Art auf dieser Ebene. Die, die hier von anderen Ebenen gelten, stehen weiter unten.",
   alsoAppliesLead:
     "Europäische, nationale oder regionale Instrumente, die auch dieses Gebiet abdecken. Jedes ist nur einmal dokumentiert, auf seiner eigenen Ebene.",
   noneOwn: "Noch keine Angebote speziell für {where} dokumentiert.",
@@ -765,6 +768,7 @@ const FR = {
   navOwn: "Ressources propres",
   filterByKind: "Afficher seulement",
   allKinds: "Tout",
+  noneOfThisKind: "Aucune ressource de ce type à cette échelle. Celles qui s’appliquent ici depuis d’autres échelles sont plus bas.",
   alsoAppliesLead:
     "Instruments européens, nationaux ou régionaux qui couvrent aussi ce territoire. Chacun est documenté une seule fois, à sa propre échelle.",
   noneOwn: "Aucune ressource propre à ce territoire n’est documentée pour le moment.",
@@ -1016,6 +1020,7 @@ const IT = {
   navOwn: "Risorse specifiche",
   filterByKind: "Mostra solo",
   allKinds: "Tutto",
+  noneOfThisKind: "Nessuna risorsa di questo tipo in questo ambito. Quelle che si applicano qui da altri ambiti sono più in basso.",
   alsoAppliesLead:
     "Strumenti europei, nazionali o regionali che coprono anche questo territorio. Ciascuno è documentato una sola volta, nel proprio ambito.",
   noneOwn: "Non abbiamo ancora documentato risorse specifiche di questo territorio.",
@@ -1264,6 +1269,7 @@ const PT = {
   navOwn: "Recursos específicos",
   filterByKind: "Mostrar apenas",
   allKinds: "Tudo",
+  noneOfThisKind: "Não há recursos deste tipo neste âmbito. Os que se aplicam aqui a partir de outros âmbitos estão mais abaixo.",
   alsoAppliesLead:
     "Instrumentos europeus, nacionais ou regionais que também abrangem este território. Cada um é documentado uma só vez, no seu próprio âmbito.",
   noneOwn: "Ainda não documentámos recursos específicos deste território.",

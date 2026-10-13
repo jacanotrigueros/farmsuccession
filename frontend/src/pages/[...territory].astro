@@ -380,6 +380,16 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
       ) : (
         <p class="mt-3 max-w-3xl">{text.noneOwn.replace("{where}", name)}</p>
       )}
+      {/*
+        What is left when the choice empties this list. It can only ever be read next to records of
+        another scope further down the page — the control offers no kind this page does not hold — so it
+        says where those are rather than leaving a heading above nothing.
+      */}
+      {narrows && own.length > 0 && (
+        <p hidden data-none class="mt-6 max-w-3xl">
+          {text.noneOfThisKind}
+        </p>
+      )}
     </section>
   )}
 

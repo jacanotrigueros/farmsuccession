@@ -23,6 +23,7 @@ if (bar && choice) {
   const cards = [...document.querySelectorAll("[data-records] > [data-kind]")];
   const groups = [...document.querySelectorAll("[data-record-group]")];
   const figures = [...document.querySelectorAll("[data-count]")];
+  const nothing = document.querySelector("[data-none]");
   const sections = [...document.querySelectorAll("section")].filter((section) => section.querySelector("[data-records]"));
 
   /** How many records are showing inside something: a layer, a section, or the page. */
@@ -39,6 +40,8 @@ if (bar && choice) {
       const heading = section.getAttribute("aria-labelledby");
       for (const link of document.querySelectorAll(`a[href="#${heading}"]`)) link.hidden = empty;
     }
+    // The section that keeps the control keeps its heading too, so it says what became of its records.
+    if (nothing) nothing.hidden = shown(nothing.closest("section")) > 0;
     for (const figure of figures) {
       const howMany = shown(figure.closest("[data-record-group]") ?? figure.closest("section"));
       figure.textContent = (howMany === 1 ? figure.dataset.one : figure.dataset.many).replace("{n}", String(howMany));
