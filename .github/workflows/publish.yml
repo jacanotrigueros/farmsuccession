@@ -32,6 +32,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # A dispatch can be aimed at any branch, and the branch this publishes from is the one the
+      # version was closed on. Nothing half-finished reaches a reader because somebody picked the
+      # wrong entry in a dropdown.
+      - name: Only what is closed gets published
+        if: github.ref_name != 'master'
+        run: |
+          echo "This publishes master; this run asked for ${{ github.ref_name }}." >&2
+          exit 1
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4

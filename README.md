@@ -28,16 +28,16 @@ Two consequences that shape the whole design:
 This repository is being built in milestones, and it says where it is rather
 than describing what it intends to be.
 
-| Area                                                         | State                                                                       |
-| ------------------------------------------------------------ | --------------------------------------------------------------------------- |
-| Data contracts (`schema/`) and the types generated from them | Settled at `schemaVersion` 1.0.0                                            |
-| Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                                        |
-| Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                                          |
-| Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`                   |
-| The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                                |
-| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                          |
-| Published data                                               | The 2026 edition of the EU layer and five countries: 101 files, 319 records |
-| The site                                                     | Builds from the data: 439 pages, one script on search; not published        |
+| Area                                                         | State                                                                                                |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| Data contracts (`schema/`) and the types generated from them | Settled at `schemaVersion` 1.0.0                                                                     |
+| Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                                                                 |
+| Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                                                                   |
+| Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`                                            |
+| The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                                                         |
+| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                                                   |
+| Published data                                               | The 2026 edition of the EU layer and five countries: 101 files, 319 records                          |
+| The site                                                     | Builds from the data: 439 pages, one script on search; published by hand to Pages, not published yet |
 
 ## What is published today
 

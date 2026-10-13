@@ -1,0 +1,39 @@
+name: A page moved, or no longer says what we quote
+description: The most useful thing anybody can report here. A record rests on a public page and a quote from it; when either goes, the record is wrong.
+title: "[source] "
+labels: ["evidence"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You do not need to know anything about this repository to report this. A link that leads nowhere,
+        or a page that no longer says what we say it says, is enough.
+  - type: input
+    id: record
+    attributes:
+      label: The page on the site
+      description: The address of the record, or of the territory where you found it.
+      placeholder: https://farmsuccession.eu/es/recursos/...
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: The official page it cites
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens when you open it
+      description: Whether it answers at all, where it sends you, and what it says now — quoted word for word if you can.
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: The day you looked
+      placeholder: 2026-10-13
+    validations:
+      required: true

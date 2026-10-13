@@ -1,0 +1,39 @@
+name: Something is missing, or is not what the source says
+description: An instrument this project should document and does not, or a fact that does not match its source.
+title: "[record] "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project only publishes what a public page says, with the day somebody read it. So the one
+        thing a report has to carry is that page. "I know this scheme exists" is not something that can
+        be published; "this page says it exists" is.
+  - type: input
+    id: territory
+    attributes:
+      label: Which territory it belongs to
+      placeholder: Andalucía, Occitanie, Sardegna, the whole of Spain…
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is missing, or what is wrong
+      description: If a fact is wrong, say what the site says today and what it should say.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: The public page that shows it
+      description: The address, and the sentence on it that says so, quoted word for word. A page behind a login or a form cannot be cited here.
+    validations:
+      required: true
+  - type: checkboxes
+    id: public
+    attributes:
+      label: Before you send it
+      options:
+        - label: The page is public — no login, no application, no personal data of mine or of anybody else.
+          required: true
