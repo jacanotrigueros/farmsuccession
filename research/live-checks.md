@@ -99,8 +99,39 @@ parameters, so a test exercises the whole command without a single request leavi
 
 ## What the series says so far
 
+**2026-10-13 — the first full pass over the whole corpus, before publication.** `check:sources` read 500 cited pages:
+423 PASS, 5 FAIL, 72 UNCHECKED. `check:links` asked 583 addresses: 495 PASS, 5 FAIL, 83 UNCHECKED. About half an hour
+each, and the series reads neither of them as a failure of this machine.
+
+The five evidence failures were opened by hand the same evening, and all five were real:
+
+- **Lombardia, the 2026 establishment fund** — the record quoted "In apertura" and the page now says "Aperto", with
+  applications from 13 to 27 October 2026. It opened that morning. A reader would have been told that a call which is
+  open had not started yet, which is the most perishable fact this corpus carries and the reason the check exists.
+- **Veneto, the professional-farmer course** — "Dal 12 Ottobre 2026" now reads "Dal 19 Ottobre 2026". The course starts
+  a week later than the record says.
+- **Andalucía, establishment of young farmers** — the missing quote is the page's own "Seguimiento (Actualizado:
+  25/06/2026)", which now reads 13/10/2026. The substance did not change; a payment-application guide was added. The
+  lesson is about the quote and not the page: quoting a page's own updated-on stamp buys nothing and guarantees a
+  failure every time the body touches anything. Quote the sentence that carries the fact.
+- **València, the land bank of the Consell Agrari** — both cited pages answer 404 in a real browser and not only to the
+  checker, and the whole Spanish section of that site is gone while the site itself is alive. Where the service moved
+  needs a person, and `decisions/025` wants a second day before this is called gone.
+
+`check:links` adds three addresses that no record cites as evidence but a reader can still meet: a Palmela council PDF
+and a Zaragoza procedure, both 404, cited by the coverage method of their territories, and `ismea.it` redirecting its
+own root to a page the citation should name instead.
+
+The 72 and 83 unreadable are the same hosts as ever — the Galician portal, Gipuzkoa, Nouvelle-Aquitaine, Hesse's LLH,
+Brandenburg, the Spanish grant database — none of which has ever answered this checker. A note for whoever automates
+this: only `check:sources` records a run in `reports/checks/`, so the series knows nothing about what `check:links` saw.
+
 **2026-10-08 and 2026-10-09 — 52 runs, 503 cited pages.** 0 GONE. 56 pages UNREACHABLE: never a reading, on more than one
 day. They concentrate in a handful of hosts rather than spreading across the corpus — the Spanish grant database, two
 Madrid pages answering 403, Gipuzkoa's procedures, Nouvelle-Aquitaine's aid portal, Hesse's LLH, the Galician and Asturian
 portals, Brandenburg's ministry. The lesson that cost the most to learn is in that list: almost everything that looks like
 a dead link in a first run is a host declining automation, and the only way to tell is to ask again on another day.
+
+As of 2026-10-13 the series holds 53 runs over 3 days, covering 503 pages: 0 gone, 376 that have passed every time they
+were read, 77 that have both passed and failed, 47 that have never given a reading, and 93 of 93 territories read at
+least once.
