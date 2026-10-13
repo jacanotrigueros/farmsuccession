@@ -333,6 +333,33 @@ release.
   18 December, so the record now answers "can I apply now?" where before it had no dates
   at all.
 
+### The design, closed
+
+- **The site says what the validated design says.** The chrome was rewritten against it in all
+  six languages: what a record's rows are called and the order they answer in, the names of the
+  kinds and of the states, the figures of a territory and the sentence that breaks them down,
+  the words of the search and of the pages around it. Where the two differed, the validated
+  design won.
+- **A search answers a page at a time**: twenty results, the filters in a column beside them
+  with the count each one would return, a chip for everything chosen, a link that clears them
+  all at once, and a way back to the European search when a country has nothing. What a reader
+  without the index gets is unchanged — the complete list is in the markup, and it is the whole
+  answer.
+- **A territory can be narrowed where its records are.** The strip under the title is the map
+  of the page again — the sections it has, and nothing else — and the narrowing sits inside the
+  records, offering only the kinds that page actually holds. Choosing one rewrites every figure
+  beside a list with the list, drops a layer or a section that has nothing left in it along with
+  its link in the strip, and says where the records of other scopes are when the choice empties
+  the list it narrows. Without the script none of this is missed: the page is complete, and
+  every one of those kinds is a link to the search.
+- **A figure can no longer say one thing while the page shows another**: a count that a reader
+  can change carries the two sentences it can become, one record or several, so what is written
+  stays a sentence in its own language — and a page that ships a figure like that has to ship
+  the script that keeps it true.
+- The links of the footer are one list rather than four columns of one; the button under the
+  home page's search no longer repeats the words above it; and an English edition is the
+  "2026 edition", not the "Edition 2026".
+
 ### Not here yet
 
 - A published site, and therefore anything to visit.
