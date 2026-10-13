@@ -87,11 +87,18 @@ be damaged quietly — a figure nobody checks, a quote deleted to make a check
 pass, a workflow spending a budget nobody is watching — and the damage is only
 visible later.
 
-- **Nothing runs by itself.** The two GitHub workflows are `workflow_dispatch`
-  only: a person starts them. Actions minutes are free only while a repository
-  is public and come out of a monthly allowance while it is not, so a push can
-  never spend them, and a fork cannot spend them at all. Three tests fail if a
-  workflow ever gains another trigger, stops declaring what it is allowed to
+- **A pull request is checked by the repository, not by its author's word.**
+  The whole gate — types, lint, formatting, generated types, the tests and the
+  validator — runs on every pull request, on a clean checkout with nothing of
+  anybody's machine in it, and the branch protection will not merge without it.
+  It runs on `pull_request`, so a fork's code never sees a secret of this
+  repository or a token that can write to it.
+- **It costs nothing while the repository is private.** GitHub-hosted minutes
+  are free and unlimited for a public repository and come out of a monthly
+  allowance for a private one, so the job is skipped while this one is private:
+  a skipped job spends nothing and reports success, and the push hook has run
+  the same gate anyway. Tests fail if a workflow ever reacts to an event without
+  that condition, uses `pull_request_target`, stops saying what it is allowed to
   touch, or runs an action from a branch instead of a released version.
 - **Publishing is a decision.** The publish workflow refuses to run on anything
   but `master`, builds the site from the data, validates it again before the
@@ -120,8 +127,9 @@ accidental click from not existing. For the maintainer, in the repository
 settings:
 
 - **Branches**: a protection rule on `master` and on `develop` — a pull request
-  before merging, review from code owners, conversations resolved, no force
-  pushes, no deletions, and no bypass for anybody.
+  before merging, the `check` job required to pass, review from code owners,
+  conversations resolved, no force pushes, no deletions, and no bypass for
+  anybody.
 - **Tags**: protect `v*`, so a released version cannot be moved after the fact.
 - **Actions**: workflow permissions read-only by default; do not let Actions
   create or approve pull requests; require approval for all fork pull requests

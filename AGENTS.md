@@ -303,9 +303,10 @@ the other way round.
   it. `--no-verify` skips them, and a shell without Node on its `PATH` cannot
   run them at all, so a commit made there has not been checked whatever its
   message says.
-- Never add automatic GitHub Actions triggers (push, pull_request, schedule):
-  Actions minutes are limited, so workflows are manual (`workflow_dispatch`)
-  and every check runs locally.
+- A workflow that reacts to an event must run its jobs only while the repository
+  is public, where GitHub-hosted minutes are free; while it is private they come
+  out of a monthly allowance. Nothing that publishes may react to an event at
+  all. Tests in `test/workflows.test.ts` carry the reasoning and fail on both.
 
 ## Branching
 

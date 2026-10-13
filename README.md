@@ -250,11 +250,15 @@ what to do with a page the series says is gone.
 ## Publishing
 
 The site is built from the data and published to GitHub Pages by a workflow that
-runs only when somebody starts it — Actions, "Publish the site", Run workflow.
-A second one, "Checks", runs the whole gate on a clean checkout. Neither reacts
-to a push: the gate already runs before every commit and every push here, the
-minutes are a monthly budget while a repository is private, and publishing an
-edition is a decision rather than a consequence of merging.
+runs only when somebody starts it — Actions, "Publish the site", Run workflow —
+and only from `master`, where a version is closed. Publishing an edition is a
+decision, not a consequence of merging.
+
+The other workflow, "Checks", runs the whole gate on a clean checkout: on every
+pull request, so a contributor learns from the repository whether their work
+holds, and by hand on any branch. Its job is skipped while the repository is
+private, where minutes come out of a monthly allowance rather than being free,
+and the git hooks have run the same gate before every commit and every push.
 
 Before the first publication, two things that do not belong in a file:
 

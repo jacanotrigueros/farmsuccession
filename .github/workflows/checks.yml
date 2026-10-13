@@ -1,20 +1,36 @@
 # Everything `npm run check` runs, on a machine that is not the maintainer's.
 #
-# Started by hand and never by an event. The gate already runs before every commit and every push
-# through the git hooks, so a workflow triggered on push would spend the month's minutes proving what
-# the push had just proved — and minutes are only free while a repository is public. This exists for
-# the cases a laptop cannot answer: a clean checkout, a dependency bump, somebody else's fork.
+# It answers what a pull request cannot answer about itself: whether this holds on a clean checkout,
+# with nothing of its author's machine in it. Somebody offering a correction should learn that from the
+# repository and not from a reply three days later, so it runs on every pull request — and the
+# maintainer can start it by hand on any branch, for a dependency bump or a checkout nobody trusts.
+#
+# The job runs only while the repository is public, where GitHub-hosted minutes are free and unlimited.
+# While it is private they come out of a monthly allowance and a run per push would spend the month
+# proving what the push hook had just proved, so the job is skipped instead: a skipped job costs
+# nothing and reports success, which is also why a required check never blocks a merge for being one.
+#
+# `pull_request` and never `pull_request_target`: a fork's branch is somebody else's code and this runs
+# it. On this trigger the token is read-only and no secret of this repository is within reach of it.
 name: Checks
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [develop, master]
 
 permissions:
   contents: read
 
+# A second push to the same pull request replaces the answer about the first one.
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check:
     runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.repository.visibility == 'public'
     steps:
       - uses: actions/checkout@v4
 
