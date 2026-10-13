@@ -243,6 +243,9 @@ The live checks reach the network and never gate a commit: a portal being down
 is not a reason to refuse one. They visit one host at a time with a pause
 between requests, identify themselves rather than posing as a browser, and write
 their full result to `reports/`.
+[`research/live-checks.md`](research/live-checks.md) says what each of their
+three answers is worth, why a single run is a reading rather than a verdict, and
+what to do with a page the series says is gone.
 
 ## Repository layout
 
