@@ -489,3 +489,29 @@ test("every image a page asks for is a file the site ships", () => {
   }
   assert.ok(checked > 0, "no page asked for an image at all, so this check proved nothing");
 });
+
+/**
+ * A figure beside a list is rewritten when a reader narrows the page, so it carries the two sentences it
+ * can become — one record, or several — with the number left out. Writing a count into a page without
+ * them is how a heading ends up saying "undefined" the first time somebody uses the control.
+ */
+test("a figure the filter rewrites says what it becomes at one record and at several", () => {
+  let checked = 0;
+  for (const { file, html } of pages) {
+    for (const [tag] of html.matchAll(/<[a-z0-9]+\b[^>]*\sdata-figure\b[^>]*>/gu)) {
+      const one = /\sdata-one="([^"]*)"/u.exec(tag)?.[1];
+      const many = /\sdata-many="([^"]*)"/u.exec(tag)?.[1];
+      assert.ok(
+        one?.includes("{n}") && many?.includes("{n}"),
+        `${file} counts something without saying what it reads at one record and at several: ${tag}`,
+      );
+      assert.match(
+        html,
+        /<script[^>]*src="\/filter\.js"/u,
+        `${file} carries a figure to rewrite and never loads the script that rewrites it`,
+      );
+      checked += 1;
+    }
+  }
+  assert.ok(checked > 0, "no page carried a figure the filter rewrites, so this check proved nothing");
+});

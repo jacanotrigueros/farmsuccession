@@ -194,14 +194,14 @@ const nationalLead = text.wholeCountryLead.replace("{count}", counted(own.length
  * left out, so the script can say the truth about three records in the language it was written in rather
  * than swap a digit inside a sentence that no longer agrees with itself.
  *
- * The figures at the top of the page are not among them: they describe the territory, which a filter does
- * not change, and they sit above the control that narrows the lists.
+ * A page with nothing to narrow carries none of this: its figures are written once and stay true.
+ *
+ * The figures at the top of the page are not among them either: they describe the territory, which a
+ * filter does not change, and they sit above the control that narrows the lists.
  */
-const howMany = (template: string) => ({
-  "data-count": "",
-  "data-one": template.replace("{count}", `{n} ${text.record[0]}`).replace("{where}", name),
-  "data-many": template.replace("{count}", `{n} ${text.record[1]}`).replace("{where}", name),
-});
+const saying = (template: string, word: string) => template.replace("{count}", `{n} ${word}`).replace("{where}", name);
+const howMany = (one: string, many = one) =>
+  narrows ? { "data-figure": "", "data-one": saying(one, text.record[0]), "data-many": saying(many, text.record[1]) } : {};
 const recordCount = howMany("{count}");
 
 /**
@@ -395,13 +395,7 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
 
   {inheritedCount > 0 && (
     <section class="wrap pb-12" aria-labelledby="inherited">
-      <h2
-        id="inherited"
-        class="scroll-mt-6 text-2xl font-bold"
-        data-count
-        data-one={text.alsoApplies[0].replace("{count}", `{n} ${text.record[0]}`).replace("{where}", name)}
-        data-many={text.alsoApplies[1].replace("{count}", `{n} ${text.record[1]}`).replace("{where}", name)}
-      >
+      <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...howMany(text.alsoApplies[0], text.alsoApplies[1])}>
         {alsoTitle}
       </h2>
       <p class="meta mt-2 max-w-3xl">{text.alsoAppliesLead}</p>

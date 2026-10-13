@@ -22,7 +22,7 @@ const choice = bar?.querySelector("select");
 if (bar && choice) {
   const cards = [...document.querySelectorAll("[data-records] > [data-kind]")];
   const groups = [...document.querySelectorAll("[data-record-group]")];
-  const figures = [...document.querySelectorAll("[data-count]")];
+  const figures = [...document.querySelectorAll("[data-figure]")];
   const nothing = document.querySelector("[data-none]");
   const sections = [...document.querySelectorAll("section")].filter((section) => section.querySelector("[data-records]"));
 
