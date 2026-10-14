@@ -111,9 +111,10 @@ visible later.
   hooks that `npm install` sets up. A pull request that did not run it is
   visible immediately, because the account of the edition it would have
   regenerated is stale.
-- **Every change is reviewed by the maintainer**, through `CODEOWNERS` and the
-  branch protection behind it. The schemas and the published data are where this
-  matters most: a schema change is a change to every record at once.
+- **Every change is reviewed by the maintainer**, who is also the only person
+  who can merge one. `CODEOWNERS` puts the request for that review on every pull
+  request. The schemas and the published data are where this matters most: a
+  schema change is a change to every record at once.
 - **The live checks never gate anything.** They reach the network, and a portal
   being down is not a reason to refuse a commit. What they produce is a reading,
   kept in `reports/checks/`, and
@@ -127,9 +128,12 @@ accidental click from not existing. For the maintainer, in the repository
 settings:
 
 - **Branches**: a protection rule on `master` and on `develop` — a pull request
-  before merging, the `check` job required to pass, review from code owners,
-  conversations resolved, no force pushes, no deletions, and no bypass for
-  anybody.
+  before merging, the `check` job required to pass, conversations resolved, no
+  force pushes, no deletions, and no bypass for anybody, the maintainer
+  included. An approving review is not one of the requirements, and cannot be:
+  nobody may approve their own pull request, and a repository with one
+  maintainer has nobody else to ask. What stands in its place is that merging is
+  theirs alone, and that `CODEOWNERS` asks them for the review every time.
 - **Tags**: protect `v*`, so a released version cannot be moved after the fact.
 - **Actions**: workflow permissions read-only by default; do not let Actions
   create or approve pull requests; require approval for all fork pull requests
