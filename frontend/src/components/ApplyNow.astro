@@ -2,9 +2,9 @@
 /**
  * The record's answer to the question a reader actually arrives with: can I apply now?
  *
- * The record's status says whether the thing exists and operates. This block alone says whether somebody
- * can apply today, so the two never blur into each other — which is the distinction the whole project is
- * built to hold.
+ * The record's status says whether the thing exists and operates. Each named period answers whether
+ * somebody can apply through that period today, so the two never blur into each other — which is the
+ * distinction the whole project is built to hold.
  *
  * The answer is derived from the dates the sources published, never from the state of a page a year ago:
  * past a documented deadline it is no, inside a documented period it is "yes, according to the dates
@@ -25,139 +25,160 @@ type Props = { resource: Resource; language: string };
 const { resource, language } = Astro.props;
 const text = words(language);
 
-const call = resource.calls?.[0];
 const on = (iso?: string): string => (iso ? dateIn(iso, language) : "");
+const today = new Date().toISOString().slice(0, 10);
 
-/** Every answer, worded for this record, so the browser can choose between them without formatting a date. */
-const answers = {
-  open: { text: text.applyOpen },
-  openByDates: { text: text.applyOpenByDates.replace("{date}", on(call?.closes)) },
-  upcoming: { text: text.applyUpcoming },
-  closed: { text: text.applyClosed },
-  deadlinePassed: { text: text.applyDeadlinePassed.replace("{date}", on(call?.closes)) },
-  shouldBeOpen: { text: text.applyUnconfirmed, detail: text.applyShouldBeOpen.replace("{date}", on(call?.opens)) },
-  noDates: { text: text.applyUnconfirmed, detail: text.applyNoDates },
-  announced: { text: text.applyAnnounced },
-  historical: { text: text.applyHistorical },
-  unconfirmed: { text: text.applyUnconfirmed, detail: text.applyUnconfirmedDetail },
-};
+/** Every documented period answers for itself, in the record's order (decisions/029). */
+const entries = (resource.calls?.length ? resource.calls : [undefined]).map((call, index) => {
+  /** Every answer for this period, so the browser can refresh it without formatting dates. */
+  const answers = {
+    open: { text: text.applyOpen },
+    openByDates: { text: text.applyOpenByDates.replace("{date}", on(call?.closes)) },
+    upcoming: { text: text.applyUpcoming },
+    closed: { text: text.applyClosed },
+    deadlinePassed: { text: text.applyDeadlinePassed.replace("{date}", on(call?.closes)) },
+    shouldBeOpen: { text: text.applyUnconfirmed, detail: text.applyShouldBeOpen.replace("{date}", on(call?.opens)) },
+    noDates: { text: text.applyUnconfirmed, detail: text.applyNoDates },
+    announced: { text: text.applyAnnounced },
+    historical: { text: text.applyHistorical },
+    unconfirmed: { text: text.applyUnconfirmed, detail: text.applyUnconfirmedDetail },
+  };
 
-const key = applyKey(call, resource.status, new Date().toISOString().slice(0, 10));
-const answer = key ? answers[key as keyof typeof answers] : undefined;
+  const key = applyKey(call, resource.status, today);
+  const answer = key ? answers[key as keyof typeof answers] : undefined;
 
-/** The call's own source dates the answer; with no call, the most recent reading of the record. */
-const checked =
-  (call && resource.sources.find((source) => source.url === call.sourceUrl)?.consultedOn) ??
-  resource.sources
-    .map((source) => source.consultedOn)
-    .toSorted()
-    .at(-1);
+  /** The call's own source dates the answer; with no call, the most recent reading of the record. */
+  const checked = call
+    ? resource.sources.find((source) => source.url === call.sourceUrl)?.consultedOn
+    : resource.sources
+        .map((source) => source.consultedOn)
+        .toSorted()
+        .at(-1);
+  if (call && !checked) throw new Error(`${resource.id}: the application period "${call.name}" has no consulted source`);
+  return {
+    call,
+    key,
+    answer,
+    answers,
+    checked,
+    titleId: index === 0 ? "apply-title" : `apply-title-${index + 1}`,
+    nameId: `apply-call-${index + 1}`,
+  };
+});
 ---
 
-{key && answer && (
-  <section
-    aria-labelledby="apply-title"
-    class="apply mt-6 rounded-lg border border-line-strong bg-page p-5"
-    data-tone={APPLY_TONE[key as keyof typeof APPLY_TONE]}
-    data-apply-call={call ? JSON.stringify({ state: call.state, opens: call.opens, closes: call.closes }) : undefined}
-    data-apply-status={resource.status}
-    data-apply-answers={JSON.stringify(answers)}
-    data-pagefind-ignore
-  >
-    <h2 id="apply-title" class="eyebrow">
-      {text.datesTitle}
-    </h2>
-    <p class="mt-2 flex items-start gap-2 text-xl font-bold text-ink">
-      <svg
-        viewBox="0 0 24 24"
-        class="apply-icon mt-0.5 size-6 shrink-0"
-        data-for="yes"
-        aria-hidden="true"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
+{entries.map(
+  ({ call, key, answer, answers, checked, titleId, nameId }) =>
+    key &&
+    answer && (
+      <section
+        aria-labelledby={call ? `${titleId} ${nameId}` : titleId}
+        class="apply mt-6 rounded-lg border border-line-strong bg-page p-5"
+        data-tone={APPLY_TONE[key as keyof typeof APPLY_TONE]}
+        data-apply-call={call ? JSON.stringify(call) : undefined}
+        data-apply-status={resource.status}
+        data-apply-answers={JSON.stringify(answers)}
+        data-pagefind-ignore
       >
-        <circle cx="12" cy="12" r="9"></circle>
-        <path d="m8 12 3 3 5-6" stroke-linecap="round" stroke-linejoin="round"></path>
-      </svg>
-      <svg
-        viewBox="0 0 24 24"
-        class="apply-icon mt-0.5 size-6 shrink-0"
-        data-for="wait"
-        aria-hidden="true"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <circle cx="12" cy="12" r="9"></circle>
-        <path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"></path>
-      </svg>
-      <svg
-        viewBox="0 0 24 24"
-        class="apply-icon mt-0.5 size-6 shrink-0"
-        data-for="no"
-        aria-hidden="true"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <circle cx="12" cy="12" r="9"></circle>
-        <path d="m9 9 6 6m0-6-6 6" stroke-linecap="round"></path>
-      </svg>
-      <svg
-        viewBox="0 0 24 24"
-        class="apply-icon mt-0.5 size-6 shrink-0"
-        data-for="unsure"
-        aria-hidden="true"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <circle cx="12" cy="12" r="9"></circle>
-        <path d="M9.5 9.5a2.5 2.5 0 1 1 3 2.45V14" stroke-linecap="round" stroke-linejoin="round"></path>
-        <path d="M12 17.2v.2" stroke-linecap="round"></path>
-      </svg>
-      <span data-apply-text>{answer.text}</span>
-    </p>
-    <p class="mt-2" data-apply-detail hidden={!("detail" in answer)}>
-      {"detail" in answer ? answer.detail : ""}
-    </p>
-    {call && <p class="meta mt-3">{call.name}</p>}
-    {call && (call.opens || call.closes) && (
-      <dl class="mt-2 flex flex-wrap gap-x-8 gap-y-2">
-        {call.opens && (
-          <div>
-            <dt class="meta">{text.opensLabel}</dt>
-            <dd class="font-bold">
-              <time datetime={call.opens}>{on(call.opens)}</time>
-            </dd>
-          </div>
+        <h2 id={titleId} class="eyebrow">
+          {text.datesTitle}
+        </h2>
+        <p class="mt-2 flex items-start gap-2 text-xl font-bold text-ink">
+          <svg
+            viewBox="0 0 24 24"
+            class="apply-icon mt-0.5 size-6 shrink-0"
+            data-for="yes"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="m8 12 3 3 5-6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <svg
+            viewBox="0 0 24 24"
+            class="apply-icon mt-0.5 size-6 shrink-0"
+            data-for="wait"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <svg
+            viewBox="0 0 24 24"
+            class="apply-icon mt-0.5 size-6 shrink-0"
+            data-for="no"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="m9 9 6 6m0-6-6 6" stroke-linecap="round"></path>
+          </svg>
+          <svg
+            viewBox="0 0 24 24"
+            class="apply-icon mt-0.5 size-6 shrink-0"
+            data-for="unsure"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M9.5 9.5a2.5 2.5 0 1 1 3 2.45V14" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M12 17.2v.2" stroke-linecap="round"></path>
+          </svg>
+          <span data-apply-text>{answer.text}</span>
+        </p>
+        <p class="mt-2" data-apply-detail hidden={!("detail" in answer)}>
+          {"detail" in answer ? answer.detail : ""}
+        </p>
+        {call && (
+          <p id={nameId} class="meta mt-3">
+            {call.name}
+          </p>
         )}
-        {call.closes && (
-          <div>
-            <dt class="meta">{text.closesLabel}</dt>
-            <dd class="font-bold">
-              <time datetime={call.closes}>{on(call.closes)}</time>
-            </dd>
-          </div>
+        {call && (call.opens || call.closes) && (
+          <dl class="mt-2 flex flex-wrap gap-x-8 gap-y-2">
+            {call.opens && (
+              <div>
+                <dt class="meta">{text.opensLabel}</dt>
+                <dd class="font-bold">
+                  <time datetime={call.opens}>{on(call.opens)}</time>
+                </dd>
+              </div>
+            )}
+            {call.closes && (
+              <div>
+                <dt class="meta">{text.closesLabel}</dt>
+                <dd class="font-bold">
+                  <time datetime={call.closes}>{on(call.closes)}</time>
+                </dd>
+              </div>
+            )}
+          </dl>
         )}
-      </dl>
-    )}
-    <p class="meta mt-3">
-      {checked && text.checkedOn.replace("{date}", on(checked))}
-      {(resource.calls?.length ?? 0) > 0 && (
-        <>
-          {checked && " · "}
-          <a href="#dates" class="inline-flex min-h-(--spacing-target) items-center underline">
-            {text.periodsTitle}
-          </a>
-        </>
-      )}
-    </p>
-  </section>
+        <p class="meta mt-3">
+          {checked && text.checkedOn.replace("{date}", on(checked))}
+          {(resource.calls?.length ?? 0) > 0 && (
+            <>
+              {checked && " · "}
+              <a href="#dates" class="inline-flex min-h-(--spacing-target) items-center underline">
+                {text.periodsTitle}
+              </a>
+            </>
+          )}
+        </p>
+      </section>
+    ),
 )}
 
-{key && <script is:inline type="module" src="/apply.js" defer></script>}
+{entries.some(({ key }) => key) && <script is:inline type="module" src="/apply.js" defer></script>}
 
 <style is:global>
   /* Global, because which icon shows is decided by the tone on the section, not inside this component. */
