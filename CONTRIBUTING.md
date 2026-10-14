@@ -105,12 +105,11 @@ visible later.
   artifact is uploaded, and goes out through a protected environment. An edition
   reaches readers because somebody decided it should, never because a merge
   happened.
-- **The gate runs before the review, not after it.** `npm run check` — types,
-  lint, formatting, generated types, 200-odd tests and the validator over every
-  edition file and brief — runs on a commit and again on a push, through the git
-  hooks that `npm install` sets up. A pull request that did not run it is
-  visible immediately, because the account of the edition it would have
-  regenerated is stale.
+- **Run both gates before sharing a change.** Run `npm run check` before committing
+  and `npm run check --prefix frontend` before pushing. The hooks installed by
+  `npm install` have separate jobs: `pre-commit` formats staged files with
+  `lint-staged`; `pre-push` runs the root `npm run check`. The push hook does not
+  run the site gate; the pull-request check job runs both on a clean checkout.
 - **Every change is reviewed by the maintainer**, who is also the only person
   who can merge one. `CODEOWNERS` puts the request for that review on every pull
   request. The schemas and the published data are where this matters most: a

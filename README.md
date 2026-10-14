@@ -258,7 +258,10 @@ The other workflow, "Checks", runs the whole gate on a clean checkout: on every
 pull request, so a contributor learns from the repository whether their work
 holds, and by hand on any branch. Its job is skipped while the repository is
 private, where minutes come out of a monthly allowance rather than being free,
-and the git hooks have run the same gate before every commit and every push.
+and the hooks installed by `npm install` have separate jobs: `pre-commit` formats
+staged files with `lint-staged`; `pre-push` runs the root `npm run check`. Run
+`npm run check --prefix frontend` separately before pushing; the pull-request job
+runs both gates on a clean checkout.
 
 Before the first publication, two things that do not belong in a file:
 
