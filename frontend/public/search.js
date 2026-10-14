@@ -1,3 +1,5 @@
+import { resultDescription } from "/result-description.js";
+
 /**
  * The search page, in the reader's browser.
  *
@@ -70,7 +72,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     return selected;
   }
 
-  function fill(result) {
+  function fill(result, term) {
     const row = template.content.firstElementChild.cloneNode(true);
     const link = row.querySelector("[data-result-link]");
     link.href = result.url;
@@ -95,9 +97,12 @@ if (form && state && resultsList && everything && template && askBlock && filter
       const drawing = document.querySelector(`template[data-icon-for="__${which}"]`);
       if (slot && drawing) slot.append(drawing.content.cloneNode(true));
     }
-    // The excerpt is this site's own text, taken from the page the result points at, with the words that
-    // matched marked. It comes from the index this build produced and from nowhere else.
-    row.querySelector("[data-result-excerpt]").innerHTML = result.excerpt;
+    // Browsing starts with what the record offers. A text query keeps the contextual match excerpt;
+    // only that excerpt is marked HTML from this build's index. Summary metadata is always plain text.
+    const description = resultDescription(result, term);
+    const excerpt = row.querySelector("[data-result-excerpt]");
+    if (description.format === "html") excerpt.innerHTML = description.value;
+    else excerpt.textContent = description.value;
     return row;
   }
 
@@ -146,6 +151,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
   let engine;
   let latest = 0;
   let hits = [];
+  let hitsTerm = "";
   let page = 1;
 
   const totalPages = () => Math.max(1, Math.ceil(hits.length / PAGE));
@@ -216,7 +222,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     const offset = (page - 1) * PAGE;
     const shown = await Promise.all(hits.slice(offset, offset + PAGE).map((hit) => hit.data()));
     if (mine !== latest) return;
-    resultsList.replaceChildren(...shown.map((hit) => fill(hit)));
+    resultsList.replaceChildren(...shown.map((hit) => fill(hit, hitsTerm)));
     resultsList.setAttribute("aria-busy", "false");
     renderPagination();
     if (move && heading) {
@@ -242,6 +248,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
 
     recount(counts);
     hits = results;
+    hitsTerm = term;
 
     const howMany = Object.values(selected).reduce((total, values) => total + values.length, 0);
     const narrowed = term !== "" || howMany > 0;
