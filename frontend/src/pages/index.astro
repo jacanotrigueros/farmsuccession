@@ -10,6 +10,7 @@
  */
 import { Icon } from "astro-icon/components";
 import Needs from "../components/Needs.astro";
+import StandaloneNews from "../components/StandaloneNews.astro";
 import SearchBox from "../components/SearchBox.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
@@ -170,6 +171,8 @@ const trust = [
       />
     </div>
   </section>
+
+  <StandaloneNews items={europe.data.news} language={language} />
 
   <div class="wrap py-8">
     <p class="meta flex items-start gap-2">

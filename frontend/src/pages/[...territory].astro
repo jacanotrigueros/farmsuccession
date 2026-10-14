@@ -17,6 +17,7 @@ import Needs from "../components/Needs.astro";
 import PageHeader from "../components/PageHeader.astro";
 import PageIndex from "../components/PageIndex.astro";
 import ResourceList from "../components/ResourceList.astro";
+import StandaloneNews from "../components/StandaloneNews.astro";
 import SearchBox from "../components/SearchBox.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
@@ -109,6 +110,7 @@ const sections = [
   { id: "needs", label: text.navNeeds },
   ...(isCountry && own.length === 0 ? [] : [{ id: "own", label: isCountry ? text.wholeCountryTitle : text.navOwn }]),
   ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav }] : []),
+  ...(territory.data.news.some((item) => !item.resourceIds?.length) ? [{ id: "news", label: text.newsTitle }] : []),
   ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
 ];
 
@@ -418,6 +420,8 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
       ))}
     </section>
   )}
+
+  <StandaloneNews items={territory.data.news} language={language} />
 
   {territory.data.limitations.length > 0 && (
     <section class="wrap pb-12" aria-labelledby="limits">
