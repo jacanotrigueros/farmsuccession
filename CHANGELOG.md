@@ -6,8 +6,9 @@ became impossible.
 
 Version 1.0.0 is the 2026 edition: one European layer and five countries, read
 back against their own sources before being closed on 13 October 2026. The site
-it describes is built from this data and is not published yet; that is the next
-thing, and not a part of this version.
+built from this data reached readers at farmsuccession.eu on 14 October 2026,
+and what it serves is this edition; the workflow that publishes it was written
+after the version was closed and is not a part of it.
 
 ## 1.0.0 — 2026-10-13
 
