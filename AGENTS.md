@@ -272,11 +272,11 @@ the other way round.
   ChatGPT, Claude), but what gets published is decided by deterministic checks.
 - The published site is cookie-free, has no analytics and makes no third-party
   requests. What the project knows about its readers comes instead from Google
-  Search Console, which measures the search engine's side: which pages it has
-  indexed, what people searched for, which results they clicked. It is verified by
-  a TXT record in the DNS zone, so it adds nothing to a page and sees nobody who
-  arrives another way. Anything that needs a tag in the HTML is out, whatever it
-  promises about privacy.
+  Search Console and Bing Webmaster Tools, which measure the search engines' own
+  side: which pages they have indexed, what people searched for, which results
+  they clicked. Both are verified through the DNS zone, so they add nothing to a
+  page and see nobody who arrives another way. Anything that needs a tag in the
+  HTML is out, whatever it promises about privacy.
 - Every rule that decides what is publishable ships with the test that proves
   it, in the same change. A rule the schema can state belongs in the schema; a
   rule that needs a sentence to explain itself belongs in
