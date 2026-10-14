@@ -45,6 +45,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
   const pagination = document.querySelector("[data-pagination]");
   const progress = document.querySelector("[data-progress]");
   const pages = document.querySelector("[data-pages]");
+  const fallback = document.querySelector("[data-search-fallback]");
   const recovery = document.querySelector("[data-recovery]");
   const reset = document.querySelector("[data-reset]");
   const clearQuery = document.querySelector("[data-clear-query]");
@@ -237,6 +238,8 @@ if (form && state && resultsList && everything && template && askBlock && filter
     renderChips(selected);
 
     const filters = effectiveFilters(selected, scope.country, inherits);
+    show(state, true);
+    state.textContent = words.loading;
     const { results, counts } = await engine.query(term, filters, Object.keys(selected));
     if (mine !== latest) return; // A later keystroke already answered; this one is history.
 
@@ -248,6 +251,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     // Once the index has answered, the list of everything is what the results are: it stays in the page
     // for a reader who never got this far.
     show(everything, false);
+    show(fallback, false);
     show(reset, narrowed);
     show(hint, !narrowed);
     show(clearQuery, field.value !== "");
@@ -279,6 +283,9 @@ if (form && state && resultsList && everything && template && askBlock && filter
 
   /** The index is the one part of this page that can fail: say so, and offer the way on. */
   function failed() {
+    show(state, true);
+    show(everything, true);
+    show(fallback, true);
     state.textContent = words.failed;
     state.toggleAttribute("data-empty", true);
     show(recovery, true);
