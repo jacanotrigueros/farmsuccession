@@ -101,9 +101,15 @@ if (form && state && resultsList && everything && template && askBlock && filter
     return row;
   }
 
-  /** The counts beside each option, which are the counts of what this query actually found. */
+  /**
+   * The counts beside each option, which are the counts of what this query actually found.
+   *
+   * Only the facet checkboxes. The form holds one other named control, the query field, and it has no
+   * counts of its own: reached by this loop it would be read as an option that answers with nothing and
+   * disabled, which is to say the search would switch its own search box off as soon as it could search.
+   */
   function recount(counts) {
-    for (const box of form.querySelectorAll("input[name]")) {
+    for (const box of form.querySelectorAll("input[type=checkbox][name]")) {
       const label = box.closest("label");
       const beside = label?.querySelector("[data-count]");
       const howMany = counts[box.name]?.[box.value] ?? 0;
