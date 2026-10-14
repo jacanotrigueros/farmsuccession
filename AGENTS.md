@@ -271,7 +271,12 @@ the other way round.
   practical means (scripts, open-data APIs, sitemaps, search, manual additions,
   ChatGPT, Claude), but what gets published is decided by deterministic checks.
 - The published site is cookie-free, has no analytics and makes no third-party
-  requests.
+  requests. What the project knows about its readers comes instead from Google
+  Search Console, which measures the search engine's side: which pages it has
+  indexed, what people searched for, which results they clicked. It is verified by
+  a TXT record in the DNS zone, so it adds nothing to a page and sees nobody who
+  arrives another way. Anything that needs a tag in the HTML is out, whatever it
+  promises about privacy.
 - Every rule that decides what is publishable ships with the test that proves
   it, in the same change. A rule the schema can state belongs in the schema; a
   rule that needs a sentence to explain itself belongs in
