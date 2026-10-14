@@ -141,6 +141,11 @@ Madrid pages answering 403, Gipuzkoa's procedures, Nouvelle-Aquitaine's aid port
 portals, Brandenburg's ministry. The lesson that cost the most to learn is in that list: almost everything that looks like
 a dead link in a first run is a host declining automation, and the only way to tell is to ask again on another day.
 
-As of 2026-10-13 the series holds 53 runs over 3 days, covering 503 pages: 0 gone, 376 that have passed every time they
-were read, 77 that have both passed and failed, 47 that have never given a reading, and 93 of 93 territories read at
-least once.
+As of 2026-10-15 the series holds 91 runs over 3 days, from 8 to 13 October, covering 504 cited pages: 0 gone, 364 that
+have passed every time they were read, 107 that have both passed and failed, 28 that have never given a reading on more
+than one day, and 93 of 93 territories read at least once. Three of those runs recorded no territory at all, because they
+were taken before a reading said what it was about.
+
+None of those figures is typed in. `npm run report:sources` reads the committed series and prints them, reaching nothing
+over the network, and this paragraph is a copy of what it said on the day it was written. A number here that disagrees
+with that command means this paragraph has gone stale, and the command is the one to believe.
