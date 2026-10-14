@@ -15,6 +15,7 @@
  * fixes the scope and the query string can only narrow it: `search-scope.js` owns that rule, and the same
  * file was read when the page was built.
  */
+import { resourcePlace } from "/resource-place.js";
 import { createEngine } from "/search-engine.js";
 import { effectiveFilters, facetsOf, queryFromState, scopeFromPath, stateFromQuery } from "/search-scope.js";
 
@@ -88,7 +89,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     status.textContent = labelOf("status", result.meta.status);
 
     row.querySelector("[data-result-operator]").textContent = result.meta.operator ?? "";
-    row.querySelector("[data-result-territory]").textContent = result.meta.territory ?? "";
+    row.querySelector("[data-result-territory]").textContent = resourcePlace(result.meta.territory ?? "", result.meta.area, words.area);
     // The place and the body that runs it carry the same icons here as on every other list of records.
     for (const which of ["territory", "operator"]) {
       const slot = row.querySelector(`[data-result-${which}-icon]`);
