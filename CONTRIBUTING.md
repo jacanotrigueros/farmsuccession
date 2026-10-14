@@ -142,6 +142,13 @@ settings:
   repository can never bill for a run.
 - **Environments**: `github-pages` restricted to `master`, with the maintainer
   as a required reviewer, so publication needs a second deliberate click.
+- **Search statistics**: `farmsuccession.eu` is a verified Domain property in
+  Google Search Console — verified through a `google-site-verification` TXT record
+  in the DNS zone rather than through anything in the site — and a site in Bing
+  Webmaster Tools, which imports that verification instead of asking for one of
+  its own. `https://farmsuccession.eu/sitemap.xml` is submitted to both. They
+  report what the search engines see and nothing about a reader, which is the only
+  measurement this site accepts; there is no analytics and there will be none.
 - **Pages**: source "GitHub Actions". It needs a paid plan while the repository
   is private; on the free plan the repository is public first.
 
