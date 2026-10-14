@@ -131,10 +131,10 @@ The rules, which are requirements rather than preferences:
   as broken. Every asset is first-party and committed, and `image.domains` and
   `image.remotePatterns` stay empty — which is also what keeps the one open advisory in
   the dependency tree unreachable (`decisions/017`).
-- **`astro check` is not used**: it does not support TypeScript 7, which this repository
-  is on. `npm run typecheck` runs `tsc` over `src/**/*.ts` and `test/`, so the type
-  coupling to `schema/` is checked, and `.astro` files are not type-checked at all.
-  Keep logic in `.ts` where the compiler can see it, and keep `.astro` files to markup.
+- **`astro check` runs with the type check**: `npm run typecheck` is `tsc` over the
+  project and then `astro check`, so the type coupling to `schema/` is checked and
+  `.astro` files are checked too. Keep logic in `.ts` anyway: there the compiler sees
+  it without a template around it, and a test can reach it.
 
 Three data schemas are settled: `territories.schema.json` (the catalogue),
 `edition.schema.json` (one territory in one year) and
