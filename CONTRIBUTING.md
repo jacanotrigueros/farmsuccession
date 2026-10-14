@@ -107,9 +107,13 @@ visible later.
   happened.
 - **The gate runs before the review, not after it.** `npm run check` — types,
   lint, formatting, generated types, 200-odd tests and the validator over every
-  edition file and brief — runs on a commit and again on a push, through the git
-  hooks that `npm install` sets up. A pull request that did not run it is
-  visible immediately, because the account of the edition it would have
+  edition file and brief — runs before a push, through the git hooks that
+  `npm install` sets up. The hook on a commit formats the staged files and
+  nothing else, because a slow hook on every commit is a hook people start
+  passing `--no-verify` to. The site's own gate, the same command with
+  `--prefix frontend`, is run by neither hook: it builds all 439 pages, and the
+  pull request runs it on a clean checkout anyway. A pull request that skipped the
+  gate is visible immediately, because the account of the edition it would have
   regenerated is stale.
 - **Every change is reviewed by the maintainer**, who is also the only person
   who can merge one. `CODEOWNERS` puts the request for that review on every pull
