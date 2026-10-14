@@ -33,7 +33,7 @@ export const APPLY_TONE = {
 };
 
 /**
- * @param {{ state: string, opens?: string, closes?: string } | undefined} call the record's newest call
+ * @param {{ state: string, opens?: string, closes?: string } | undefined} call one documented application period
  * @param {string} status the record's own status
  * @param {string} today an ISO day
  * @returns {ApplyKey | undefined} nothing for an operating record with no documented call
@@ -56,19 +56,23 @@ export function applyKey(call, status, today) {
 
 /** The reader's own calendar day, which is what the documented dates are compared against. */
 export function localToday(now = new Date()) {
+  /** @param {number} number */
   const pad = (number) => String(number).padStart(2, "0");
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
 
-// In a browser only: answer every block again, for the day the reader is actually having.
+// Every named period carries its own call and answers. Refresh each one independently; array order
+// never chooses which period the reader gets to hear about (decisions/029).
 if (typeof document !== "undefined") {
+  const today = localToday();
   for (const block of document.querySelectorAll("section.apply[data-apply-answers]")) {
+    if (!(block instanceof HTMLElement)) continue;
     const call = block.dataset.applyCall ? JSON.parse(block.dataset.applyCall) : undefined;
-    const key = applyKey(call, block.dataset.applyStatus ?? "", localToday());
+    const key = applyKey(call, block.dataset.applyStatus ?? "", today);
     const answer = key && JSON.parse(block.dataset.applyAnswers ?? "{}")[key];
     const text = block.querySelector("[data-apply-text]");
     const detail = block.querySelector("[data-apply-detail]");
-    if (!answer || !text || !detail) continue;
+    if (!answer || !text || !(detail instanceof HTMLElement)) continue;
     block.dataset.tone = APPLY_TONE[key];
     text.textContent = answer.text;
     detail.textContent = answer.detail ?? "";
