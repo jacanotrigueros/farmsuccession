@@ -76,9 +76,11 @@ The rules, which are requirements rather than preferences:
 - **The published pages make no third-party request and store nothing in the reader's
   browser, and a page ships JavaScript only for something it actually carries.** The
   audience is often on a phone on a rural connection. Tests over `dist/` enforce all
-  three: a page may load `/search.js` only if it has a search form and `/apply.js` only
-  if it has an application-period block, never inline, and nothing shipped to a browser
-  — this project's code or the search engine's — may touch a cookie or any storage.
+  three: a page may load `/search.js` only if it has a search form, `/apply.js` only
+  if it has an application-period block, `/filter.js` only if it has an in-page filter,
+  and `/report.js` only if it has the public correction form; never inline, and nothing
+  shipped to a browser — this project's code or the search engine's — may touch a cookie
+  or any storage.
 - **Every enhancement sits on a page that is already complete.** Every record in scope
   is in the HTML before anything runs; the search field stays hidden until the index
   answers; a reader whose browser never gets there loses the typing, not the answer. A
