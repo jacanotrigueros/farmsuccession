@@ -245,7 +245,7 @@ const strings = {
         >
           {text.loading}
         </p>
-        <button type="reset" hidden data-reset class="min-h-(--spacing-target) text-meta font-bold text-brand-strong underline">
+        <button type="reset" hidden data-reset class="min-h-(--spacing-target) text-control font-bold text-brand-strong underline">
           {text.resetSearch}
         </button>
       </div>
@@ -262,7 +262,7 @@ const strings = {
       {/* What the reader chose, and the one way to drop all of it, in the same line above the results. */}
       <div class="mt-3 flex flex-wrap items-center gap-3" data-chosen hidden>
         <div class="flex flex-wrap items-center gap-2" data-active role="group" aria-label={text.activeFilters}></div>
-        <button type="button" class="min-h-(--spacing-target) text-meta font-bold text-brand-strong underline" data-clear-filters>
+        <button type="button" class="min-h-(--spacing-target) text-control font-bold text-brand-strong underline" data-clear-filters>
           {text.clearFilters}
         </button>
       </div>
@@ -321,7 +321,7 @@ const strings = {
 <template data-chip>
   <button
     type="button"
-    class="btn min-h-(--spacing-target) max-w-full gap-2 rounded-lg border border-brand bg-brand-tint px-3 py-2 text-start text-meta text-brand-strong"
+    class="btn min-h-(--spacing-target) max-w-full gap-2 rounded-lg border border-brand bg-brand-tint px-3 py-2 text-start text-control text-brand-strong"
   >
     <span data-chip-label class="min-w-0 [overflow-wrap:anywhere]"></span>
     <span aria-hidden="true" class="shrink-0">

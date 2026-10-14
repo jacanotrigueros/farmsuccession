@@ -28,7 +28,17 @@ const { rows } = Astro.props;
         <Icon name={icon} aria-hidden="true" class="size-4 shrink-0" />
         {label}
       </dt>
-      <dd class="mt-1">{href ? <a href={href}>{value}</a> : datetime ? <time datetime={datetime}>{value}</time> : value}</dd>
+      <dd class="mt-1">
+        {href ? (
+          <a href={href} class="inline-flex min-h-(--spacing-target) items-center">
+            {value}
+          </a>
+        ) : datetime ? (
+          <time datetime={datetime}>{value}</time>
+        ) : (
+          value
+        )}
+      </dd>
     </div>
   ))}
 </dl>

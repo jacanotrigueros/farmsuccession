@@ -177,8 +177,8 @@ if (form && state && resultsList && everything && template && askBlock && filter
       control.type = "button";
       control.textContent = text;
       control.className = current
-        ? "flex size-10 items-center justify-center rounded-md border border-brand bg-brand font-bold text-on-brand"
-        : "flex size-10 items-center justify-center rounded-md border border-line-strong text-ink hover:border-brand disabled:opacity-40";
+        ? "flex size-(--spacing-target) items-center justify-center rounded-md border border-brand bg-brand font-bold text-on-brand"
+        : "flex size-(--spacing-target) items-center justify-center rounded-md border border-line-strong text-ink hover:border-brand disabled:opacity-40";
       if (name) control.setAttribute("aria-label", name);
       if (current) control.setAttribute("aria-current", "page");
       control.disabled = disabled;
