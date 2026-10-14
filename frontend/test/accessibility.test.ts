@@ -77,6 +77,19 @@ test("every reference to an element on the page reaches one", () => {
   }
 });
 
+test("nothing a reader has to use is set at the metadata size", () => {
+  const offenders = pages.flatMap(({ file, html }) =>
+    [...html.matchAll(/<(?:a|button|summary)\b[^>]*\bclass="[^"]*\btext-meta\b[^"]*"[^>]*>/giu)].map(
+      ([tag]) => `${file}: ${tag.replace(/\s+(?:href|aria-label|data-[\w-]+)="[^"]*"/giu, "").slice(0, 150)}`,
+    ),
+  );
+  assert.deepEqual(
+    offenders.slice(0, 3),
+    [],
+    `${offenders.length} control(s) set at the metadata size. The scale's floor is stated where the scale is: metadata 15px, nothing functional below 16px. A link, a button or a disclosure is functional however small its job, so it takes text-control. A control that inherits its size from a run of metadata is already carried by the rule in global.css; this is the one that writes the smaller size onto itself.`,
+  );
+});
+
 test("a navigation landmark is never left to be told apart by guesswork", () => {
   // Two navigations with the same accessible name read identically in a list of landmarks, and a reader
   // using that list has no way to tell which is the site's and which is this page's.

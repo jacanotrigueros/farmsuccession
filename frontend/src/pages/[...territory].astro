@@ -444,7 +444,7 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
     <p class="mt-2 text-muted">
       <strong class="text-ink">{coverageLabel(territory.data.coverage.status, language)}.</strong> {territory.data.coverage.note}
     </p>
-    <p class="mt-6 text-meta text-muted">
+    <p class="meta mt-6">
       {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
       <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
     </p>

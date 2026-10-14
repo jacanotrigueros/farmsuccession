@@ -417,14 +417,14 @@ const reaches = leafLayers(territory.layer, territories)
             <ul class="mt-4 space-y-5">
               {news.map((item) => (
                 <li>
-                  <p class="text-meta text-muted">
+                  <p class="meta">
                     <time datetime={item.date}>{dateIn(item.date, language)}</time> · {newsTypeLabel(item.type, language)}
                   </p>
                   <p class="font-semibold">{item.headline}</p>
                   <p class="max-w-3xl">{item.summary}</p>
                   <ul class="mt-1">
                     {item.sources.map((source) => (
-                      <li class="text-meta text-muted">
+                      <li class="meta">
                         <a href={source.url} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center break-words">
                           {source.title}
                         </a>
