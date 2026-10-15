@@ -15,6 +15,7 @@
  * A record has exactly one page, under the country that recorded it. Every territory that inherits the
  * record links here rather than carrying a copy of the evidence at an address of its own.
  */
+import { countryFilters } from "../../public/search-scope.js";
 import { Icon } from "astro-icon/components";
 import ApplyNow from "../components/ApplyNow.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
@@ -204,12 +205,16 @@ const reaches = leafLayers(territory.layer, territories)
    *
    * The filters are what keep a search from widening, and every one of them is a code from the schema
    * rather than a translated word: a shared link has to survive being opened in another language. The
-   * country is the layer the record belongs to, and the territories are every region it reaches, so
+   * country metadata is the layer the record belongs to; its country filters include every country it reaches.
+   * The territories are every region it reaches, so
    * choosing a region returns exactly what that region's own page lists — its own records and the ones it
    * inherits — and never a neighbour's.
    */}
   <div data-pagefind-body data-pagefind-meta="territory[data-territory]" data-territory={place}>
-    <span hidden data-pagefind-filter={`country:${country || "EU"}`} data-pagefind-meta={`country:${country || "EU"}`}></span>
+    <span hidden data-pagefind-meta={`country:${country || "EU"}`}></span>
+    {countryFilters(country || "EU", reaches).map((code) => (
+      <span hidden data-pagefind-filter={`country:${code}`}></span>
+    ))}
     <span hidden data-pagefind-filter={`kind:${resource.kind}`} data-pagefind-meta={`kind:${resource.kind}`}></span>
     <span hidden data-pagefind-filter={`status:${resource.status}`} data-pagefind-meta={`status:${resource.status}`}></span>
     <span hidden data-pagefind-filter={`scope:${resource.scope.level}`}></span>
