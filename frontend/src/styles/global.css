@@ -33,6 +33,11 @@
   /* The scale has a floor: metadata 15px, body 17px. Nothing functional below 16px. */
   --text-meta: 0.9375rem;
   --text-meta--line-height: 1.45;
+  /* Functional text that is not body: a navigation link, a button, a label. The floor itself, so that
+     "nothing functional below 16px" is a step of the scale a control can be set to and not a rule each
+     component has to remember. */
+  --text-control: 1rem;
+  --text-control--line-height: 1.4;
   --text-base: 1.0625rem;
   --text-base--line-height: 1.6;
   --text-lg: 1.25rem;
@@ -153,6 +158,19 @@
   }
   .meta {
     @apply text-meta text-muted;
+  }
+  /* A control inside a block of metadata is still a control. The floor applies to the thing a reader
+     has to hit, not to the sentence it sits in, and this is where that holds for every one of them at
+     once rather than in each component that remembers. */
+  .meta :is(a, button, summary) {
+    font-size: var(--text-control);
+    line-height: var(--text-control--line-height);
+  }
+  /* A link that is the whole text of a heading — a region in a list, the title of a source — is the
+     target for that item, and one line of text is not 44px tall. inline-flex rather than padding so a
+     long title still wraps and the row grows with it. */
+  :is(h2, h3, h4) > a:only-of-type {
+    @apply inline-flex min-h-(--spacing-target) items-center;
   }
   .eyebrow {
     @apply text-meta font-bold tracking-wide text-accent uppercase;

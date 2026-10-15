@@ -122,3 +122,10 @@ export const searchUrl = (root, { country = null, q = "", selected = {} } = {}) 
 /** @param {string} root @param {string} country @param {string} territory */
 export const territorySearchUrl = (root, country, territory) =>
   searchUrl(root, { country, selected: { territory: [`${country}/${territory}`] } });
+
+/** Country membership follows the same documented regional reach as the territory facet (decision 001).
+ * @param {string} origin @param {string[]} reaches @returns {string[]}
+ */
+export const countryFilters = (origin, reaches) => [
+  ...new Set([origin, ...reaches.map((place) => place.split("/")[0] ?? "").filter((code) => code)]),
+];

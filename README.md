@@ -28,16 +28,16 @@ Two consequences that shape the whole design:
 This repository is being built in milestones, and it says where it is rather
 than describing what it intends to be.
 
-| Area                                                         | State                                                                                                |
-| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| Data contracts (`schema/`) and the types generated from them | Settled at `schemaVersion` 1.0.0                                                                     |
-| Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                                                                 |
-| Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                                                                   |
-| Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`                                            |
-| The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                                                         |
-| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                                                   |
-| Published data                                               | The 2026 edition of the EU layer and five countries: 101 files, 319 records                          |
-| The site                                                     | Builds from the data: 439 pages, one script on search; published by hand to Pages, not published yet |
+| Area                                                         | State                                                                                                                                                 |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Data contracts (`schema/`) and the types generated from them | Settled at `schemaVersion` 1.0.0                                                                                                                      |
+| Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                                                                                                                  |
+| Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                                                                                                                    |
+| Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`                                                                                             |
+| The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                                                                                                          |
+| The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                                                                                                    |
+| Published data                                               | The 2026 edition of the EU layer and five countries: 101 files, 319 records                                                                           |
+| The site                                                     | Builds from the data: 439 pages, scripts only for search, filtering and the application answer; published to Pages by hand, live at farmsuccession.eu |
 
 ## What is published today
 
@@ -258,7 +258,10 @@ The other workflow, "Checks", runs the whole gate on a clean checkout: on every
 pull request, so a contributor learns from the repository whether their work
 holds, and by hand on any branch. Its job is skipped while the repository is
 private, where minutes come out of a monthly allowance rather than being free,
-and the git hooks have run the same gate before every commit and every push.
+and the hooks installed by `npm install` have separate jobs: `pre-commit` formats
+staged files with `lint-staged`; `pre-push` runs the root `npm run check`. Run
+`npm run check --prefix frontend` separately before pushing; the pull-request job
+runs both gates on a clean checkout.
 
 Before the first publication, two things that do not belong in a file:
 

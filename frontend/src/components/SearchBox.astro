@@ -2,8 +2,8 @@
 /**
  * The way into searching from a page that is not the search page.
  *
- * A plain GET form to that page's own scope, so it works with no JavaScript at all: the browser builds the
- * query string and the search page reads it. The facets a scope needs — a region searching inside itself —
+ * A plain GET form preserves the requested words and scope in the link. The search page can apply
+ * them only when JavaScript and its index work; otherwise it explains the unfiltered catalogue. The facets a scope needs — a region searching inside itself —
  * travel as hidden fields in the same format the search page writes back to the URL, which is why there is
  * only one format and one file that knows it.
  */

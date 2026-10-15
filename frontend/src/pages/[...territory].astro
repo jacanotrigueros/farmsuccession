@@ -17,6 +17,7 @@ import Needs from "../components/Needs.astro";
 import PageHeader from "../components/PageHeader.astro";
 import PageIndex from "../components/PageIndex.astro";
 import ResourceList from "../components/ResourceList.astro";
+import StandaloneNews from "../components/StandaloneNews.astro";
 import SearchBox from "../components/SearchBox.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
@@ -109,6 +110,7 @@ const sections = [
   { id: "needs", label: text.navNeeds },
   ...(isCountry && own.length === 0 ? [] : [{ id: "own", label: isCountry ? text.wholeCountryTitle : text.navOwn }]),
   ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav }] : []),
+  ...(territory.data.news.some((item) => !item.resourceIds?.length) ? [{ id: "news", label: text.newsTitle }] : []),
   ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
 ];
 
@@ -220,6 +222,10 @@ const searchHere = (kinds: readonly string[]) => searchUrl("/", { country: count
  * asking it to choose between them. It stays reachable, its links are followed, and it is in no sitemap.
  */
 const indexed = territory.layer.level !== "REGION" || own.length > 0;
+
+/** A local reader can point out what this territory-specific research missed without needing GitHub. */
+const reportPath = territory.layer.level === "EU" ? `/${text.reportSlug}/` : `/${country.toLowerCase()}/${text.reportSlug}/`;
+const reportQuery = new URLSearchParams({ type: "missing", territory: name, from: href(territory.layer) }).toString();
 ---
 
 <SiteLayout
@@ -419,6 +425,8 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
     </section>
   )}
 
+  <StandaloneNews items={territory.data.news} language={language} />
+
   {territory.data.limitations.length > 0 && (
     <section class="wrap pb-12" aria-labelledby="limits">
       <div class="card p-6 sm:p-8">
@@ -435,6 +443,12 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
     </section>
   )}
 
+  <section class="wrap pb-8">
+    <a class="btn btn-quiet" href={`${reportPath}?${reportQuery}`}>
+      {text.reportOpenForm}
+    </a>
+  </section>
+
   <section class="wrap border-t border-line py-8" aria-labelledby="coverage">
     <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
       {text.coverageNote}
@@ -444,7 +458,7 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
     <p class="mt-2 text-muted">
       <strong class="text-ink">{coverageLabel(territory.data.coverage.status, language)}.</strong> {territory.data.coverage.note}
     </p>
-    <p class="mt-6 text-meta text-muted">
+    <p class="meta mt-6">
       {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
       <time datetime={territory.data.published}>{dateIn(territory.data.published, language)}</time>
     </p>

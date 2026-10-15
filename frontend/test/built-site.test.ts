@@ -46,6 +46,7 @@ test("a page ships JavaScript only for what it actually carries", () => {
     if (html.includes("data-search")) allowed.add("/search.js");
     if (html.includes('class="apply')) allowed.add("/apply.js");
     if (html.includes("data-filter")) allowed.add("/filter.js");
+    if (html.includes("data-report")) allowed.add("/report.js");
 
     for (const [, src] of html.matchAll(/<script[^>]*\ssrc="([^"]+)"/giu)) {
       assert.ok(
@@ -193,7 +194,7 @@ test("a territory never shares a namespace with a page of the site", () => {
 
   for (const [iso, { lang }] of countries) {
     const text = words(lang);
-    const own = new Set([text.aboutSlug, text.historySlug, SEARCH_SLUGS[iso] ?? "", regionSlug(iso), recordSlug(iso)]);
+    const own = new Set([text.aboutSlug, text.historySlug, text.reportSlug, SEARCH_SLUGS[iso] ?? "", regionSlug(iso), recordSlug(iso)]);
     const published = new Set(
       pages
         .map(({ file }) => file.split(path.sep))
@@ -406,15 +407,25 @@ test("a record is never listed without saying which layer it comes from", () => 
         .trim(),
     }));
 
-    // A template with the name in the middle — "Für {where} erfasst" — is matched as one.
-    const says = (template: string) => new RegExp(`^${template.replaceAll(/[.*+?^$()|[\]\\]/gu, "\\$&").replace("{where}", ".+")}`, "u");
+    // A template with the name in the middle — "Für {where} erfasst" — is matched as one. The heading
+    // text above had its whitespace collapsed, and French writes a no-breaking space before a colon, so
+    // the template is collapsed the same way. This check is about which layer a heading names, never
+    // about which space character stands before its colon.
+    const flat = (value: string) => value.replaceAll(/\s+/gu, " ");
+    const says = (template: string) =>
+      new RegExp(
+        `^${flat(template)
+          .replaceAll(/[.*+?^$()|[\]\\]/gu, "\\$&")
+          .replace("{where}", ".+")}`,
+        "u",
+      );
     let group = "";
     for (const heading of headings) {
       if (heading.level === "h2") {
         // The records of this territory hang from the heading that names it — "the whole country" on a
         // country, the territory's name below one — and the ones that reach it from a wider layer hang
         // from a heading naming that layer, one level further down.
-        const own = says(text.ownRecords).test(heading.text) || heading.text.startsWith(text.wholeCountryTitle);
+        const own = says(text.ownRecords).test(heading.text) || heading.text.startsWith(flat(text.wholeCountryTitle));
         group = own ? heading.text : "";
         if (group) grouped += 1;
       }

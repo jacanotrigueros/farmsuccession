@@ -1,3 +1,5 @@
+import { resultDescription } from "/result-description.js";
+
 /**
  * The search page, in the reader's browser.
  *
@@ -15,6 +17,7 @@
  * fixes the scope and the query string can only narrow it: `search-scope.js` owns that rule, and the same
  * file was read when the page was built.
  */
+import { resourcePlace } from "/resource-place.js";
 import { createEngine } from "/search-engine.js";
 import { effectiveFilters, facetsOf, queryFromState, scopeFromPath, stateFromQuery } from "/search-scope.js";
 
@@ -45,6 +48,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
   const pagination = document.querySelector("[data-pagination]");
   const progress = document.querySelector("[data-progress]");
   const pages = document.querySelector("[data-pages]");
+  const fallback = document.querySelector("[data-search-fallback]");
   const recovery = document.querySelector("[data-recovery]");
   const reset = document.querySelector("[data-reset]");
   const clearQuery = document.querySelector("[data-clear-query]");
@@ -70,7 +74,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     return selected;
   }
 
-  function fill(result) {
+  function fill(result, term) {
     const row = template.content.firstElementChild.cloneNode(true);
     const link = row.querySelector("[data-result-link]");
     link.href = result.url;
@@ -88,22 +92,36 @@ if (form && state && resultsList && everything && template && askBlock && filter
     status.textContent = labelOf("status", result.meta.status);
 
     row.querySelector("[data-result-operator]").textContent = result.meta.operator ?? "";
-    row.querySelector("[data-result-territory]").textContent = result.meta.territory ?? "";
+    row.querySelector("[data-result-territory]").textContent = resourcePlace(
+      result.meta.territory ?? "",
+      result.meta.area,
+      words.area,
+      words.separator,
+    );
     // The place and the body that runs it carry the same icons here as on every other list of records.
     for (const which of ["territory", "operator"]) {
       const slot = row.querySelector(`[data-result-${which}-icon]`);
       const drawing = document.querySelector(`template[data-icon-for="__${which}"]`);
       if (slot && drawing) slot.append(drawing.content.cloneNode(true));
     }
-    // The excerpt is this site's own text, taken from the page the result points at, with the words that
-    // matched marked. It comes from the index this build produced and from nowhere else.
-    row.querySelector("[data-result-excerpt]").innerHTML = result.excerpt;
+    // Browsing starts with what the record offers. A text query keeps the contextual match excerpt;
+    // only that excerpt is marked HTML from this build's index. Summary metadata is always plain text.
+    const description = resultDescription(result, term);
+    const excerpt = row.querySelector("[data-result-excerpt]");
+    if (description.format === "html") excerpt.innerHTML = description.value;
+    else excerpt.textContent = description.value;
     return row;
   }
 
-  /** The counts beside each option, which are the counts of what this query actually found. */
+  /**
+   * The counts beside each option, which are the counts of what this query actually found.
+   *
+   * Only the facet checkboxes. The form holds one other named control, the query field, and it has no
+   * counts of its own: reached by this loop it would be read as an option that answers with nothing and
+   * disabled, which is to say the search would switch its own search box off as soon as it could search.
+   */
   function recount(counts) {
-    for (const box of form.querySelectorAll("input[name]")) {
+    for (const box of form.querySelectorAll("input[type=checkbox][name]")) {
       const label = box.closest("label");
       const beside = label?.querySelector("[data-count]");
       const howMany = counts[box.name]?.[box.value] ?? 0;
@@ -140,6 +158,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
   let engine;
   let latest = 0;
   let hits = [];
+  let hitsTerm = "";
   let page = 1;
 
   const totalPages = () => Math.max(1, Math.ceil(hits.length / PAGE));
@@ -177,8 +196,8 @@ if (form && state && resultsList && everything && template && askBlock && filter
       control.type = "button";
       control.textContent = text;
       control.className = current
-        ? "flex size-10 items-center justify-center rounded-md border border-brand bg-brand font-bold text-on-brand"
-        : "flex size-10 items-center justify-center rounded-md border border-line-strong text-ink hover:border-brand disabled:opacity-40";
+        ? "flex size-(--spacing-target) items-center justify-center rounded-md border border-brand bg-brand font-bold text-on-brand"
+        : "flex size-(--spacing-target) items-center justify-center rounded-md border border-line-strong text-ink hover:border-brand disabled:opacity-40";
       if (name) control.setAttribute("aria-label", name);
       if (current) control.setAttribute("aria-current", "page");
       control.disabled = disabled;
@@ -210,7 +229,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     const offset = (page - 1) * PAGE;
     const shown = await Promise.all(hits.slice(offset, offset + PAGE).map((hit) => hit.data()));
     if (mine !== latest) return;
-    resultsList.replaceChildren(...shown.map((hit) => fill(hit)));
+    resultsList.replaceChildren(...shown.map((hit) => fill(hit, hitsTerm)));
     resultsList.setAttribute("aria-busy", "false");
     renderPagination();
     if (move && heading) {
@@ -231,17 +250,21 @@ if (form && state && resultsList && everything && template && askBlock && filter
     renderChips(selected);
 
     const filters = effectiveFilters(selected, scope.country, inherits);
+    show(state, true);
+    state.textContent = words.loading;
     const { results, counts } = await engine.query(term, filters, Object.keys(selected));
     if (mine !== latest) return; // A later keystroke already answered; this one is history.
 
     recount(counts);
     hits = results;
+    hitsTerm = term;
 
     const howMany = Object.values(selected).reduce((total, values) => total + values.length, 0);
     const narrowed = term !== "" || howMany > 0;
     // Once the index has answered, the list of everything is what the results are: it stays in the page
     // for a reader who never got this far.
     show(everything, false);
+    show(fallback, false);
     show(reset, narrowed);
     show(hint, !narrowed);
     show(clearQuery, field.value !== "");
@@ -273,6 +296,9 @@ if (form && state && resultsList && everything && template && askBlock && filter
 
   /** The index is the one part of this page that can fail: say so, and offer the way on. */
   function failed() {
+    show(state, true);
+    show(everything, true);
+    show(fallback, true);
     state.textContent = words.failed;
     state.toggleAttribute("data-empty", true);
     show(recovery, true);

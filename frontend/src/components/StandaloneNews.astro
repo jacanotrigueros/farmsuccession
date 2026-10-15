@@ -1,0 +1,37 @@
+---
+/** News without a resource association is evidence in its own right, not a service (decisions/016). */
+import Evidence from "./Evidence.astro";
+import type { NewsItem } from "../lib/corpus.ts";
+import { dateIn } from "../lib/language.ts";
+import { newsTypeLabel } from "../lib/vocabulary.ts";
+import { words } from "../lib/words.ts";
+
+type Props = { items: readonly NewsItem[]; language: string };
+const { items, language } = Astro.props;
+const standalone = items.filter((item) => !item.resourceIds?.length);
+const text = words(language);
+---
+
+{standalone.length > 0 && (
+  <section class="wrap py-12" aria-labelledby="news">
+    <h2 id="news" class="scroll-mt-6 text-2xl font-bold">
+      {text.newsTitle}
+    </h2>
+    <div class="mt-6 grid gap-10">
+      {standalone.map((item) => (
+        <article id={`news-${item.id}`} aria-labelledby={`headline-${item.id}`} class="border-t border-line pt-6">
+          <p class="meta">
+            <time datetime={item.date}>{dateIn(item.date, language)}</time> · {newsTypeLabel(item.type, language)}
+          </p>
+          <h3 id={`headline-${item.id}`} class="mt-2 text-xl font-bold">
+            {item.headline}
+          </h3>
+          <p class="mt-3 max-w-3xl">{item.summary}</p>
+          <div class="mt-6">
+            <Evidence sources={item.sources} language={language} idPrefix={`news-${item.id}-source`} />
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+)}

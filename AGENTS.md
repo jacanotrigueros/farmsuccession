@@ -76,9 +76,11 @@ The rules, which are requirements rather than preferences:
 - **The published pages make no third-party request and store nothing in the reader's
   browser, and a page ships JavaScript only for something it actually carries.** The
   audience is often on a phone on a rural connection. Tests over `dist/` enforce all
-  three: a page may load `/search.js` only if it has a search form and `/apply.js` only
-  if it has an application-period block, never inline, and nothing shipped to a browser
-  — this project's code or the search engine's — may touch a cookie or any storage.
+  three: a page may load `/search.js` only if it has a search form, `/apply.js` only
+  if it has an application-period block, `/filter.js` only if it has an in-page filter,
+  and `/report.js` only if it has the public correction form; never inline, and nothing
+  shipped to a browser — this project's code or the search engine's — may touch a cookie
+  or any storage.
 - **Every enhancement sits on a page that is already complete.** Every record in scope
   is in the HTML before anything runs; the search field stays hidden until the index
   answers; a reader whose browser never gets there loses the typing, not the answer. A
@@ -131,10 +133,10 @@ The rules, which are requirements rather than preferences:
   as broken. Every asset is first-party and committed, and `image.domains` and
   `image.remotePatterns` stay empty — which is also what keeps the one open advisory in
   the dependency tree unreachable (`decisions/017`).
-- **`astro check` is not used**: it does not support TypeScript 7, which this repository
-  is on. `npm run typecheck` runs `tsc` over `src/**/*.ts` and `test/`, so the type
-  coupling to `schema/` is checked, and `.astro` files are not type-checked at all.
-  Keep logic in `.ts` where the compiler can see it, and keep `.astro` files to markup.
+- **`astro check` runs with the type check**: `npm run typecheck` is `tsc` over the
+  project and then `astro check`, so the type coupling to `schema/` is checked and
+  `.astro` files are checked too. Keep logic in `.ts` anyway: there the compiler sees
+  it without a template around it, and a test can reach it.
 
 Three data schemas are settled: `territories.schema.json` (the catalogue),
 `edition.schema.json` (one territory in one year) and
@@ -271,7 +273,12 @@ the other way round.
   practical means (scripts, open-data APIs, sitemaps, search, manual additions,
   ChatGPT, Claude), but what gets published is decided by deterministic checks.
 - The published site is cookie-free, has no analytics and makes no third-party
-  requests.
+  requests. What the project knows about its readers comes instead from Google
+  Search Console and Bing Webmaster Tools, which measure the search engines' own
+  side: which pages they have indexed, what people searched for, which results
+  they clicked. Both are verified through the DNS zone, so they add nothing to a
+  page and see nobody who arrives another way. Anything that needs a tag in the
+  HTML is out, whatever it promises about privacy.
 - Every rule that decides what is publishable ships with the test that proves
   it, in the same change. A rule the schema can state belongs in the schema; a
   rule that needs a sentence to explain itself belongs in

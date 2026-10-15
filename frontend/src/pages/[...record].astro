@@ -15,6 +15,7 @@
  * A record has exactly one page, under the country that recorded it. Every territory that inherits the
  * record links here rather than carrying a copy of the evidence at an address of its own.
  */
+import { countryFilters } from "../../public/search-scope.js";
 import { Icon } from "astro-icon/components";
 import ApplyNow from "../components/ApplyNow.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
@@ -83,6 +84,16 @@ const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure
 /** How much evidence there is, which is what the way down to it says rather than naming the section. */
 const quotes = resource.sources.reduce((total, source) => total + source.quotes.length, 0);
 const place = placeOf(territory, text.euName);
+
+/** Corrections start with the page the reader was looking at; they should not have to identify it again. */
+const reportCountry = territory.layer.level === "EU" ? "" : territory.layer.country.toLowerCase();
+const reportPath = reportCountry ? `/${reportCountry}/${text.reportSlug}/` : `/${text.reportSlug}/`;
+const reportQuery = new URLSearchParams({
+  type: "correction",
+  territory: place,
+  record: resource.name,
+  from: recordHref(resource.id, territory),
+}).toString();
 
 const facts: Array<{ label: string; value: string; icon: string; datetime?: string; href?: string }> = [
   { label: text.territoryRow, value: place, icon: ICON.territory, href: href(territory.layer) },
@@ -204,12 +215,16 @@ const reaches = leafLayers(territory.layer, territories)
    *
    * The filters are what keep a search from widening, and every one of them is a code from the schema
    * rather than a translated word: a shared link has to survive being opened in another language. The
-   * country is the layer the record belongs to, and the territories are every region it reaches, so
+   * country metadata is the layer the record belongs to; its country filters include every country it reaches.
+   * The territories are every region it reaches, so
    * choosing a region returns exactly what that region's own page lists — its own records and the ones it
    * inherits — and never a neighbour's.
    */}
   <div data-pagefind-body data-pagefind-meta="territory[data-territory]" data-territory={place}>
-    <span hidden data-pagefind-filter={`country:${country || "EU"}`} data-pagefind-meta={`country:${country || "EU"}`}></span>
+    <span hidden data-pagefind-meta={`country:${country || "EU"}`}></span>
+    {countryFilters(country || "EU", reaches).map((code) => (
+      <span hidden data-pagefind-filter={`country:${code}`}></span>
+    ))}
     <span hidden data-pagefind-filter={`kind:${resource.kind}`} data-pagefind-meta={`kind:${resource.kind}`}></span>
     <span hidden data-pagefind-filter={`status:${resource.status}`} data-pagefind-meta={`status:${resource.status}`}></span>
     <span hidden data-pagefind-filter={`scope:${resource.scope.level}`}></span>
@@ -263,6 +278,7 @@ const reaches = leafLayers(territory.layer, territories)
             <DraftNotice language={language} />
           </div>
         )}
+        <span hidden data-pagefind-meta={`area:${resource.scope.area ?? ""}`}></span>
         <ApplyNow resource={resource} language={language} />
         <p class="mt-8 flex flex-wrap gap-3" data-pagefind-ignore>
           <a href={resource.accessUrl} rel="noopener" class="btn btn-primary">
@@ -417,14 +433,14 @@ const reaches = leafLayers(territory.layer, territories)
             <ul class="mt-4 space-y-5">
               {news.map((item) => (
                 <li>
-                  <p class="text-meta text-muted">
+                  <p class="meta">
                     <time datetime={item.date}>{dateIn(item.date, language)}</time> · {newsTypeLabel(item.type, language)}
                   </p>
                   <p class="font-semibold">{item.headline}</p>
                   <p class="max-w-3xl">{item.summary}</p>
                   <ul class="mt-1">
                     {item.sources.map((source) => (
-                      <li class="text-meta text-muted">
+                      <li class="meta">
                         <a href={source.url} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center break-words">
                           {source.title}
                         </a>
@@ -460,6 +476,12 @@ const reaches = leafLayers(territory.layer, territories)
           <Evidence sources={resource.sources} language={language} />
         </div>
       </div>
+    </section>
+
+    <section class="wrap py-8">
+      <a class="btn btn-quiet" href={`${reportPath}?${reportQuery}`}>
+        {text.reportChangeForm}
+      </a>
     </section>
   </div>
 </SiteLayout>

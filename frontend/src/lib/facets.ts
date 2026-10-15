@@ -9,6 +9,7 @@
  * Every value is a code from the schema and every label is a word from `vocabulary.ts`. That is what lets
  * a search be shared between languages: the link carries codes, the page carries words.
  */
+import { countryFilters } from "../../public/search-scope.js";
 import { countryTerritories, leafLayers, territories, type Resource, type Territory } from "./corpus.ts";
 import { ICON } from "./icons.ts";
 import { kindLabel, profileLabel, reachLabel, standing, stateLabel } from "./vocabulary.ts";
@@ -89,7 +90,7 @@ export function facetsFor(listed: readonly Listed[], language: string, country?:
             name: "country",
             legend: text.countryFacet,
             icon: ICON.europe,
-            options: tally(listed, (entry) => [countryOf(entry)], countryName),
+            options: tally(listed, (entry) => countryFilters(countryOf(entry), reachOf(entry)), countryName),
           },
         ]),
     {

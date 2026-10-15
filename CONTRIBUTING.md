@@ -105,15 +105,15 @@ visible later.
   artifact is uploaded, and goes out through a protected environment. An edition
   reaches readers because somebody decided it should, never because a merge
   happened.
-- **The gate runs before the review, not after it.** `npm run check` — types,
-  lint, formatting, generated types, 200-odd tests and the validator over every
-  edition file and brief — runs on a commit and again on a push, through the git
-  hooks that `npm install` sets up. A pull request that did not run it is
-  visible immediately, because the account of the edition it would have
-  regenerated is stale.
-- **Every change is reviewed by the maintainer**, through `CODEOWNERS` and the
-  branch protection behind it. The schemas and the published data are where this
-  matters most: a schema change is a change to every record at once.
+- **Run both gates before sharing a change.** Run `npm run check` before committing
+  and `npm run check --prefix frontend` before pushing. The hooks installed by
+  `npm install` have separate jobs: `pre-commit` formats staged files with
+  `lint-staged`; `pre-push` runs the root `npm run check`. The push hook does not
+  run the site gate; the pull-request check job runs both on a clean checkout.
+- **Every change is reviewed by the maintainer**, who is also the only person
+  who can merge one. `CODEOWNERS` puts the request for that review on every pull
+  request. The schemas and the published data are where this matters most: a
+  schema change is a change to every record at once.
 - **The live checks never gate anything.** They reach the network, and a portal
   being down is not a reason to refuse a commit. What they produce is a reading,
   kept in `reports/checks/`, and
@@ -127,9 +127,12 @@ accidental click from not existing. For the maintainer, in the repository
 settings:
 
 - **Branches**: a protection rule on `master` and on `develop` — a pull request
-  before merging, the `check` job required to pass, review from code owners,
-  conversations resolved, no force pushes, no deletions, and no bypass for
-  anybody.
+  before merging, the `check` job required to pass, conversations resolved, no
+  force pushes, no deletions, and no bypass for anybody, the maintainer
+  included. An approving review is not one of the requirements, and cannot be:
+  nobody may approve their own pull request, and a repository with one
+  maintainer has nobody else to ask. What stands in its place is that merging is
+  theirs alone, and that `CODEOWNERS` asks them for the review every time.
 - **Tags**: protect `v*`, so a released version cannot be moved after the fact.
 - **Actions**: workflow permissions read-only by default; do not let Actions
   create or approve pull requests; require approval for all fork pull requests
@@ -138,6 +141,13 @@ settings:
   repository can never bill for a run.
 - **Environments**: `github-pages` restricted to `master`, with the maintainer
   as a required reviewer, so publication needs a second deliberate click.
+- **Search statistics**: `farmsuccession.eu` is a verified Domain property in
+  Google Search Console — verified through a `google-site-verification` TXT record
+  in the DNS zone rather than through anything in the site — and a site in Bing
+  Webmaster Tools, which imports that verification instead of asking for one of
+  its own. `https://farmsuccession.eu/sitemap.xml` is submitted to both. They
+  report what the search engines see and nothing about a reader, which is the only
+  measurement this site accepts; there is no analytics and there will be none.
 - **Pages**: source "GitHub Actions". It needs a paid plan while the repository
   is private; on the free plan the repository is public first.
 

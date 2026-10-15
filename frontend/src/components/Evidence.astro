@@ -22,8 +22,8 @@ import { ICON } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
 import { words } from "../lib/words.ts";
 
-type Props = { sources: readonly Source[]; language: string };
-const { sources, language } = Astro.props;
+type Props = { sources: readonly Source[]; language: string; idPrefix?: string };
+const { sources, language, idPrefix = "source" } = Astro.props;
 const text = words(language);
 
 /** The site a page lives on, which is what a reader recognises before they read the title. */
@@ -40,7 +40,7 @@ const hostOf = (url: string): string => {
 
 <ol class="mt-8 grid gap-8">
   {sources.map((source, index) => (
-    <li id={`source-${index + 1}`} class="grid scroll-mt-6 gap-x-4 gap-y-2 sm:grid-cols-[2.5rem_minmax(0,1fr)]">
+    <li id={`${idPrefix}-${index + 1}`} class="grid scroll-mt-6 gap-x-4 gap-y-2 sm:grid-cols-[2.5rem_minmax(0,1fr)]">
       <span
         class="inline-flex size-10 items-center justify-center rounded-full bg-brand font-serif text-lg text-on-brand"
         aria-hidden="true"
