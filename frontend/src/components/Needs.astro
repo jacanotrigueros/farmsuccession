@@ -67,7 +67,7 @@ const others = [...new Set(resources.filter((resource) => goalOf(resource.kind) 
         )}
         <p class="meta mt-1">{goal.hint}</p>
         <p class:list={["mt-2 text-meta font-bold tabular-nums", goal.found > 0 ? "text-brand" : "text-muted"]}>
-          {counted(goal.found, text.record)}
+          {counted(goal.found, text.record, language)}
         </p>
       </div>
       {goal.found > 0 && <Icon name={ICON.chevron} aria-hidden="true" class="mt-1 size-5 shrink-0 text-muted" />}

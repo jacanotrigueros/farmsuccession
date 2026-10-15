@@ -10,6 +10,75 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.2.0 — 2026-10-16
+
+The corpus is untouched again: no file under `data/` or `schema/` changes. What
+changes is whether each of the six languages reads like itself, and what a page
+tells a machine about the language it is written in. Found by reading the
+published site in all six languages against the repository.
+
+### A reader in Portugal was shown Brazilian conventions
+
+- The formatter asked for the language `pt`, which resolves to Brazilian
+  Portuguese. A Portuguese reader was shown `1.234.567,5` where their own
+  convention writes `1 234 567,5`, and `€ 1.500` where it writes `1500 €` — the
+  euro sign on the wrong side of the number, on the line a reader checks hardest.
+  Every amount and every date in the Portuguese tree is now written the way
+  Portugal writes them.
+
+### Counting in a language that counts differently
+
+- **French and Portuguese treat zero as singular**, and the count was written as
+  `count === 1`. The empty state — the screen somebody reaches once they have
+  already failed to find anything — said "0 résultats" where French says
+  "0 résultat". Plural choice now comes from the language's own rules rather than
+  from an equality, for the build, the search counter and the territorial filter
+  alike.
+- French and Italian adjectives did not agree with the nouns they described:
+  "Annoncé", "Supprimé", "Annunciato", "Soppresso" against _ressource_ and
+  _risorsa_.
+- The German form called a record a _Ressource_ while the rest of the German
+  site, including its own addresses, calls it an _Angebot_.
+- Four languages said a count of records was "available" where English and
+  Spanish only said how many there are. The same directory holds historical,
+  announced and unconfirmed records; all six now say what the number counts.
+
+### What a page tells a machine about its own language
+
+- **Prose carries the language it was written in.** The European search is in
+  English and lists records whose summaries, operators and served areas are
+  Spanish, German, Italian and Portuguese, word for word from the pages that
+  published them. Nothing said so, so anything reading the page aloud read all of
+  it as English. The translated labels around that prose stay in the reader's
+  language, which is why the place a record serves had to be split into its label
+  and its value.
+- **The project explanation and its history declare their six language versions.**
+  They are the same document written six times, so they carry `hreflang` for all
+  six and `x-default` to the English one. The country trees still do not, and
+  deliberately: `/es/` and `/fr/` are pages about different countries, and saying
+  otherwise would ask a search engine to show one to a reader who needs the other.
+- A record's title carried its territory whether or not anything depended on it,
+  and the longest ran to 161 characters. It is kept only where two records share
+  a name and the title is the only thing telling them apart.
+
+### Written down
+
+- [`research/what-comes-next.md`](research/what-comes-next.md): what to do next
+  and in which order, with every figure reproducible from the command it prints,
+  and a first milestone that admits nobody has yet observed who reads this site.
+
+### Not here yet
+
+- Three claims this version does not fix, each needing a decision rather than a
+  patch: a heading that asks how much _you_ can receive above a figure a source
+  published, over a grant whose own source says the allocation is exhausted; a
+  footer calling these references _verified_ while every record notice says no
+  person has reviewed them; and a profile label that names a person in two
+  languages, an event in three, and in French somebody who has already arrived.
+- The language of a quotation. A German sentence quoted inside an Italian record
+  cannot be marked as German, because a source carries no language of its own and
+  guessing one would invent it.
+
 ## 1.1.0 — 2026-10-15
 
 The first version a stranger read. Every correction below was found by reading the

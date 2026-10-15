@@ -12,6 +12,7 @@ import { asLanguage, type Language } from "./language.ts";
 /** The English chrome, which is also the list every other language has to answer in full. */
 const EN = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "Farm succession across Europe",
   lead: "Find land, funding, training and advice to start farming, take over a holding or hand one on.",
   territoryTitle: "{where}: farm succession and access to land",
@@ -42,7 +43,7 @@ const EN = {
   statQuotes: ["literal quote from official sources", "literal quotes from official sources"],
   statOwn: ["resource specific to {where}", "resources specific to {where}"],
   statOtherScopes: ["resource from another scope that applies in {where}", "resources from other scopes that apply in {where}"],
-  applicableSplit: "{own} documented in {where} + {inherited}.",
+  applicableSplit: "{where}: {own} + {inherited}.",
   europeanRecord: ["European resource", "European resources"],
   territoryOwnWord: ["specific", "specific"],
   territoryTotalWord: ["applicable", "applicable"],
@@ -91,7 +92,7 @@ const EN = {
     "FarmSuccession is a documentary inventory of public resources for farm succession and access to farming. It helps people find land, funding, training, advice and transfer services; it is not a marketplace, an advisory service or an application portal.",
   methodTitle: "Method and coverage",
   methodLead:
-    "The directory is not exhaustive. Content remains in its original language; searching across languages does not translate your words. Automated checks are separate from human review. A resource marked active does not necessarily have an open application period: each record says whether you can apply now.",
+    "The directory is not exhaustive. Content remains in its original language; searching does not translate the words you enter. Automated checks are separate from human review. A resource marked active does not necessarily have an open application period: each record says whether you can apply now.",
   criteriaIntro:
     "A resource is included when it can be documented from a public source published by an administration or by the organisation providing it.",
   criteriaItems: [
@@ -196,8 +197,8 @@ const EN = {
   applyDeadlinePassed: "No: the deadline passed on {date}",
   applyShouldBeOpen: "The call was due to open on {date}; check the official page.",
   applyNoDates: "The source does not publish application dates.",
-  applyAnnounced: "No: announced, not yet operating",
-  applyHistorical: "No: it no longer operates",
+  applyAnnounced: "No: the resource is announced, not yet operating",
+  applyHistorical: "No: the resource no longer operates",
   applyUnconfirmed: "Could not be confirmed",
   applyUnconfirmedDetail: "The sources consulted do not show whether an application period is open now.",
   checkedOn: "Status checked on {date}",
@@ -250,8 +251,8 @@ const EN = {
   searchHereLabel: "Search resources that apply in {where}",
   browseAll: "Browse all resources that apply in {where}",
   searchAction: "Search",
-  searchNotRun:
-    "The search has not run. The words and filters in this link have not been applied. The list below contains every record in this search’s scope.",
+  searchFallbackTitle: "The search has not run",
+  searchNotRun: "The words and filters in this link have not been applied. The list below contains every record in this search’s scope.",
   searchNeedsScript:
     "Searching and filtering require JavaScript, which this browser is not running. You can browse the territories using the links above.",
   result: ["result", "results"],
@@ -269,7 +270,7 @@ const EN = {
   searchRetry: "Retry",
   browseCountries: "Browse countries",
   resultsHeading: "Results",
-  available: ["{count} for {where}", "{count} for {where}"],
+  available: ["In the directory: {count} · {where}", "In the directory: {count} · {where}"],
   includesEuropean: "Includes EU-wide resources that also apply in {where}.",
   browseHint: "Search by topic or use the filters to narrow the results.",
   resultsFor: "{count} for “{q}”",
@@ -295,6 +296,7 @@ const EN = {
  */
 const ES = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "Relevo agrario en Europa",
   lead: "Encuentra tierras, ayudas, formación y asesoramiento para incorporarte al campo, hacerte cargo de una explotación o traspasar la tuya.",
   territoryTitle: "{where}: relevo generacional y acceso a la tierra",
@@ -326,7 +328,7 @@ const ES = {
   statQuotes: ["cita literal de fuentes oficiales", "citas literales de fuentes oficiales"],
   statOwn: ["recurso específico de {where}", "recursos específicos de {where}"],
   statOtherScopes: ["recurso de otro ámbito aplicable en {where}", "recursos de otros ámbitos aplicables en {where}"],
-  applicableSplit: "{own} documentados en {where} + {inherited}.",
+  applicableSplit: "{where}: {own} + {inherited}.",
   europeanRecord: ["recurso europeo", "recursos europeos"],
   territoryOwnWord: ["específico", "específicos"],
   territoryTotalWord: ["aplicable", "aplicables"],
@@ -377,7 +379,7 @@ const ES = {
     "FarmSuccession es un inventario documental de recursos públicos para el relevo generacional y el acceso a la actividad agraria. Ayuda a localizar tierras, ayudas, formación, asesoramiento y servicios de transmisión; no es un mercado, un servicio de consultoría ni un portal de solicitudes.",
   methodTitle: "Método y cobertura",
   methodLead:
-    "El directorio no es exhaustivo. Los contenidos conservan su idioma original; buscar en varios idiomas no traduce las palabras de tu consulta. Las comprobaciones automáticas son distintas de la revisión humana. Un recurso activo no implica que tenga abierto el plazo de solicitud: cada ficha indica si se puede solicitar ahora.",
+    "El directorio no es exhaustivo. Los contenidos conservan su idioma original; la búsqueda no traduce las palabras que escribes. Las comprobaciones automáticas son distintas de la revisión humana. Un recurso activo no implica que tenga abierto el plazo de solicitud: cada ficha indica si se puede solicitar ahora.",
   criteriaIntro:
     "Un recurso se incorpora cuando puede documentarse mediante una fuente pública publicada por una administración o por la entidad que lo ofrece.",
   criteriaItems: [
@@ -482,8 +484,8 @@ const ES = {
   applyDeadlinePassed: "No: el plazo terminó el {date}",
   applyShouldBeOpen: "La convocatoria debía abrir el {date}; compruébalo en la página oficial.",
   applyNoDates: "La fuente no publica fechas de solicitud.",
-  applyAnnounced: "No: anunciado, todavía no operativo",
-  applyHistorical: "No: ya no está en funcionamiento",
+  applyAnnounced: "No: el recurso está anunciado, todavía no operativo",
+  applyHistorical: "No: el recurso ya no está en funcionamiento",
   applyUnconfirmed: "No se ha podido confirmar",
   applyUnconfirmedDetail: "No hemos podido verificar en las fuentes consultadas si ahora hay un plazo abierto.",
   checkedOn: "Estado comprobado el {date}",
@@ -536,8 +538,9 @@ const ES = {
   searchHereLabel: "Buscar recursos aplicables en {where}",
   browseAll: "Ver todos los recursos aplicables en {where}",
   searchAction: "Buscar",
+  searchFallbackTitle: "La búsqueda no se ha ejecutado",
   searchNotRun:
-    "La búsqueda no se ha ejecutado. No se han aplicado las palabras ni los filtros de este enlace. Debajo aparece la lista completa de fichas del ámbito de esta búsqueda.",
+    "No se han aplicado las palabras ni los filtros de este enlace. Debajo aparece la lista completa de fichas del ámbito de esta búsqueda.",
   searchNeedsScript:
     "La búsqueda y los filtros necesitan JavaScript, que este navegador no está ejecutando. Puedes explorar los territorios mediante los enlaces de arriba.",
   result: ["resultado", "resultados"],
@@ -555,7 +558,7 @@ const ES = {
   searchRetry: "Reintentar",
   browseCountries: "Explorar países",
   resultsHeading: "Resultados",
-  available: ["{count} para {where}", "{count} para {where}"],
+  available: ["En el directorio: {count} · {where}", "En el directorio: {count} · {where}"],
   includesEuropean: "Incluye recursos de ámbito europeo aplicables en {where}.",
   browseHint: "Busca por tema o usa los filtros para acotar los resultados.",
   resultsFor: "{count} para «{q}»",
@@ -581,6 +584,7 @@ const ES = {
  */
 const DE = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "Hofnachfolge in Europa",
   lead: "Finden Sie Flächen, Förderung, Ausbildung und Beratung, um in die Landwirtschaft einzusteigen, einen Betrieb zu übernehmen oder ihn zu übergeben.",
   territoryTitle: "{where}: Hofnachfolge und Zugang zu Land",
@@ -612,7 +616,7 @@ const DE = {
   statQuotes: ["wörtliches Zitat aus offiziellen Quellen", "wörtliche Zitate aus offiziellen Quellen"],
   statOwn: ["Angebot speziell für {where}", "Angebote speziell für {where}"],
   statOtherScopes: ["Angebot einer anderen Ebene, das in {where} gilt", "Angebote anderer Ebenen, die in {where} gelten"],
-  applicableSplit: "{own} dokumentierte für {where} + {inherited}.",
+  applicableSplit: "{where}: {own} + {inherited}.",
   europeanRecord: ["europäisches Angebot", "europäische Angebote"],
   territoryOwnWord: ["eigenes", "eigene"],
   territoryTotalWord: ["geltendes", "geltende"],
@@ -663,7 +667,7 @@ const DE = {
     "FarmSuccession ist ein dokumentarisches Verzeichnis öffentlicher Angebote zur Hofnachfolge und zum Einstieg in die Landwirtschaft. Es hilft dabei, Flächen, Förderungen, Bildung, Beratung und Übergabedienste zu finden; es ist weder Marktplatz noch Beratungsstelle oder Antragsportal.",
   methodTitle: "Methode und Abdeckung",
   methodLead:
-    "Das Verzeichnis ist nicht vollständig. Inhalte bleiben in ihrer Originalsprache; die mehrsprachige Suche übersetzt keine Suchbegriffe. Automatische Prüfungen unterscheiden sich von menschlicher Prüfung. Ein aktives Angebot bedeutet nicht, dass Anträge offen sind: Jeder Eintrag zeigt, ob Sie jetzt einen Antrag stellen können.",
+    "Das Verzeichnis ist nicht vollständig. Inhalte bleiben in ihrer Originalsprache; die Suche übersetzt die eingegebenen Wörter nicht. Automatische Prüfungen unterscheiden sich von menschlicher Prüfung. Ein aktives Angebot bedeutet nicht, dass Anträge offen sind: Jeder Eintrag zeigt, ob Sie jetzt einen Antrag stellen können.",
   criteriaIntro:
     "Ein Angebot wird aufgenommen, wenn es durch eine öffentliche Quelle einer Verwaltung oder der anbietenden Organisation dokumentiert werden kann.",
   criteriaItems: [
@@ -687,17 +691,17 @@ const DE = {
   correctionSteps: ["die URL des Eintrags;", "die zu korrigierende Angabe;", "eine öffentliche Quelle, die die Änderung belegt."],
   noPersonalPapers: "Senden Sie keine persönlichen Antragsunterlagen.",
   reportSlug: "hinweis",
-  reportTitle: "Ressource oder Korrektur melden",
+  reportTitle: "Angebot oder Korrektur melden",
   reportIntro:
     "Melden Sie eine öffentliche Ressource, die fehlt, oder Informationen, die sich geändert haben könnten. Sie brauchen kein Konto.",
-  reportMissingTitle: "Eine Ressource fehlt",
+  reportMissingTitle: "Ein Angebot fehlt",
   reportMissingLead:
     "Senden Sie die öffentliche Seite und einen Satz dazu, warum sie hierher gehört. Vor einer Veröffentlichung prüfen wir den Hinweis.",
   reportCorrectionTitle: "Etwas bei FarmSuccession hat sich geändert",
   reportCorrectionLead: "Sagen Sie uns, was wir prüfen sollen. Die Seite, von der Sie kommen, wird wenn möglich automatisch mitgeschickt.",
   reportSourceLabel: "URL der öffentlichen Quelle",
   reportSourceHint: "Eine Seite, die ohne Anmeldung für alle zugänglich ist.",
-  reportNameLabel: "Name der Ressource (optional)",
+  reportNameLabel: "Name des Angebots (optional)",
   reportNameHint: "Leer lassen, wenn der Name auf der öffentlichen Seite eindeutig ist.",
   reportDetailLabel: "Was sollen wir prüfen?",
   reportDetailHint: "Ein oder zwei Sätze genügen. Senden Sie keine persönlichen Antragsdaten.",
@@ -717,11 +721,11 @@ const DE = {
   reportContextLabel: "Automatisch ergänzt",
   reportFromLabel: "FarmSuccession-Seite",
   reportTerritoryLabel: "Gebiet",
-  reportRecordLabel: "Ressource",
+  reportRecordLabel: "Angebot",
   reportOpenForm: "Kennen Sie eine Ressource, die fehlt?",
   reportChangeForm: "Haben sich diese Informationen geändert?",
   reportContactLead:
-    "Für fehlende Ressourcen oder Korrekturen nutzen Sie das kurze Formular. Wenn möglich, wird die Seite mitgesendet, die Sie gerade angesehen haben.",
+    "Für fehlende Angebote oder Korrekturen nutzen Sie das kurze Formular. Wenn möglich, wird die Seite mitgesendet, die Sie gerade angesehen haben.",
   reportMailSubjectMissing: "[FarmSuccession] Vorgeschlagene Ressource",
   reportMailSubjectCorrection: "[FarmSuccession] Korrektur",
   removalLead:
@@ -771,8 +775,8 @@ const DE = {
   applyDeadlinePassed: "Nein: die Frist endete am {date}",
   applyShouldBeOpen: "Der Aufruf sollte am {date} öffnen; prüfen Sie die offizielle Seite.",
   applyNoDates: "Die Quelle nennt keine Antragsdaten.",
-  applyAnnounced: "Nein: angekündigt, noch nicht in Betrieb",
-  applyHistorical: "Nein: es ist nicht mehr in Betrieb",
+  applyAnnounced: "Nein: das Angebot ist angekündigt, noch nicht in Betrieb",
+  applyHistorical: "Nein: das Angebot ist nicht mehr in Betrieb",
   applyUnconfirmed: "Nicht bestätigt",
   applyUnconfirmedDetail: "Die geprüften Quellen zeigen nicht, ob derzeit eine Antragsfrist läuft.",
   checkedOn: "Stand geprüft am {date}",
@@ -826,8 +830,8 @@ const DE = {
   searchHereLabel: "In {where} geltende Angebote suchen",
   browseAll: "Alle in {where} geltenden Angebote ansehen",
   searchAction: "Suchen",
-  searchNotRun:
-    "Die Suche wurde nicht ausgeführt. Die Suchwörter und Filter aus diesem Link wurden nicht angewendet. Unten stehen alle Einträge im Bereich dieser Suche.",
+  searchFallbackTitle: "Die Suche wurde nicht ausgeführt",
+  searchNotRun: "Die Suchwörter und Filter aus diesem Link wurden nicht angewendet. Unten stehen alle Einträge im Bereich dieser Suche.",
   searchNeedsScript:
     "Zum Suchen und Filtern wird JavaScript benötigt. Dieser Browser führt es nicht aus. Über die Links oben können Sie die Gebiete erkunden.",
   result: ["Treffer", "Treffer"],
@@ -845,7 +849,7 @@ const DE = {
   searchRetry: "Erneut versuchen",
   browseCountries: "Länder erkunden",
   resultsHeading: "Treffer",
-  available: ["{count} verfügbar ({where})", "{count} verfügbar ({where})"],
+  available: ["Im Verzeichnis: {count} · {where}", "Im Verzeichnis: {count} · {where}"],
   includesEuropean: "Enthält auch europäische Angebote, die hier gelten.",
   browseHint: "Suchen Sie nach Thema oder grenzen Sie die Ergebnisse mit Filtern ein.",
   resultsFor: "{count} für „{q}“",
@@ -868,6 +872,7 @@ const DE = {
 /** French, the chrome of the country that arrived with this milestone. */
 const FR = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "La transmission agricole en Europe",
   lead: "Trouvez des terres, des aides, des formations et des conseils pour vous installer, reprendre une exploitation ou transmettre la vôtre.",
   territoryTitle: "{where} : transmission des exploitations et accès au foncier",
@@ -905,7 +910,7 @@ const FR = {
     "ressource d’une autre échelle applicable au territoire : {where}",
     "ressources d’autres échelles applicables au territoire : {where}",
   ],
-  applicableSplit: "{own} documentées pour {where} + {inherited}.",
+  applicableSplit: "{where}\u00a0: {own} + {inherited}.",
   europeanRecord: ["ressource européenne", "ressources européennes"],
   territoryOwnWord: ["propre", "propres"],
   territoryTotalWord: ["applicable", "applicables"],
@@ -956,7 +961,7 @@ const FR = {
     "FarmSuccession est un inventaire documentaire de ressources publiques consacrées à la transmission agricole et à l’accès au métier. Il aide à trouver des terres, des aides, des formations, des conseils et des services de transmission ; ce n’est ni une place de marché, ni un service de conseil, ni un portail de candidature.",
   methodTitle: "Méthode et couverture",
   methodLead:
-    "L’annuaire n’est pas exhaustif. Les contenus restent dans leur langue d’origine ; la recherche multilingue ne traduit pas vos mots. Les contrôles automatiques sont distincts de la relecture humaine. Une ressource active n’a pas nécessairement de période de candidature ouverte : chaque fiche indique si l’on peut candidater maintenant.",
+    "L’annuaire n’est pas exhaustif. Les contenus restent dans leur langue d’origine\u202f; la recherche ne traduit pas les mots que vous saisissez. Les contrôles automatiques sont distincts de la relecture humaine. Une ressource active n’a pas nécessairement de période de candidature ouverte\u00a0: chaque fiche indique si l’on peut candidater maintenant.",
   criteriaIntro:
     "Une ressource est incluse lorsqu’elle peut être documentée par une source publique publiée par une administration ou par l’organisme qui la propose.",
   criteriaItems: [
@@ -1009,7 +1014,7 @@ const FR = {
   reportContextLabel: "Ajouté automatiquement",
   reportFromLabel: "Page FarmSuccession",
   reportTerritoryLabel: "Territoire",
-  reportRecordLabel: "Ressource",
+  reportRecordLabel: "Angebot",
   reportOpenForm: "Connaissez-vous une ressource manquante ?",
   reportChangeForm: "Cette information a-t-elle changé ?",
   reportContactLead:
@@ -1064,8 +1069,8 @@ const FR = {
   applyDeadlinePassed: "Non : le délai a expiré le {date}",
   applyShouldBeOpen: "L’appel devait ouvrir le {date} ; vérifiez sur la page officielle.",
   applyNoDates: "La source ne publie pas de dates de candidature.",
-  applyAnnounced: "Non : annoncé, pas encore en service",
-  applyHistorical: "Non : il ne fonctionne plus",
+  applyAnnounced: "Non\u00a0: la ressource est annoncée, pas encore en service",
+  applyHistorical: "Non\u00a0: la ressource ne fonctionne plus",
   applyUnconfirmed: "Impossible à confirmer",
   applyUnconfirmedDetail: "Les sources consultées ne montrent pas si une période de candidature est ouverte actuellement.",
   checkedOn: "Situation vérifiée le {date}",
@@ -1118,8 +1123,9 @@ const FR = {
   searchHereLabel: "Rechercher les ressources applicables : {where}",
   browseAll: "Voir toutes les ressources applicables : {where}",
   searchAction: "Rechercher",
+  searchFallbackTitle: "La recherche n’a pas été effectuée",
   searchNotRun:
-    "La recherche n’a pas été effectuée. Les mots et les filtres de ce lien n’ont pas été appliqués. La liste ci-dessous contient toutes les fiches du périmètre de cette recherche.",
+    "Les mots et les filtres de ce lien n’ont pas été appliqués. La liste ci-dessous contient toutes les fiches du périmètre de cette recherche.",
   searchNeedsScript:
     "Le moteur de recherche et les filtres nécessitent JavaScript, que ce navigateur n’exécute pas. Vous pouvez parcourir les territoires à l’aide des liens ci-dessus.",
   result: ["résultat", "résultats"],
@@ -1137,7 +1143,7 @@ const FR = {
   searchRetry: "Réessayer",
   browseCountries: "Explorer les pays",
   resultsHeading: "Résultats",
-  available: ["{count} disponible ({where})", "{count} disponibles ({where})"],
+  available: ["Dans l’annuaire\u00a0: {count} · {where}", "Dans l’annuaire\u00a0: {count} · {where}"],
   includesEuropean: "Inclut aussi les ressources européennes applicables ici.",
   browseHint: "Recherchez par thème ou utilisez les filtres pour affiner les résultats.",
   resultsFor: "{count} pour « {q} »",
@@ -1160,6 +1166,7 @@ const FR = {
 /** Italian, the chrome of the country that arrived with this milestone. */
 const IT = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "Il ricambio generazionale agricolo in Europa",
   lead: "Trova terreni, aiuti, formazione e consulenza per iniziare un’attività agricola, rilevare un’azienda o cedere la tua.",
   territoryTitle: "{where}: ricambio generazionale e accesso alla terra",
@@ -1197,7 +1204,7 @@ const IT = {
     "risorsa di un altro ambito applicabile al territorio: {where}",
     "risorse di altri ambiti applicabili al territorio: {where}",
   ],
-  applicableSplit: "{own} documentate per {where} + {inherited}.",
+  applicableSplit: "{where}: {own} + {inherited}.",
   europeanRecord: ["risorsa europea", "risorse europee"],
   territoryOwnWord: ["specifica", "specifiche"],
   territoryTotalWord: ["applicabile", "applicabili"],
@@ -1248,7 +1255,7 @@ const IT = {
     "FarmSuccession è un inventario documentale di risorse pubbliche per il ricambio generazionale e l’accesso all’agricoltura. Aiuta a trovare terreni, sostegni, formazione, consulenza e servizi di trasferimento; non è un mercato, un servizio di consulenza né un portale per presentare domande.",
   methodTitle: "Metodo e copertura",
   methodLead:
-    "L’elenco non è esaustivo. I contenuti mantengono la lingua originale; la ricerca multilingue non traduce le parole della query. I controlli automatici sono distinti dalla revisione umana. Una risorsa attiva non implica un bando aperto: ogni scheda indica se è possibile presentare domanda adesso.",
+    "L’elenco non è esaustivo. I contenuti mantengono la lingua originale; la ricerca non traduce le parole che scrivi. I controlli automatici sono distinti dalla revisione umana. Una risorsa attiva non implica un bando aperto: ogni scheda indica se è possibile presentare domanda adesso.",
   criteriaIntro:
     "Una risorsa viene inclusa quando può essere documentata tramite una fonte pubblica pubblicata da un’amministrazione o dall’organizzazione che la offre.",
   criteriaItems: [
@@ -1354,8 +1361,8 @@ const IT = {
   applyDeadlinePassed: "No: il termine è scaduto il {date}",
   applyShouldBeOpen: "Il bando doveva aprire il {date}; verificalo sulla pagina ufficiale.",
   applyNoDates: "La fonte non pubblica date di domanda.",
-  applyAnnounced: "No: annunciato, non ancora in funzione",
-  applyHistorical: "No: non è più in funzione",
+  applyAnnounced: "No: la risorsa è annunciata, non ancora in funzione",
+  applyHistorical: "No: la risorsa non è più in funzione",
   applyUnconfirmed: "Non è stato possibile confermarlo",
   applyUnconfirmedDetail: "Le fonti consultate non mostrano se ora è aperto un periodo di domanda.",
   checkedOn: "Stato verificato il {date}",
@@ -1409,8 +1416,9 @@ const IT = {
   searchHereLabel: "Cerca le risorse applicabili: {where}",
   browseAll: "Esplora tutte le risorse applicabili: {where}",
   searchAction: "Cerca",
+  searchFallbackTitle: "La ricerca non è stata eseguita",
   searchNotRun:
-    "La ricerca non è stata eseguita. Le parole e i filtri di questo collegamento non sono stati applicati. L’elenco seguente contiene tutte le schede nell’ambito di questa ricerca.",
+    "Le parole e i filtri di questo collegamento non sono stati applicati. L’elenco seguente contiene tutte le schede nell’ambito di questa ricerca.",
   searchNeedsScript:
     "Per cercare e filtrare serve JavaScript, che questo browser non sta eseguendo. Puoi esplorare i territori tramite i collegamenti qui sopra.",
   result: ["risultato", "risultati"],
@@ -1428,7 +1436,7 @@ const IT = {
   searchRetry: "Riprova",
   browseCountries: "Esplora i paesi",
   resultsHeading: "Risultati",
-  available: ["{count} disponibile ({where})", "{count} disponibili ({where})"],
+  available: ["Nell’elenco: {count} · {where}", "Nell’elenco: {count} · {where}"],
   includesEuropean: "Include anche le risorse europee applicabili qui.",
   browseHint: "Cerca per tema o usa i filtri per restringere i risultati.",
   resultsFor: "{count} per «{q}»",
@@ -1451,6 +1459,7 @@ const IT = {
 /** Portuguese, the chrome of the last country of the edition. */
 const PT = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "A sucessão agrícola na Europa",
   lead: "Encontre terras, apoios, formação e aconselhamento para iniciar a atividade agrícola, assumir uma exploração ou transmitir a sua.",
   territoryTitle: "{where}: sucessão agrícola e acesso à terra",
@@ -1485,7 +1494,7 @@ const PT = {
     "recurso de outro âmbito aplicável ao território: {where}",
     "recursos de outros âmbitos aplicáveis ao território: {where}",
   ],
-  applicableSplit: "{own} documentados para {where} + {inherited}.",
+  applicableSplit: "{where}: {own} + {inherited}.",
   europeanRecord: ["recurso europeu", "recursos europeus"],
   territoryOwnWord: ["específico", "específicos"],
   territoryTotalWord: ["aplicável", "aplicáveis"],
@@ -1536,7 +1545,7 @@ const PT = {
     "FarmSuccession é um inventário documental de recursos públicos para a sucessão agrícola e o acesso à atividade. Ajuda a encontrar terras, apoios, formação, aconselhamento e serviços de transmissão; não é um mercado, um serviço de consultoria nem um portal de candidaturas.",
   methodTitle: "Método e cobertura",
   methodLead:
-    "O diretório não é exaustivo. Os conteúdos mantêm o idioma original; a pesquisa multilingue não traduz as palavras da consulta. As verificações automáticas são distintas da revisão humana. Um recurso ativo não implica candidaturas abertas: cada ficha indica se é possível candidatar-se agora.",
+    "O diretório não é exaustivo. Os conteúdos mantêm o idioma original; a pesquisa não traduz as palavras que escreve. As verificações automáticas são distintas da revisão humana. Um recurso ativo não implica candidaturas abertas: cada ficha indica se é possível candidatar-se agora.",
   criteriaIntro:
     "Um recurso é incluído quando pode ser documentado através de uma fonte pública publicada por uma administração ou pela entidade que o disponibiliza.",
   criteriaItems: [
@@ -1642,8 +1651,8 @@ const PT = {
   applyDeadlinePassed: "Não: o prazo terminou a {date}",
   applyShouldBeOpen: "O concurso devia abrir a {date}; confirme na página oficial.",
   applyNoDates: "A fonte não publica datas de candidatura.",
-  applyAnnounced: "Não: anunciado, ainda não em funcionamento",
-  applyHistorical: "Não: já não está em funcionamento",
+  applyAnnounced: "Não: o recurso está anunciado, ainda não está em funcionamento",
+  applyHistorical: "Não: o recurso já não está em funcionamento",
   applyUnconfirmed: "Não foi possível confirmar",
   applyUnconfirmedDetail: "As fontes consultadas não mostram se há agora um prazo de candidatura aberto.",
   checkedOn: "Situação verificada a {date}",
@@ -1696,8 +1705,9 @@ const PT = {
   searchHereLabel: "Pesquisar recursos aplicáveis: {where}",
   browseAll: "Ver todos os recursos aplicáveis: {where}",
   searchAction: "Pesquisar",
+  searchFallbackTitle: "A pesquisa não foi executada",
   searchNotRun:
-    "A pesquisa não foi executada. As palavras e os filtros desta ligação não foram aplicados. A lista abaixo inclui todas as fichas no âmbito desta pesquisa.",
+    "As palavras e os filtros desta ligação não foram aplicados. A lista abaixo inclui todas as fichas no âmbito desta pesquisa.",
   searchNeedsScript:
     "Pesquisar e filtrar requer JavaScript, que este navegador não está a executar. Pode explorar os territórios através das ligações acima.",
   result: ["resultado", "resultados"],
@@ -1715,7 +1725,7 @@ const PT = {
   searchRetry: "Tentar novamente",
   browseCountries: "Explorar países",
   resultsHeading: "Resultados",
-  available: ["{count} disponível ({where})", "{count} disponíveis ({where})"],
+  available: ["No diretório: {count} · {where}", "No diretório: {count} · {where}"],
   includesEuropean: "Inclui também os recursos europeus aplicáveis aqui.",
   browseHint: "Pesquise por tema ou use os filtros para restringir os resultados.",
   resultsFor: "{count} para «{q}»",
@@ -1812,4 +1822,4 @@ export const words = (language: string): Words => WORDS[asLanguage(language)];
 export const editionNamed = (year: string, language: string): string => words(language).edition.replace("{year}", year);
 
 /** A number with its noun in the right form. One source and two sources are both worth getting right. */
-export const counted = (howMany: number, forms: readonly [string, string]): string => `${howMany} ${forms[howMany === 1 ? 0 : 1]}`;
+export { counted } from "../../public/locale.js";

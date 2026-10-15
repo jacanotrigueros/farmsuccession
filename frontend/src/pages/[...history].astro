@@ -44,7 +44,13 @@ const index = [
 ];
 ---
 
-<SiteLayout title={`${text.historyTitle} · ${text.siteName}`} description={text.historyIntro} language={language} current={home}>
+<SiteLayout
+  title={`${text.historyTitle} · ${text.siteName}`}
+  description={text.historyIntro}
+  language={language}
+  current={home}
+  documentKind="history"
+>
   <div class="border-b border-line bg-card">
     <div class="wrap py-10">
       <h1 class="page-title max-w-4xl text-3xl text-balance sm:text-4xl">{text.historyTitle}</h1>

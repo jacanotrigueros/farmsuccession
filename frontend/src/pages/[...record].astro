@@ -85,6 +85,11 @@ const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure
 const quotes = resource.sources.reduce((total, source) => total + source.quotes.length, 0);
 const place = placeOf(territory, text.euName);
 
+/** The breadcrumb carries the full territory. Only namesakes need it repeated in the title. */
+const hasNamesake = records().some(({ resource: other }) => other.id !== resource.id && other.name === resource.name);
+const titleName = resource.name + (hasNamesake ? ` — ${territory.data.officialName}` : "");
+const pageTitle = text.recordPageTitle.replace("{name}", titleName).replace("{site}", text.siteName);
+
 /** Corrections start with the page the reader was looking at; they should not have to identify it again. */
 const reportCountry = territory.layer.level === "EU" ? "" : territory.layer.country.toLowerCase();
 const reportPath = reportCountry ? `/${reportCountry}/${text.reportSlug}/` : `/${text.reportSlug}/`;
@@ -202,12 +207,7 @@ const reaches = leafLayers(territory.layer, territories)
   .filter(Boolean);
 ---
 
-<SiteLayout
-  title={`${resource.name} — ${place} — ${text.siteName}`}
-  description={resource.whatItOffers}
-  language={language}
-  current={href(territory.layer)}
->
+<SiteLayout title={pageTitle} description={resource.whatItOffers} language={language} current={href(territory.layer)}>
   {/*
    * This page is the unit the search index is built from, and the only one: the territory pages list the
    * same records, and indexing them too would return a reader the same record several times over, once
@@ -222,6 +222,7 @@ const reaches = leafLayers(territory.layer, territories)
    */}
   <div data-pagefind-body data-pagefind-meta="territory[data-territory]" data-territory={place}>
     <span hidden data-pagefind-meta={`country:${country || "EU"}`}></span>
+    <span hidden data-pagefind-meta={`language:${language}`}></span>
     {countryFilters(country || "EU", reaches).map((code) => (
       <span hidden data-pagefind-filter={`country:${code}`}></span>
     ))}
@@ -288,7 +289,7 @@ const reaches = leafLayers(territory.layer, territories)
           </a>
           <a href="#evidence" class="btn btn-quiet">
             <Icon name={ICON.evidence} aria-hidden="true" class="size-5 shrink-0" />
-            {counted(resource.sources.length, text.source)} · {counted(quotes, text.quote)}
+            {counted(resource.sources.length, text.source, language)} · {counted(quotes, text.quote, language)}
           </a>
         </p>
       </div>

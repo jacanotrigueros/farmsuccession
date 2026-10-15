@@ -1,4 +1,4 @@
-import { resultDescription } from "/result-description.js";
+import { resultDescription, setResultLanguage } from "/result-description.js";
 
 /**
  * The search page, in the reader's browser.
@@ -20,6 +20,7 @@ import { resultDescription } from "/result-description.js";
 import { resourcePlace } from "/resource-place.js";
 import { createEngine } from "/search-engine.js";
 import { effectiveFilters, facetsOf, queryFromState, scopeFromPath, stateFromQuery } from "/search-scope.js";
+import { counted as countIn, numberIn } from "/locale.js";
 
 /** One page of results. Twenty is what a reader can read to the end before deciding to look further. */
 const PAGE = 20;
@@ -57,7 +58,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
   const showResults = document.querySelector("[data-show-results]");
   const panel = document.querySelector("#narrow-panel");
 
-  const counted = (howMany, forms) => `${howMany} ${forms[howMany === 1 ? 0 : 1]}`;
+  const counted = (howMany, forms) => countIn(howMany, forms, document.documentElement.lang);
   const found = (howMany) => counted(howMany, words.result);
   const show = (element, visible) => {
     if (element) element.hidden = !visible;
@@ -92,12 +93,10 @@ if (form && state && resultsList && everything && template && askBlock && filter
     status.textContent = labelOf("status", result.meta.status);
 
     row.querySelector("[data-result-operator]").textContent = result.meta.operator ?? "";
-    row.querySelector("[data-result-territory]").textContent = resourcePlace(
-      result.meta.territory ?? "",
-      result.meta.area,
-      words.area,
-      words.separator,
-    );
+    const place = resourcePlace(result.meta.territory ?? "", result.meta.area, words.area, words.separator);
+    const area = result.meta.area ?? "";
+    row.querySelector("[data-result-territory]").textContent = area ? place.slice(0, -area.length) : place;
+    row.querySelector("[data-result-area]").textContent = area;
     // The place and the body that runs it carry the same icons here as on every other list of records.
     for (const which of ["territory", "operator"]) {
       const slot = row.querySelector(`[data-result-${which}-icon]`);
@@ -110,6 +109,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     const excerpt = row.querySelector("[data-result-excerpt]");
     if (description.format === "html") excerpt.innerHTML = description.value;
     else excerpt.textContent = description.value;
+    setResultLanguage(row, result);
     return row;
   }
 
@@ -125,7 +125,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
       const label = box.closest("label");
       const beside = label?.querySelector("[data-count]");
       const howMany = counts[box.name]?.[box.value] ?? 0;
-      if (beside) beside.textContent = String(howMany);
+      if (beside) beside.textContent = numberIn(howMany, document.documentElement.lang);
       // An option that would answer with nothing cannot be chosen — unless it is the one already chosen,
       // which a reader has to be able to untick.
       label?.toggleAttribute("data-empty", howMany === 0);
