@@ -15,6 +15,7 @@
  * The state is always printed, even when it is the expected one, because "this exists" and "you can apply
  * today" are different claims and this project exists to keep them apart.
  */
+import { resourcePlace } from "../../public/resource-place.js";
 import { Icon } from "astro-icon/components";
 import KindTag from "./KindTag.astro";
 import StatusTag from "./StatusTag.astro";
@@ -34,7 +35,7 @@ const { resource, recordedIn, language, level = "h3", compact = false } = Astro.
 const Heading = level;
 const text = words(language);
 
-const place = placeOf(recordedIn, text.euName);
+const place = resourcePlace(placeOf(recordedIn, text.euName), resource.scope.area, text.reachRow);
 ---
 
 <li
