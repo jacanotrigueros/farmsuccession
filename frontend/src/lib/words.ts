@@ -12,6 +12,7 @@ import { asLanguage, type Language } from "./language.ts";
 /** The English chrome, which is also the list every other language has to answer in full. */
 const EN = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "Farm succession across Europe",
   lead: "Find land, funding, training and advice to start farming, take over a holding or hand one on.",
   territoryTitle: "{where}: farm succession and access to land",
@@ -295,6 +296,7 @@ const EN = {
  */
 const ES = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "Relevo agrario en Europa",
   lead: "Encuentra tierras, ayudas, formación y asesoramiento para incorporarte al campo, hacerte cargo de una explotación o traspasar la tuya.",
   territoryTitle: "{where}: relevo generacional y acceso a la tierra",
@@ -581,6 +583,7 @@ const ES = {
  */
 const DE = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "Hofnachfolge in Europa",
   lead: "Finden Sie Flächen, Förderung, Ausbildung und Beratung, um in die Landwirtschaft einzusteigen, einen Betrieb zu übernehmen oder ihn zu übergeben.",
   territoryTitle: "{where}: Hofnachfolge und Zugang zu Land",
@@ -868,6 +871,7 @@ const DE = {
 /** French, the chrome of the country that arrived with this milestone. */
 const FR = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "La transmission agricole en Europe",
   lead: "Trouvez des terres, des aides, des formations et des conseils pour vous installer, reprendre une exploitation ou transmettre la vôtre.",
   territoryTitle: "{where} : transmission des exploitations et accès au foncier",
@@ -1160,6 +1164,7 @@ const FR = {
 /** Italian, the chrome of the country that arrived with this milestone. */
 const IT = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "Il ricambio generazionale agricolo in Europa",
   lead: "Trova terreni, aiuti, formazione e consulenza per iniziare un’attività agricola, rilevare un’azienda o cedere la tua.",
   territoryTitle: "{where}: ricambio generazionale e accesso alla terra",
@@ -1451,6 +1456,7 @@ const IT = {
 /** Portuguese, the chrome of the last country of the edition. */
 const PT = {
   siteName: "FarmSuccession",
+  recordPageTitle: "{name} · {site}",
   tagline: "A sucessão agrícola na Europa",
   lead: "Encontre terras, apoios, formação e aconselhamento para iniciar a atividade agrícola, assumir uma exploração ou transmitir a sua.",
   territoryTitle: "{where}: sucessão agrícola e acesso à terra",
