@@ -12,6 +12,7 @@
  */
 import type { Call, ContactPoint, EditionSnapshot, Metric, NewsItem, Resource, Scope } from "../../../src/types/edition.ts";
 import { asLanguage, listIn, moneyIn, numberIn, type Language } from "./language.ts";
+import { pluralIndex } from "../../public/locale.js";
 
 /**
  * One translated vocabulary: a complete table per language, read by key. Missing a key in either language
@@ -26,7 +27,7 @@ const vocabulary =
 const countedVocabulary =
   <Key extends string>(tables: Record<Language, Record<Key, readonly [string, string]>>) =>
   (key: Key, howMany: number, language: string): string =>
-    tables[asLanguage(language)][key][howMany === 1 ? 0 : 1];
+    tables[asLanguage(language)][key][pluralIndex(howMany, language)];
 
 /**
  * What each kind is, in one line: the label alone says "Rules 3", which tells nobody what a rule is doing
@@ -38,7 +39,7 @@ export const kindBlurb = vocabulary<Resource["kind"]>({
     FINANCIAL_SUPPORT: "Grants, premiums and loans to set up, invest or take over a holding.",
     LAND_BANK: "Land banks and exchanges that match available land with people looking for it.",
     SUCCESSION_SERVICE: "Services that pair someone handing over a holding with someone who wants to continue it.",
-    TRAINING: "Courses and schools for the qualifications many aids require.",
+    TRAINING: "Courses and schools for the qualifications many aid schemes require.",
     ADVICE: "Support to plan a handover, a start in farming or its management.",
     NETWORK: "Networks and territorial agreements that connect the people involved in succession.",
     POLICY: "Public rules and strategies that frame generational renewal.",
@@ -178,44 +179,44 @@ export const kindLabel = vocabulary<Resource["kind"]>({
 export const stateLabel = vocabulary<Resource["status"]>({
   en: {
     ACTIVE: "Active resource",
-    ANNOUNCED_NOT_OPERATING: "Announced, not yet operating",
-    HISTORICAL: "Historical",
-    DISCONTINUED: "Discontinued",
+    ANNOUNCED_NOT_OPERATING: "Announced resource, not yet operating",
+    HISTORICAL: "Historical resource",
+    DISCONTINUED: "Discontinued resource",
     UNKNOWN: "Status not confirmed",
   },
   es: {
     ACTIVE: "Recurso activo",
-    ANNOUNCED_NOT_OPERATING: "Anunciado, todavía no operativo",
-    HISTORICAL: "Histórico",
-    DISCONTINUED: "Suprimido",
+    ANNOUNCED_NOT_OPERATING: "Recurso anunciado, todavía no operativo",
+    HISTORICAL: "Recurso histórico",
+    DISCONTINUED: "Recurso suprimido",
     UNKNOWN: "Estado no confirmado",
   },
   de: {
     ACTIVE: "Aktives Angebot",
-    ANNOUNCED_NOT_OPERATING: "Angekündigt, noch nicht in Betrieb",
-    HISTORICAL: "Historisch",
-    DISCONTINUED: "Eingestellt",
+    ANNOUNCED_NOT_OPERATING: "Angekündigtes Angebot, noch nicht in Betrieb",
+    HISTORICAL: "Historisches Angebot",
+    DISCONTINUED: "Eingestelltes Angebot",
     UNKNOWN: "Stand nicht bestätigt",
   },
   fr: {
     ACTIVE: "Ressource active",
-    ANNOUNCED_NOT_OPERATING: "Annoncé, pas encore opérationnel",
-    HISTORICAL: "Historique",
-    DISCONTINUED: "Supprimé",
+    ANNOUNCED_NOT_OPERATING: "Ressource annoncée, pas encore opérationnelle",
+    HISTORICAL: "Ressource historique",
+    DISCONTINUED: "Ressource supprimée",
     UNKNOWN: "Situation non confirmée",
   },
   it: {
     ACTIVE: "Risorsa attiva",
-    ANNOUNCED_NOT_OPERATING: "Annunciato, non ancora operativo",
-    HISTORICAL: "Storico",
-    DISCONTINUED: "Soppresso",
+    ANNOUNCED_NOT_OPERATING: "Risorsa annunciata, non ancora operativa",
+    HISTORICAL: "Risorsa storica",
+    DISCONTINUED: "Risorsa soppressa",
     UNKNOWN: "Stato non confermato",
   },
   pt: {
     ACTIVE: "Recurso ativo",
-    ANNOUNCED_NOT_OPERATING: "Anunciado, ainda não operacional",
-    HISTORICAL: "Histórico",
-    DISCONTINUED: "Extinto",
+    ANNOUNCED_NOT_OPERATING: "Recurso anunciado, ainda não operacional",
+    HISTORICAL: "Recurso histórico",
+    DISCONTINUED: "Recurso extinto",
     UNKNOWN: "Situação não confirmada",
   },
 });

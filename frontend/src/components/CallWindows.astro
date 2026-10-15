@@ -40,7 +40,8 @@ const consulted = new Map(sources.map((source) => [source.url, source.consultedO
           <li class="card p-5">
             <h3 class="font-bold">{call.name}</h3>
             <p class="mt-2">
-              {text.asConsulted}: <strong>{callStateLabel(call.state, language)}</strong>
+              {text.asConsulted}
+              {text.labelSeparator} <strong>{callStateLabel(call.state, language)}</strong>
             </p>
             {read && (
               <p class="meta">

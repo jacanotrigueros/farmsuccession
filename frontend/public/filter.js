@@ -1,3 +1,5 @@
+import { numberIn, pluralIndex } from "/locale.js";
+
 /**
  * Narrowing the records of a page where they already are.
  *
@@ -44,7 +46,10 @@ if (bar && choice) {
     if (nothing) nothing.hidden = shown(nothing.closest("section")) > 0;
     for (const figure of figures) {
       const howMany = shown(figure.closest("[data-record-group]") ?? figure.closest("section"));
-      figure.textContent = (howMany === 1 ? figure.dataset.one : figure.dataset.many).replace("{n}", String(howMany));
+      figure.textContent = (pluralIndex(howMany, document.documentElement.lang) === 0 ? figure.dataset.one : figure.dataset.many).replace(
+        "{n}",
+        numberIn(howMany, document.documentElement.lang),
+      );
       // A sentence that explains a list has nothing to explain while the list is empty.
       if (figure.tagName === "P") figure.hidden = howMany === 0;
     }

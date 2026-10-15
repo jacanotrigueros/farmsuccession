@@ -66,10 +66,10 @@ const editionNote = (stats.drafts === stats.files ? text.editionAllDrafts : text
   .replace("{files}", String(stats.files));
 
 const figures = [
-  { icon: ICON.resources, value: stats.records, label: counted(stats.records, text.statRecords) },
-  { icon: ICON.europe, value: stats.countries, label: counted(stats.countries, text.statCountries) },
-  { icon: ICON.territory, value: stats.territories, label: counted(stats.territories, text.statTerritories) },
-  { icon: ICON.sources, value: stats.sources, label: counted(stats.sources, text.statSources) },
+  { icon: ICON.resources, value: stats.records, label: counted(stats.records, text.statRecords, language) },
+  { icon: ICON.europe, value: stats.countries, label: counted(stats.countries, text.statCountries, language) },
+  { icon: ICON.territory, value: stats.territories, label: counted(stats.territories, text.statTerritories, language) },
+  { icon: ICON.sources, value: stats.sources, label: counted(stats.sources, text.statSources, language) },
 ];
 
 const trust = [
@@ -138,8 +138,8 @@ const trust = [
       </h2>
       <p class="meta mt-1">
         {text.countriesLead
-          .replace("{territories}", counted(stats.territories, text.statTerritories))
-          .replace("{countries}", counted(stats.countries, text.statCountries))}
+          .replace("{territories}", counted(stats.territories, text.statTerritories, language))
+          .replace("{countries}", counted(stats.countries, text.statCountries, language))}
       </p>
       <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {countries.map((country) => (
@@ -149,7 +149,7 @@ const trust = [
               <span class="flex min-w-0 flex-1 flex-col">
                 <span class="text-lg font-bold text-ink">{country.name}</span>
                 <span class="meta">
-                  {counted(country.records, text.cardApplicable)} · {counted(country.territories, text.statTerritories)}
+                  {counted(country.records, text.cardApplicable, language)} · {counted(country.territories, text.statTerritories, language)}
                 </span>
               </span>
               <Icon name={ICON.chevron} aria-hidden="true" class="size-5 shrink-0 text-muted" />
