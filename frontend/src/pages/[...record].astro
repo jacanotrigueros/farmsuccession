@@ -85,6 +85,16 @@ const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure
 const quotes = resource.sources.reduce((total, source) => total + source.quotes.length, 0);
 const place = placeOf(territory, text.euName);
 
+/** Corrections start with the page the reader was looking at; they should not have to identify it again. */
+const reportCountry = territory.layer.level === "EU" ? "" : territory.layer.country.toLowerCase();
+const reportPath = reportCountry ? `/${reportCountry}/${text.reportSlug}/` : `/${text.reportSlug}/`;
+const reportQuery = new URLSearchParams({
+  type: "correction",
+  territory: place,
+  record: resource.name,
+  from: recordHref(resource.id, territory),
+}).toString();
+
 const facts: Array<{ label: string; value: string; icon: string; datetime?: string; href?: string }> = [
   { label: text.territoryRow, value: place, icon: ICON.territory, href: href(territory.layer) },
   {
@@ -466,6 +476,12 @@ const reaches = leafLayers(territory.layer, territories)
           <Evidence sources={resource.sources} language={language} />
         </div>
       </div>
+    </section>
+
+    <section class="wrap py-8">
+      <a class="btn btn-quiet" href={`${reportPath}?${reportQuery}`}>
+        {text.reportChangeForm}
+      </a>
     </section>
   </div>
 </SiteLayout>

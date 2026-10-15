@@ -10,6 +10,86 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.1.0 — 2026-10-15
+
+The first version a stranger read. Every correction below was found by reading the
+published site rather than the repository, most of them by a review commissioned for
+that purpose, and each one is a thing the site was telling a reader that was not so.
+The data is untouched: this is the edition of 13 October, read correctly.
+
+### What the site said that was not so
+
+- **The search switched its own search box off.** The loop that disables a filter with
+  no matches walked every named control in the form, and the form holds one that is not
+  a filter: the search field. With no counts of its own it was read as an option that
+  answers with nothing. Every search page, in every language, for every reader who
+  waited for the index to load.
+- **A record answered for one of its application periods and called it the answer.**
+  The first in the array decided, and the array is not ordered: the Balearic and
+  Azorean records list their calls oldest first, Cantabria, Veneto and Madeira newest
+  first. On 15 October the Balearic page said the grant was closed, from a call that
+  closed in December 2025, while the same page documented a window running to 30
+  November 2026. Each of the eight records with more than one period now answers for
+  each of them, named, and no call represents another.
+- **Choosing a country meant two different things.** Spain in the European search
+  returned 128 records and the Spanish search 132, the four being the European records
+  Spain inherits. Territorial views are cumulative; one of those two numbers was not.
+- **A card named the territory that contained a record rather than the area it serves.**
+  A service documented as covering Südbaden read as covering all of Baden-Württemberg.
+- **Browsing opened with the wrong words.** A result shown without a query led with its
+  category and status and then repeated the title, territory and operator printed
+  beside it. Browsing now begins with the record's own summary; the marked excerpt is
+  kept for an actual text match, which is the only thing it was ever describing.
+- **A search that had not run did not say so.** Without the index a request carrying
+  words and a territory returned the whole catalogue under a status that loaded for
+  ever, and the source claimed the page worked without JavaScript. The page is
+  complete, which is a different promise; it now says which one it is keeping.
+
+### What a reader could not reach
+
+- **News that named no record reached no page.** Evidence is rendered through the
+  records it belongs to, so an item belonging to none was dropped: Cantabria's
+  livestock succession pilot and Nouvelle-Aquitaine's selection of advisory
+  organisations existed in the data, with their sources and dates, and nowhere else.
+  The home page counted them among its updates. They now appear on their own
+  territory, with their evidence, as news rather than as a service.
+
+### The floor under every control
+
+- **Nothing a reader has to use is under 16px or under 44px again.** The stylesheet had
+  said so since the scale was written, and the scale had no step at 16: every control
+  that was not body text took the metadata size and landed under the floor its own
+  comment states. The strip of page links, the breadcrumbs, the reference from a claim
+  to its source, the buttons that clear a search, and a pagination that was 40px square
+  against a 44px rule. Measured in a browser across nine pages in all six languages.
+
+### A correction without an account
+
+- **A reader can report a missing resource or a stale date without a GitHub account.**
+  The only public route was an issue, which needs one. The form makes no network
+  request: it prepares a structured message in the reader's own mail client, carrying
+  the territory, the record and the page that led there. Nothing submitted publishes
+  anything.
+
+### What the documents say, and what holds them to it
+
+- Three sentences described a repository that does not exist: that the whole gate runs
+  on every commit, that the site loads one script, and that `astro check` is not used.
+  The gate runs before a push, the site loads three, and the frontend has been running
+  `astro check` all along.
+- The account of the live checks said the series held 53 runs over 503 pages. It holds
+  91 over 504. It is generated from the committed ledger now, and a test fails when the
+  prose and the series disagree.
+- Decisions [029](decisions/029-each-period-answers-for-itself.md) and
+  [030](decisions/030-public-correction-stays-outside-github.md) record why each period
+  answers for itself and why a public correction travels by email.
+
+### Not here yet
+
+- No regression drives a real browser. Every check above reads the markup the build
+  emits, which is why the search could switch its own field off while 42 tests passed.
+- The strings of the correction form were written in six languages and read by nobody.
+
 ## 1.0.0 — 2026-10-13
 
 ### The data contracts
