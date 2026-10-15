@@ -92,7 +92,12 @@ if (form && state && resultsList && everything && template && askBlock && filter
     status.textContent = labelOf("status", result.meta.status);
 
     row.querySelector("[data-result-operator]").textContent = result.meta.operator ?? "";
-    row.querySelector("[data-result-territory]").textContent = resourcePlace(result.meta.territory ?? "", result.meta.area, words.area);
+    row.querySelector("[data-result-territory]").textContent = resourcePlace(
+      result.meta.territory ?? "",
+      result.meta.area,
+      words.area,
+      words.separator,
+    );
     // The place and the body that runs it carry the same icons here as on every other list of records.
     for (const which of ["territory", "operator"]) {
       const slot = row.querySelector(`[data-result-${which}-icon]`);

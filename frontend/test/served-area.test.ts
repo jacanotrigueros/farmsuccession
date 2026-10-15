@@ -64,6 +64,47 @@ test("cards name the documented served area without replacing their containing t
   assert.ok(checked > 0, "no served areas: the regression would prove nothing");
 });
 
+test("the separator before a value is the one its own language uses", () => {
+  for (const language of ["en", "es", "de", "it", "pt"]) {
+    assert.equal(
+      words(language).labelSeparator,
+      ": ",
+      language + " introduces a value with a plain colon; only French puts a space before it",
+    );
+  }
+  // Written as an escape because the character is invisible in a diff and a plain space would look right.
+  assert.equal(
+    words("fr").labelSeparator,
+    "\u00a0: ",
+    "French puts a no-breaking space before a colon, and it must not be an ordinary one",
+  );
+  assert.equal(
+    resourcePlace("France \u00b7 Auvergne-Rh\u00f4ne-Alpes", "Rh\u00f4ne-Alpes", words("fr").reachRow, words("fr").labelSeparator),
+    "France \u00b7 Auvergne-Rh\u00f4ne-Alpes \u00b7 P\u00e9rim\u00e8tre\u00a0: Rh\u00f4ne-Alpes",
+    "a template that writes its own colon cannot know which language it is in",
+  );
+});
+
+test("French punctuation keeps the space its typography gives it, and that space never breaks", () => {
+  // Before a colon the space is the ordinary non-breaking one; before ; ? ! and inside guillemets it is
+  // the thin one. Both are invisible, so an edit that types a normal space looks correct and is not.
+  const strings = Object.entries(words("fr")).filter(([, value]) => typeof value === "string") as [string, string][];
+  assert.ok(strings.length > 100, "no French strings read: this check would prove nothing");
+
+  for (const [key, value] of strings) {
+    assert.doesNotMatch(value, / [:;?!]/u, `fr.${key} has an ordinary space before punctuation that French never lets break`);
+    assert.doesNotMatch(value, /\u00a0[;?!]/u, `fr.${key} uses the wide space before ; ? or !, where French uses the thin one`);
+    assert.doesNotMatch(value, /\u202f:/u, "French puts the ordinary non-breaking space before a colon, not the thin one");
+  }
+
+  for (const language of ["en", "es", "de", "it", "pt"]) {
+    for (const [key, value] of Object.entries(words(language))) {
+      if (typeof value !== "string") continue;
+      assert.doesNotMatch(value, /[\u00a0\u202f][:;?!]/u, `${language}.${key} spaces its punctuation the French way`);
+    }
+  }
+});
+
 test("served-area text keeps the territory and treats source words as plain text", () => {
   assert.equal(
     resourcePlace("Germany · Baden-Württemberg", "Südbaden", "Area served"),
