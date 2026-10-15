@@ -406,15 +406,25 @@ test("a record is never listed without saying which layer it comes from", () => 
         .trim(),
     }));
 
-    // A template with the name in the middle — "Für {where} erfasst" — is matched as one.
-    const says = (template: string) => new RegExp(`^${template.replaceAll(/[.*+?^$()|[\]\\]/gu, "\\$&").replace("{where}", ".+")}`, "u");
+    // A template with the name in the middle — "Für {where} erfasst" — is matched as one. The heading
+    // text above had its whitespace collapsed, and French writes a no-breaking space before a colon, so
+    // the template is collapsed the same way. This check is about which layer a heading names, never
+    // about which space character stands before its colon.
+    const flat = (value: string) => value.replaceAll(/\s+/gu, " ");
+    const says = (template: string) =>
+      new RegExp(
+        `^${flat(template)
+          .replaceAll(/[.*+?^$()|[\]\\]/gu, "\\$&")
+          .replace("{where}", ".+")}`,
+        "u",
+      );
     let group = "";
     for (const heading of headings) {
       if (heading.level === "h2") {
         // The records of this territory hang from the heading that names it — "the whole country" on a
         // country, the territory's name below one — and the ones that reach it from a wider layer hang
         // from a heading naming that layer, one level further down.
-        const own = says(text.ownRecords).test(heading.text) || heading.text.startsWith(text.wholeCountryTitle);
+        const own = says(text.ownRecords).test(heading.text) || heading.text.startsWith(flat(text.wholeCountryTitle));
         group = own ? heading.text : "";
         if (group) grouped += 1;
       }
