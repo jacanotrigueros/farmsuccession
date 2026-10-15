@@ -64,6 +64,22 @@ test("cards name the documented served area without replacing their containing t
   assert.ok(checked > 0, "no served areas: the regression would prove nothing");
 });
 
+test("the separator before a value is the one its own language uses", () => {
+  for (const language of ["en", "es", "de", "it", "pt"]) {
+    assert.equal(
+      words(language).labelSeparator,
+      ": ",
+      language + " introduces a value with a plain colon; only French puts a space before it",
+    );
+  }
+  assert.equal(words("fr").labelSeparator, " : ", "French puts a space before a colon, as 25 other strings in this file already do");
+  assert.equal(
+    resourcePlace("France · Auvergne-Rhône-Alpes", "Rhône-Alpes", words("fr").reachRow, words("fr").labelSeparator),
+    "France · Auvergne-Rhône-Alpes · Périmètre : Rhône-Alpes",
+    "a template that writes its own colon cannot know which language it is in",
+  );
+});
+
 test("served-area text keeps the territory and treats source words as plain text", () => {
   assert.equal(
     resourcePlace("Germany · Baden-Württemberg", "Südbaden", "Area served"),

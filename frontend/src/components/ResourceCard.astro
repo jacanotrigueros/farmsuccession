@@ -35,7 +35,7 @@ const { resource, recordedIn, language, level = "h3", compact = false } = Astro.
 const Heading = level;
 const text = words(language);
 
-const place = resourcePlace(placeOf(recordedIn, text.euName), resource.scope.area, text.reachRow);
+const place = resourcePlace(placeOf(recordedIn, text.euName), resource.scope.area, text.reachRow, text.labelSeparator);
 ---
 
 <li
