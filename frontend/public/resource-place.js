@@ -8,3 +8,12 @@
  * @param {string} [separator] the language's own way of introducing a value
  */
 export const resourcePlace = (place, area, label, separator = ": ") => (area ? `${place} · ${label}${separator}${area}` : place);
+
+/** Keep source prose separate from translated labels without changing the visible place.
+ * @param {string} place @param {string | undefined} area @param {string} label
+ * @param {string} [separator]
+ */
+export const resourcePlaceParts = (place, area, label, separator = ": ") => ({
+  label: area ? `${place} · ${label}${separator}` : place,
+  area: area ?? "",
+});

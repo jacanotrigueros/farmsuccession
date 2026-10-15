@@ -222,6 +222,7 @@ const reaches = leafLayers(territory.layer, territories)
    */}
   <div data-pagefind-body data-pagefind-meta="territory[data-territory]" data-territory={place}>
     <span hidden data-pagefind-meta={`country:${country || "EU"}`}></span>
+    <span hidden data-pagefind-meta={`language:${language}`}></span>
     {countryFilters(country || "EU", reaches).map((code) => (
       <span hidden data-pagefind-filter={`country:${code}`}></span>
     ))}

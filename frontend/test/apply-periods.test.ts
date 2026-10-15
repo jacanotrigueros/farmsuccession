@@ -61,7 +61,10 @@ for (const { resource, country, language } of records.filter(({ resource }) => (
       const consulted = resource.sources.find((source) => source.url === call.sourceUrl)?.consultedOn;
       assert.ok(consulted, `${resource.id}: ${call.name} has no source consultation date`);
       const checked = words(language).checkedOn.replace("{date}", dateIn(consulted, language));
-      assert.ok(body.includes(checked), `${resource.id}: ${call.name} must show its own source's consultation date`);
+      assert.ok(
+        body.replaceAll(/<[^>]*>/gu, "").includes(checked),
+        `${resource.id}: ${call.name} must show its own source's consultation date`,
+      );
       for (const date of [call.opens, call.closes].filter((date): date is string => date !== undefined)) {
         assert.ok(body.includes(`datetime="${date}"`), `${resource.id}: ${call.name} lost its own documented date ${date}`);
       }

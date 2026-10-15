@@ -24,6 +24,7 @@ import { APPLY_TONE, applyKey } from "../../public/apply.js";
 type Props = { resource: Resource; language: string };
 const { resource, language } = Astro.props;
 const text = words(language);
+const [checkedBefore, checkedAfter] = text.checkedOn.split("{date}");
 
 const on = (iso?: string): string => (iso ? dateIn(iso, language) : "");
 const today = new Date().toISOString().slice(0, 10);
@@ -164,7 +165,13 @@ const entries = (resource.calls?.length ? resource.calls : [undefined]).map((cal
           </dl>
         )}
         <p class="meta mt-3">
-          {checked && text.checkedOn.replace("{date}", on(checked))}
+          {checked && (
+            <>
+              {checkedBefore}
+              <time datetime={checked}>{on(checked)}</time>
+              {checkedAfter}
+            </>
+          )}
           {(resource.calls?.length ?? 0) > 0 && (
             <>
               {checked && " · "}
