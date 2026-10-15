@@ -40,6 +40,10 @@ The data is untouched: this is the edition of 13 October, read correctly.
   category and status and then repeated the title, territory and operator printed
   beside it. Browsing now begins with the record's own summary; the marked excerpt is
   kept for an actual text match, which is the only thing it was ever describing.
+- **A label called an area a level.** The German and French words heading a record's
+  scope were Ebene and Échelle — level and scale — above a row that holds a level and an
+  area together. Once the area a record serves began appearing on cards and in search
+  results, those two words were introducing a comarca as if it were a level.
 - **A search that had not run did not say so.** Without the index a request carrying
   words and a territory returned the whole catalogue under a status that loaded for
   ever, and the source claimed the page worked without JavaScript. The page is
@@ -62,6 +66,21 @@ The data is untouched: this is the edition of 13 October, read correctly.
   comment states. The strip of page links, the breadcrumbs, the reference from a claim
   to its source, the buttons that clear a search, and a pagination that was 40px square
   against a 44px rule. Measured in a browser across nine pages in all six languages.
+
+### How French is set
+
+- **French punctuation keeps the space its own typography gives it, and that space does
+  not break.** An ordinary space before a colon can end a line, leaving the colon alone
+  at the top of the next one with the word it belongs to abandoned above. Across 274
+  French strings, 26 colons, 8 semicolons, 7 question marks and one pair of guillemets
+  now carry the right character: the non-breaking space before a colon, the thin one
+  before `;` `?` `!` and inside guillemets. The separator that introduces a value is a
+  word of the language now rather than something a template writes for every language
+  at once.
+- Both characters are invisible in a diff, so a test reads every French string and fails
+  on an ordinary space before any of those marks, on the wide space where the thin one
+  belongs and on the thin one where the wide one does. The first thing it caught was
+  four strings added by a different change while that one was open.
 
 ### A correction without an account
 
