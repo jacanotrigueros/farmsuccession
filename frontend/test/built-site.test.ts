@@ -46,6 +46,7 @@ test("a page ships JavaScript only for what it actually carries", () => {
     if (html.includes("data-search")) allowed.add("/search.js");
     if (html.includes('class="apply')) allowed.add("/apply.js");
     if (html.includes("data-filter")) allowed.add("/filter.js");
+    if (html.includes("data-report")) allowed.add("/report.js");
 
     for (const [, src] of html.matchAll(/<script[^>]*\ssrc="([^"]+)"/giu)) {
       assert.ok(
@@ -193,7 +194,7 @@ test("a territory never shares a namespace with a page of the site", () => {
 
   for (const [iso, { lang }] of countries) {
     const text = words(lang);
-    const own = new Set([text.aboutSlug, text.historySlug, SEARCH_SLUGS[iso] ?? "", regionSlug(iso), recordSlug(iso)]);
+    const own = new Set([text.aboutSlug, text.historySlug, text.reportSlug, SEARCH_SLUGS[iso] ?? "", regionSlug(iso), recordSlug(iso)]);
     const published = new Set(
       pages
         .map(({ file }) => file.split(path.sep))

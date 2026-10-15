@@ -222,6 +222,10 @@ const searchHere = (kinds: readonly string[]) => searchUrl("/", { country: count
  * asking it to choose between them. It stays reachable, its links are followed, and it is in no sitemap.
  */
 const indexed = territory.layer.level !== "REGION" || own.length > 0;
+
+/** A local reader can point out what this territory-specific research missed without needing GitHub. */
+const reportPath = territory.layer.level === "EU" ? `/${text.reportSlug}/` : `/${country.toLowerCase()}/${text.reportSlug}/`;
+const reportQuery = new URLSearchParams({ type: "missing", territory: name, from: href(territory.layer) }).toString();
 ---
 
 <SiteLayout
@@ -438,6 +442,12 @@ const indexed = territory.layer.level !== "REGION" || own.length > 0;
       </div>
     </section>
   )}
+
+  <section class="wrap pb-8">
+    <a class="btn btn-quiet" href={`${reportPath}?${reportQuery}`}>
+      {text.reportOpenForm}
+    </a>
+  </section>
 
   <section class="wrap border-t border-line py-8" aria-labelledby="coverage">
     <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
