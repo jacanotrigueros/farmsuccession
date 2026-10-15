@@ -70,7 +70,7 @@ const option =
 
 /** What the scope holds, before a word is typed: the figure the summary falls back to. */
 const available = (listed.length === 1 ? text.available[0] : text.available[1])
-  .replace("{count}", counted(listed.length, text.record))
+  .replace("{count}", counted(listed.length, text.record, language))
   .replace("{where}", place);
 
 /** Everything the client would otherwise have to translate, in the language of this page. */
@@ -295,7 +295,7 @@ const strings = {
         <h2 id="everything" class="scroll-mt-6 text-2xl font-bold">
           {text.everythingHere}
         </h2>
-        <p class="meta mt-1">{counted(listed.length, text.record)}</p>
+        <p class="meta mt-1">{counted(listed.length, text.record, language)}</p>
         <ul class="mt-4">
           {listed.map(({ resource, from }) => (
             <ResourceCard resource={resource} recordedIn={from} language={language} compact />

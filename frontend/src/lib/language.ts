@@ -12,6 +12,9 @@
  * by three orders of magnitude for anybody who knows the other convention.
  */
 
+import { localeOf } from "../../public/locale.js";
+export { numberIn } from "../../public/locale.js";
+
 export type Language = "en" | "es" | "de" | "fr" | "it" | "pt";
 
 const isLanguage = (value: string): value is Language =>
@@ -37,20 +40,16 @@ export function asLanguage(language: string): Language {
  * read.
  */
 export const dateIn = (iso: string, language: string): string =>
-  new Date(`${iso}T00:00:00Z`).toLocaleDateString(asLanguage(language), {
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString(localeOf(asLanguage(language)), {
     day: "numeric",
     month: "long",
     year: "numeric",
     timeZone: "UTC",
   });
 
-/** A figure in the reader's own convention, keeping whatever precision the source published. */
-export const numberIn = (value: number, language: string): string =>
-  value.toLocaleString(asLanguage(language), { maximumFractionDigits: 2 });
-
 /** An amount of money, which has a symbol and a convention of its own in each language. */
 export const moneyIn = (value: number, language: string): string =>
-  value.toLocaleString(asLanguage(language), {
+  value.toLocaleString(localeOf(asLanguage(language)), {
     style: "currency",
     currency: "EUR",
     maximumFractionDigits: Number.isInteger(value) ? 0 : 2,
@@ -58,4 +57,4 @@ export const moneyIn = (value: number, language: string): string =>
 
 /** Several things in one sentence, joined the way the language joins them: "a, b and c", "a, b y c". */
 export const listIn = (items: readonly string[], language: string): string =>
-  new Intl.ListFormat(asLanguage(language), { style: "long", type: "conjunction" }).format(items);
+  new Intl.ListFormat(localeOf(asLanguage(language)), { style: "long", type: "conjunction" }).format(items);

@@ -288,7 +288,7 @@ const reaches = leafLayers(territory.layer, territories)
           </a>
           <a href="#evidence" class="btn btn-quiet">
             <Icon name={ICON.evidence} aria-hidden="true" class="size-5 shrink-0" />
-            {counted(resource.sources.length, text.source)} · {counted(quotes, text.quote)}
+            {counted(resource.sources.length, text.source, language)} · {counted(quotes, text.quote, language)}
           </a>
         </p>
       </div>

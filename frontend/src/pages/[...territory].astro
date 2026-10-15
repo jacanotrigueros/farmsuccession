@@ -132,7 +132,7 @@ const cited = new Set(everythingHere.flatMap(({ sources }) => sources.map(({ url
 const quoted = everythingHere.reduce((total, { sources }) => total + sources.reduce((n, source) => n + source.quotes.length, 0), 0);
 
 /** A count with its noun, in a phrase that names the place it is about. */
-const about = (forms: readonly [string, string], howMany: number): string => counted(howMany, forms).replace("{where}", name);
+const about = (forms: readonly [string, string], howMany: number): string => counted(howMany, forms, language).replace("{where}", name);
 
 /**
  * A country answers with everything that applies in it, how many territories it has and how much
@@ -142,9 +142,9 @@ const about = (forms: readonly [string, string], howMany: number): string => cou
 const figures = isCountry
   ? [
       { icon: ICON.resources, value: everythingHere.length, label: about(text.statApplicable, everythingHere.length) },
-      { icon: ICON.territory, value: children.length, label: counted(children.length, text.statTerritories) },
-      { icon: ICON.sources, value: cited, label: counted(cited, text.statSources) },
-      { icon: ICON.evidence, value: quoted, label: counted(quoted, text.statQuotes) },
+      { icon: ICON.territory, value: children.length, label: counted(children.length, text.statTerritories, language) },
+      { icon: ICON.sources, value: cited, label: counted(cited, text.statSources, language) },
+      { icon: ICON.evidence, value: quoted, label: counted(quoted, text.statQuotes, language) },
     ]
   : [
       { icon: ICON.resources, value: own.length, label: about(text.statOwn, own.length) },
@@ -152,9 +152,9 @@ const figures = isCountry
     ];
 /** How the country's total divides: what the country itself documented, and what Europe adds to it. */
 const split = text.applicableSplit
-  .replace("{own}", String(own.length + below))
+  .replace("{own}", counted(own.length + below, text.record, language))
   .replace("{where}", name)
-  .replace("{inherited}", counted(inheritedCount, text.europeanRecord));
+  .replace("{inherited}", counted(inheritedCount, text.europeanRecord, language));
 
 /**
  * The kinds something on this page actually is, in the order the lists use, so the control can only ever
@@ -176,8 +176,8 @@ const narrows = kinds.length > 1 && !(isCountry && own.length === 0);
 /** What a territory card says: written for it, and applicable there in total. */
 const countsOf = (child: Territory): string =>
   text.territoryCounts
-    .replace("{own}", counted(child.data.resources.length, text.territoryOwnWord))
-    .replace("{total}", counted(view(child).resources.length, text.territoryTotalWord));
+    .replace("{own}", counted(child.data.resources.length, text.territoryOwnWord, language))
+    .replace("{total}", counted(view(child).resources.length, text.territoryTotalWord, language));
 
 /** The records of a grouping are the ones its territories share: the search that shows them is theirs. */
 const slugOf = (place: Territory): string => (place.layer.level === "REGION" ? `${country}/${place.layer.region}` : "");
@@ -186,9 +186,9 @@ const sharedSearch = (members: Territory[]): string =>
 
 /** The heading of the records this territory recorded, and the sentence under a country's own. */
 const alsoTitle = (inheritedCount === 1 ? text.alsoApplies[0] : text.alsoApplies[1])
-  .replace("{count}", counted(inheritedCount, text.record))
+  .replace("{count}", counted(inheritedCount, text.record, language))
   .replace("{where}", name);
-const nationalLead = text.wholeCountryLead.replace("{count}", counted(own.length, text.record)).replace("{where}", name);
+const nationalLead = text.wholeCountryLead.replace("{count}", counted(own.length, text.record, language)).replace("{where}", name);
 
 /**
  * A count the page shows is a count of what the page is showing, and narrowing it changes both. Every
@@ -300,7 +300,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
               {hub.data.resources.length > 0 && (
                 <p class="meta mt-1">
                   <a class="inline-flex min-h-(--spacing-target) items-center underline" href={sharedSearch(members)}>
-                    {counted(hub.data.resources.length, text.sharedRecords)}
+                    {counted(hub.data.resources.length, text.sharedRecords, language)}
                   </a>
                 </p>
               )}
@@ -347,7 +347,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         {isCountry ? text.wholeCountryTitle : text.ownRecords.replace("{where}", name)}
         {own.length > 0 && !isCountry && (
           <span class="meta font-normal" {...recordCount}>
-            {counted(own.length, text.record)}
+            {counted(own.length, text.record, language)}
           </span>
         )}
       </h2>
@@ -412,7 +412,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
               {from}
               <span class="meta font-normal">
                 {" · "}
-                <span {...recordCount}>{counted(items.length, text.record)}</span>
+                <span {...recordCount}>{counted(items.length, text.record, language)}</span>
               </span>
             </h3>
             <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron ml-auto size-5 shrink-0 text-brand-strong" />
