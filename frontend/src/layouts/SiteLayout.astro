@@ -12,6 +12,7 @@ import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { words } from "../lib/words.ts";
+import { countryTerritories, euTerritory, href, languageOf } from "../lib/corpus.ts";
 
 type Props = {
   title: string;
@@ -25,11 +26,22 @@ type Props = {
    * its links are followed.
    */
   noindex?: boolean;
+  /** Only these documents have language versions; country directories describe different things. */
+  documentKind?: "about" | "history";
 };
 
-const { title, description, language, current, noindex = false } = Astro.props;
+const { title, description, language, current, noindex = false, documentKind } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const socialCard = new URL("/social-card.png", Astro.site).href;
+const europe = documentKind ? euTerritory() : undefined;
+const versions = documentKind
+  ? [...(europe ? [europe] : []), ...countryTerritories()].map((territory) => {
+      const language = languageOf(territory);
+      const slug = words(language)[documentKind === "about" ? "aboutSlug" : "historySlug"];
+      return { language, url: new URL(`${href(territory.layer)}${slug}/`, Astro.site).href };
+    })
+  : [];
+const defaultVersion = versions.find(({ language }) => language === "en");
 ---
 
 <!doctype html>
@@ -40,6 +52,10 @@ const socialCard = new URL("/social-card.png", Astro.site).href;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {versions.map(({ language, url }) => (
+      <link rel="alternate" hreflang={language} href={url} />
+    ))}
+    {defaultVersion && <link rel="alternate" hreflang="x-default" href={defaultVersion.url} />}
     {noindex && <meta name="robots" content="noindex, follow" />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
