@@ -43,7 +43,13 @@ const sections = [
 const historyPath = territory.layer.level === "EU" ? `/${text.historySlug}/` : `${home}${text.historySlug}/`;
 ---
 
-<SiteLayout title={`${text.aboutTitle} · ${text.siteName}`} description={text.aboutIntro} language={language} current={home}>
+<SiteLayout
+  title={`${text.aboutTitle} · ${text.siteName}`}
+  description={text.aboutIntro}
+  language={language}
+  current={home}
+  documentKind="about"
+>
   <PageHeader
     crumbs={[{ label: territory.layer.level === "EU" ? text.europe : territory.data.officialName, href: home }]}
     crumbsLabel={text.whereYouAre}
