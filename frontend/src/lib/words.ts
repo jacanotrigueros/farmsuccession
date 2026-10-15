@@ -251,8 +251,8 @@ const EN = {
   searchHereLabel: "Search resources that apply in {where}",
   browseAll: "Browse all resources that apply in {where}",
   searchAction: "Search",
-  searchNotRun:
-    "The search has not run. The words and filters in this link have not been applied. The list below contains every record in this search’s scope.",
+  searchFallbackTitle: "The search has not run",
+  searchNotRun: "The words and filters in this link have not been applied. The list below contains every record in this search’s scope.",
   searchNeedsScript:
     "Searching and filtering require JavaScript, which this browser is not running. You can browse the territories using the links above.",
   result: ["result", "results"],
@@ -538,8 +538,9 @@ const ES = {
   searchHereLabel: "Buscar recursos aplicables en {where}",
   browseAll: "Ver todos los recursos aplicables en {where}",
   searchAction: "Buscar",
+  searchFallbackTitle: "La búsqueda no se ha ejecutado",
   searchNotRun:
-    "La búsqueda no se ha ejecutado. No se han aplicado las palabras ni los filtros de este enlace. Debajo aparece la lista completa de fichas del ámbito de esta búsqueda.",
+    "No se han aplicado las palabras ni los filtros de este enlace. Debajo aparece la lista completa de fichas del ámbito de esta búsqueda.",
   searchNeedsScript:
     "La búsqueda y los filtros necesitan JavaScript, que este navegador no está ejecutando. Puedes explorar los territorios mediante los enlaces de arriba.",
   result: ["resultado", "resultados"],
@@ -829,8 +830,8 @@ const DE = {
   searchHereLabel: "In {where} geltende Angebote suchen",
   browseAll: "Alle in {where} geltenden Angebote ansehen",
   searchAction: "Suchen",
-  searchNotRun:
-    "Die Suche wurde nicht ausgeführt. Die Suchwörter und Filter aus diesem Link wurden nicht angewendet. Unten stehen alle Einträge im Bereich dieser Suche.",
+  searchFallbackTitle: "Die Suche wurde nicht ausgeführt",
+  searchNotRun: "Die Suchwörter und Filter aus diesem Link wurden nicht angewendet. Unten stehen alle Einträge im Bereich dieser Suche.",
   searchNeedsScript:
     "Zum Suchen und Filtern wird JavaScript benötigt. Dieser Browser führt es nicht aus. Über die Links oben können Sie die Gebiete erkunden.",
   result: ["Treffer", "Treffer"],
@@ -1122,8 +1123,9 @@ const FR = {
   searchHereLabel: "Rechercher les ressources applicables : {where}",
   browseAll: "Voir toutes les ressources applicables : {where}",
   searchAction: "Rechercher",
+  searchFallbackTitle: "La recherche n’a pas été effectuée",
   searchNotRun:
-    "La recherche n’a pas été effectuée. Les mots et les filtres de ce lien n’ont pas été appliqués. La liste ci-dessous contient toutes les fiches du périmètre de cette recherche.",
+    "Les mots et les filtres de ce lien n’ont pas été appliqués. La liste ci-dessous contient toutes les fiches du périmètre de cette recherche.",
   searchNeedsScript:
     "Le moteur de recherche et les filtres nécessitent JavaScript, que ce navigateur n’exécute pas. Vous pouvez parcourir les territoires à l’aide des liens ci-dessus.",
   result: ["résultat", "résultats"],
@@ -1414,8 +1416,9 @@ const IT = {
   searchHereLabel: "Cerca le risorse applicabili: {where}",
   browseAll: "Esplora tutte le risorse applicabili: {where}",
   searchAction: "Cerca",
+  searchFallbackTitle: "La ricerca non è stata eseguita",
   searchNotRun:
-    "La ricerca non è stata eseguita. Le parole e i filtri di questo collegamento non sono stati applicati. L’elenco seguente contiene tutte le schede nell’ambito di questa ricerca.",
+    "Le parole e i filtri di questo collegamento non sono stati applicati. L’elenco seguente contiene tutte le schede nell’ambito di questa ricerca.",
   searchNeedsScript:
     "Per cercare e filtrare serve JavaScript, che questo browser non sta eseguendo. Puoi esplorare i territori tramite i collegamenti qui sopra.",
   result: ["risultato", "risultati"],
@@ -1702,8 +1705,9 @@ const PT = {
   searchHereLabel: "Pesquisar recursos aplicáveis: {where}",
   browseAll: "Ver todos os recursos aplicáveis: {where}",
   searchAction: "Pesquisar",
+  searchFallbackTitle: "A pesquisa não foi executada",
   searchNotRun:
-    "A pesquisa não foi executada. As palavras e os filtros desta ligação não foram aplicados. A lista abaixo inclui todas as fichas no âmbito desta pesquisa.",
+    "As palavras e os filtros desta ligação não foram aplicados. A lista abaixo inclui todas as fichas no âmbito desta pesquisa.",
   searchNeedsScript:
     "Pesquisar e filtrar requer JavaScript, que este navegador não está a executar. Pode explorar os territórios através das ligações acima.",
   result: ["resultado", "resultados"],

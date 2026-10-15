@@ -22,10 +22,10 @@ type Props = {
 const { action, id, label, button, examples, pinned = [] } = Astro.props;
 ---
 
-<label for={id} class="mb-2 block font-bold">
+<label id={`${id}-label`} for={id} class="mb-2 block font-bold">
   {label}
 </label>
-<form action={action} method="get" role="search" class="flex max-w-3xl flex-col gap-3 sm:flex-row">
+<form action={action} method="get" role="search" aria-labelledby={`${id}-label`} class="flex max-w-3xl flex-col gap-3 sm:flex-row">
   {pinned.map((field) => (
     <input type="hidden" name={field.name} value={field.value} />
   ))}

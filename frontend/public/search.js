@@ -1,4 +1,4 @@
-import { resultDescription } from "/result-description.js";
+import { resultDescription, setResultLanguage } from "/result-description.js";
 
 /**
  * The search page, in the reader's browser.
@@ -93,12 +93,10 @@ if (form && state && resultsList && everything && template && askBlock && filter
     status.textContent = labelOf("status", result.meta.status);
 
     row.querySelector("[data-result-operator]").textContent = result.meta.operator ?? "";
-    row.querySelector("[data-result-territory]").textContent = resourcePlace(
-      result.meta.territory ?? "",
-      result.meta.area,
-      words.area,
-      words.separator,
-    );
+    const place = resourcePlace(result.meta.territory ?? "", result.meta.area, words.area, words.separator);
+    const area = result.meta.area ?? "";
+    row.querySelector("[data-result-territory]").textContent = area ? place.slice(0, -area.length) : place;
+    row.querySelector("[data-result-area]").textContent = area;
     // The place and the body that runs it carry the same icons here as on every other list of records.
     for (const which of ["territory", "operator"]) {
       const slot = row.querySelector(`[data-result-${which}-icon]`);
@@ -111,6 +109,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     const excerpt = row.querySelector("[data-result-excerpt]");
     if (description.format === "html") excerpt.innerHTML = description.value;
     else excerpt.textContent = description.value;
+    setResultLanguage(row, result);
     return row;
   }
 
