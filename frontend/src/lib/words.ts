@@ -214,8 +214,10 @@ const EN = {
   searchHereLabel: "Search resources that apply in {where}",
   browseAll: "Browse all resources that apply in {where}",
   searchAction: "Search",
+  searchNotRun:
+    "The search has not run. The words and filters in this link have not been applied. The list below contains every record in this search’s scope.",
   searchNeedsScript:
-    "Filtering as you type needs JavaScript, which this browser is not running. Everything in scope is listed below, in full.",
+    "Searching and filtering require JavaScript, which this browser is not running. You can browse the territories using the links above.",
   result: ["result", "results"],
   nothingMatched: "No matching resources. Try different words or fewer filters.",
   narrowDown: "Filters",
@@ -461,8 +463,10 @@ const ES = {
   searchHereLabel: "Buscar recursos aplicables en {where}",
   browseAll: "Ver todos los recursos aplicables en {where}",
   searchAction: "Buscar",
+  searchNotRun:
+    "La búsqueda no se ha ejecutado. No se han aplicado las palabras ni los filtros de este enlace. Debajo aparece la lista completa de fichas del ámbito de esta búsqueda.",
   searchNeedsScript:
-    "Filtrar mientras escribes necesita JavaScript, que este navegador no está ejecutando. Debajo está, entera, la lista de lo que entra en la búsqueda.",
+    "La búsqueda y los filtros necesitan JavaScript, que este navegador no está ejecutando. Puedes explorar los territorios mediante los enlaces de arriba.",
   result: ["resultado", "resultados"],
   nothingMatched: "No encontramos recursos. Prueba otras palabras o reduce los filtros.",
   narrowDown: "Filtros",
@@ -710,8 +714,10 @@ const DE = {
   searchHereLabel: "In {where} geltende Angebote suchen",
   browseAll: "Alle in {where} geltenden Angebote ansehen",
   searchAction: "Suchen",
+  searchNotRun:
+    "Die Suche wurde nicht ausgeführt. Die Suchwörter und Filter aus diesem Link wurden nicht angewendet. Unten stehen alle Einträge im Bereich dieser Suche.",
   searchNeedsScript:
-    "Filtern während des Tippens braucht JavaScript, das dieser Browser nicht ausführt. Alles, was in die Suche fällt, steht vollständig darunter.",
+    "Zum Suchen und Filtern wird JavaScript benötigt. Dieser Browser führt es nicht aus. Über die Links oben können Sie die Gebiete erkunden.",
   result: ["Treffer", "Treffer"],
   nothingMatched: "Keine passenden Angebote. Andere Suchbegriffe oder weniger Filter versuchen.",
   narrowDown: "Filter",
@@ -962,8 +968,10 @@ const FR = {
   searchHereLabel: "Rechercher les ressources applicables : {where}",
   browseAll: "Voir toutes les ressources applicables : {where}",
   searchAction: "Rechercher",
+  searchNotRun:
+    "La recherche n’a pas été effectuée. Les mots et les filtres de ce lien n’ont pas été appliqués. La liste ci-dessous contient toutes les fiches du périmètre de cette recherche.",
   searchNeedsScript:
-    "Filtrer au fil de la frappe demande JavaScript, que ce navigateur n’exécute pas. Tout ce qui entre dans la recherche est listé ci-dessous, en entier.",
+    "Le moteur de recherche et les filtres nécessitent JavaScript, que ce navigateur n’exécute pas. Vous pouvez parcourir les territoires à l’aide des liens ci-dessus.",
   result: ["résultat", "résultats"],
   nothingMatched: "Aucune ressource trouvée. Essayez d’autres mots ou moins de filtres.",
   narrowDown: "Filtres",
@@ -1214,8 +1222,10 @@ const IT = {
   searchHereLabel: "Cerca le risorse applicabili: {where}",
   browseAll: "Esplora tutte le risorse applicabili: {where}",
   searchAction: "Cerca",
+  searchNotRun:
+    "La ricerca non è stata eseguita. Le parole e i filtri di questo collegamento non sono stati applicati. L’elenco seguente contiene tutte le schede nell’ambito di questa ricerca.",
   searchNeedsScript:
-    "Filtrare mentre scrivi richiede JavaScript, che questo browser non sta eseguendo. Tutto ciò che rientra nella ricerca è elencato qui sotto, per intero.",
+    "Per cercare e filtrare serve JavaScript, che questo browser non sta eseguendo. Puoi esplorare i territori tramite i collegamenti qui sopra.",
   result: ["risultato", "risultati"],
   nothingMatched: "Nessuna risorsa trovata. Prova altre parole o meno filtri.",
   narrowDown: "Filtri",
@@ -1462,8 +1472,10 @@ const PT = {
   searchHereLabel: "Pesquisar recursos aplicáveis: {where}",
   browseAll: "Ver todos os recursos aplicáveis: {where}",
   searchAction: "Pesquisar",
+  searchNotRun:
+    "A pesquisa não foi executada. As palavras e os filtros desta ligação não foram aplicados. A lista abaixo inclui todas as fichas no âmbito desta pesquisa.",
   searchNeedsScript:
-    "Filtrar enquanto escreve precisa de JavaScript, que este navegador não está a executar. Tudo o que entra na pesquisa está listado abaixo, por inteiro.",
+    "Pesquisar e filtrar requer JavaScript, que este navegador não está a executar. Pode explorar os territórios através das ligações acima.",
   result: ["resultado", "resultados"],
   nothingMatched: "Não encontrámos recursos. Experimente outras palavras ou menos filtros.",
   narrowDown: "Filtros",
