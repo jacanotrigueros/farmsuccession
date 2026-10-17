@@ -34,7 +34,7 @@ const EXPLAIN: Record<Verdict, string> = {
   GONE: "failed on two different days — the address is gone, the page says it does not exist, or a quote is no longer there. Open it and correct the record",
   UNREACHABLE:
     "never gave a reading, on more than one day — the page may well be fine; the obstacle is the network, the host declining automation, or a page this checker cannot read",
-  FLAKY: "has both passed and failed — a reading, not a verdict",
+  FLAKY: "has passed, but not on every attempt: another reading failed or was UNCHECKED",
   HEALTHY: "has passed every time it was read",
   NEW: "checked on one day only, so the series cannot say anything yet",
 };
@@ -129,6 +129,10 @@ function render(histories: readonly UrlHistory[], runs: ReturnType<typeof readRu
     const group = histories.filter((history) => history.verdict === verdict).filter((history) => stillCited(history));
     const retired = histories.filter((history) => history.verdict === verdict).length - group.length;
     lines.push(`### ${verdict}: ${group.length}`, `  ${EXPLAIN[verdict]}`);
+    if (verdict === "FLAKY") {
+      const failed = group.filter((history) => history.observations.some((reading) => reading.status === "FAIL")).length;
+      lines.push(`  ${failed} with a FAIL; ${group.length - failed} with PASS and UNCHECKED only`);
+    }
     if (retired > 0) {
       lines.push(`  ${retired} more no longer cited by any record: the record was corrected, and the readings stay as the evidence of it`);
     }
