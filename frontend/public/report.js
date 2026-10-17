@@ -24,8 +24,14 @@ for (const [key, value] of Object.entries(context)) {
 const contextBox = document.querySelector("[data-report-context]");
 if (contextBox && hasContext) contextBox.classList.remove("hidden");
 
+// What a reader who found nothing was looking for, carried from the search that found nothing, so
+// nobody is asked to type the same words twice. It fills a field they can see and edit before anything
+// is sent, which is the only reason it is safe to carry at all.
+const looking = params.get("looking");
+if (looking) for (const field of document.querySelectorAll('[data-prefill="looking"]')) field.value = looking;
+
 const requested = params.get("type");
-if (requested === "missing" || requested === "correction") {
+if (requested === "missing" || requested === "correction" || requested === "looking") {
   for (const section of document.querySelectorAll("[data-report-section]")) {
     if (section.dataset.reportSection !== requested) section.hidden = true;
   }
