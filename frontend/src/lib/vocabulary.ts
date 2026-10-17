@@ -593,7 +593,7 @@ export const standing = (text: string, language: string): string => text.charAt(
 export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[number]>({
   en: {
     YOUNG_FARMER: "Young farmer",
-    NEW_ENTRANT: "New entrant",
+    NEW_ENTRANT: "Person planning to enter or new to farming",
     SUCCESSOR: "Successor",
     TRANSFEROR: "Transferor",
     LANDOWNER: "Landowner",
@@ -602,7 +602,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
   },
   es: {
     YOUNG_FARMER: "Joven agricultor/a",
-    NEW_ENTRANT: "Nueva incorporación",
+    NEW_ENTRANT: "Persona que planea incorporarse o se ha incorporado hace poco a la agricultura",
     SUCCESSOR: "Persona sucesora",
     TRANSFEROR: "Persona cedente",
     LANDOWNER: "Propietario/a de tierras",
@@ -611,7 +611,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
   },
   de: {
     YOUNG_FARMER: "Junglandwirt/in",
-    NEW_ENTRANT: "Neueinsteiger/in",
+    NEW_ENTRANT: "Person, die in die Landwirtschaft einsteigen will oder kürzlich eingestiegen ist",
     SUCCESSOR: "Hofnachfolger/in",
     TRANSFEROR: "Übergebende Person",
     LANDOWNER: "Grundeigentümer/in",
@@ -620,7 +620,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
   },
   fr: {
     YOUNG_FARMER: "Jeune agriculteur·rice",
-    NEW_ENTRANT: "Nouvel·le installé·e",
+    NEW_ENTRANT: "Personne qui prévoit de s’installer ou s’est installée récemment en agriculture",
     SUCCESSOR: "Repreneur·euse",
     TRANSFEROR: "Cédant·e",
     LANDOWNER: "Propriétaire foncier·ère",
@@ -629,7 +629,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
   },
   it: {
     YOUNG_FARMER: "Giovane agricoltore/trice",
-    NEW_ENTRANT: "Nuovo insediamento",
+    NEW_ENTRANT: "Persona che vuole iniziare o ha iniziato da poco un’attività agricola",
     SUCCESSOR: "Subentrante",
     TRANSFEROR: "Cedente",
     LANDOWNER: "Proprietario/a di terreni",
@@ -638,7 +638,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
   },
   pt: {
     YOUNG_FARMER: "Jovem agricultor/a",
-    NEW_ENTRANT: "Nova instalação",
+    NEW_ENTRANT: "Pessoa que pretende começar ou começou recentemente uma atividade agrícola",
     SUCCESSOR: "Pessoa sucessora",
     TRANSFEROR: "Pessoa cedente",
     LANDOWNER: "Proprietário/a de terras",
