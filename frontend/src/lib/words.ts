@@ -497,7 +497,7 @@ const ES = {
   accessTitle: "Cómo acceder",
   factsTitle: "Datos del recurso",
   figuresTitle: "Cifras publicadas",
-  howMuchTitle: "Importes publicados por persona beneficiaria",
+  howMuchTitle: "Importes publicados por beneficiario",
   otherFiguresTitle: "Otras cifras",
   newsTitle: "Qué ha pasado este año",
   evidenceTitle: "Fuentes y documentación",
