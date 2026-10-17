@@ -711,7 +711,7 @@ const DE = {
   reportSlug: "hinweis",
   reportTitle: "Angebot oder Korrektur melden",
   reportIntro:
-    "Melden Sie eine öffentliche Ressource, die fehlt, oder Informationen, die sich geändert haben könnten. Sie brauchen kein Konto.",
+    "Melden Sie ein öffentliches Angebot, das fehlt, oder Informationen, die sich geändert haben könnten. Sie brauchen kein Konto.",
   reportMissingTitle: "Ein Angebot fehlt",
   reportMissingLead:
     "Senden Sie die öffentliche Seite und einen Satz dazu, warum sie hierher gehört. Vor einer Veröffentlichung prüfen wir den Hinweis.",
@@ -726,7 +726,7 @@ const DE = {
   reportIssueLabel: "Was hat sich geändert?",
   reportIssueChanged: "Die Informationen haben sich geändert",
   reportIssueBroken: "Der offizielle Link funktioniert nicht mehr",
-  reportIssueGone: "Die Ressource existiert nicht mehr",
+  reportIssueGone: "Das Angebot existiert nicht mehr",
   reportIssueMissing: "Wichtige Informationen fehlen",
   reportIssueOther: "Etwas anderes",
   reportNewSourceLabel: "Öffentliche Quelle für die Änderung (optional)",
@@ -740,11 +740,11 @@ const DE = {
   reportFromLabel: "FarmSuccession-Seite",
   reportTerritoryLabel: "Gebiet",
   reportRecordLabel: "Angebot",
-  reportOpenForm: "Kennen Sie eine Ressource, die fehlt?",
+  reportOpenForm: "Kennen Sie ein Angebot, das fehlt?",
   reportChangeForm: "Haben sich diese Informationen geändert?",
   reportContactLead:
     "Für fehlende Angebote oder Korrekturen nutzen Sie das kurze Formular. Wenn möglich, wird die Seite mitgesendet, die Sie gerade angesehen haben.",
-  reportMailSubjectMissing: "[FarmSuccession] Vorgeschlagene Ressource",
+  reportMailSubjectMissing: "[FarmSuccession] Vorgeschlagenes Angebot",
   reportMailSubjectCorrection: "[FarmSuccession] Korrektur",
   reportLookingTitle: "Sie haben etwas gesucht, das hier nicht steht",
   reportLookingLead:
