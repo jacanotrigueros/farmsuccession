@@ -1063,7 +1063,7 @@ const FR = {
   reportContextLabel: "Ajouté automatiquement",
   reportFromLabel: "Page FarmSuccession",
   reportTerritoryLabel: "Territoire",
-  reportRecordLabel: "Angebot",
+  reportRecordLabel: "Ressource",
   reportOpenForm: "Connaissez-vous une ressource manquante ?",
   reportChangeForm: "Cette information a-t-elle changé ?",
   reportContactLead:
