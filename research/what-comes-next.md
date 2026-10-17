@@ -38,10 +38,11 @@ Of 319 records: ES 128, FR 72, IT 62, DE 36, PT 17, and 4 on the European layer.
 By kind: 100 financial support, 71 land banks, 66 advice, 39 training, 30
 succession services, 7 policy, 3 official portals, 2 networks, 1 other.
 
-One edition, 2026, over 92 territory files. 426 pages live at farmsuccession.eu
-since 14 October. Of 504 cited pages the committed series holds 364 that have
-always passed, 107 that have both passed and failed, and 28 that have never given
-a reading. 232 repository tests and 84 frontend tests, none of which drives a
+One edition, 2026, over 101 territory files, including 92 regions. 426 pages live at farmsuccession.eu
+since 14 October. The committed series has observed 504 URLs, of which 499 are still cited: 364
+have always passed, 107 have mixed readings, and 28 have never given a successful
+reading. Of the 107 mixed histories, only 10 include a FAIL; the other 97 combine
+PASS and UNCHECKED, which is not a failure. 232 repository tests and 84 frontend tests, none of which drives a
 browser.
 
 Reproduce the first paragraph from the repository root with Node.js 24:
@@ -66,6 +67,12 @@ walk('data/editions/2026', null);
 console.log(count, Object.values(count).reduce((a, b) => a + b, 0));
 JS
 ```
+
+**17 October 2026 correction:** the mixed histories above were previously called
+"both passed and failed". That conflated an UNCHECKED attempt with a FAIL. The
+report now separates those outcomes without changing decision 025's verdicts. The
+92 regions were also previously described as 92 territory files; the edition has
+101 files when its European, country and grouping layers are included.
 
 The series figures come from `npm run report:sources`, which reads
 `reports/checks/` and reaches nothing over the network.
@@ -141,8 +148,9 @@ Not a matrix of browsers. One that fails when a control stops working.
 
 ## M14 — The promise stops rotting quietly
 
-107 of 504 cited pages have failed at least once and 28 have never given a
-reading. A dead link announces itself; a page that quietly stopped carrying the
+107 of the 499 currently cited pages have not passed on every attempt: 10 have
+an actual FAIL and 97 have PASS and UNCHECKED only. Another 28 have never given a
+successful reading. A dead link announces itself; a page that quietly stopped carrying the
 sentence quoted from it does not.
 [025](../decisions/025-a-source-is-gone-when-the-series-says-so.md) makes it
 harder to see: "a page that passes once is FLAKY rather than broken, however
