@@ -177,6 +177,7 @@ npm run report         # rewrite research/findings-<year>.md; --check fails if o
 npm run prompt -- <year> eu | <iso> | <iso>/<region or hub> [--compact]
 npm run ingest -- <saved answer.md>
 npm run diff -- <from year> <to year>
+npm run --silent checksums:edition -- <year> # SHA-256 of exact JSON bytes, no network or writes
 ```
 
 `validate` reaches no network, which is why it runs on every push. It prints how
