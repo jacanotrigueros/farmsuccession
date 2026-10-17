@@ -104,6 +104,12 @@ reporting lags by two to three days.
 hypotheses above is closer to true, and this document has been revised against
 them — including, if the answer is uncomfortable, the order of everything below.
 
+**First reading, 17 October 2026:** [`audience-2026.md`](audience-2026.md). One
+day, 110 impressions, two arrivals, 67 queries, and not one of them asking for a
+statistic or an overview. It is the first evidence for the practical reader and
+none at all for volume, so the order below stands for now and the next reading
+decides whether it keeps standing.
+
 ## M13 — What the site says is true
 
 Three findings from an outside review of the published site are open, and one
@@ -159,9 +165,13 @@ narrower — that one reading cannot condemn a page — and not that one old suc
 protects against a hundred later failures. The last PASS has to count for
 something, and how much is a question for the ledger rather than for taste.
 
-**Done when** 025 is either defended with the series or replaced by a rule where
-recency matters; every page the data still cites has either given a reading or
-been classified, by hand, as a host that declines automation; and the cadence for
+025 was measured rather than argued, and it survived:
+[035](../decisions/035-a-measurement-defends-025.md). Letting failures after the
+last success condemn a page would move nothing in the committed series, and
+`npm run measure:recency` is now the command that says when to look again.
+
+**Done when** every page the data still cites has either given a reading or been
+classified, by hand, as a host that declines automation; and the cadence for
 re-reading is written down instead of improvised.
 
 **Not** "fewer than ten never read". If seventeen of them are ministries that
