@@ -66,6 +66,35 @@ test("German intake keeps the catalogue's name for an Angebot", () => {
   );
 });
 
+/**
+ * The mirror of the test above, which is the test that caused the bug.
+ *
+ * German cards call a record an Angebot, so the test above forbids the word Ressource anywhere in the
+ * German intake. It names `reportRecordLabel`, and on 15 October a replace satisfied it. French
+ * `reportRecordLabel` said "Ressource" too, so the replace landed there as well, and the French intake
+ * began labelling a record "Angebot" — between "Territoire" and "Page FarmSuccession" — in the box that
+ * tells a reader what is about to be sent on their behalf, and in the email itself. It shipped.
+ *
+ * Nothing guarded the other direction, so this is that guard. It is drawn between these two languages
+ * and no others because they are the only pair in the vocabulary that shares nothing: between Spanish
+ * and Portuguese, or English and French, a repeated string is usually a cognate, and the same rule
+ * there would need a list of sixty exceptions that nobody would keep true.
+ */
+test("no French string is a German one, because a word landing in the wrong language still ships", () => {
+  const fr = words("fr") as unknown as Record<string, unknown>;
+  const de = words("de") as unknown as Record<string, unknown>;
+  const shared = Object.entries(fr)
+    .filter(([key, value]) => typeof value === "string" && value !== "" && de[key] === value)
+    .map(([key]) => key)
+    .toSorted();
+
+  assert.deepEqual(
+    shared,
+    ["recordPageTitle", "siteName"],
+    "French and German share no vocabulary, so the site's own name and a title template are the only strings that may be identical in both. Anything else here is a replace aimed at one language that landed in the other.",
+  );
+});
+
 test("answers about a resource do not refer to a masculine call that does not exist", () => {
   assert.match(words("fr").applyAnnounced, /la ressource.*annoncée/u, "the no-call answer describes a feminine ressource, not an appel");
   assert.match(words("fr").applyHistorical, /la ressource/u, "French il cannot refer back to the feminine ressource");
