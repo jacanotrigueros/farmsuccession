@@ -80,3 +80,8 @@ on the way in, which is the only honest reason for a measurement to move.
 | [028](028-a-page-may-ask-not-to-be-indexed.md)                    | A page may ask not to be indexed, and the sitemap reads that   |
 | [029](029-each-period-answers-for-itself.md)                      | Each documented application period answers for itself          |
 | [030](030-public-correction-stays-outside-github.md)              | Public corrections use email; GitHub stays behind the site     |
+| [031](031-an-amount-belongs-to-its-source.md)                     | An amount belongs to its source, not to its reader             |
+| [032](032-a-check-says-what-it-did.md)                            | A check says what it did, not what a trust label suggests      |
+| [033](033-a-new-entrant-is-a-person.md)                           | A new entrant is a person entering farming, intended or recent |
+| [034](034-an-inline-style-is-an-error.md)                         | The policy travels in the page; an inline style is an error    |
+| [035](035-a-measurement-defends-025.md)                           | A measurement defends 025, and says when to come back          |

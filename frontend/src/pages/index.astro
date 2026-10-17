@@ -9,6 +9,7 @@
  * It is written in the language of the European layer, because that is the layer it is about.
  */
 import { Icon } from "astro-icon/components";
+import SourceClaim from "../components/SourceClaim.astro";
 import Needs from "../components/Needs.astro";
 import StandaloneNews from "../components/StandaloneNews.astro";
 import SearchBox from "../components/SearchBox.astro";
@@ -73,7 +74,6 @@ const figures = [
 ];
 
 const trust = [
-  { icon: ICON.evidence, title: text.trustSourced },
   { icon: ICON.checked, title: text.trustDated },
   { icon: ICON.open, title: text.trustOpen },
 ];
@@ -120,6 +120,10 @@ const trust = [
           ))}
         </ul>
         <ul class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-line pt-4 text-meta">
+          <li class="flex w-full max-w-3xl items-start gap-2 text-control text-ink">
+            <Icon name={ICON.evidence} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-brand" />
+            <SourceClaim language={language} />
+          </li>
           {trust.map((point) => (
             <li class="flex items-center gap-2 font-bold text-ink">
               <Icon name={point.icon} aria-hidden="true" class="size-4 shrink-0 text-brand" />

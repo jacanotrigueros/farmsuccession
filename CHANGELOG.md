@@ -10,6 +10,96 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.3.0 — 2026-10-18
+
+No record changes and no file under `data/` changes. `schema/edition.schema.json`
+gains one sentence: a description on the audience codes, which no validation reads
+and which changes nothing that has been checked.
+
+What changes is a set of claims the site was making and could not support, a thing
+a reader can now say back, and the first evidence about who is actually here.
+
+### Four things the site said that it could not show
+
+- **A heading asked how much _you_ can receive.** It sat above a figure a source
+  published, on a record whose own source says the 2026 allocation is
+  "totalmente esgotadas". The site documents what an administration published per
+  beneficiary; it does not know what anybody will receive. Every language now names
+  the published amount, and the three questions stay apart: whether an instrument
+  exists, whether its documented dates let somebody apply today, and what a source
+  said per beneficiary.
+- **A footer called these references _verified_** in French, Italian and
+  Portuguese, while every record on the page says no person has reviewed it. One
+  component now makes the same statement on the home page and in all six footers:
+  public sources, dated readings, automatic attempts to read them again, and no
+  claim of human review or of current availability. The German also described
+  consulted sources as checked, in two places, and no longer does.
+- **A French label said a new entrant was somebody already established.**
+  "Nouvel·le installé·e" excludes exactly the _futurs agriculteurs_ that the
+  sources behind 58 French records address, and 242 of the 319 records carry that
+  audience code. The code now carries a definition — a person entering farming,
+  intended or recent — and each language names that person the way it already
+  names a young farmer.
+- **A French page called a record an _Angebot_.** In the box that tells a reader
+  what is about to be sent on their behalf, and in the email the form prepares.
+  It arrived in a commit called "keep words in their language": a test forbids
+  that German word in the German intake, French used the same word, and the
+  replace that satisfied the test landed in both.
+
+### What a reader can say back
+
+- The intake form had two doors, and both need somebody who already knows an
+  answer: a resource exists and is missing, or a record is wrong. A third asks the
+  reader who searched, found nothing and is about to leave — the only person who
+  can say where this directory has a hole. It is offered at the moment a search
+  returns nothing, and it carries what they typed so they do not write it twice.
+- Every record now asks whether the page sent them to the right official source.
+  Two letters already written, no script and no request; the whole cost is pressing
+  send. That cost is also the open question: a reply address is a lot to ask for one
+  word, and whether this survives is a decision for the first week of real use.
+
+### What the browser now refuses
+
+- **Every page carries a Content-Security-Policy.** A script, a stylesheet, a font,
+  an image or a connection from another host is refused by the browser itself, and
+  so is a form that would post anywhere but the correction address. "No third-party
+  request" stops being a property of the build and becomes a rule enforced where the
+  page actually runs. It travels in the page because GitHub Pages sends no headers
+  of its own on a custom domain, which is also its one cost: `frame-ancestors` exists
+  only as a header, so framing is not covered.
+- Nothing needed `'unsafe-inline'`, and nothing may add it. An inline `style`
+  attribute now fails the build and names the page, because a hash can cover a
+  `<style>` element and can never cover an attribute.
+
+### What the project can now say about itself
+
+- **Who arrives.** The first reading of the search queries that precede an arrival,
+  with what it does and does not support. 24 hours, 110 impressions, two arrivals,
+  67 queries, and not one asking for a statistic or an overview. The plan's first
+  milestone was written for a reader nobody had met; this is the first evidence that
+  the reader is practical, and no evidence at all about volume.
+- **An edition can be named by its exact bytes.** A sha256sum-compatible manifest, so
+  somebody outside can fetch the files and prove they hold the ones that were cited.
+  It certifies neither the truth of the evidence nor a human review.
+- **A page nobody could read has not failed.** The report called 107 pages mixed
+  successes and failures; only 10 carry a real failure and 97 combine a success with
+  an attempt nobody could take. And coverage over an edition file that will not load
+  now refuses to measure instead of reporting that territory as citing nothing.
+- **025 was measured rather than argued.** Letting failures after the last success
+  condemn a page would move zero pages in the committed series, which is the
+  condition the plan itself set for leaving the rule alone. The objection is kept
+  with the measurement that failed to support it, and a command says when to look
+  again.
+
+### Not here yet
+
+- Whether a yes-or-no that costs an email is worth asking at all.
+- What a task card counts, and what makes a record relevant to a task.
+- Whether anything should drive a browser, and what.
+- A second edition, and a payload somebody outside can cite by name.
+
+Each of those is an open question with a memo, not a thing nobody noticed.
+
 ## 1.2.0 — 2026-10-16
 
 The corpus is untouched again: no file under `data/` or `schema/` changes. What

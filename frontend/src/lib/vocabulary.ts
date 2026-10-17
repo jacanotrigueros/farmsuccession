@@ -593,7 +593,7 @@ export const standing = (text: string, language: string): string => text.charAt(
 export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[number]>({
   en: {
     YOUNG_FARMER: "Young farmer",
-    NEW_ENTRANT: "New entrant",
+    NEW_ENTRANT: "New or prospective farmer",
     SUCCESSOR: "Successor",
     TRANSFEROR: "Transferor",
     LANDOWNER: "Landowner",
@@ -602,7 +602,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
   },
   es: {
     YOUNG_FARMER: "Joven agricultor/a",
-    NEW_ENTRANT: "Nueva incorporación",
+    NEW_ENTRANT: "Nuevo/a o futuro/a agricultor/a",
     SUCCESSOR: "Persona sucesora",
     TRANSFEROR: "Persona cedente",
     LANDOWNER: "Propietario/a de tierras",
@@ -611,7 +611,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
   },
   de: {
     YOUNG_FARMER: "Junglandwirt/in",
-    NEW_ENTRANT: "Neueinsteiger/in",
+    NEW_ENTRANT: "Neue/r oder künftige/r Landwirt/in",
     SUCCESSOR: "Hofnachfolger/in",
     TRANSFEROR: "Übergebende Person",
     LANDOWNER: "Grundeigentümer/in",
@@ -620,7 +620,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
   },
   fr: {
     YOUNG_FARMER: "Jeune agriculteur·rice",
-    NEW_ENTRANT: "Nouvel·le installé·e",
+    NEW_ENTRANT: "Nouvel·le ou futur·e agriculteur·rice",
     SUCCESSOR: "Repreneur·euse",
     TRANSFEROR: "Cédant·e",
     LANDOWNER: "Propriétaire foncier·ère",
@@ -629,7 +629,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
   },
   it: {
     YOUNG_FARMER: "Giovane agricoltore/trice",
-    NEW_ENTRANT: "Nuovo insediamento",
+    NEW_ENTRANT: "Nuovo/a o futuro/a agricoltore/trice",
     SUCCESSOR: "Subentrante",
     TRANSFEROR: "Cedente",
     LANDOWNER: "Proprietario/a di terreni",
@@ -638,7 +638,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
   },
   pt: {
     YOUNG_FARMER: "Jovem agricultor/a",
-    NEW_ENTRANT: "Nova instalação",
+    NEW_ENTRANT: "Novo/a ou futuro/a agricultor/a",
     SUCCESSOR: "Pessoa sucessora",
     TRANSFEROR: "Pessoa cedente",
     LANDOWNER: "Proprietário/a de terras",

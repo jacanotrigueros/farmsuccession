@@ -14,6 +14,7 @@
  * the project — are not here yet, because those pages are not here yet. A footer link to a page that does
  * not exist is worse than a shorter footer.
  */
+import SourceClaim from "./SourceClaim.astro";
 import { currentEdition } from "../lib/corpus.ts";
 import { editionNamed, words } from "../lib/words.ts";
 import { searchPath } from "../../public/search-scope.js";
@@ -37,7 +38,9 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
       <a href="/" class="inline-flex min-h-(--spacing-target) items-center text-lg font-bold text-brand-strong no-underline">
         {text.siteName}
       </a>
-      <p class="meta mt-2 max-w-3xl">{text.trust}</p>
+      <p class="meta mt-2 max-w-3xl">
+        <SourceClaim language={language} />
+      </p>
       <p class="meta mt-3">{editionNamed(currentEdition, language)}</p>
       <p class="meta mt-3">
         {text.optOut}{" "}

@@ -526,3 +526,114 @@ test("a figure the filter rewrites says what it becomes at one record and at sev
   }
   assert.ok(checked > 0, "no page carried a figure the filter rewrites, so this check proved nothing");
 });
+
+/**
+ * The promise above, made to the browser rather than only kept by the build.
+ *
+ * "No page asks the reader's browser for anything from another host" is checked by reading the markup,
+ * which proves what the build produced and nothing about what a page may do once it is open. A
+ * Content-Security-Policy turns the same sentence into a rule the browser enforces: a script, a
+ * stylesheet, a font, an image or a connection that did not come from this site is refused, and so is a
+ * form that would post somewhere else.
+ *
+ * The policy is a `<meta>` because the site is served by GitHub Pages, which sends no headers of its own
+ * on a custom domain. That costs `frame-ancestors`, which only exists as a header — the policy therefore
+ * covers injected content and not framing.
+ *
+ * `'wasm-unsafe-eval'` is in it because Pagefind compiles WebAssembly to search, and it reaches every
+ * page rather than only the six that search, because one policy is configured for the whole build. It
+ * permits WebAssembly and nothing else: it is not `'unsafe-eval'`, and no page may run a string as code.
+ *
+ * Inline styles are allowed by their hash, which Astro computes at build time. The moment anything here
+ * needs `'unsafe-inline'`, the policy stops being worth having, which is why that is the assertion.
+ */
+test("a page tells the browser to refuse anything that did not come from this site", () => {
+  for (const { file, html } of pages) {
+    const policy = /<meta http-equiv="content-security-policy" content="([^"]*)"/iu.exec(html)?.[1];
+    assert.ok(policy, `${file} ships no Content-Security-Policy: a page that is only read has nothing to allow`);
+
+    for (const unsafe of ["'unsafe-inline'", "'unsafe-eval'"]) {
+      assert.ok(
+        !policy.includes(unsafe),
+        `${file} allows ${unsafe}, which permits exactly what the policy exists to refuse: fix what needs it instead`,
+      );
+    }
+
+    for (const directive of ["default-src 'self'", "object-src 'none'", "base-uri 'none'", "form-action 'self' mailto:"]) {
+      assert.ok(policy.includes(directive), `${file} is missing ${directive} from its Content-Security-Policy`);
+    }
+
+    assert.ok(
+      policy.includes("'wasm-unsafe-eval'"),
+      `${file} forbids WebAssembly, and the search compiles it: every search page would fail to load its index`,
+    );
+  }
+});
+
+/**
+ * The one way the policy above breaks quietly, written down as a failure instead.
+ *
+ * Astro hashes the `<style>` elements it generates, so the policy needs no
+ * `'unsafe-inline'`. A hash cannot cover a `style="…"` attribute: allowing one means
+ * allowing every inline style on every page, which is most of what the policy exists to
+ * refuse. So an attribute is a build error, not a reason to loosen it — `decisions/034`.
+ *
+ * It will be met before anything else here. Astro's Markdown highlighting, Shiki, puts an
+ * inline style on every token it emits, and the build already warns about it. No page uses
+ * a code block today. The day one does, the browser would blank the highlighting and say so
+ * only in a console nobody is reading; this says it at the build instead, and names the page.
+ */
+test("no page styles anything inline, because the policy cannot cover an attribute", () => {
+  for (const { file, html } of pages) {
+    const [found] = html.match(/<[a-z][^>]*\sstyle="[^"]*"/iu) ?? [];
+    assert.ok(
+      !found,
+      `${file} carries an inline style, which the Content-Security-Policy blocks and no hash can allow: ${found}\n` +
+        "If this came from a code block, the highlighter has to emit classes rather than styles — see decisions/034.",
+    );
+  }
+});
+
+/**
+ * The one question a yes or a no can answer about a record: did this page send you to the right place.
+ *
+ * It is two links rather than a form or a script, because the cheapest thing a reader can do should be
+ * the thing that tells us the most. Each one opens their own mail client with the answer, the record and
+ * the page already written, so the whole cost is pressing send. Nothing is posted, counted or stored,
+ * which is also why a reply address is the price and why this asks only one question.
+ */
+test("every record asks whether it helped, in its own language, as two prefilled letters", () => {
+  const byLanguage = new Set<string>();
+  let checked = 0;
+  for (const { file, html } of pages) {
+    const at = html.indexOf('id="helpful"');
+    if (at < 0) continue;
+    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const text = words(language);
+    byLanguage.add(language);
+    checked += 1;
+
+    const section = html.slice(at);
+    assert.ok(section.includes(text.helpfulQuestion), `${file} asks whether it helped in another language`);
+
+    const letters = [...section.matchAll(/href="mailto:contact@farmsuccession\.eu\?([^"]*)"/gu)].slice(0, 2);
+    assert.equal(letters.length, 2, `${file} does not offer both answers as letters that are already written`);
+
+    for (const [, query] of letters) {
+      const asked = new URLSearchParams(query!.replaceAll("&#38;", "&").replaceAll("&amp;", "&"));
+      const subject = asked.get("subject") ?? "";
+      const body = asked.get("body") ?? "";
+      assert.ok(
+        subject === text.reportMailSubjectUseful || subject === text.reportMailSubjectNotUseful,
+        `${file} files an answer under a subject no inbox can sort: ${subject}`,
+      );
+      assert.ok(body.includes("https://farmsuccession.eu/"), `${file} names the page as a path rather than an address somebody can open`);
+      assert.ok(
+        body.endsWith(text.helpfulYes) || body.endsWith(text.helpfulNo),
+        `${file} prepares a letter that never says which answer it carries`,
+      );
+    }
+  }
+  assert.ok(checked > 100, `only ${checked} records asked the question; every record page should`);
+  assert.equal(byLanguage.size, 6, "the question was not checked in all six languages");
+});

@@ -6,8 +6,9 @@ official portals and policy frameworks — published as yearly editions of data 
 which every single claim is traceable to a public page, the date it was read and
 the words that were on it.
 
-It is a directory of verified references, not a replacement for the official
-services: every entry points at the page that owns the information.
+It is a directory of public, source-linked references, not a replacement for the
+official services. Every entry states when its sources were read. Automatic checks
+try to read them again; they do not replace human review or confirm current availability.
 
 ## The rule everything else serves
 
@@ -233,11 +234,16 @@ npm run validate       # the catalogue, every edition file and every brief
 npm run prompt -- <year> eu | <iso> | <iso>/<region or hub> [--compact]
 npm run ingest -- <saved answer.md>   # write the files an answer delivered, then validate them
 npm run diff -- <from year> <to year> # what changed between two editions
+npm run --silent checksums:edition -- <year> # exact JSON-file bytes, not evidence quality
+npm run measure:recency  # what a rule about recency would move, from the committed runs only
 npm run report         # rewrite the account of what each territory's research concluded
 npm run check:sources  # live: re-read every cited page and look for its quotes
 npm run check:links    # live: ask every address the repository points at whether it answers
 npm run check:territory -- <year> eu | <iso> | <iso>/<region or hub>
 ```
+
+[Exact-byte checksum tooling](research/edition-checksums.md) prepares a manifest;
+it does not certify evidence or publish an edition.
 
 The live checks reach the network and never gate a commit: a portal being down
 is not a reason to refuse one. They visit one host at a time with a pause

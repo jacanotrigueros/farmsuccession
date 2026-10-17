@@ -34,7 +34,7 @@ const EXPLAIN: Record<Verdict, string> = {
   GONE: "failed on two different days — the address is gone, the page says it does not exist, or a quote is no longer there. Open it and correct the record",
   UNREACHABLE:
     "never gave a reading, on more than one day — the page may well be fine; the obstacle is the network, the host declining automation, or a page this checker cannot read",
-  FLAKY: "has both passed and failed — a reading, not a verdict",
+  FLAKY: "has passed, but not on every attempt: another reading failed or was UNCHECKED",
   HEALTHY: "has passed every time it was read",
   NEW: "checked on one day only, so the series cannot say anything yet",
 };
@@ -129,6 +129,10 @@ function render(histories: readonly UrlHistory[], runs: ReturnType<typeof readRu
     const group = histories.filter((history) => history.verdict === verdict).filter((history) => stillCited(history));
     const retired = histories.filter((history) => history.verdict === verdict).length - group.length;
     lines.push(`### ${verdict}: ${group.length}`, `  ${EXPLAIN[verdict]}`);
+    if (verdict === "FLAKY") {
+      const failed = group.filter((history) => history.observations.some((reading) => reading.status === "FAIL")).length;
+      lines.push(`  ${failed} with a FAIL; ${group.length - failed} with PASS and UNCHECKED only`);
+    }
     if (retired > 0) {
       lines.push(`  ${retired} more no longer cited by any record: the record was corrected, and the readings stay as the evidence of it`);
     }
@@ -166,12 +170,17 @@ function render(histories: readonly UrlHistory[], runs: ReturnType<typeof readRu
 /**
  * What every territory of the edition cites, which is what its readings are coverage of. It is planned
  * by the same function the checks are planned by, so the report cannot measure coverage of a different
- * list from the one that gets checked. A file that does not load is skipped: that is `npm run validate`'s
- * business, and here it would only make the coverage of one territory unknown rather than wrong.
+ * list from the one that gets checked. A file that cannot load makes its citations unknown, not empty:
+ * the report must refuse to measure them rather than reporting that territory as citing nothing.
  */
 export function citedByTerritory(editionsDir = EDITIONS_DIR, edition?: string): TerritoryPages[] {
   const pages = new Map<string, Set<string>>();
-  const { snapshots } = loadSnapshots({ editionsDir, edition });
+  const { snapshots, problems } = loadSnapshots({ editionsDir, edition });
+  if (problems.length > 0) {
+    throw new Error(
+      `cannot measure source coverage: edition files could not be loaded\n${problems.map(({ file, message }) => `${file}: ${message}`).join("\n")}`,
+    );
+  }
   for (const file of listEditionFiles(editionsDir, edition)) {
     const territory = territoryOf(file);
     if (territory !== null) pages.set(territory, pages.get(territory) ?? new Set<string>());

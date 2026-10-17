@@ -77,7 +77,7 @@ const text = words(language);
 const sourceNumber = new Map(resource.sources.map((source, index) => [source.url, index + 1]));
 
 const news = newsAbout(resource.id);
-/** What one beneficiary can receive, which leads, and everything else, which follows. */
+/** Published per-beneficiary figures lead; other measures follow. */
 const forYou = (resource.metrics ?? []).filter((metric) => metric.measure.includes("_PER_BENEFICIARY_"));
 const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure.includes("_PER_BENEFICIARY_"));
 
@@ -99,6 +99,27 @@ const reportQuery = new URLSearchParams({
   record: resource.name,
   from: recordHref(resource.id, territory),
 }).toString();
+
+/**
+ * Whether this page did its job, in one click.
+ *
+ * The question a reader can answer about a record is not what it is worth in general; it is whether the
+ * page sent them to the right official source. Two addresses, already written: the mail client opens with
+ * the answer, the record and the page in it, and the reader presses send. No script, no request, nothing
+ * that could be counted without somebody choosing to say it.
+ *
+ * A reply address is the price, and it is why this asks only the one question a yes or a no can answer.
+ */
+const helpfulBody = (answer: string): string =>
+  [
+    `${text.reportRecordLabel}: ${resource.name}`,
+    `${text.reportTerritoryLabel}: ${place}`,
+    `${text.reportFromLabel}: ${new URL(recordHref(resource.id, territory), Astro.site).href}`,
+    answer,
+  ].join("\n\n");
+
+const helpfulHref = (subject: string, answer: string): string =>
+  `mailto:contact@farmsuccession.eu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(helpfulBody(answer))}`;
 
 const facts: Array<{ label: string; value: string; icon: string; datetime?: string; href?: string }> = [
   { label: text.territoryRow, value: place, icon: ICON.territory, href: href(territory.layer) },
@@ -328,7 +349,7 @@ const reaches = leafLayers(territory.layer, territories)
         )}
 
         {/*
-          What one person can receive leads, as cards: it is the figure somebody came for, and a reader
+          Published per-beneficiary figures lead, as cards: they are the amounts a reader came for. A reader
           who finds "48.000 €" first knows in one second whether to keep reading. A total budget, a
           number of plots or of hours trained is about the instrument rather than about them, so it
           follows in a list, quieter. Each figure says the day it was published and which source said so,
@@ -479,10 +500,24 @@ const reaches = leafLayers(territory.layer, territories)
       </div>
     </section>
 
-    <section class="wrap py-8">
-      <a class="btn btn-quiet" href={`${reportPath}?${reportQuery}`}>
-        {text.reportChangeForm}
-      </a>
+    <section class="wrap py-8" aria-labelledby="helpful">
+      <p id="helpful" class="font-bold">
+        {text.helpfulQuestion}
+      </p>
+      <div class="mt-3 flex flex-wrap gap-3">
+        <a class="btn btn-quiet" href={helpfulHref(text.reportMailSubjectUseful, text.helpfulYes)}>
+          {text.helpfulYes}
+        </a>
+        <a class="btn btn-quiet" href={helpfulHref(text.reportMailSubjectNotUseful, text.helpfulNo)}>
+          {text.helpfulNo}
+        </a>
+      </div>
+      <p class="meta mt-3 max-w-3xl">{text.helpfulHint}</p>
+      <p class="mt-6">
+        <a class="btn btn-quiet" href={`${reportPath}?${reportQuery}`}>
+          {text.reportChangeForm}
+        </a>
+      </p>
     </section>
   </div>
 </SiteLayout>
