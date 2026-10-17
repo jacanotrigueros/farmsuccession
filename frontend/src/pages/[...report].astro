@@ -238,6 +238,82 @@ const home = href(territory.layer);
           <p class="meta">{text.reportEmailFallback}</p>
         </form>
       </section>
+
+      {/*
+        The two sections above ask a reader who already knows something: a resource exists, or a record
+        is wrong. This one asks the reader who found nothing, which is the only person who can say where
+        the directory has a hole. It is the cheapest coverage signal the project can get, and it costs
+        the reader one sentence.
+
+        What they typed into the search arrives in the first field when they came from a search that
+        found nothing, so nobody is asked to write it twice. Nothing is sent anywhere: the form prepares
+        an email they read, edit and send themselves, like the other two.
+      */}
+      <section id="looking" data-report-section="looking" class="border-t border-line pt-10" aria-labelledby="looking-title">
+        <h2 id="looking-title" class="text-2xl font-bold">
+          {text.reportLookingTitle}
+        </h2>
+        <p class="mt-2">{text.reportLookingLead}</p>
+
+        <form
+          class="mt-6 grid gap-5"
+          data-report
+          data-kind="looking"
+          data-subject={text.reportMailSubjectLooking}
+          action="mailto:contact@farmsuccession.eu"
+          method="post"
+          enctype="text/plain"
+        >
+          <input type="hidden" name="territory" data-context-input="territory" data-mail-label={text.reportTerritoryLabel} />
+          <input type="hidden" name="from" data-context-input="from" data-mail-label={text.reportFromLabel} />
+
+          <div>
+            <label for="looking-detail" class="block font-bold">
+              {text.reportLookingLabel}
+            </label>
+            <p id="looking-detail-hint" class="meta mt-1">
+              {text.reportLookingHint}
+            </p>
+            <textarea
+              id="looking-detail"
+              name="detail"
+              rows="4"
+              required
+              data-prefill="looking"
+              aria-describedby="looking-detail-hint"
+              data-mail-label={text.reportLookingLabel}
+              class="mt-2 w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
+            ></textarea>
+          </div>
+
+          <div>
+            <label for="looking-where" class="block font-bold">
+              {text.reportLookingWhereLabel}
+            </label>
+            <p id="looking-where-hint" class="meta mt-1">
+              {text.reportLookingWhereHint}
+            </p>
+            <input
+              id="looking-where"
+              name="where"
+              type="text"
+              aria-describedby="looking-where-hint"
+              data-mail-label={text.reportLookingWhereLabel}
+              class="mt-2 min-h-(--spacing-target) w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
+            />
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4">
+            <button type="submit" class="btn btn-primary">
+              {text.reportPrepare}
+            </button>
+            <a class="inline-flex min-h-(--spacing-target) items-center underline" href="mailto:contact@farmsuccession.eu">
+              contact@farmsuccession.eu
+            </a>
+          </div>
+          <p class="meta">{text.reportEmailFallback}</p>
+        </form>
+      </section>
     </div>
   </div>
 

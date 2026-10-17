@@ -100,6 +100,27 @@ const reportQuery = new URLSearchParams({
   from: recordHref(resource.id, territory),
 }).toString();
 
+/**
+ * Whether this page did its job, in one click.
+ *
+ * The question a reader can answer about a record is not what it is worth in general; it is whether the
+ * page sent them to the right official source. Two addresses, already written: the mail client opens with
+ * the answer, the record and the page in it, and the reader presses send. No script, no request, nothing
+ * that could be counted without somebody choosing to say it.
+ *
+ * A reply address is the price, and it is why this asks only the one question a yes or a no can answer.
+ */
+const helpfulBody = (answer: string): string =>
+  [
+    `${text.reportRecordLabel}: ${resource.name}`,
+    `${text.reportTerritoryLabel}: ${place}`,
+    `${text.reportFromLabel}: ${new URL(recordHref(resource.id, territory), Astro.site).href}`,
+    answer,
+  ].join("\n\n");
+
+const helpfulHref = (subject: string, answer: string): string =>
+  `mailto:contact@farmsuccession.eu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(helpfulBody(answer))}`;
+
 const facts: Array<{ label: string; value: string; icon: string; datetime?: string; href?: string }> = [
   { label: text.territoryRow, value: place, icon: ICON.territory, href: href(territory.layer) },
   {
@@ -479,10 +500,24 @@ const reaches = leafLayers(territory.layer, territories)
       </div>
     </section>
 
-    <section class="wrap py-8">
-      <a class="btn btn-quiet" href={`${reportPath}?${reportQuery}`}>
-        {text.reportChangeForm}
-      </a>
+    <section class="wrap py-8" aria-labelledby="helpful">
+      <p id="helpful" class="font-bold">
+        {text.helpfulQuestion}
+      </p>
+      <div class="mt-3 flex flex-wrap gap-3">
+        <a class="btn btn-quiet" href={helpfulHref(text.reportMailSubjectUseful, text.helpfulYes)}>
+          {text.helpfulYes}
+        </a>
+        <a class="btn btn-quiet" href={helpfulHref(text.reportMailSubjectNotUseful, text.helpfulNo)}>
+          {text.helpfulNo}
+        </a>
+      </div>
+      <p class="meta mt-3 max-w-3xl">{text.helpfulHint}</p>
+      <p class="mt-6">
+        <a class="btn btn-quiet" href={`${reportPath}?${reportQuery}`}>
+          {text.reportChangeForm}
+        </a>
+      </p>
     </section>
   </div>
 </SiteLayout>
