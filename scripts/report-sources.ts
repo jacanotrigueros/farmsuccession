@@ -170,12 +170,17 @@ function render(histories: readonly UrlHistory[], runs: ReturnType<typeof readRu
 /**
  * What every territory of the edition cites, which is what its readings are coverage of. It is planned
  * by the same function the checks are planned by, so the report cannot measure coverage of a different
- * list from the one that gets checked. A file that does not load is skipped: that is `npm run validate`'s
- * business, and here it would only make the coverage of one territory unknown rather than wrong.
+ * list from the one that gets checked. A file that cannot load makes its citations unknown, not empty:
+ * the report must refuse to measure them rather than reporting that territory as citing nothing.
  */
 export function citedByTerritory(editionsDir = EDITIONS_DIR, edition?: string): TerritoryPages[] {
   const pages = new Map<string, Set<string>>();
-  const { snapshots } = loadSnapshots({ editionsDir, edition });
+  const { snapshots, problems } = loadSnapshots({ editionsDir, edition });
+  if (problems.length > 0) {
+    throw new Error(
+      `cannot measure source coverage: edition files could not be loaded\n${problems.map(({ file, message }) => `${file}: ${message}`).join("\n")}`,
+    );
+  }
   for (const file of listEditionFiles(editionsDir, edition)) {
     const territory = territoryOf(file);
     if (territory !== null) pages.set(territory, pages.get(territory) ?? new Set<string>());
