@@ -77,7 +77,7 @@ const text = words(language);
 const sourceNumber = new Map(resource.sources.map((source, index) => [source.url, index + 1]));
 
 const news = newsAbout(resource.id);
-/** What one beneficiary can receive, which leads, and everything else, which follows. */
+/** Published per-beneficiary figures lead; other measures follow. */
 const forYou = (resource.metrics ?? []).filter((metric) => metric.measure.includes("_PER_BENEFICIARY_"));
 const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure.includes("_PER_BENEFICIARY_"));
 
@@ -328,7 +328,7 @@ const reaches = leafLayers(territory.layer, territories)
         )}
 
         {/*
-          What one person can receive leads, as cards: it is the figure somebody came for, and a reader
+          Published per-beneficiary figures lead, as cards: they are the amounts a reader came for. A reader
           who finds "48.000 €" first knows in one second whether to keep reading. A total budget, a
           number of plots or of hours trained is about the instrument rather than about them, so it
           follows in a list, quieter. Each figure says the day it was published and which source said so,
