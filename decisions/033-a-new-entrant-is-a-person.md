@@ -67,8 +67,13 @@ generated-type and vocabulary-coverage checks hold the mechanical contract.
 
 ## What it costs
 
-Explicitly naming both stages makes the filter label longer. It does not supply a
-universal definition of how recent an entry must be. That boundary belongs to each
+Naming both stages costs a word in every language. The first attempt cost far more
+than that: at eighty-two characters the Spanish label took four lines in the filter
+column of a 375px phone, beside options of one, and on a record it put a middle dot
+between two words and a sentence. Each language now names the person the way it
+already names a young farmer, which says the same thing and fits the control.
+
+It does not supply a universal definition of how recent an entry must be. That boundary belongs to each
 source, and making one up globally would exclude readers whose source does not.
 The existing assignments need no data migration because neither intended nor recent
 entry is excluded by the definition.
