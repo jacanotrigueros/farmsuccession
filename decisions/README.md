@@ -82,4 +82,5 @@ on the way in, which is the only honest reason for a measurement to move.
 | [030](030-public-correction-stays-outside-github.md)              | Public corrections use email; GitHub stays behind the site     |
 | [031](031-an-amount-belongs-to-its-source.md)                     | An amount belongs to its source, not to its reader             |
 | [032](032-a-check-says-what-it-did.md)                            | A check says what it did, not what a trust label suggests      |
+| [033](033-a-new-entrant-is-a-person.md)                           | A new entrant is a person entering farming, intended or recent |
 | [034](034-an-inline-style-is-an-error.md)                         | The policy travels in the page; an inline style is an error    |
