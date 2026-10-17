@@ -6,8 +6,9 @@ official portals and policy frameworks — published as yearly editions of data 
 which every single claim is traceable to a public page, the date it was read and
 the words that were on it.
 
-It is a directory of verified references, not a replacement for the official
-services: every entry points at the page that owns the information.
+It is a directory of public, source-linked references, not a replacement for the
+official services. Every entry states when its sources were read. Automatic checks
+try to read them again; they do not replace human review or confirm current availability.
 
 ## The rule everything else serves
 

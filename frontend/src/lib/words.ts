@@ -184,9 +184,10 @@ const EN = {
   licenceTitle: "Licence",
   licenceLead:
     "Original directory content is offered under CC BY 4.0. Third-party quotations and linked materials retain their respective rights.",
-  trust: "Every record comes from a public administration or resource provider, and links to its own sources and consultation dates.",
+  trust:
+    "Each record links to its public sources and states when each was read. Automatic checks try to read those sources again; they do not replace human review or confirm current availability.",
   optOut: "If your organisation does not want to appear in the inventory, request its removal:",
-  notAService: "This is a directory of verified references, not a replacement for the official services.",
+  notAService: "This directory does not replace the official services.",
   licence: "Data, site and code under CC BY 4.0. The quoted excerpts belong to the public bodies that published them.",
   offersTitle: "What it offers",
   datesTitle: "Can I apply now?",
@@ -471,9 +472,10 @@ const ES = {
   licenceTitle: "Licencia",
   licenceLead:
     "El contenido original del directorio se ofrece bajo CC BY 4.0. Las citas y los materiales de terceros enlazados conservan sus respectivos derechos.",
-  trust: "Cada ficha procede de una administración pública o entidad gestora, y enlaza sus propias fuentes y fechas de consulta.",
+  trust:
+    "Cada ficha enlaza sus fuentes públicas e indica cuándo se leyó cada una. Las comprobaciones automáticas intentan volver a leerlas; no sustituyen la revisión humana ni confirman la disponibilidad actual.",
   optOut: "Si tu entidad no quiere aparecer en el inventario, solicita su retirada:",
-  notAService: "Es un directorio de referencias verificadas, no un sustituto de los servicios oficiales.",
+  notAService: "Este directorio no sustituye a los servicios oficiales.",
   licence: "Datos, sitio y código con licencia CC BY 4.0. Las citas pertenecen a los organismos públicos que las publicaron.",
   offersTitle: "Qué ofrece",
   datesTitle: "¿Se puede solicitar ahora?",
@@ -762,9 +764,10 @@ const DE = {
   licenceTitle: "Lizenz",
   licenceLead:
     "Eigene Verzeichnisinhalte stehen unter CC BY 4.0. Zitate und verlinkte Materialien Dritter behalten ihre jeweiligen Rechte.",
-  trust: "Jeder Eintrag stammt von einer öffentlichen Stelle oder einem Anbieter und verlinkt seine eigenen Quellen und Abrufdaten.",
+  trust:
+    "Jeder Eintrag verlinkt seine öffentlichen Quellen und nennt deren Abrufdaten. Automatische Prüfungen versuchen, die Quellen erneut zu lesen; sie ersetzen keine menschliche Durchsicht und bestätigen keine aktuelle Verfügbarkeit.",
   optOut: "Wenn Ihre Organisation nicht im Verzeichnis erscheinen möchte, beantragen Sie die Entfernung:",
-  notAService: "Dies ist ein Verzeichnis geprüfter Verweise und kein Ersatz für die amtlichen Stellen.",
+  notAService: "Dieses Verzeichnis ersetzt die amtlichen Stellen nicht.",
   licence: "Daten, Website und Code unter CC BY 4.0. Die zitierten Auszüge gehören den öffentlichen Stellen, die sie veröffentlicht haben.",
   offersTitle: "Was es bietet",
   datesTitle: "Kann ich jetzt einen Antrag stellen?",
@@ -778,7 +781,7 @@ const DE = {
   applyAnnounced: "Nein: das Angebot ist angekündigt, noch nicht in Betrieb",
   applyHistorical: "Nein: das Angebot ist nicht mehr in Betrieb",
   applyUnconfirmed: "Nicht bestätigt",
-  applyUnconfirmedDetail: "Die geprüften Quellen zeigen nicht, ob derzeit eine Antragsfrist läuft.",
+  applyUnconfirmedDetail: "Die konsultierten Quellen zeigen nicht, ob derzeit eine Antragsfrist läuft.",
   checkedOn: "Stand geprüft am {date}",
   periodsTitle: "Dokumentierte Aufrufe und Fristen",
   navPeriods: "Fristen",
@@ -799,7 +802,7 @@ const DE = {
   asConsulted: "Status am Abrufdatum",
   noPeriodRecorded: "Die Quellen verzeichnen dafür keine Antragsfrist.",
   periodsExplained:
-    "Die folgenden Daten stammen aus den geprüften offiziellen Quellen. Prüfen Sie die aktuelle Frist, bevor Sie einen Antrag stellen.",
+    "Die folgenden Daten stammen aus den konsultierten offiziellen Quellen. Prüfen Sie die aktuelle Frist, bevor Sie einen Antrag stellen.",
   from: "ab",
   until: "bis",
   recordedOn: "abgerufen am",
@@ -914,7 +917,7 @@ const FR = {
   europeanRecord: ["ressource européenne", "ressources européennes"],
   territoryOwnWord: ["propre", "propres"],
   territoryTotalWord: ["applicable", "applicables"],
-  trustSourced: "Source vérifiable",
+  trustSourced: "Lien vers la source publique",
   trustDated: "Sources datées",
   trustOpen: "Données sous licence ouverte",
   countriesTitle: "Pays",
@@ -1056,9 +1059,9 @@ const FR = {
   licenceLead:
     "Le contenu original de l’annuaire est proposé sous CC BY 4.0. Les citations et documents tiers liés conservent leurs droits respectifs.",
   trust:
-    "Chaque fiche provient d’une administration publique ou d’un organisme gestionnaire, et indique ses propres sources et dates de consultation.",
+    "Chaque fiche renvoie à ses sources publiques et indique la date de leur lecture. Les contrôles automatiques tentent de les relire\u202f; ils ne remplacent pas une relecture humaine et ne confirment pas la disponibilité actuelle.",
   optOut: "Si votre organisme ne souhaite pas figurer dans l’annuaire, demandez son retrait :",
-  notAService: "Ceci est un annuaire de références vérifiées, et non un remplacement des services officiels.",
+  notAService: "Cet annuaire ne remplace pas les services officiels.",
   licence: "Données, site et code sous CC BY 4.0. Les extraits cités appartiennent aux organismes publics qui les ont publiés.",
   offersTitle: "Ce qu’elle offre",
   datesTitle: "Peut-on candidater maintenant ?",
@@ -1208,7 +1211,7 @@ const IT = {
   europeanRecord: ["risorsa europea", "risorse europee"],
   territoryOwnWord: ["specifica", "specifiche"],
   territoryTotalWord: ["applicabile", "applicabili"],
-  trustSourced: "Fonte verificabile",
+  trustSourced: "Link alla fonte pubblica",
   trustDated: "Fonti datate",
   trustOpen: "Dati con licenza aperta",
   countriesTitle: "Paesi",
@@ -1348,9 +1351,10 @@ const IT = {
   licenceTitle: "Licenza",
   licenceLead:
     "Il contenuto originale dell’elenco è offerto con licenza CC BY 4.0. Citazioni e materiali di terzi collegati mantengono i rispettivi diritti.",
-  trust: "Ogni scheda proviene da un’amministrazione pubblica o da un ente gestore, e rimanda alle proprie fonti e date di consultazione.",
+  trust:
+    "Ogni scheda rimanda alle proprie fonti pubbliche e indica quando ciascuna è stata letta. I controlli automatici tentano di rileggerle; non sostituiscono la revisione umana né confermano la disponibilità attuale.",
   optOut: "Se il tuo ente non vuole comparire nell’elenco, chiedine la rimozione:",
-  notAService: "Questo è un elenco di riferimenti verificati, non un sostituto dei servizi ufficiali.",
+  notAService: "Questo elenco non sostituisce i servizi ufficiali.",
   licence: "Dati, sito e codice con licenza CC BY 4.0. Gli estratti citati appartengono agli enti pubblici che li hanno pubblicati.",
   offersTitle: "Cosa offre",
   datesTitle: "È possibile presentare domanda adesso?",
@@ -1498,7 +1502,7 @@ const PT = {
   europeanRecord: ["recurso europeu", "recursos europeus"],
   territoryOwnWord: ["específico", "específicos"],
   territoryTotalWord: ["aplicável", "aplicáveis"],
-  trustSourced: "Fonte verificável",
+  trustSourced: "Ligação à fonte pública",
   trustDated: "Fontes datadas",
   trustOpen: "Dados com licença aberta",
   countriesTitle: "Países",
@@ -1638,9 +1642,10 @@ const PT = {
   licenceTitle: "Licença",
   licenceLead:
     "O conteúdo original do diretório é disponibilizado sob CC BY 4.0. As citações e materiais de terceiros mantêm os respetivos direitos.",
-  trust: "Cada ficha vem de uma administração pública ou entidade gestora, e indica as suas próprias fontes e datas de consulta.",
+  trust:
+    "Cada ficha remete para as suas fontes públicas e indica quando cada uma foi lida. As verificações automáticas tentam voltar a lê-las; não substituem a revisão humana nem confirmam a disponibilidade atual.",
   optOut: "Se a sua entidade não quiser constar do diretório, peça a sua remoção:",
-  notAService: "Isto é um diretório de referências verificadas, não um substituto dos serviços oficiais.",
+  notAService: "Este diretório não substitui os serviços oficiais.",
   licence: "Dados, sítio e código sob CC BY 4.0. Os excertos citados pertencem às entidades públicas que os publicaram.",
   offersTitle: "O que oferece",
   datesTitle: "É possível candidatar-se agora?",

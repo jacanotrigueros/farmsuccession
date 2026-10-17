@@ -1,0 +1,12 @@
+---
+/** One observable claim, shared by the home badge and every footer. */
+import { words } from "../lib/words.ts";
+
+type Props = { language: string };
+const { language } = Astro.props;
+const text = words(language);
+---
+
+<span data-source-claim>
+  <strong>{text.trustSourced}.</strong> {text.trust}
+</span>
