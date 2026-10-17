@@ -32,6 +32,38 @@ export default defineConfig({
   build: { format: "directory" },
   devToolbar: { enabled: false },
   /**
+   * “No third-party request”, said to the reader's browser instead of only to the build.
+   *
+   * Nothing on this site comes from anywhere else, and a test reads the built pages to prove it. That
+   * proves what the build produced; it says nothing about what a page may do once it is open in front of
+   * somebody. This policy says it again as a rule the browser enforces — a script, a stylesheet, a font,
+   * an image or a connection from another host is refused, and so is a form that would post somewhere
+   * else. The mail address a reader writes a correction to is the one exception, and it is named.
+   *
+   * It is a `<meta>` rather than a header because GitHub Pages sends no headers of its own on a custom
+   * domain. That is the whole cost of the choice: `frame-ancestors` exists only as a header, so this
+   * covers injected content and not framing.
+   *
+   * Astro hashes its own inline styles while it builds, so none of this needs `'unsafe-inline'`.
+   * `'wasm-unsafe-eval'` is here because Pagefind compiles WebAssembly to search — it permits that and
+   * nothing else, and it is not `'unsafe-eval'`.
+   */
+  security: {
+    csp: {
+      directives: [
+        "default-src 'self'",
+        "img-src 'self'",
+        "font-src 'self'",
+        "connect-src 'self'",
+        "form-action 'self' mailto:",
+        "base-uri 'none'",
+        "object-src 'none'",
+      ],
+      scriptDirective: { resources: ["'self'", "'wasm-unsafe-eval'"] },
+      styleDirective: { resources: ["'self'"] },
+    },
+  },
+  /**
    * No image is fetched from anywhere: every asset is first-party and committed. Astro's default is
    * already this, and it is written out because it is load-bearing — it is the reason the one advisory in
    * this dependency tree (CVE-2026-93748, in the library Astro uses to cache remote images, and for which

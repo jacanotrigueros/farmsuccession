@@ -526,3 +526,46 @@ test("a figure the filter rewrites says what it becomes at one record and at sev
   }
   assert.ok(checked > 0, "no page carried a figure the filter rewrites, so this check proved nothing");
 });
+
+/**
+ * The promise above, made to the browser rather than only kept by the build.
+ *
+ * "No page asks the reader's browser for anything from another host" is checked by reading the markup,
+ * which proves what the build produced and nothing about what a page may do once it is open. A
+ * Content-Security-Policy turns the same sentence into a rule the browser enforces: a script, a
+ * stylesheet, a font, an image or a connection that did not come from this site is refused, and so is a
+ * form that would post somewhere else.
+ *
+ * The policy is a `<meta>` because the site is served by GitHub Pages, which sends no headers of its own
+ * on a custom domain. That costs `frame-ancestors`, which only exists as a header — the policy therefore
+ * covers injected content and not framing.
+ *
+ * `'wasm-unsafe-eval'` is in it because Pagefind compiles WebAssembly to search, and it reaches every
+ * page rather than only the six that search, because one policy is configured for the whole build. It
+ * permits WebAssembly and nothing else: it is not `'unsafe-eval'`, and no page may run a string as code.
+ *
+ * Inline styles are allowed by their hash, which Astro computes at build time. The moment anything here
+ * needs `'unsafe-inline'`, the policy stops being worth having, which is why that is the assertion.
+ */
+test("a page tells the browser to refuse anything that did not come from this site", () => {
+  for (const { file, html } of pages) {
+    const policy = /<meta http-equiv="content-security-policy" content="([^"]*)"/iu.exec(html)?.[1];
+    assert.ok(policy, `${file} ships no Content-Security-Policy: a page that is only read has nothing to allow`);
+
+    for (const unsafe of ["'unsafe-inline'", "'unsafe-eval'"]) {
+      assert.ok(
+        !policy.includes(unsafe),
+        `${file} allows ${unsafe}, which permits exactly what the policy exists to refuse: fix what needs it instead`,
+      );
+    }
+
+    for (const directive of ["default-src 'self'", "object-src 'none'", "base-uri 'none'", "form-action 'self' mailto:"]) {
+      assert.ok(policy.includes(directive), `${file} is missing ${directive} from its Content-Security-Policy`);
+    }
+
+    assert.ok(
+      policy.includes("'wasm-unsafe-eval'"),
+      `${file} forbids WebAssembly, and the search compiles it: every search page would fail to load its index`,
+    );
+  }
+});
