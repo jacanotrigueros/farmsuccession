@@ -48,6 +48,16 @@ type Props = {
 const { language, crumbs, title, place, country, listed, facets, languages, inherits } = Astro.props;
 const text = words(language);
 
+/**
+ * Where a reader goes when this search found nothing.
+ *
+ * A reader who searched and got nothing is the only person who can say what is missing, and they are
+ * about to leave. The intake page is the same one the rest of the site uses; the link only opens it at
+ * the third question, with what they typed already in the field.
+ */
+const reportHome = country ? `/${country.toLowerCase()}/` : "/";
+const reportHref = `${reportHome}${text.reportSlug}/`;
+
 const kinds = [...new Set(listed.map(({ resource }) => resource.kind))];
 
 /**
@@ -275,6 +285,17 @@ const strings = {
           {text.resetSearch}
         </button>
       </div>
+
+      <p class="mt-3" data-not-found hidden>
+        <a
+          href={`${reportHref}?type=looking`}
+          data-not-found-link
+          data-place={place}
+          class="inline-flex min-h-(--spacing-target) items-center font-bold text-brand-strong underline"
+        >
+          {text.reportLookingForm}
+        </a>
+      </p>
 
       <div class="mt-3 flex flex-wrap gap-3" data-recovery hidden>
         <button type="button" class="btn btn-primary" data-retry>

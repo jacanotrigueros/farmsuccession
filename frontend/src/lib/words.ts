@@ -150,6 +150,15 @@ const EN = {
   reportContactLead: "For a missing resource or a correction, use the short form. It includes the page you were looking at when possible.",
   reportMailSubjectMissing: "[FarmSuccession] Suggested resource",
   reportMailSubjectCorrection: "[FarmSuccession] Correction",
+  reportLookingTitle: "You were looking for something that is not here",
+  reportLookingLead:
+    "Tell us what you came for. It is the fastest way to say where this directory has a gap, and we check it against public sources like anything else.",
+  reportLookingLabel: "What were you looking for?",
+  reportLookingHint: "The resource, the aid or the kind of help you expected to find. Do not send personal application details.",
+  reportLookingWhereLabel: "Where were you looking?",
+  reportLookingWhereHint: "Optional. A region, a province or a country.",
+  reportLookingForm: "Did not find what you were looking for?",
+  reportMailSubjectLooking: "[FarmSuccession] Not found",
   removalLead:
     "If you or your organisation would rather not appear in the inventory, write to the address below and the information will be removed.",
   privacyTitle: "Privacy",
@@ -438,6 +447,15 @@ const ES = {
     "Para avisar de un recurso que falta o de una corrección, usa el formulario breve. Cuando sea posible incluirá la página que estabas consultando.",
   reportMailSubjectMissing: "[FarmSuccession] Recurso sugerido",
   reportMailSubjectCorrection: "[FarmSuccession] Corrección",
+  reportLookingTitle: "Buscabas algo que no está aquí",
+  reportLookingLead:
+    "Cuéntanos qué venías a buscar. Es la forma más rápida de señalar dónde tiene un hueco este directorio, y lo comprobamos contra fuentes públicas como todo lo demás.",
+  reportLookingLabel: "¿Qué estabas buscando?",
+  reportLookingHint: "El recurso, la ayuda o el tipo de apoyo que esperabas encontrar. No envíes datos personales de solicitudes.",
+  reportLookingWhereLabel: "¿Dónde lo buscabas?",
+  reportLookingWhereHint: "Opcional. Una región, una provincia o un país.",
+  reportLookingForm: "¿No has encontrado lo que buscabas?",
+  reportMailSubjectLooking: "[FarmSuccession] No encontrado",
   removalLead: "Si tú o tu entidad no queréis aparecer en el inventario, escribe a la dirección siguiente y se retirará la información.",
   privacyTitle: "Privacidad",
   privacyLead:
@@ -693,7 +711,7 @@ const DE = {
   reportSlug: "hinweis",
   reportTitle: "Angebot oder Korrektur melden",
   reportIntro:
-    "Melden Sie eine öffentliche Ressource, die fehlt, oder Informationen, die sich geändert haben könnten. Sie brauchen kein Konto.",
+    "Melden Sie ein öffentliches Angebot, das fehlt, oder Informationen, die sich geändert haben könnten. Sie brauchen kein Konto.",
   reportMissingTitle: "Ein Angebot fehlt",
   reportMissingLead:
     "Senden Sie die öffentliche Seite und einen Satz dazu, warum sie hierher gehört. Vor einer Veröffentlichung prüfen wir den Hinweis.",
@@ -708,7 +726,7 @@ const DE = {
   reportIssueLabel: "Was hat sich geändert?",
   reportIssueChanged: "Die Informationen haben sich geändert",
   reportIssueBroken: "Der offizielle Link funktioniert nicht mehr",
-  reportIssueGone: "Die Ressource existiert nicht mehr",
+  reportIssueGone: "Das Angebot existiert nicht mehr",
   reportIssueMissing: "Wichtige Informationen fehlen",
   reportIssueOther: "Etwas anderes",
   reportNewSourceLabel: "Öffentliche Quelle für die Änderung (optional)",
@@ -722,12 +740,22 @@ const DE = {
   reportFromLabel: "FarmSuccession-Seite",
   reportTerritoryLabel: "Gebiet",
   reportRecordLabel: "Angebot",
-  reportOpenForm: "Kennen Sie eine Ressource, die fehlt?",
+  reportOpenForm: "Kennen Sie ein Angebot, das fehlt?",
   reportChangeForm: "Haben sich diese Informationen geändert?",
   reportContactLead:
     "Für fehlende Angebote oder Korrekturen nutzen Sie das kurze Formular. Wenn möglich, wird die Seite mitgesendet, die Sie gerade angesehen haben.",
-  reportMailSubjectMissing: "[FarmSuccession] Vorgeschlagene Ressource",
+  reportMailSubjectMissing: "[FarmSuccession] Vorgeschlagenes Angebot",
   reportMailSubjectCorrection: "[FarmSuccession] Korrektur",
+  reportLookingTitle: "Sie haben etwas gesucht, das hier nicht steht",
+  reportLookingLead:
+    "Sagen Sie uns, wonach Sie gesucht haben. Das ist der schnellste Weg, eine Lücke in diesem Verzeichnis zu benennen, und wir prüfen sie wie alles andere anhand öffentlicher Quellen.",
+  reportLookingLabel: "Wonach haben Sie gesucht?",
+  reportLookingHint:
+    "Das Angebot, die Förderung oder die Art von Unterstützung, die Sie erwartet haben. Senden Sie keine persönlichen Antragsdaten.",
+  reportLookingWhereLabel: "Wo haben Sie gesucht?",
+  reportLookingWhereHint: "Freiwillig. Ein Bundesland, ein Landkreis oder ein Land.",
+  reportLookingForm: "Nicht gefunden, wonach Sie gesucht haben?",
+  reportMailSubjectLooking: "[FarmSuccession] Nicht gefunden",
   removalLead:
     "Wenn Sie oder Ihre Organisation nicht im Verzeichnis erscheinen möchten, schreiben Sie an die untenstehende Adresse; die Angaben werden entfernt.",
   privacyTitle: "Datenschutz",
@@ -1021,6 +1049,16 @@ const FR = {
     "Pour une ressource manquante ou une correction, utilisez le formulaire court. Il inclut si possible la page que vous consultiez.",
   reportMailSubjectMissing: "[FarmSuccession] Ressource suggérée",
   reportMailSubjectCorrection: "[FarmSuccession] Correction",
+  reportLookingTitle: "Vous cherchiez quelque chose qui n’est pas ici",
+  reportLookingLead:
+    "Dites-nous ce que vous veniez chercher. C’est le moyen le plus rapide de signaler une lacune de ce répertoire, et nous la vérifions auprès de sources publiques comme tout le reste.",
+  reportLookingLabel: "Que cherchiez-vous ?",
+  reportLookingHint:
+    "La ressource, l’aide ou le type d’accompagnement que vous espériez trouver. N’envoyez pas de données personnelles de dossier.",
+  reportLookingWhereLabel: "Où cherchiez-vous ?",
+  reportLookingWhereHint: "Facultatif. Une région, un département ou un pays.",
+  reportLookingForm: "Vous n’avez pas trouvé ce que vous cherchiez ?",
+  reportMailSubjectLooking: "[FarmSuccession] Introuvable",
   removalLead:
     "Si vous ou votre organisme ne souhaitez pas figurer dans l’inventaire, écrivez à l’adresse ci-dessous et les informations seront retirées.",
   privacyTitle: "Confidentialité",
@@ -1314,6 +1352,16 @@ const IT = {
     "Per una risorsa mancante o una correzione, usa il modulo breve. Quando possibile include la pagina che stavi consultando.",
   reportMailSubjectMissing: "[FarmSuccession] Risorsa suggerita",
   reportMailSubjectCorrection: "[FarmSuccession] Correzione",
+  reportLookingTitle: "Cercavi qualcosa che qui non c’è",
+  reportLookingLead:
+    "Raccontaci che cosa stavi cercando. È il modo più rapido per segnalare una lacuna di questa raccolta, e la verifichiamo su fonti pubbliche come tutto il resto.",
+  reportLookingLabel: "Che cosa stavi cercando?",
+  reportLookingHint:
+    "La risorsa, il sostegno o il tipo di aiuto che ti aspettavi di trovare. Non inviare dati personali relativi a domande.",
+  reportLookingWhereLabel: "Dove lo stavi cercando?",
+  reportLookingWhereHint: "Facoltativo. Una regione, una provincia o un paese.",
+  reportLookingForm: "Non hai trovato quello che cercavi?",
+  reportMailSubjectLooking: "[FarmSuccession] Non trovato",
   removalLead:
     "Se tu o la tua organizzazione preferite non comparire nell’inventario, scrivete all’indirizzo seguente e le informazioni saranno rimosse.",
   privacyTitle: "Riservatezza",
@@ -1604,6 +1652,15 @@ const PT = {
     "Para um recurso em falta ou uma correção, use o formulário curto. Quando possível inclui a página que estava a consultar.",
   reportMailSubjectMissing: "[FarmSuccession] Recurso sugerido",
   reportMailSubjectCorrection: "[FarmSuccession] Correção",
+  reportLookingTitle: "Procurava algo que não está aqui",
+  reportLookingLead:
+    "Diga-nos o que veio procurar. É a forma mais rápida de assinalar uma lacuna deste diretório, e verificamo-la em fontes públicas como tudo o resto.",
+  reportLookingLabel: "O que estava a procurar?",
+  reportLookingHint: "O recurso, o apoio ou o tipo de ajuda que esperava encontrar. Não envie dados pessoais de candidaturas.",
+  reportLookingWhereLabel: "Onde estava a procurar?",
+  reportLookingWhereHint: "Opcional. Uma região, um distrito ou um país.",
+  reportLookingForm: "Não encontrou o que procurava?",
+  reportMailSubjectLooking: "[FarmSuccession] Não encontrado",
   removalLead:
     "Se você ou a sua entidade preferirem não constar do inventário, escreva para o endereço abaixo e a informação será removida.",
   privacyTitle: "Privacidade",

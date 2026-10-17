@@ -51,6 +51,8 @@ if (form && state && resultsList && everything && template && askBlock && filter
   const pages = document.querySelector("[data-pages]");
   const fallback = document.querySelector("[data-search-fallback]");
   const recovery = document.querySelector("[data-recovery]");
+  const notFound = document.querySelector("[data-not-found]");
+  const notFoundLink = document.querySelector("[data-not-found-link]");
   const reset = document.querySelector("[data-reset]");
   const clearQuery = document.querySelector("[data-clear-query]");
   const chosenRow = document.querySelector("[data-chosen]");
@@ -247,6 +249,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
       history.replaceState(null, "", `${location.pathname}${queryFromState({ q: term, selected }, scope.country)}`);
     }
     show(recovery, false);
+    show(notFound, false);
     renderChips(selected);
 
     const filters = effectiveFilters(selected, scope.country, inherits);
@@ -289,6 +292,15 @@ if (form && state && resultsList && everything && template && askBlock && filter
       state.textContent = words.nothing;
       resultsList.replaceChildren();
       show(pagination, false);
+      // The reader who found nothing is the only one who can say what is missing, and they are about to
+      // leave. The link carries what they typed and where they were, so saying so costs them a sentence.
+      if (notFoundLink) {
+        const ask = new URLSearchParams({ type: "looking", from: location.pathname });
+        if (term) ask.set("looking", term);
+        if (notFoundLink.dataset.place) ask.set("territory", notFoundLink.dataset.place);
+        notFoundLink.search = "?" + ask;
+      }
+      show(notFound, true);
       return;
     }
     await renderPage(1);
@@ -302,6 +314,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     state.textContent = words.failed;
     state.toggleAttribute("data-empty", true);
     show(recovery, true);
+    show(notFound, false);
     show(pagination, false);
     resultsList.replaceChildren();
     resultsList.setAttribute("aria-busy", "false");
