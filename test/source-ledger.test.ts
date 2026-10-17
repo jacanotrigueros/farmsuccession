@@ -384,3 +384,35 @@ test("the report names the territories nobody has read, which no single run can"
   assert.match(text, /UNREAD\s+https:\/\/sicilia\.example\//u, "the page nobody has read is not named, so nobody can go and read it");
   assert.match(text, /it\s+cites nothing/u, "a territory that documents nothing is reported as unread, which it will be for ever");
 });
+
+test("mixed histories distinguish a missing reading from a failed citation and exclude retired URLs", () => {
+  const file = ledger();
+  const urls = ["https://unread.example/", "https://failed.example/", "https://retired.example/"];
+  recordRun(
+    {
+      edition: "2026",
+      scope: "all",
+      totals: { pass: 3, fail: 0, unchecked: 0 },
+      reports: urls.map((url) => report(url, "PASS", 200)),
+      checkedAt: "2026-10-08T20:00:00.000Z",
+    },
+    file,
+  );
+  recordRun(
+    {
+      edition: "2026",
+      scope: "all",
+      totals: { pass: 0, fail: 2, unchecked: 1 },
+      reports: [report(urls[0]!, "UNCHECKED", 403), report(urls[1]!, "FAIL", 404), report(urls[2]!, "FAIL", 404)],
+      checkedAt: "2026-10-09T20:00:00.000Z",
+    },
+    file,
+  );
+  const { lines, gone } = reportSources(file, [{ territory: "fr/occitanie", urls: urls.slice(0, 2) }]);
+  assert.equal(gone, 0, "this report must not change decision 025's classifications while explaining their readings");
+  assert.match(
+    lines.join("\n"),
+    /1 with a FAIL; 1 with PASS and UNCHECKED only/u,
+    "a FLAKY page may never have failed: count current mixed histories by actual FAIL outcomes, without treating a refused reading or a retired URL as a failed citation",
+  );
+});
