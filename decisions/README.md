@@ -80,3 +80,4 @@ on the way in, which is the only honest reason for a measurement to move.
 | [028](028-a-page-may-ask-not-to-be-indexed.md)                    | A page may ask not to be indexed, and the sitemap reads that   |
 | [029](029-each-period-answers-for-itself.md)                      | Each documented application period answers for itself          |
 | [030](030-public-correction-stays-outside-github.md)              | Public corrections use email; GitHub stays behind the site     |
+| [031](031-the-policy-travels-in-the-page.md)                      | The policy travels in the page; an inline style is an error    |

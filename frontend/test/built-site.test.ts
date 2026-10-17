@@ -569,3 +569,27 @@ test("a page tells the browser to refuse anything that did not come from this si
     );
   }
 });
+
+/**
+ * The one way the policy above breaks quietly, written down as a failure instead.
+ *
+ * Astro hashes the `<style>` elements it generates, so the policy needs no
+ * `'unsafe-inline'`. A hash cannot cover a `style="…"` attribute: allowing one means
+ * allowing every inline style on every page, which is most of what the policy exists to
+ * refuse. So an attribute is a build error, not a reason to loosen it — `decisions/031`.
+ *
+ * It will be met before anything else here. Astro's Markdown highlighting, Shiki, puts an
+ * inline style on every token it emits, and the build already warns about it. No page uses
+ * a code block today. The day one does, the browser would blank the highlighting and say so
+ * only in a console nobody is reading; this says it at the build instead, and names the page.
+ */
+test("no page styles anything inline, because the policy cannot cover an attribute", () => {
+  for (const { file, html } of pages) {
+    const [found] = html.match(/<[a-z][^>]*\sstyle="[^"]*"/iu) ?? [];
+    assert.ok(
+      !found,
+      `${file} carries an inline style, which the Content-Security-Policy blocks and no hash can allow: ${found}\n` +
+        "If this came from a code block, the highlighter has to emit classes rather than styles — see decisions/031.",
+    );
+  }
+});
