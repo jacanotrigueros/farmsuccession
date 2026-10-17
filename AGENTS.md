@@ -178,6 +178,7 @@ npm run prompt -- <year> eu | <iso> | <iso>/<region or hub> [--compact]
 npm run ingest -- <saved answer.md>
 npm run diff -- <from year> <to year>
 npm run --silent checksums:edition -- <year> # SHA-256 of exact JSON bytes, no network or writes
+npm run measure:recency  # what a rule about recency would move, from the committed runs only
 ```
 
 `validate` reaches no network, which is why it runs on every push. It prints how

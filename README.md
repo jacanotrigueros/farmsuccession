@@ -235,6 +235,7 @@ npm run prompt -- <year> eu | <iso> | <iso>/<region or hub> [--compact]
 npm run ingest -- <saved answer.md>   # write the files an answer delivered, then validate them
 npm run diff -- <from year> <to year> # what changed between two editions
 npm run --silent checksums:edition -- <year> # exact JSON-file bytes, not evidence quality
+npm run measure:recency  # what a rule about recency would move, from the committed runs only
 npm run report         # rewrite the account of what each territory's research concluded
 npm run check:sources  # live: re-read every cited page and look for its quotes
 npm run check:links    # live: ask every address the repository points at whether it answers
