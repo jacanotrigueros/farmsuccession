@@ -593,3 +593,47 @@ test("no page styles anything inline, because the policy cannot cover an attribu
     );
   }
 });
+
+/**
+ * The one question a yes or a no can answer about a record: did this page send you to the right place.
+ *
+ * It is two links rather than a form or a script, because the cheapest thing a reader can do should be
+ * the thing that tells us the most. Each one opens their own mail client with the answer, the record and
+ * the page already written, so the whole cost is pressing send. Nothing is posted, counted or stored,
+ * which is also why a reply address is the price and why this asks only one question.
+ */
+test("every record asks whether it helped, in its own language, as two prefilled letters", () => {
+  const byLanguage = new Set<string>();
+  let checked = 0;
+  for (const { file, html } of pages) {
+    const at = html.indexOf('id="helpful"');
+    if (at < 0) continue;
+    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const text = words(language);
+    byLanguage.add(language);
+    checked += 1;
+
+    const section = html.slice(at);
+    assert.ok(section.includes(text.helpfulQuestion), `${file} asks whether it helped in another language`);
+
+    const letters = [...section.matchAll(/href="mailto:contact@farmsuccession\.eu\?([^"]*)"/gu)].slice(0, 2);
+    assert.equal(letters.length, 2, `${file} does not offer both answers as letters that are already written`);
+
+    for (const [, query] of letters) {
+      const asked = new URLSearchParams(query!.replaceAll("&#38;", "&").replaceAll("&amp;", "&"));
+      const subject = asked.get("subject") ?? "";
+      const body = asked.get("body") ?? "";
+      assert.ok(
+        subject === text.reportMailSubjectUseful || subject === text.reportMailSubjectNotUseful,
+        `${file} files an answer under a subject no inbox can sort: ${subject}`,
+      );
+      assert.ok(body.includes("https://farmsuccession.eu/"), `${file} names the page as a path rather than an address somebody can open`);
+      assert.ok(
+        body.endsWith(text.helpfulYes) || body.endsWith(text.helpfulNo),
+        `${file} prepares a letter that never says which answer it carries`,
+      );
+    }
+  }
+  assert.ok(checked > 100, `only ${checked} records asked the question; every record page should`);
+  assert.equal(byLanguage.size, 6, "the question was not checked in all six languages");
+});
