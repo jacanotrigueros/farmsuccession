@@ -234,11 +234,15 @@ npm run validate       # the catalogue, every edition file and every brief
 npm run prompt -- <year> eu | <iso> | <iso>/<region or hub> [--compact]
 npm run ingest -- <saved answer.md>   # write the files an answer delivered, then validate them
 npm run diff -- <from year> <to year> # what changed between two editions
+npm run --silent checksums:edition -- <year> # exact JSON-file bytes, not evidence quality
 npm run report         # rewrite the account of what each territory's research concluded
 npm run check:sources  # live: re-read every cited page and look for its quotes
 npm run check:links    # live: ask every address the repository points at whether it answers
 npm run check:territory -- <year> eu | <iso> | <iso>/<region or hub>
 ```
+
+[Exact-byte checksum tooling](research/edition-checksums.md) prepares a manifest;
+it does not certify evidence or publish an edition.
 
 The live checks reach the network and never gate a commit: a portal being down
 is not a reason to refuse one. They visit one host at a time with a pause
