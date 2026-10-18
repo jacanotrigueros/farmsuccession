@@ -85,3 +85,4 @@ on the way in, which is the only honest reason for a measurement to move.
 | [033](033-a-new-entrant-is-a-person.md)                           | A new entrant is a person entering farming, intended or recent |
 | [034](034-an-inline-style-is-an-error.md)                         | The policy travels in the page; an inline style is an error    |
 | [035](035-a-measurement-defends-025.md)                           | A measurement defends 025, and says when to come back          |
+| [036](036-next-countries-follow-useful-sources.md)                | Next research: Austria, Ireland, Netherlands, Belgium          |
