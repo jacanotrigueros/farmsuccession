@@ -108,7 +108,7 @@ Publishes 1 record:
 
 Still open:
 
-- Répertoire Départ Installation — Trouver une page nationale stable de l'opérateur et vérifier le parcours d'accès actuel avant admission.
+- Répertoire Départ Installation — La DILA publie une fiche nationale mise à jour le 1er octobre 2026, qui décrit le RDI et renvoie vers l'outil de l'opérateur. L'outil des Chambres d'agriculture répond 403 à la vérification automatique ; ses propres conditions de lien et de réutilisation ainsi que le parcours effectif restent à vérifier avant admission. Ne pas publier un second instrument si le RDI régional déjà documenté couvre le même service.
 
 What this file does not cover:
 
