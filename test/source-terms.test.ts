@@ -59,8 +59,8 @@ test("the check is not vacuous: it finds a host the corpus really does cite", ()
     sources: [
       {
         host: someHost,
-        uses: { quote: "PERMITTED", link: "NOT_PERMITTED" },
-        ground: "REQUEST",
+        uses: { quote: "PERMITTED", link: "NOT_PERMITTED", extract: "UNKNOWN" },
+        ground: "REQUEST_WITHDRAWAL",
         finding: "A host invented for this test only.",
         readOn: "2026-10-18",
       },
@@ -76,15 +76,15 @@ test("a permission is not a refusal, and a refusal reaches a subdomain", () => {
     sources: [
       {
         host: "allowed.example",
-        uses: { quote: "PERMITTED", link: "PERMITTED" },
-        ground: "REQUEST",
+        uses: { quote: "PERMITTED", link: "PERMITTED", extract: "UNKNOWN" },
+        ground: "REQUEST_WITHDRAWAL",
         finding: "Both uses permitted, for this test only.",
         readOn: "2026-10-18",
       },
       {
         host: "refused.example",
-        uses: { quote: "PERMITTED", link: "NOT_PERMITTED" },
-        ground: "REQUEST",
+        uses: { quote: "PERMITTED", link: "NOT_PERMITTED", extract: "UNKNOWN" },
+        ground: "REQUEST_WITHDRAWAL",
         finding: "Quoting permitted and linking refused, which is the shape a single verdict could not say.",
         readOn: "2026-10-18",
       },
@@ -93,7 +93,10 @@ test("a permission is not a refusal, and a refusal reaches a subdomain", () => {
   assert.equal(refuses(pretend, "https://allowed.example/a"), null, "a host that permits both uses was treated as a refusal");
   assert.ok(
     refuses(
-      { purpose: register.purpose, sources: [{ ...pretend.sources[0]!, uses: { quote: "UNKNOWN", link: "PERMITTED" } }] },
+      {
+        purpose: register.purpose,
+        sources: [{ ...pretend.sources[0]!, uses: { quote: "UNKNOWN", link: "PERMITTED", extract: "UNKNOWN" } }],
+      },
       "https://allowed.example/a",
     ),
     "a use nobody read is not permission, and must not pass as one",
@@ -118,15 +121,15 @@ test("one host, one reading", () => {
       sources: [
         {
           host: "twice.example",
-          uses: { quote: "PERMITTED", link: "PERMITTED" },
-          ground: "REQUEST",
+          uses: { quote: "PERMITTED", link: "PERMITTED", extract: "UNKNOWN" },
+          ground: "REQUEST_WITHDRAWAL",
           finding: "Read once, for this test only.",
           readOn: "2026-10-18",
         },
         {
           host: "twice.example",
-          uses: { quote: "PERMITTED", link: "NOT_PERMITTED" },
-          ground: "REQUEST",
+          uses: { quote: "PERMITTED", link: "NOT_PERMITTED", extract: "UNKNOWN" },
+          ground: "REQUEST_WITHDRAWAL",
           finding: "Read again, for this test only.",
           readOn: "2026-10-18",
         },

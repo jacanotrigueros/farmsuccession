@@ -17,11 +17,15 @@ export type Reading = {
      * Sending a reader to the page. A notice may permit the first and reserve this one, which is why they are asked separately.
      */
     link: "PERMITTED" | "NOT_PERMITTED" | "UNKNOWN";
+    /**
+     * Taking entries out of a listing the host publishes, which is not the same as quoting one page of it and has its own right attached in the EU. A record never shows this use, so the citation check cannot see it: a directory the research walked and never cited leaves no trace in a published record at all. `npm run measure:discovery` says how many leads each host supplied, which is the number this answer should be read against.
+     */
+    extract: "PERMITTED" | "NOT_PERMITTED" | "UNKNOWN";
   };
   /**
-   * TERMS: a published notice was read, and the quote below is what it says. REQUEST: the operator asked not to appear, which the site's footer promises in six languages to honour. A request is not a reading and carries no quote.
+   * TERMS: a published notice was read, and the quote below is what it says. REQUEST_WITHDRAWAL: the operator asked not to appear, which the site's footer promises in six languages to honour. PERMISSION_GRANTED: the operator was asked and said yes, which is the opposite thing and must never be recorded as the same one. Only a reading of a notice carries a quote.
    */
-  ground: "TERMS" | "REQUEST";
+  ground: "TERMS" | "REQUEST_WITHDRAWAL" | "PERMISSION_GRANTED";
   /**
    * What the reading concluded, in plain language, including the conditions a permission carries. Never the name of a person: an operator who asked is an operator, not somebody identified here.
    */
