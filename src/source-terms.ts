@@ -39,6 +39,35 @@ export function loadSourceTerms(registerPath = SOURCE_TERMS_PATH): SourceTerms {
   return data;
 }
 
+/**
+ * Everywhere a published page puts an address in front of a reader.
+ *
+ * The first version of this walked resources only. A news item cites its own sources and is published
+ * on the same pages, so thirty-three addresses answered to nothing while the commit that opened the
+ * hole said they were being walked. One function now, so a caller cannot walk half of them.
+ */
+/** The shape this reads, named rather than asserted: every place an edition file puts an address. */
+type Addressed = {
+  resources?: readonly { accessUrl?: string; sources?: readonly { url?: string }[]; calls?: readonly { sourceUrl?: string }[] }[];
+  news?: readonly { sources?: readonly { url?: string }[] }[];
+};
+
+export function addressesIn(snapshot: Addressed): string[] {
+  const urls: string[] = [];
+  const add = (value: string | undefined): void => {
+    if (value !== undefined && value !== "") urls.push(value);
+  };
+  for (const resource of snapshot.resources ?? []) {
+    add(resource.accessUrl);
+    for (const source of resource.sources ?? []) add(source.url);
+    for (const call of resource.calls ?? []) add(call.sourceUrl);
+  }
+  for (const item of snapshot.news ?? []) {
+    for (const source of item.sources ?? []) add(source.url);
+  }
+  return urls;
+}
+
 /** A host without its www, which is how a register entry is written and how an address is compared. */
 export function hostOf(url: string): string | null {
   try {
@@ -58,10 +87,14 @@ export function hostOf(url: string): string | null {
 export function refuses(register: SourceTerms, url: string): Reading | null {
   const host = hostOf(url);
   if (host === null) return null;
-  for (const reading of register.sources) {
-    // A record quotes the page and sends the reader to it. Either one refused is a record that cannot stand.
-    if (reading.uses.quote === "PERMITTED" && reading.uses.link === "PERMITTED") continue;
-    if (host === reading.host || host.endsWith(`.${reading.host}`)) return reading;
-  }
-  return null;
+  // The most specific reading wins. A subdomain somebody read for itself is not governed by what the
+  // parent published, because the parent's notice was not written about it; with nothing read for the
+  // subdomain, the parent's reading is the only one there is.
+  const reading = register.sources
+    .filter((entry) => host === entry.host || host.endsWith(`.${entry.host}`))
+    .toSorted((a, b) => b.host.length - a.host.length)[0];
+  if (reading === undefined) return null;
+  // A record quotes the page and sends the reader to it; either one refused is a record that cannot
+  // stand. Extracting a listing is read here and never blocks a record, because a record never does it.
+  return reading.uses.quote === "PERMITTED" && reading.uses.link === "PERMITTED" ? null : reading;
 }
