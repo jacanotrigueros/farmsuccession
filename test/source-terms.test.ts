@@ -41,7 +41,7 @@ test("the register is readable, and no host is read twice", () => {
 
 test("no published record sends a reader to a source this project may not quote", () => {
   const cited = citedUrls();
-  assert.ok(cited.length > 400, `only ${cited.length} addresses were checked; the corpus is larger than that`);
+  assert.ok(cited.length > 900, `only ${cited.length} addresses were checked; the corpus is larger than that`);
   const broken = cited.map(({ where, url }) => ({ where, url, reading: refuses(register, url) })).filter(({ reading }) => reading !== null);
   assert.deepEqual(
     broken.map(({ where, url }) => `${where} cites ${url}`),
@@ -59,7 +59,7 @@ test("the check is not vacuous: it finds a host the corpus really does cite", ()
     sources: [
       {
         host: someHost,
-        outcome: "NOT_PUBLISHABLE",
+        uses: { quote: "PERMITTED", link: "NOT_PERMITTED" },
         ground: "REQUEST",
         finding: "A host invented for this test only.",
         readOn: "2026-10-18",
@@ -74,17 +74,30 @@ test("a permission is not a refusal, and a refusal reaches a subdomain", () => {
   const pretend: SourceTerms = {
     purpose: register.purpose,
     sources: [
-      { host: "allowed.example", outcome: "PERMITTED", ground: "REQUEST", finding: "Permitted, for this test only.", readOn: "2026-10-18" },
+      {
+        host: "allowed.example",
+        uses: { quote: "PERMITTED", link: "PERMITTED" },
+        ground: "REQUEST",
+        finding: "Both uses permitted, for this test only.",
+        readOn: "2026-10-18",
+      },
       {
         host: "refused.example",
-        outcome: "NOT_PUBLISHABLE",
+        uses: { quote: "PERMITTED", link: "NOT_PERMITTED" },
         ground: "REQUEST",
-        finding: "Refused, for this test only.",
+        finding: "Quoting permitted and linking refused, which is the shape a single verdict could not say.",
         readOn: "2026-10-18",
       },
     ],
   };
-  assert.equal(refuses(pretend, "https://allowed.example/a"), null, "a host that permits this use was treated as a refusal");
+  assert.equal(refuses(pretend, "https://allowed.example/a"), null, "a host that permits both uses was treated as a refusal");
+  assert.ok(
+    refuses(
+      { purpose: register.purpose, sources: [{ ...pretend.sources[0]!, uses: { quote: "UNKNOWN", link: "PERMITTED" } }] },
+      "https://allowed.example/a",
+    ),
+    "a use nobody read is not permission, and must not pass as one",
+  );
   assert.ok(refuses(pretend, "https://www.refused.example/a"), "a leading www made a refused host look like a different one");
   assert.ok(refuses(pretend, "https://news.refused.example/a"), "a refusal of a site has to reach the subdomains of that site");
   assert.equal(
@@ -103,10 +116,16 @@ test("one host, one reading", () => {
     JSON.stringify({
       purpose: register.purpose,
       sources: [
-        { host: "twice.example", outcome: "PERMITTED", ground: "REQUEST", finding: "Read once, for this test only.", readOn: "2026-10-18" },
         {
           host: "twice.example",
-          outcome: "NOT_PUBLISHABLE",
+          uses: { quote: "PERMITTED", link: "PERMITTED" },
+          ground: "REQUEST",
+          finding: "Read once, for this test only.",
+          readOn: "2026-10-18",
+        },
+        {
+          host: "twice.example",
+          uses: { quote: "PERMITTED", link: "NOT_PERMITTED" },
           ground: "REQUEST",
           finding: "Read again, for this test only.",
           readOn: "2026-10-18",

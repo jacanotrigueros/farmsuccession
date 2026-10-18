@@ -6,7 +6,11 @@
  * its reason and the record of having searched there went with it. The next pass would have found
  * it again and decided the same thing from nothing.
  *
- * So a reading is written down once, and both answers are worth the same. A permission read today
+ * So a reading is written down once, per use, because a notice answers one use at a time: a site may permit
+ * the quoting and reserve the linking, and a record needs both. A host nobody has read is not in this file,
+ * and silence here is not permission.
+ *
+ * Both answers are worth the same. A permission read today
  * is what stops somebody reading the same notice next year; a refusal is what stops a record
  * citing that host again. Only the refusal stops a build — `test/source-terms.test.ts` is where
  * the promise is actually kept, because a label in a file guarantees nothing on its own.
@@ -55,7 +59,8 @@ export function refuses(register: SourceTerms, url: string): Reading | null {
   const host = hostOf(url);
   if (host === null) return null;
   for (const reading of register.sources) {
-    if (reading.outcome !== "NOT_PUBLISHABLE") continue;
+    // A record quotes the page and sends the reader to it. Either one refused is a record that cannot stand.
+    if (reading.uses.quote === "PERMITTED" && reading.uses.link === "PERMITTED") continue;
     if (host === reading.host || host.endsWith(`.${reading.host}`)) return reading;
   }
   return null;

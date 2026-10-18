@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://jacanotrigueros.github.io/farmsuccession/schema/source-terms.schema.json",
   "title": "SourceTerms",
-  "description": "What each source's own terms say about the use this project makes of it, read once and written down. Two readings are worth the same: a host that permits the quoting every record rests on, and a host that does not. Recording the permission is what stops the next pass reading the same notice again, and recording the refusal is what stops it publishing the same source again. A refusal is never a judgement about the source: the best route a reader could have had may be one this project cannot carry.",
+  "description": "What each source's own terms say about the use this project makes of it, read once and written down. Two readings are worth the same: a host that permits the uses this project makes, and a host that does not. A host nobody has read is not in this file at all, and silence here is not permission. Recording the permission is what stops the next pass reading the same notice again, and recording the refusal is what stops it publishing the same source again. A refusal is never a judgement about the source: the best route a reader could have had may be one this project cannot carry.",
   "type": "object",
   "additionalProperties": false,
   "required": ["purpose", "sources"],
@@ -24,16 +24,28 @@
     "reading": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["host", "outcome", "ground", "finding", "readOn"],
+      "required": ["host", "uses", "ground", "finding", "readOn"],
       "properties": {
         "host": {
           "description": "The host as it appears in an address, without a scheme, a path or a leading www. A subdomain is its own entry: a permission read on one host was not read on another.",
           "type": "string",
           "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$"
         },
-        "outcome": {
-          "description": "PERMITTED: this project may quote and cite it, under conditions it already meets. NOT_PUBLISHABLE: it may not, so no record may cite it. Only the second one stops a build.",
-          "enum": ["PERMITTED", "NOT_PUBLISHABLE"]
+        "uses": {
+          "description": "A notice answers one use at a time, and a single verdict for a host says more than any notice says. A record makes exactly two uses of a source: it quotes words from the page, and it sends the reader to it. Both have to be permitted for a record to stand, so either one refused stops a build. A use nobody read is UNKNOWN, which is not permission.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["quote", "link"],
+          "properties": {
+            "quote": {
+              "description": "Reproducing words from the page, which every record here rests on.",
+              "enum": ["PERMITTED", "NOT_PERMITTED", "UNKNOWN"]
+            },
+            "link": {
+              "description": "Sending a reader to the page. A notice may permit the first and reserve this one, which is why they are asked separately.",
+              "enum": ["PERMITTED", "NOT_PERMITTED", "UNKNOWN"]
+            }
+          }
         },
         "ground": {
           "description": "TERMS: a published notice was read, and the quote below is what it says. REQUEST: the operator asked not to appear, which the site's footer promises in six languages to honour. A request is not a reading and carries no quote.",
