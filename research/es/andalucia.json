@@ -92,6 +92,54 @@
   ],
   "leads": [
     {
+      "id": "and-asaja-servicios-generales",
+      "name": "Servicios generales de ASAJA Andalucía",
+      "kind": "ADVICE",
+      "status": "REJECTED",
+      "url": "https://asaja-andalucia.es/servicios/",
+      "checkedOn": "2026-09-27",
+      "reason": "Página leída con fetchPage: seguros, solicitudes PAC y asesoramiento general. No describe un servicio específico de entrada o relevo; no se admite por ser una organización agraria."
+    },
+    {
+      "id": "and-asesoramiento-jovenes",
+      "name": "Ayudas al asesoramiento para jóvenes agricultores",
+      "url": "https://www.juntadeandalucia.es/boja/2026/33/1",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "andalucia-asesoramiento-jovenes-agricultores",
+      "reason": "BOJA leído: entidades solicitantes, jóvenes vinculados a la convocatoria 2024 y ejecución hasta la resolución de esa convocatoria. Disponibilidad UNKNOWN: COAG Andalucía confirma haber recibido ayuda 7202.06, pero no se verificó una ruta pública de atención abierta a nuevos usuarios.",
+      "foundBy": "and-organizaciones",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "and-bancos-tierras-municipales",
+      "name": "Bancos de tierras municipales y provinciales de Andalucía",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "La Diputación de Jaén mantiene publicado el reglamento de su Bolsa de Tierras Agrícolas y el Ayuntamiento de Almócita menciona un banco de tierras, pero no se localizó inventario, formulario o ruta de alta vigente que demuestre operación actual. No admitir hasta verificar acceso real.",
+      "foundBy": "and-bancos-locales-2026",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "and-coag-acompanamiento-jovenes",
+      "name": "Acompañamiento de COAG Andalucía a jóvenes",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "url": "https://www.coagandalucia.com/2026/09/17/ampliado-plazo-solicitudes-del-programa-cultiva-2026-para-jovenes-2/",
+      "checkedOn": "2026-09-27",
+      "reason": "La noticia de CULTIVA menciona asesoramiento y formación en las oficinas y la portada de COAG Andalucía declara financiación 7202.06. CULTIVA no se duplica y no se admite todavía un servicio autonómico propio porque falta una página estable con ruta de acceso, condiciones y eventual afiliación."
+    },
+    {
+      "id": "and-escuela-pastores-2026",
+      "name": "Escuela de Pastores de Andalucía, XIII edición 2026",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "url": "https://www.juntadeandalucia.es/agriculturaypesca/ifapa/web/noticias/la-escuela-de-pastores-de-andalucia-se-celebrara-en-2026-en-cortegana-huelva",
+      "resourceId": "andalucia-escuela-pastores",
+      "checkedOn": "2026-09-27",
+      "reason": "Resuelta mediante páginas oficiales de IFAPA: destinatarios, plazo de inscripción, correo institucional y relación con las ayudas de incorporación. La web propia de la Escuela seguía devolviendo 502, por lo que la edición usa IFAPA como ruta verificable."
+    },
+    {
       "id": "and-establecimiento-jovenes",
       "name": "Subvenciones para el establecimiento de jóvenes agricultores",
       "url": "https://www.juntadeandalucia.es/organismos/agriculturapescaaguaydesarrollorural/areas/infraestructuras-agrarias/modernizacion/paginas/establecimiento-jovenes-agricultores-2024-2027.html",
@@ -100,17 +148,6 @@
       "resourceId": "andalucia-establecimiento-jovenes-agricultores",
       "reason": "Página oficial de la ayuda con la convocatoria, su seguimiento actualizado y un buzón de consultas. En junio de 2026 se publicó la resolución definitiva de la convocatoria 2024.",
       "foundBy": "and-jovenes",
-      "checkedOn": "2026-09-27"
-    },
-    {
-      "id": "and-patrimonio-agrario",
-      "name": "Venta de tierras del Patrimonio Agrario Andaluz",
-      "url": "https://www.juntadeandalucia.es/organismos/agriculturapescaaguaydesarrollorural/areas/infraestructuras-agrarias/patrimonio-agrario.html",
-      "kind": "LAND_BANK",
-      "status": "ADMITTED",
-      "resourceId": "andalucia-patrimonio-agrario-venta-tierras",
-      "reason": "Página del operador releída; añadido contacto institucional, inventario actualizado el 17/04/2026 y distinción entre procedimiento y plazo todavía anunciado.",
-      "foundBy": "and-tierras",
       "checkedOn": "2026-09-27"
     },
     {
@@ -125,15 +162,44 @@
       "checkedOn": "2026-09-27"
     },
     {
-      "id": "and-asesoramiento-jovenes",
-      "name": "Ayudas al asesoramiento para jóvenes agricultores",
-      "url": "https://www.juntadeandalucia.es/boja/2026/33/1",
+      "id": "and-organizaciones-agrarias",
+      "name": "Servicios de relevo de ASAJA, COAG y UPA Andalucía",
       "kind": "ADVICE",
-      "status": "ADMITTED",
-      "resourceId": "andalucia-asesoramiento-jovenes-agricultores",
-      "reason": "BOJA leído: entidades solicitantes, jóvenes vinculados a la convocatoria 2024 y ejecución hasta la resolución de esa convocatoria. Disponibilidad UNKNOWN: COAG Andalucía confirma haber recibido ayuda 7202.06, pero no se verificó una ruta pública de atención abierta a nuevos usuarios.",
+      "status": "REJECTED",
+      "reason": "Pista paraguas cerrada: los servicios concretos verificables se registran por separado (COAG Almería, UPA Córdoba y UPA Granada). No se crea un servicio genérico autonómico sin una página propia que describa acceso y condiciones.",
       "foundBy": "and-organizaciones",
       "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "and-pastoreo-vivo",
+      "name": "Pastoreo Vivo",
+      "url": "https://serraniasvivas.org/nuevo-proyecto-pastoreo-vivo/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "NOT_PUBLISHABLE",
+      "foundBy": "and-relevo-ganadero-2026",
+      "checkedOn": "2026-10-18",
+      "reason": "Programa propio de Serranías Vivas que empareja nuevas incorporaciones con ganaderías en riesgo de cierre mediante nueve meses de aprendizaje remunerado y mentoría; estuvo publicado en la edición 2026 y se retiró el 18 de octubre de 2026. El aviso legal de la entidad, leído el 18 de octubre de 2026, reserva la reproducción total o parcial del sitio al permiso previo y por escrito y limita el material al uso personal y privado. Cada ficha de este proyecto se apoya en palabras citadas de su fuente, así que no puede publicarse. La lectura y la cláusula están en config/source-terms.json; enlazar nunca estuvo en cuestión."
+    },
+    {
+      "id": "and-patrimonio-agrario",
+      "name": "Venta de tierras del Patrimonio Agrario Andaluz",
+      "url": "https://www.juntadeandalucia.es/organismos/agriculturapescaaguaydesarrollorural/areas/infraestructuras-agrarias/patrimonio-agrario.html",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "andalucia-patrimonio-agrario-venta-tierras",
+      "reason": "Página del operador releída; añadido contacto institucional, inventario actualizado el 17/04/2026 y distinción entre procedimiento y plazo todavía anunciado.",
+      "foundBy": "and-tierras",
+      "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "and-releva",
+      "name": "RELEVA — Relevo generacional agrosilvopastoril para la infraestructura verde",
+      "url": "https://serraniasvivas.org/releva/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "NOT_PUBLISHABLE",
+      "foundBy": "and-relevo-ganadero-2026",
+      "checkedOn": "2026-10-18",
+      "reason": "Proyecto multirregional en ejecución que prevé nodos de relevo, captación de personas sucesoras y banco de tierras en Cádiz, Málaga, Sevilla y Toledo. Nunca llegó a publicarse: quedaba por verificar una ruta pública de entrada. El aviso legal de la entidad, leído el 18 de octubre de 2026, reserva la reproducción total o parcial del sitio al permiso previo y por escrito y limita el material al uso personal y privado. Cada ficha de este proyecto se apoya en palabras citadas de su fuente, así que no puede publicarse. La lectura y la cláusula están en config/source-terms.json; enlazar nunca estuvo en cuestión."
     },
     {
       "id": "and-sede-procedimiento-jovenes",
@@ -144,52 +210,6 @@
       "reason": "Misma ayuda que la página de la Consejería; la ficha se genera con JavaScript y no devuelve texto.",
       "foundBy": "and-jovenes",
       "checkedOn": "2026-09-15"
-    },
-    {
-      "id": "and-bancos-tierras-municipales",
-      "name": "Bancos de tierras municipales y provinciales de Andalucía",
-      "kind": "LAND_BANK",
-      "status": "TO_CHECK",
-      "reason": "La Diputación de Jaén mantiene publicado el reglamento de su Bolsa de Tierras Agrícolas y el Ayuntamiento de Almócita menciona un banco de tierras, pero no se localizó inventario, formulario o ruta de alta vigente que demuestre operación actual. No admitir hasta verificar acceso real.",
-      "foundBy": "and-bancos-locales-2026",
-      "checkedOn": "2026-09-27"
-    },
-    {
-      "id": "and-organizaciones-agrarias",
-      "name": "Servicios de relevo de ASAJA, COAG y UPA Andalucía",
-      "kind": "ADVICE",
-      "status": "REJECTED",
-      "reason": "Pista paraguas cerrada: los servicios concretos verificables se registran por separado (COAG Almería, UPA Córdoba y UPA Granada). No se crea un servicio genérico autonómico sin una página propia que describa acceso y condiciones.",
-      "foundBy": "and-organizaciones",
-      "checkedOn": "2026-09-27"
-    },
-    {
-      "id": "and-escuela-pastores-2026",
-      "name": "Escuela de Pastores de Andalucía, XIII edición 2026",
-      "kind": "TRAINING",
-      "status": "ADMITTED",
-      "url": "https://www.juntadeandalucia.es/agriculturaypesca/ifapa/web/noticias/la-escuela-de-pastores-de-andalucia-se-celebrara-en-2026-en-cortegana-huelva",
-      "resourceId": "andalucia-escuela-pastores",
-      "checkedOn": "2026-09-27",
-      "reason": "Resuelta mediante páginas oficiales de IFAPA: destinatarios, plazo de inscripción, correo institucional y relación con las ayudas de incorporación. La web propia de la Escuela seguía devolviendo 502, por lo que la edición usa IFAPA como ruta verificable."
-    },
-    {
-      "id": "and-asaja-servicios-generales",
-      "name": "Servicios generales de ASAJA Andalucía",
-      "kind": "ADVICE",
-      "status": "REJECTED",
-      "url": "https://asaja-andalucia.es/servicios/",
-      "checkedOn": "2026-09-27",
-      "reason": "Página leída con fetchPage: seguros, solicitudes PAC y asesoramiento general. No describe un servicio específico de entrada o relevo; no se admite por ser una organización agraria."
-    },
-    {
-      "id": "and-coag-acompanamiento-jovenes",
-      "name": "Acompañamiento de COAG Andalucía a jóvenes",
-      "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "url": "https://www.coagandalucia.com/2026/09/17/ampliado-plazo-solicitudes-del-programa-cultiva-2026-para-jovenes-2/",
-      "checkedOn": "2026-09-27",
-      "reason": "La noticia de CULTIVA menciona asesoramiento y formación en las oficinas y la portada de COAG Andalucía declara financiación 7202.06. CULTIVA no se duplica y no se admite todavía un servicio autonómico propio porque falta una página estable con ruta de acceso, condiciones y eventual afiliación."
     },
     {
       "id": "andalucia-coag-almeria-incorporacion",

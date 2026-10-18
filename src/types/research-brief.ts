@@ -175,9 +175,9 @@ export interface Lead {
    */
   area?: string;
   /**
-   * TO_CHECK: not yet evaluated, and it says what blocked it and what to do next. ADMITTED: published, and resourceId points at it. REJECTED: evaluated and left out, with the reason.
+   * TO_CHECK: not yet evaluated, and it says what blocked it and what to do next. ADMITTED: published, and resourceId points at it. REJECTED: evaluated and left out, with the reason. NOT_PUBLISHABLE: real, possibly the best route a reader could have had, and not carried here because its source's terms do not permit the quoting every record rests on, or because the operator asked not to appear. The reading that settled it is in config/source-terms.json under that host; this is the trace that stops a later pass discovering it again and deciding the same thing from scratch.
    */
-  status: "TO_CHECK" | "ADMITTED" | "REJECTED";
+  status: "TO_CHECK" | "ADMITTED" | "REJECTED" | "NOT_PUBLISHABLE";
   /**
    * The published resource this lead became, in this territory's edition files or in a layer it inherits.
    */

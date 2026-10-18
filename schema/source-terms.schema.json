@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jacanotrigueros.github.io/farmsuccession/schema/source-terms.schema.json",
+  "title": "SourceTerms",
+  "description": "What each source's own terms say about the use this project makes of it, read once and written down. Two readings are worth the same: a host that permits the quoting every record rests on, and a host that does not. Recording the permission is what stops the next pass reading the same notice again, and recording the refusal is what stops it publishing the same source again. A refusal is never a judgement about the source: the best route a reader could have had may be one this project cannot carry.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["purpose", "sources"],
+  "properties": {
+    "purpose": {
+      "description": "Why this file exists, for whoever finds it without the surrounding context.",
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 1000
+    },
+    "sources": {
+      "description": "One entry per host. A host, not a page: terms govern a site, and an organisation this project cannot quote is not quotable one address at a time.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/reading" }
+    }
+  },
+  "$defs": {
+    "reading": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["host", "outcome", "ground", "finding", "readOn"],
+      "properties": {
+        "host": {
+          "description": "The host as it appears in an address, without a scheme, a path or a leading www. A subdomain is its own entry: a permission read on one host was not read on another.",
+          "type": "string",
+          "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$"
+        },
+        "outcome": {
+          "description": "PERMITTED: this project may quote and cite it, under conditions it already meets. NOT_PUBLISHABLE: it may not, so no record may cite it. Only the second one stops a build.",
+          "enum": ["PERMITTED", "NOT_PUBLISHABLE"]
+        },
+        "ground": {
+          "description": "TERMS: a published notice was read, and the quote below is what it says. REQUEST: the operator asked not to appear, which the site's footer promises in six languages to honour. A request is not a reading and carries no quote.",
+          "enum": ["TERMS", "REQUEST"]
+        },
+        "finding": {
+          "description": "What the reading concluded, in plain language, including the conditions a permission carries. Never the name of a person: an operator who asked is an operator, not somebody identified here.",
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 800
+        },
+        "readOn": {
+          "description": "The day the notice was read, or the day the request arrived. A reading has a shelf life and terms change.",
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "termsUrl": {
+          "description": "Where the notice lives, so somebody can read it again rather than trust this file.",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "quote": {
+          "description": "The sentence the reading rests on, word for word and in its own language. A reading nobody can check is an opinion.",
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 800
+        },
+        "route": {
+          "description": "What would change the outcome, where anything would. Most notices reserve permission rather than refuse it forever, and saying so stops a later pass treating a refusal as permanent.",
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 600
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "ground": { "const": "TERMS" } }, "required": ["ground"] },
+          "then": {
+            "description": "A reading of a document names the document and quotes it. Without both, nobody can tell a prohibition from a precaution, and a precaution is how a useful route gets lost.",
+            "type": "object",
+            "required": ["termsUrl", "quote"],
+            "properties": { "termsUrl": true, "quote": true }
+          }
+        }
+      ]
+    }
+  }
+}
