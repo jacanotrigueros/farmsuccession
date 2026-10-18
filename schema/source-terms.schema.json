@@ -88,6 +88,22 @@
       },
       "allOf": [
         {
+          "if": { "properties": { "ground": { "const": "REQUEST_WITHDRAWAL" } }, "required": ["ground"] },
+          "then": {
+            "description": "An operator who asked not to appear has not permitted the uses that would make it appear. Recording a withdrawal beside two permissions is a contradiction nobody would notice later, so the shape refuses it.",
+            "type": "object",
+            "properties": {
+              "uses": {
+                "type": "object",
+                "properties": {
+                  "quote": { "enum": ["NOT_PERMITTED"] },
+                  "link": { "enum": ["NOT_PERMITTED"] }
+                }
+              }
+            }
+          }
+        },
+        {
           "if": { "properties": { "ground": { "const": "TERMS" } }, "required": ["ground"] },
           "then": {
             "description": "A reading of a document names the document and quotes it. Without both, nobody can tell a prohibition from a precaution, and a precaution is how a useful route gets lost.",

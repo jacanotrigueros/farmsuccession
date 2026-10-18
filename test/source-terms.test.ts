@@ -5,7 +5,7 @@ import path from "node:path";
 import { test } from "node:test";
 
 import { loadSnapshots } from "../src/editions.ts";
-import { hostOf, loadSourceTerms, refuses } from "../src/source-terms.ts";
+import { addressesIn, hostOf, loadSourceTerms, refuses } from "../src/source-terms.ts";
 import type { SourceTerms } from "../src/types/source-terms.ts";
 
 /**
@@ -17,17 +17,15 @@ import type { SourceTerms } from "../src/types/source-terms.ts";
 
 const register = loadSourceTerms();
 
-/** Everywhere a published record puts an address in front of a reader. */
+/**
+ * Everywhere a published page puts an address in front of a reader, from the same function the
+ * validator uses. A copy here would be a second answer to the same question, and the first version of
+ * this test had one: it walked resources only, so thirty-three news addresses answered to nothing.
+ */
 function citedUrls(): { where: string; url: string }[] {
   const { snapshots, problems } = loadSnapshots({ edition: "2026" });
   assert.deepEqual(problems, [], "an edition file that will not load cannot be checked against the register");
-  return snapshots.flatMap(({ file, data }) =>
-    (data.resources ?? []).flatMap((resource) =>
-      [resource.accessUrl, ...(resource.sources ?? []).map((source) => source.url), ...(resource.calls ?? []).map((call) => call.sourceUrl)]
-        .filter((url): url is string => typeof url === "string" && url !== "")
-        .map((url) => ({ where: `${file}#${resource.id}`, url })),
-    ),
-  );
+  return snapshots.flatMap(({ file, data }) => addressesIn(data).map((url) => ({ where: file, url })));
 }
 
 test("the register is readable, and no host is read twice", () => {
@@ -59,7 +57,7 @@ test("the check is not vacuous: it finds a host the corpus really does cite", ()
     sources: [
       {
         host: someHost,
-        uses: { quote: "PERMITTED", link: "NOT_PERMITTED", extract: "UNKNOWN" },
+        uses: { quote: "NOT_PERMITTED", link: "NOT_PERMITTED", extract: "UNKNOWN" },
         ground: "REQUEST_WITHDRAWAL",
         finding: "A host invented for this test only.",
         readOn: "2026-10-18",
@@ -77,13 +75,13 @@ test("a permission is not a refusal, and a refusal reaches a subdomain", () => {
       {
         host: "allowed.example",
         uses: { quote: "PERMITTED", link: "PERMITTED", extract: "UNKNOWN" },
-        ground: "REQUEST_WITHDRAWAL",
+        ground: "PERMISSION_GRANTED",
         finding: "Both uses permitted, for this test only.",
         readOn: "2026-10-18",
       },
       {
         host: "refused.example",
-        uses: { quote: "PERMITTED", link: "NOT_PERMITTED", extract: "UNKNOWN" },
+        uses: { quote: "NOT_PERMITTED", link: "NOT_PERMITTED", extract: "UNKNOWN" },
         ground: "REQUEST_WITHDRAWAL",
         finding: "Quoting permitted and linking refused, which is the shape a single verdict could not say.",
         readOn: "2026-10-18",
@@ -122,13 +120,13 @@ test("one host, one reading", () => {
         {
           host: "twice.example",
           uses: { quote: "PERMITTED", link: "PERMITTED", extract: "UNKNOWN" },
-          ground: "REQUEST_WITHDRAWAL",
+          ground: "PERMISSION_GRANTED",
           finding: "Read once, for this test only.",
           readOn: "2026-10-18",
         },
         {
           host: "twice.example",
-          uses: { quote: "PERMITTED", link: "NOT_PERMITTED", extract: "UNKNOWN" },
+          uses: { quote: "NOT_PERMITTED", link: "NOT_PERMITTED", extract: "UNKNOWN" },
           ground: "REQUEST_WITHDRAWAL",
           finding: "Read again, for this test only.",
           readOn: "2026-10-18",
@@ -137,4 +135,17 @@ test("one host, one reading", () => {
     }),
   );
   assert.throws(() => loadSourceTerms(file), /read twice/u, "two readings of one host leave it ambiguous which one governs");
+});
+
+test("a news item's own sources are walked, because it is published on the same pages", () => {
+  const { snapshots } = loadSnapshots({ edition: "2026" });
+  const fromNews = snapshots.flatMap(({ data }) =>
+    ((data as { news?: { sources?: { url?: string }[] }[] }).news ?? []).flatMap((item) =>
+      (item.sources ?? []).map((source) => source.url).filter((url): url is string => typeof url === "string"),
+    ),
+  );
+  assert.ok(fromNews.length > 20, `only ${fromNews.length} news addresses exist; the edition carries more than that`);
+  const walked = new Set(citedUrls().map(({ url }) => url));
+  const missed = fromNews.filter((url) => !walked.has(url));
+  assert.deepEqual(missed, [], "a news source is an address a reader can follow, and the check has to see it");
 });
