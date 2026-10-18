@@ -34,15 +34,15 @@ on them being true.
 
 ## Where it stands, measured
 
-Of 319 records: ES 128, FR 72, IT 62, DE 36, PT 17, and 4 on the European layer.
-By kind: 100 financial support, 71 land banks, 66 advice, 39 training, 30
+As corrected on 18 October, 318 records: ES 127, FR 72, IT 62, DE 36, PT 17, and 4 on the European layer.
+By kind: 100 financial support, 71 land banks, 66 advice, 39 training, 29
 succession services, 7 policy, 3 official portals, 2 networks, 1 other.
 
 One edition, 2026, over 101 files, 92 of them regions. 426 pages live at
 farmsuccession.eu since 14 October. The committed series has observed 504 URLs,
-of which 499 are still cited: 364 have always passed, 107 have mixed readings,
-and 28 have never given a successful reading. Of the 107 mixed histories only 10
-include a FAIL; the other 97 combine PASS and UNCHECKED, which is not a failure.
+of which 496 are still cited: 362 have always passed, 106 have mixed readings,
+and 28 have never given a successful reading. Of the 106 mixed histories only 10
+include a FAIL; the other 96 combine PASS and UNCHECKED, which is not a failure.
 232 repository tests and 84 frontend tests, none of which drives a browser.
 
 Reproduce the first paragraph from the repository root with Node.js 24:
@@ -154,8 +154,8 @@ Not a matrix of browsers. One that fails when a control stops working.
 
 ## M14 — The promise stops rotting quietly
 
-107 of the 499 pages still cited have not passed on every attempt: 10 carry a
-real FAIL and 97 combine PASS and UNCHECKED. Another 28 have never given a
+106 of the 496 pages still cited have not passed on every attempt: 10 carry a
+real FAIL and 96 combine PASS and UNCHECKED. Another 28 have never given a
 successful reading. A dead link announces itself; a page that quietly stopped
 carrying the sentence quoted from it does not.
 [025](../decisions/025-a-source-is-gone-when-the-series-says-so.md) makes it
@@ -223,7 +223,7 @@ gaps in what was searched for?** The unit is territory × expected instrument,
 which the briefs already use. Repeat the search for succession and handover
 specifically; add what turns up, whether that is twenty-five records or three.
 If it is three, the corpus was right and the proportion of 100 financial supports
-to 30 succession services describes the public record rather than the pass.
+to 29 succession services describes the public record rather than the pass.
 
 ## What would make this plan wrong
 
