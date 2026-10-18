@@ -1,8 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "territory": { "level": "REGION", "country": "FR", "region": "pays-de-la-loire" },
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "pays-de-la-loire"
+  },
   "language": "fr",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-10-18",
   "context": [
     "En Pays de la Loire, l’étude d’installation est un préalable obligatoire à la demande de dotation aux jeunes agriculteurs.",
     "Le règlement régional de la dotation couvre la période 2024-2027 et détaille montants et modulations.",
@@ -64,12 +68,47 @@
       "reason": "Dispositif régional associant intercommunalités et chambres d’agriculture ; à vérifier sur une source officielle.",
       "foundBy": "pdl-installation",
       "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "pdl-passeurs-terres",
+      "name": "Passeurs de terres",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Page opérateur lue : coopérative régionale d’acquisition et location de fermes biologiques, ouverte aux sollicitations de porteurs de projet, contact institutionnel disponible. Citation : «Passeurs de terres est une foncière agricole qui développe son action sur les Pays de la Loire.» Vérifier conditions du bail et instruction des projets avant admission ; distinct du service Safer et de l’accompagnement associatif Terre de Liens.",
+      "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!99",
+      "checkedOn": "2026-10-18",
+      "url": "https://passeursdeterres.org/"
+    },
+    {
+      "id": "pdl-ciap-entreprendre",
+      "name": "CIAP — Entreprendre en Agriculture Paysanne",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Page opérateur lue : formation de douze mois, immersion et accompagnement de projets ayant identifié un lieu d’installation. Citation : «Construire son projet de création, association ou reprise d’activité agricole pour une installation pérenne.» L’opérateur indique une reconnaissance régionale pour la DJA ; vérifier le règlement lié, coût et modalités d’entrée avant admission. Ne pas extrapoler aux CIAP d’autres régions.",
+      "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!101",
+      "checkedOn": "2026-10-18",
+      "url": "https://ciap-pdl.fr/offres-daccompagnement/formation-entreprendre-en-agriculture-paysanne/"
     }
   ],
   "instrumentChecks": [
-    { "expectedId": "fr-aide-regionale-installation", "status": "FOUND", "leadId": "pdl-dja", "checkedOn": "2026-09-20" },
-    { "expectedId": "fr-transmission-accompagnement", "status": "FOUND", "leadId": "pdl-safer-transmission", "checkedOn": "2026-09-20" },
-    { "expectedId": "fr-safer-foncier", "status": "FOUND", "leadId": "pdl-safer-transmission", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-aide-regionale-installation",
+      "status": "FOUND",
+      "leadId": "pdl-dja",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "pdl-safer-transmission",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "pdl-safer-transmission",
+      "checkedOn": "2026-09-20"
+    },
     {
       "expectedId": "fr-associations-installation",
       "status": "NOT_FOUND",
@@ -82,6 +121,11 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Première passe avec la liste de contrôle nationale : dotation régionale et accompagnement à la transmission de la Safer admis."
+    },
+    {
+      "date": "2026-10-18",
+      "by": "CHATGPT (Codex)",
+      "summary": "Comparaison ciblée avec Annex II et des sources primaires sélectionnées : pistes, doublons et blocages conservés. Ce repérage ne constitue pas une nouvelle passe territoriale complète et ne modifie ni les fiches ni les dates de l’édition."
     }
   ]
 }
