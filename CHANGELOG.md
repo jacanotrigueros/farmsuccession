@@ -10,6 +10,82 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.4.0 — 2026-10-19
+
+One record leaves the directory. That is the whole of what a reader sees, and the
+rest of this version exists so that the next one does not leave a hole where the
+evidence was.
+
+### A source this project may not quote
+
+- **Pastoreo Vivo is withdrawn**, and with it the only record resting on
+  `serraniasvivas.org`. Its legal notice, read on 18 October, reserves
+  "la reproducción y/o publicación, total o parcial" of the site to prior written
+  permission and limits the material to personal and private use. Every record
+  here rests on words quoted from its source, so a record that cannot carry its
+  quotes cannot meet the evidence rule and goes rather than standing on nothing.
+  [016](decisions/016-a-pass-is-a-dated-snapshot.md) makes removal the only
+  correction a closed edition allows.
+- Nobody asked for this. It is a reading of a published document, which can be
+  wrong, so the clause it rests on is recorded word for word with the day it was
+  read. Linking was never the problem: the same notice contemplates third-party
+  hyperlinks that open the full page.
+- It is a loss worth naming. A programme pairing new entrants with livestock
+  farms at risk of closing is this project's subject, not a marginal entry. The
+  way back is in the notice itself, which reserves permission rather than
+  refusing it.
+
+### So that the next withdrawal leaves a trace instead of a hole
+
+The site has told readers in six languages, since the first version, that an
+organisation which does not want to appear can ask to be taken out. Nothing stood
+behind that sentence. The first time it came up the record was deleted — and the
+lead, the reason it had been admitted, and the record of having searched there at
+all went with it. The next pass would have found it again and decided the same
+thing from nothing.
+
+- **What each source's terms permit is written down once**, per host, and a
+  permission is worth recording as much as a refusal: one stops somebody reading
+  the same notice next year, the other stops a record citing that host again.
+- **A notice answers one use at a time.** A record quotes a page and sends a
+  reader to it, and both have to be permitted. Taking entries out of somebody's
+  listing is a third use with its own right attached, which no published record
+  shows, so it is asked separately and never blocks a record.
+- **A lead can now be real and uncarryable.** The two Andalucían leads that had
+  been deleted are back under that status, including the one that was never
+  published.
+- **The guarantee is a test, not a label.** The build fails if any published
+  record cites a refused host — in its access address, its sources, its calls or
+  its news — and names every record that does.
+
+### Two readings of this project's own work
+
+- **Who arrives, read twice.** 155 impressions and three clicks over four days,
+  average position 26.6. All three clicks went to the record of a named
+  instrument; four land-agency records took fifty-three impressions and produced
+  none. A query that names an organisation wants that organisation's own site,
+  which sits above this one. If that holds, those impressions are not a problem
+  to solve, because solving them would mean competing with the body each record
+  exists to send a reader to.
+- **025 was measured rather than argued, and 107 was the wrong number.** Letting
+  failures after the last success condemn a page would move nothing in the
+  committed series. Of the 107 pages called mixed successes and failures, only 10
+  carry a real failure; the other 97 combine a success with an attempt nobody
+  could take.
+
+### Written down, not acted on
+
+- Two faults measured on the pages that take the impressions: descriptions of up
+  to 255 characters where a results page shows about 155, one of them cut
+  mid-word exactly where the reason to click would have been; and a brand suffix
+  spending seventeen characters of a title that truncates near sixty. Neither is
+  changed. Rewriting a title mid-measurement makes the next reading incomparable
+  with the last two, and comparability is the only reason the site is being left
+  alone this week.
+- Which of the remaining sources permit this use. 100 of the 258 hosts a reader
+  is sent to are not public administrations, and they carry 111 records. Two have
+  been read.
+
 ## 1.3.0 — 2026-10-18
 
 No record changes and no file under `data/` changes. `schema/edition.schema.json`
