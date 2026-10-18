@@ -1,11 +1,16 @@
 # M14 — Measure before replacing 025
 
-17 October 2026; develop 88fc645. The committed ledger contains 91 runs on three UTC
+17 October 2026; develop 88fc645. At that snapshot the ledger contained 91 runs on three UTC
 days: 8, 9 and 13 October. It has observed 504 URLs; 499 are still cited. Current
 verdicts are 364 HEALTHY, 107 FLAKY, 28 UNREACHABLE, zero GONE and zero NEW. Among the
 107 current FLAKY histories, 10 have an actual FAIL and 97 have PASS plus UNCHECKED
 only. The plan's description of all 107 as having failed was false. A report patch
 corrects that explanation and exposes the two counts; it changes no verdict.
+
+18 October correction: removal of a source without verified reuse permission
+leaves 496 pages cited by the current edition: 362 HEALTHY, 106 FLAKY (10 with
+FAIL, 96 with PASS plus UNCHECKED), and 28 UNREACHABLE. The ledger itself still
+contains the prior readings; the dated measurement above describes 17 October.
 
 Reproduce from the repository root with Node 24 using the accompanying
 measure-ledger.ts and the production readRuns/historyOf/collectSourceChecks functions.

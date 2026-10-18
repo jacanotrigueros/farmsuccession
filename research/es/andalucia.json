@@ -6,14 +6,14 @@
     "region": "andalucia"
   },
   "language": "es",
-  "updatedOn": "2026-09-27",
+  "updatedOn": "2026-10-18",
   "context": [
     "La Consejería de Agricultura publica cada ayuda en una página del área de infraestructuras agrarias con el seguimiento de la convocatoria; las fichas de la sede electrónica se generan con JavaScript y no son legibles.",
     "La formación de incorporación a la empresa agraria la organiza el IFAPA por sectores productivos.",
     "Las tierras públicas procedentes del antiguo IARA se venden por procedimientos con prioridad para jóvenes; es el instrumento autonómico de acceso a la tierra.",
     "La convocatoria 7202.06 de 2026 no equivale a un servicio abierto para cualquier nuevo agricultor: financia asesoramientos vinculados a solicitantes de establecimiento de 2024; comprobar entidades y periodo antes de afirmar disponibilidad.",
     "Las pistas locales de acceso a tierra necesitan una prueba de funcionamiento actual: una mención municipal o un reglamento vigente no bastan sin inventario, formulario o ruta de alta.",
-    "Los proyectos de relevo ganadero de Serranías Vivas son relevantes para la sucesión, pero deben distinguirse los programas ya operativos de las acciones todavía en despliegue y los ámbitos que cruzan comunidades autónomas."
+    "No se infiere una vía de relevo operativa a partir de la financiación de un proyecto o de un anuncio sin inscripción pública verificable."
   ],
   "portals": [
     {
@@ -40,11 +40,6 @@
       "name": "UPA Granada",
       "url": "https://upagranada.com/",
       "what": "Servicio propio de apoyo a la incorporación; verificar condiciones con el operador."
-    },
-    {
-      "name": "Serranías Vivas",
-      "url": "https://serraniasvivas.org/proyectos/",
-      "what": "Proyectos de mentoría y relevo generacional ganadero en las Serranías Béticas occidentales y proyectos multirregionales."
     }
   ],
   "openData": [],
@@ -225,27 +220,6 @@
       "resourceId": "andalucia-upa-granada-primera-instalacion",
       "checkedOn": "2026-09-27",
       "reason": "Página propia de servicio y contacto institucional leídos. Ámbito provincial, sin duplicar la ayuda autonómica ni presumir gratuidad. Coste y condiciones precisas pendientes de consulta al operador."
-    },
-    {
-      "id": "and-pastoreo-vivo",
-      "name": "Pastoreo Vivo",
-      "url": "https://serraniasvivas.org/nuevo-proyecto-pastoreo-vivo/",
-      "kind": "SUCCESSION_SERVICE",
-      "status": "ADMITTED",
-      "resourceId": "andalucia-pastoreo-vivo",
-      "foundBy": "and-relevo-ganadero-2026",
-      "checkedOn": "2026-09-27",
-      "reason": "Programa propio de Serranías Vivas que empareja nuevas incorporaciones con ganaderías en riesgo de cierre mediante nueve meses de aprendizaje remunerado y mentoría. Fundación Unicaja confirma que la cohorte 2026 está en ejecución hasta enero de 2027; no se presume nueva inscripción abierta."
-    },
-    {
-      "id": "and-releva",
-      "name": "RELEVA — Relevo generacional agrosilvopastoril para la infraestructura verde",
-      "url": "https://serraniasvivas.org/releva/",
-      "kind": "SUCCESSION_SERVICE",
-      "status": "TO_CHECK",
-      "foundBy": "and-relevo-ganadero-2026",
-      "checkedOn": "2026-09-27",
-      "reason": "Fundación Biodiversidad lo marca en ejecución (18/02/2026–30/06/2028) y prevé nodos de relevo, captación de sucesores, oportunidades de sucesión y banco de tierras en Cádiz, Málaga, Sevilla y Toledo. No se verificó todavía una ruta pública de entrada para titulares o sucesores; además el mismo instrumento cruza Andalucía y Castilla-La Mancha, por lo que no se duplica prematuramente en dos regiones."
     }
   ],
   "instrumentChecks": [
@@ -258,7 +232,7 @@
     {
       "expectedId": "es-sucesion-cese",
       "status": "NOT_FOUND",
-      "reason": "No se encontró una ayuda autonómica de cooperación para la sucesión o el cese dirigida a titulares que ceden la explotación. Pastoreo Vivo es un programa no lucrativo de mentoría y RELEVA un proyecto multirregional en despliegue; no sustituyen esa ayuda autonómica esperada.",
+      "reason": "No se encontró una ayuda autonómica de cooperación para la sucesión o el cese dirigida a titulares que ceden la explotación. Las pistas no verificadas no sustituyen esa ayuda autonómica esperada.",
       "checkedOn": "2026-09-27"
     },
     {
@@ -276,7 +250,7 @@
     {
       "expectedId": "es-organizaciones-asesoramiento",
       "status": "FOUND",
-      "leadId": "and-pastoreo-vivo",
+      "leadId": "andalucia-coag-almeria-incorporacion",
       "checkedOn": "2026-09-27"
     }
   ],
@@ -304,7 +278,12 @@
     {
       "date": "2026-09-27",
       "by": "CHATGPT (GPT-5.6 Sol)",
-      "summary": "Cierre de la pasada 1.9.0 de Andalucía: admitidas Escuela de Pastores y Pastoreo Vivo; publicada como noticia la resolución de 2.455 jóvenes y 129,95 M€. Jaén y Almócita quedan como bancos de tierras no operativamente verificados; COAG Andalucía 7202.06 sigue sin acceso abierto demostrado; RELEVA queda TO_CHECK por falta de ruta pública de entrada y por cruzar Andalucía/Castilla-La Mancha. No se infiere disponibilidad donde las fuentes no la acreditan."
+      "summary": "Cierre de la pasada 1.9.0 de Andalucía: admitida Escuela de Pastores; publicada como noticia la resolución de 2.455 jóvenes y 129,95 M€. Jaén y Almócita quedan como bancos de tierras no operativamente verificados; COAG Andalucía 7202.06 sigue sin acceso abierto demostrado. No se infiere disponibilidad donde las fuentes no la acreditan."
+    },
+    {
+      "date": "2026-10-18",
+      "by": "CHATGPT (Codex)",
+      "summary": "Se retiraron del brief las referencias y el registro previamente admitido de una entidad cuya licencia original impide reutilizar su contenido sin autorización; la pista se conserva fuera de Git. El instrumento de asesoramiento conserva otra pista admitida y verificada."
     }
   ]
 }
