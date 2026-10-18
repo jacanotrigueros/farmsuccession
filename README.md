@@ -42,6 +42,11 @@ than describing what it intends to be.
 
 ## What is published today
 
+[EU CAP Network discovery inventory](research/eu-cap-network-inventory.md) preserves
+the source provenance, row index for all EU countries and the existing workflow for
+researching additional countries when coverage expands. Its entries are research
+leads, not validated additions to the edition.
+
 The 2026 edition covers the European layer; Spain, with its three multi-island and
 multi-province groupings and its 28 regional territories; Germany, with its 16 Länder;
 France, with its 18 régions; Italy, with its 19 regions and two autonomous provinces; and

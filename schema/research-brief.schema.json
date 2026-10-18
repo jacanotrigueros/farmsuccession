@@ -344,8 +344,8 @@
           "maxLength": 200
         },
         "status": {
-          "description": "TO_CHECK: not yet evaluated, and it says what blocked it and what to do next. ADMITTED: published, and resourceId points at it. REJECTED: evaluated and left out, with the reason.",
-          "enum": ["TO_CHECK", "ADMITTED", "REJECTED"]
+          "description": "TO_CHECK: not yet evaluated, and it says what blocked it and what to do next. ADMITTED: published, and resourceId points at it. REJECTED: evaluated and left out, with the reason. NOT_PUBLISHABLE: real, possibly the best route a reader could have had, and not carried here because its source's terms do not permit the quoting every record rests on, or because the operator asked not to appear. The reading that settled it is in config/source-terms.json under that host; this is the trace that stops a later pass discovering it again and deciding the same thing from scratch.",
+          "enum": ["TO_CHECK", "ADMITTED", "REJECTED", "NOT_PUBLISHABLE"]
         },
         "resourceId": {
           "description": "The published resource this lead became, in this territory's edition files or in a layer it inherits.",
@@ -400,12 +400,12 @@
             "required": ["status"],
             "properties": {
               "status": {
-                "const": "REJECTED"
+                "enum": ["REJECTED", "NOT_PUBLISHABLE"]
               }
             }
           },
           "then": {
-            "description": "A rejection's reason is the only record of why the candidate was left out, and the only thing stopping the next pass from evaluating it again from scratch. An admission needs none: it names the resource it became, and that resource carries its own sources.",
+            "description": "The reason is the only record of why the candidate was left out, and the only thing stopping the next pass from evaluating it again from scratch — which is why it is required of a lead that was rejected and of one that cannot be published. An admission needs none: it names the resource it became, and that resource carries its own sources.",
             "type": "object",
             "required": ["reason"],
             "properties": {

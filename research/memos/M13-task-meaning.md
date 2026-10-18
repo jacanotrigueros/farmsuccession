@@ -10,13 +10,12 @@ more precise evidence than the resource category alone.
 
 Measured over the current edition:
 
-- 30 SUCCESSION_SERVICE records.
+- 29 SUCCESSION_SERVICE records.
 - 24 financial records with TRANSFER or RETIREMENT_SUCCESSION (22 and 10 respectively,
-  with overlap); a kind-plus-explicit-purpose candidate would find 54 unique records.
+  with overlap); a kind-plus-explicit-purpose candidate would find 53 unique records.
 - 72 records name TRANSFEROR: 29 succession services, 20 advice, 9 financial supports,
   9 land banks, 3 policy records, one network and one course.
-- One succession service, andalucia-pastoreo-vivo, does not name TRANSFEROR. Replacing
-  kind with profile would lose an existing record. Forty-six advice records do not
+- All 29 succession services name TRANSFEROR. Forty-six advice records do not
   name TRANSFEROR: adding all advice is not justified by that label either.
 
 Reproduce using JSON resource fields in data/editions/2026/**/*.json, selecting kind,

@@ -18,6 +18,7 @@ import { editionOf, EDITIONS_DIR, listEditionFiles, loadSnapshots, type LoadedSn
 import { damageInFile, damageInTree, type JsonDamage } from "./json-damage.ts";
 import { isEntryPoint, runMain } from "./paths.ts";
 import { checkPromptVersion, knownPromptVersions } from "./prompt-version.ts";
+import { addressesIn, loadSourceTerms, refuses } from "./source-terms.ts";
 import { loadTerritories, TERRITORIES_PATH } from "./territories.ts";
 import { checkEdition, checkSemantics, type Finding } from "./validate-edition.ts";
 
@@ -57,6 +58,29 @@ export function validateEditions(
 
   const { snapshots, problems } = loadSnapshots({ editionsDir, edition: options.edition });
   errors.push(...problems);
+
+  /*
+   * A source this project may not quote must not reach a published page.
+   *
+   * The same rule has tests, and a test is not what stands between a refused host and a deployment:
+   * the publish workflow runs this validator and nothing else. `config/source-terms.json` holds one
+   * reading per host, and a record is refused when either use it makes — quoting the page, or sending
+   * a reader to it — was read as not permitted, or was never read at all.
+   */
+  const terms = loadSourceTerms();
+  for (const snapshot of snapshots) {
+    for (const url of addressesIn(snapshot.data)) {
+      const reading = refuses(terms, url);
+      if (reading === null) continue;
+      errors.push({
+        file: snapshot.file,
+        message:
+          `cites ${url}: config/source-terms.json records that ${reading.host} does not permit this use ` +
+          `(quote ${reading.uses.quote}, link ${reading.uses.link}, read ${reading.readOn}). ` +
+          "Withdraw the record and leave its lead in the brief as NOT_PUBLISHABLE, so the next pass does not find it again.",
+      });
+    }
+  }
 
   const known = knownPromptVersions();
   const byEdition = new Map<string, LoadedSnapshot[]>();
