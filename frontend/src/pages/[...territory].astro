@@ -26,6 +26,7 @@ import {
   href,
   hubTerritories,
   isDraft,
+  recordHref,
   languageOf,
   regionsOf,
   type Territory,
@@ -104,9 +105,26 @@ const inheritedCount = inheritedGroups.reduce((total, { items }) => total + item
 /** A country speaks of itself as a country: what it runs is national, not "its own layer". */
 const isCountry = territory.layer.level === "COUNTRY";
 
+/**
+ * Every record that applies in a country, grouped by the layer that recorded it. The country page names
+ * each one directly: the search remains useful for narrowing, but it is not the only page that exposes
+ * the records below the national layer to readers and crawlers.
+ */
+const countryRecordGroups = isCountry
+  ? [territory, ...groupings, ...children, ...layers.filter((layer) => layer !== territory)]
+      .map((recordedIn) => ({
+        name: recordedIn.layer.level === "EU" ? text.euName : recordedIn.data.officialName,
+        recordedIn,
+        items: recordedIn.data.resources.toSorted((a, b) => a.name.localeCompare(b.name, language)),
+      }))
+      .filter(({ items }) => items.length > 0)
+  : [];
+const countryRecordCount = countryRecordGroups.reduce((total, { items }) => total + items.length, 0);
+
 /** The strip names the sections it leads to. Coverage closes the page and is not one of its answers. */
 const sections = [
   ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle }] : []),
+  ...(countryRecordCount > 0 ? [{ id: "all-records", label: text.everythingHere }] : []),
   { id: "needs", label: text.navNeeds },
   ...(isCountry && own.length === 0 ? [] : [{ id: "own", label: isCountry ? text.wholeCountryTitle : text.navOwn }]),
   ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav }] : []),
@@ -327,6 +345,37 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
           ),
         )}
       </ul>
+    </section>
+  )}
+
+  {countryRecordCount > 0 && (
+    <section class="border-y border-line bg-card" aria-labelledby="all-records">
+      <div class="wrap py-12">
+        <h2 id="all-records" class="scroll-mt-6 text-2xl font-bold">
+          {text.everythingHere}
+        </h2>
+        <p class="meta mt-1">{counted(countryRecordCount, text.record, language)}</p>
+        <div class="mt-6 grid items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {countryRecordGroups.map(({ name: from, recordedIn, items }) => (
+            <section class="card p-5" aria-label={from}>
+              <h3 class="text-lg font-bold">{from}</h3>
+              <ul class="mt-3 grid gap-2">
+                {items.map((resource) => (
+                  <li>
+                    <a
+                      href={recordHref(resource.id, recordedIn)}
+                      lang={languageOf(recordedIn)}
+                      class="inline-flex min-h-(--spacing-target) items-center font-bold text-brand-strong underline"
+                    >
+                      {resource.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </div>
     </section>
   )}
 
