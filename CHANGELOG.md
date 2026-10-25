@@ -10,6 +10,36 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.4.1 — 2026-10-25
+
+Nothing in the data changed. Two things the site put in front of a reader
+promised an action it could not perform, and both are gone.
+
+### A control that cannot act is not a control
+
+- **Each record asked whether the page helped and offered two answers styled as
+  buttons.** Both were `mailto:` links. Where no mail client is configured —
+  which is the common case, because most people read mail in a browser —
+  pressing one did nothing at all and the page looked broken; where one was
+  configured, an unexpected compose window opened instead.
+- **The question now ends in the address, written out**, where it can be read
+  and copied without being pressed. What became impossible: a record page
+  carrying a `mailto:` link shaped like a button, which a test over the built
+  site now refuses, in each of the six languages.
+- The correction form is untouched. It is a page that works, and it asks for
+  more than a yes or a no.
+
+### The page for an address that does not exist
+
+- `404.html` is served for every address this site does not have, so the address
+  a reader is at is the one they mistyped and never that file's. It carried a
+  canonical and an `og:url` naming `/404/` all the same, which the build does
+  not produce.
+- **It now claims no address of its own and asks to stay out of the index**,
+  while its links are still followed. Requested directly the file still answers
+  200, which is what static hosting does; what it no longer does is offer itself
+  as a result to somebody who was looking for an answer.
+
 ## 1.4.0 — 2026-10-19
 
 One record leaves the directory. That is the whole of what a reader sees, and the
