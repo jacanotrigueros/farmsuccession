@@ -141,6 +141,74 @@ test("every link inside the site reaches a page the build produced", () => {
 });
 
 /**
+ * A country's page is the stable, indexable entrance to everything documented below it. Search pages can
+ * narrow the same corpus, but they deliberately ask not to be indexed, so they cannot be the only place
+ * where the country names its records.
+ */
+test("a country page links every one of its records by name", () => {
+  let checked = 0;
+  for (const { file, html } of pages) {
+    const parts = file.split(path.sep);
+    const iso = (parts[0] ?? "").toUpperCase();
+    if (!/^[A-Z]{2}$/u.test(iso) || parts[1] !== recordSlug(iso)) continue;
+
+    const country = pages.find((page) => page.file === path.join(iso.toLowerCase(), "index.html"));
+    assert.ok(country, `${file} has no country page to link it`);
+
+    const address = `/${file.replace(/index\.html$/u, "")}`;
+    const heading = /<h1\b[^>]*>([\s\S]*?)<\/h1>/u.exec(html)?.[1];
+    assert.ok(heading, `${file} has no record name in its h1`);
+    const name = heading
+      .replaceAll(/<[^>]*>/gu, " ")
+      .replaceAll(/\s+/gu, " ")
+      .trim();
+    const link = [...country.html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === address);
+    assert.ok(link, `${country.file} does not link ${address}`);
+    const linkedName = (link[2] ?? "")
+      .replaceAll(/<[^>]*>/gu, " ")
+      .replaceAll(/\s+/gu, " ")
+      .trim();
+    assert.equal(linkedName, name, `${country.file} links ${address} without naming the record`);
+    checked += 1;
+  }
+  assert.ok(checked > 250, `only ${checked} country records were checked; the index did not cover the corpus`);
+});
+
+/**
+ * About, method, privacy and the former project's history remain one step from each home page. They are
+ * not repeated below every record: doing so makes project documentation the strongest destination in a
+ * directory whose records are the destination.
+ */
+test("project navigation is confined to home and country entry pages", () => {
+  let entryPages = 0;
+  let otherPages = 0;
+  for (const { file, html } of pages) {
+    const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0];
+    assert.ok(footer, `${file} has no footer`);
+    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const first = file.split(path.sep)[0] ?? "";
+    const inCountry = /^[a-z]{2}$/u.test(first);
+    const isCountry = inCountry && file === path.join(first, "index.html");
+    const isEntry = file === "index.html" || isCountry;
+    const root = inCountry ? `/${first}/` : "/";
+    const about = `${root}${words(language).aboutSlug}/`;
+    const history = `${root}${words(language).historySlug}/`;
+
+    if (isEntry) {
+      assert.ok(footer.includes(`href="${about}"`), `${file} does not lead to its project page`);
+      assert.ok(footer.includes(`href="${history}"`), `${file} does not lead to its history page`);
+      entryPages += 1;
+    } else {
+      assert.ok(!footer.includes(`href="${about}`), `${file} repeats project navigation in its footer`);
+      assert.ok(!footer.includes(`href="${history}`), `${file} repeats history navigation in its footer`);
+      otherPages += 1;
+    }
+  }
+  assert.equal(entryPages, 6, "the European and five country entry pages were not all checked");
+  assert.ok(otherPages > 400, "too few non-entry pages were checked for a site-wide footer rule");
+});
+
+/**
  * The home page counts the drafts rather than warning about one file, because it is about all of them;
  * every page about a single territory or record carries the warning itself. Either way the claim has to
  * follow the data, which is the one thing a reader cannot check for themselves.
