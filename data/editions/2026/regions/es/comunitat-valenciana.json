@@ -5,11 +5,11 @@
   "country": "ES",
   "region": "comunitat-valenciana",
   "officialName": "Comunitat Valenciana",
-  "published": "2026-10-13",
-  "summary": "La Comunitat Valenciana combina ayudas al establecimiento de personas jóvenes y nuevos agricultores, bancos de tierras municipales operativos en las tres provincias y asesoramiento específico de organizaciones agrarias. Una nueva convocatoria de establecimiento, registrada en la BDNS el 25 de septiembre de 2026, abrirá el 5 de octubre. No se ha verificado una ayuda o servicio operativo específico de sucesión/cese.",
+  "published": "2026-10-25",
+  "summary": "La Comunitat Valenciana combina ayudas al establecimiento de personas jóvenes y nuevos agricultores, bancos de tierras municipales operativos en las tres provincias y asesoramiento específico de organizaciones agrarias. Pedreguer y Callosa de Segura amplían las rutas públicas verificadas con formularios municipales para ofrecer y solicitar parcelas. No se ha verificado una ayuda o servicio operativo específico de sucesión/cese.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Pasada 1.9.0 sobre incorporación, sucesión, tierra, formación y asesoramiento. Se verificó la nueva convocatoria BDNS 931561, bancos de tierras accionables en València, Pinoso y Nules, asesoramiento específico de LA UNIÓ y una oferta actual de curso de incorporación. La Xarxa de Terres autonómica sigue sin una ruta regional operativa demostrada y no se encontró una ayuda o procedimiento de mediación específico de sucesión/cese.",
+    "note": "Pasada 1.9.0 sobre incorporación, sucesión, tierra, formación y asesoramiento. Se verificó la nueva convocatoria BDNS 931561, bancos de tierras accionables en València, Pinoso, Nules, Pedreguer y Callosa de Segura, asesoramiento específico de LA UNIÓ y una oferta actual de curso de incorporación. La Xarxa de Terres autonómica sigue sin una ruta regional operativa demostrada y no se encontró una ayuda o procedimiento de mediación específico de sucesión/cese.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -34,6 +34,18 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://nules.org/es/agricultura/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://pedreguer.es/es/agricultura-i-medi-ambient/banc-de-terres"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://pedreguer.es/d/1811158047632332342"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.callosadesegura.es/banco-de-tierras/"
       },
       {
         "method": "KNOWN_SOURCE",
@@ -292,6 +304,81 @@
       "generatorId": "chatgpt-1"
     },
     {
+      "id": "comunitat-valenciana-banco-tierras-callosa-segura",
+      "name": "Banco de Tierras de Callosa de Segura",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Callosa de Segura (Alicante)"
+      },
+      "operator": "Ayuntamiento de Callosa de Segura",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro municipal de parcelas cuyos propietarios aceptan una cesión, aparcería o alquiler. La entidad gestora pone en contacto a propietarios y personas interesadas y facilita los acuerdos.",
+      "whoCanUseIt": "Propietarios que quieren inscribir parcelas y personas que buscan tierra para ampliar la superficie que trabajan o iniciar una actividad agraria.",
+      "howToAccess": "Elegir en la página municipal la inscripción de parcelas o la demanda de tierras y completar el formulario correspondiente; el servicio contacta después con las personas interesadas.",
+      "accessUrl": "https://www.callosadesegura.es/banco-de-tierras/",
+      "accessCostType": "FREE",
+      "assetTypes": ["PLOTS"],
+      "languages": ["es", "ca"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.callosadesegura.es/banco-de-tierras/",
+          "title": "Banco de tierras — Ayuntamiento de Callosa de Segura",
+          "consultedOn": "2026-10-25",
+          "quotes": [
+            "Un Banco de Tierras consiste en un registro de campos que sus propietarios están dispuestos a hacer un contrato de cesión, aparceria o alquiler.",
+            "La entidad gestora se encarga de gestionar los contactos y facilitar los acuerdos.",
+            "Para inscribir o demandar tierras es muy sencillo haz clic sobre el botón que quieras INSCRIPCIÓN DE TIERRAS o DEMANDA DE TIERRAS y llena el formulario."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "comunitat-valenciana-banco-tierras-pedreguer",
+      "name": "Banco de Tierras de Pedreguer",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Pedreguer (Alicante)"
+      },
+      "operator": "Ajuntament de Pedreguer",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro municipal de ofertas y demandas de arrendamiento de parcelas agrarias. El Ayuntamiento difunde las ofertas y demandas y actúa como intermediario entre propietarios y personas que quieren poner las tierras en cultivo.",
+      "whoCanUseIt": "Propietarios de parcelas con aptitud agraria en Pedreguer y personas interesadas en acceder a tierra para iniciar o ampliar una actividad agrícola.",
+      "howToAccess": "Descargar desde la página municipal el formulario de alta o de consulta y presentarlo en el Registro de Entrada del Ayuntamiento de Pedreguer.",
+      "accessUrl": "https://pedreguer.es/es/agricultura-i-medi-ambient/banc-de-terres",
+      "assetTypes": ["PLOTS"],
+      "languages": ["ca", "es"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://pedreguer.es/es/agricultura-i-medi-ambient/banc-de-terres",
+          "title": "Banco de Tierras — Ajuntament de Pedreguer",
+          "consultedOn": "2026-10-25",
+          "quotes": [
+            "A continuación se expone la documentación del Banco de Tierras del Ayuntamiento de Pedreguer.",
+            "Solicitud de alta de parcelas",
+            "Solicitud de consulta de parcelas"
+          ]
+        },
+        {
+          "url": "https://pedreguer.es/d/1811158047632332342",
+          "title": "Reglament del Banc de Terres de l’Ajuntament de Pedreguer",
+          "consultedOn": "2026-10-25",
+          "quotes": [
+            "El Banc de Terres afavorirà la difusió d’ofertes i demandes de terres de conreu, i el contacte entre propietaris que oferisquen terrenys per a llogar i llauradors que vulguen llogar-les per a posar-les en cultiu.",
+            "L’Ajuntament de Pedreguer crearà un registre en què s’inscriuran les ofertes i demandes d’arrendament de terres",
+            "Qualsevol persona interessada podrà consultar el llistat de parcel·les donades d’alta al Banc de Terres de Pedreguer."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
       "id": "comunitat-valenciana-curso-incorporacion-empresa-agraria",
       "name": "Curso de Incorporación a la Empresa Agraria — Comunitat Valenciana",
       "kind": "TRAINING",
@@ -409,6 +496,6 @@
     "La Xarxa de Terres prevista en la Ley 5/2019 se mantiene como marco legal: no se ha localizado una plataforma autonómica única con inventario, alta y demanda de parcelas. La operación verificable se articula mediante bancos provinciales o municipales.",
     "No se ha localizado una convocatoria valenciana específica de ayuda a la sucesión/cese ni una bolsa pública de transmisión de explotaciones. El Servicio de Apoyo a la Familia y Relevo Generacional de la Generalitat tiene funciones de apoyo e instalación y teléfono público, pero no se ha verificado un procedimiento de intermediación o admisión de cedentes/sucesores equivalente a un servicio de sucesión.",
     "El curso de incorporación de INALOCAL es una oferta 2026 utilizable y el proveedor afirma reconocimiento por la Conselleria, pero su página sigue citando la Orden 7/2015; no se ha localizado un catálogo oficial que confirme individualmente ese curso bajo la Orden 9/2025, por lo que se representa como «Estado no confirmado».",
-    "La investigación local verificó bancos de tierras en las tres provincias mediante València, Pinoso y Nules, pero no pretende ser un inventario exhaustivo de todos los municipios valencianos."
+    "La investigación local verificó cinco bancos de tierras mediante València, Pinoso, Nules, Pedreguer y Callosa de Segura, pero no pretende ser un inventario exhaustivo de todos los municipios valencianos."
   ]
 }
