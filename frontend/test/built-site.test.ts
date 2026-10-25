@@ -241,6 +241,21 @@ test("the page for an address that does not exist speaks every language of the s
   const notFound = pages.find(({ file }) => file === "404.html");
   assert.ok(notFound, "the build produced no 404 page: an unknown address would answer with nothing at all");
 
+  // This file is served for every address that does not exist, so it is the one page with no address of
+  // its own. Requested directly it answers 200, which is what static hosting can do; what it must not do
+  // is ask to be indexed, or name an address nobody can open.
+  assert.match(
+    notFound.html,
+    /<meta name="robots" content="noindex/u,
+    "the 404 page does not ask to stay out of the index, so a search engine may offer a reader the apology instead of the answer",
+  );
+  assert.doesNotMatch(
+    notFound.html,
+    /rel="canonical"/u,
+    "the 404 page claims an address of its own, and the only address it could claim is the one the reader mistyped",
+  );
+  assert.ok(!notFound.html.includes("/404/"), "the 404 page points at /404/, which this build does not produce");
+
   const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
     jurisdictions: Record<string, { lang: string }>;
   };
@@ -595,14 +610,15 @@ test("no page styles anything inline, because the policy cannot cover an attribu
 });
 
 /**
- * The one question a yes or a no can answer about a record: did this page send you to the right place.
+ * The question a record asks, and the only shape it can honestly take on a site with no server.
  *
- * It is two links rather than a form or a script, because the cheapest thing a reader can do should be
- * the thing that tells us the most. Each one opens their own mail client with the answer, the record and
- * the page already written, so the whole cost is pressing send. Nothing is posted, counted or stored,
- * which is also why a reply address is the price and why this asks only one question.
+ * It was two links styled as buttons, each preparing a letter in the reader's mail client. Where no mail
+ * client is configured, pressing one did nothing and the page looked broken. A control is a promise that
+ * pressing it does something here, so the question now ends in an address that can be read and copied
+ * without being pressed. This test is that rule: a record may ask, and it may not ask with a control
+ * that cannot act.
  */
-test("every record asks whether it helped, in its own language, as two prefilled letters", () => {
+test("every record asks whether it helped and gives an address to answer at, not a button", () => {
   const byLanguage = new Set<string>();
   let checked = 0;
   for (const { file, html } of pages) {
@@ -613,24 +629,21 @@ test("every record asks whether it helped, in its own language, as two prefilled
     byLanguage.add(language);
     checked += 1;
 
-    const section = html.slice(at);
+    const end = html.indexOf("</section>", at);
+    assert.ok(end > at, `${file} never closes the section that asks the question`);
+    const section = html.slice(at, end);
+
     assert.ok(section.includes(text.helpfulQuestion), `${file} asks whether it helped in another language`);
+    assert.ok(section.includes(text.helpfulWriteIn), `${file} asks the question without saying where an answer goes`);
+    assert.ok(
+      section.includes(">contact@farmsuccession.eu<"),
+      `${file} keeps the address inside a link only, so a reader whose browser does nothing with mailto: cannot read or copy it`,
+    );
 
-    const letters = [...section.matchAll(/href="mailto:contact@farmsuccession\.eu\?([^"]*)"/gu)].slice(0, 2);
-    assert.equal(letters.length, 2, `${file} does not offer both answers as letters that are already written`);
-
-    for (const [, query] of letters) {
-      const asked = new URLSearchParams(query!.replaceAll("&#38;", "&").replaceAll("&amp;", "&"));
-      const subject = asked.get("subject") ?? "";
-      const body = asked.get("body") ?? "";
+    for (const [, href] of section.matchAll(/<a\b[^>]*class="[^"]*\bbtn\b[^"]*"[^>]*href="([^"]*)"/gu)) {
       assert.ok(
-        subject === text.reportMailSubjectUseful || subject === text.reportMailSubjectNotUseful,
-        `${file} files an answer under a subject no inbox can sort: ${subject}`,
-      );
-      assert.ok(body.includes("https://farmsuccession.eu/"), `${file} names the page as a path rather than an address somebody can open`);
-      assert.ok(
-        body.endsWith(text.helpfulYes) || body.endsWith(text.helpfulNo),
-        `${file} prepares a letter that never says which answer it carries`,
+        !(href ?? "").startsWith("mailto:"),
+        `${file} offers a mailto: link shaped like a button: where no mail client is configured, pressing it does nothing at all`,
       );
     }
   }

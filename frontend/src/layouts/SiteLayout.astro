@@ -26,12 +26,20 @@ type Props = {
    * its links are followed.
    */
   noindex?: boolean;
+  /**
+   * The one page with no address of its own. GitHub Pages serves `404.html` for every unknown path, so
+   * the address a reader is at is the one they mistyped and never this file's. A canonical would name
+   * `/404/`, which this build does not produce, so it and `og:url` would both be claims about a page
+   * nobody can open — and a search engine that believed them would offer a reader an apology where it
+   * meant to offer an answer.
+   */
+  canonical?: false;
   /** Only these documents have language versions; country directories describe different things. */
   documentKind?: "about" | "history";
 };
 
-const { title, description, language, current, noindex = false, documentKind } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const { title, description, language, current, noindex = false, canonical: hasAddress = true, documentKind } = Astro.props;
+const canonical = hasAddress ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 const socialCard = new URL("/social-card.png", Astro.site).href;
 const europe = documentKind ? euTerritory() : undefined;
 const versions = documentKind
@@ -51,7 +59,7 @@ const defaultVersion = versions.find(({ language }) => language === "en");
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {canonical && <link rel="canonical" href={canonical} />}
     {versions.map(({ language, url }) => (
       <link rel="alternate" hreflang={language} href={url} />
     ))}
@@ -60,7 +68,7 @@ const defaultVersion = versions.find(({ language }) => language === "en");
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
+    {canonical && <meta property="og:url" content={canonical} />}
     {/*
      * The card a link to this site shows when it is shared. It is first-party and committed like every
      * other asset here, and it is absolute because the service drawing the card is not reading it from
