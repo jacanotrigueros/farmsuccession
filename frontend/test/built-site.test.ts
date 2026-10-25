@@ -241,6 +241,21 @@ test("the page for an address that does not exist speaks every language of the s
   const notFound = pages.find(({ file }) => file === "404.html");
   assert.ok(notFound, "the build produced no 404 page: an unknown address would answer with nothing at all");
 
+  // This file is served for every address that does not exist, so it is the one page with no address of
+  // its own. Requested directly it answers 200, which is what static hosting can do; what it must not do
+  // is ask to be indexed, or name an address nobody can open.
+  assert.match(
+    notFound.html,
+    /<meta name="robots" content="noindex/u,
+    "the 404 page does not ask to stay out of the index, so a search engine may offer a reader the apology instead of the answer",
+  );
+  assert.doesNotMatch(
+    notFound.html,
+    /rel="canonical"/u,
+    "the 404 page claims an address of its own, and the only address it could claim is the one the reader mistyped",
+  );
+  assert.ok(!notFound.html.includes("/404/"), "the 404 page points at /404/, which this build does not produce");
+
   const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
     jurisdictions: Record<string, { lang: string }>;
   };

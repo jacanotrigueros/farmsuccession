@@ -30,7 +30,13 @@ const ways = countryTerritories()
   .map((territory) => ({ territory, language: languageOf(territory), text: words(languageOf(territory)) }));
 ---
 
-<SiteLayout title={`${text.notFoundTitle} · ${text.siteName}`} description={text.notFoundText} language={language}>
+<SiteLayout
+  title={`${text.notFoundTitle} · ${text.siteName}`}
+  description={text.notFoundText}
+  language={language}
+  canonical={false}
+  noindex
+>
   {/* The band every page of this site opens with, so the page that says you are lost still looks like the
     site you were in. There is no trail above its title: nothing sits above an address that was never
     built. */}
