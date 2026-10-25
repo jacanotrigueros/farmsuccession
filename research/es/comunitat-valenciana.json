@@ -6,7 +6,7 @@
     "region": "comunitat-valenciana"
   },
   "language": "es",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-10-25",
   "context": [
     "La Generalitat mantiene el procedimiento 571 como ruta de tramitación de la primera instalación. A 28/09/2026 la sede todavía muestra sobre todo la convocatoria 2025 y sus fases de modificación/justificación, pero la BDNS oficial ya ha registrado una nueva convocatoria con solicitud del 05/10/2026 al 04/12/2026.",
     "La Orden 9/2025 fija una prima base de 30.000 euros y máximo de 80.000 euros para jóvenes agricultores, y 20.000/70.000 euros para nuevos agricultores. La ventana de modificación del plan empresarial de beneficiarios 2025 no debe confundirse con una nueva convocatoria.",
@@ -88,6 +88,11 @@
       "id": "prepublication-2026-09-25-2",
       "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
       "query": "Comunitat Valenciana jóvenes agricultores ayudas"
+    },
+    {
+      "id": "cv-tierras-pedreguer-callosa-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "site:pedreguer.es OR site:callosadesegura.es banco de tierras formulario parcelas"
     }
   ],
   "leads": [
@@ -198,6 +203,30 @@
       "reason": "Programa piloto 2026 de 12 meses con 15 jóvenes de cooperativas concretas para liderazgo empresarial y relevo generacional. Es relevante, pero no se localizó una convocatoria pública de acceso ni un servicio de transmisión entre titulares y sucesores; se preserva como iniciativa limitada y no como recurso general de sucesión.",
       "foundBy": "cv-organizaciones-2026",
       "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cv-banco-tierras-pedreguer",
+      "name": "Banco de Tierras de Pedreguer",
+      "url": "https://pedreguer.es/es/agricultura-i-medi-ambient/banc-de-terres",
+      "kind": "LAND_BANK",
+      "area": "Pedreguer",
+      "status": "ADMITTED",
+      "resourceId": "comunitat-valenciana-banco-tierras-pedreguer",
+      "reason": "La página municipal publica reglamento y formularios de alta, consulta y baja; el reglamento delimita el servicio a Pedreguer y confirma el registro de ofertas y demandas y la intermediación municipal.",
+      "foundBy": "cv-tierras-pedreguer-callosa-2026",
+      "checkedOn": "2026-10-25"
+    },
+    {
+      "id": "cv-banco-tierras-callosa-segura",
+      "name": "Banco de Tierras de Callosa de Segura",
+      "url": "https://www.callosadesegura.es/banco-de-tierras/",
+      "kind": "LAND_BANK",
+      "area": "Callosa de Segura",
+      "status": "ADMITTED",
+      "resourceId": "comunitat-valenciana-banco-tierras-callosa-segura",
+      "reason": "La página municipal mantiene formularios públicos de inscripción y demanda y describe un registro operativo para cesión, aparcería o alquiler con gestión de contactos.",
+      "foundBy": "cv-tierras-pedreguer-callosa-2026",
+      "checkedOn": "2026-10-25"
     }
   ],
   "instrumentChecks": [
