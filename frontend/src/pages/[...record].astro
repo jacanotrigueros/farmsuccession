@@ -101,25 +101,19 @@ const reportQuery = new URLSearchParams({
 }).toString();
 
 /**
- * Whether this page did its job, in one click.
+ * Where a reader says this page did not do its job.
  *
- * The question a reader can answer about a record is not what it is worth in general; it is whether the
- * page sent them to the right official source. Two addresses, already written: the mail client opens with
- * the answer, the record and the page in it, and the reader presses send. No script, no request, nothing
- * that could be counted without somebody choosing to say it.
+ * It used to be two links styled as buttons, each one opening the reader's mail client with the answer
+ * already written. On a machine with no mail client configured — which is most of them, because most
+ * people read mail in a browser — pressing one did nothing at all and the page looked broken; where one
+ * was configured, an unexpected window opened instead. Something shaped like a button is a promise that
+ * pressing it does something here, and neither of those two ever could.
  *
- * A reply address is the price, and it is why this asks only the one question a yes or a no can answer.
+ * So the question keeps its answer in prose, with the address where it can be read, copied and written
+ * to from anywhere. Nothing on the page is pressed in the expectation that an answer was recorded, and
+ * the correction form below is still a page that works and asks for more than a yes or a no.
  */
-const helpfulBody = (answer: string): string =>
-  [
-    `${text.reportRecordLabel}: ${resource.name}`,
-    `${text.reportTerritoryLabel}: ${place}`,
-    `${text.reportFromLabel}: ${new URL(recordHref(resource.id, territory), Astro.site).href}`,
-    answer,
-  ].join("\n\n");
-
-const helpfulHref = (subject: string, answer: string): string =>
-  `mailto:contact@farmsuccession.eu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(helpfulBody(answer))}`;
+const contact = "contact@farmsuccession.eu";
 
 const facts: Array<{ label: string; value: string; icon: string; datetime?: string; href?: string }> = [
   { label: text.territoryRow, value: place, icon: ICON.territory, href: href(territory.layer) },
@@ -504,15 +498,12 @@ const reaches = leafLayers(territory.layer, territories)
       <p id="helpful" class="font-bold">
         {text.helpfulQuestion}
       </p>
-      <div class="mt-3 flex flex-wrap gap-3">
-        <a class="btn btn-quiet" href={helpfulHref(text.reportMailSubjectUseful, text.helpfulYes)}>
-          {text.helpfulYes}
+      <p class="mt-3 max-w-3xl">
+        {text.helpfulWriteIn}{" "}
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`mailto:${contact}`}>
+          {contact}
         </a>
-        <a class="btn btn-quiet" href={helpfulHref(text.reportMailSubjectNotUseful, text.helpfulNo)}>
-          {text.helpfulNo}
-        </a>
-      </div>
-      <p class="meta mt-3 max-w-3xl">{text.helpfulHint}</p>
+      </p>
       <p class="mt-6">
         <a class="btn btn-quiet" href={`${reportPath}?${reportQuery}`}>
           {text.reportChangeForm}
