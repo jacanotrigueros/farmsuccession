@@ -95,3 +95,33 @@ test("a record that documents a call says which one, before a result runs out of
   }
   assert.ok(checked > 50, `only ${checked} records documenting a call were checked; Spain and Italy alone hold more`);
 });
+
+/**
+ * What a result has room for, which is not what the page has room for.
+ *
+ * A description is written to be read on the page and ran to 238 characters in Spain and 191 in Germany,
+ * against the roughly 155 a result shows. The end of it was not shortened by anybody: it was simply not
+ * read, by the one reader who had not decided yet whether to open the page.
+ */
+test("a record's description ends inside what a result shows, in every country", () => {
+  const SNIPPET = 155;
+  const seen = new Set<string>();
+  for (const { snapshot, resource } of entries) {
+    const country = "country" in snapshot ? snapshot.country.toLowerCase() : "";
+    const route = `${country ? `${country}/` : ""}${recordSlug(country.toUpperCase())}/${resource.id}/`;
+    const html = readFileSync(path.join(ROOT, "frontend", "dist", route, "index.html"), "utf8");
+    const description = decodeHTML(/<meta name="description" content="([^"]*)"/u.exec(html)?.[1] ?? "");
+    seen.add(country || "eu");
+
+    assert.ok(description.length > 0, `${route}: the page offers a result no description at all`);
+    assert.ok(
+      description.length <= SNIPPET,
+      `${route}: the description runs to ${description.length} characters, and a result stops at about ${SNIPPET}`,
+    );
+    assert.ok(
+      !/\s…$/u.test(description),
+      `${route}: the description was cut after a space, which shows a result a gap before the ellipsis`,
+    );
+  }
+  assert.equal(seen.size, 6, "the five countries and the European layer were not all covered");
+});

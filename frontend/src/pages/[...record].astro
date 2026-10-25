@@ -100,10 +100,12 @@ const pageTitle = text.recordPageTitle.replace("{name}", titleName).replace("{si
  * where no result could carry it.
  *
  * So the call comes first, named the way its own source names it, and the summary follows in what is
- * left. Nothing is invented: a call name too long to leave room is reduced to the year it carries, and a
- * record that documents no call is described exactly as it was. Naming a call is not saying it is open,
- * which is a statement about a day and stays on the page beside the date its source was read
- * (`decisions/019`).
+ * left — and the summary ends inside that room whether or not there is a call in front of it, cut at a
+ * word rather than written past the edge of the result. Nothing is invented: a call name too long to
+ * leave room is reduced to the year it carries. Naming a call is not saying it is open, which is a
+ * statement about a day and stays on the page beside the date its source was read (`decisions/019`).
+ *
+ * The page itself still carries the whole summary. This is the line a result shows, and nowhere else.
  */
 const SNIPPET = 155;
 
@@ -126,13 +128,13 @@ const callNamed = !documentedCall
     : (/\b20\d{2}\b/u.exec(documentedCall.name)?.[0] ?? callYear(documentedCall));
 
 const pageDescription = ((): string => {
-  if (!callNamed) return resource.whatItOffers;
-  const lead = `${callNamed} · `;
+  const lead = callNamed ? `${callNamed} · ` : "";
   const room = SNIPPET - lead.length;
   const summary = resource.whatItOffers;
   if (summary.length <= room) return lead + summary;
   const cut = summary.slice(0, room - 1);
-  return `${lead}${cut.includes(" ") ? cut.slice(0, cut.lastIndexOf(" ")) : cut}…`;
+  const atWord = cut.includes(" ") ? cut.slice(0, cut.lastIndexOf(" ")) : cut;
+  return `${lead}${atWord.replace(/[\s,;:·—-]+$/u, "")}…`;
 })();
 
 /** Corrections start with the page the reader was looking at; they should not have to identify it again. */
