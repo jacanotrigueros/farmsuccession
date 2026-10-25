@@ -273,6 +273,31 @@ test("the page for an address that does not exist speaks every language of the s
   }
 });
 
+/**
+ * The crawl budget one form was spending.
+ *
+ * Every record and every territory offers the correction form with its own parameters already filled in,
+ * so the build emits hundreds of distinct addresses that a crawler fetches and then discards against the
+ * noindex the form carries. Nothing a reader sees is wrong: what it costs is the crawl of pages that have
+ * never been indexed at all. The links stay exactly as they are, and they stop asking to be followed.
+ */
+test("a link to the correction form does not ask a crawler to follow it", () => {
+  const slugs = [...new Set(["en", "es", "de", "fr", "it", "pt"].map((language) => words(language).reportSlug))];
+  const toTheForm = new RegExp(`<a\\b[^>]*href="(/(?:[a-z]{2}/)?(?:${slugs.join("|")})/[^"]*)"[^>]*>`, "gu");
+  let checked = 0;
+  for (const { file, html } of pages) {
+    for (const [tag, address] of html.matchAll(toTheForm)) {
+      checked += 1;
+      assert.match(
+        tag,
+        /rel="[^"]*nofollow/u,
+        `${file} asks a crawler to follow ${address}, one of the hundreds of permutations of one form that a crawl spends itself on while most of the site has never been indexed`,
+      );
+    }
+  }
+  assert.ok(checked > 400, `only ${checked} links to the form were checked; every record and every territory offers one`);
+});
+
 test("the sitemap lists every page the build produced, except the ones that ask not to be listed", () => {
   const xml = readFileSync(path.join(DIST, "sitemap.xml"), "utf8");
   const listed = new Set([...xml.matchAll(/<loc>https:\/\/farmsuccession\.eu([^<]*)<\/loc>/gu)].map(([, url]) => url ?? ""));
