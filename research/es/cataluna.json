@@ -6,7 +6,7 @@
     "region": "cataluna"
   },
   "language": "es",
-  "updatedOn": "2026-10-18",
+  "updatedOn": "2026-10-25",
   "context": [
     "Las fuentes oficiales están mayoritariamente en catalán: agricultura.gencat.cat y Ruralcat publican programas, formación y noticias; tramits.gencat.cat es la referencia para plazos y solicitud.",
     "La ficha estática antigua de primera instalación todavía mostraba 22.000 euros, pero el documento PEPAC actualizado el 28/04/2026 fija una prima base de 30.000 euros y un máximo de 100.000 euros. Para 2026 debe prevalecer la evidencia actualizada.",
@@ -84,6 +84,16 @@
       "id": "prepublication-2026-09-25-2",
       "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
       "query": "Cataluña jóvenes agricultores ayudas"
+    },
+    {
+      "id": "cat-term-relleu-generacional",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "query": "site:agricultura.gencat.cat mentoria \"relleu generacional\""
+    },
+    {
+      "id": "cat-term-reconversio",
+      "kinds": ["LAND_BANK"],
+      "query": "site:garriguesaltes.cat \"reconversió\" \"Banc de Terres\""
     }
   ],
   "leads": [
@@ -129,7 +139,18 @@
       "resourceId": "cataluna-mentoria-jovenes-agricultores",
       "reason": "Programa público de acompañamiento práctico para jóvenes de primera instalación y Mentoria Oberta para proyectos viables de personas de 18 a 65 años.",
       "foundBy": "cat-formacio",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-25"
+    },
+    {
+      "id": "cat-mentoria-relleu-generacional-source",
+      "name": "Mentoria Oberta dins de l’Estratègia de relleu generacional",
+      "url": "https://agricultura.gencat.cat/ca/dar_butlletins/butlleti-escoles-agraries/escoles-agraries-0005/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-mentoria-jovenes-agricultores",
+      "reason": "El boletín oficial de las Escoles Agràries sitúa expresamente la Mentoria Oberta dentro de la «Estratègia de relleu generacional de Catalunya 2023-2027».",
+      "foundBy": "cat-term-relleu-generacional",
+      "checkedOn": "2026-10-25"
     },
     {
       "id": "cat-banc-terres-diba",
@@ -171,9 +192,9 @@
       "kind": "LAND_BANK",
       "status": "ADMITTED",
       "resourceId": "cataluna-banco-tierras-garrigues",
-      "reason": "Servicio público y gratuito de intermediación de Garrigues Altes con acompañamiento a proyectos agrarios.",
+      "reason": "Servicio público y gratuito de intermediación de Garrigues Altes que acompaña proyectos agrarios, incluida la «reconversió de finques».",
       "foundBy": "cat-terres-local",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-25"
     },
     {
       "id": "cat-banc-terres-ripolles",
@@ -351,6 +372,11 @@
       "date": "2026-10-18",
       "by": "CHATGPT (Codex)",
       "summary": "Contraste dirigido de Annex II y fuentes primarias seleccionadas: se conservan pistas, duplicidades y bloqueos. No es una revisión territorial completa ni modifica fichas, estados o fechas de la edición."
+    },
+    {
+      "date": "2026-10-25",
+      "by": "CHATGPT (Codex)",
+      "summary": "Contraste dirigido de términos catalanes usados en búsquedas: «relleu generacional» se incorpora a la ficha de mentoría y «reconversió de finques» a la del Banc de Terres de les Garrigues, cada uno con cita literal de su fuente oficial. No se añade una traducción ni un idioma nuevo."
     }
   ]
 }
