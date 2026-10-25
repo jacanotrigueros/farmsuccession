@@ -90,6 +90,51 @@ const hasNamesake = records().some(({ resource: other }) => other.id !== resourc
 const titleName = resource.name + (hasNamesake ? ` — ${territory.data.officialName}` : "");
 const pageTitle = text.recordPageTitle.replace("{name}", titleName).replace("{site}", text.siteName);
 
+/**
+ * The line a result shows, which is the only place this site competes.
+ *
+ * The record's own summary went through unchanged. It is written to be read on the page and runs well
+ * past the roughly 155 characters a result has room for, so the end of it was never seen by anybody
+ * deciding whether to open the page; and the call the record documents — the thing a Spanish or Italian
+ * reader types the year of, `joven agricultor castilla-la mancha 2026` — sat further down the page,
+ * where no result could carry it.
+ *
+ * So the call comes first, named the way its own source names it, and the summary follows in what is
+ * left. Nothing is invented: a call name too long to leave room is reduced to the year it carries, and a
+ * record that documents no call is described exactly as it was. Naming a call is not saying it is open,
+ * which is a statement about a day and stays on the page beside the date its source was read
+ * (`decisions/019`).
+ */
+const SNIPPET = 155;
+
+const callYear = (call: { name: string; opens?: string; closes?: string }): string =>
+  (call.closes ?? call.opens ?? /\b20\d{2}\b/u.exec(call.name)?.[0] ?? "").slice(0, 4);
+
+/** The latest call the record documents: the one a reader searching this year is looking for. */
+const documentedCall = (resource.calls ?? []).toSorted((a, b) => callYear(a).localeCompare(callYear(b))).at(-1);
+
+/**
+ * A call is named the way its source names it. The longest name in this edition is 69 characters, which
+ * still leaves a readable sentence after it; a longer one would leave none, and is reduced to the year
+ * it carries rather than cut in the middle of what somebody else wrote.
+ */
+const NAME_ROOM = 70;
+const callNamed = !documentedCall
+  ? ""
+  : documentedCall.name.length <= NAME_ROOM
+    ? documentedCall.name
+    : (/\b20\d{2}\b/u.exec(documentedCall.name)?.[0] ?? callYear(documentedCall));
+
+const pageDescription = ((): string => {
+  if (!callNamed) return resource.whatItOffers;
+  const lead = `${callNamed} · `;
+  const room = SNIPPET - lead.length;
+  const summary = resource.whatItOffers;
+  if (summary.length <= room) return lead + summary;
+  const cut = summary.slice(0, room - 1);
+  return `${lead}${cut.includes(" ") ? cut.slice(0, cut.lastIndexOf(" ")) : cut}…`;
+})();
+
 /** Corrections start with the page the reader was looking at; they should not have to identify it again. */
 const reportCountry = territory.layer.level === "EU" ? "" : territory.layer.country.toLowerCase();
 const reportPath = reportCountry ? `/${reportCountry}/${text.reportSlug}/` : `/${text.reportSlug}/`;
@@ -222,7 +267,7 @@ const reaches = leafLayers(territory.layer, territories)
   .filter(Boolean);
 ---
 
-<SiteLayout title={pageTitle} description={resource.whatItOffers} language={language} current={href(territory.layer)}>
+<SiteLayout title={pageTitle} description={pageDescription} language={language} current={href(territory.layer)}>
   {/*
    * This page is the unit the search index is built from, and the only one: the territory pages list the
    * same records, and indexing them too would return a reader the same record several times over, once
