@@ -10,6 +10,96 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.5.0 — 2026-10-26
+
+Six records enter, seventeen say more than they did, and what a record offers a
+result page changed in every country. The new records are Italian and Spanish;
+the French work completes records that already existed.
+
+### What a record offers a result page
+
+- **Descriptions ran past the room a result has.** Three of them measured 213,
+  231 and 255 characters against the roughly 155 a result shows. Every
+  description now ends inside 155 characters, cut at a word and never mid-word,
+  in all six languages, and a test over the built site refuses one that does not.
+- **The call a record documents now opens its description.** Records held the
+  period in the data and nothing carried it to the line a result can show. Where
+  the call's name does not fit the room available, its year stands in for it.
+- **Every record is linked by name from its country page**, and not only from the
+  listing and search pages it was reachable through before.
+
+### The crawl stops going to one form
+
+- Each record linked to the correction form with its parameters already filled
+  in, so the build emitted 424 distinct URLs of a single form, each of them
+  fetched and then discarded against the `noindex` those pages carry.
+- **Those links now carry `rel="nofollow"`.** The form is untouched: it is still
+  one page, and it still works.
+
+### France: where each Safer acts, and what it was before
+
+- **Fifteen French records now name the territory their Safer acts in**, and
+  eight of them carry the département numbers the body publishes itself. A number
+  appears only where the source prints one; where a page names its départements
+  without numbers, no number is recorded.
+- **Five records say what the body was formed from.** Safer Grand Est, Safer
+  Normandie, Safer Bourgogne-Franche-Comté, Safer Nouvelle-Aquitaine and Safer
+  Occitanie each name the Safer they succeeded, so a record is no longer silent
+  about a name the body used to carry.
+- **Nineteen sources enter, every one of them a page the body publishes itself**,
+  quoted word for word and dated by the day it was read. Where the territory is
+  fixed by an arrêté in a gazette that refuses to be read by a machine, the
+  gazette is not cited: the fact comes from the operator's own page, or it does
+  not come in.
+- **Four land-agency records now say what else exists in their region**, which is
+  what this site can add beside the agency's own page.
+- One sentence was withdrawn instead of published. A record had gained a
+  statement about its own territory that no page had been read for, and the
+  publication date that arrived with it went back as well.
+
+### Italy and Spain: six records enter
+
+- **Italy gains its first three national records**, all ISMEA instruments:
+  Generazione Terra 2026, Banca nazionale delle Terre Agricole and Più Impresa.
+  Until now Italy was documented region by region only.
+- **Spain gains three public land banks**: Nordeste de Tenerife, Pedreguer and
+  Callosa de Segura.
+- **Two records in Catalunya carry the Catalan terms the Generalitat uses**,
+  inside their Spanish text. That documents the words a body uses for its own
+  instrument; it is not a seventh language and does not claim to be one.
+
+324 records over 101 edition files, against 318 in 1.4.1.
+
+## 1.4.1 — 2026-10-25
+
+Nothing in the data changed. Two things the site put in front of a reader
+promised an action it could not perform, and both are gone.
+
+### A control that cannot act is not a control
+
+- **Each record asked whether the page helped and offered two answers styled as
+  buttons.** Both were `mailto:` links. Where no mail client is configured —
+  which is the common case, because most people read mail in a browser —
+  pressing one did nothing at all and the page looked broken; where one was
+  configured, an unexpected compose window opened instead.
+- **The question now ends in the address, written out**, where it can be read
+  and copied without being pressed. What became impossible: a record page
+  carrying a `mailto:` link shaped like a button, which a test over the built
+  site now refuses, in each of the six languages.
+- The correction form is untouched. It is a page that works, and it asks for
+  more than a yes or a no.
+
+### The page for an address that does not exist
+
+- `404.html` is served for every address this site does not have, so the address
+  a reader is at is the one they mistyped and never that file's. It carried a
+  canonical and an `og:url` naming `/404/` all the same, which the build does
+  not produce.
+- **It now claims no address of its own and asks to stay out of the index**,
+  while its links are still followed. Requested directly the file still answers
+  200, which is what static hosting does; what it no longer does is offer itself
+  as a result to somebody who was looking for an answer.
+
 ## 1.4.0 — 2026-10-19
 
 One record leaves the directory. That is the whole of what a reader sees, and the
