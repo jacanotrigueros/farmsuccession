@@ -35,17 +35,16 @@ consistency, not that the download is the published object. A consumer needs the
 manifest from the publication they mean to cite. The list covers the named JSON
 files; it does not assert that a download contains no unrelated extra files.
 
-## What M17 still needs
+## The published 2026 object
 
-The 1.2.0 release has no attached edition asset or checksum manifest as observed on
-17 October 2026. Its public source commit is
-`a6ed742b0bc0460ccebb24542e5b12a4e901b283`. A full commit identifier can pin a source
-object without assuming a movable tag is immutable. The corpus bytes do not change
-merely because the site receives a new interface version.
+The 2026 edition is frozen at full Git commit
+`dfe9b15be6618bc5868f7163c3e38e8efa809b12`. That object contains the 101 JSON files,
+their published `data/manifests/2026.sha256` manifest and all repository context. The
+edition is named, cited, retrieved and independently checked as described in
+[`CITATION.md`](../CITATION.md). The checksum set covers only the edition JSON; the
+catalogue, schemas, research briefs and methodology accompany the repository object
+as supporting material.
 
-The maintainer still has to settle the edition identifier, stable public location
-and what accompanies the data: catalogue, schemas, prompt snapshots and rights
-notice. Those choices determine the citation and download, and are not made by this
-command. A published manifest would then be generated from the chosen frozen source
-and retrieved alongside it. No release, upload, public download route or new review
-state is created automatically. M17 is not marked complete by this tool.
+Corrections receive a different full commit identifier and manifest. A release or
+site version does not silently rename the data edition, and neither this publication
+nor the checksum creates a new review state.

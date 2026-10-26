@@ -10,6 +10,9 @@ It is a directory of public, source-linked references, not a replacement for the
 official services. Every entry states when its sources were read. Automatic checks
 try to read them again; they do not replace human review or confirm current availability.
 
+[Cite and verify the frozen 2026 edition](CITATION.md), identified by its full
+Git commit and a published SHA-256 manifest covering all 101 JSON files.
+
 ## The rule everything else serves
 
 **No source, no entry.** A record exists only with at least one public HTTPS
