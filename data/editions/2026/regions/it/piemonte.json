@@ -5,11 +5,11 @@
   "country": "IT",
   "region": "piemonte",
   "officialName": "Piemonte",
-  "published": "2026-10-08",
-  "summary": "Il Piemonte ha un bando SRE01 aperto per il primo insediamento dei giovani agricoltori fino al 2 ottobre 2026. La Regione descrive inoltre un corso di 150 ore per giovani e nuovi agricoltori, ma la pagina non indica una nuova sessione successiva a gennaio 2026.",
+  "published": "2026-10-26",
+  "summary": "Il Piemonte documenta il bando SRE01 per il primo insediamento dei giovani agricoltori, un corso regionale di 150 ore e l'elenco ufficiale delle associazioni fondiarie che recuperano e gestiscono terreni frammentati, incolti o abbandonati. Il bando è scaduto il 2 ottobre 2026 e la pagina del corso non indica una nuova sessione successiva a gennaio 2026.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Ricontrollati bando SRE01, proroga, corso regionale di 150 ore, normativa e guida sulla Banca della Terra, associazioni fondiarie e servizi delle organizzazioni agricole. Non verificati l'inventario operativo regionale né una nuova sessione del corso.",
+    "note": "Ricontrollati bando SRE01, proroga, corso regionale di 150 ore, normativa e guida sulla Banca della Terra, elenco regionale delle associazioni fondiarie e servizi delle organizzazioni agricole. Non verificati l'inventario operativo della Banca della Terra, la disponibilità di lotti presso ogni associazione né una nuova sessione del corso.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -42,6 +42,10 @@
       {
         "method": "WEB_SEARCH",
         "detail": "associazione fondiaria Piemonte terreni adesione agricoltori sito"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.regione.piemonte.it/web/temi/ambiente-territorio/montagna/associazioni-fondiarie-0"
       }
     ]
   },
@@ -154,13 +158,48 @@
           ]
         }
       ]
+    },
+    {
+      "id": "piemonte-elenco-associazioni-fondiarie",
+      "name": "Elenco regionale delle associazioni fondiarie",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Piemonte",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Quadro ufficiale delle associazioni fondiarie piemontesi ed elenco suddiviso per provincia. La pagina spiega come queste associazioni raggruppano e gestiscono terreni agricoli, forestali o misti frammentati, incolti o abbandonati e possono concederli in affitto a membri o soggetti esterni.",
+      "whoCanUseIt": "Proprietari pubblici o privati che vogliono conferire volontariamente terreni mantenendone la proprietà e soggetti interessati a condurre terreni affidati da una delle associazioni locali.",
+      "howToAccess": "Consultare l'elenco provinciale per individuare l'associazione del territorio. I proprietari possono partire dal modulo regionale di adesione; chi cerca terreni deve verificare direttamente con l'associazione locale l'eventuale disponibilità, le condizioni di conduzione e il contratto.",
+      "accessUrl": "https://www.regione.piemonte.it/web/temi/ambiente-territorio/montagna/associazioni-fondiarie-0",
+      "accessCostType": "UNKNOWN",
+      "languages": ["it"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://www.regione.piemonte.it/web/temi/ambiente-territorio/montagna/associazioni-fondiarie-0",
+          "title": "Le associazioni fondiarie — Regione Piemonte",
+          "consultedOn": "2026-10-26",
+          "quotes": [
+            "Le Associazioni Fondiarie nascono con l’obiettivo di recuperare la produttività delle proprietà fondiarie frammentate e dei terreni agricoli incolti o abbandonati attraverso la gestione associata",
+            "È una libera unione fra proprietari di terreni pubblici o privati con l’obiettivo di raggruppare aree agricole e boschi, abbandonati o incolti, per consentirne un uso economicamente sostenibile e produttivo.",
+            "Ogni associato aderisce su base volontaria e gratuita e conserva la proprietà dei beni, che non sono usucapibili.",
+            "cessione in affitto dei terreni a soggetti membri dell’associazione stessa o a soggetti esterni che si impegnano a condurli nel rispetto delle buone pratiche agricole, degli equilibri idrogeologici, della salvaguardia dell’ambiente e del paesaggio e nel segno dell’economicità ed efficienza",
+            "I soci possono aderire all’associazione compilando un modulo (modulo adesione soci) in cui si definiscono i terreni di proprietà concessi in uso e si dichiara di aver letto, approvato e accettato quanto previsto dallo Statuto.",
+            "Di seguito l'elenco delle Associazioni Fondiarie piemontesi, costituite ai sensi della L.r. 21/2016, suddivise per provincia."
+          ]
+        }
+      ],
+      "notes": "L'elenco regionale non prova che ciascuna associazione disponga oggi di terreni liberi né pubblica per tutte un contatto, un canone o condizioni contrattuali. L'adesione dei proprietari è descritta come gratuita, ma i termini di un eventuale affitto restano da verificare con l'associazione interessata.",
+      "generatorId": "chatgpt-1"
     }
   ],
   "news": [],
   "limitations": [
     "La guida regionale descrive la Banca della Terra come inventario pubblico, ma non è stata verificata la consultazione effettiva dei lotti né una domanda di assegnazione.",
     "La pagina del corso di 150 ore non comunica una sessione o un termine di iscrizione successivo a gennaio 2026.",
-    "Le associazioni fondiarie locali consultate descrivono conferimenti e gestione di terreni; resta da verificare la disponibilità attuale di superfici per nuovi conduttori.",
+    "L'elenco regionale documenta il meccanismo e le associazioni costituite, ma non la disponibilità attuale di superfici né le condizioni offerte ai nuovi conduttori da ciascuna associazione.",
     "Non è stato verificato uno sportello piemontese distinto e continuativo delle organizzazioni agricole specifico per insediamento o successione."
   ]
 }

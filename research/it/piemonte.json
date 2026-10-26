@@ -6,7 +6,7 @@
     "region": "piemonte"
   },
   "language": "it",
-  "updatedOn": "2026-09-28",
+  "updatedOn": "2026-10-26",
   "context": [
     "Il portale Bandi Piemonte pubblica stato, apertura, scadenza, procedura e allegati dei bandi agricoli regionali.",
     "Il bando SRE01 è aperto e distingue correttamente il programma attivo dalla finestra di domanda corrente.",
@@ -14,7 +14,8 @@
     "Una banca della terra prevista dalla normativa non va ammessa senza inventario, assegnazione o accesso operativo verificabile.",
     "Passata con la lista di controllo nazionale su un file esistente: restavano da compilare solo gli strumenti attesi.",
     "Il vademecum regionale descrive la Banca della Terra piemontese come inventario di terreni disponibili, ma occorre raggiungere l'inventario effettivo prima di attribuirle operatività.",
-    "Le associazioni fondiarie sono soggetti locali distinti dalla Banca regionale della terra; una loro pagina storica non dimostra che oggi abbiano lotti liberi per nuovi conduttori."
+    "Le associazioni fondiarie sono soggetti locali distinti dalla Banca regionale della terra. La Regione pubblica un elenco provinciale e descrive l'affitto a membri o soggetti esterni, ma questo non dimostra che ogni associazione abbia oggi lotti liberi per nuovi conduttori.",
+    "Il 26.10.2026 la pagina ufficiale delle associazioni fondiarie è stata letta nel servizio di consultazione web, mentre il controllo diretto del repository ha ricevuto HTTP 503 dall'intero portale regionale. Il relativo esito UNCHECKED non prova una modifica o una scomparsa della fonte."
   ],
   "portals": [
     {
@@ -69,6 +70,11 @@
       "id": "piemonte-organizzazioni",
       "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
       "query": "Piemonte Coldiretti CIA Confagricoltura servizio specifico insediamento subentro consulenza"
+    },
+    {
+      "id": "piemonte-asfo-elenco-2026",
+      "kinds": ["OFFICIAL_PORTAL", "LAND_BANK"],
+      "query": "site:regione.piemonte.it associazioni fondiarie elenco provincia affitto terreni soggetti esterni"
     }
   ],
   "leads": [
@@ -113,6 +119,17 @@
       "reason": "La pagina propria documenta terreni un tempo affidati a giovani locali e pubblica moduli di adesione del 2022 e 2023. Verificare lotti oggi liberi, accesso per nuovi conduttori e attività corrente prima di ammettere un servizio di accesso alla terra.",
       "foundBy": "piemonte-asfo",
       "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "piemonte-asfo-elenco-regionale",
+      "name": "Elenco regionale delle associazioni fondiarie",
+      "url": "https://www.regione.piemonte.it/web/temi/ambiente-territorio/montagna/associazioni-fondiarie-0",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "piemonte-elenco-associazioni-fondiarie",
+      "reason": "La pagina ufficiale letta il 26.10.2026 descrive la gestione associata dei terreni frammentati, incolti o abbandonati, l'adesione volontaria dei proprietari, la possibilità di affitto a membri o soggetti esterni e l'elenco delle associazioni costituite suddiviso per provincia. È ammessa come portale regionale, non come prova che ogni associazione disponga di lotti aperti né come duplicato della Banca regionale della terra.",
+      "foundBy": "piemonte-asfo-elenco-2026",
+      "checkedOn": "2026-10-26"
     },
     {
       "id": "piemonte-asfo-la-serra",
@@ -186,6 +203,11 @@
       "date": "2026-09-28",
       "by": "CHATGPT (Codex)",
       "summary": "Passata 1.9.0: riconfermata la finestra SRE01 aperta fino al 2 ottobre 2026 e ammesso il corso regionale di 150 ore con stato UNKNOWN. Esaminati vademecum fondiario, associazioni locali e organizzazioni agricole; restano da verificare inventario, nuovi posti nel corso e accesso corrente ai terreni."
+    },
+    {
+      "date": "2026-10-26",
+      "by": "CHATGPT (Codex)",
+      "summary": "Letta la pagina regionale delle associazioni fondiarie e ammessa come portale ufficiale: documenta adesione dei proprietari, gestione associata, affitto a membri o soggetti esterni ed elenco provinciale. Le singole associazioni restano separate e la pagina non prova disponibilità attuale, canoni o contratti."
     }
   ]
 }
