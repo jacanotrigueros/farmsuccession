@@ -4,11 +4,11 @@
   "edition": "2026",
   "country": "IT",
   "officialName": "Italia",
-  "published": "2026-09-14",
-  "summary": "In Italia gli strumenti nazionali di accesso alla terra, ingresso in agricoltura e subentro sono gestiti da ISMEA, ma non sono ancora pubblicati in questo elenco: mancano pagine specifiche e verificabili per ciascuno strumento.",
+  "published": "2026-10-26",
+  "summary": "Generazione Terra finanzia a livello nazionale l’acquisto di terreni agricoli da parte di giovani imprenditori e startupper; Banca delle Terre Agricole e Più Impresa restano da verificare separatamente.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Sono stati ricercati gli strumenti ISMEA e il quadro PAC nazionale. Banca delle Terre Agricole, Generazione Terra e Più Impresa restano piste finché accesso e stato corrente non sono verificati sulle pagine specifiche.",
+    "note": "La pagina ufficiale di Generazione Terra è stata riletta con l’edizione 2026, la finestra di domanda, i profili, le condizioni principali e l’accesso. Banca delle Terre Agricole e Più Impresa restano piste separate da verificare.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -36,14 +36,93 @@
         "tool": "CHATGPT",
         "model": "Codex",
         "promptVersion": "1.1.0",
-        "processedAt": "2026-09-14"
+        "processedAt": "2026-10-26"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "it-generazione-terra",
+      "name": "Generazione Terra",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "ISMEA",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Finanziamento fino al 100% del prezzo di acquisto di terreni agricoli per ampliare o consolidare un’azienda condotta da giovani o avviare una nuova impresa agricola.",
+      "whoCanUseIt": "Giovani imprenditori agricoli di età inferiore a 41 anni, giovani startupper con esperienza fino a 41 anni e giovani startupper con titolo di età inferiore a 35 anni.",
+      "howToAccess": "Registrarsi e presentare la domanda firmata elettronicamente tramite lo sportello telematico ISMEA durante una finestra pubblicata.",
+      "accessUrl": "https://www.ismea.it/Startup/GenerazioneTerra",
+      "instrumentType": "LOAN",
+      "purposes": ["FIRST_ESTABLISHMENT", "LAND_ACQUISITION"],
+      "calls": [
+        {
+          "name": "Nuova Edizione 2026",
+          "state": "CLOSED",
+          "opens": "2026-04-22",
+          "closes": "2026-06-19",
+          "sourceUrl": "https://www.ismea.it/Startup/GenerazioneTerra"
+        }
+      ],
+      "languages": ["it"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-04-22",
+      "metrics": [
+        {
+          "measure": "BUDGET_TOTAL",
+          "label": "Dotazione finanziaria di Generazione Terra 2026",
+          "value": 120000000,
+          "unit": "EUR",
+          "asOf": "2026-04-22",
+          "sourceUrl": "https://www.ismea.it/Startup/GenerazioneTerra"
+        },
+        {
+          "measure": "LOAN_PER_BENEFICIARY_MAX",
+          "label": "Intervento massimo per giovani imprenditori agricoli e startupper con esperienza",
+          "value": 1500000,
+          "unit": "EUR",
+          "asOf": "2026-04-22",
+          "sourceUrl": "https://www.ismea.it/Startup/GenerazioneTerra"
+        },
+        {
+          "measure": "LOAN_PER_BENEFICIARY_MAX",
+          "label": "Intervento massimo per giovani startupper con titolo",
+          "value": 500000,
+          "unit": "EUR",
+          "asOf": "2026-04-22",
+          "sourceUrl": "https://www.ismea.it/Startup/GenerazioneTerra"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.ismea.it/Startup/GenerazioneTerra",
+          "title": "Generazione Terra - I nuovi interventi fondiari ISMEA dedicati ai giovani",
+          "consultedOn": "2026-10-26",
+          "quotes": [
+            "La presentazione delle domande di accesso alle agevolazioni può essere effettuata a partire dalle ore 12.00 del giorno mercoledì 22 aprile 2026, data di apertura dello sportello telematico, fino alle ore 12.00 del giorno venerdì 19 giugno 2026.",
+            "La domanda deve essere sottoscritta con firma elettronica, da apporre esclusivamente in modalità PAdES.",
+            "La dotazione finanziaria assegnata alla misura Generazione Terra 2026 è di complessivi 120 milioni di euro",
+            "Generazione Terra finanzia fino al 100% del prezzo di acquisto di terreni da parte di giovani di età non superiore a 41 anni che intendono ampliare la superficie della propria azienda agricola ovvero avviare un'iniziativa imprenditoriale in agricoltura, in qualità di capo azienda.",
+            "a) Giovani imprenditori agricoli (età non superiore a 41 anni non compiuti)",
+            "b) Giovani startupper con esperienza (GSE) (età non superiore a 41 anni)",
+            "c) Giovani startupper con titolo (GST), di età non superiore a 35 anni non compiuti",
+            "L'acquisto di terreni agricoli.",
+            "1) 1.500.000 euro, in caso di Giovani imprenditori agricoli e Giovani startupper con esperienza;",
+            "2) 500.000 euro, in caso di Giovani startupper con titolo.",
+            "Fino a 30 anni di cui al massimo 2 di preammortamento.",
+            "PER ACCEDERE AL PORTALE OCCORRE ESSERE IN POSSESSO DELLE RELATIVE CREDENZIALI"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1",
+      "notes": "La durata del finanziamento può arrivare a 30 anni, con al massimo 2 anni di preammortamento."
+    }
+  ],
   "news": [],
   "limitations": [
-    "Le pagine specifiche degli strumenti ISMEA non erano leggibili in modo affidabile durante questa passata; nessun dato è stato inferito dai soli risultati di ricerca.",
+    "Banca delle Terre Agricole e Più Impresa restano da verificare sulle rispettive pagine e procedure ufficiali.",
     "I premi di primo insediamento sono attuati territorialmente e saranno descritti nei file regionali."
   ]
 }
