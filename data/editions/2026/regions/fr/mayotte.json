@@ -5,11 +5,11 @@
   "country": "FR",
   "region": "mayotte",
   "officialName": "Mayotte",
-  "published": "2026-09-20",
-  "summary": "Aucune ressource propre à Mayotte n’a pu être vérifiée dans cette passe : le site des services agricoles de l’État n’a pas répondu, celui de l’établissement foncier présente un certificat expiré et le domaine qui présentait les fonds européens a été détourné vers un contenu sans rapport.",
+  "published": "2026-10-26",
+  "summary": "Mayotte publie deux aides FEADER ouvertes à la première installation : l’intervention 75.01 pour les jeunes agriculteurs et l’intervention 75.05 pour les nouveaux agriculteurs de 40 ans révolus qui n’ont pas atteint 62 ans. Les deux dossiers peuvent être déposés directement sur SAFRAN pendant la programmation 2023-2027.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Recherches sur l’aide à l’installation et sur l’opérateur foncier mahorais. Aucune des sources officielles consultées n’était exploitable lors de cette passe.",
+    "note": "Les pages officielles et les fiches d’intervention 2026 des aides 75.01 et 75.05 ont été vérifiées. Elles distinguent les publics, les conditions et les montants et donnent un accès direct au dépôt SAFRAN. Aucun service propre de transmission ni mécanisme foncier opérationnel n’a encore été vérifié.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -18,6 +18,14 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://daaf.mayotte.agriculture.gouv.fr/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://daaf.mayotte.agriculture.gouv.fr/75-01-aides-a-l-installation-du-jeune-agriculteur-ouvert-a617.html"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://daaf.mayotte.agriculture.gouv.fr/75-05-aide-a-l-installation-du-nouvel-agriculteur-ouvert-a619.html"
       }
     ]
   },
@@ -36,12 +44,124 @@
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "mayotte-feader-installation-jeune-agriculteur",
+      "name": "75.01 — Aides à l’installation du jeune agriculteur",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direction de l’alimentation, de l’agriculture et de la forêt de Mayotte",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Dotation en capital pour la première installation et le renouvellement des générations agricoles à Mayotte. Pour une installation à titre principal, l’aide peut atteindre 49 000 euros selon les difficultés d’installation retenues.",
+      "whoCanUseIt": "Personnes physiques âgées de 40 ans au plus à la date de la demande, qui démarrent une activité agricole dont le siège et la zone d’exploitation sont à Mayotte et respectent les conditions de qualification ou d’expérience de la fiche d’intervention.",
+      "howToAccess": "Déposer directement la demande FEADER sur SAFRAN. La page officielle indique que l’intervention est ouverte et qu’un dossier peut être déposé pendant toute la programmation 2023-2027.",
+      "accessUrl": "https://daaf.mayotte.agriculture.gouv.fr/75-01-aides-a-l-installation-du-jeune-agriculteur-ouvert-a617.html",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["fr"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-03-19",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Dotation maximale pour une installation à titre principal",
+          "value": 49000,
+          "unit": "EUR",
+          "asOf": "2026-10-26",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/IMG/pdf/fi_75.01_aide_a_l_installation_du_jeune_agriculteur__v2_0.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://daaf.mayotte.agriculture.gouv.fr/75-01-aides-a-l-installation-du-jeune-agriculteur-ouvert-a617.html",
+          "title": "75.01 - Aides à l’installation du jeune agriculteur (OUVERT) — DAAF Mayotte",
+          "consultedOn": "2026-10-26",
+          "quotes": [
+            "Intervention disponible sur Safran depuis le 19/02/2024",
+            "L’intervention 75.01 \"Aides à l’installation du jeune agriculteur\" vise à favoriser l’installation et le renouvellement des générations pour encourager le maintien de l’activité agricole et préserver la surface agricole utile (SAU), permettant la souveraineté alimentaire de la France.",
+            "Il est possible de déposer un dossier tout le long de la programmation 2023-2027 sur l’intervention 75.01 directement sur Safran"
+          ]
+        },
+        {
+          "url": "https://daaf.mayotte.agriculture.gouv.fr/IMG/pdf/fi_75.01_aide_a_l_installation_du_jeune_agriculteur__v2_0.pdf",
+          "title": "Fiche intervention FEADER 75.01 — Aides à l’installation du jeune agriculteur, version 2.0",
+          "consultedOn": "2026-10-26",
+          "quotes": [
+            "Date de publication 19/03/2026",
+            "Les projets doivent être mis en œuvre sur le territoire de Mayotte.",
+            "Être âgé de 40 ans au plus à la date de la demande",
+            "Plafond 49 000 € de dépenses publiques",
+            "Le montant de l’aide est sur la base d’un forfait, pour une installation à titre principal l’agriculteur touche 100% du forfait tandis qu'en cas d'installation à titre secondaire le montant forfaitaire est divisé par deux."
+          ]
+        }
+      ],
+      "notes": "La fiche fixe des conditions supplémentaires de qualification, d’expérience, de viabilité et de plan d’entreprise. Le montant dépend des points liés aux difficultés d’installation ; le forfait est divisé par deux pour une installation à titre secondaire.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "mayotte-feader-installation-nouvel-agriculteur",
+      "name": "75.05 — Aide à l’installation du nouvel agriculteur",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direction de l’alimentation, de l’agriculture et de la forêt de Mayotte",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Dotation de 20 000 euros en capital, versée en deux tranches, pour le démarrage de l’activité agricole d’un nouvel agriculteur à Mayotte.",
+      "whoCanUseIt": "Personnes physiques ayant 40 ans révolus sans avoir atteint 62 ans ni l’âge légal limite de départ à la retraite à taux plein, qui démarrent une activité agricole à Mayotte et respectent les conditions d’activité, d’affiliation, de qualification ou d’expérience et de plan d’entreprise.",
+      "howToAccess": "Déposer directement la demande FEADER sur SAFRAN. La page officielle indique que l’intervention est ouverte et qu’un dossier peut être déposé pendant toute la programmation 2023-2027.",
+      "accessUrl": "https://daaf.mayotte.agriculture.gouv.fr/75-05-aide-a-l-installation-du-nouvel-agriculteur-ouvert-a619.html",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-03-19",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Dotation à l’installation",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2026-10-26",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/IMG/pdf/fi_75.05_aide_a_l_installation_du_nouvel_agriculteur_v3_0.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://daaf.mayotte.agriculture.gouv.fr/75-05-aide-a-l-installation-du-nouvel-agriculteur-ouvert-a619.html",
+          "title": "75.05 - Aide à l’installation du nouvel agriculteur (OUVERT) — DAAF Mayotte",
+          "consultedOn": "2026-10-26",
+          "quotes": [
+            "Intervention disponible sur Safran depuis le 02/04/2024",
+            "L’intervention 75.05 \"Aide à l’installation du nouvel agriculteur de Mayotte\" a pour vocation de favoriser l’emploi, renforcer la production locale, améliorer la viabilité des exploitations et encourager la diversification végétale et animale.",
+            "Il est possible de déposer un dossier tout le long de la programmation 2023-2027 sur l’intervention 75.05 directement sur Safran"
+          ]
+        },
+        {
+          "url": "https://daaf.mayotte.agriculture.gouv.fr/IMG/pdf/fi_75.05_aide_a_l_installation_du_nouvel_agriculteur_v3_0.pdf",
+          "title": "Fiche intervention FEADER 75.05 — Aide à l’installation du nouvel agriculteur, version 3.0",
+          "consultedOn": "2026-10-26",
+          "quotes": [
+            "Date de publication 19/03/2026",
+            "L’aide peut être déposée sur le téléservice SAFRAN sur toute la durée de la programmation 2023-2027 à partir de son ouverture.",
+            "Les projets doivent être mis en œuvre sur le territoire de Mayotte.",
+            "Avoir 40 ans révolus et ne pas avoir atteint 62 ans, ni l’âge légal limite de départ à la retraite à taux plein",
+            "Le soutien à l’installation se fait sous la forme d’une dotation de 20 000 € en capital versée en deux tranches après le constat de l’installation."
+          ]
+        }
+      ],
+      "notes": "La fiche exige notamment de ne pas être affilié à la MSA comme agriculteur principal ou secondaire, ou de ne pas l’être depuis plus de cinq ans, ainsi qu’un plan d’entreprise de cinq ans. Les conditions complètes restent celles de la fiche officielle.",
+      "generatorId": "chatgpt-1"
+    }
+  ],
   "news": [],
   "limitations": [
-    "Le site des services agricoles de l’État à Mayotte n’a pas répondu : l’aide à l’installation n’a pas pu être citée.",
     "Le site de l’établissement public foncier et d’aménagement, qui exerce le rôle d’opérateur foncier rural, présente un certificat expiré.",
     "Le domaine qui présentait les fonds européens à Mayotte renvoie aujourd’hui un contenu commercial sans rapport avec l’agriculture : il n’a pas été cité.",
-    "L’absence de ressource dans ce fichier ne prouve pas qu’il n’en existe pas."
+    "Aucun service propre de transmission d’exploitation ni accompagnement associatif à l’installation n’a été vérifié dans cette passe."
   ]
 }

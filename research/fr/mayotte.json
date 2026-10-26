@@ -2,19 +2,36 @@
   "schemaVersion": "1.0.0",
   "territory": { "level": "REGION", "country": "FR", "region": "mayotte" },
   "language": "fr",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-10-26",
   "context": [
-    "daaf.mayotte.agriculture.gouv.fr n’a pas répondu lors de cette passe (délai de connexion dépassé).",
+    "La DAAF publie deux interventions FEADER d’installation distinctes et ouvertes : 75.01 pour les jeunes agriculteurs et 75.05 pour les nouveaux agriculteurs âgés de 40 ans révolus qui n’ont pas atteint 62 ans.",
+    "Les deux pages permettent un dépôt direct sur SAFRAN pendant toute la programmation 2023-2027 ; les fiches d’intervention publiées le 19 mars 2026 fixent les conditions et montants.",
     "epfam.fr, site de l’établissement public foncier et d’aménagement qui exerce le rôle d’opérateur foncier rural, présente un certificat expiré.",
     "Le domaine europe-a-mayotte.fr, cité par les moteurs comme portail des fonds européens, redirige vers un contenu commercial sans rapport : ne pas le citer."
   ],
-  "portals": [],
+  "portals": [
+    {
+      "name": "Interventions du Plan Stratégique National — DAAF Mayotte",
+      "url": "https://daaf.mayotte.agriculture.gouv.fr/interventions-du-plan-strategique-national-r182.html",
+      "what": "Fiches d’intervention FEADER, état d’ouverture et accès aux demandes sur SAFRAN."
+    },
+    {
+      "name": "SAFRAN",
+      "url": "https://daaf.mayotte.agriculture.gouv.fr/safran-a615.html",
+      "what": "Portail de dépôt en ligne des aides FEADER 2023-2027 à Mayotte."
+    }
+  ],
   "openData": [],
   "queries": [
     {
       "id": "yt-installation",
       "kinds": ["FINANCIAL_SUPPORT", "LAND_BANK"],
       "query": "Mayotte aide installation jeunes agriculteurs FEADER 2026 Département dispositif agriculture foncier"
+    },
+    {
+      "id": "yt-feader-installation-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:daaf.mayotte.agriculture.gouv.fr 75.01 75.05 installation agriculteur OUVERT SAFRAN"
     }
   ],
   "leads": [
@@ -31,10 +48,32 @@
       "id": "yt-daaf-aides",
       "name": "Aides à l’installation (services agricoles de l’État à Mayotte)",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "TO_CHECK",
-      "reason": "Site injoignable lors de cette passe ; réessayer à la prochaine mise à jour.",
+      "status": "REJECTED",
+      "reason": "Cette piste générique a été résolue en deux interventions distinctes, 75.01 et 75.05, admises séparément ; elle n’est pas un troisième instrument.",
       "foundBy": "yt-installation",
-      "checkedOn": "2026-09-20"
+      "checkedOn": "2026-10-26"
+    },
+    {
+      "id": "yt-feader-75-01",
+      "name": "75.01 — Aides à l’installation du jeune agriculteur",
+      "url": "https://daaf.mayotte.agriculture.gouv.fr/75-01-aides-a-l-installation-du-jeune-agriculteur-ouvert-a617.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "mayotte-feader-installation-jeune-agriculteur",
+      "reason": "La page officielle marque l’intervention comme ouverte et disponible sur SAFRAN pendant toute la programmation 2023-2027. La fiche publiée le 19.03.2026 précise le territoire, l’âge, les conditions et une dotation pouvant atteindre 49 000 euros.",
+      "foundBy": "yt-feader-installation-2026",
+      "checkedOn": "2026-10-26"
+    },
+    {
+      "id": "yt-feader-75-05",
+      "name": "75.05 — Aide à l’installation du nouvel agriculteur",
+      "url": "https://daaf.mayotte.agriculture.gouv.fr/75-05-aide-a-l-installation-du-nouvel-agriculteur-ouvert-a619.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "mayotte-feader-installation-nouvel-agriculteur",
+      "reason": "La page officielle marque l’intervention comme ouverte et disponible sur SAFRAN pendant toute la programmation 2023-2027. La fiche publiée le 19.03.2026 vise les nouveaux agriculteurs de 40 ans révolus qui n’ont pas atteint 62 ans et fixe une dotation de 20 000 euros.",
+      "foundBy": "yt-feader-installation-2026",
+      "checkedOn": "2026-10-26"
     },
     {
       "id": "yt-europe-a-mayotte",
@@ -49,9 +88,9 @@
   "instrumentChecks": [
     {
       "expectedId": "fr-aide-regionale-installation",
-      "status": "NOT_FOUND",
-      "reason": "Aucune source officielle lisible : le site des services agricoles de l’État n’a pas répondu.",
-      "checkedOn": "2026-09-20"
+      "status": "FOUND",
+      "leadId": "yt-feader-75-01",
+      "checkedOn": "2026-10-26"
     },
     {
       "expectedId": "fr-transmission-accompagnement",
@@ -77,6 +116,11 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Première passe sans ressource admise : sources officielles injoignables ou non fiables, portail des fonds européens détourné."
+    },
+    {
+      "date": "2026-10-26",
+      "by": "CHATGPT (Codex)",
+      "summary": "Le portail DAAF est de nouveau lisible. Admission séparée des interventions FEADER 75.01 et 75.05, toutes deux ouvertes avec dépôt direct sur SAFRAN pendant la programmation 2023-2027 ; montants et conditions repris des fiches publiées le 19 mars 2026."
     }
   ]
 }
