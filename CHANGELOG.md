@@ -10,6 +10,66 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.5.0 — 2026-10-26
+
+Six records enter, seventeen say more than they did, and what a record offers a
+result page changed in every country. The new records are Italian and Spanish;
+the French work completes records that already existed.
+
+### What a record offers a result page
+
+- **Descriptions ran past the room a result has.** Three of them measured 213,
+  231 and 255 characters against the roughly 155 a result shows. Every
+  description now ends inside 155 characters, cut at a word and never mid-word,
+  in all six languages, and a test over the built site refuses one that does not.
+- **The call a record documents now opens its description.** Records held the
+  period in the data and nothing carried it to the line a result can show. Where
+  the call's name does not fit the room available, its year stands in for it.
+- **Every record is linked by name from its country page**, and not only from the
+  listing and search pages it was reachable through before.
+
+### The crawl stops going to one form
+
+- Each record linked to the correction form with its parameters already filled
+  in, so the build emitted 424 distinct URLs of a single form, each of them
+  fetched and then discarded against the `noindex` those pages carry.
+- **Those links now carry `rel="nofollow"`.** The form is untouched: it is still
+  one page, and it still works.
+
+### France: where each Safer acts, and what it was before
+
+- **Fifteen French records now name the territory their Safer acts in**, and
+  eight of them carry the département numbers the body publishes itself. A number
+  appears only where the source prints one; where a page names its départements
+  without numbers, no number is recorded.
+- **Five records say what the body was formed from.** Safer Grand Est, Safer
+  Normandie, Safer Bourgogne-Franche-Comté, Safer Nouvelle-Aquitaine and Safer
+  Occitanie each name the Safer they succeeded, so a record is no longer silent
+  about a name the body used to carry.
+- **Nineteen sources enter, every one of them a page the body publishes itself**,
+  quoted word for word and dated by the day it was read. Where the territory is
+  fixed by an arrêté in a gazette that refuses to be read by a machine, the
+  gazette is not cited: the fact comes from the operator's own page, or it does
+  not come in.
+- **Four land-agency records now say what else exists in their region**, which is
+  what this site can add beside the agency's own page.
+- One sentence was withdrawn instead of published. A record had gained a
+  statement about its own territory that no page had been read for, and the
+  publication date that arrived with it went back as well.
+
+### Italy and Spain: six records enter
+
+- **Italy gains its first three national records**, all ISMEA instruments:
+  Generazione Terra 2026, Banca nazionale delle Terre Agricole and Più Impresa.
+  Until now Italy was documented region by region only.
+- **Spain gains three public land banks**: Nordeste de Tenerife, Pedreguer and
+  Callosa de Segura.
+- **Two records in Catalunya carry the Catalan terms the Generalitat uses**,
+  inside their Spanish text. That documents the words a body uses for its own
+  instrument; it is not a seventh language and does not claim to be one.
+
+324 records over 101 edition files, against 318 in 1.4.1.
+
 ## 1.4.1 — 2026-10-25
 
 Nothing in the data changed. Two things the site put in front of a reader

@@ -10,17 +10,17 @@
  * figures, rather than as a column of five: a reader who is already inside a country is not choosing one,
  * and the control at the top of every page is where changing it lives.
  *
- * The columns of pages the previous generation's footer carries — about, method, privacy, the history of
- * the project — are not here yet, because those pages are not here yet. A footer link to a page that does
- * not exist is worse than a shorter footer.
+ * The pages about the project are offered from the home and country entry pages. Repeating those links
+ * below every record makes the shell more prominent in the site's link graph than the evidence the site
+ * exists to publish. Other pages keep the routes back to countries and search.
  */
 import SourceClaim from "./SourceClaim.astro";
 import { currentEdition } from "../lib/corpus.ts";
 import { editionNamed, words } from "../lib/words.ts";
 import { searchPath } from "../../public/search-scope.js";
 
-type Props = { language: string; current?: string };
-const { language, current = "/" } = Astro.props;
+type Props = { language: string; current?: string; showProjectNavigation?: boolean };
+const { language, current = "/", showProjectNavigation = false } = Astro.props;
 const text = words(language);
 
 const country = current === "/" ? undefined : current.split("/")[1]?.toUpperCase();
@@ -57,21 +57,25 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={searchPath("/", country)}>
         {text.searchAction}
       </a>
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={aboutPath}>
-        {text.aboutTitle}
-      </a>
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={historyPath}>
-        {text.historyNav}
-      </a>
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#method`}>
-        {text.methodTitle}
-      </a>
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#contact`}>
-        {text.contactTitle2}
-      </a>
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#privacy`}>
-        {text.privacyTitle}
-      </a>
+      {showProjectNavigation && (
+        <>
+          <a class="inline-flex min-h-(--spacing-target) items-center underline" href={aboutPath}>
+            {text.aboutTitle}
+          </a>
+          <a class="inline-flex min-h-(--spacing-target) items-center underline" href={historyPath}>
+            {text.historyNav}
+          </a>
+          <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#method`}>
+            {text.methodTitle}
+          </a>
+          <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#contact`}>
+            {text.contactTitle2}
+          </a>
+          <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#privacy`}>
+            {text.privacyTitle}
+          </a>
+        </>
+      )}
     </nav>
 
     {/* What the site is and whose the words are: two sentences a reader can check the whole inventory

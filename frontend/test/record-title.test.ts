@@ -55,3 +55,73 @@ test("a record title keeps its full source name and adds territory only to disti
     titles.add(actual);
   }
 });
+
+/**
+ * The call a record documents, where a result still has room to carry it.
+ *
+ * Spanish and Italian readers type the year — `joven agricultor castilla-la mancha 2026`,
+ * `primo insediamento basilicata 2026` — and the call sat on the page, past the end of every result. It
+ * now opens the description, named the way its own source names it, and what follows is cut to what a
+ * result shows rather than written past it.
+ */
+test("a record that documents a call says which one, before a result runs out of room", () => {
+  const SNIPPET = 155;
+  let checked = 0;
+  for (const { snapshot, resource } of entries) {
+    const calls = resource.calls ?? [];
+    if (calls.length === 0) continue;
+    const country = "country" in snapshot ? snapshot.country.toLowerCase() : "";
+    const route = `${country ? `${country}/` : ""}${recordSlug(country.toUpperCase())}/${resource.id}/`;
+    const html = readFileSync(path.join(ROOT, "frontend", "dist", route, "index.html"), "utf8");
+    const description = decodeHTML(/<meta name="description" content="([^"]*)"/u.exec(html)?.[1] ?? "");
+    checked += 1;
+
+    // The page names a call the way its source does, and falls back to the year only when the name
+    // would leave no sentence after it. Both forms are the rule; neither is a free pass for the other.
+    const opens = calls.flatMap((call) => [
+      call.name,
+      ...(/\b20\d{2}\b/u.exec(call.name) ?? []),
+      ...(call.closes ? [call.closes.slice(0, 4)] : []),
+      ...(call.opens ? [call.opens.slice(0, 4)] : []),
+    ]);
+    assert.ok(
+      opens.some((named) => description.startsWith(named)),
+      `${route}: the description opens "${description.slice(0, 50)}…" and not with the call this record documents, so no result carries the year somebody typed`,
+    );
+    assert.ok(
+      description.length <= SNIPPET,
+      `${route}: the description runs to ${description.length} characters, so what a result shows ends before the record does`,
+    );
+  }
+  assert.ok(checked > 50, `only ${checked} records documenting a call were checked; Spain and Italy alone hold more`);
+});
+
+/**
+ * What a result has room for, which is not what the page has room for.
+ *
+ * A description is written to be read on the page and ran to 238 characters in Spain and 191 in Germany,
+ * against the roughly 155 a result shows. The end of it was not shortened by anybody: it was simply not
+ * read, by the one reader who had not decided yet whether to open the page.
+ */
+test("a record's description ends inside what a result shows, in every country", () => {
+  const SNIPPET = 155;
+  const seen = new Set<string>();
+  for (const { snapshot, resource } of entries) {
+    const country = "country" in snapshot ? snapshot.country.toLowerCase() : "";
+    const route = `${country ? `${country}/` : ""}${recordSlug(country.toUpperCase())}/${resource.id}/`;
+    const html = readFileSync(path.join(ROOT, "frontend", "dist", route, "index.html"), "utf8");
+    const description = decodeHTML(/<meta name="description" content="([^"]*)"/u.exec(html)?.[1] ?? "");
+    seen.add(country || "eu");
+
+    assert.ok(description.length > 0, `${route}: the page offers a result no description at all`);
+    assert.ok(
+      description.length <= SNIPPET,
+      `${route}: the description runs to ${description.length} characters, and a result stops at about ${SNIPPET}`,
+    );
+    assert.ok(
+      !/\s…$/u.test(description),
+      `${route}: the description was cut after a space, which shows a result a gap before the ellipsis`,
+    );
+  }
+  assert.equal(seen.size, 6, "the five countries and the European layer were not all covered");
+});

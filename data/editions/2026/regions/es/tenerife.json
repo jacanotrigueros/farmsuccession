@@ -5,11 +5,11 @@
   "country": "ES",
   "region": "tenerife",
   "officialName": "Tenerife",
-  "published": "2026-09-30",
-  "summary": "Tenerife combina las ayudas y formación del Gobierno de Canarias con instrumentos insulares y municipales: el Banco de Tierras de Tenerife, el Banco de Tierras de La Laguna, la oferta presencial de incorporación de la Escuela de Capacitación Agraria de Tacoronte y los Premios Agrojoven del Cabildo para iniciativas empresariales jóvenes vinculadas al medio rural.",
+  "published": "2026-10-25",
+  "summary": "Tenerife combina las ayudas y formación del Gobierno de Canarias con instrumentos insulares, comarcales y municipales: el Banco de Tierras de Tenerife, el Banco de Tierras de La Laguna, la Bolsa de Tierras del Nordeste de Tenerife, la oferta presencial de incorporación de la Escuela de Capacitación Agraria de Tacoronte y los Premios Agrojoven del Cabildo.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Pasada regional 1.9.0 sobre incorporación, sucesión/cese, acceso a tierra, formación y asesoramiento. Se revalidaron el Banco de Tierras insular y la formación presencial de Tacoronte, se resolvió el Banco de Tierras de La Laguna como instrumento municipal distinto y se añadió la convocatoria 2026 de Premios Agrojoven. La ayuda autonómica de establecimiento y la formación común en línea se heredan de Canarias. No se verificó un servicio separado de sucesión/cese ni un servicio específico y permanente de una organización agraria o cooperativa.",
+    "note": "Pasada regional 1.9.0 sobre incorporación, sucesión/cese, acceso a tierra, formación y asesoramiento. Se revalidaron el Banco de Tierras insular y la formación presencial de Tacoronte, se resolvió el Banco de Tierras de La Laguna como instrumento municipal distinto, se verificó la Bolsa de Tierras del Nordeste como iniciativa comarcal con contacto público y se añadió la convocatoria 2026 de Premios Agrojoven. La ayuda autonómica de establecimiento y la formación común en línea se heredan de Canarias. No se verificó un servicio separado de sucesión/cese ni un servicio específico y permanente de una organización agraria o cooperativa.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -18,6 +18,10 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://www.aytolalaguna.es/servicios/desarrollo-rural-agrario-ganadero-y-pesca/Banco-de-Tierras/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.tacoronte.es/servicios/agricultura-ganaderia-y-pesca/"
       },
       {
         "method": "OFFICIAL_PORTAL",
@@ -162,6 +166,45 @@
             "Una plataforma on-line donde se registra y consulta la oferta y demanda de tierras.",
             "Un servicio de información, asesoramiento y mediación para las partes que quieran llegar a un acuerdo",
             "Un servicio de acompañamiento, formación y seguimiento técnico para las personas que promuevan nuevos proyectos agrarios."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "tenerife-bolsa-tierras-nordeste",
+      "name": "Bolsa de Tierras del Nordeste de Tenerife",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Comarca de Acentejo"
+      },
+      "operator": "Ayuntamiento de Tacoronte, Servicio de Agricultura",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Iniciativa comarcal que pone en contacto a demandantes y ofertantes de fincas y terrenos rústicos para arrendamiento en la Comarca de Acentejo.",
+      "whoCanUseIt": "Personas que ofrecen o buscan fincas y terrenos rústicos a arrendar en la Comarca de Acentejo.",
+      "howToAccess": "Contactar con el Servicio de Agricultura del Ayuntamiento de Tacoronte mediante el correo publicado en la página del servicio.",
+      "accessUrl": "https://www.tacoronte.es/servicios/agricultura-ganaderia-y-pesca/",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Servicio de Agricultura del Ayuntamiento de Tacoronte",
+          "value": "informacion@tacoronte.es",
+          "sourceUrl": "https://www.tacoronte.es/servicios/agricultura-ganaderia-y-pesca/"
+        }
+      ],
+      "assetTypes": ["PLOTS"],
+      "languages": ["es"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.tacoronte.es/servicios/agricultura-ganaderia-y-pesca/",
+          "title": "Sector Primario — Ayuntamiento de Tacoronte",
+          "consultedOn": "2026-10-25",
+          "quotes": [
+            "Gestión de Bolsa de Tierras del Nordeste es una iniciativa comarcal donde se ponen en contacto a demandantes y ofertantes de fincas y terrenos rústicos a arrendar en la Comarca de Acentejo.",
+            "informacion@tacoronte.es"
           ]
         }
       ],
