@@ -5,11 +5,11 @@
   "country": "DE",
   "region": "niedersachsen",
   "officialName": "Niedersachsen",
-  "published": "2026-09-21",
-  "summary": "Niedersachsen hat eine Landesförderung für Existenzgründungen und Hofübernahmen junger Landwirtinnen und Landwirte aufgelegt, mit 100.000 Euro bei außerfamiliärer Gründung und 70.000 Euro bei innerfamiliärer Übernahme. Das beschriebene Antragsverfahren endete im November 2025; eine neue Runde ist nicht belegt.",
+  "published": "2026-10-27",
+  "summary": "Niedersachsen fördert Existenzgründungen und Hofübernahmen junger Landwirtinnen und Landwirte mit 100.000 Euro bei außerfamiliärer Gründung und 70.000 Euro bei innerfamiliärer Übernahme. Eine neue Antragsphase ist vom 1. Januar bis 15. März 2027 angekündigt.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Recherche zur Landesförderung, zur Hofbörse und zur Übergabeberatung. Die Förderung ist auf der Seite des Landwirtschaftsministeriums belegt; die Seiten der Landwirtschaftskammer sind nicht mehr abrufbar.",
+    "note": "Recherche zur Landesförderung, zur Hofbörse und zur Übergabeberatung. Das Landwirtschaftsministerium belegt die laufende Förderung und die nächste Antragsphase; neue Antragsvordrucke der Landwirtschaftskammer sind noch nicht veröffentlicht.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -22,6 +22,10 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://www.ml.niedersachsen.de/startseite/themen/landwirtschaft/agrarforderung/niedersachsen-fordert-existenzgrundungen-auf-hofen-245378.html"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.ml.niedersachsen.de/presse/pressemitteilungen/mit-100-000-euro-in-die-landwirtschaftliche-selbststandigkeit-ministerin-besucht-brothof-waake-254712.html"
       }
     ]
   },
@@ -37,6 +41,12 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-6.1 Sol",
+        "promptVersion": "1.9.0"
       }
     ]
   },
@@ -45,21 +55,30 @@
       "id": "niedersachsen-niederlassungsbeihilfe-junglandwirte",
       "name": "Existenzgründungsförderung für Junglandwirtinnen und Junglandwirte in Niedersachsen",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "UNKNOWN",
+      "status": "ACTIVE",
       "scope": {
         "level": "REGIONAL"
       },
       "operator": "Land Niedersachsen, Bewilligung durch die Landwirtschaftskammer Niedersachsen",
       "operatorType": "PUBLIC",
       "whatItOffers": "Landesförderung für Neueinsteigerinnen und Neueinsteiger und für den Generationswechsel auf den Höfen: 100.000 Euro bei einer außerfamiliären Betriebsgründung und pauschal 70.000 Euro bei einer innerfamiliären Hofübernahme. Die Kammer bewertet die Betriebskonzepte nach einem einheitlichen Rankingsystem.",
-      "whoCanUseIt": "Gründerinnen und Gründer, die ein auf fünf Jahre ausgerichtetes Betriebskonzept vorlegen und mit dem Antrag eine sozioökonomische Beratung nachweisen.",
-      "howToAccess": "Antrag mit Betriebskonzept und Beratungsnachweis bei der Landwirtschaftskammer Niedersachsen; das beschriebene Antragsverfahren endete am 23. November.",
-      "accessUrl": "https://www.ml.niedersachsen.de/startseite/themen/landwirtschaft/agrarforderung/niedersachsen-fordert-existenzgrundungen-auf-hofen-245378.html",
+      "whoCanUseIt": "Junglandwirtinnen und Junglandwirte, deren erstmalige Niederlassung bis zum 1. Januar 2027 vollzogen ist. Für den Antrag sind eine sozioökonomische Beratung und ein durch eine landwirtschaftliche Unternehmensberatung geprüftes Betriebskonzept vorgesehen; die Voraussetzungen stehen noch unter dem Vorbehalt des Beteiligungsprozesses.",
+      "howToAccess": "Förderanträge für die neue Phase vom 1. Januar bis 15. März 2027 bei der Landwirtschaftskammer Niedersachsen einreichen. Das Ministerium kündigt an, Hinweise und neue Antragsvordrucke später im Förderportal zu veröffentlichen.",
+      "accessUrl": "https://www.ml.niedersachsen.de/presse/pressemitteilungen/mit-100-000-euro-in-die-landwirtschaftliche-selbststandigkeit-ministerin-besucht-brothof-waake-254712.html",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
-      "notes": "Die Seite des Ministeriums beschreibt nur das Antragsverfahren 2025; die Förderseite der Landwirtschaftskammer ist nicht mehr abrufbar und eine neue Runde wurde nicht gefunden.",
+      "calls": [
+        {
+          "name": "Antragszeitraum 2027",
+          "state": "UPCOMING",
+          "opens": "2027-01-01",
+          "closes": "2027-03-15",
+          "sourceUrl": "https://www.ml.niedersachsen.de/presse/pressemitteilungen/mit-100-000-euro-in-die-landwirtschaftliche-selbststandigkeit-ministerin-besucht-brothof-waake-254712.html"
+        }
+      ],
+      "notes": "Das Verfahren 2025 ist abgeschlossen. Für die neue Antragsphase 2027 sind 3,35 Millionen Euro vorgesehen; endgültige Voraussetzungen, Hinweise und Antragsvordrucke waren am 27. Oktober 2026 noch nicht veröffentlicht.",
       "sources": [
         {
           "url": "https://www.ml.niedersachsen.de/startseite/themen/landwirtschaft/agrarforderung/niedersachsen-fordert-existenzgrundungen-auf-hofen-245378.html",
@@ -74,15 +93,50 @@
             "Förderanträge sind bis spätestens zum 23. November bei der LWK einzureichen.",
             "15.10.2025"
           ]
+        },
+        {
+          "url": "https://www.ml.niedersachsen.de/presse/pressemitteilungen/mit-100-000-euro-in-die-landwirtschaftliche-selbststandigkeit-ministerin-besucht-brothof-waake-254712.html",
+          "title": "Mit 100.000 Euro in die landwirtschaftliche Selbstständigkeit - Nds. Ministerium für Ernährung, Landwirtschaft und Verbraucherschutz",
+          "consultedOn": "2026-10-27",
+          "quotes": [
+            "neue Antragsphase startet im Januar 2027",
+            "Für interessierte junge Landwirtinnen und Landwirte beginnt ab dem 1. Januar 2027 ein neuer Antragszeitraum",
+            "voraussichtlich 3,35 Millionen Euro",
+            "Die erstmalige Niederlassung der jungen Betriebsleiterinnen und-leiter muss dabei bis zum 1. Januar 2027 vollzogen worden sein.",
+            "Förderanträge für den neuen Antragszeitraum sind bis spätestens 15. März 2027 bei der LWK einzureichen.",
+            "22.10.2026"
+          ]
         }
       ],
-      "lastEvidenceDate": "2025-10-15",
-      "generatorId": "claude-1"
+      "lastEvidenceDate": "2026-10-22",
+      "generatorId": "chatgpt-1"
     }
   ],
-  "news": [],
+  "news": [
+    {
+      "id": "niedersachsen-2026-ankuendigung-antragsphase-2027",
+      "date": "2026-10-22",
+      "type": "ANNOUNCEMENT",
+      "headline": "Neue Antragsphase der Existenzgründungsförderung für 2027 angekündigt",
+      "summary": "Das Landwirtschaftsministerium kündigte am 22. Oktober 2026 eine neue Antragsphase vom 1. Januar bis 15. März 2027 mit voraussichtlich 3,35 Millionen Euro an.",
+      "resourceIds": ["niedersachsen-niederlassungsbeihilfe-junglandwirte"],
+      "sources": [
+        {
+          "url": "https://www.ml.niedersachsen.de/presse/pressemitteilungen/mit-100-000-euro-in-die-landwirtschaftliche-selbststandigkeit-ministerin-besucht-brothof-waake-254712.html",
+          "title": "Mit 100.000 Euro in die landwirtschaftliche Selbstständigkeit - Nds. Ministerium für Ernährung, Landwirtschaft und Verbraucherschutz",
+          "consultedOn": "2026-10-27",
+          "quotes": [
+            "neue Antragsphase startet im Januar 2027",
+            "voraussichtlich 3,35 Millionen Euro",
+            "Förderanträge für den neuen Antragszeitraum sind bis spätestens 15. März 2027 bei der LWK einzureichen."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
+    }
+  ],
   "limitations": [
-    "Die Förderseiten der Landwirtschaftskammer sind nicht mehr abrufbar; ob es nach dem Verfahren 2025 eine neue Antragsrunde gibt, ist nicht belegt.",
+    "Die neuen Antragsvordrucke und endgültigen Fördervoraussetzungen sind noch nicht veröffentlicht; die Ministeriumsmitteilung nennt einzelne Voraussetzungen unter Vorbehalt des Beteiligungsprozesses.",
     "Eine Hof- oder Flächenbörse für Niedersachsen wurde in dieser Runde nicht geprüft.",
     "Die sozioökonomische Beratung, die für den Antrag verlangt wird, wurde nicht auf einer eigenen Seite belegt."
   ]
