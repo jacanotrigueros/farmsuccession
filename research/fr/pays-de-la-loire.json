@@ -11,7 +11,8 @@
     "En Pays de la Loire, l’étude d’installation est un préalable obligatoire à la demande de dotation aux jeunes agriculteurs.",
     "Le règlement régional de la dotation couvre la période 2024-2027 et détaille montants et modulations.",
     "La Région anime aussi des territoires pilotes pour la transmission agricole, à vérifier lors d’une prochaine passe.",
-    "La DRAAF confirme que le volet 4 de l’AITA finance un diagnostic et, s’il est préconisé, un suivi technico-économique du nouvel exploitant. La démarche SNE 2026 est close depuis le 17 octobre et l’AITA doit être remplacé par France Services Agriculture au 1er janvier 2027."
+    "La DRAAF confirme que le volet 4 de l’AITA finance un diagnostic et, s’il est préconisé, un suivi technico-économique du nouvel exploitant. La démarche SNE 2026 est close depuis le 17 octobre et l’AITA doit être remplacé par France Services Agriculture au 1er janvier 2027.",
+    "Passeurs de terres et Terre de Liens Pays de la Loire étudient les projets de personnes qui veulent s’installer en agriculture biologique sans acheter leur ferme ; l’acquisition d’un bien identifié reste soumise à l’examen du conseil d’administration de la coopérative."
   ],
   "portals": [
     {
@@ -28,6 +29,11 @@
       "name": "DRAAF Pays de la Loire — AITA",
       "url": "https://draaf.pays-de-la-loire.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-ce-dispostif-a1125.html",
       "what": "Volets régionaux d’accompagnement à l’installation et à la transmission et modalités de gestion."
+    },
+    {
+      "name": "Passeurs de terres",
+      "url": "https://passeursdeterres.org/",
+      "what": "Acquisition et location de fermes pour des installations en agriculture biologique dans les Pays de la Loire."
     }
   ],
   "openData": [],
@@ -46,6 +52,11 @@
       "id": "pdl-aita-sne-2026",
       "kinds": ["FINANCIAL_SUPPORT"],
       "query": "site:agriculture.gouv.fr Pays de la Loire AITA Suivi Nouvel Exploitant SNE 2026"
+    },
+    {
+      "id": "pdl-passeurs-terres-access",
+      "kinds": ["LAND_BANK"],
+      "query": "site:passeursdeterres.org porteur de projet ferme location agriculture biologique Pays de la Loire"
     }
   ],
   "leads": [
@@ -95,10 +106,11 @@
       "id": "pdl-passeurs-terres",
       "name": "Passeurs de terres",
       "kind": "LAND_BANK",
-      "status": "TO_CHECK",
-      "reason": "Page opérateur lue : coopérative régionale d’acquisition et location de fermes biologiques, ouverte aux sollicitations de porteurs de projet, contact institutionnel disponible. Citation : «Passeurs de terres est une foncière agricole qui développe son action sur les Pays de la Loire.» Vérifier conditions du bail et instruction des projets avant admission ; distinct du service Safer et de l’accompagnement associatif Terre de Liens.",
-      "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!99",
-      "checkedOn": "2026-10-18",
+      "status": "ADMITTED",
+      "resourceId": "pays-de-la-loire-passeurs-de-terres",
+      "reason": "Le site de l’opérateur décrit une voie d’accès pour les porteurs de projet biologique qui ne veulent ou ne peuvent pas acheter leur lieu, l’étude du projet avec Terre de Liens et la décision d’acquisition par le conseil d’administration. La fiche précise qu’il ne s’agit pas d’un inventaire libre de parcelles.",
+      "foundBy": "pdl-passeurs-terres-access",
+      "checkedOn": "2026-10-27",
       "url": "https://passeursdeterres.org/"
     },
     {
@@ -133,9 +145,9 @@
     },
     {
       "expectedId": "fr-associations-installation",
-      "status": "NOT_FOUND",
-      "reason": "Aucune association régionale d’accompagnement à l’installation n’a été vérifiée dans cette passe.",
-      "checkedOn": "2026-09-20"
+      "status": "FOUND",
+      "leadId": "pdl-passeurs-terres",
+      "checkedOn": "2026-10-27"
     }
   ],
   "log": [
@@ -153,6 +165,11 @@
       "date": "2026-10-27",
       "by": "CHATGPT (Codex)",
       "summary": "Admise l’aide AITA au suivi du nouvel exploitant à partir de la page DRAAF et de la page nationale de fermeture : diagnostic et suivi technico-économique documentés, démarche 2026 close depuis le 17 octobre et remplacement annoncé au 1er janvier 2027."
+    },
+    {
+      "date": "2026-10-27",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admis Passeurs de terres comme accès régional à des fermes pour les porteurs de projet biologique : sollicitation publique, étude avec Terre de Liens et décision d’acquisition par le conseil d’administration documentées sans présenter le service comme un inventaire de parcelles."
     }
   ]
 }

@@ -6,10 +6,10 @@
   "region": "pays-de-la-loire",
   "officialName": "Pays de la Loire",
   "published": "2026-10-27",
-  "summary": "En Pays de la Loire, la Région gère la dotation aux jeunes agriculteurs et l’État finance, par l’AITA, un diagnostic et un suivi technico-économique après l’installation. La Safer accompagne aussi les cédants dans la transmission de leur exploitation, y compris par la recherche d’investisseurs pour faciliter l’installation d’un jeune.",
+  "summary": "En Pays de la Loire, la Région gère la dotation aux jeunes agriculteurs et l’État finance, par l’AITA, un diagnostic et un suivi technico-économique après l’installation. La Safer accompagne les cédants dans la transmission de leur exploitation. Passeurs de terres étudie aussi les projets de personnes qui veulent s’installer en agriculture biologique sans acheter leur ferme.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Recherches sur les aides régionales à l’installation et à la transmission, le suivi post-installation AITA et la Safer régionale. Le dispositif régional de territoires pilotes pour la transmission n’a pas été vérifié.",
+    "note": "Recherches sur les aides régionales à l’installation et à la transmission, le suivi post-installation AITA, la Safer régionale et l’accès associatif au foncier. Le dispositif régional de territoires pilotes pour la transmission n’a pas été vérifié.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -26,6 +26,10 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://draaf.pays-de-la-loire.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-ce-dispostif-a1125.html"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:passeursdeterres.org porteur de projet ferme location agriculture biologique Pays de la Loire"
       }
     ]
   },
@@ -135,6 +139,56 @@
       "generatorId": "chatgpt-1"
     },
     {
+      "id": "pays-de-la-loire-passeurs-de-terres",
+      "name": "Passeurs de terres",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Passeurs de terres",
+      "operatorType": "PRIVATE",
+      "whatItOffers": "Étudie des projets d’installation en agriculture biologique et peut acquérir une ferme pour la louer comme outil de travail complet, avec ses terres, ses bâtiments et, lorsque c’est possible, son habitation.",
+      "whoCanUseIt": "Porteurs d’un projet agricole biologique en Pays de la Loire qui ne souhaitent pas ou ne peuvent pas devenir propriétaires du lieu où ils s’installent.",
+      "howToAccess": "Solliciter Passeurs de terres ou Terre de Liens Pays de la Loire. Le projet et la ferme identifiée sont étudiés avec les partenaires, puis le conseil d’administration décide s’il souhaite acquérir le bien.",
+      "accessUrl": "https://passeursdeterres.org/",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Passeurs de terres",
+          "value": "contact@passeursdeterres.org",
+          "sourceUrl": "https://passeursdeterres.org/"
+        }
+      ],
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://passeursdeterres.org/",
+          "title": "Passeurs de terres — Épargner pour sauver des fermes",
+          "consultedOn": "2026-10-27",
+          "quotes": [
+            "Les porteurs d’un projet agricole ne souhaitant pas ou ne pouvant pas devenir propriétaire du lieu sur lequel ils sont ou vont s’installer peuvent nous solliciter et nous étudions leurs projets en lien avec les partenaires de Passeurs de terres",
+            "Nous travaillons ainsi tous, main dans la main, au sein de la Coopérative, pour permettre l’installation de fermiers bio sur le territoire régional.",
+            "la coopérative facilite l’installation de paysans grâce à la location d’un outil de travail complet et durable : la ferme avec ses terres, ses bâtiments et son habitation quand cela est possible.",
+            "E-mail : contact@passeursdeterres.org"
+          ]
+        },
+        {
+          "url": "https://passeursdeterres.org/comment-ca-marche/",
+          "title": "Comment ça marche ? — Passeurs de terres",
+          "consultedOn": "2026-10-27",
+          "quotes": [
+            "Lorsqu’un paysan est en recherche d’une ferme pour s’installer en bio et qu’il ne souhaite pas devenir propriétaire, il peut contacter l’association Terre de Liens Pays de la Loire.",
+            "Si le dossier arrive à Passeurs de terres, celui-ci est examiné par son Conseil d’Administration qui statuera sur sa volonté d’acquérir le bien présenté."
+          ]
+        }
+      ],
+      "notes": "Passeurs de terres étudie un projet lié à une ferme identifiée ; ce service n’est pas présenté comme un inventaire libre de parcelles et l’acquisition reste soumise à la décision de son conseil d’administration.",
+      "generatorId": "chatgpt-1"
+    },
+    {
       "id": "pays-de-la-loire-safer-transmission",
       "name": "Safer Pays de la Loire, accompagnement à la transmission",
       "kind": "SUCCESSION_SERVICE",
@@ -183,7 +237,6 @@
   "news": [],
   "limitations": [
     "Les montants et modulations de la dotation régionale n’ont pas été cités : ils figurent dans le règlement, non consulté ici.",
-    "Le dispositif régional de territoires pilotes pour la transmission agricole n’a pas été vérifié.",
-    "Aucune association régionale d’accompagnement à l’installation n’a été vérifiée."
+    "Le dispositif régional de territoires pilotes pour la transmission agricole n’a pas été vérifié."
   ]
 }
