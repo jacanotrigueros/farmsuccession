@@ -6,10 +6,10 @@
     "region": "friuli-venezia-giulia"
   },
   "language": "it",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-10-27",
   "context": [
-    "Il PDF SRE01 presente nella precedente edizione appartiene al bando approvato nel 2025: non trasferire al bando 2026 le sue date o le sue condizioni senza verificare il nuovo atto.",
-    "La pagina ufficiale Europa FVG dedicata a SRE01 2026 appare nei risultati di ricerca, ma l'apertura diretta restituisce soltanto una richiesta di JavaScript. La pagina CIA FVG del 5 agosto 2026 descrive il nuovo bando; controllare il testo ufficiale e gli eventuali aggiornamenti.",
+    "Il PDF SRE01 usato in precedenza apparteneva al bando approvato nel 2025; il bando ufficiale 2026 è ora verificato nel nuovo allegato di Europa FVG.",
+    "La pagina ufficiale Europa FVG e il bando 2026 confermano la finestra dal 6 agosto alle ore 12 del 29 ottobre, il premio di 70.000 euro per giovane e la dotazione di 3.080.000 euro.",
     "Il Fondo di rotazione regionale mette a disposizione una domanda per l'acquisto di terreni con dichiarazione specifica per giovani agricoltori. È un finanziamento e non una banca della terra.",
     "La disciplina regionale riconosce percorsi formativi di almeno 150 ore per determinati requisiti professionali, ma una regola di ammissibilità non dimostra l'apertura di un corso concreto."
   ],
@@ -22,7 +22,7 @@
     {
       "name": "Europa FVG – SRE01 2026",
       "url": "https://europa.regione.fvg.it/it/programmi-36605/piano-strategico-della-politica-agricola-comune-2023-2027-del-friuli-venezia-giulia-39986/sre01-2026-171589",
-      "what": "Pagina ufficiale del bando 2026; richiede una lettura diretta del testo e degli allegati."
+      "what": "Pagina ufficiale del bando 2026, con testo, termini, portale di domanda e allegati."
     }
   ],
   "openData": [],
@@ -62,23 +62,24 @@
     {
       "id": "fvg-bando-sre01",
       "name": "Bando SRE01 di primo insediamento",
-      "url": "https://europa.regione.fvg.it/media/files/EUROPA/attachment/Bando_SRE01.pdf",
+      "url": "https://europa.regione.fvg.it/media/files/EUROPA/attachment/Allegato_1_Bando_SRE01_2026.pdf",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ADMITTED",
       "resourceId": "friuli-venezia-giulia-insediamento-giovani-agricoltori",
-      "reason": "Conservato l'ID della risorsa. Il PDF precedentemente indicato documenta il bando 2025, non quello 2026; la pagina CIA FVG letta direttamente documenta l'apertura del nuovo bando. Resta da confrontare il testo ufficiale 2026.",
+      "reason": "Il bando ufficiale 2026 conferma beneficiari, premio di 70.000 euro, dotazione di 3.080.000 euro e domande dal 6 agosto alle ore 12 del 29 ottobre 2026.",
       "foundBy": "fvg-insediamento",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-27"
     },
     {
       "id": "fvg-sre01-2026-ufficiale",
       "name": "Testo ufficiale e aggiornamenti del bando SRE01 2026",
       "url": "https://europa.regione.fvg.it/it/programmi-36605/piano-strategico-della-politica-agricola-comune-2023-2027-del-friuli-venezia-giulia-39986/sre01-2026-171589",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "TO_CHECK",
-      "reason": "L'apertura diretta mostra soltanto la richiesta di abilitare JavaScript. Aprire il portale in un ambiente che visualizzi pagina e allegati, controllare il bando e le eventuali proroghe e confrontare importo, condizioni e termine con la pagina CIA FVG; non usare gli estratti dei risultati di ricerca come prova.",
+      "status": "ADMITTED",
+      "resourceId": "friuli-venezia-giulia-insediamento-giovani-agricoltori",
+      "reason": "La pagina ufficiale è stata letta con JavaScript e collega il bando 2026 verificato; pubblica la procedura OPR FVG e gli stessi termini, importi e destinatari.",
       "foundBy": "fvg-insediamento",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-27"
     },
     {
       "id": "fvg-pacchetto-giovani",
@@ -166,7 +167,8 @@
       "expectedId": "it-sre01-bando-regionale",
       "status": "FOUND",
       "leadId": "fvg-bando-sre01",
-      "checkedOn": "2026-09-28"
+      "reason": "Il bando ufficiale SRE01 2026 è pubblicato da Europa FVG e resta aperto fino alle ore 12 del 29 ottobre 2026.",
+      "checkedOn": "2026-10-27"
     },
     {
       "expectedId": "it-banca-terra-regionale",
@@ -202,6 +204,11 @@
       "date": "2026-09-30",
       "by": "CLAUDE (Claude Code)",
       "summary": "Revisione delle fonti: la pagina della modulistica scrive la data di aggiornamento nella lingua del browser («Monday 03 August 2026», «lunes 03 agosto 2026»); la citazione conserva solo «03 agosto 2026», uguale in italiano e spagnolo."
+    },
+    {
+      "date": "2026-10-27",
+      "by": "CHATGPT (GPT-6.1 Sol)",
+      "summary": "Sostituita la fonte secondaria del bando SRE01 con il testo ufficiale 2026: confermati finestra, accesso OPR FVG, premio di 70.000 euro e dotazione di 3.080.000 euro."
     }
   ]
 }
