@@ -5,11 +5,11 @@
   "country": "FR",
   "region": "pays-de-la-loire",
   "officialName": "Pays de la Loire",
-  "published": "2026-10-25",
-  "summary": "En Pays de la Loire, la Région gère la dotation aux jeunes agriculteurs, conditionnée à une étude d’installation préalable, et la Safer accompagne les cédants dans la transmission de leur exploitation, y compris par la recherche d’investisseurs pour faciliter l’installation d’un jeune.",
+  "published": "2026-10-27",
+  "summary": "En Pays de la Loire, la Région gère la dotation aux jeunes agriculteurs et l’État finance, par l’AITA, un diagnostic et un suivi technico-économique après l’installation. La Safer accompagne aussi les cédants dans la transmission de leur exploitation, y compris par la recherche d’investisseurs pour faciliter l’installation d’un jeune.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Recherches sur les aides régionales à l’installation et à la transmission et sur la Safer régionale. Le dispositif régional de territoires pilotes pour la transmission n’a pas été vérifié.",
+    "note": "Recherches sur les aides régionales à l’installation et à la transmission, le suivi post-installation AITA et la Safer régionale. Le dispositif régional de territoires pilotes pour la transmission n’a pas été vérifié.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -22,6 +22,10 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://www.paysdelaloire.fr/les-aides/dotation-jeunes-agriculteurs-dja-feader"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://draaf.pays-de-la-loire.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-ce-dispostif-a1125.html"
       }
     ]
   },
@@ -36,6 +40,12 @@
         "id": "claude-1",
         "tool": "CLAUDE",
         "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
         "promptVersion": "1.9.0"
       }
     ]
@@ -72,6 +82,57 @@
         }
       ],
       "generatorId": "claude-1"
+    },
+    {
+      "id": "pays-de-la-loire-aita-suivi-nouvel-exploitant",
+      "name": "AITA — Aide pour le Suivi du Nouvel Exploitant (SNE)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direction régionale de l’alimentation, de l’agriculture et de la forêt des Pays de la Loire",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Prise en charge d’un diagnostic dans le cadre du plan d’entreprise et, lorsque le diagnostic le préconise, mise en place d’un suivi technico-économique associant séquences collectives et appui individuel.",
+      "whoCanUseIt": "Nouveaux exploitants agricoles en Pays de la Loire qui demandent l’aide au suivi post-installation du volet 4 de l’AITA.",
+      "howToAccess": "La démarche 2026 est close depuis le 17 octobre. Sa page reste consultable sur demarche.numerique.gouv.fr et identifie la DRAAF Pays de la Loire comme gestionnaire.",
+      "accessUrl": "https://demarche.numerique.gouv.fr/fermeture/aita-aide-suivi-nouvel-exploitant-2026",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "calls": [
+        {
+          "name": "Aide SNE 2026",
+          "state": "CLOSED",
+          "closes": "2026-10-16",
+          "sourceUrl": "https://demarche.numerique.gouv.fr/fermeture/aita-aide-suivi-nouvel-exploitant-2026"
+        }
+      ],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://draaf.pays-de-la-loire.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-ce-dispostif-a1125.html",
+          "title": "Accompagnement à l’installation-Transmission en agriculture (AITA) — DRAAF Pays de la Loire",
+          "consultedOn": "2026-10-27",
+          "quotes": [
+            "Ce dispostif sera remplacé par le FSA au 01/01/2027.",
+            "Volet 4 – Suivi du nouvel exploitant",
+            "Prise en charge d’un diagnostic dans le cadre du Plan d’Entreprise (PE) et mise en place d’un suivi technico-économique (séquences collectives et appui individuel) si préconisé par le diagnostic réalisé (gestion par les DDT(M))"
+          ]
+        },
+        {
+          "url": "https://demarche.numerique.gouv.fr/fermeture/aita-aide-suivi-nouvel-exploitant-2026",
+          "title": "AITA — Aide pour le Suivi du Nouvel Exploitant (SNE) 2026 en Pays de la Loire",
+          "consultedOn": "2026-10-27",
+          "quotes": [
+            "La démarche AITA - Aide pour le Suivi du Nouvel Exploitant (SNE) 2026 en Pays de la Loire est close depuis le 17 octobre 2026",
+            "Cette démarche est gérée par",
+            "Direction régionale de l'alimentation, de l'agriculture et de la forêt (Draaf) - Pays de la Loire"
+          ]
+        }
+      ],
+      "notes": "La DRAAF indique que l’AITA sera remplacé par France Services Agriculture au 1er janvier 2027. La démarche SNE 2026 est close depuis le 17 octobre ; le programme reste documenté comme actif pour l’édition 2026, sans présumer une nouvelle fenêtre.",
+      "generatorId": "chatgpt-1"
     },
     {
       "id": "pays-de-la-loire-safer-transmission",
