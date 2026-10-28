@@ -5,10 +5,10 @@
   "country": "FR",
   "officialName": "France",
   "published": "2026-10-28",
-  "summary": "En France, la MSA applique aux jeunes chefs d’exploitation une exonération partielle et dégressive de cotisations pendant les cinq premières années suivant l’installation. Les principaux services de transmission ont été identifiés au niveau national, mais certains accès restent à consolider. France Services Agriculture est annoncé pour 2027 et n’est pas encore opérationnel.",
+  "summary": "En France métropolitaine, FEVE peut acquérir le foncier d’une ferme identifiée et le louer au porteur de projet avec une option d’achat. La MSA applique par ailleurs aux jeunes chefs d’exploitation une exonération partielle et dégressive de cotisations pendant les cinq premières années suivant l’installation. France Services Agriculture est annoncé pour 2027 et n’est pas encore opérationnel.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Les portails nationaux et les principaux termes institutionnels ont été examinés. L’exonération MSA des jeunes agriculteurs est documentée ; une passe d’expansion a aussi identifié le RDI, les Safer, les PADU et l’AITA, dont certaines pages d’accès restent à vérifier.",
+    "note": "Les portails nationaux et les principaux termes institutionnels ont été examinés. Le portage foncier de FEVE et l’exonération MSA des jeunes agriculteurs sont documentés ; une passe d’expansion a aussi identifié le RDI, les Safer, les PADU et l’AITA, dont certaines pages d’accès restent à vérifier.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -25,6 +25,10 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.feve.co/installation/je-finance-ma-ferme"
       }
     ]
   },
@@ -45,6 +49,47 @@
     ]
   },
   "resources": [
+    {
+      "id": "fr-feve-portage-foncier",
+      "name": "Portage foncier FEVE pour l’installation",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Fermes En ViE",
+      "operatorType": "PRIVATE",
+      "whatItOffers": "Acquisition par une foncière FEVE du foncier — terres et, selon le projet, bâtiments — d’une ferme déjà trouvée, puis mise à disposition en fermage avec une option d’achat.",
+      "whoCanUseIt": "Porteurs de projet en France métropolitaine ayant au moins un an d’expérience agricole sur l’atelier envisagé, un projet nourricier conforme à la charte agroécologique, un accompagnement territorial et un apport personnel. Pour une installation, l’investissement de FEVE commence à 200 000 € et la valeur des terres doit dépasser celle des bâtiments.",
+      "howToAccess": "Tester l’éligibilité sur la page FEVE puis déposer un dossier détaillé et chiffré si le projet répond aux premiers critères et à la charte agroécologique.",
+      "accessUrl": "https://www.feve.co/installation/je-finance-ma-ferme",
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://www.feve.co/installation/je-finance-ma-ferme",
+          "title": "Financez votre ferme en agroécologie — FEVE",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "FEVE propose une solution de financement de projet agricole pour vous permettre de vous installer sur la ferme que vous avez trouvée sans en supporter immédiatement le coût d'achat, tout en sécurisant votre projet.",
+            "Concrètement, notre foncière solidaire prend en charge le financement du foncier (terres et bâtiments) dans le cadre de votre projet agricole. Vous vous installez immédiatement en location grâce à un bail rural avec option d'achat.",
+            "En France métropolitaine",
+            "Vous souhaitez assurer la continuité de l'exploitation tout en permettant à vos parents de bénéficier d'une retraite et de ne pas favoriser un de leurs enfants par rapport aux autres. FEVE rachète le foncier pour sécuriser la transmission et vous laisser le temps de reprendre la ferme dans de bonnes conditions économiques.",
+            "Si mon projet répond aux critères et à la charte agroécologique de FEVE, j'envoie un dossier plus détaillé et chiffré.",
+            "Après validation du dossier, FEVE lance l'acquisition sous réserve de mon financement bancaire (matériel, équipement et cheptel non financés par la foncière).",
+            "avoir au moins un année d’expérience agricole sur l’atelier envisagé",
+            "avoir un projet nourricier et aligné avec notre charte agroécologique",
+            "être accompagné(e) par un acteur du territoire sur les aspects techniques, juridiques, économiques et de commercialisation (chambre, ADEAR, comptable…)",
+            "avoir un apport initial personnel minimal",
+            "en cas d’installation : un montant d’investissement par FEVE d’au moins 200 000€ et une valeur des terres supérieures à celles des bâtiments",
+            "Fermes En ViE est une entreprise de l'économie sociale et solidaire qui facilite l’installation de la nouvelle génération d’agriculteurs et agricultrices grâce à ses foncières solidaires et à la plateforme La Grange."
+          ]
+        }
+      ],
+      "notes": "Le dispositif porte une ferme déjà identifiée ; ce n’est pas un inventaire libre de parcelles. Le matériel, l’équipement et le cheptel ne sont pas financés par la foncière.",
+      "generatorId": "chatgpt-1"
+    },
     {
       "id": "fr-msa-exoneration-jeune-agriculteur",
       "name": "Exonération MSA du jeune agriculteur",
