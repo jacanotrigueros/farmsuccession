@@ -5,10 +5,10 @@
   "country": "FR",
   "officialName": "France",
   "published": "2026-10-28",
-  "summary": "En France métropolitaine, FEVE peut acquérir le foncier d’une ferme identifiée et le louer au porteur de projet avec une option d’achat. La MSA applique par ailleurs aux jeunes chefs d’exploitation une exonération partielle et dégressive de cotisations pendant les cinq premières années suivant l’installation. France Services Agriculture est annoncé pour 2027 et n’est pas encore opérationnel.",
+  "summary": "L’Initiative nationale pour l’agriculture française est opérationnelle via quatre réseaux bancaires pour garantir des prêts agricoles, notamment d’installation et de reprise. En France métropolitaine, FEVE peut acquérir le foncier d’une ferme identifiée et le louer avec une option d’achat. La MSA applique par ailleurs une exonération de cotisations aux jeunes chefs d’exploitation.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Les portails nationaux et les principaux termes institutionnels ont été examinés. Le portage foncier de FEVE et l’exonération MSA des jeunes agriculteurs sont documentés ; une passe d’expansion a aussi identifié le RDI, les Safer, les PADU et l’AITA, dont certaines pages d’accès restent à vérifier.",
+    "note": "Les portails nationaux et les principaux termes institutionnels ont été examinés. La garantie de prêts INAF, le portage foncier de FEVE et l’exonération MSA des jeunes agriculteurs sont documentés ; une passe d’expansion a aussi identifié le RDI, les Safer, les PADU et l’AITA, dont certaines pages d’accès restent à vérifier.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -29,6 +29,10 @@
       {
         "method": "KNOWN_SOURCE",
         "detail": "https://www.feve.co/installation/je-finance-ma-ferme"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise"
       }
     ]
   },
@@ -49,6 +53,45 @@
     ]
   },
   "resources": [
+    {
+      "id": "fr-inaf-garantie-prets-agricoles",
+      "name": "Initiative nationale pour l’agriculture française (INAF)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Ministère de l’Agriculture et Fonds européen d’investissement, via les réseaux bancaires partenaires",
+      "operatorType": "MIXED",
+      "whatItOffers": "Prêts agricoles garantis par l’État et proposés à des conditions préférentielles pour financer des investissements corporels ou incorporels, le fonds de roulement lié à ces investissements, du foncier, des parts sociales ou du matériel d’occasion.",
+      "whoCanUseIt": "Exploitations agricoles, candidats à l’installation, PME exerçant une activité agricole ou dont au moins 50 % du capital est détenu par une société à objet agricole, ainsi que sociétés holding dont le projet relève du dispositif.",
+      "howToAccess": "Présenter le dossier auprès de l’un des réseaux bancaires participants : Arkéa, Banque Populaire-Caisse d’Épargne, Crédit Agricole ou Crédit Mutuel-CIC. La banque instruit le financement ; la demande n’est pas déposée directement auprès du FEI.",
+      "accessUrl": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise",
+      "instrumentType": "GUARANTEE",
+      "purposes": ["FIRST_ESTABLISHMENT", "INVESTMENT", "LAND_ACQUISITION", "TRANSFER"],
+      "languages": ["fr"],
+      "targetProfiles": ["GENERAL", "NEW_ENTRANT", "YOUNG_FARMER", "SUCCESSOR"],
+      "lastEvidenceDate": "2026-01-23",
+      "sources": [
+        {
+          "url": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise",
+          "title": "Déploiement opérationnel de la seconde phase de l’INAF : le dépôt des dossiers est ouvert",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "23 janvier 2026",
+            "les bénéficiaires potentiels peuvent désormais se rapprocher des réseaux bancaires participants pour déposer leurs dossiers.",
+            "L’ensemble des banques partenaires (Arkéa, Banque Populaire-Caisse d’Epargne, Crédit Agricole, Crédit Mutuel-CIC) ont débuté le déploiement de cette seconde phase du dispositif",
+            "Les premiers prêts ont d’ailleurs déjà été débloqués sur la nouvelle enveloppe",
+            "Le dispositif est accessible aux exploitations agricoles, aux candidats à l’installation en agriculture, aux petites et moyennes entreprises exerçant une activité agricole ou dont à minima 50% du capital est détenu par une société à objet agricole ou aux sociétés holding.",
+            "Cette nouvelle enveloppe a pour ambition de proposer des prêts garantis par l’Etat à près de 15 000 agriculteurs au cours des prochaines années (régions métropolitaines et ultramarines), proposés à des conditions préférentielles.",
+            "Ces prêts permettent de soutenir le financement d’investissements, corporels et incorporels, du capital d’exploitation (fonds de roulement lié aux investissements financés dans la limite de 30% du montant du projet), du foncier (jusqu’à 20% du montant du projet en cas d’installation et de reprise), de parts sociales et de matériel d’occasion.",
+            "Renforcer le renouvellement des générations et l’installation des jeunes agriculteurs"
+          ]
+        }
+      ],
+      "notes": "Le ministère ne publie pas de date de clôture sur cette page. Les pourcentages indiqués concernent la part maximale de certaines dépenses dans le projet, pas le taux de garantie du prêt.",
+      "generatorId": "chatgpt-1"
+    },
     {
       "id": "fr-feve-portage-foncier",
       "name": "Portage foncier FEVE pour l’installation",
@@ -171,6 +214,6 @@
   "news": [],
   "limitations": [
     "Le Répertoire Départ Installation, les Safer et les points d'accueil ont été identifiés, mais leurs portées et pages nationales d'accès doivent encore être consolidées.",
-    "Hormis l’exonération nationale de cotisations MSA, les aides financières sont principalement documentées sur les pages des régions."
+    "La garantie INAF et l’exonération nationale de cotisations MSA sont documentées ; les autres aides financières sont principalement publiées sur les pages des régions."
   ]
 }

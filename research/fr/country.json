@@ -12,7 +12,8 @@
     "Le vocabulaire local comprend installation-transmission, cédant, repreneur, Point accueil installation transmission, Répertoire départ installation et stage de parrainage.",
     "France Services Agriculture est prévu à compter de 2027 : son annonce ne constitue pas encore un service opérationnel en 2026.",
     "La MSA applique aux jeunes chefs d’exploitation affiliés à titre principal ou exclusif une exonération partielle et dégressive de cotisations pendant cinq ans ; le dossier d’affiliation recueille les informations nécessaires à cette exonération.",
-    "FEVE propose en France métropolitaine un portage du foncier d’une ferme déjà identifiée : acquisition par une foncière, bail rural avec option d’achat et accès par test d’éligibilité puis dépôt de dossier."
+    "FEVE propose en France métropolitaine un portage du foncier d’une ferme déjà identifiée : acquisition par une foncière, bail rural avec option d’achat et accès par test d’éligibilité puis dépôt de dossier.",
+    "La seconde phase de l’INAF est opérationnelle : les prêts garantis sont instruits par Arkéa, BPCE, Crédit Agricole et Crédit Mutuel-CIC pour des exploitations, des candidats à l’installation et d’autres structures agricoles éligibles."
   ],
   "portals": [
     {
@@ -39,6 +40,11 @@
       "name": "FEVE — installation",
       "url": "https://www.feve.co/installation/je-finance-ma-ferme",
       "what": "Portage du foncier d’une ferme identifiée, critères de financement et parcours de dépôt pour une installation en France métropolitaine."
+    },
+    {
+      "name": "Ministère de l’Agriculture — INAF",
+      "url": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise",
+      "what": "État opérationnel de la seconde phase, bénéficiaires, dépenses financées et dépôt auprès des quatre réseaux bancaires partenaires."
     }
   ],
   "openData": [],
@@ -77,6 +83,11 @@
       "id": "fr-feve-portage-2026",
       "kinds": ["LAND_BANK"],
       "query": "site:feve.co installation financement ferme portage foncier critères éligibilité France métropolitaine"
+    },
+    {
+      "id": "fr-inaf-operationnel-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:agriculture.gouv.fr INAF seconde phase dépôt dossiers banques partenaires 2026"
     }
   ],
   "leads": [
@@ -124,11 +135,12 @@
       "id": "fr-inaf",
       "name": "Initiative nationale pour l’agriculture française — INAF",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "TO_CHECK",
-      "reason": "Ministère lu : garantie de prêts et soutien à l’installation, avec interventions sur tout le territoire. Citation : «Renforcer le renouvellement des générations et l’installation des jeunes agriculteurs». L’annexe limite à tort la description à deux régions ; ne pas importer cette limite. Vérifier les conditions et l’accès actuels auprès des intermédiaires financiers, sans le présenter comme une demande directe à l’UE.",
-      "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!100",
-      "checkedOn": "2026-10-18",
-      "url": "https://agriculture.gouv.fr/linaf-un-dispositif-de-financement-public-innovant-en-faveur-du-renouvellement-des-generations-et"
+      "status": "ADMITTED",
+      "resourceId": "fr-inaf-garantie-prets-agricoles",
+      "reason": "Le ministère confirme en janvier 2026 le déploiement de la seconde phase, les premiers prêts débloqués, les bénéficiaires, les dépenses financées et le dépôt auprès de quatre réseaux bancaires. La fiche présente INAF comme une garantie instruite par les banques, pas comme une demande directe au FEI ni comme une subvention.",
+      "foundBy": "fr-inaf-operationnel-2026",
+      "checkedOn": "2026-10-28",
+      "url": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise"
     },
     {
       "id": "fr-msa-exoneration-jeunes",
@@ -208,6 +220,11 @@
       "date": "2026-10-28",
       "by": "CHATGPT (Codex)",
       "summary": "Admis le portage foncier FEVE pour l’installation en France métropolitaine : ferme identifiée, acquisition par la foncière, bail rural avec option d’achat, critères et parcours de dépôt documentés sans le présenter comme une banque de parcelles disponibles."
+    },
+    {
+      "date": "2026-10-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admise la garantie de prêts INAF comme aide nationale opérationnelle : bénéficiaires, dépenses et quatre réseaux bancaires de dépôt documentés par le ministère en janvier 2026, sans la présenter comme une subvention ni comme une demande directe au FEI."
     }
   ]
 }
