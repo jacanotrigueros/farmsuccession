@@ -5,7 +5,7 @@
     "country": "DE"
   },
   "language": "de",
-  "updatedOn": "2026-10-26",
+  "updatedOn": "2026-10-28",
   "context": [
     "Deutschland hat einen gemeinsamen nationalen GAP-Strategieplan; ELER-Förderung, Niederlassungsbeihilfen und Beratung werden jedoch überwiegend von den Bundesländern umgesetzt.",
     "Die 16 Bundesländer sind deshalb die primären regionalen Rechercheeinheiten; Kreise und Gemeinden sind nur bei eigenen Angeboten aufzunehmen.",
@@ -55,6 +55,11 @@
       "id": "de-bioboden-2026",
       "kinds": ["SUCCESSION_SERVICE", "LAND_BANK"],
       "query": "site:bioboden.de Landwirte Flächen Betrieb Erwerb Pacht Bedingungen"
+    },
+    {
+      "id": "de-svlfg-frauen-coaching-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:svlfg.de/frauen-coaching Förderbedingungen Antrag Laufzeit Frauen Coaching"
     }
   ],
   "leads": [
@@ -133,10 +138,11 @@
       "id": "de-svlfg-frauen-coaching",
       "name": "Frauen durch Coaching gezielt fördern",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "TO_CHECK",
-      "reason": "SVLFG-Seite gelesen: Coaching für Frauen bei Gründung, Übernahme oder Veränderung ihrer unternehmerischen Stellung, Antragsformular und Förderbedingungen verlinkt. Beleg: „Ende der Förderaktion: 31.12.2026“. Teilnahmebedingungen und Förderzusage vor Beginn des Coachings im nächsten nationalen Durchgang vollständig prüfen; kein bereits bewilligter Anspruch aus der Programmbeschreibung ableiten.",
+      "status": "ADMITTED",
+      "resourceId": "de-svlfg-frauen-coaching",
+      "reason": "Die aktuelle SVLFG-Seite und die Förder- und Teilnahmebedingungen wurden am 28.10.2026 vollständig geprüft. Sie belegen einen bundesweiten Zuschuss zu sechs bis 18 Stunden Einzel- oder Gruppencoaching bis höchstens 1.800 Euro für Frauen bei Gründung, Übernahme oder Änderung ihrer unternehmerischen Stellung. Die Förderaktion ist bis 30.06.2027 geöffnet. Antragseingang, Mittelverfügbarkeit, Bewilligung vor Coachingbeginn und zugelassene Coaches sind als Bedingungen dokumentiert; ein automatischer Anspruch wird nicht abgeleitet.",
       "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!46",
-      "checkedOn": "2026-10-18",
+      "checkedOn": "2026-10-28",
       "url": "https://www.svlfg.de/frauen-coaching"
     },
     {
@@ -196,6 +202,11 @@
       "date": "2026-10-26",
       "by": "CHATGPT (Codex)",
       "summary": "BioBoden anhand der aktuellen Betreiberseiten und des im Mai 2025 veröffentlichten Jahresberichts geprüft und als bundesweiten Dienst zur Sicherung und Verpachtung von Flächen und ganzen Betrieben für ökologische Bewirtschaftung aufgenommen. Nicht veröffentlichte Kosten und Vertragsbedingungen bleiben unbekannt."
+    },
+    {
+      "date": "2026-10-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Das SVLFG-Programm „Frauen durch Coaching gezielt fördern“ anhand der aktuellen Betreiberseite und Förderbedingungen geprüft und als bundesweiten Coachingzuschuss aufgenommen. Laufzeit, Höchstbetrag, Antragsweg, Bewilligungsvorbehalt und Anforderungen an Coaches sind belegt; ein automatischer Förderanspruch wird nicht behauptet."
     }
   ]
 }
