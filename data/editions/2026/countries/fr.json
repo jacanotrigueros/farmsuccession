@@ -4,11 +4,11 @@
   "edition": "2026",
   "country": "FR",
   "officialName": "France",
-  "published": "2026-09-14",
-  "summary": "En France, les principaux dispositifs d'installation et de transmission — Répertoire Départ Installation, Safer, points d'accueil (PADU) et aides à l'installation (AITA) — ont été identifiés au niveau national, mais leurs pages d'accès stables restent à vérifier avant publication. Un nouveau réseau public d'accueil et d'accompagnement a par ailleurs été annoncé, sans être encore opérationnel.",
+  "published": "2026-10-28",
+  "summary": "En France, la MSA applique aux jeunes chefs d’exploitation une exonération partielle et dégressive de cotisations pendant les cinq premières années suivant l’installation. Les principaux services de transmission ont été identifiés au niveau national, mais certains accès restent à consolider. France Services Agriculture est annoncé pour 2027 et n’est pas encore opérationnel.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Les portails nationaux et les principaux termes institutionnels ont été examinés et une passe d'expansion a identifié le RDI, les Safer, les PADU et l'AITA. Les pages d'accès stables de certains services restent à vérifier.",
+    "note": "Les portails nationaux et les principaux termes institutionnels ont été examinés. L’exonération MSA des jeunes agriculteurs est documentée ; une passe d’expansion a aussi identifié le RDI, les Safer, les PADU et l’AITA, dont certaines pages d’accès restent à vérifier.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -21,6 +21,10 @@
       {
         "method": "WEB_SEARCH",
         "detail": "site:agriculture.gouv.fr aides installation transmission agriculteurs AITA"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
       }
     ]
   },
@@ -41,6 +45,52 @@
     ]
   },
   "resources": [
+    {
+      "id": "fr-msa-exoneration-jeune-agriculteur",
+      "name": "Exonération MSA du jeune agriculteur",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Mutualité sociale agricole",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Exonération partielle et dégressive des cotisations personnelles d’assurance maladie-maternité, invalidité, retraite de base et prestations familiales pendant les cinq premières années suivant l’installation, dans la limite d’un plafond annuel.",
+      "whoCanUseIt": "Chefs d’exploitation ou d’entreprise agricole âgés de 18 à 40 ans lors de leur affiliation, exerçant à titre principal ou exclusif et relevant de l’Amexa. L’âge maximal peut être reculé pour les enfants à charge ou le service militaire.",
+      "howToAccess": "Renseigner sa situation dans le dossier d’affiliation au régime des non-salariés agricoles et contacter un conseiller de sa caisse MSA pour être accompagné.",
+      "accessUrl": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur",
+      "instrumentType": "OTHER",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["fr"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-03-23",
+      "sources": [
+        {
+          "url": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur",
+          "title": "L’exonération jeune agriculteur — MSA",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "Mis à jour le 23/03/2026",
+            "Tout nouvel exploitant peut bénéficier, sous certaines conditions, d'une exonération partielle de ses cotisations pendant 5 ans.",
+            "Être âgé de 18 à 40 ans à la date d'affiliation au régime de protection sociale des non-salariés agricoles.",
+            "La limite d'âge peut être reportée d'un an par enfant à charge (pour les bénéficiaires de prestations familiales) ou en cas de service militaire.",
+            "Vous bénéficiez d'une exonération partielle et dégressive de vos cotisations sociales durant les cinq années qui suivent votre installation et dans la limite d'un plafond fixé par arrêté ministériel.",
+            "Pour vous aider dans votre parcours d'installation, contactez un conseiller de votre MSA."
+          ]
+        },
+        {
+          "url": "https://www.formulaires.service-public.gouv.fr/gf/cerfa_12555.do",
+          "title": "Dossier d’affiliation au régime de protection sociale des non-salariés des professions agricoles",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "Un dossier pour votre affiliation à la MSA",
+            "Vous pouvez bénéficier de l’exonération des cotisations Jeune agriculteur si vous êtes âgé de dix-huit ans au moins et de quarante ans au plus à la date de votre affiliation au régime de protection sociale des non-salariés agricoles, toutefois cette limite d’âge peut être reculée d’un an par enfant à charge."
+          ]
+        }
+      ],
+      "notes": "L’exonération porte sur les cotisations personnelles du chef d’exploitation et non sur celles des membres de sa famille ou de salariés.",
+      "generatorId": "chatgpt-1"
+    },
     {
       "id": "fr-france-services-agriculture",
       "name": "France Services Agriculture",
@@ -76,6 +126,6 @@
   "news": [],
   "limitations": [
     "Le Répertoire Départ Installation, les Safer et les points d'accueil ont été identifiés, mais leurs portées et pages nationales d'accès doivent encore être consolidées.",
-    "Les aides financières sont principalement documentées sur les pages des régions."
+    "Hormis l’exonération nationale de cotisations MSA, les aides financières sont principalement documentées sur les pages des régions."
   ]
 }
