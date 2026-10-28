@@ -10,7 +10,7 @@
   "context": [
     "En Pays de la Loire, l’étude d’installation est un préalable obligatoire à la demande de dotation aux jeunes agriculteurs.",
     "Le règlement régional de la dotation couvre la période 2024-2027 et détaille montants et modulations.",
-    "La Région anime aussi des territoires pilotes pour la transmission agricole, à vérifier lors d’une prochaine passe.",
+    "La Région finance des territoires pilotes qui conduisent pendant trois ans des actions locales de transmission agricole. Quinze territoires sont engagés et cinq nouveaux territoires doivent rejoindre la démarche en 2026.",
     "La DRAAF confirme que le volet 4 de l’AITA finance un diagnostic et, s’il est préconisé, un suivi technico-économique du nouvel exploitant. La démarche SNE 2026 est close depuis le 17 octobre et l’AITA doit être remplacé par France Services Agriculture au 1er janvier 2027.",
     "Passeurs de terres et Terre de Liens Pays de la Loire étudient les projets de personnes qui veulent s’installer en agriculture biologique sans acheter leur ferme ; l’acquisition d’un bien identifié reste soumise à l’examen du conseil d’administration de la coopérative.",
     "La CIAP Pays de la Loire propose une formation certifiante de douze mois pour les personnes ayant un projet de création, d’association ou de reprise agricole et un lieu d’installation identifié. La Région la répertorie encore sous son ancien nom « Paysan créatif » parmi les formations autorisées pour la DJA."
@@ -68,6 +68,11 @@
       "id": "pdl-ciap-entreprendre-access",
       "kinds": ["TRAINING"],
       "query": "site:ciap-pdl.fr Entreprendre en Agriculture Paysanne 2026 inscription durée"
+    },
+    {
+      "id": "pdl-territoires-pilotes-officiel",
+      "kinds": ["POLICY"],
+      "query": "site:paysdelaloire.fr \"territoires pilotes\" transmission agricole"
     }
   ],
   "leads": [
@@ -107,11 +112,13 @@
     {
       "id": "pdl-territoires-pilotes",
       "name": "Territoires pilotes pour la transmission agricole",
-      "kind": "SUCCESSION_SERVICE",
-      "status": "TO_CHECK",
-      "reason": "Dispositif régional associant intercommunalités et chambres d’agriculture ; à vérifier sur une source officielle.",
-      "foundBy": "pdl-installation",
-      "checkedOn": "2026-09-20"
+      "url": "https://www.paysdelaloire.fr/economie-et-innovation/creer-reprendre-transmettre/creer-reprendre-transmettre-mon-activite-agricole-halieutique-foret",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "resourceId": "pays-de-la-loire-territoires-pilotes-transmission",
+      "reason": "La page officielle actuelle confirme le financement régional, les actions locales de trois ans, les quinze territoires engagés et l’accès réservé aux EPCI intéressés. Le dispositif est publié comme politique territoriale, pas comme guichet direct pour les particuliers.",
+      "foundBy": "pdl-territoires-pilotes-officiel",
+      "checkedOn": "2026-10-28"
     },
     {
       "id": "pdl-passeurs-terres",
@@ -187,6 +194,11 @@
       "date": "2026-10-28",
       "by": "CHATGPT (Codex)",
       "summary": "Admise la formation certifiante Entreprendre en Agriculture Paysanne de la CIAP : public, durée, contenu et réunion d’information documentés, avec reconnaissance DJA confirmée par la liste régionale et sans extrapoler une prochaine session ni son coût."
+    },
+    {
+      "date": "2026-10-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admis le dispositif Territoires pilotes comme politique régionale : financement de programmes locaux de trois ans, quinze territoires engagés et contact réservé aux EPCI documentés sur la page officielle, sans le présenter comme un guichet direct pour les particuliers."
     }
   ]
 }

@@ -6,10 +6,10 @@
   "region": "pays-de-la-loire",
   "officialName": "Pays de la Loire",
   "published": "2026-10-28",
-  "summary": "En Pays de la Loire, la Région gère la dotation aux jeunes agriculteurs et l’État finance, par l’AITA, un diagnostic et un suivi technico-économique après l’installation. La Safer accompagne les cédants dans la transmission de leur exploitation. Passeurs de terres facilite l’accès à des fermes biologiques et la CIAP propose une formation certifiante d’un an pour préparer une création, une association ou une reprise agricole.",
+  "summary": "En Pays de la Loire, la Région gère la dotation aux jeunes agriculteurs et soutient des territoires pilotes qui expérimentent des actions locales de transmission. L’État finance, par l’AITA, un diagnostic et un suivi après l’installation. La Safer accompagne les cédants, Passeurs de terres facilite l’accès à des fermes biologiques et la CIAP propose une formation certifiante d’un an.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Recherches sur les aides régionales à l’installation et à la transmission, le suivi post-installation AITA, la Safer régionale, l’accès associatif au foncier et la formation à l’installation. Le dispositif régional de territoires pilotes pour la transmission n’a pas été vérifié.",
+    "note": "Recherches sur les aides régionales à l’installation et à la transmission, les territoires pilotes de transmission, le suivi post-installation AITA, la Safer régionale, l’accès associatif au foncier et la formation à l’installation.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -34,6 +34,10 @@
       {
         "method": "WEB_SEARCH",
         "detail": "site:ciap-pdl.fr Entreprendre en Agriculture Paysanne 2026 inscription durée"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:paysdelaloire.fr \"territoires pilotes\" transmission agricole"
       }
     ]
   },
@@ -233,6 +237,38 @@
       "generatorId": "chatgpt-1"
     },
     {
+      "id": "pays-de-la-loire-territoires-pilotes-transmission",
+      "name": "Territoires pilotes pour la transmission agricole",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Région Pays de la Loire",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Politique régionale qui finance pendant trois ans des actions locales portées par des EPCI, la Chambre d’agriculture et d’autres réseaux afin de faciliter la transmission des exploitations et d’attirer de nouveaux agriculteurs.",
+      "whoCanUseIt": "EPCI et acteurs territoriaux des Pays de la Loire qui souhaitent mener des actions locales en faveur du renouvellement agricole.",
+      "howToAccess": "Les EPCI intéressés pour les années à venir sont invités à contacter la Région depuis la page officielle du dispositif.",
+      "accessUrl": "https://www.paysdelaloire.fr/economie-et-innovation/creer-reprendre-transmettre/creer-reprendre-transmettre-mon-activite-agricole-halieutique-foret",
+      "languages": ["fr"],
+      "targetProfiles": ["GENERAL"],
+      "sources": [
+        {
+          "url": "https://www.paysdelaloire.fr/economie-et-innovation/creer-reprendre-transmettre/creer-reprendre-transmettre-mon-activite-agricole-halieutique-foret",
+          "title": "Un projet d’installation agricole ou halieutique ? La Région vous accompagne — Région Pays de la Loire",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "Mis en place par la Région Pays de la Loire, les Territoires Pilotes Transmission agricole sont des initiatives portées par les acteurs d’un territoire (EPCI, chambre d’agriculture et autres réseaux) visant à faciliter la transmission des exploitations agricoles et à attirer de nouveaux agriculteurs.",
+            "Ces territoires, soutenus financièrement par la Région, mènent des actions concrètes pendant 3 ans avec l'objectif d'augmenter leur taux de renouvellement agricole au niveau local.",
+            "Lancés en 2021, 15 territoires pilotes, répartis dans les 5 départements, sont aujourd’hui engagés dans la démarche. 5 nouveaux territoires s’engageront en 2026.",
+            "Vous êtes un EPCI, vous êtes intéressés pour les années à venir ? Nous vous invitons à nous contacter."
+          ]
+        }
+      ],
+      "notes": "La page décrit une politique mise en œuvre par des territoires partenaires, et non un guichet régional unique ouvert directement aux cédants ou aux repreneurs ; les actions accessibles dépendent de chaque territoire pilote.",
+      "generatorId": "chatgpt-1"
+    },
+    {
       "id": "pays-de-la-loire-safer-transmission",
       "name": "Safer Pays de la Loire, accompagnement à la transmission",
       "kind": "SUCCESSION_SERVICE",
@@ -280,7 +316,6 @@
   ],
   "news": [],
   "limitations": [
-    "Les montants et modulations de la dotation régionale n’ont pas été cités : ils figurent dans le règlement, non consulté ici.",
-    "Le dispositif régional de territoires pilotes pour la transmission agricole n’a pas été vérifié."
+    "Les montants et modulations de la dotation régionale n’ont pas été cités : ils figurent dans le règlement, non consulté ici."
   ]
 }
