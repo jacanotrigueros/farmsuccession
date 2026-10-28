@@ -5,12 +5,13 @@
     "country": "FR"
   },
   "language": "fr",
-  "updatedOn": "2026-10-18",
+  "updatedOn": "2026-10-28",
   "context": [
     "Les Régions gèrent une part structurante des aides FEADER, tandis que les chambres départementales assurent des services d'installation et de transmission.",
     "Rechercher les dispositifs aux niveaux région, département, EPCI et commune, ainsi que les opérateurs fonctionnels comme les Chambres d'agriculture et les Safer.",
     "Le vocabulaire local comprend installation-transmission, cédant, repreneur, Point accueil installation transmission, Répertoire départ installation et stage de parrainage.",
-    "France Services Agriculture est prévu à compter de 2027 : son annonce ne constitue pas encore un service opérationnel en 2026."
+    "France Services Agriculture est prévu à compter de 2027 : son annonce ne constitue pas encore un service opérationnel en 2026.",
+    "La MSA applique aux jeunes chefs d’exploitation affiliés à titre principal ou exclusif une exonération partielle et dégressive de cotisations pendant cinq ans ; le dossier d’affiliation recueille les informations nécessaires à cette exonération."
   ],
   "portals": [
     {
@@ -27,6 +28,11 @@
       "name": "Service Public — annonce de cession au RDI",
       "url": "https://entreprendre.service-public.gouv.fr/vosdroits/R18247",
       "what": "Fiche de la DILA vérifiée le 1er octobre 2026, avec un renvoi vers l'outil des Chambres d'agriculture. La DILA autorise les liens vers ses informations et leur réutilisation sous Licence Ouverte. Cette fiche ne vérifie pas les conditions du site de l'opérateur ni son accès actuel."
+    },
+    {
+      "name": "MSA — installation",
+      "url": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur",
+      "what": "Conditions, barème et accès à l’exonération de cotisations des jeunes agriculteurs."
     }
   ],
   "openData": [],
@@ -55,6 +61,11 @@
       "id": "prepublication-2026-09-25-1",
       "kinds": ["LAND_BANK", "SUCCESSION_SERVICE", "FINANCIAL_SUPPORT", "TRAINING", "ADVICE"],
       "query": "France installation transmission agriculture accompagnement"
+    },
+    {
+      "id": "fr-msa-exoneration-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:msa.fr exonération jeune agriculteur 2026 conditions affiliation"
     }
   ],
   "leads": [
@@ -111,10 +122,11 @@
       "id": "fr-msa-exoneration-jeunes",
       "name": "MSA — exonération jeune agriculteur",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "TO_CHECK",
-      "reason": "Page nationale MSA mise à jour en mars 2026 lue : conditions d’âge, activité principale/exclusive et affiliation ; la liste ne subordonne pas l’exonération à la DJA. Citation : «Pour vous aider dans votre parcours d’installation, contactez un conseiller de votre MSA.» Vérifier le parcours administratif et les exceptions avant admission nationale ; ne pas en faire un avantage exclusivement régional des Hauts-de-France.",
-      "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!104",
-      "checkedOn": "2026-10-18",
+      "status": "ADMITTED",
+      "resourceId": "fr-msa-exoneration-jeune-agriculteur",
+      "reason": "La page nationale MSA et le dossier officiel d’affiliation concordent sur les bénéficiaires, le barème dégressif, les exceptions d’âge et le traitement de l’exonération lors de l’affiliation. Aucune condition de perception de la DJA n’est ajoutée.",
+      "foundBy": "fr-msa-exoneration-2026",
+      "checkedOn": "2026-10-28",
       "url": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
     },
     {
@@ -174,6 +186,11 @@
       "date": "2026-10-18",
       "by": "CHATGPT (Codex)",
       "summary": "La fiche RDI de Service Public / DILA du 1er octobre 2026 et les conditions de lien et de réutilisation de Service Public ont été vérifiées. Le site de l'opérateur reste inaccessible à la vérification et ses conditions propres ne sont pas établies ; la piste reste TO_CHECK et aucun doublon national n'est publié."
+    },
+    {
+      "date": "2026-10-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admise l’exonération MSA du jeune agriculteur comme aide nationale : conditions, réduction dégressive sur cinq ans et traitement dans le dossier d’affiliation documentés par la MSA et le formulaire officiel, sans ajouter une condition de DJA."
     }
   ]
 }
