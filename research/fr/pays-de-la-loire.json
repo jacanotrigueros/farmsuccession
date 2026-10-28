@@ -6,13 +6,14 @@
     "region": "pays-de-la-loire"
   },
   "language": "fr",
-  "updatedOn": "2026-10-27",
+  "updatedOn": "2026-10-28",
   "context": [
     "En Pays de la Loire, l’étude d’installation est un préalable obligatoire à la demande de dotation aux jeunes agriculteurs.",
     "Le règlement régional de la dotation couvre la période 2024-2027 et détaille montants et modulations.",
     "La Région anime aussi des territoires pilotes pour la transmission agricole, à vérifier lors d’une prochaine passe.",
     "La DRAAF confirme que le volet 4 de l’AITA finance un diagnostic et, s’il est préconisé, un suivi technico-économique du nouvel exploitant. La démarche SNE 2026 est close depuis le 17 octobre et l’AITA doit être remplacé par France Services Agriculture au 1er janvier 2027.",
-    "Passeurs de terres et Terre de Liens Pays de la Loire étudient les projets de personnes qui veulent s’installer en agriculture biologique sans acheter leur ferme ; l’acquisition d’un bien identifié reste soumise à l’examen du conseil d’administration de la coopérative."
+    "Passeurs de terres et Terre de Liens Pays de la Loire étudient les projets de personnes qui veulent s’installer en agriculture biologique sans acheter leur ferme ; l’acquisition d’un bien identifié reste soumise à l’examen du conseil d’administration de la coopérative.",
+    "La CIAP Pays de la Loire propose une formation certifiante de douze mois pour les personnes ayant un projet de création, d’association ou de reprise agricole et un lieu d’installation identifié. La Région la répertorie encore sous son ancien nom « Paysan créatif » parmi les formations autorisées pour la DJA."
   ],
   "portals": [
     {
@@ -34,6 +35,11 @@
       "name": "Passeurs de terres",
       "url": "https://passeursdeterres.org/",
       "what": "Acquisition et location de fermes pour des installations en agriculture biologique dans les Pays de la Loire."
+    },
+    {
+      "name": "CIAP Pays de la Loire",
+      "url": "https://ciap-pdl.fr/",
+      "what": "Formation, portage d’activité et espaces-test pour les projets d’installation agricole."
     }
   ],
   "openData": [],
@@ -57,6 +63,11 @@
       "id": "pdl-passeurs-terres-access",
       "kinds": ["LAND_BANK"],
       "query": "site:passeursdeterres.org porteur de projet ferme location agriculture biologique Pays de la Loire"
+    },
+    {
+      "id": "pdl-ciap-entreprendre-access",
+      "kinds": ["TRAINING"],
+      "query": "site:ciap-pdl.fr Entreprendre en Agriculture Paysanne 2026 inscription durée"
     }
   ],
   "leads": [
@@ -117,10 +128,11 @@
       "id": "pdl-ciap-entreprendre",
       "name": "CIAP — Entreprendre en Agriculture Paysanne",
       "kind": "TRAINING",
-      "status": "TO_CHECK",
-      "reason": "Page opérateur lue : formation de douze mois, immersion et accompagnement de projets ayant identifié un lieu d’installation. Citation : «Construire son projet de création, association ou reprise d’activité agricole pour une installation pérenne.» L’opérateur indique une reconnaissance régionale pour la DJA ; vérifier le règlement lié, coût et modalités d’entrée avant admission. Ne pas extrapoler aux CIAP d’autres régions.",
-      "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!101",
-      "checkedOn": "2026-10-18",
+      "status": "ADMITTED",
+      "resourceId": "pays-de-la-loire-ciap-entreprendre-agriculture-paysanne",
+      "reason": "La page de la CIAP publie les destinataires, la durée, le contenu et l’accès par réunion d’information ; la liste exhaustive de la Région confirme que la formation, encore nommée « Paysan créatif », est autorisée pour la DJA. Les dates et coûts futurs restent omis faute de publication actuelle.",
+      "foundBy": "pdl-ciap-entreprendre-access",
+      "checkedOn": "2026-10-28",
       "url": "https://ciap-pdl.fr/offres-daccompagnement/formation-entreprendre-en-agriculture-paysanne/"
     }
   ],
@@ -170,6 +182,11 @@
       "date": "2026-10-27",
       "by": "CHATGPT (Codex)",
       "summary": "Admis Passeurs de terres comme accès régional à des fermes pour les porteurs de projet biologique : sollicitation publique, étude avec Terre de Liens et décision d’acquisition par le conseil d’administration documentées sans présenter le service comme un inventaire de parcelles."
+    },
+    {
+      "date": "2026-10-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admise la formation certifiante Entreprendre en Agriculture Paysanne de la CIAP : public, durée, contenu et réunion d’information documentés, avec reconnaissance DJA confirmée par la liste régionale et sans extrapoler une prochaine session ni son coût."
     }
   ]
 }
