@@ -11,7 +11,8 @@
     "Rechercher les dispositifs aux niveaux région, département, EPCI et commune, ainsi que les opérateurs fonctionnels comme les Chambres d'agriculture et les Safer.",
     "Le vocabulaire local comprend installation-transmission, cédant, repreneur, Point accueil installation transmission, Répertoire départ installation et stage de parrainage.",
     "France Services Agriculture est prévu à compter de 2027 : son annonce ne constitue pas encore un service opérationnel en 2026.",
-    "La MSA applique aux jeunes chefs d’exploitation affiliés à titre principal ou exclusif une exonération partielle et dégressive de cotisations pendant cinq ans ; le dossier d’affiliation recueille les informations nécessaires à cette exonération."
+    "La MSA applique aux jeunes chefs d’exploitation affiliés à titre principal ou exclusif une exonération partielle et dégressive de cotisations pendant cinq ans ; le dossier d’affiliation recueille les informations nécessaires à cette exonération.",
+    "FEVE propose en France métropolitaine un portage du foncier d’une ferme déjà identifiée : acquisition par une foncière, bail rural avec option d’achat et accès par test d’éligibilité puis dépôt de dossier."
   ],
   "portals": [
     {
@@ -33,6 +34,11 @@
       "name": "MSA — installation",
       "url": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur",
       "what": "Conditions, barème et accès à l’exonération de cotisations des jeunes agriculteurs."
+    },
+    {
+      "name": "FEVE — installation",
+      "url": "https://www.feve.co/installation/je-finance-ma-ferme",
+      "what": "Portage du foncier d’une ferme identifiée, critères de financement et parcours de dépôt pour une installation en France métropolitaine."
     }
   ],
   "openData": [],
@@ -66,6 +72,11 @@
       "id": "fr-msa-exoneration-2026",
       "kinds": ["FINANCIAL_SUPPORT"],
       "query": "site:msa.fr exonération jeune agriculteur 2026 conditions affiliation"
+    },
+    {
+      "id": "fr-feve-portage-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "site:feve.co installation financement ferme portage foncier critères éligibilité France métropolitaine"
     }
   ],
   "leads": [
@@ -102,11 +113,12 @@
       "id": "fr-feve-foncier",
       "name": "FEVE — portage foncier",
       "kind": "LAND_BANK",
-      "status": "TO_CHECK",
-      "reason": "Page opérateur lue : achat de foncier puis location avec option d’achat ; accès au test d’éligibilité et au dépôt de dossier. Citation : «FEVE finance ces terres agricoles pour vous les mettre à disposition en location avec option d’achat.» Vérifier charte, territoire, conditions contractuelles et parcours de première installation avant admission ; ne pas reprendre les chiffres du seul inventaire.",
-      "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!98",
-      "checkedOn": "2026-10-18",
-      "url": "https://www.feve.co/installation/acheter-terres-agricoles"
+      "status": "ADMITTED",
+      "resourceId": "fr-feve-portage-foncier",
+      "reason": "La page d’installation de l’opérateur documente le territoire métropolitain, l’acquisition du foncier d’une ferme déjà trouvée, le bail rural avec option d’achat, les critères principaux et le parcours allant du test d’éligibilité au comité d’investissement. Le dispositif est distingué d’un inventaire de parcelles et des services régionaux.",
+      "foundBy": "fr-feve-portage-2026",
+      "checkedOn": "2026-10-28",
+      "url": "https://www.feve.co/installation/je-finance-ma-ferme"
     },
     {
       "id": "fr-inaf",
@@ -191,6 +203,11 @@
       "date": "2026-10-28",
       "by": "CHATGPT (Codex)",
       "summary": "Admise l’exonération MSA du jeune agriculteur comme aide nationale : conditions, réduction dégressive sur cinq ans et traitement dans le dossier d’affiliation documentés par la MSA et le formulaire officiel, sans ajouter une condition de DJA."
+    },
+    {
+      "date": "2026-10-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admis le portage foncier FEVE pour l’installation en France métropolitaine : ferme identifiée, acquisition par la foncière, bail rural avec option d’achat, critères et parcours de dépôt documentés sans le présenter comme une banque de parcelles disponibles."
     }
   ]
 }

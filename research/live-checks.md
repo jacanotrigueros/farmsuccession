@@ -148,6 +148,6 @@ historical accounts and are not regenerated.
 
 <!-- source-series:start -->
 
-As of 2026-10-28, the committed source-check series holds 137 runs on 8 UTC days (2026-10-08 to 2026-10-28), observing 555 distinct URLs: 374 HEALTHY, 146 FLAKY, 26 UNREACHABLE, 2 GONE and 7 NEW. Of those, 544 are still cited by the current corpus: 371 HEALTHY, 143 FLAKY, 26 UNREACHABLE, 0 GONE and 4 NEW; 11 no longer cited URLs remain in the history. All cited pages have been checked at least once for 86 of 96 territories that cite evidence; 5 territories cite none. Checked includes UNCHECKED outcomes and does not mean a page was successfully read. These verdicts follow decision 025; they do not establish current availability or a human review.
+As of 2026-10-28, the committed source-check series holds 139 runs on 8 UTC days (2026-10-08 to 2026-10-28), observing 556 distinct URLs: 375 HEALTHY, 146 FLAKY, 26 UNREACHABLE, 2 GONE and 7 NEW. Of those, 545 are still cited by the current corpus: 372 HEALTHY, 143 FLAKY, 26 UNREACHABLE, 0 GONE and 4 NEW; 11 no longer cited URLs remain in the history. All cited pages have been checked at least once for 86 of 96 territories that cite evidence; 5 territories cite none. Checked includes UNCHECKED outcomes and does not mean a page was successfully read. These verdicts follow decision 025; they do not establish current availability or a human review.
 
 <!-- source-series:end -->
