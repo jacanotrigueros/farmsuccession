@@ -5,11 +5,11 @@
   "country": "DE",
   "region": "sachsen-anhalt",
   "officialName": "Sachsen-Anhalt",
-  "published": "2026-09-20",
-  "summary": "Sachsen-Anhalt deckt den Generationswechsel von beiden Seiten ab: Das Land zahlt eine Niederlassungsbeihilfe für die erste Selbstständigkeit, und die landeseigene Landgesellschaft berät Junglandwirte wie abgabewillige Betriebsleiter und vermittelt Höfe über ihre Hofbörse.",
+  "published": "2026-10-29",
+  "summary": "Sachsen-Anhalt verbindet die Niederlassungsbeihilfe und die Hofvermittlung der Landgesellschaft mit dem Netzwerk Junglandwirte. Das Netzwerk bündelt Kontakte, Orientierung und Austausch und hilft jungen Menschen, passende Ansprechpersonen, Unternehmen und andere Menschen in ähnlichen Situationen zu finden.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Recherche zur Landesförderung, zur Hofbörse und zur Übergabeberatung in Sachsen-Anhalt. Die Seiten des Landwirtschaftsministeriums antworten automatischen Abrufen mit einem Fehler; belegt sind das Amt für Landwirtschaft und die Landgesellschaft.",
+    "note": "Recherche zur Landesförderung, zur Hofbörse, zur Übergabeberatung und zum Netzwerk für junge Landwirtinnen und Landwirte in Sachsen-Anhalt. Belegt sind das Amt für Landwirtschaft, die Landgesellschaft und die aktuelle Netzwerkseite des Ministeriums.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -22,6 +22,10 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://www.lgsa.de/de/landwirtschaft/junglandwirte-existenzgruender/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://mwl.sachsen-anhalt.de/landwirtschaft/landwirtschaft-und-betriebe/page/netzwerk-junglandwirte"
       }
     ]
   },
@@ -36,6 +40,12 @@
         "id": "claude-1",
         "tool": "CLAUDE",
         "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "gpt-5",
         "promptVersion": "1.9.0"
       }
     ]
@@ -75,6 +85,38 @@
       "generatorId": "claude-1"
     },
     {
+      "id": "sachsen-anhalt-netzwerk-junglandwirte",
+      "name": "Netzwerk Junglandwirte Sachsen-Anhalt",
+      "kind": "NETWORK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Ministerium für Wirtschaft, Tourismus, Landwirtschaft und Forsten des Landes Sachsen-Anhalt",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Bündelt Kontakte, Orientierung und Austausch. Das Netzwerk verweist nach Themen auf Anlaufstellen und hilft dabei, passende Ansprechpersonen, ein Unternehmen oder andere Menschen mit ähnlichen Herausforderungen zu finden.",
+      "whoCanUseIt": "Junge Menschen, die in der Landwirtschaft Verantwortung übernehmen möchten, darunter Menschen beim Einstieg, bei einer Betriebsübernahme oder auf der Suche nach einem Betrieb.",
+      "howToAccess": "Die thematisch geordnete Partnerliste und die Termine auf der Netzwerkseite nutzen oder die dort genannten Ansprechpersonen im Ministerium kontaktieren.",
+      "accessUrl": "https://mwl.sachsen-anhalt.de/landwirtschaft/landwirtschaft-und-betriebe/page/netzwerk-junglandwirte",
+      "languages": ["de"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "sources": [
+        {
+          "url": "https://mwl.sachsen-anhalt.de/landwirtschaft/landwirtschaft-und-betriebe/page/netzwerk-junglandwirte",
+          "title": "Netzwerk Junglandwirte",
+          "consultedOn": "2026-10-29",
+          "quotes": [
+            "Das Netzwerk Junglandwirte bündelt Kontakte, Orientierung und Austausch für junge Menschen, die in der Landwirtschaft Verantwortung übernehmen möchten.",
+            "Manchmal wird ein Rat benötigt, für einen Neuanfang der passende Betrieb gesucht oder ein Hof sucht eine Nachfolgerin oder einen Nachfolger.",
+            "Das Netzwerk kann diese täglichen Herausforderungen nicht lösen. Es kann jedoch dabei helfen, die richtigen Ansprechpersonen, ein passendes Unternehmen oder andere Menschen zu finden, die vor ähnlichen Herausforderungen stehen.",
+            "Die Partner im Netzwerk Junglandwirte bieten unterschiedliche Angebote und Anlaufstellen. Hier finden Sie die jeweiligen Einrichtungen und Organisationen nach Themen geordnet."
+          ]
+        }
+      ],
+      "notes": "Die Leistungen der aufgeführten Partner bleiben deren eigene Angebote; der Netzwerkeintrag beschreibt Orientierung und Vernetzung.",
+      "generatorId": "chatgpt-1"
+    },
+    {
       "id": "sachsen-anhalt-lgsa-hofvermittlung-beratung",
       "name": "Existenzgründung und Hofvermittlung der Landgesellschaft Sachsen-Anhalt",
       "kind": "SUCCESSION_SERVICE",
@@ -108,7 +150,6 @@
   ],
   "news": [],
   "limitations": [
-    "Die Seiten des Landwirtschaftsministeriums zum Netzwerk Junglandwirte antworten automatischen Abrufen mit einem Fehler; die Darstellung des Landes wurde deshalb über das zuständige Amt belegt.",
     "Die Listen der Hofbörse selbst liefern beim automatischen Abruf keinen Inhalt; belegt ist ihre Existenz über die Seite der Landgesellschaft.",
     "Auszahlungsraten und Auswahlverfahren der Niederlassungsbeihilfe stehen in Merkblättern, die hier nicht zitiert wurden."
   ]
