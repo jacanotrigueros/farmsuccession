@@ -5,11 +5,11 @@
   "country": "DE",
   "region": "saarland",
   "officialName": "Saarland",
-  "published": "2026-09-20",
-  "summary": "Das Saarland fördert die Existenzgründung von Junglandwirtinnen und Junglandwirten ausdrücklich sowohl bei innerfamiliären als auch bei außerfamiliären Betriebsübernahmen und bei Neugründungen, um den Generationswechsel zu unterstützen.",
+  "published": "2026-10-29",
+  "summary": "Das Saarland fördert die Existenzgründung von Junglandwirtinnen und Junglandwirten bei inner- und außerfamiliären Betriebsübernahmen sowie Neugründungen. Die Landwirtschaftskammer bietet zudem sozioökonomische Beratung an; ihr Jahresbericht belegt Beratungen zur Hofübergabe.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Recherche zur Landesförderung, zur Hofbörse und zur Übergabeberatung im Saarland. Belegt ist die Existenzgründungsförderung des Landes.",
+    "note": "Landesförderung und Hofübergabeberatung im Saarland wurden anhand aktueller Betreiberquellen geprüft. Eine Hof- oder Flächenbörse wurde nicht gefunden.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -18,6 +18,14 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://www.saarland.de/mukmav/DE/portale/landwirtschaft/informationen/existenzgruendungsfoerderung/existenzgruendungsfoerderung.html"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:lwk-saarland.de Hofübergabe sozioökonomische Beratung Jahresbericht"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.lwk-saarland.de/ueber-uns/aufgaben"
       }
     ]
   },
@@ -33,6 +41,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5",
+        "promptVersion": "1.9.0",
+        "processedAt": "2026-10-29"
       }
     ]
   },
@@ -68,12 +83,50 @@
         }
       ],
       "generatorId": "claude-1"
+    },
+    {
+      "id": "saarland-lwk-soziooekonomische-hofuebergabeberatung",
+      "name": "Sozioökonomische Hofübergabeberatung der Landwirtschaftskammer für das Saarland",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Landwirtschaftskammer für das Saarland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Sozioökonomische Beratung durch die Landwirtschaftskammer. Ihr Jahresbericht 2024 belegt Beratungsnachfrage zur Hofübergabe sowie zu betrieblichen und familiären Krisen.",
+      "whoCanUseIt": "Landwirtinnen und Landwirte im Saarland, die eine Hofübergabe vorbereiten oder Beratung zu damit verbundenen betrieblichen und familiären Fragen benötigen.",
+      "howToAccess": "Die Landwirtschaftskammer über den veröffentlichten allgemeinen Kontakt ansprechen und vorab einen Termin vereinbaren.",
+      "accessUrl": "https://www.lwk-saarland.de/ueber-uns/aufgaben",
+      "languages": ["de"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "sources": [
+        {
+          "url": "https://www.lwk-saarland.de/ueber-uns/aufgaben",
+          "title": "Aufgaben - Landwirtschaftskammer für das Saarland",
+          "consultedOn": "2026-10-29",
+          "quotes": [
+            "Die Landwirtschaftskammer für das Saarland ist die gesetzliche Berufsvertretung der Landwirtschaft gem. § 59 der Verfassung des Saarlandes. Sie ist eine Körperschaft des öffentlichen Rechts auf der Grundlage des Gesetzes über die Landwirtschaftskammer für das Saarland (Gesetz Nr. 532 vom 9. Juli 1956).",
+            "die Betriebsberatung für Landwirte und Gärtner sowie sozioökonomische Beratung,",
+            "Termine bitte vorher vereinbaren"
+          ]
+        },
+        {
+          "url": "https://www.lwk-saarland.de/fileadmin/landwirtschaftskammer/data/downloads/verwaltung/Jahresbericht_2024__2_.pdf",
+          "title": "Jahresbericht 2024 - Landwirtschaftskammer für das Saarland",
+          "consultedOn": "2026-10-29",
+          "quotes": [
+            "Im Jahr 2024 wurden neben Hofübergabe Beratungen zu unterschiedlichen betrieblichen und familiären Krisen nachgefragt."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1"
     }
   ],
   "news": [],
   "limitations": [
     "Höhe und Auszahlungsraten der Starthilfe wurden nicht zitiert, weil sie auf der gelesenen Seite nicht im abgerufenen Ausschnitt standen.",
-    "Die kostenfreie Hofübergabeberatung von Landwirtschaftskammer und Bauernverband wurde nicht auf einer eigenen Seite belegt.",
-    "Eine Hof- oder Flächenbörse für das Saarland wurde nicht gefunden."
+    "Eine Hof- oder Flächenbörse für das Saarland wurde nicht gefunden.",
+    "Kostenfreiheit und eine aktuelle Beteiligung des Bauernverbandes an der Hofübergabeberatung wurden nicht aus aktuellen Betreiberquellen abgeleitet."
   ]
 }
