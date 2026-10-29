@@ -6,10 +6,10 @@
     "region": "rheinland-pfalz"
   },
   "language": "de",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-10-29",
   "context": [
-    "Die Förderseite des Landesdienstleistungszentrums (dlr.rlp.de) antwortet automatischen Werkzeugen mit einem Zugriffsverbot (403).",
-    "Presseberichte nennen eine Landesprämie für die Hofübernahme; eine Landesquelle fehlt bislang.",
+    "Das Landesministerium veröffentlicht die Niederlassungsbeihilfe als aktuelle Agrarfördermaßnahme und verlinkt auf die Programminformationen des DLR.",
+    "Das offizielle DLR-FAQ mit Stand 23.07.2025 belegt die Zuschusshöhe, die wesentlichen persönlichen und betrieblichen Voraussetzungen sowie das Auswahlverfahren.",
     "Die Landwirtschaftskammer beschreibt ihre Rolle bei der Hofübergabe ausdrücklich als Teilunterstützung."
   ],
   "portals": [
@@ -25,6 +25,11 @@
       "id": "rp-foerderung",
       "kinds": ["FINANCIAL_SUPPORT", "ADVICE", "SUCCESSION_SERVICE"],
       "query": "Rheinland-Pfalz Junglandwirte Förderung Niederlassung Hofbörse Hofnachfolge Beratung Landwirtschaftskammer"
+    },
+    {
+      "id": "rp-niederlassungsbeihilfe-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:rlp.de Niederlassungsbeihilfe Junglandwirtinnen Junglandwirte Rheinland-Pfalz 2026"
     }
   ],
   "leads": [
@@ -42,20 +47,21 @@
     {
       "id": "rp-niederlassungsbeihilfe",
       "name": "Niederlassungsbeihilfe für Junglandwirte des Landes",
-      "url": "https://www.dlr.rlp.de/Foerderung/Foerderprogramme/Niederlassungsbeihilfe-Junglandwirte-NLB",
+      "url": "https://mlwuf.rlp.de/themen/landwirtschaft/agrarfoerderung/foerderung-von-agrarinvestitionen",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "TO_CHECK",
-      "reason": "Landesprogramm, dessen Seite automatischen Zugriff verweigert (403); manuell prüfen.",
-      "foundBy": "rp-foerderung",
-      "checkedOn": "2026-09-20"
+      "status": "ADMITTED",
+      "resourceId": "rheinland-pfalz-niederlassungsbeihilfe-junglandwirte",
+      "reason": "Die aktuelle Agrarförderübersicht des Landes belegt die Existenzgründungsbeihilfe für Gründung, Kauf sowie inner- und außerfamiliäre Übernahme. Das offizielle DLR-FAQ mit Stand 23.07.2025 nennt 45.000 Euro Zuschuss, die persönlichen und betrieblichen Voraussetzungen und das Auswahlverfahren. Ein aktuell offenes Auswahlfenster wird nicht behauptet.",
+      "foundBy": "rp-niederlassungsbeihilfe-2026",
+      "checkedOn": "2026-10-29"
     }
   ],
   "instrumentChecks": [
     {
       "expectedId": "de-landesfoerderung-junglandwirte",
-      "status": "NOT_FOUND",
-      "reason": "Die Seite der Landesniederlassungsbeihilfe verweigert den automatischen Zugriff; die Prämie wurde nicht zitierfähig belegt.",
-      "checkedOn": "2026-09-20"
+      "status": "FOUND",
+      "leadId": "rp-niederlassungsbeihilfe",
+      "checkedOn": "2026-10-29"
     },
     {
       "expectedId": "de-hofboerse-flaechen",
@@ -75,6 +81,11 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Erste Runde mit der nationalen Checkliste: Übergabebegleitung der Kammer aufgenommen; Landesprämie wegen Zugriffssperre offen."
+    },
+    {
+      "date": "2026-10-29",
+      "by": "CHATGPT (Codex)",
+      "summary": "Die Niederlassungsbeihilfe anhand der aktuellen Agrarförderübersicht des Landes und des offiziellen DLR-FAQ vom 23.07.2025 geprüft und aufgenommen. Belegt sind 45.000 Euro Zuschuss, Gründung, Kauf und Übernahme sowie die wesentlichen Voraussetzungen; ein offenes Auswahlfenster wird mangels aktueller Frist nicht ausgewiesen."
     }
   ]
 }
