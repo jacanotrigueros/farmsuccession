@@ -43,6 +43,7 @@ import {
   type RecordedResource,
 } from "../lib/corpus.ts";
 import { goalOf } from "../lib/goals.ts";
+import { namesPlace } from "../lib/place-name.ts";
 import { ICON, PRACTICAL_ICON } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
 import {
@@ -85,10 +86,21 @@ const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure
 const quotes = resource.sources.reduce((total, source) => total + source.quotes.length, 0);
 const place = placeOf(territory, text.euName);
 
-/** The breadcrumb carries the full territory. Only namesakes need it repeated in the title. */
+/**
+ * The title is the line a result shows, and somebody looking for an instrument looks for it where they
+ * live. So a record below its country opens with its territory when its own name does not already say
+ * it; a name that does keeps the title it had, which is
+ * what stops a long territorial name from doubling a title. A name that pairs two forms with " — " opens
+ * the title with the first; the breadcrumb still carries both. The source's name is never shortened. The
+ * site name is not repeated: a result shows it on a line of its own, from `og:site_name` and the home page.
+ */
+const belowCountry = territory.layer.level === "REGION" || territory.layer.level === "HUB";
+const placed = belowCountry && !namesPlace(resource.name, territory.data.officialName);
+const titlePlace = territory.data.officialName.split(" — ")[0] ?? territory.data.officialName;
 const hasNamesake = records().some(({ resource: other }) => other.id !== resource.id && other.name === resource.name);
-const titleName = resource.name + (hasNamesake ? ` — ${territory.data.officialName}` : "");
-const pageTitle = text.recordPageTitle.replace("{name}", titleName).replace("{site}", text.siteName);
+const pageTitle = placed
+  ? text.recordPageTitleInPlace.replace("{place}", titlePlace).replace("{name}", resource.name)
+  : resource.name + (hasNamesake ? ` — ${territory.data.officialName}` : "");
 
 /**
  * The line a result shows, which is the only place this site competes.

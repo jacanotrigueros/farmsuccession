@@ -90,8 +90,8 @@ test("no French string is a German one, because a word landing in the wrong lang
 
   assert.deepEqual(
     shared,
-    ["recordPageTitle", "siteName"],
-    "French and German share no vocabulary, so the site's own name and a title template are the only strings that may be identical in both. Anything else here is a replace aimed at one language that landed in the other.",
+    ["siteName"],
+    "French and German share no vocabulary, so the site's own name is the only string that may be identical in both — even a title template differs, because French spaces its colon. Anything else here is a replace aimed at one language that landed in the other.",
   );
 });
 

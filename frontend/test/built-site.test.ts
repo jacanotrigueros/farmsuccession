@@ -471,6 +471,24 @@ test("robots.txt sends a crawler to the sitemap and keeps nothing from it but th
 });
 
 /**
+ * A record's title no longer spends its room on the site's name, so the name has to be said where a search
+ * engine reads it for the line it prints above a result: on every page, and as a WebSite on the home page.
+ */
+test("every page names the site where a result reads it, and the home page names it as a WebSite", () => {
+  for (const { file, html } of pages) {
+    assert.match(html, /<meta property="og:site_name" content="FarmSuccession"/u, `${file} does not say which site it belongs to`);
+  }
+  const home = pages.find(({ file }) => file === "index.html")?.html ?? "";
+  const data = [...home.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/gu)].map(
+    ([, json]) => JSON.parse(json ?? "{}") as { "@type"?: string; name?: string; url?: string },
+  );
+  assert.ok(
+    data.some((item) => item["@type"] === "WebSite" && item.name === "FarmSuccession" && item.url === "https://farmsuccession.eu/"),
+    "the home page does not name the site as a WebSite, so a result has to guess the name from a title",
+  );
+});
+
+/**
  * A title is what a search result and a shared link show, and for five milestones every territory page
  * offered the bare name of the place — "España — FarmSuccession" — which says nothing about what is on
  * it. It says what the page is about now, in the page's own language.
