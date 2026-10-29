@@ -5,7 +5,7 @@
     "country": "DE"
   },
   "language": "de",
-  "updatedOn": "2026-10-28",
+  "updatedOn": "2026-10-29",
   "context": [
     "Deutschland hat einen gemeinsamen nationalen GAP-Strategieplan; ELER-Förderung, Niederlassungsbeihilfen und Beratung werden jedoch überwiegend von den Bundesländern umgesetzt.",
     "Die 16 Bundesländer sind deshalb die primären regionalen Rechercheeinheiten; Kreise und Gemeinden sind nur bei eigenen Angeboten aufzunehmen.",
@@ -65,6 +65,26 @@
       "id": "de-rentenbank-hofnachfolgerinnen-2026",
       "kinds": ["FINANCIAL_SUPPORT"],
       "query": "site:rentenbank.de Hofnachfolgerinnen Existenzgründerinnen Förderkredit LR-Premium Hausbank"
+    },
+    {
+      "id": "de-bvvg-scope-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "site:bvvg.de Flächenangebote Landwirtschaft Ausschreibung Bundesländer Flächenmanagementgrundsätze 2024"
+    },
+    {
+      "id": "de-mentoren-oekolandbau-scope-2026",
+      "kinds": ["ADVICE"],
+      "query": "site:biodynamische-ausbildung.de Mentoren-Netzwerk Ökolandbau Hofübernahme Norddeutschland"
+    },
+    {
+      "id": "de-hoefeordnung-scope-2026",
+      "kinds": ["POLICY"],
+      "query": "site:gesetze-im-internet.de/h_feo § 1 Länder Hof Höfeordnung"
+    },
+    {
+      "id": "de-ackerpreneurs-access-2026",
+      "kinds": ["ADVICE"],
+      "query": "site:rentenbank.de ACKERPRENEURS Bewerbung 2026 Bewerbungsfrist Projektlaufzeit"
     }
   ],
   "leads": [
@@ -93,11 +113,11 @@
       "id": "de-bvvg-flaechenmanagement",
       "name": "BVVG — Flächenmanagement",
       "kind": "LAND_BANK",
-      "status": "TO_CHECK",
-      "reason": "Grundsätze von 2023 gelesen: öffentliche Ausschreibungen und Punkte für Existenzgründungen und Junglandwirte. Das Dokument betrifft die östlichen Länder und enthält Ausnahmen für Verkäufe. Aktuelle Regeln, konkrete Angebote und regionale Zuordnung für 2026 fehlen; weder bundesweiten Anspruch noch ein allgemeines Verkaufsverbot ableiten.",
+      "status": "REJECTED",
+      "reason": "Die aktuelle Betreiberseite wurde am 29.10.2026 gelesen. Die BVVG veröffentlicht laufende Kauf- und Pachtausschreibungen, verwaltet ihre landwirtschaftlichen Flächen aber ausdrücklich nur in den fünf ostdeutschen Bundesländern. Das ist kein bundesweites Angebot. Der Katalog hat keine gemeinsame Ebene für diese fünf Länder, und eine Wiederholung in fünf Länderdateien würde dieselbe Leistung mehrfach erfassen. Deshalb wird der Kandidat aus der nationalen Edition ausgeschlossen; daraus wird nicht abgeleitet, dass die regionalen Ausschreibungen inaktiv sind.",
       "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!34",
-      "checkedOn": "2026-10-18",
-      "url": "https://www.bvvg.de/wp-content/uploads/2023/06/FMG2023_Bund_07.06.23.pdf"
+      "checkedOn": "2026-10-29",
+      "url": "https://www.bvvg.de/"
     },
     {
       "id": "de-rentenbank-programmkredite",
@@ -114,30 +134,30 @@
       "id": "de-mentoren-oekolandbau",
       "name": "Mentoren-Netzwerk Ökolandbau",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "Primärseite konnte nicht gelesen werden. Träger, tatsächliches Beratungsgebiet, Nachfolgebezug und Kontaktweg bei Bäuerliche Bildung und Kultur prüfen; indexierte Suchtexte sind keine bestätigte Leistungsbeschreibung.",
+      "status": "REJECTED",
+      "reason": "Die aktuelle Angebotsseite der Biodynamischen Ausbildung und ihr Zugangslink wurden am 29.10.2026 geprüft. Die Seite nennt Beratung vor Gründung oder Übernahme eines Öko-Hofes, begrenzt das Angebot aber auf Niedersachsen, Schleswig-Holstein, Mecklenburg-Vorpommern, Sachsen-Anhalt, Brandenburg und Nordrhein-Westfalen. Der verlinkte Dienst mentoring.bio führt inzwischen zu einem Domain-Handelsplatz statt zu einem institutionellen Zugang. Ohne funktionsfähigen Zugang und ohne gemeinsame Katalogebene für die sechs Länder lässt sich der Kandidat weder als nutzbares nationales Angebot veröffentlichen noch regelkonform sechsmal duplizieren.",
       "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!38",
-      "checkedOn": "2026-10-18",
-      "url": "https://www.demeter-im-norden.de/mentoren-netzwerk-oekolandbau"
+      "checkedOn": "2026-10-29",
+      "url": "https://biodynamische-ausbildung.de/bildungsangebote-allgemein/"
     },
     {
       "id": "de-hoefeordnung-regionen",
       "name": "Höfeordnung — räumlich begrenztes Landwirtschaftserbrecht",
       "kind": "POLICY",
-      "status": "TO_CHECK",
-      "reason": "§ 1 gelesen: gilt für entsprechend definierte Höfe in Hamburg, Niedersachsen, Nordrhein-Westfalen und Schleswig-Holstein. Kein bundesweites Förderangebot. Die rechtlichen Voraussetzungen und Übergaberegeln in den betroffenen regionalen Recherchen prüfen; nicht als bundesweiten Anspruch veröffentlichen.",
+      "status": "REJECTED",
+      "reason": "§ 1 der aktuellen Höfeordnung wurde am 29.10.2026 gelesen. Das Gesetz erfasst entsprechend definierte land- oder forstwirtschaftliche Besitzungen ausschließlich in Hamburg, Niedersachsen, Nordrhein-Westfalen und Schleswig-Holstein. Es ist damit ein räumlich begrenzter Rechtsrahmen und keine nationale Leistung. Der Katalog hat keine gemeinsame Ebene für diese vier Länder; eine nationale Veröffentlichung würde den Geltungsbereich verfälschen und eine vierfache Veröffentlichung denselben Fakt duplizieren. Deshalb wird der Kandidat aus der nationalen Edition ausgeschlossen.",
       "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!40",
-      "checkedOn": "2026-10-18",
+      "checkedOn": "2026-10-29",
       "url": "https://www.gesetze-im-internet.de/h_feo/__1.html"
     },
     {
       "id": "de-ackerpreneurs",
       "name": "ACKERPRENEURS — Farm-Inkubator",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "ASG als Projektpartner beschreibt zweijährige Erprobung auf einem bestehenden Betrieb und Interessierte bis einschließlich 45 Jahre. Beleg: „Die Bewerbungsfrist ist abgelaufen: Bewerbungen waren bis zum 30.04.2026 möglich.“ Projektlaufzeit ist nicht Bewerbungsfrist. Vor Aufnahme die verlinkte Projektseite und Teilnahmebedingungen prüfen; das zusätzlich im Anhang erwähnte Elbe-Projekt bleibt unidentifiziert. Kein Duplikat von FarmStarter Hamburg.",
+      "status": "REJECTED",
+      "reason": "Die Rentenbank-Mitteilung und die aktuelle Projektpartnerseite wurden am 29.10.2026 gelesen. Das bundesweite Pilotprojekt begleitet bis zu sechs Gründungsvorhaben, doch die einzige veröffentlichte Bewerbungsphase 2026 ist abgelaufen; die Projektpartnerseite nennt ausdrücklich den 30.04.2026 als Ende. Eine weitere Aufnahme ist nicht angekündigt. Die Projektlaufzeit bis Juni 2028 beschreibt die Durchführung des Piloten und ist keine offene Bewerbungsfrist. Ohne aktuellen Zugang oder angekündigtes nächstes Verfahren wird der Kandidat nicht als nutzbares Angebot veröffentlicht; eine neue Ausschreibung wäre neu zu prüfen.",
       "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!41",
-      "checkedOn": "2026-10-18",
+      "checkedOn": "2026-10-29",
       "url": "https://www.asg-goe.de/Pilotprojekt-ACKERPRENEURS.shtml"
     },
     {
@@ -218,6 +238,11 @@
       "date": "2026-10-28",
       "by": "CHATGPT (Codex)",
       "summary": "Die aktuellen Rentenbank-Förderkredite für Hofnachfolgerinnen und Existenzgründerinnen anhand der laufenden Programmseite und einer Mitteilung von 2026 geprüft. Förderzwecke, LR-Premium-Einstufung und Zugang über den Finanzierungspartner sind belegt; nicht mehr aktuell veröffentlichte Detailkriterien bleiben unbekannt."
+    },
+    {
+      "date": "2026-10-29",
+      "by": "CHATGPT (Codex)",
+      "summary": "Die vier verbliebenen nationalen Kandidaten abschließend geprüft. BVVG, Mentoren-Netzwerk und Höfeordnung gelten jeweils nur für mehrere, aber nicht alle Bundesländer und haben keine passende gemeinsame Katalogebene; sie werden nicht als bundesweit ausgegeben oder regional dupliziert. ACKERPRENEURS hat keine offene oder angekündigte neue Bewerbungsphase; die laufende Projektdauer wird nicht mit Zugang verwechselt."
     }
   ]
 }
