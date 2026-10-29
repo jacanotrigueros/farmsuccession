@@ -6,13 +6,14 @@
     "region": "bayern"
   },
   "language": "de",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-10-29",
   "context": [
     "Die Förderseiten des Staatsministeriums (stmelf.bayern.de) sind lesbar; Merkblätter liegen als PDF vor.",
     "Die Einkommensstützung für Junglandwirte wird bundesweit über den Mehrfachantrag gewährt und gehört auf die Länderebene Deutschland, nicht nach Bayern.",
     "Beratung zur Hofübergabe bieten die Ämter für Ernährung, Landwirtschaft und Forsten; eine zentrale lesbare Seite dazu ist noch zu finden.",
     "Der Bayerische Bauernverband beschreibt die Generationenfolgeberatung inklusive außerfamiliärer Hofnachfolge auf einer eigenen Seite.",
     "Die staatliche Übersicht über schwierige Lebenssituationen nennt mehrere kirchliche Familienberatungsstellen; für einen Eintrag ist jeweils die eigene aktuelle Angebots- und Zugangsseite des Trägers zu prüfen.",
+    "Die Ländliche Familienberatung in der Diözese Würzburg veröffentlicht auf der aktuellen KLB-Seite ein kostenfreies und vertrauliches Angebot für Schwierigkeiten bei der Hofübergabe.",
     "NEU.LAND. nennt Hofnachfolger und Quereinsteiger, beschreibt sein Gründerzentrum aber überwiegend für Diversifizierung und neue Geschäftsfelder; daraus folgt noch kein allgemeiner Dienst zur Hofvermittlung oder Erstniederlassung."
   ],
   "portals": [
@@ -68,6 +69,11 @@
       "id": "by-gruenderzentrum",
       "kinds": ["ADVICE", "TRAINING"],
       "query": "Bayern NEU.LAND. Hofnachfolger Quereinsteiger Gründungscoaching Zugang"
+    },
+    {
+      "id": "by-wuerzburg-familienberatung-2026",
+      "kinds": ["ADVICE"],
+      "query": "Ländliche Familienberatung Bistum Würzburg Hofübergabe aktuelle Beratung"
     }
   ],
   "leads": [
@@ -186,12 +192,13 @@
     {
       "id": "by-wuerzburg-familienberatung",
       "name": "Ländliche Familienberatung im Bistum Würzburg",
-      "url": "https://www.lfb-wuerzburg.de/",
+      "url": "https://klb-wuerzburg.de/laendliche-familienberatung",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "Die in der Ministeriumsübersicht verlinkte Betreiberseite antwortete beim Öffnen mit 502. Angebot, räumliche Zuständigkeit und Zugang auf einer lesbaren aktuellen Trägerseite prüfen; bis dahin kein Editionseintrag.",
-      "foundBy": "by-familienberatung-kirchen",
-      "checkedOn": "2026-09-29"
+      "status": "ADMITTED",
+      "resourceId": "bayern-wuerzburg-laendliche-familienberatung",
+      "reason": "Die aktuelle KLB-Betreiberseite beschreibt die Ländliche Familienberatung für Landwirtschaft, Weinbau und Gartenbau in der Diözese Würzburg. Sie nennt Schwierigkeiten bei der Hofübergabe ausdrücklich als Beratungsanlass, bestätigt kostenfreie und vertrauliche Beratung und veröffentlicht Telefon und E-Mail. Die am 15.10.2026 aktualisierte Ministeriumsseite verlinkt den Dienst weiterhin.",
+      "foundBy": "by-wuerzburg-familienberatung-2026",
+      "checkedOn": "2026-10-29"
     },
     {
       "id": "by-freiwilliger-nutzungstausch",
@@ -244,6 +251,11 @@
       "date": "2026-09-30",
       "by": "CLAUDE (Claude Code)",
       "summary": "Quellenprüfung: Die gesamte Domain lfb-bauernnotruf.de antwortet mit 404, auch die Startseite; das Evangelische Bildungszentrum Hesselberg verlinkt noch darauf. Die Bundesarbeitsgemeinschaft der Landwirtschaftlichen Familienberatungen führt den Dienst weiter mit Anschrift in Gerolfingen, und ihre Einrichtungsseite nennt die anstehende Betriebsübergabe oder -aufgabe als Beratungsthema. Quelle und Zugang zeigen jetzt auf dieses Verzeichnis; der Status ist UNKNOWN, bis eine eigene Seite des Dienstes den aktuellen Betrieb zeigt. Die Passauer Seite trennt Wörter mit weichen Trennstrichen; seit der Prüfer sie ignoriert, werden ihre Zitate wieder gefunden."
+    },
+    {
+      "date": "2026-10-29",
+      "by": "CHATGPT (Codex)",
+      "summary": "Die Ländliche Familienberatung in der Diözese Würzburg über ihre aktuelle KLB-Betreiberseite verifiziert und aufgenommen. Belegt sind die Zielgruppe Landwirtschaft, Weinbau und Gartenbau, Hofübergabe als Beratungsanlass, kostenfreier und vertraulicher Zugang sowie aktuelle Kontaktdaten; die aktualisierte Ministeriumsseite führt den Dienst ebenfalls."
     }
   ]
 }
