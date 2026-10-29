@@ -1,5 +1,8 @@
 # Everything here is public evidence, and all of it is meant to be found.
+# /pagefind/ holds the search index: compiled chunks the search page reads in the
+# browser, not documents. Every record they describe has its own page, listed below.
 User-agent: *
 Allow: /
+Disallow: /pagefind/
 
 Sitemap: https://farmsuccession.eu/sitemap.xml
