@@ -10,6 +10,75 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.6.0 — 2026-10-29
+
+Twenty-one records enter and nine say something different from what they did,
+most of them because a call opened, moved or was announced. Every record below
+its country now says in its title where it applies.
+
+### What a result shows
+
+- **211 of 345 record titles named no territory.** A result for a regional
+  grant did not say which region it was for. A record below its country now
+  opens its title with its territory when its own name does not already say it;
+  a name that does keeps its title, and the source's name is never shortened. A
+  territory with two forms opens a title with the first, and a test caps what a
+  territory adds, so a title cannot grow back to the 161 characters the full
+  territorial trail once made.
+- **Titles no longer end with the site's name.** The site says its name once,
+  where a search result reads it: on every page, and as a website on the home
+  page.
+- **The crawl stops going to the search index.** It was 28% of what Google's
+  crawler fetched in the site's first two weeks: compiled files the search page
+  reads in the browser, not documents. `robots.txt` withholds that directory and
+  nothing else, and only the two search pages, which are not offered to search
+  engines, load it.
+
+### Calls that opened or moved
+
+- **Sardegna's SRE01 call for young farmers is open**, 1 to 31 October 2026,
+  and the record is no longer announced but active.
+- **The Illes Balears 2026 installation call is open**, 1 October to 30
+  November 2026.
+- **Lombardia extended its 2026 young farmer fund** to 3 November 2026.
+- **Veneto's young farmers package closes on 15 January 2027**, a date the
+  record did not have.
+- **Friuli Venezia Giulia's SRE01 call** now records the day it opened as well
+  as the day it closes, 29 October 2026.
+- **Niedersachsen's establishment aid** was of unknown status; its next
+  application window, 1 January to 15 March 2027, is now documented and the
+  record is active.
+- **Madeira's installation premium** carries a corrected access route and
+  figures. Bremen's farm advice record now names what its source names it:
+  advice on handing over a farm.
+
+### Germany, France and Italy: twenty-one records enter
+
+- **Germany gains ten.** Nationally: the SVLFG farm-transfer seminar, the
+  SVLFG coaching for women, Rentenbank loans for women taking over a farm, and
+  BioBoden's route to land. Regionally: transfer advice in Baden-Württemberg and
+  the Saarland, farm family advice in the diocese of Würzburg, the young farmer
+  grants of Hessen and Rheinland-Pfalz, and Bremen's agricultural development
+  concept to 2035. Four national leads were resolved without a record: three
+  cannot be shown as one nationwide resource, and one has closed its intake
+  with no later window announced.
+- **France gains nine.** Nationally: the INAF loan guarantee, FEVE's land
+  holding and the MSA exemption for young farmers. In Pays de la Loire: the
+  post-installation aid, Passeurs de terres, the CIAP training and the
+  transmission pilot territories. Mayotte gains its two FEADER installation
+  grants.
+- **Italy gains two.** Law 36/2024 becomes its fourth national record, and
+  Piemonte's directory of land associations its regional one.
+
+### The edition can be cited
+
+- The 2026 edition is a named object with a SHA-256 manifest over all 101 of
+  its files, with guidance on citing, retrieving and verifying it.
+- A two-page institutional brief explains what the project is, how an
+  institution can use it and where its limits are.
+
+345 records over 101 edition files, against 324 in 1.5.0.
+
 ## 1.5.0 — 2026-10-26
 
 Six records enter, seventeen say more than they did, and what a record offers a

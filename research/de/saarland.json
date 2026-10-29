@@ -6,11 +6,11 @@
     "region": "saarland"
   },
   "language": "de",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-10-29",
   "context": [
     "Das Landesportal saarland.de beschreibt die Existenzgründungsförderung als Maßnahme des Landesprogramms für den ländlichen Raum.",
     "Die Landwirtschaftskammer für das Saarland unterstützt bei den Antragsunterlagen.",
-    "Suchergebnisse nennen eine kostenfreie Hofübergabeberatung von Kammer und Bauernverband; eine eigene Seite dazu fehlt noch."
+    "Die Landwirtschaftskammer führt sozioökonomische Beratung als aktuelle Aufgabe; ihr Jahresbericht 2024 belegt Beratungsnachfrage zur Hofübergabe sowie zu betrieblichen und familiären Krisen."
   ],
   "portals": [
     {
@@ -30,6 +30,11 @@
       "id": "sl-foerderung",
       "kinds": ["FINANCIAL_SUPPORT", "ADVICE", "SUCCESSION_SERVICE"],
       "query": "Saarland Junglandwirte Förderung Niederlassung Hofnachfolge Beratung Landwirtschaftskammer Hofübergabe"
+    },
+    {
+      "id": "sl-hofuebergabeberatung-2026",
+      "kinds": ["ADVICE"],
+      "query": "site:lwk-saarland.de Hofübergabe sozioökonomische Beratung Jahresbericht"
     }
   ],
   "leads": [
@@ -46,12 +51,14 @@
     },
     {
       "id": "sl-hofuebergabeberatung",
-      "name": "Kostenfreie Hofübergabeberatung von Kammer und Bauernverband",
+      "name": "Sozioökonomische Hofübergabeberatung der Landwirtschaftskammer",
+      "url": "https://www.lwk-saarland.de/ueber-uns/aufgaben",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "In Suchergebnissen als vom Land finanzierte Sparte der sozioökonomischen Beratung genannt; eigene Seite noch zu finden.",
-      "foundBy": "sl-foerderung",
-      "checkedOn": "2026-09-20"
+      "status": "ADMITTED",
+      "resourceId": "saarland-lwk-soziooekonomische-hofuebergabeberatung",
+      "reason": "Die aktuelle Aufgabenseite der Landwirtschaftskammer nennt die sozioökonomische Beratung und einen öffentlichen Kontaktweg. Der Jahresbericht 2024 belegt Beratungsnachfrage zur Hofübergabe sowie zu betrieblichen und familiären Krisen. Kostenfreiheit und eine aktuelle Beteiligung des Bauernverbandes werden mangels aktueller Betreiberquelle nicht behauptet.",
+      "foundBy": "sl-hofuebergabeberatung-2026",
+      "checkedOn": "2026-10-29"
     }
   ],
   "instrumentChecks": [
@@ -69,9 +76,9 @@
     },
     {
       "expectedId": "de-hofuebergabe-beratung",
-      "status": "NOT_FOUND",
-      "reason": "Die genannte kostenfreie Übergabeberatung wurde nicht auf einer eigenen Seite belegt.",
-      "checkedOn": "2026-09-20"
+      "status": "FOUND",
+      "leadId": "sl-hofuebergabeberatung",
+      "checkedOn": "2026-10-29"
     }
   ],
   "log": [
@@ -79,6 +86,11 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Erste Runde mit der nationalen Checkliste: Existenzgründungsförderung aufgenommen; Übergabeberatung und Hofbörse offen."
+    },
+    {
+      "date": "2026-10-29",
+      "by": "CHATGPT (Codex)",
+      "summary": "Die sozioökonomische Hofübergabeberatung der Landwirtschaftskammer anhand ihrer aktuellen Aufgabenseite und des Jahresberichts 2024 aufgenommen. Die frühere Aussage zu Kostenfreiheit und gemeinsamer Durchführung mit dem Bauernverband wurde nicht übernommen, weil sie nicht aktuell belegt ist."
     }
   ]
 }

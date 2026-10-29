@@ -5,11 +5,11 @@
   "country": "DE",
   "region": "hessen",
   "officialName": "Hessen",
-  "published": "2026-09-20",
-  "summary": "Hessen betreibt mit der Hessischen Hofbörse eine kostenfreie Plattform für land-, garten- und forstwirtschaftliche Betriebe, auf der Angebote und Gesuche auf Wunsch anonymisiert eingestellt werden; Landesbetrieb und Landgesellschaft begleiten die Umsetzung.",
+  "published": "2026-10-29",
+  "summary": "Hessen betreibt eine kostenfreie Hofbörse und berät bei der Hofnachfolge. Im Agrarinvestitionsförderungsprogramm können Junglandwirtinnen und Junglandwirte unter den veröffentlichten Voraussetzungen einen zusätzlichen Investitionszuschuss erhalten.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Recherche zu Landesförderung, Hofbörse und Hofübergabeberatung in Hessen. Belegt ist die Hofbörse; die Investitionsförderung des Landes wurde nicht direkt geprüft.",
+    "note": "Landesförderung, Hofbörse und Hofübergabeberatung in Hessen wurden anhand aktueller Betreiberseiten geprüft. Kommunale Angebote und weitere Beratungsstellen sind nicht vollständig erfasst.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -18,6 +18,14 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://llh.hessen.de/unternehmensfuehrung/unternehmensentwicklung/hessische-hofborse/"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:landwirtschaft.hessen.de Agrarinvestitionsförderungsprogramm Junglandwirte Zuschlag Hessen 2026"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://landwirtschaft.hessen.de/landwirtschaft/foerderung/einzelbetriebliche-investitionsfoerderung"
       }
     ]
   },
@@ -33,6 +41,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "GPT-5",
+        "promptVersion": "1.9.0",
+        "processedAt": "2026-10-29"
       }
     ]
   },
@@ -96,11 +111,43 @@
         }
       ],
       "generatorId": "claude-1"
+    },
+    {
+      "id": "hessen-afp-junglandwirte-zuschuss",
+      "name": "Junglandwirte-Zuschlag im Agrarinvestitionsförderungsprogramm",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Land Hessen",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Zusätzlicher Zuschuss von 10 Prozent der zuwendungsfähigen Ausgaben, höchstens 20.000 Euro, für Junglandwirtinnen und Junglandwirte bei förderfähigen Investitionen im Agrarinvestitionsförderungsprogramm. Der Zuschlag ist keine eigenständige Niederlassungsprämie.",
+      "whoCanUseIt": "Junglandwirtinnen und Junglandwirte, die die Voraussetzungen des Agrarinvestitionsförderungsprogramms erfüllen, bei der Antragstellung höchstens 40 Jahre alt sind und deren erste Niederlassung als Allein- oder Mitunternehmer höchstens fünf Jahre zurückliegt.",
+      "howToAccess": "Den AFP-Antrag fortlaufend digital über das Lawileportal Hessen einreichen. Die Auswahl für eine Bewilligung erfolgt an festgelegten Auswahlstichtagen.",
+      "accessUrl": "https://landwirtschaft.hessen.de/landwirtschaft/foerderung/einzelbetriebliche-investitionsfoerderung",
+      "instrumentType": "GRANT",
+      "purposes": ["INVESTMENT"],
+      "languages": ["de"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://landwirtschaft.hessen.de/landwirtschaft/foerderung/einzelbetriebliche-investitionsfoerderung",
+          "title": "Einzelbetriebliche Investitionsförderung | Hessen Landwirtschaft",
+          "consultedOn": "2026-10-29",
+          "quotes": [
+            "Digitale Förderanträge für das Agrarinvestitionsförderungsprogramm (AFP) und die Förderung von Investitionen zur Diversifizierung (FID) können fortlaufend über das Antragsportal gestellt werden.",
+            "Die Auswahl der Förderanträge für eine Bewilligung erfolgt an den hierzu festgelegten Auswahlstichtagen.",
+            "Junglandwirte und -landwirtinnen können einen zusätzlichen Zuschuss in Höhe von 10 Prozent der zuwendungsfähigen Ausgaben, maximal 20.000 Euro, erhalten. Sie sind zum Zeitpunkt der Antragstellung höchstens 40 Jahre alt und weisen nach, dass die erstmalige Niederlassung als Allein- oder Mitunternehmer in einem landwirtschaftlichen Betrieb zum Zeitpunkt der Antragstellung nicht länger als fünf Jahre zurückliegt."
+          ]
+        }
+      ],
+      "notes": "Die fortlaufende Antragstellung wird nicht mit einer automatischen Bewilligung gleichgesetzt; Auswahlstichtage sind keine Antragsfristen.",
+      "generatorId": "chatgpt-1"
     }
   ],
   "news": [],
   "limitations": [
-    "Der Junglandwirte-Zuschlag im Investitionsförderungsprogramm des Landes wurde nicht direkt auf einer Landesseite geprüft.",
     "Die Zahl der Inserate der Hofbörse stammt aus einem Zitat Dritter und wurde nicht eigenständig überprüft.",
     "Das Interview zur Hofnachfolge belegt das Beratungsangebot nur knapp; eine Leistungsseite wäre vorzuziehen."
   ]

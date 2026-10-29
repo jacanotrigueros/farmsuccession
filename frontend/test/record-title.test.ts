@@ -7,6 +7,7 @@ import { decodeHTML } from "entities";
 
 import type { EditionSnapshot } from "../../src/types/edition.ts";
 import { recordSlug } from "../public/search-scope.js";
+import { namesPlace } from "../src/lib/place-name.ts";
 import { words } from "../src/lib/words.ts";
 
 const ROOT = path.join(import.meta.dirname, "..", "..");
@@ -29,24 +30,66 @@ const entries = snapshots(path.join(editions, edition)).flatMap((snapshot) =>
 const frequency = new Map<string, number>();
 for (const { resource } of entries) frequency.set(resource.name, (frequency.get(resource.name) ?? 0) + 1);
 
-test("a record title keeps its full source name and adds territory only to distinguish namesakes", () => {
+test("a territory is recognised by any of its names, or by the word a reader types", () => {
+  assert.ok(namesPlace("Ayudas al establecimiento en Asturias", "Principado de Asturias"));
+  assert.ok(namesPlace("Ayudas de la Comunidad Foral de Navarra", "Comunidad Foral de Navarra"));
+  assert.ok(namesPlace("Fondo de suelo agrario de Álava", "Araba / Álava"));
+  assert.ok(
+    namesPlace("Banca della terra della Provincia autonoma di Bolzano", "Provincia autonoma di Bolzano/Bozen — Alto Adige/Südtirol"),
+  );
+  assert.ok(namesPlace("Safer Provence-Alpes-Côte d'Azur", "Provence-Alpes-Côte d’Azur"), "the two apostrophes are one");
+  assert.ok(!namesPlace("Ayudas al establecimiento de personas jóvenes agricultores", "Castilla y León"));
+  assert.ok(!namesPlace("Hofübergabeberatung des BLHV", "Baden-Württemberg"));
+});
+
+/**
+ * The line a result shows. Somebody looking for an instrument looks for it where they live, and 211 of 345
+ * titles named no territory at all, so a reader in Castilla y León met "Ayudas al establecimiento de personas jóvenes agricultores" and could not
+ * tell it was theirs. A record below its country now opens with its territory unless its own name already
+ * says it, which keeps a long territorial name from doubling a title: the full trail once made the Bolzano
+ * title 161 characters. The source's name is never shortened, and the site name is not repeated, because a
+ * result prints it on its own line.
+ */
+test("a record title keeps its full source name and names the territory below its country", () => {
   assert.ok(entries.length > 0, "no records: a title regression would prove nothing");
   assert.ok(
     [...frequency.values()].some((count) => count > 1),
     "no namesakes: the territorial disambiguation has not been exercised",
   );
   const titles = new Set<string>();
+  let placed = 0;
   for (const { snapshot, resource } of entries) {
     const country = "country" in snapshot ? snapshot.country.toLowerCase() : "";
     const route = `${country ? `${country}/` : ""}${recordSlug(country.toUpperCase())}/${resource.id}/`;
     const html = readFileSync(path.join(ROOT, "frontend", "dist", route, "index.html"), "utf8");
     const actual = decodeHTML(/<title>([^<]*)<\/title>/u.exec(html)?.[1] ?? "");
-    const name = resource.name + (frequency.get(resource.name)! > 1 ? ` — ${snapshot.officialName}` : "");
-    const expected = `${name} · ${words(snapshot.metadata.language).siteName}`;
+    const text = words(snapshot.metadata.language);
+    const below = snapshot.schemaId === "regional-snapshot" || snapshot.schemaId === "hub-snapshot";
+    const opens = below && !namesPlace(resource.name, snapshot.officialName);
+    // A territory that pairs two forms with " — " opens a title with the first; the breadcrumb carries both.
+    const place = snapshot.officialName.split(" — ")[0] ?? snapshot.officialName;
+    const expected = opens
+      ? text.recordPageTitleInPlace.replace("{place}", place).replace("{name}", resource.name)
+      : resource.name + (frequency.get(resource.name)! > 1 ? ` — ${snapshot.officialName}` : "");
+    if (opens) placed += 1;
+    assert.ok(
+      !opens || actual.length - resource.name.length <= 40,
+      `${route}: the territory adds ${actual.length - resource.name.length} characters in front of the name; the full trail once made a title 161 characters`,
+    );
+
     assert.equal(
       actual,
       expected,
-      `${route}: retain the complete source name; the breadcrumb already identifies the territory. Repeating the full territorial trail made the Bolzano title 161 characters. Qualify namesakes so shorter titles do not make different records indistinguishable.`,
+      `${route}: a title is the source's full name, opened by its territory when it sits below its country and does not already name it`,
+    );
+    assert.ok(actual.includes(resource.name), `${route}: the title shortened the name the source gives this record`);
+    assert.ok(
+      !below || namesPlace(actual, snapshot.officialName),
+      `${route}: "${actual}" does not say where it applies, so a reader cannot tell from the result whether it is theirs`,
+    );
+    assert.ok(
+      !actual.endsWith(text.siteName),
+      `${route}: the title spends its room on the site's name, which a result already prints on a line of its own`,
     );
     assert.ok(
       !titles.has(actual),
@@ -54,6 +97,7 @@ test("a record title keeps its full source name and adds territory only to disti
     );
     titles.add(actual);
   }
+  assert.ok(placed > 100, `only ${placed} titles were opened by their territory; most regional records do not name it`);
 });
 
 /**

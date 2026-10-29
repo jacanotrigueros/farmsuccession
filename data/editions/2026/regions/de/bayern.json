@@ -5,11 +5,11 @@
   "country": "DE",
   "region": "bayern",
   "officialName": "Bayern",
-  "published": "2026-09-30",
-  "summary": "In Bayern sind Beratung zur Generationenfolge, Seminare zur Hofübergabe und landwirtschaftliche Familienberatung mit konkreten Zugangswegen belegt. Eine eigene Niederlassungsprämie des Landes oder eine bayerische Hofbörse wurde in diesem Durchgang nicht nachgewiesen.",
+  "published": "2026-10-29",
+  "summary": "In Bayern sind Beratung zur Generationenfolge, Seminare zur Hofübergabe und landwirtschaftliche Familienberatung mit konkreten Zugangswegen belegt. Dazu gehört die kostenfreie und vertrauliche Beratung in der Diözese Würzburg. Eine eigene Niederlassungsprämie des Landes oder eine bayerische Hofbörse wurde nicht nachgewiesen.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Die drei erwarteten Instrumente sowie staatliche, verbandliche und kirchliche Angebote wurden mit einer zweiten Suchrunde geprüft. Einzelne diözesane Dienste, eine spezifische Hofübergabeberatung der Ämter und mögliche lokale Vermittlungsangebote bleiben offen.",
+    "note": "Die drei erwarteten Instrumente sowie staatliche, verbandliche und kirchliche Angebote wurden geprüft. Die Würzburger Familienberatung wurde über ihre aktuelle Betreiberseite ergänzt; eine spezifische Hofübergabeberatung der Ämter und mögliche lokale Vermittlungsangebote bleiben offen.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -58,6 +58,14 @@
       {
         "method": "WEB_SEARCH",
         "detail": "site:lfb-bauernnotruf.de \"Hofnachfolge\" Beratung"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Ländliche Familienberatung Bistum Würzburg Hofübergabe aktuelle Beratung"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://klb-wuerzburg.de/laendliche-familienberatung"
       }
     ]
   },
@@ -80,6 +88,13 @@
         "model": "gpt-6",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-29"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "GPT-5",
+        "promptVersion": "1.9.0",
+        "processedAt": "2026-10-29"
       }
     ]
   },
@@ -204,6 +219,49 @@
       ],
       "generatorId": "chatgpt-1",
       "notes": "Eigenständige Beratungsstelle des Bistums Passau, nicht lediglich eine örtliche Weiterleitung zur evangelischen Familienberatung."
+    },
+    {
+      "id": "bayern-wuerzburg-laendliche-familienberatung",
+      "name": "Ländliche Familienberatung für Landwirtschaft, Weinbau und Gartenbau in der Diözese Würzburg",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Diözese Würzburg"
+      },
+      "operator": "Katholisches Landvolk (KLB) und Landjugend (KLJB) Würzburg",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Kostenfreie und vertrauliche Beratung für Familienbetriebe bei wirtschaftlichen und familiären Spannungen, Generationskonflikten und Schwierigkeiten bei der Hofübergabe. Gespräche sind im eigenen Betrieb oder an einem neutralen Ort möglich.",
+      "whoCanUseIt": "Menschen aus Landwirtschaft, Weinbau und Gartenbau sowie ihre Familien in der Diözese Würzburg, die betriebliche oder persönliche Fragen klären möchten.",
+      "howToAccess": "Die Beratungsstelle telefonisch oder per E-Mail kontaktieren. Die aktuelle Betreiberseite veröffentlicht die allgemeinen Kontaktdaten und fordert Ratsuchende ausdrücklich zum Anruf auf.",
+      "accessUrl": "https://klb-wuerzburg.de/laendliche-familienberatung",
+      "accessCostType": "FREE",
+      "languages": ["de"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "GENERAL"],
+      "sources": [
+        {
+          "url": "https://klb-wuerzburg.de/laendliche-familienberatung",
+          "title": "Ländliche Familienberatung - KLB Würzburg",
+          "consultedOn": "2026-10-29",
+          "quotes": [
+            "Ländlichen Familienberatung für Landwirtschaft, Weinbau und Gartenbau der KLJB und KLB in der Diözese Würzburg.",
+            "Daher bieten sie die von Anfang bis Ende kostenlose Ländliche Familienberatung (LFB) an.",
+            "es Schwierigkeiten bei der Hofübergabe gibt",
+            "Die Beratung ist im eigenen Betrieb oder an einem neutralen Ort möglich.",
+            "Die Beratung ist kostenfrei und vertraulich."
+          ]
+        },
+        {
+          "url": "https://www.stmelf.bayern.de/landwirtschaft/hilfsangebote-fuer-schwierige-lebenssituationen",
+          "title": "Hilfsangebote für schwierige Lebenssituationen - StMELF",
+          "consultedOn": "2026-10-29",
+          "quotes": [
+            "die Betriebsübergabe oder -aufgabe ansteht",
+            "Ländliche Familienberatung für Landwirtschaft, Weinbau und Gartenbau der KLB in Würzburg"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],
@@ -211,7 +269,6 @@
     "Eine eigene bayerische Niederlassungsprämie für Junglandwirte wurde nicht nachgewiesen. Die bundesweite Einkommensstützung wird nicht als Landesinstrument wiederholt.",
     "Eine vom Land oder einem bayerischen Träger betriebene Hof- oder Flächenbörse wurde nicht nachgewiesen. Überregionale Börsen sind kein eigenes bayerisches Angebot.",
     "Eine ausdrücklich auf die Hofübergabe bezogene, aktuell zugängliche Beratungsseite der Ämter für Ernährung, Landwirtschaft und Forsten bleibt zu prüfen.",
-    "Weitere diözesane Familienberatungen, lokale Vermittlungsangebote und Kosten beziehungsweise Mitgliedschaftsbedingungen einzelner Angebote wurden nicht vollständig geprüft.",
-    "Der aktuell verlinkte Dienst der ländlichen Familienberatung in Würzburg war beim Öffnen nicht lesbar."
+    "Weitere diözesane Familienberatungen, lokale Vermittlungsangebote und Kosten beziehungsweise Mitgliedschaftsbedingungen einzelner Angebote wurden nicht vollständig geprüft."
   ]
 }

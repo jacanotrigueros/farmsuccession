@@ -6,11 +6,14 @@
     "region": "pays-de-la-loire"
   },
   "language": "fr",
-  "updatedOn": "2026-10-18",
+  "updatedOn": "2026-10-28",
   "context": [
     "En Pays de la Loire, l’étude d’installation est un préalable obligatoire à la demande de dotation aux jeunes agriculteurs.",
     "Le règlement régional de la dotation couvre la période 2024-2027 et détaille montants et modulations.",
-    "La Région anime aussi des territoires pilotes pour la transmission agricole, à vérifier lors d’une prochaine passe."
+    "La Région finance des territoires pilotes qui conduisent pendant trois ans des actions locales de transmission agricole. Quinze territoires sont engagés et cinq nouveaux territoires doivent rejoindre la démarche en 2026.",
+    "La DRAAF confirme que le volet 4 de l’AITA finance un diagnostic et, s’il est préconisé, un suivi technico-économique du nouvel exploitant. La démarche SNE 2026 est close depuis le 17 octobre et l’AITA doit être remplacé par France Services Agriculture au 1er janvier 2027.",
+    "Passeurs de terres et Terre de Liens Pays de la Loire étudient les projets de personnes qui veulent s’installer en agriculture biologique sans acheter leur ferme ; l’acquisition d’un bien identifié reste soumise à l’examen du conseil d’administration de la coopérative.",
+    "La CIAP Pays de la Loire propose une formation certifiante de douze mois pour les personnes ayant un projet de création, d’association ou de reprise agricole et un lieu d’installation identifié. La Région la répertorie encore sous son ancien nom « Paysan créatif » parmi les formations autorisées pour la DJA."
   ],
   "portals": [
     {
@@ -22,6 +25,21 @@
       "name": "Safer Pays de la Loire",
       "url": "https://www.safer-pays-de-loire.fr/",
       "what": "Installation, transmission et opérations foncières agricoles."
+    },
+    {
+      "name": "DRAAF Pays de la Loire — AITA",
+      "url": "https://draaf.pays-de-la-loire.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-ce-dispostif-a1125.html",
+      "what": "Volets régionaux d’accompagnement à l’installation et à la transmission et modalités de gestion."
+    },
+    {
+      "name": "Passeurs de terres",
+      "url": "https://passeursdeterres.org/",
+      "what": "Acquisition et location de fermes pour des installations en agriculture biologique dans les Pays de la Loire."
+    },
+    {
+      "name": "CIAP Pays de la Loire",
+      "url": "https://ciap-pdl.fr/",
+      "what": "Formation, portage d’activité et espaces-test pour les projets d’installation agricole."
     }
   ],
   "openData": [],
@@ -35,6 +53,26 @@
       "id": "pdl-safer",
       "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
       "query": "Safer Pays de la Loire transmettre installation maintien foncier"
+    },
+    {
+      "id": "pdl-aita-sne-2026",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "site:agriculture.gouv.fr Pays de la Loire AITA Suivi Nouvel Exploitant SNE 2026"
+    },
+    {
+      "id": "pdl-passeurs-terres-access",
+      "kinds": ["LAND_BANK"],
+      "query": "site:passeursdeterres.org porteur de projet ferme location agriculture biologique Pays de la Loire"
+    },
+    {
+      "id": "pdl-ciap-entreprendre-access",
+      "kinds": ["TRAINING"],
+      "query": "site:ciap-pdl.fr Entreprendre en Agriculture Paysanne 2026 inscription durée"
+    },
+    {
+      "id": "pdl-territoires-pilotes-officiel",
+      "kinds": ["POLICY"],
+      "query": "site:paysdelaloire.fr \"territoires pilotes\" transmission agricole"
     }
   ],
   "leads": [
@@ -61,32 +99,47 @@
       "checkedOn": "2026-09-20"
     },
     {
+      "id": "pdl-aita-sne",
+      "name": "AITA — Aide pour le Suivi du Nouvel Exploitant (SNE)",
+      "url": "https://demarche.numerique.gouv.fr/fermeture/aita-aide-suivi-nouvel-exploitant-2026",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "pays-de-la-loire-aita-suivi-nouvel-exploitant",
+      "reason": "La page DRAAF décrit la prise en charge du diagnostic et du suivi technico-économique par le volet 4 de l’AITA. La page publique de fermeture identifie la démarche 2026, la DRAAF Pays de la Loire et sa clôture depuis le 17 octobre ; la fenêtre est donc publiée comme close, sans extrapoler à 2027.",
+      "foundBy": "pdl-aita-sne-2026",
+      "checkedOn": "2026-10-27"
+    },
+    {
       "id": "pdl-territoires-pilotes",
       "name": "Territoires pilotes pour la transmission agricole",
-      "kind": "SUCCESSION_SERVICE",
-      "status": "TO_CHECK",
-      "reason": "Dispositif régional associant intercommunalités et chambres d’agriculture ; à vérifier sur une source officielle.",
-      "foundBy": "pdl-installation",
-      "checkedOn": "2026-09-20"
+      "url": "https://www.paysdelaloire.fr/economie-et-innovation/creer-reprendre-transmettre/creer-reprendre-transmettre-mon-activite-agricole-halieutique-foret",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "resourceId": "pays-de-la-loire-territoires-pilotes-transmission",
+      "reason": "La page officielle actuelle confirme le financement régional, les actions locales de trois ans, les quinze territoires engagés et l’accès réservé aux EPCI intéressés. Le dispositif est publié comme politique territoriale, pas comme guichet direct pour les particuliers.",
+      "foundBy": "pdl-territoires-pilotes-officiel",
+      "checkedOn": "2026-10-28"
     },
     {
       "id": "pdl-passeurs-terres",
       "name": "Passeurs de terres",
       "kind": "LAND_BANK",
-      "status": "TO_CHECK",
-      "reason": "Page opérateur lue : coopérative régionale d’acquisition et location de fermes biologiques, ouverte aux sollicitations de porteurs de projet, contact institutionnel disponible. Citation : «Passeurs de terres est une foncière agricole qui développe son action sur les Pays de la Loire.» Vérifier conditions du bail et instruction des projets avant admission ; distinct du service Safer et de l’accompagnement associatif Terre de Liens.",
-      "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!99",
-      "checkedOn": "2026-10-18",
+      "status": "ADMITTED",
+      "resourceId": "pays-de-la-loire-passeurs-de-terres",
+      "reason": "Le site de l’opérateur décrit une voie d’accès pour les porteurs de projet biologique qui ne veulent ou ne peuvent pas acheter leur lieu, l’étude du projet avec Terre de Liens et la décision d’acquisition par le conseil d’administration. La fiche précise qu’il ne s’agit pas d’un inventaire libre de parcelles.",
+      "foundBy": "pdl-passeurs-terres-access",
+      "checkedOn": "2026-10-27",
       "url": "https://passeursdeterres.org/"
     },
     {
       "id": "pdl-ciap-entreprendre",
       "name": "CIAP — Entreprendre en Agriculture Paysanne",
       "kind": "TRAINING",
-      "status": "TO_CHECK",
-      "reason": "Page opérateur lue : formation de douze mois, immersion et accompagnement de projets ayant identifié un lieu d’installation. Citation : «Construire son projet de création, association ou reprise d’activité agricole pour une installation pérenne.» L’opérateur indique une reconnaissance régionale pour la DJA ; vérifier le règlement lié, coût et modalités d’entrée avant admission. Ne pas extrapoler aux CIAP d’autres régions.",
-      "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!101",
-      "checkedOn": "2026-10-18",
+      "status": "ADMITTED",
+      "resourceId": "pays-de-la-loire-ciap-entreprendre-agriculture-paysanne",
+      "reason": "La page de la CIAP publie les destinataires, la durée, le contenu et l’accès par réunion d’information ; la liste exhaustive de la Région confirme que la formation, encore nommée « Paysan créatif », est autorisée pour la DJA. Les dates et coûts futurs restent omis faute de publication actuelle.",
+      "foundBy": "pdl-ciap-entreprendre-access",
+      "checkedOn": "2026-10-28",
       "url": "https://ciap-pdl.fr/offres-daccompagnement/formation-entreprendre-en-agriculture-paysanne/"
     }
   ],
@@ -111,9 +164,9 @@
     },
     {
       "expectedId": "fr-associations-installation",
-      "status": "NOT_FOUND",
-      "reason": "Aucune association régionale d’accompagnement à l’installation n’a été vérifiée dans cette passe.",
-      "checkedOn": "2026-09-20"
+      "status": "FOUND",
+      "leadId": "pdl-passeurs-terres",
+      "checkedOn": "2026-10-27"
     }
   ],
   "log": [
@@ -126,6 +179,26 @@
       "date": "2026-10-18",
       "by": "CHATGPT (Codex)",
       "summary": "Comparaison ciblée avec Annex II et des sources primaires sélectionnées : pistes, doublons et blocages conservés. Ce repérage ne constitue pas une nouvelle passe territoriale complète et ne modifie ni les fiches ni les dates de l’édition."
+    },
+    {
+      "date": "2026-10-27",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admise l’aide AITA au suivi du nouvel exploitant à partir de la page DRAAF et de la page nationale de fermeture : diagnostic et suivi technico-économique documentés, démarche 2026 close depuis le 17 octobre et remplacement annoncé au 1er janvier 2027."
+    },
+    {
+      "date": "2026-10-27",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admis Passeurs de terres comme accès régional à des fermes pour les porteurs de projet biologique : sollicitation publique, étude avec Terre de Liens et décision d’acquisition par le conseil d’administration documentées sans présenter le service comme un inventaire de parcelles."
+    },
+    {
+      "date": "2026-10-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admise la formation certifiante Entreprendre en Agriculture Paysanne de la CIAP : public, durée, contenu et réunion d’information documentés, avec reconnaissance DJA confirmée par la liste régionale et sans extrapoler une prochaine session ni son coût."
+    },
+    {
+      "date": "2026-10-28",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admis le dispositif Territoires pilotes comme politique régionale : financement de programmes locaux de trois ans, quinze territoires engagés et contact réservé aux EPCI documentés sur la page officielle, sans le présenter comme un guichet direct pour les particuliers."
     }
   ]
 }

@@ -192,6 +192,11 @@ fetch.
 from a stable address, verify them against a published checksum, and read one
 page that tells them how.
 
+**Completed 26 October 2026:** [`CITATION.md`](../CITATION.md) names the edition,
+pins its 101 JSON files to a full Git commit, publishes their SHA-256 manifest and
+gives one retrieval and verification route. Corrections receive a new commit-addressed
+data revision; software and site releases do not rename the edition.
+
 ## M16 — A second edition, and the proof that the method repeats
 
 The strongest thing about this corpus is not that it will have two editions. It

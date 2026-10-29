@@ -5,11 +5,11 @@
   "country": "DE",
   "region": "bremen",
   "officialName": "Bremen",
-  "published": "2026-09-20",
-  "summary": "In Bremen ist die Landwirtschaftskammer die belegte Anlaufstelle: zu ihren Aufgaben gehört ausdrücklich die sozioökonomische Beratung im Agrarbereich, etwa zu Umschulungen, Hofaufgaben oder Hofnachfolge.",
+  "published": "2026-10-29",
+  "summary": "In Bremen bietet die Landwirtschaftskammer Seminare zur Planung und Umsetzung der Hofübergabe an. Das beschlossene Entwicklungskonzept Landwirtschaft Bremen 2035 sieht für 2024 bis 2027 außerdem den Aufbau von Vernetzungs- und Beratungsangeboten für die externe Hofnachfolge vor.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Recherche zu Landesförderung, Hofbörse und Hofübergabeberatung in Bremen. Belegt ist die Aufgabenbeschreibung der Landwirtschaftskammer.",
+    "note": "Recherche zu Landesförderung, Hofbörse und Hofübergabeberatung in Bremen. Belegt sind das aktuelle Beratungsangebot der Landwirtschaftskammer und die beschlossene Landesstrategie zur externen Hofnachfolge.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -17,7 +17,7 @@
       },
       {
         "method": "OFFICIAL_PORTAL",
-        "detail": "https://landwirtschaftskammer-bremen.de/organisation/"
+        "detail": "https://www.lwk-bremen.de/beratung/ und https://umwelt.bremen.de/umwelt/landwirtschaft/landwirtschaft-52770"
       }
     ]
   },
@@ -33,13 +33,19 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "gpt-5",
+        "promptVersion": "1.9.0"
       }
     ]
   },
   "resources": [
     {
       "id": "bremen-lwk-sozieokonomische-beratung",
-      "name": "Sozioökonomische Beratung der Landwirtschaftskammer Bremen",
+      "name": "Beratung zur Hofübergabe der Landwirtschaftskammer Bremen",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -47,31 +53,67 @@
       },
       "operator": "Landwirtschaftskammer Bremen",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Beratung und Information von Landwirten und Grundstückseigentümern, darunter ausdrücklich die sozioökonomische Beratung im Agrarbereich zu Umschulungen, Hofaufgaben oder Hofnachfolge.",
-      "whoCanUseIt": "Landwirtinnen und Landwirte sowie Grundstückseigentümerinnen und -eigentümer in Bremen.",
-      "howToAccess": "Kontakt zur Landwirtschaftskammer Bremen aufnehmen und die Beratungsangebote der Kammer nutzen.",
-      "accessUrl": "https://landwirtschaftskammer-bremen.de/organisation/",
+      "whatItOffers": "Gezielte Seminare zur Planung und Umsetzung der Hofübergabe.",
+      "whoCanUseIt": "Landwirtinnen und Landwirte sowie Gärtnerinnen und Gärtner in Bremen.",
+      "howToAccess": "Die Beratungsseite der Landwirtschaftskammer Bremen aufrufen und über die dort genannten Kontaktdaten Verbindung aufnehmen.",
+      "accessUrl": "https://www.lwk-bremen.de/beratung/",
       "languages": ["de"],
-      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "GENERAL"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
       "sources": [
         {
-          "url": "https://landwirtschaftskammer-bremen.de/organisation/",
-          "title": "Kammeraufgaben - Landwirtschaftskammer Bremen",
-          "consultedOn": "2026-09-20",
+          "url": "https://www.lwk-bremen.de/beratung/",
+          "title": "Beratung - Landwirtschaftskammer Bremen",
+          "consultedOn": "2026-10-29",
           "quotes": [
-            "Die Landwirtschaftskammer Bremen (LWK) ist das Selbstverwaltungsorgan der bremischen Landwirtschaft in der Rechtsform einer Körperschaft des öffentlichen Rechts.",
-            "Ihre Aufgabe ist die Beratung und Information von Landwirten und Grundstückseigentümern in Fragen der Landbewirtschaftung.",
-            "Sozioökonomische Beratung im Agrarbereich, wie z.B. Umschulungen, Hofaufgaben oder Hofnachfolger"
+            "Die Landwirtschaftskammer Bremen bietet umfassende Beratung für Landwirte und Gärtner in Bremen.",
+            "Beratung zur Hofübergabe: Damit die Betriebsnachfolge reibungslos gelingt, bieten wir gezielte Seminare zur Planung und Umsetzung der Hofübergabe an.",
+            "Kontaktieren Sie uns – wir stehen Ihnen gerne zur Seite!"
           ]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "bremen-entwicklungskonzept-landwirtschaft-2035",
+      "name": "Entwicklungskonzept Landwirtschaft Bremen 2035",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Freie Hansestadt Bremen, Senatorin für Umwelt, Klima und Wissenschaft",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Beschlossener landesweiter Handlungsrahmen. Die Maßnahme NBK2 sieht für 2024 bis 2027 eine Analyse und den Aufbau von Vernetzungs- und Beratungsangeboten für die externe Hofnachfolge vor.",
+      "howToAccess": "Das Entwicklungskonzept und seinen Umsetzungsstand auf der Landwirtschaftsseite des Landes Bremen lesen.",
+      "accessUrl": "https://umwelt.bremen.de/umwelt/landwirtschaft/landwirtschaft-52770",
+      "languages": ["de"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://umwelt.bremen.de/umwelt/landwirtschaft/landwirtschaft-52770",
+          "title": "Landwirtschaft - Die Senatorin für Umwelt, Klima und Wissenschaft",
+          "consultedOn": "2026-10-29",
+          "quotes": [
+            "Anfang 2024 wurde der Beteiligungsprozess für das Entwicklungskonzept Landwirtschaft Bremen 2035 abgeschlossen und die Umsetzung des Konzepts einstimmig vom Senat und der Deputation Umwelt, Klima und Landwirtschaft bis zum 23.05.2024 beschlossen."
+          ]
+        },
+        {
+          "url": "https://umwelt.bremen.de/sixcms/media.php/13/Entwicklungskonzept_Landwirtschaft_Bremen_2035pdf.pdf",
+          "title": "Entwicklungskonzept Landwirtschaft Bremen 2035",
+          "consultedOn": "2026-10-29",
+          "quotes": [
+            "Analyse über die Situation der Betriebe ohne geklärte Hofnachfolge. Darauf aufbauend Aufbau von Vernetzungs- und Beratungsangeboten zur Ermöglichung externer Hofnachfolge. 2024 - 2027"
+          ]
+        }
+      ],
+      "notes": "Das Konzept beschreibt die geplante Umsetzung. Es belegt nicht, dass alle darin vorgesehenen Beratungs- und Vernetzungsangebote bereits verfügbar sind.",
+      "generatorId": "chatgpt-1"
     }
   ],
   "news": [],
   "limitations": [
     "Eine eigene Landesförderung Bremens für die Niederlassung junger Landwirte wurde nicht belegt; die Investitionsförderung wird gemeinsam mit Niedersachsen und Hamburg geregelt.",
     "Eine Hof- oder Flächenbörse für Bremen wurde nicht gefunden.",
-    "Der Inhalt der sozioökonomischen Beratung wurde nur über die Aufgabenliste der Kammer belegt."
+    "Das Entwicklungskonzept belegt eine beschlossene Maßnahme, aber nicht, dass alle vorgesehenen Angebote bereits verfügbar sind."
   ]
 }

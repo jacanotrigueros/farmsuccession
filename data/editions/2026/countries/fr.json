@@ -4,11 +4,11 @@
   "edition": "2026",
   "country": "FR",
   "officialName": "France",
-  "published": "2026-09-14",
-  "summary": "En France, les principaux dispositifs d'installation et de transmission — Répertoire Départ Installation, Safer, points d'accueil (PADU) et aides à l'installation (AITA) — ont été identifiés au niveau national, mais leurs pages d'accès stables restent à vérifier avant publication. Un nouveau réseau public d'accueil et d'accompagnement a par ailleurs été annoncé, sans être encore opérationnel.",
+  "published": "2026-10-28",
+  "summary": "L’Initiative nationale pour l’agriculture française est opérationnelle via quatre réseaux bancaires pour garantir des prêts agricoles, notamment d’installation et de reprise. En France métropolitaine, FEVE peut acquérir le foncier d’une ferme identifiée et le louer avec une option d’achat. La MSA applique par ailleurs une exonération de cotisations aux jeunes chefs d’exploitation.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Les portails nationaux et les principaux termes institutionnels ont été examinés et une passe d'expansion a identifié le RDI, les Safer, les PADU et l'AITA. Les pages d'accès stables de certains services restent à vérifier.",
+    "note": "Les portails nationaux et les principaux termes institutionnels ont été examinés. La garantie de prêts INAF, le portage foncier de FEVE et l’exonération MSA des jeunes agriculteurs sont documentés ; une passe d’expansion a aussi identifié le RDI, les Safer, les PADU et l’AITA, dont certaines pages d’accès restent à vérifier.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -21,6 +21,18 @@
       {
         "method": "WEB_SEARCH",
         "detail": "site:agriculture.gouv.fr aides installation transmission agriculteurs AITA"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.feve.co/installation/je-finance-ma-ferme"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise"
       }
     ]
   },
@@ -41,6 +53,132 @@
     ]
   },
   "resources": [
+    {
+      "id": "fr-inaf-garantie-prets-agricoles",
+      "name": "Initiative nationale pour l’agriculture française (INAF)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Ministère de l’Agriculture et Fonds européen d’investissement, via les réseaux bancaires partenaires",
+      "operatorType": "MIXED",
+      "whatItOffers": "Prêts agricoles garantis par l’État et proposés à des conditions préférentielles pour financer des investissements corporels ou incorporels, le fonds de roulement lié à ces investissements, du foncier, des parts sociales ou du matériel d’occasion.",
+      "whoCanUseIt": "Exploitations agricoles, candidats à l’installation, PME exerçant une activité agricole ou dont au moins 50 % du capital est détenu par une société à objet agricole, ainsi que sociétés holding dont le projet relève du dispositif.",
+      "howToAccess": "Présenter le dossier auprès de l’un des réseaux bancaires participants : Arkéa, Banque Populaire-Caisse d’Épargne, Crédit Agricole ou Crédit Mutuel-CIC. La banque instruit le financement ; la demande n’est pas déposée directement auprès du FEI.",
+      "accessUrl": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise",
+      "instrumentType": "GUARANTEE",
+      "purposes": ["FIRST_ESTABLISHMENT", "INVESTMENT", "LAND_ACQUISITION", "TRANSFER"],
+      "languages": ["fr"],
+      "targetProfiles": ["GENERAL", "NEW_ENTRANT", "YOUNG_FARMER", "SUCCESSOR"],
+      "lastEvidenceDate": "2026-01-23",
+      "sources": [
+        {
+          "url": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise",
+          "title": "Déploiement opérationnel de la seconde phase de l’INAF : le dépôt des dossiers est ouvert",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "23 janvier 2026",
+            "les bénéficiaires potentiels peuvent désormais se rapprocher des réseaux bancaires participants pour déposer leurs dossiers.",
+            "L’ensemble des banques partenaires (Arkéa, Banque Populaire-Caisse d’Epargne, Crédit Agricole, Crédit Mutuel-CIC) ont débuté le déploiement de cette seconde phase du dispositif",
+            "Les premiers prêts ont d’ailleurs déjà été débloqués sur la nouvelle enveloppe",
+            "Le dispositif est accessible aux exploitations agricoles, aux candidats à l’installation en agriculture, aux petites et moyennes entreprises exerçant une activité agricole ou dont à minima 50% du capital est détenu par une société à objet agricole ou aux sociétés holding.",
+            "Cette nouvelle enveloppe a pour ambition de proposer des prêts garantis par l’Etat à près de 15 000 agriculteurs au cours des prochaines années (régions métropolitaines et ultramarines), proposés à des conditions préférentielles.",
+            "Ces prêts permettent de soutenir le financement d’investissements, corporels et incorporels, du capital d’exploitation (fonds de roulement lié aux investissements financés dans la limite de 30% du montant du projet), du foncier (jusqu’à 20% du montant du projet en cas d’installation et de reprise), de parts sociales et de matériel d’occasion.",
+            "Renforcer le renouvellement des générations et l’installation des jeunes agriculteurs"
+          ]
+        }
+      ],
+      "notes": "Le ministère ne publie pas de date de clôture sur cette page. Les pourcentages indiqués concernent la part maximale de certaines dépenses dans le projet, pas le taux de garantie du prêt.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "fr-feve-portage-foncier",
+      "name": "Portage foncier FEVE pour l’installation",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Fermes En ViE",
+      "operatorType": "PRIVATE",
+      "whatItOffers": "Acquisition par une foncière FEVE du foncier — terres et, selon le projet, bâtiments — d’une ferme déjà trouvée, puis mise à disposition en fermage avec une option d’achat.",
+      "whoCanUseIt": "Porteurs de projet en France métropolitaine ayant au moins un an d’expérience agricole sur l’atelier envisagé, un projet nourricier conforme à la charte agroécologique, un accompagnement territorial et un apport personnel. Pour une installation, l’investissement de FEVE commence à 200 000 € et la valeur des terres doit dépasser celle des bâtiments.",
+      "howToAccess": "Tester l’éligibilité sur la page FEVE puis déposer un dossier détaillé et chiffré si le projet répond aux premiers critères et à la charte agroécologique.",
+      "accessUrl": "https://www.feve.co/installation/je-finance-ma-ferme",
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://www.feve.co/installation/je-finance-ma-ferme",
+          "title": "Financez votre ferme en agroécologie — FEVE",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "FEVE propose une solution de financement de projet agricole pour vous permettre de vous installer sur la ferme que vous avez trouvée sans en supporter immédiatement le coût d'achat, tout en sécurisant votre projet.",
+            "Concrètement, notre foncière solidaire prend en charge le financement du foncier (terres et bâtiments) dans le cadre de votre projet agricole. Vous vous installez immédiatement en location grâce à un bail rural avec option d'achat.",
+            "En France métropolitaine",
+            "Vous souhaitez assurer la continuité de l'exploitation tout en permettant à vos parents de bénéficier d'une retraite et de ne pas favoriser un de leurs enfants par rapport aux autres. FEVE rachète le foncier pour sécuriser la transmission et vous laisser le temps de reprendre la ferme dans de bonnes conditions économiques.",
+            "Si mon projet répond aux critères et à la charte agroécologique de FEVE, j'envoie un dossier plus détaillé et chiffré.",
+            "Après validation du dossier, FEVE lance l'acquisition sous réserve de mon financement bancaire (matériel, équipement et cheptel non financés par la foncière).",
+            "avoir au moins un année d’expérience agricole sur l’atelier envisagé",
+            "avoir un projet nourricier et aligné avec notre charte agroécologique",
+            "être accompagné(e) par un acteur du territoire sur les aspects techniques, juridiques, économiques et de commercialisation (chambre, ADEAR, comptable…)",
+            "avoir un apport initial personnel minimal",
+            "en cas d’installation : un montant d’investissement par FEVE d’au moins 200 000€ et une valeur des terres supérieures à celles des bâtiments",
+            "Fermes En ViE est une entreprise de l'économie sociale et solidaire qui facilite l’installation de la nouvelle génération d’agriculteurs et agricultrices grâce à ses foncières solidaires et à la plateforme La Grange."
+          ]
+        }
+      ],
+      "notes": "Le dispositif porte une ferme déjà identifiée ; ce n’est pas un inventaire libre de parcelles. Le matériel, l’équipement et le cheptel ne sont pas financés par la foncière.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "fr-msa-exoneration-jeune-agriculteur",
+      "name": "Exonération MSA du jeune agriculteur",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Mutualité sociale agricole",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Exonération partielle et dégressive des cotisations personnelles d’assurance maladie-maternité, invalidité, retraite de base et prestations familiales pendant les cinq premières années suivant l’installation, dans la limite d’un plafond annuel.",
+      "whoCanUseIt": "Chefs d’exploitation ou d’entreprise agricole âgés de 18 à 40 ans lors de leur affiliation, exerçant à titre principal ou exclusif et relevant de l’Amexa. L’âge maximal peut être reculé pour les enfants à charge ou le service militaire.",
+      "howToAccess": "Renseigner sa situation dans le dossier d’affiliation au régime des non-salariés agricoles et contacter un conseiller de sa caisse MSA pour être accompagné.",
+      "accessUrl": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur",
+      "instrumentType": "OTHER",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["fr"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-03-23",
+      "sources": [
+        {
+          "url": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur",
+          "title": "L’exonération jeune agriculteur — MSA",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "Mis à jour le 23/03/2026",
+            "Tout nouvel exploitant peut bénéficier, sous certaines conditions, d'une exonération partielle de ses cotisations pendant 5 ans.",
+            "Être âgé de 18 à 40 ans à la date d'affiliation au régime de protection sociale des non-salariés agricoles.",
+            "La limite d'âge peut être reportée d'un an par enfant à charge (pour les bénéficiaires de prestations familiales) ou en cas de service militaire.",
+            "Vous bénéficiez d'une exonération partielle et dégressive de vos cotisations sociales durant les cinq années qui suivent votre installation et dans la limite d'un plafond fixé par arrêté ministériel.",
+            "Pour vous aider dans votre parcours d'installation, contactez un conseiller de votre MSA."
+          ]
+        },
+        {
+          "url": "https://www.formulaires.service-public.gouv.fr/gf/cerfa_12555.do",
+          "title": "Dossier d’affiliation au régime de protection sociale des non-salariés des professions agricoles",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "Un dossier pour votre affiliation à la MSA",
+            "Vous pouvez bénéficier de l’exonération des cotisations Jeune agriculteur si vous êtes âgé de dix-huit ans au moins et de quarante ans au plus à la date de votre affiliation au régime de protection sociale des non-salariés agricoles, toutefois cette limite d’âge peut être reculée d’un an par enfant à charge."
+          ]
+        }
+      ],
+      "notes": "L’exonération porte sur les cotisations personnelles du chef d’exploitation et non sur celles des membres de sa famille ou de salariés.",
+      "generatorId": "chatgpt-1"
+    },
     {
       "id": "fr-france-services-agriculture",
       "name": "France Services Agriculture",
@@ -76,6 +214,6 @@
   "news": [],
   "limitations": [
     "Le Répertoire Départ Installation, les Safer et les points d'accueil ont été identifiés, mais leurs portées et pages nationales d'accès doivent encore être consolidées.",
-    "Les aides financières sont principalement documentées sur les pages des régions."
+    "La garantie INAF et l’exonération nationale de cotisations MSA sont documentées ; les autres aides financières sont principalement publiées sur les pages des régions."
   ]
 }

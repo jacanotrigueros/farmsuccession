@@ -5,11 +5,11 @@
   "country": "FR",
   "region": "pays-de-la-loire",
   "officialName": "Pays de la Loire",
-  "published": "2026-10-25",
-  "summary": "En Pays de la Loire, la Région gère la dotation aux jeunes agriculteurs, conditionnée à une étude d’installation préalable, et la Safer accompagne les cédants dans la transmission de leur exploitation, y compris par la recherche d’investisseurs pour faciliter l’installation d’un jeune.",
+  "published": "2026-10-28",
+  "summary": "En Pays de la Loire, la Région gère la dotation aux jeunes agriculteurs et soutient des territoires pilotes qui expérimentent des actions locales de transmission. L’État finance, par l’AITA, un diagnostic et un suivi après l’installation. La Safer accompagne les cédants, Passeurs de terres facilite l’accès à des fermes biologiques et la CIAP propose une formation certifiante d’un an.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Recherches sur les aides régionales à l’installation et à la transmission et sur la Safer régionale. Le dispositif régional de territoires pilotes pour la transmission n’a pas été vérifié.",
+    "note": "Recherches sur les aides régionales à l’installation et à la transmission, les territoires pilotes de transmission, le suivi post-installation AITA, la Safer régionale, l’accès associatif au foncier et la formation à l’installation.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -22,6 +22,22 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://www.paysdelaloire.fr/les-aides/dotation-jeunes-agriculteurs-dja-feader"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://draaf.pays-de-la-loire.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-ce-dispostif-a1125.html"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:passeursdeterres.org porteur de projet ferme location agriculture biologique Pays de la Loire"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:ciap-pdl.fr Entreprendre en Agriculture Paysanne 2026 inscription durée"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:paysdelaloire.fr \"territoires pilotes\" transmission agricole"
       }
     ]
   },
@@ -36,6 +52,12 @@
         "id": "claude-1",
         "tool": "CLAUDE",
         "model": "claude-opus-5",
+        "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
         "promptVersion": "1.9.0"
       }
     ]
@@ -72,6 +94,179 @@
         }
       ],
       "generatorId": "claude-1"
+    },
+    {
+      "id": "pays-de-la-loire-aita-suivi-nouvel-exploitant",
+      "name": "AITA — Aide pour le Suivi du Nouvel Exploitant (SNE)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direction régionale de l’alimentation, de l’agriculture et de la forêt des Pays de la Loire",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Prise en charge d’un diagnostic dans le cadre du plan d’entreprise et, lorsque le diagnostic le préconise, mise en place d’un suivi technico-économique associant séquences collectives et appui individuel.",
+      "whoCanUseIt": "Nouveaux exploitants agricoles en Pays de la Loire qui demandent l’aide au suivi post-installation du volet 4 de l’AITA.",
+      "howToAccess": "La démarche 2026 est close depuis le 17 octobre. Sa page reste consultable sur demarche.numerique.gouv.fr et identifie la DRAAF Pays de la Loire comme gestionnaire.",
+      "accessUrl": "https://demarche.numerique.gouv.fr/fermeture/aita-aide-suivi-nouvel-exploitant-2026",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "calls": [
+        {
+          "name": "Aide SNE 2026",
+          "state": "CLOSED",
+          "closes": "2026-10-16",
+          "sourceUrl": "https://demarche.numerique.gouv.fr/fermeture/aita-aide-suivi-nouvel-exploitant-2026"
+        }
+      ],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://draaf.pays-de-la-loire.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-ce-dispostif-a1125.html",
+          "title": "Accompagnement à l’installation-Transmission en agriculture (AITA) — DRAAF Pays de la Loire",
+          "consultedOn": "2026-10-27",
+          "quotes": [
+            "Ce dispostif sera remplacé par le FSA au 01/01/2027.",
+            "Volet 4 – Suivi du nouvel exploitant",
+            "Prise en charge d’un diagnostic dans le cadre du Plan d’Entreprise (PE) et mise en place d’un suivi technico-économique (séquences collectives et appui individuel) si préconisé par le diagnostic réalisé (gestion par les DDT(M))"
+          ]
+        },
+        {
+          "url": "https://demarche.numerique.gouv.fr/fermeture/aita-aide-suivi-nouvel-exploitant-2026",
+          "title": "AITA — Aide pour le Suivi du Nouvel Exploitant (SNE) 2026 en Pays de la Loire",
+          "consultedOn": "2026-10-27",
+          "quotes": [
+            "La démarche AITA - Aide pour le Suivi du Nouvel Exploitant (SNE) 2026 en Pays de la Loire est close depuis le 17 octobre 2026",
+            "Cette démarche est gérée par",
+            "Direction régionale de l'alimentation, de l'agriculture et de la forêt (Draaf) - Pays de la Loire"
+          ]
+        }
+      ],
+      "notes": "La DRAAF indique que l’AITA sera remplacé par France Services Agriculture au 1er janvier 2027. La démarche SNE 2026 est close depuis le 17 octobre ; le programme reste documenté comme actif pour l’édition 2026, sans présumer une nouvelle fenêtre.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "pays-de-la-loire-passeurs-de-terres",
+      "name": "Passeurs de terres",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Passeurs de terres",
+      "operatorType": "PRIVATE",
+      "whatItOffers": "Étudie des projets d’installation en agriculture biologique et peut acquérir une ferme pour la louer comme outil de travail complet, avec ses terres, ses bâtiments et, lorsque c’est possible, son habitation.",
+      "whoCanUseIt": "Porteurs d’un projet agricole biologique en Pays de la Loire qui ne souhaitent pas ou ne peuvent pas devenir propriétaires du lieu où ils s’installent.",
+      "howToAccess": "Solliciter Passeurs de terres ou Terre de Liens Pays de la Loire. Le projet et la ferme identifiée sont étudiés avec les partenaires, puis le conseil d’administration décide s’il souhaite acquérir le bien.",
+      "accessUrl": "https://passeursdeterres.org/",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Passeurs de terres",
+          "value": "contact@passeursdeterres.org",
+          "sourceUrl": "https://passeursdeterres.org/"
+        }
+      ],
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://passeursdeterres.org/",
+          "title": "Passeurs de terres — Épargner pour sauver des fermes",
+          "consultedOn": "2026-10-27",
+          "quotes": [
+            "Les porteurs d’un projet agricole ne souhaitant pas ou ne pouvant pas devenir propriétaire du lieu sur lequel ils sont ou vont s’installer peuvent nous solliciter et nous étudions leurs projets en lien avec les partenaires de Passeurs de terres",
+            "Nous travaillons ainsi tous, main dans la main, au sein de la Coopérative, pour permettre l’installation de fermiers bio sur le territoire régional.",
+            "la coopérative facilite l’installation de paysans grâce à la location d’un outil de travail complet et durable : la ferme avec ses terres, ses bâtiments et son habitation quand cela est possible.",
+            "E-mail : contact@passeursdeterres.org"
+          ]
+        },
+        {
+          "url": "https://passeursdeterres.org/comment-ca-marche/",
+          "title": "Comment ça marche ? — Passeurs de terres",
+          "consultedOn": "2026-10-27",
+          "quotes": [
+            "Lorsqu’un paysan est en recherche d’une ferme pour s’installer en bio et qu’il ne souhaite pas devenir propriétaire, il peut contacter l’association Terre de Liens Pays de la Loire.",
+            "Si le dossier arrive à Passeurs de terres, celui-ci est examiné par son Conseil d’Administration qui statuera sur sa volonté d’acquérir le bien présenté."
+          ]
+        }
+      ],
+      "notes": "Passeurs de terres étudie un projet lié à une ferme identifiée ; ce service n’est pas présenté comme un inventaire libre de parcelles et l’acquisition reste soumise à la décision de son conseil d’administration.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "pays-de-la-loire-ciap-entreprendre-agriculture-paysanne",
+      "name": "Formation Entreprendre en Agriculture Paysanne — CIAP Pays de la Loire",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "CIAP Pays de la Loire",
+      "operatorType": "PRIVATE",
+      "whatItOffers": "Formation certifiante de douze mois qui combine immersion sur des fermes, douze journées collectives, accompagnement individuel et travail sur le futur site afin de rendre opérationnel un projet de création, d’association ou de reprise agricole.",
+      "whoCanUseIt": "Toute personne ayant un projet professionnel de création, d’association ou de reprise d’activités agricoles et ayant déjà identifié son lieu d’installation.",
+      "howToAccess": "Participer à une réunion d’information collective et contacter la CIAP au moins deux mois avant l’entrée souhaitée.",
+      "accessUrl": "https://ciap-pdl.fr/offres-daccompagnement/formation-entreprendre-en-agriculture-paysanne/",
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "sources": [
+        {
+          "url": "https://ciap-pdl.fr/offres-daccompagnement/formation-entreprendre-en-agriculture-paysanne/",
+          "title": "Formation Entreprendre en Agriculture Paysanne — CIAP Pays de la Loire",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "Construire son projet de création, association ou reprise d'activité agricole pour une installation pérenne.",
+            "Toute personne ayant un projet d’installation professionnelle en création, association ou en reprise d’activités agricoles et ayant identifié le lieu d’installation.",
+            "Durée de formation : 12 mois",
+            "Rythme du stage : à temps plein (35h) ou à temps partiel (21h)",
+            "Un accompagnement global : 12 jours de formation collective avec d’autres porteurs de projet pour finaliser le projet d’installation et le rendre opérationnel.",
+            "Venez participer à une réunion d'information collective organisée par la CIAP et ses partenaires (merci de nous contacter au minimum 2 mois avant l'entrée souhaitée en formation)."
+          ]
+        },
+        {
+          "url": "https://www.paysdelaloire.fr/sites/default/files/aides/786159bc-80d5-11ea-8bb8-c7ceddcbc7e6/subvention%2Cpret_20242027-liste-formations-dja-v6_786159bc_annexe-59.pdf",
+          "title": "Liste exhaustive des formations autorisées pour la DJA — Région Pays de la Loire",
+          "consultedOn": "2026-10-28",
+          "quotes": ["LISTE EXHAUSTIVE DES FORMATIONS", "Paysan créatif", "CIAP Pays de la Loire", "84 heures collectives"]
+        }
+      ],
+      "notes": "La Région répertorie la formation sous son ancien nom « Paysan créatif » parmi les formations autorisées pour la DJA. Ni la disponibilité de places ni le coût d’une future session ne sont déduits des pages consultées.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "pays-de-la-loire-territoires-pilotes-transmission",
+      "name": "Territoires pilotes pour la transmission agricole",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Région Pays de la Loire",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Politique régionale qui finance pendant trois ans des actions locales portées par des EPCI, la Chambre d’agriculture et d’autres réseaux afin de faciliter la transmission des exploitations et d’attirer de nouveaux agriculteurs.",
+      "whoCanUseIt": "EPCI et acteurs territoriaux des Pays de la Loire qui souhaitent mener des actions locales en faveur du renouvellement agricole.",
+      "howToAccess": "Les EPCI intéressés pour les années à venir sont invités à contacter la Région depuis la page officielle du dispositif.",
+      "accessUrl": "https://www.paysdelaloire.fr/economie-et-innovation/creer-reprendre-transmettre/creer-reprendre-transmettre-mon-activite-agricole-halieutique-foret",
+      "languages": ["fr"],
+      "targetProfiles": ["GENERAL"],
+      "sources": [
+        {
+          "url": "https://www.paysdelaloire.fr/economie-et-innovation/creer-reprendre-transmettre/creer-reprendre-transmettre-mon-activite-agricole-halieutique-foret",
+          "title": "Un projet d’installation agricole ou halieutique ? La Région vous accompagne — Région Pays de la Loire",
+          "consultedOn": "2026-10-28",
+          "quotes": [
+            "Mis en place par la Région Pays de la Loire, les Territoires Pilotes Transmission agricole sont des initiatives portées par les acteurs d’un territoire (EPCI, chambre d’agriculture et autres réseaux) visant à faciliter la transmission des exploitations agricoles et à attirer de nouveaux agriculteurs.",
+            "Ces territoires, soutenus financièrement par la Région, mènent des actions concrètes pendant 3 ans avec l'objectif d'augmenter leur taux de renouvellement agricole au niveau local.",
+            "Lancés en 2021, 15 territoires pilotes, répartis dans les 5 départements, sont aujourd’hui engagés dans la démarche. 5 nouveaux territoires s’engageront en 2026.",
+            "Vous êtes un EPCI, vous êtes intéressés pour les années à venir ? Nous vous invitons à nous contacter."
+          ]
+        }
+      ],
+      "notes": "La page décrit une politique mise en œuvre par des territoires partenaires, et non un guichet régional unique ouvert directement aux cédants ou aux repreneurs ; les actions accessibles dépendent de chaque territoire pilote.",
+      "generatorId": "chatgpt-1"
     },
     {
       "id": "pays-de-la-loire-safer-transmission",
@@ -121,8 +316,6 @@
   ],
   "news": [],
   "limitations": [
-    "Les montants et modulations de la dotation régionale n’ont pas été cités : ils figurent dans le règlement, non consulté ici.",
-    "Le dispositif régional de territoires pilotes pour la transmission agricole n’a pas été vérifié.",
-    "Aucune association régionale d’accompagnement à l’installation n’a été vérifiée."
+    "Les montants et modulations de la dotation régionale n’ont pas été cités : ils figurent dans le règlement, non consulté ici."
   ]
 }

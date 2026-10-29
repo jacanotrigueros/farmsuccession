@@ -36,3 +36,16 @@ What would overturn it: actual citers who cannot retrieve/use the repository obj
 or a maintainer-approved stable bundle/archival publication policy. No download page,
 release asset, edition identifier or citation wording was invented on the maintainer's
 behalf. M17 remains partially blocked rather than marked done by the checksum command.
+
+## Decision and completion — 26 October 2026
+
+Option 1 is now implemented. **Farm Succession Atlas — 2026 edition, data revision
+2026-10-26** is the named object. Its 101 JSON files and checksum manifest are frozen
+at full commit `dfe9b15be6618bc5868f7163c3e38e8efa809b12`; the repository object carries
+the catalogue, schemas, research briefs, method and licence as supporting context.
+[`CITATION.md`](../../CITATION.md) gives the citation, immutable retrieval address,
+verification command and correction policy on one page.
+
+The snapshot does not create a release, assert current availability or mark agent work
+as human-reviewed. A correction is a new commit-addressed data revision with a new
+manifest. On those terms the repository-side part of M17 is complete.

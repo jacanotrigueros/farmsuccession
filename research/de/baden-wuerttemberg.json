@@ -6,7 +6,7 @@
     "region": "baden-wuerttemberg"
   },
   "language": "de",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-10-26",
   "context": [
     "Der Förderwegweiser des Landes (foerderung.landwirtschaft-bw.de) beschreibt die Junglandwirte-Einkommensstützung, die bundesweit geregelt ist und laut Länder-Checkliste nicht als Landesinstrument zählt.",
     "Die Hofbörse der Landsiedlung Baden-Württemberg ist der sichtbarste Landesbaustein für die Hofnachfolge.",
@@ -14,7 +14,8 @@
     "Beim AFP ist der Junglandwirte-Zuschlag Teil einer Investitionsförderung und keine selbständige Niederlassungsprämie. Auswahltermine dürfen nicht als Antragsfristen ausgegeben werden.",
     "Die Vertrauensstelle für außerfamiliäre Hofübergabe arbeitet in Südbaden; die landwirtschaftliche Familienberatung des Evangelischen Bauernwerks richtet sich an Familien in Württemberg.",
     "Beratungsseiten mit namentlich genannten Beschäftigten liefern keine geeigneten persönlichen Kontaktdaten für den Datensatz; nur institutionelle Kanäle verwenden.",
-    "Einzelne Angebote der Hofbörse sind landwirtschaftlich geprägte Immobilien, ohne dass die Fortführung eines aktiven Betriebs für jedes Inserat gesichert wäre."
+    "Einzelne Angebote der Hofbörse sind landwirtschaftlich geprägte Immobilien, ohne dass die Fortführung eines aktiven Betriebs für jedes Inserat gesichert wäre.",
+    "Das Modul 202 von Beratung.Zukunft.Land gilt bis 31.12.2026 und umfasst ausdrücklich die arbeitswirtschaftliche Beurteilung einer geplanten Betriebsübergabe oder -übernahme. Die bereits veröffentlichten Module ab 2027 werden nicht als 2026-Zugang behandelt."
   ],
   "portals": [
     {
@@ -51,6 +52,11 @@
       "name": "L-Bank Landwirtschaftsförderung",
       "url": "https://www.l-bank.de/produkte/wirtschaftsfoerderung/landwirtschaft-nachhaltigkeit.html",
       "what": "Förderdarlehen mit einem ausdrücklich benannten Zugang für Hofnachfolgende und Existenzgründende."
+    },
+    {
+      "name": "Beratung.Zukunft.Land",
+      "url": "https://bzl.landwirtschaft-bw.de/",
+      "what": "Geförderte Beratungsmodule, zugelassene Beratungsorganisationen und Suche nach Modulen, Beratungskräften und Honorarsätzen."
     }
   ],
   "openData": [],
@@ -84,6 +90,11 @@
       "id": "bw-bodenfonds",
       "kinds": ["LAND_BANK"],
       "query": "Baden-Württemberg landwirtschaftliche Flächenbörse Bodenfonds Pacht Existenzgründung Landsiedlung"
+    },
+    {
+      "id": "bw-bzl-organisations-2026",
+      "kinds": ["ADVICE"],
+      "query": "site:bzl.landwirtschaft-bw.de Beratungsorganisationen Modul 202 Betriebsübergabe 2026"
     }
   ],
   "leads": [
@@ -210,10 +221,11 @@
       "name": "Beratungsmodul Arbeitswirtschaft und Betriebsorganisation",
       "url": "https://bzl.landwirtschaft-bw.de/,Lde_DE/Startseite/Beratungsmodule/Unternehmen%2Bund%2BEinkommenskombinationen",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "Die Landesübersicht nennt Betriebsübergabe als möglichen Beratungsinhalt, zeigt aber auch erst ab 2027 geltende Modulabschnitte. Vor Aufnahme sind die am 29.09.2026 geltende Fassung und der konkrete Zugang zu einem anbietenden Beratungsdienst abzugleichen.",
+      "status": "ADMITTED",
+      "resourceId": "baden-wuerttemberg-bzl-betriebsuebergabe",
+      "reason": "Die am 26.10.2026 gelesene Landesübersicht trennt die bis 31.12.2026 geltenden Module von den Modulen ab 2027. Das geltende Modul 202 nennt die arbeitswirtschaftliche Beurteilung bei geplanter Betriebsübergabe oder -übernahme, 70 Prozent Förderung bis 1.500 EUR und einen Suchzugang zu anbietenden Organisationen, Beratungskräften und Honorarsätzen. Die Verwaltungsvorschrift begrenzt den Zugang auf landwirtschaftliche Unternehmen mit Sitz in Baden-Württemberg; das amtliche Verzeichnis der zugelassenen Organisationen trägt den Stand 21.05.2026.",
       "foundBy": "bw-familienberatung",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-10-26"
     }
   ],
   "instrumentChecks": [
@@ -253,6 +265,11 @@
       "date": "2026-09-30",
       "by": "CLAUDE (Claude Code)",
       "summary": "Manuelle Prüfung der Seiten der Vertrauensstelle Hofübergabe dokumentiert, die automatisierte Abrufe mit 403 ablehnen. Auf der Startseite fehlt heute das Kürzel «(BLHV)» im Satz über den Verband; das Zitat folgt dem aktuellen Text."
+    },
+    {
+      "date": "2026-10-26",
+      "by": "CHATGPT (Codex)",
+      "summary": "Das bis Ende 2026 geltende Modul 202 von Beratung.Zukunft.Land sowie die Verwaltungsvorschrift und das aktuelle Organisationsverzeichnis gelesen. Den bestehenden Lead als geförderten Beratungszugang für landwirtschaftliche Unternehmen bei geplanter Betriebsübergabe oder -übernahme aufgenommen; spätere Module ab 2027 und individuelle Honorare nicht übernommen."
     }
   ]
 }
