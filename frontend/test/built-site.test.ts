@@ -437,14 +437,37 @@ test("every date in the sitemap is a date the data gives", () => {
   }
 });
 
-test("robots.txt sends a crawler to the sitemap and keeps nothing from it", () => {
+/**
+ * robots.txt keeps one thing from a crawler: the search index under /pagefind/, which is compiled chunks
+ * the search page reads in the browser, not documents. In its first two weeks it was 28 % of everything
+ * Googlebot fetched. Everything a reader can read stays open, and the index can only be withheld because
+ * no page offered to search engines needs it to show its content.
+ */
+test("robots.txt sends a crawler to the sitemap and keeps nothing from it but the search index", () => {
   const robots = readFileSync(path.join(import.meta.dirname, "..", "public", "robots.txt"), "utf8");
   assert.match(robots, /Sitemap: https:\/\/farmsuccession\.eu\/sitemap\.xml/u, "robots.txt does not say where the sitemap is");
-  assert.doesNotMatch(
-    robots,
-    /Disallow: \/\s*$/mu,
-    "robots.txt hides part of the site. Everything here is public evidence meant to be found.",
+  const withheld = [...robots.matchAll(/^Disallow:\s*(\S*)\s*$/gmu)].map(([, rule]) => rule ?? "");
+  assert.deepEqual(
+    withheld,
+    ["/pagefind/"],
+    "robots.txt withholds something besides the search index. Everything else here is public evidence meant to be found.",
   );
+
+  const xml = readFileSync(path.join(DIST, "sitemap.xml"), "utf8");
+  const listed = [...xml.matchAll(/<loc>https:\/\/farmsuccession\.eu([^<]*)<\/loc>/gu)].map(([, url]) => url ?? "");
+  for (const url of listed) {
+    assert.ok(!withheld.some((rule) => url.startsWith(rule)), `the sitemap offers ${url}, which robots.txt tells a crawler not to fetch`);
+  }
+
+  // A page Google renders without the index must not need it: only pages that ask not to be indexed may search.
+  const indexed = pages.filter(({ html }) => !/<meta\s+name="robots"\s+content="noindex/u.test(html));
+  assert.ok(indexed.length > 0, "no indexable page was built, so this check proved nothing");
+  for (const { file, html } of indexed) {
+    assert.ok(
+      !html.includes('src="/search.js"') && !html.includes("/pagefind/"),
+      `${file} is offered to search engines and loads the search index robots.txt withholds, so Google would render it without its content`,
+    );
+  }
 });
 
 /**
