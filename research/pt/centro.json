@@ -6,14 +6,15 @@
     "region": "centro"
   },
   "language": "pt",
-  "updatedOn": "2026-09-28",
+  "updatedOn": "2026-10-30",
   "context": [
     "Os apoios PEPAC e a Bolsa Nacional de Terras já pertencem à camada nacional e não devem ser duplicados no Centro.",
     "A página própria https://www.cm-figfoz.pt/pages/644 descreve formulário e acesso SIG; não se confirmou inventário nem candidaturas atuais.",
     "Uma menção no menu ou num resultado de pesquisa é apenas uma pista: sem página pública citável, inventário ou procedimento, o serviço não é admitido.",
     "Pesquisar municípios, comunidades intermunicipais, GAL e associações de desenvolvimento local apenas quando prestam um serviço próprio.",
     "Passagem com a lista de verificação nacional sobre um ficheiro existente: faltavam apenas os instrumentos esperados.",
-    "A Figueira da Foz e a COAPE têm serviços próprios com inscrição; distinguir a antiga Bolsa Nacional, cuja lei de 2012 foi revogada."
+    "A Figueira da Foz e a COAPE têm serviços próprios com inscrição; distinguir a antiga Bolsa Nacional, cuja lei de 2012 foi revogada.",
+    "O banco para pastores da COAPE tem formulários próprios para proprietários e pastores e serve a área social da cooperativa, mas não publica uma lista atual de terrenos na página verificada."
   ],
   "portals": [
     {
@@ -30,6 +31,11 @@
       "name": "COAPE Bolsa de Terras",
       "url": "https://coape.pt/bolsa-de-terras-coape/",
       "what": "Inscrição de proprietários e empreendedores rurais, oferta de terrenos para arrendamento."
+    },
+    {
+      "name": "COAPE Banco de Terras para Pastores",
+      "url": "https://coape.pt/banco-de-terras-pastores/",
+      "what": "Pré-inscrição de proprietários e pastores para terrenos dedicados à pastorícia na área social da COAPE."
     }
   ],
   "openData": [],
@@ -89,9 +95,11 @@
       "name": "Banco de Terras Pastores COAPE",
       "url": "https://coape.pt/banco-de-terras-pastores/",
       "kind": "LAND_BANK",
-      "status": "TO_CHECK",
-      "reason": "Serviço específico para pastores; página bloqueou a verificação independente do acesso e da área atendida.",
-      "foundBy": "centro-coape-terras"
+      "status": "ADMITTED",
+      "resourceId": "centro-coape-banco-pastores",
+      "reason": "A página do operador foi lida e descreve a área servida, a pré-inscrição, a mediação e formulários distintos para proprietários e pastores. Como não foi confirmada uma oferta atual nem concluída uma submissão, o recurso é publicado com estado UNKNOWN.",
+      "foundBy": "centro-coape-terras",
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "centro-coape-apoio-jovens",
@@ -147,6 +155,11 @@
       "date": "2026-09-28",
       "by": "CHATGPT (Codex)",
       "summary": "Figueira da Foz e COAPE admitidas como bolsas locais de operatividade atual não comprovada; outras pistas mantidas para verificação."
+    },
+    {
+      "date": "2026-10-30",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admitido o Banco de Terras para Pastores da COAPE após leitura da página própria: a área social, a mediação e os formulários para proprietários e pastores estão documentados. A disponibilidade atual de terrenos não foi confirmada, pelo que o recurso é publicado como UNKNOWN."
     }
   ]
 }

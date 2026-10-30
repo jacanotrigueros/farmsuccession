@@ -5,11 +5,11 @@
   "country": "PT",
   "region": "centro",
   "officialName": "Centro",
-  "published": "2026-09-28",
-  "summary": "A Figueira da Foz e a COAPE em Mangualde oferecem vias locais para anunciar e procurar terrenos rurais. A disponibilidade atual de parcelas e a conclusão das inscrições não puderam ser comprovadas.",
+  "published": "2026-10-30",
+  "summary": "A Figueira da Foz e a COAPE oferecem vias locais para anunciar e procurar terrenos rurais. A COAPE mantém também um banco especializado em terrenos para pastorícia na sua área social. A disponibilidade atual de parcelas e a conclusão das inscrições não puderam ser comprovadas.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Foram abertas páginas próprias da bolsa municipal da Figueira da Foz e da COAPE, com formulário e mecanismo de oferta/procura; as candidaturas e listagens não foram testadas. Outras bolsas, formação e sucessão permanecem com cobertura parcial.",
+    "note": "Foram abertas páginas próprias da bolsa municipal da Figueira da Foz, da bolsa geral da COAPE e do seu banco para pastores, com formulários e mecanismos de oferta/procura; as submissões e listagens não foram testadas. Outras bolsas, formação e sucessão permanecem com cobertura parcial.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -38,6 +38,10 @@
       {
         "method": "KNOWN_SOURCE",
         "detail": "https://coape.pt/bolsa-de-terras-coape/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://coape.pt/banco-de-terras-pastores/"
       }
     ]
   },
@@ -129,12 +133,47 @@
       ],
       "notes": "A página contém formulários e ligação à lista, mas não foi possível confirmar ofertas atuais ou concluir uma inscrição.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "centro-coape-banco-pastores",
+      "name": "Banco de Terras para Pastores COAPE",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Área social da COAPE"
+      },
+      "operator": "COAPE – Cooperativa Agro-Pecuária dos Agricultores de Mangualde",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Intermediação de terrenos rústicos para pastorícia, com pré-inscrição de proprietários e pastores, visita ou reunião e divulgação da informação.",
+      "whoCanUseIt": "Proprietários com terrenos rústicos disponíveis e empreendedores rurais que procuram terra para pastorícia na área social da COAPE, designadamente para ovinicultura ligada ao Queijo Serra da Estrela DOP.",
+      "howToAccess": "Preencher na página o formulário de proprietário ou o formulário de pastor, ou contactar a COAPE para fazer a pré-inscrição.",
+      "accessUrl": "https://coape.pt/banco-de-terras-pastores/",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["LIVESTOCK"],
+      "languages": ["pt"],
+      "targetProfiles": ["NEW_ENTRANT", "LANDOWNER", "LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://coape.pt/banco-de-terras-pastores/",
+          "title": "Banco de Terras para Pastores | COAPE",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "Facilitar o acesso à terra aos empreendedores rurais que pretendam dedicar-se a atividade de pastorícia na área social da COAPE",
+            "Pré-inscrição mediante submissão de formulário disponível nesta página ou através dos seguintes contactos:",
+            "Tenho terrenos rústicos disponíveis que gostaria de colocar no Banco de Terras para Pastores",
+            "Quero procurar na bolsa de terras por terrenos para explorar e investir."
+          ]
+        }
+      ],
+      "notes": "A página apresenta formulários distintos para proprietários e pastores, mas não foi submetida uma inscrição nem confirmada a disponibilidade atual de terrenos; por isso o estado permanece «Situação não confirmada».",
+      "generatorId": "chatgpt-1"
     }
   ],
   "news": [],
   "limitations": [
     "O formulário e o visor da Figueira da Foz não foram testados para determinar terrenos disponíveis atualmente.",
-    "A lista e a submissão de formulários da COAPE não foram verificadas até ao fim; o estado operativo permanece «Situação não confirmada».",
-    "O banco para pastores, o aconselhamento da COAPE e o banco de Mortágua requerem verificação adicional; não foi comprovado um curso atual de incorporação ou serviço de sucessão."
+    "As listas e as submissões de formulários das bolsas da COAPE não foram verificadas até ao fim; a disponibilidade de terrenos e o estado operativo permanecem «Situação não confirmada».",
+    "O aconselhamento da COAPE e o banco de Mortágua requerem verificação adicional; não foi comprovado um curso atual de incorporação ou serviço de sucessão."
   ]
 }
