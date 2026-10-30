@@ -5,7 +5,7 @@
     "country": "ES"
   },
   "language": "es",
-  "updatedOn": "2026-10-18",
+  "updatedOn": "2026-10-30",
   "context": [
     "Agricultura es competencia autonómica: las ayudas a la incorporación de jóvenes y nuevos agricultores del Plan Estratégico de la PAC se convocan y tramitan en cada comunidad autónoma. El Ministerio coordina y mantiene programas estatales como CULTIVA.",
     "Los bancos de tierras existen a varios niveles: autonómico (Galicia), municipal (Zaragoza, Murcia, Molina de Segura) e intermunicipal (Red TERRAE). Busca siempre por debajo del nivel regional: diputaciones, comarcas, mancomunidades, cabildos, consells y ayuntamientos.",
@@ -15,7 +15,8 @@
     "El curso de incorporación a la empresa agraria lo imparten entidades reconocidas; cita la página oficial de la comunidad que lo regula u organiza, no el catálogo de un proveedor.",
     "Muchas sedes electrónicas se generan con JavaScript y no devuelven texto legible; algunos portales bloquean robots o envían cadenas TLS incompletas. Anótalo en el brief de la región y cita otra página oficial con texto.",
     "Los ficheros BOCM, BOE o diarios autonómicos en PDF sí se pueden verificar, pero evita citas que crucen un salto de línea con guion.",
-    "Algunos portales (carm.es, sede.carm.es) redirigen a un desafío antibots a partir de la segunda petición: el comprobador lo marca como UNCHECKED; revisa esas páginas a mano antes de darlas por caídas."
+    "Algunos portales (carm.es, sede.carm.es) redirigen a un desafío antibots a partir de la segunda petición: el comprobador lo marca como UNCHECKED; revisa esas páginas a mano antes de darlas por caídas.",
+    "El Observatorio de RETA es un mapa nacional útil para localizar espacios test agrarios y distinguir su fase. Sus estados describen la evolución del dispositivo, no una convocatoria abierta para personas téster."
   ],
   "portals": [
     {
@@ -235,10 +236,11 @@
       "id": "es-reta-observatorio",
       "name": "Observatorio de los Espacios Test Agrarios — RETA",
       "kind": "NETWORK",
-      "status": "TO_CHECK",
-      "reason": "Página del operador leída: mapa estatal y fichas con fases diferenciadas de diseño, preparación y actividad. Cita: «En nuestro mapa interactivo, podrás encontrar los espacios test agrarios activos en España». Verificar las fichas y la vía de incorporación de cada espacio antes de publicar disponibilidad. La red no duplica los recursos locales de Gandesa o Sant Martí, ni resuelve por sí sola todas sus convocatorias.",
+      "status": "ADMITTED",
+      "resourceId": "es-reta-observatorio-espacios-test-agrarios",
+      "reason": "El mapa nacional del operador permite localizar espacios test agrarios, abrir su ficha y filtrar por fase de desarrollo. Se publica como red de descubrimiento, sin interpretar las fases como plazas o convocatorias abiertas y sin duplicar los servicios locales.",
       "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!78",
-      "checkedOn": "2026-10-18",
+      "checkedOn": "2026-10-30",
       "url": "https://espaciostestagrarios.org/intranet/observatorio"
     },
     {
@@ -314,6 +316,11 @@
       "date": "2026-10-18",
       "by": "CHATGPT (Codex)",
       "summary": "Contraste dirigido de Annex II y fuentes primarias seleccionadas: se conservan pistas, duplicidades y bloqueos. No es una revisión territorial completa ni modifica fichas, estados o fechas de la edición."
+    },
+    {
+      "date": "2026-10-30",
+      "by": "CHATGPT (Codex)",
+      "summary": "El Observatorio de RETA se admite como red nacional de descubrimiento: su mapa localiza espacios test agrarios y diferencia diseño, preparación y actividad. Las fases no se presentan como disponibilidad de plazas y los servicios locales conservan sus propias fichas y convocatorias."
     }
   ]
 }
