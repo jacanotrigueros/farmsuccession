@@ -6,11 +6,12 @@
     "region": "niedersachsen"
   },
   "language": "de",
-  "updatedOn": "2026-10-27",
+  "updatedOn": "2026-10-30",
   "context": [
     "Die Landwirtschaftskammer Niedersachsen setzt die Landesförderung um; ihre frühere Meldung zur Existenzgründungsförderung war beim Abruf nicht mehr verfügbar (Status 410).",
     "Das Landwirtschaftsministerium hat am 22. Oktober 2026 eine neue Antragsphase vom 1. Januar bis 15. März 2027 mit voraussichtlich 3,35 Millionen Euro angekündigt.",
-    "Neue Hinweise und Antragsvordrucke sollen später im Förderportal erscheinen; einzelne Voraussetzungen stehen noch unter dem Vorbehalt des Beteiligungsprozesses."
+    "Neue Hinweise und Antragsvordrucke sollen später im Förderportal erscheinen; einzelne Voraussetzungen stehen noch unter dem Vorbehalt des Beteiligungsprozesses.",
+    "Die Landwirtschaftskammer veröffentlicht ein niedersachsenweites Gründungs-Coaching für Neugründungen, Gesellschaftsgründungen und die Übernahme landwirtschaftlicher Betriebe oder Teilbetriebe."
   ],
   "portals": [
     {
@@ -68,6 +69,17 @@
       "reason": "Der Verband ordnet die Landesförderung ein, bietet aber keinen eigenen Dienst an: keine Quelle des Programmträgers.",
       "foundBy": "ni-foerderung",
       "checkedOn": "2026-09-21"
+    },
+    {
+      "id": "ni-lwk-gruendungs-coaching",
+      "name": "Gründungs-Coaching der Landwirtschaftskammer Niedersachsen",
+      "url": "https://www.lwk-niedersachsen.de/lwk/kaba/1262_Gruendungs-Coaching",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "niedersachsen-lwk-gruendungs-coaching",
+      "reason": "Die aktuelle Betreiberseite belegt ein niedersachsenweites, kostenpflichtiges Coaching für Neugründung, Gesellschaftsgründung und Übernahme eines landwirtschaftlichen Betriebs oder Teilbetriebs. Leistungsumfang, Businessplan-Unterstützung, Preis und konkrete Kontaktwege sind veröffentlicht.",
+      "foundBy": "ni-foerderung",
+      "checkedOn": "2026-10-30"
     }
   ],
   "instrumentChecks": [
@@ -86,9 +98,10 @@
     },
     {
       "expectedId": "de-hofuebergabe-beratung",
-      "status": "NOT_FOUND",
-      "reason": "Die sozioökonomische Beratung zur Hofübergabe wurde nicht auf einer eigenen Seite belegt.",
-      "checkedOn": "2026-09-20"
+      "status": "FOUND",
+      "leadId": "ni-lwk-gruendungs-coaching",
+      "reason": "Die Landwirtschaftskammer veröffentlicht ein niedersachsenweites Gründungs-Coaching, das die Übernahme eines landwirtschaftlichen Betriebs oder Teilbetriebs ausdrücklich einschließt.",
+      "checkedOn": "2026-10-30"
     }
   ],
   "log": [
@@ -106,6 +119,11 @@
       "date": "2026-10-27",
       "by": "CHATGPT (GPT-6.1 Sol)",
       "summary": "Die Ministeriumsmitteilung vom 22. Oktober belegt die laufende Förderung und kündigt die nächste Antragsphase vom 1. Januar bis 15. März 2027 mit voraussichtlich 3,35 Millionen Euro an; Formulare und endgültige Voraussetzungen stehen noch aus."
+    },
+    {
+      "date": "2026-10-30",
+      "by": "CHATGPT (Codex)",
+      "summary": "Das aktuelle Gründungs-Coaching der Landwirtschaftskammer als niedersachsenweites Beratungsangebot für Neugründungen und Betriebsübernahmen aufgenommen. Die Betreiberseite belegt Leistungsumfang, Businessplan-Unterstützung, Kosten und konkrete Kontaktwege; ob das Coaching den Förderantragsnachweis erfüllt, bleibt unbehauptet."
     }
   ]
 }
