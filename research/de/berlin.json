@@ -2,10 +2,10 @@
   "schemaVersion": "1.0.0",
   "territory": { "level": "REGION", "country": "DE", "region": "berlin" },
   "language": "de",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-10-29",
   "context": [
     "Berlin ist ein Stadtstaat: die landwirtschaftlichen Flächen der landeseigenen Stadtgüter liegen überwiegend in Brandenburg.",
-    "Die Seite der Berliner Stadtgüter gibt den Inhalt nicht in lesbarer Form an automatische Werkzeuge aus.",
+    "Die aktuelle Betreiberseite ist lesbar und verortet die rund 17.000 Hektar bewirtschaftete Fläche der Berliner Stadtgüter in Brandenburg.",
     "Die Junglandwirte-Einkommensstützung ist bundesweit geregelt und zählt laut Checkliste nicht als Landesinstrument."
   ],
   "portals": [
@@ -29,10 +29,10 @@
       "name": "Verpachtung landwirtschaftlicher Flächen der Berliner Stadtgüter",
       "url": "https://berlinerstadtgueter.de/leistungen/angebote/",
       "kind": "LAND_BANK",
-      "status": "TO_CHECK",
-      "reason": "Die Gesellschaft verpachtet landwirtschaftliche Flächen, die Seite liefert aber nur Navigation; zudem liegen die Flächen überwiegend in Brandenburg.",
+      "status": "REJECTED",
+      "reason": "Die aktuelle Betreiberseite und die Seite der Stadtgüter gelesen. Der Betreiber verortet seine rund 17.000 Hektar bewirtschaftete Fläche ausdrücklich in Brandenburg. Die Angebotsseite beschreibt Miet-, Pacht- und Landpachtverträge allgemein, veröffentlicht aber keine aktuelle landwirtschaftliche Fläche in Berlin; der sichtbare Zugang führt zu allgemeinen Immobilienangeboten und hebt einen Getreidespeicher hervor. Eine historische Ausschreibung von 2024 betraf 225 Hektar in Stolpe, Brandenburg, und ist geschlossen. Deshalb kein Berliner LAND_BANK-Ressourceneintrag.",
       "foundBy": "be-landwirtschaft",
-      "checkedOn": "2026-09-20"
+      "checkedOn": "2026-10-29"
     },
     {
       "id": "be-niederlassungsbeihilfe",
@@ -55,8 +55,8 @@
     {
       "expectedId": "de-hofboerse-flaechen",
       "status": "NOT_FOUND",
-      "reason": "Die Flächenvergabe der landeseigenen Gesellschaft betrifft vor allem Brandenburg und ist nicht zitierfähig beschrieben.",
-      "checkedOn": "2026-09-20"
+      "reason": "Die Betreiberseite verortet die bewirtschafteten Flächen der Berliner Stadtgüter in Brandenburg. Die aktuelle Angebotsseite belegt keine landwirtschaftliche Fläche in Berlin; eine gefundene historische Ausschreibung betraf Stolpe in Brandenburg und ist geschlossen.",
+      "checkedOn": "2026-10-29"
     },
     {
       "expectedId": "de-hofuebergabe-beratung",
@@ -75,6 +75,11 @@
       "date": "2026-09-30",
       "by": "CLAUDE (Claude Code)",
       "summary": "Nachtrag zur Runde vom 2026-09-29: Die in die Edition aufgenommene Niederlassungsbeihilfe hatte keine Spur im Brief; sie ist jetzt als ADMITTED erfasst und die Prüfung der Landesförderung steht auf FOUND. Der Hinweis der Ressource nannte Leserinnen und Lesern eine interne Kennung und das Datenmodell; er beschreibt jetzt nur die gemeinsame Richtlinie. Die Frage der doppelten Erfassung mit Brandenburg steht in der Spur."
+    },
+    {
+      "date": "2026-10-29",
+      "by": "CHATGPT (Codex)",
+      "summary": "Den offenen Stadtgüter-Lead mit aktuellen Betreiberseiten geschlossen. Die rund 17.000 Hektar werden ausdrücklich in Brandenburg verortet; die Angebotsseite belegt keine aktuelle landwirtschaftliche Fläche in Berlin und die gefundene Stolper Ausschreibung von 2024 ist geschlossen. Deshalb keine Berliner Landbank-Ressource veröffentlicht."
     }
   ]
 }
