@@ -6,14 +6,16 @@
     "region": "puglia"
   },
   "language": "it",
-  "updatedOn": "2026-09-28",
+  "updatedOn": "2026-10-30",
   "context": [
     "Il portale csr.regione.puglia.it dedica una pagina a ciascun intervento, con descrizione, dotazione e referente: è la fonte più leggibile per la regione.",
     "La Banca della Terra di Puglia è istituita da legge regionale del 2017; i comuni devono censire terreni e fabbricati rurali abbandonati.",
     "In Puglia figurano anche terreni della banca nazionale delle terre agricole, citati dalla Regione e dalle organizzazioni agricole.",
     "La DGR 262/2020 approvò un elenco provvisorio della Banca della Terra; quell'atto non dimostra che nel 2026 esista un inventario utilizzabile o una procedura aperta.",
-    "Nel settembre 2026 il portale CSR classifica SRE01 e SRD01.06 come «Prossima apertura». I rispettivi avvisi rinviano scadenze e procedure a successivi provvedimenti; un avviso approvato non equivale a domande aperte.",
-    "La pagina di Confagricoltura Bari-Bat sul corso per giovani e nuovi agricoltori presenta una verifica automatica al tentativo di apertura. La pagina propria di IRSEA mostra un annuncio con una scadenza di iscrizione passata; serve controllare direttamente un'offerta successiva."
+    "Al 30 ottobre 2026 il portale CSR classifica ancora SRE01 e SRD01.06 come «Prossima apertura». I rispettivi avvisi rinviano scadenze e procedure a successivi provvedimenti; un avviso approvato non equivale a domande aperte.",
+    "La DAG 51/2026 di SRD01.06 è ora leggibile e documenta beneficiari, limiti di spesa e intensità massima dell'aiuto senza aprire le domande.",
+    "La pagina di Confagricoltura Bari-Bat documenta il corso online 2026 di 150 ore con iscrizioni chiuse il 4 settembre; è pubblicabile come formazione storica, non come corso ancora accessibile.",
+    "La Banca nazionale delle Terre Agricole di ISMEA è già pubblicata nel livello nazionale; non sostituisce la Banca della Terra di Puglia, che resta priva di un accesso regionale operativo verificato."
   ],
   "portals": [
     {
@@ -97,10 +99,10 @@
       "name": "Banca della Terra di Puglia",
       "url": "https://www.consiglio.puglia.it/-/-banca-della-terra-di-puglia-via-libera-dalla-iv-commissione-alla-istituzione-e-al-primo-elenco-di-terreni-disponibili-",
       "kind": "LAND_BANK",
-      "status": "TO_CHECK",
-      "reason": "La legge e la DGR 262/2020 documentano istituzione ed elenco provvisorio, ma non è stato trovato un inventario corrente o un bando di assegnazione del 2026. Cercare sul SIT regionale e sugli albi dei comuni un elenco consultabile e una procedura effettiva; il comunicato del Consiglio da solo non prova l'operatività.",
+      "status": "REJECTED",
+      "reason": "La legge, il regolamento e la DGR 262/2020 documentano l'istituzione e un elenco provvisorio, ma la nuova ricerca non ha trovato l'elenco informatico regionale accessibile, lotti richiedibili o una procedura corrente di assegnazione. La Banca nazionale ISMEA è già pubblicata nel livello nazionale e non prova l'operatività di quella pugliese.",
       "foundBy": "pug-terra",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "pug-srd0106",
@@ -109,59 +111,61 @@
       "kind": "FINANCIAL_SUPPORT",
       "status": "ADMITTED",
       "resourceId": "puglia-srd01-06-investimenti-giovani",
-      "reason": "La pagina propria della Regione circoscrive l'intervento ai giovani già insediati con la sottomisura 6.1; l'avviso del 28/07/2026 rinvia termini e procedure a un atto successivo. Risorsa distinta dal premio SRE01, classificata ANNOUNCED_NOT_OPERATING. L'allegato DAG 51 non è stato leggibile.",
+      "reason": "La pagina propria della Regione circoscrive l'intervento ai giovani già insediati con la sottomisura 6.1; l'avviso del 28/07/2026 rinvia termini e procedure a un atto successivo. La DAG 51/2026 è stata letta il 30 ottobre e ora documenta i requisiti e l'intensità, senza modificare lo stato ANNOUNCED_NOT_OPERATING.",
       "foundBy": "pug-srd0106",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "pug-srd0106-dag51",
       "name": "Allegato DAG 51/2026 dell'avviso SRD01.06",
       "url": "https://csr.regione.puglia.it/documents/20117/161474/DAG%2Bn.%2B51%2Bdel%2B28.07.2026.pdf/8a5d4674-6524-bc1e-254e-0f504c439dfe?t=1788170966421&version=1.2",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "TO_CHECK",
-      "reason": "Il collegamento dal portale CSR ha restituito timeout in due tentativi. Aprire il PDF direttamente o la copia BURP e verificarne requisiti, eventuali emendamenti e importi prima di ampliare la scheda; non è usato come fonte del recurso publicado.",
+      "status": "ADMITTED",
+      "resourceId": "puglia-srd01-06-investimenti-giovani",
+      "reason": "Il PDF ufficiale è ora leggibile e conferma i beneficiari dell'avviso 2025 della sottomisura 6.1, la spesa ammissibile superiore a 30.000 euro, i massimi di 150.000 o 300.000 euro e l'intensità massima dell'80%. È stato aggiunto come fonte della risorsa esistente, non come strumento separato.",
       "foundBy": "pug-srd0106",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "pug-formazione-confagri-irsea",
       "name": "Corso Giovani e Nuovi Agricoltori di IRSEA con Confagricoltura Bari-Bat",
-      "url": "https://www.confagricolturabari.it/corso-giovani-e-nuovi-agricoltori-prorogato-all11-settembre-il-termine-per-le-iscrizioni/",
+      "url": "https://www.confagricolturabari.it/aperte-le-iscrizioni-per-il-corso-giovani-e-nuovi-agricoltori-3/",
       "kind": "TRAINING",
-      "status": "TO_CHECK",
-      "reason": "La ricerca ha individuato il corso, ma l'apertura diretta del sito di Confagricoltura mostra «Please wait while your request is being verified». L'annuncio leggibile sul sito IRSEA cita iscrizioni entro il 4 settembre, data trascorsa. Verificare direttamente con IRSEA una nuova finestra, la modalità di iscrizione e il riconoscimento specifico ai fini SRE01; nessuna affermazione del solo risultato di ricerca è stata ammessa.",
+      "status": "ADMITTED",
+      "resourceId": "puglia-corso-giovani-nuovi-agricoltori-2026",
+      "reason": "La pagina dell'organizzatore è ora leggibile e documenta durata, modalità, destinatari, frequenza, riconoscimenti dichiarati, partner, contatto istituzionale e chiusura delle iscrizioni il 4 settembre. La risorsa è ammessa come formazione storica 2026, senza presumere una nuova edizione.",
       "foundBy": "pug-formazione-irsea",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "pug-irsea-home",
       "name": "Annuncio del corso sul sito dell'ente formatore IRSEA",
       "url": "https://www.irsea.org/",
       "kind": "TRAINING",
-      "status": "TO_CHECK",
-      "reason": "Pagina dell'operatore aperta e letta: presenta il corso e una scadenza di iscrizione già passata, mentre il catalogo dei corsi in svolgimento non mostra quel corso. Cercare una pagina di iscrizione aggiornata o chiedere conferma all'ente prima di ammettere una risorsa formativa corrente.",
+      "status": "REJECTED",
+      "reason": "La home dell'ente non è una seconda formazione e non pubblica una nuova finestra per questo corso. L'edizione 2026 già chiusa è rappresentata dalla pagina specifica di Confagricoltura Bari-Bat ammessa come risorsa storica.",
       "foundBy": "pug-formazione-irsea",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "pug-coldiretti-giovani-consulenza",
       "name": "Consulenza e Academy Coldiretti Giovani Impresa Puglia",
       "url": "https://puglia.coldiretti.it/news/psr-49mln-euro-per-800-giovani-neo-insediati-subito-secondo-bando-con-maggiori-risorse-per-recuperare-idee-green/",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "Una comunicazione dell'operatore del 2022 menziona consulenza e avvicinamento dei giovani, ma non dimostra un servizio regionale attuale né una sua pagina di accesso. Cercare sportello, tutor o contatto operativo del 2026 prima dell'ammissione.",
+      "status": "REJECTED",
+      "reason": "La comunicazione del 2022 non descrive un servizio regionale distinto, una via di accesso o una disponibilità 2026. Le pagine nazionali di Giovani Impresa offrono orientamento generale, ma non giustificano una duplicazione nel livello pugliese.",
       "foundBy": "pug-servizi-organizzazioni",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "pug-psr-corsi-2021",
       "name": "Elenco PSR dei corsi collegati alla sottomisura 6.1",
       "url": "https://psr.regione.puglia.it/-/formazione-e-primo-insediamento-i-riferimenti-degli-enti-e-dei-corsi-utili",
       "kind": "TRAINING",
-      "status": "TO_CHECK",
-      "reason": "La pagina storica del 2021 non ha risposto alla lettura diretta in questa passata. Verificare gli enti e le offerte effettivamente disponibili nel 2026; un elenco del precedente PSR non dimostra un corso corrente.",
+      "status": "REJECTED",
+      "reason": "La pagina è ora leggibile, ma resta un elenco del precedente PSR pubblicato nel 2021 per i beneficiari della sottomisura 6.1. Non documenta un'offerta formativa 2026 e non viene usata per sostenere il corso attuale individuato separatamente.",
       "foundBy": "pug-formazione-irsea",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-30"
     }
   ],
   "instrumentChecks": [
@@ -175,20 +179,21 @@
     {
       "expectedId": "it-banca-terra-regionale",
       "status": "NOT_FOUND",
-      "reason": "Esaminate legge, regolamento, DGR 262/2020 e ricerche su inventario e concessioni comunali: trovato un elenco provvisorio antico, non un accesso operativo attuale. La pista pug-banca-terra resta TO_CHECK.",
-      "checkedOn": "2026-09-28"
+      "reason": "Esaminate legge, regolamento, DGR 262/2020 e nuove ricerche su inventario e concessioni comunali: trovato un elenco provvisorio antico, non un accesso operativo attuale. La Banca ISMEA già pubblicata è nazionale e non sostituisce quella regionale.",
+      "checkedOn": "2026-10-30"
     },
     {
       "expectedId": "it-formazione-insediamento",
-      "status": "NOT_FOUND",
-      "reason": "Cercati corsi regionali, IRSEA, GAL Ponte Lama e Confagricoltura Bari-Bat. La pagina di iscrizione è bloccata; l'annuncio proprio di IRSEA mostra un termine trascorso. Restano TO_CHECK pug-formazione-confagri-irsea, pug-irsea-home e pug-psr-corsi-2021.",
-      "checkedOn": "2026-09-28"
+      "status": "FOUND",
+      "leadId": "pug-formazione-confagri-irsea",
+      "reason": "La pagina specifica di Confagricoltura Bari-Bat documenta il corso online di 150 ore organizzato con IRSEA e GAL Ponte Lama. Le iscrizioni 2026 sono chiuse e la risorsa è pubblicata come storica, senza affermare una nuova finestra.",
+      "checkedOn": "2026-10-30"
     },
     {
       "expectedId": "it-organizzazioni-servizi",
       "status": "NOT_FOUND",
-      "reason": "Cercati servizi concreti di CIA, Coldiretti e Confagricoltura per insediamento, subentro e ricambio. La comunicazione Coldiretti del 2022 non dimostra accesso attuale; pug-coldiretti-giovani-consulenza resta TO_CHECK.",
-      "checkedOn": "2026-09-28"
+      "reason": "Cercati servizi concreti di CIA, Coldiretti e Confagricoltura per insediamento, subentro e ricambio. La comunicazione Coldiretti del 2022 e le pagine nazionali non dimostrano un servizio regionale distinto e accessibile nel 2026.",
+      "checkedOn": "2026-10-30"
     }
   ],
   "log": [
@@ -201,6 +206,11 @@
       "date": "2026-09-28",
       "by": "CHATGPT (GPT-6)",
       "summary": "Passata 1.9.0: corretto SRE01 da ACTIVE a ANNOUNCED_NOT_OPERATING, verificato l'avviso e i premi, eliminato il contatto personale; aggiunto SRD01.06 come distinta misura annunciata. Esaminate banca della terra, formazione IRSEA/Confagricoltura e servizi Coldiretti; accesso attuale e alcune fonti restano da verificare. Nessuna domanda è stata dichiarata aperta."
+    },
+    {
+      "date": "2026-10-30",
+      "by": "CHATGPT (Codex)",
+      "summary": "Passata raggruppata sulle sei piste aperte: letta e integrata la DAG 51/2026 di SRD01.06; ammesso come storico il corso online 2026 di IRSEA, Confagricoltura Bari-Bat e GAL Ponte Lama; chiuse le piste duplicate o prive di accesso corrente della Banca della Terra regionale, IRSEA, Coldiretti e dell'elenco formativo PSR 2021. SRE01 e SRD01.06 restano in prossima apertura."
     }
   ]
 }
