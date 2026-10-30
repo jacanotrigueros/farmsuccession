@@ -14,7 +14,8 @@
     "Pesquisar municípios, comunidades intermunicipais, GAL e associações de desenvolvimento local apenas quando prestam um serviço próprio.",
     "Passagem com a lista de verificação nacional sobre um ficheiro existente: faltavam apenas os instrumentos esperados.",
     "A Figueira da Foz e a COAPE têm serviços próprios com inscrição; distinguir a antiga Bolsa Nacional, cuja lei de 2012 foi revogada.",
-    "O banco para pastores da COAPE tem formulários próprios para proprietários e pastores e serve a área social da cooperativa, mas não publica uma lista atual de terrenos na página verificada."
+    "O banco para pastores da COAPE tem formulários próprios para proprietários e pastores e serve a área social da cooperativa, mas não publica uma lista atual de terrenos na página verificada.",
+    "A página de serviços da COAPE documenta apoio técnico à instalação e à elaboração do projeto e oferece um formulário. As referências antigas a RPU, ProDeR e montantes de ajudas não devem ser reutilizadas como condições atuais."
   ],
   "portals": [
     {
@@ -36,6 +37,11 @@
       "name": "COAPE Banco de Terras para Pastores",
       "url": "https://coape.pt/banco-de-terras-pastores/",
       "what": "Pré-inscrição de proprietários e pastores para terrenos dedicados à pastorícia na área social da COAPE."
+    },
+    {
+      "name": "COAPE Serviços",
+      "url": "https://coape.pt/servicos/",
+      "what": "Apoio técnico à instalação, elaboração de projetos agrícolas e formulário de pedido de serviço."
     }
   ],
   "openData": [],
@@ -106,9 +112,11 @@
       "name": "Apoio a jovens agricultores COAPE",
       "url": "https://coape.pt/servicos/",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "A página de serviços bloqueou a leitura independente; confirmar primeira instalação, acesso e atividade atual.",
-      "foundBy": "centro-coape-terras"
+      "status": "ADMITTED",
+      "resourceId": "centro-coape-apoio-instalacao",
+      "reason": "A página do operador foi lida e documenta análise inicial, elaboração de candidaturas, apoio técnico no terreno, acompanhamento de jovens agricultores e um formulário de pedido. A ficha omite os valores e referências de programas antigos que a mesma página ainda conserva.",
+      "foundBy": "centro-coape-terras",
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "centro-mortagua-banco-terras",
@@ -135,9 +143,10 @@
     },
     {
       "expectedId": "pt-servicos-acompanhamento",
-      "status": "NOT_FOUND",
-      "reason": "A página de aconselhamento da COAPE não pôde ser verificada independentemente; outras fontes consultadas não provaram acesso a um serviço específico.",
-      "checkedOn": "2026-09-28"
+      "status": "FOUND",
+      "leadId": "centro-coape-apoio-jovens",
+      "reason": "A página própria da COAPE documenta apoio técnico à instalação agrícola, elaboração de projetos e formulário de acesso; a ficha publicada não reutiliza montantes antigos da página.",
+      "checkedOn": "2026-10-30"
     }
   ],
   "log": [
@@ -160,6 +169,11 @@
       "date": "2026-10-30",
       "by": "CHATGPT (Codex)",
       "summary": "Admitido o Banco de Terras para Pastores da COAPE após leitura da página própria: a área social, a mediação e os formulários para proprietários e pastores estão documentados. A disponibilidade atual de terrenos não foi confirmada, pelo que o recurso é publicado como UNKNOWN."
+    },
+    {
+      "date": "2026-10-30",
+      "by": "CHATGPT (Codex)",
+      "summary": "Admitido o apoio técnico à instalação agrícola da COAPE com base na página de serviços e no formulário próprio. As referências e quantias de regimes antigos foram excluídas da ficha."
     }
   ]
 }
