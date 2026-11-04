@@ -388,7 +388,7 @@ published site in all six languages against the repository.
 
 ### Written down
 
-- [`research/what-comes-next.md`](research/what-comes-next.md): what to do next
+- `research/what-comes-next.md`, no longer in this repository: what to do next
   and in which order, with every figure reproducible from the command it prints,
   and a first milestone that admits nobody has yet observed who reads this site.
 
