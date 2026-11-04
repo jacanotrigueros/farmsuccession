@@ -281,6 +281,13 @@ the other way round.
   they clicked. Both are verified through the DNS zone, so they add nothing to a
   page and see nobody who arrives another way. Anything that needs a tag in the
   HTML is out, whatever it promises about privacy.
+- Search Console and Bing readings, traffic and audience figures, KPI targets,
+  and the reasoning about promotion, outreach or ranking are not committed here:
+  not in research files, decisions, changelog entries, commit messages or pull
+  request descriptions. This repository holds the documentary evidence and the
+  rules that make it publishable; how the site is found, and what is done about
+  it, is kept outside it. A threshold measured against the corpus with
+  `npm run measure` is documentary and stays.
 - Every rule that decides what is publishable ships with the test that proves
   it, in the same change. A rule the schema can state belongs in the schema; a
   rule that needs a sentence to explain itself belongs in
