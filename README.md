@@ -13,10 +13,6 @@ try to read them again; they do not replace human review or confirm current avai
 [Cite and verify the frozen 2026 edition](CITATION.md), identified by its full
 Git commit and a published SHA-256 manifest covering all 101 JSON files.
 
-For a concise introduction aimed at public bodies and sector organisations, see the
-[institutional brief](research/institutional-brief.md) or its
-[two-page PDF](output/pdf/farmsuccession-institutional-brief.pdf).
-
 ## The rule everything else serves
 
 **No source, no entry.** A record exists only with at least one public HTTPS
@@ -48,11 +44,6 @@ than describing what it intends to be.
 | The site                                                     | Builds from the data: 439 pages, scripts only for search, filtering and the application answer; published to Pages by hand, live at farmsuccession.eu |
 
 ## What is published today
-
-[EU CAP Network discovery inventory](research/eu-cap-network-inventory.md) preserves
-the source provenance, row index for all EU countries and the existing workflow for
-researching additional countries when coverage expands. Its entries are research
-leads, not validated additions to the edition.
 
 The 2026 edition covers the European layer; Spain, with its three multi-island and
 multi-province groupings and its 28 regional territories; Germany, with its 16 Länder;
