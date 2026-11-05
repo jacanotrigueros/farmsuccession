@@ -28,11 +28,10 @@ its country now says in its title where it applies.
 - **Titles no longer end with the site's name.** The site says its name once,
   where a search result reads it: on every page, and as a website on the home
   page.
-- **The crawl stops going to the search index.** It was 28% of what Google's
-  crawler fetched in the site's first two weeks: compiled files the search page
-  reads in the browser, not documents. `robots.txt` withholds that directory and
-  nothing else, and only the two search pages, which are not offered to search
-  engines, load it.
+- **The crawl stops going to the search index.** That directory holds compiled
+  files the search page reads in the browser, not documents. `robots.txt`
+  withholds that directory and nothing else, and only the two search pages,
+  which are not offered to search engines, load it.
 
 ### Calls that opened or moved
 
@@ -217,15 +216,8 @@ thing from nothing.
   record cites a refused host — in its access address, its sources, its calls or
   its news — and names every record that does.
 
-### Two readings of this project's own work
+### A measurement of this project's own work
 
-- **Who arrives, read twice.** 155 impressions and three clicks over four days,
-  average position 26.6. All three clicks went to the record of a named
-  instrument; four land-agency records took fifty-three impressions and produced
-  none. A query that names an organisation wants that organisation's own site,
-  which sits above this one. If that holds, those impressions are not a problem
-  to solve, because solving them would mean competing with the body each record
-  exists to send a reader to.
 - **025 was measured rather than argued, and 107 was the wrong number.** Letting
   failures after the last success condemn a page would move nothing in the
   committed series. Of the 107 pages called mixed successes and failures, only 10
@@ -234,13 +226,6 @@ thing from nothing.
 
 ### Written down, not acted on
 
-- Two faults measured on the pages that take the impressions: descriptions of up
-  to 255 characters where a results page shows about 155, one of them cut
-  mid-word exactly where the reason to click would have been; and a brand suffix
-  spending seventeen characters of a title that truncates near sixty. Neither is
-  changed. Rewriting a title mid-measurement makes the next reading incomparable
-  with the last two, and comparability is the only reason the site is being left
-  alone this week.
 - Which of the remaining sources permit this use. 100 of the 258 hosts a reader
   is sent to are not public administrations, and they carry 111 records. Two have
   been read.
@@ -251,8 +236,8 @@ No record changes and no file under `data/` changes. `schema/edition.schema.json
 gains one sentence: a description on the audience codes, which no validation reads
 and which changes nothing that has been checked.
 
-What changes is a set of claims the site was making and could not support, a thing
-a reader can now say back, and the first evidence about who is actually here.
+What changes is a set of claims the site was making and could not support, and a
+thing a reader can now say back.
 
 ### Four things the site said that it could not show
 
@@ -308,11 +293,6 @@ a reader can now say back, and the first evidence about who is actually here.
 
 ### What the project can now say about itself
 
-- **Who arrives.** The first reading of the search queries that precede an arrival,
-  with what it does and does not support. 24 hours, 110 impressions, two arrivals,
-  67 queries, and not one asking for a statistic or an overview. The plan's first
-  milestone was written for a reader nobody had met; this is the first evidence that
-  the reader is practical, and no evidence at all about volume.
 - **An edition can be named by its exact bytes.** A sha256sum-compatible manifest, so
   somebody outside can fetch the files and prove they hold the ones that were cited.
   It certifies neither the truth of the evidence nor a human review.
