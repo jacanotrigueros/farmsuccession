@@ -15,10 +15,10 @@
 import { localeOf } from "../../public/locale.js";
 export { numberIn } from "../../public/locale.js";
 
-export type Language = "en" | "es" | "de" | "fr" | "it" | "pt";
+export type Language = "en" | "es" | "de" | "fr" | "it" | "pt" | "nl";
 
 const isLanguage = (value: string): value is Language =>
-  value === "en" || value === "es" || value === "de" || value === "fr" || value === "it" || value === "pt";
+  value === "en" || value === "es" || value === "de" || value === "fr" || value === "it" || value === "pt" || value === "nl";
 
 /**
  * Narrows a language recorded in the data to one the site can actually write, and throws otherwise. A

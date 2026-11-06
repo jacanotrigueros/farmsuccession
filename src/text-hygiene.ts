@@ -22,6 +22,7 @@ export const LANGUAGE_NAMES: Record<string, string> = {
   fr: "French",
   it: "Italian",
   pt: "Portuguese",
+  nl: "Dutch",
 };
 
 /**
@@ -43,6 +44,9 @@ const FUNCTION_WORDS: Record<string, ReadonlySet<string>> = {
   ),
   it: words(
     "il lo la i gli le un una uno e ed o di del della dei degli delle al alla ai agli alle da dal dalla in nel nella nei con su sul sulla per tra fra che non si è sono anche ancora già più come ma se questo questa quando dove perché ogni essere però",
+  ),
+  nl: words(
+    "het een en of van op met zonder voor door bij naar uit onder zijn ook nog meer maar niet dit dat deze wanneer waar wordt worden heeft hebben om tot te",
   ),
   pt: words(
     "o a os as um uma e ou de do da dos das ao aos em no na nos nas para por com sem sobre entre até que não se é são está estão também ainda já como mais mas seu sua seus suas este esta quando onde porque pelo pela muito",
