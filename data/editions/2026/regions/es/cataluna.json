@@ -5,11 +5,11 @@
   "country": "ES",
   "region": "cataluna",
   "officialName": "Cataluña",
-  "published": "2026-10-25",
-  "summary": "Cataluña combina ayudas de primera instalación y sucesión, itinerario formativo y mentoría públicos, asesoramiento especializado de JARC y una red diversa de instrumentos de acceso a tierra. Además del sistema de bancos de la provincia de Barcelona, se verifican servicios operativos en Priorat, Baix Camp, Garrigues, Ripollès, Riba-roja d'Ebre y el sistema Segarra-Garrigues, junto con espacios test agrarios.",
+  "published": "2026-10-30",
+  "summary": "Cataluña combina ayudas de primera instalación y sucesión, la oficina virtual pública El Planter, itinerario formativo y mentoría públicos, asesoramiento especializado de JARC y una red diversa de instrumentos de acceso a tierra. Además del sistema de bancos de la provincia de Barcelona, se verifican servicios operativos en Priorat, Baix Camp, Garrigues, Ripollès, Riba-roja d'Ebre y el sistema Segarra-Garrigues, junto con espacios test agrarios.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Pasada 1.9.0 sobre ayudas, sucesión, formación, mentoría, organizaciones agrarias, bancos de tierras y espacios test. Se revisaron recursos regionales y subregionales/locales en Barcelona, Girona, Lleida y Tarragona. La búsqueda no se considera exhaustiva de todos los municipios; se admiten únicamente servicios con ruta pública verificable de uso, formulario, contacto o convocatoria.",
+    "note": "Pasada 1.9.0 sobre ayudas, sucesión, portal oficial de incorporación y asesoramiento territorial, formación, mentoría, organizaciones agrarias, bancos de tierras y espacios test. Se revisaron recursos regionales y subregionales/locales en Barcelona, Girona, Lleida y Tarragona. La búsqueda no se considera exhaustiva de todos los municipios; se admiten únicamente servicios con ruta pública verificable de uso, formulario, contacto o convocatoria.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -26,6 +26,14 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://agricultura.gencat.cat/ca/ambits/formacio-innovacio/formacio-agraria/mentoria/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://ruralcat.gencat.cat/el_planter"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://ruralcat.gencat.cat/el_planter/oficines-comarcals"
       },
       {
         "method": "KNOWN_SOURCE",
@@ -309,8 +317,8 @@
         {
           "url": "https://bancdeterres.cat/",
           "title": "Inici | Banc de Terres",
-          "consultedOn": "2026-09-28",
-          "quotes": ["Vull sol·licitar terres Vull oferir terres Vull relleu agrari"]
+          "consultedOn": "2026-10-30",
+          "quotes": ["Cerques terres?", "Vols oferir terres?", "T'agradaria trobar un relleu per la teva explotació?"]
         }
       ],
       "generatorId": "chatgpt-1"
@@ -607,6 +615,62 @@
         }
       ],
       "notes": "JARC indica que en 2025 acompañó y asesoró el 24 % de los proyectos de jóvenes de Cataluña. No se registra ese porcentaje como métrica porque el esquema no dispone de unidad porcentual.",
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "cataluna-el-planter-oficina-virtual",
+      "name": "El Planter — oficina virtual d'incorporació agrària",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Generalitat de Catalunya, Departament d'Agricultura, Ramaderia, Pesca i Alimentació",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Oficina virtual que reúne información sobre incorporación agraria, ayudas, formación, plan de empresa, apoyo y asesoramiento. Da acceso al acompañamiento de referentes de las oficinas comarcales y dinamizadores territoriales de jóvenes.",
+      "whoCanUseIt": "Personas jóvenes que buscan incorporarse a la actividad agraria en Cataluña, con atención especial a quienes no tienen experiencia previa en el sector.",
+      "howToAccess": "Entrar en El Planter y usar sus apartados de instalación, plan de empresa, apoyo o contacto. Para acompañamiento, elegir en el directorio el referente de la oficina comarcal o el dinamizador del territorio.",
+      "accessUrl": "https://ruralcat.gencat.cat/el_planter",
+      "languages": ["ca"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2025-02-13",
+      "sources": [
+        {
+          "url": "https://ruralcat.gencat.cat/el_planter",
+          "title": "El Planter — Ruralcat",
+          "consultedOn": "2026-10-30",
+          "quotes": ["Necessites ajuda? Contacta amb persona tècnica referent de la teva Oficina Comarcal CATIFA VERMELLA"]
+        },
+        {
+          "url": "https://jovecat.gencat.cat/ca/temes/treball/cercar-feina/el-planter/",
+          "title": "El Planter — Jovecat",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "Des de 2020 el Planter és un punt de trobada i d’informació per a totes les persones joves que cerquen recursos per a la incorporació agrària a Catalunya, amb una atenció especial als qui no tenen experiència prèvia en el sector.",
+            "En aquest espai pots trobar tota la informació que et cal, des d’ajuts i formació fins a experiències compartides, suport i assessorament.",
+            "A la web hi ha una bústia on es responen de manera regular qüestions relatives a la incorporació agrària a Catalunya."
+          ]
+        },
+        {
+          "url": "https://ruralcat.gencat.cat/el_planter/dinamitzacio",
+          "title": "Dinamització — El Planter",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "Si et vols incorporar com a jove a agricultor/a o has iniciat aquest procés i necessites assessorament i/o acompanyament en aquests primers passos contacta amb el/la dinamitzador/a de joves del teu territori:",
+            "Identificació d’oportunitats de relleu i dinamitzar les incorporacions."
+          ]
+        },
+        {
+          "url": "https://ruralcat.gencat.cat/el_planter/oficines-comarcals",
+          "title": "Oficines comarcals — El Planter",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "La teva persona del DARPA referent i del teu projecte.",
+            "T'acompanyarà durant el període de definició, desenvolupament i consolidació del teu projecte, de forma coordinada amb l’entitat col·laboradora / assessora."
+          ]
+        }
+      ],
+      "notes": "Los directorios publican contactos institucionales de personas concretas; la ficha enlaza al directorio vigente en vez de copiar datos susceptibles de cambiar.",
       "generatorId": "chatgpt-1"
     }
   ],

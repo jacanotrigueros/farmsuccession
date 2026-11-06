@@ -6,16 +6,16 @@
     "region": "sicilia"
   },
   "language": "it",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-10-30",
   "context": [
     "Il portale Sviluppo Rurale Sicilia 2023-2027 è il punto di partenza per interventi, bandi aperti, bandi chiusi e cronoprogramma.",
     "Il precedente dominio PSR Sicilia mostra contenuti della programmazione 2014-2022 e date incoerenti; non usarlo per dimostrare un bando attuale senza una pagina specifica.",
-    "La Banca della Terra siciliana risulta istituita per legge, ma occorre trovare inventario, procedura o assegnazioni correnti prima di classificarla come attiva.",
+    "La Banca della Terra siciliana è documentata da pagine istituzionali, bandi precedenti e assegnazioni effettive, ma non può essere classificata come attiva senza un inventario o una procedura corrente.",
     "Espandere le ricerche con SRE01, primo insediamento, imprenditoria giovanile, ricambio generazionale, GAL e banca della terra.",
     "Passata con la lista di controllo nazionale su un file esistente: restavano da compilare solo gli strumenti attesi.",
     "SRE01 e SRE02 sono aiuti distinti: il secondo riguarda anche persone da 41 anni a meno di 61 anni.",
     "La proroga annunciata nel settembre 2026 riguarda la documentazione dei bandi SRE01 e SRE02, non la presentazione di nuove domande.",
-    "Le pagine della Banca della Terra sul sito istituzionale hanno restituito timeout o errore 502 durante l'apertura; gli estratti del motore di ricerca non sostituiscono la lettura delle pagine. La pagina indicizzata dei beni disponibili sembra anteriore ai bandi documentati nel 2020 e 2021."
+    "La pagina ufficiale dei bandi della Banca della Terra è stata letta il 30 ottobre 2026: documenta bandi del 2020 e del 2021 e risultati fino al 2023. Il decreto del 17 aprile 2026 ricostituisce il tavolo tecnico, ma non apre una procedura di domanda."
   ],
   "portals": [
     {
@@ -26,7 +26,7 @@
     {
       "name": "Banca della Terra di Sicilia",
       "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/altri-contenuti/banca-della-terra-di-sicilia",
-      "what": "Indice istituzionale da riprovare per bandi, beni disponibili e riferimenti normativi."
+      "what": "Indice istituzionale con descrizione, bandi precedenti, beni disponibili e riferimenti normativi; non è stato verificato un bando aperto nel 2026."
     }
   ],
   "openData": [],
@@ -90,10 +90,11 @@
       "name": "Banca della Terra di Sicilia",
       "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/altri-contenuti/banca-della-terra-di-sicilia/bandi",
       "kind": "LAND_BANK",
-      "status": "TO_CHECK",
-      "reason": "Le pagine istituzionali dei bandi, dei beni disponibili e dei riferimenti normativi hanno restituito timeout o 502 nell'apertura. Una pubblicazione istituzionale del 2023 descrive concessioni precedenti e l'indice segnala un atto del 2026, ma non dimostrano l'accesso a lotti correnti. Riprovare le pagine originali e aprire l'ultimo bando e l'inventario prima dell'ammissione.",
+      "status": "ADMITTED",
+      "resourceId": "sicilia-banca-terra",
+      "reason": "Le pagine istituzionali documentano finalità, bandi del 2020 e 2021 e assegnazioni concluse nel 2023. L'atto del 17 aprile 2026 ricostituisce soltanto il tavolo tecnico e non apre domande; la risorsa è ammessa come HISTORICAL, senza affermare disponibilità corrente.",
       "foundBy": "sicilia-land-bank",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "sicilia-sre02-nuovi",
@@ -147,9 +148,10 @@
     },
     {
       "expectedId": "it-banca-terra-regionale",
-      "status": "NOT_FOUND",
-      "reason": "Cercati bandi, inventario, beni disponibili e atti del 2026 della Banca della Terra. Le pagine operative istituzionali non si sono aperte (timeout o 502); la pista sicilia-banca-terra resta TO_CHECK, senza affermare che lo strumento non esista.",
-      "checkedOn": "2026-09-28"
+      "status": "FOUND",
+      "leadId": "sicilia-banca-terra",
+      "reason": "Le pagine istituzionali documentano la Banca della Terra e le concessioni precedenti. Non è stato verificato un bando aperto nel 2026, perciò la risorsa è pubblicata come HISTORICAL.",
+      "checkedOn": "2026-10-30"
     },
     {
       "expectedId": "it-formazione-insediamento",
@@ -184,6 +186,11 @@
       "date": "2026-09-30",
       "by": "CLAUDE (Claude Code)",
       "summary": "Revisione delle fonti: la scheda AssoMe del corso Conduttore di Impresa Agricola ha perso descrizione, destinatari e durata; il corso esce dall'edizione, la pista torna TO_CHECK e la verifica della formazione per l'insediamento passa a NOT_FOUND."
+    },
+    {
+      "date": "2026-10-30",
+      "by": "CHATGPT (Codex)",
+      "summary": "Risolta la pista della Banca della Terra: lette le pagine istituzionali, verificati i bandi del 2020 e 2021 e le assegnazioni del 2023. Il decreto del 2026 ricostituisce il tavolo tecnico ma non apre domande; la risorsa entra nell'edizione come HISTORICAL."
     }
   ]
 }

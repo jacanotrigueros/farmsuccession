@@ -4,11 +4,11 @@
   "edition": "2026",
   "country": "FR",
   "officialName": "France",
-  "published": "2026-10-28",
-  "summary": "L’Initiative nationale pour l’agriculture française est opérationnelle via quatre réseaux bancaires pour garantir des prêts agricoles, notamment d’installation et de reprise. En France métropolitaine, FEVE peut acquérir le foncier d’une ferme identifiée et le louer avec une option d’achat. La MSA applique par ailleurs une exonération de cotisations aux jeunes chefs d’exploitation.",
+  "published": "2026-10-30",
+  "summary": "Objectif Terres met en relation les offres et les recherches de foncier agricole et permet de solliciter un accompagnement territorial. L’Initiative nationale pour l’agriculture française garantit des prêts agricoles, FEVE peut porter le foncier d’une ferme identifiée en France métropolitaine et la MSA exonère partiellement les jeunes chefs d’exploitation.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Les portails nationaux et les principaux termes institutionnels ont été examinés. La garantie de prêts INAF, le portage foncier de FEVE et l’exonération MSA des jeunes agriculteurs sont documentés ; une passe d’expansion a aussi identifié le RDI, les Safer, les PADU et l’AITA, dont certaines pages d’accès restent à vérifier.",
+    "note": "Les portails nationaux et les principaux termes institutionnels ont été examinés. Objectif Terres, la garantie de prêts INAF, le portage foncier de FEVE et l’exonération MSA des jeunes agriculteurs sont documentés ; une passe d’expansion a aussi identifié le RDI, les Safer, les PADU et l’AITA, dont certaines pages d’accès restent à vérifier.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -33,6 +33,10 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.objectif-terres.org/qui-sommes-nous"
       }
     ]
   },
@@ -180,6 +184,53 @@
       "generatorId": "chatgpt-1"
     },
     {
+      "id": "fr-objectif-terres",
+      "name": "Objectif Terres",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Terre de Liens",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Plateforme de petites annonces pour mettre en relation les offres et les recherches de foncier agricole, faciliter la reprise de fermes et l’installation en agriculture biologique, avec une porte d’entrée vers l’accompagnement foncier des associations territoriales de Terre de Liens.",
+      "whoCanUseIt": "Personnes qui recherchent des terres, agriculteurs et propriétaires qui ont un bien agricole à transmettre, ainsi que personnes qui souhaitent se former, rejoindre un projet agricole ou trouver des associés.",
+      "howToAccess": "Consulter gratuitement les annonces. Créer un compte gratuit pour déposer une annonce, contacter un annonceur ou solliciter l’accompagnement de l’association Terre de Liens du territoire concerné.",
+      "accessUrl": "https://www.objectif-terres.org/qui-sommes-nous",
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
+      "sectors": ["AGRICULTURE"],
+      "accessCostType": "FREE",
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR", "LAND_SEEKER", "LANDOWNER"],
+      "sources": [
+        {
+          "url": "https://www.objectif-terres.org/qui-sommes-nous",
+          "title": "À propos d’Objectif Terres",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "Une plateforme, deux services en faveur de l'installation et de la transmission agricole",
+            "Objectif Terres est une plateforme de mise en liens autour des terres agricoles, pour faciliter l’accès au foncier et la reprise des fermes.",
+            "un site de petites annonces à destination des particuliers et des professionnels de l’accompagnement, pour faciliter la rencontre entre les offres et les recherches de foncier agricole, pour faciliter la reprise des fermes et permettre l’installation de nouveaux paysan-ne-s en bio.",
+            "Vous pouvez consulter gratuitement l’ensemble des annonces publiées, mais aussi contacter et interagir directement avec les annonceurs de votre choix.",
+            "une porte d’entrée pour se faire accueillir, orienter et accompagner sur le volet foncier de votre projet par l’une des 19 associations régionales de Terre de Liens"
+          ]
+        },
+        {
+          "url": "https://www.objectif-terres.org/faq",
+          "title": "Questions fréquentes — Objectif Terres",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "La création d’un compte est gratuite.",
+            "de déposer une annonce",
+            "d’échanger directement avec un annonceur",
+            "de solliciter un accompagnement auprès d’une association régionale Terre de Liens"
+          ]
+        }
+      ],
+      "notes": "La plateforme nationale porte les annonces et la demande initiale d’accompagnement. Les modalités et délais de l’accompagnement dépendent ensuite de l’association territoriale ; les services régionaux déjà documentés restent des ressources distinctes et ne sont pas recopiés ici.",
+      "generatorId": "chatgpt-1"
+    },
+    {
       "id": "fr-france-services-agriculture",
       "name": "France Services Agriculture",
       "kind": "POLICY",
@@ -213,7 +264,7 @@
   ],
   "news": [],
   "limitations": [
-    "Le Répertoire Départ Installation, les Safer et les points d'accueil ont été identifiés, mais leurs portées et pages nationales d'accès doivent encore être consolidées.",
+    "Le Répertoire Départ Installation, les Safer et les points d'accueil ont été identifiés, mais leurs portées et pages nationales d'accès doivent encore être consolidées. Objectif Terres est documenté séparément comme plateforme nationale et porte d’entrée vers les associations territoriales de Terre de Liens.",
     "La garantie INAF et l’exonération nationale de cotisations MSA sont documentées ; les autres aides financières sont principalement publiées sur les pages des régions."
   ]
 }

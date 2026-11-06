@@ -6,7 +6,7 @@
     "region": "cataluna"
   },
   "language": "es",
-  "updatedOn": "2026-10-25",
+  "updatedOn": "2026-10-30",
   "context": [
     "Las fuentes oficiales están mayoritariamente en catalán: agricultura.gencat.cat y Ruralcat publican programas, formación y noticias; tramits.gencat.cat es la referencia para plazos y solicitud.",
     "La ficha estática antigua de primera instalación todavía mostraba 22.000 euros, pero el documento PEPAC actualizado el 28/04/2026 fija una prima base de 30.000 euros y un máximo de 100.000 euros. Para 2026 debe prevalecer la evidencia actualizada.",
@@ -14,7 +14,8 @@
     "La Llei 1/2025 del Fons Agrari i Ramader es un fondo financiero para políticas agrarias y ganaderas; no es un banco de tierras y no debe clasificarse como LAND_BANK.",
     "El acceso a tierra no se limita a la provincia de Barcelona: se verifican bancos con vía de uso pública en Priorat, Baix Camp, Garrigues, Ripollès, Riba-roja d'Ebre y el ámbito Segarra-Garrigues.",
     "Los espacios test deben validarse por convocatoria y fecha. La página de Gandesa mantiene el rótulo 'TERMINI OBERT', pero Ruralcat demuestra que la segunda convocatoria cerró el 4 de noviembre de 2025; no se interpreta como una convocatoria 2026.",
-    "JARC publica un servicio específico de acompañamiento a la incorporación de jóvenes y en 2026 ofreció acompañamiento también para la ayuda de sucesión; esto responde al instrumento de asesoramiento de organizaciones agrarias."
+    "JARC publica un servicio específico de acompañamiento a la incorporación de jóvenes y en 2026 ofreció acompañamiento también para la ayuda de sucesión; esto responde al instrumento de asesoramiento de organizaciones agrarias.",
+    "El Planter es la oficina virtual pública para la incorporación agraria: reúne ayudas, formación, plan de empresa, apoyo y consultas, y deriva el acompañamiento a referentes comarcales y dinamizadores territoriales de jóvenes."
   ],
   "portals": [
     {
@@ -293,20 +294,21 @@
       "id": "cat-dinamitzadors-joves",
       "name": "«Dinamització de joves» y referentes de las oficinas comarcales",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "Ruralcat leído: diferencia referente comarcal y dinamización supracomarcal. Cita: «Identificació d’oportunitats de relleu i dinamitzar les incorporacions.» No es el mismo servicio que la mentoría de las escuelas agrarias. Antes de admitir, comprobar el recorrido de contacto y alcance del acompañamiento; usar el directorio institucional, sin copiar teléfonos o correos personales.",
+      "status": "REJECTED",
+      "reason": "La ruta está verificada y forma parte del portal oficial El Planter: los dinamizadores y referentes comarcales son su vía territorial de asesoramiento y acompañamiento. Se documenta dentro de cataluna-el-planter-oficina-virtual y no se publica como una segunda ficha separada.",
       "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!80",
-      "checkedOn": "2026-10-18",
+      "checkedOn": "2026-10-30",
       "url": "https://ruralcat.gencat.cat/el_planter/oficines-comarcals"
     },
     {
       "id": "cat-el-planter",
       "name": "«El Planter» — oficina virtual de incorporación agraria",
       "kind": "OFFICIAL_PORTAL",
-      "status": "TO_CHECK",
-      "reason": "Ya constaba como portal del brief, pero no como recurso de la edición. Página actual leída con rutas de instalación, plan de empresa, apoyo y contacto. Cita: «Necessites ajuda? Contacta amb persona tècnica referent de la teva Oficina Comarcal». Evaluar admisión junto con la dinamización de jóvenes para evitar duplicar el mismo recorrido. El anexo lo denomina incorrectamente «el plantel».",
+      "status": "ADMITTED",
+      "resourceId": "cataluna-el-planter-oficina-virtual",
+      "reason": "Portal oficial actual con rutas de instalación, plan de empresa, apoyo y contacto, buzón de consultas y acceso a referentes comarcales y dinamizadores territoriales para asesoramiento y acompañamiento.",
       "foundBy": "EU CAP Network Annex II (2026-02-23), Inventory!81",
-      "checkedOn": "2026-10-18",
+      "checkedOn": "2026-10-30",
       "url": "https://ruralcat.gencat.cat/el_planter"
     }
   ],
@@ -377,6 +379,11 @@
       "date": "2026-10-25",
       "by": "CHATGPT (Codex)",
       "summary": "Contraste dirigido de términos catalanes usados en búsquedas: «relleu generacional» se incorpora a la ficha de mentoría y «reconversió de finques» a la del Banc de Terres de les Garrigues, cada uno con cita literal de su fuente oficial. No se añade una traducción ni un idioma nuevo."
+    },
+    {
+      "date": "2026-10-30",
+      "by": "CHATGPT (Codex)",
+      "summary": "El Planter se admite como oficina virtual pública de incorporación agraria, con evidencia oficial de sus rutas de información, consultas y acompañamiento. La pista de dinamizadores y referentes comarcales se cierra como componente territorial del mismo recurso para evitar una ficha duplicada."
     }
   ]
 }

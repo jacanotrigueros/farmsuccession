@@ -4,11 +4,11 @@
   "edition": "2026",
   "country": "ES",
   "officialName": "España",
-  "published": "2026-09-25",
-  "summary": "En España las ayudas a la incorporación se convocan en cada comunidad autónoma. A escala estatal destacan las medidas PAC de relevo generacional, el programa de estancias formativas CULTIVA y la plataforma de tierras Tierra Joven, anunciada en 2026 y todavía no operativa.",
+  "published": "2026-10-30",
+  "summary": "En España las ayudas a la incorporación se convocan en cada comunidad autónoma. A escala estatal destacan las medidas PAC de relevo generacional, el programa de estancias formativas CULTIVA, el Observatorio de espacios test agrarios de RETA y la plataforma de tierras Tierra Joven, anunciada en 2026 y todavía no operativa.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Revisión del portal de relevo generacional del Ministerio, sus líneas de financiación, sus notas de prensa de 2026 y la plataforma de la Red TERRAE. No se ha revisado la fiscalidad de la transmisión. Corrección puntual de CULTIVA el 25 de septiembre: página del programa, resolución de prórroga y sede de la fase de jóvenes. No es una revisión integral del resto de instrumentos.",
+    "note": "Revisión del portal de relevo generacional del Ministerio, sus líneas de financiación, sus notas de prensa de 2026, la plataforma de la Red TERRAE y el Observatorio de espacios test agrarios de RETA. No se ha revisado la fiscalidad de la transmisión. Corrección puntual de CULTIVA el 25 de septiembre: página del programa, resolución de prórroga y sede de la fase de jóvenes. No es una revisión integral del resto de instrumentos.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -21,6 +21,10 @@
       {
         "method": "KNOWN_SOURCE",
         "detail": "Plataforma de la Red TERRAE"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://espaciostestagrarios.org/intranet/observatorio"
       },
       {
         "method": "OFFICIAL_PORTAL",
@@ -343,6 +347,38 @@
           ]
         }
       ],
+      "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "es-reta-observatorio-espacios-test-agrarios",
+      "name": "Observatorio de los Espacios Test Agrarios — RETA",
+      "kind": "NETWORK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Asociación Red de Espacios Test Agrarios (RETA)",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Mapa nacional para localizar espacios test agrarios, consultar su ficha y distinguir si están en diseño, en preparación o con personas téster activas o recientemente seleccionadas.",
+      "howToAccess": "Abrir el mapa, filtrar por fase y consultar la ficha del espacio de interés. Después hay que comprobar con su operador si existe una convocatoria o vía de incorporación disponible.",
+      "accessUrl": "https://espaciostestagrarios.org/intranet/observatorio",
+      "accessCostType": "FREE",
+      "languages": ["es"],
+      "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
+      "sources": [
+        {
+          "url": "https://espaciostestagrarios.org/intranet/observatorio",
+          "title": "Observatorio de los Espacios Test Agrarios — RETA",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "A través de esta red, buscamos fortalecer las estrategias público-privadas que faciliten la incorporación de nuevos agentes en los sectores agrícola, ganadero y forestal",
+            "En nuestro mapa interactivo, podrás encontrar los espacios test agrarios activos en España, junto con su ficha detallada, para conocer su funcionamiento y evolución.",
+            "Espacio test agrario en preparación, acondicionamiento final y/o en selección de personas téster",
+            "Espacio test agrario con personas téster en activo o recientemente seleccionadas"
+          ]
+        }
+      ],
+      "notes": "Las fases del mapa describen el desarrollo de cada espacio test; no equivalen por sí solas a una convocatoria abierta. Los espacios con servicio o convocatoria verificados se publican además como recursos territoriales independientes.",
       "generatorId": "chatgpt-1"
     }
   ],

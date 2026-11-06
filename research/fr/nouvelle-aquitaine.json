@@ -6,17 +6,20 @@
     "region": "nouvelle-aquitaine"
   },
   "language": "fr",
-  "updatedOn": "2026-09-29",
+  "updatedOn": "2026-10-30",
   "context": [
     "La Safer Nouvelle-Aquitaine dispose d'une page régionale lisible qui décrit directement l'installation, la transmission et l'accès au foncier.",
     "Les pages de la Chambre régionale d'agriculture Nouvelle-Aquitaine renvoient actuellement une erreur 403; rechercher des pages départementales ou des documents officiels alternatifs.",
-    "Les appels régionaux qui labellisent des organismes ne constituent pas eux-mêmes un service direct pour le candidat; il faut retrouver les structures labellisées et leurs voies d'accès.",
+    "Un appel régional qui finance des organismes est une aide financière publiable lorsque ses bénéficiaires, ses actions et sa voie de demande sont documentés ; il faut distinguer cette aide d'un service direct ou d'une échéance destinée aux agriculteurs.",
     "La Région gère les aides FEADER sur le portail Europe en Nouvelle-Aquitaine.",
     "Étendre la recherche aux départements et aux chambres uniquement pour des services ou accès distincts, sans dupliquer les dispositifs régionaux.",
     "Passe avec la liste de contrôle nationale sur un fichier existant : seuls les instruments attendus restaient à renseigner.",
     "Le guichet DNJA régional distingue les jeunes agriculteurs des nouveaux agriculteurs ; les dates des appels destinés aux organismes de conseil ne sont pas des échéances de candidature des agriculteurs.",
     "Les associations Terre de Liens Aquitaine, Limousin et Poitou-Charentes ont des parcours territoriaux distincts au sein de Nouvelle-Aquitaine.",
-    "L'ANICAP décrit le Plan Capr'1, mais sa page ne démontre pas une activité actuelle datée."
+    "L'ANICAP décrit le Plan Capr'1, mais sa page ne démontre pas une activité actuelle datée.",
+    "Les fiches régionales distinguent le diagnostic, l'étude économique pré-installation et le suivi post-installation comme trois prestations différentes.",
+    "L'ABDEA publie deux parcours complémentaires en Béarn, annonce des rendez-vous mensuels pour l'installation et décrit le diagnostic puis la mise en relation pour la transmission.",
+    "L'appel AITA 2026 est une aide aux structures qui réalisent des actions d'animation et de communication ; sa clôture au 3 avril ne constitue pas une date de demande pour les agriculteurs."
   ],
   "portals": [
     {
@@ -125,10 +128,10 @@
       "name": "Services des Chambres d'agriculture de Nouvelle-Aquitaine",
       "url": "https://nouvelle-aquitaine.chambres-agriculture.fr/",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "L'ouverture de la page régionale a renvoyé 403 ; un résultat de recherche décrit le PAIT mais ne suffit pas à établir une fiche de service propre. Ouvrir une page départementale de l'opérateur avec parcours et compétence vérifiables.",
+      "status": "REJECTED",
+      "reason": "La page régionale continue de refuser la lecture et les résultats retrouvés décrivent le PAIT déjà documenté par les fiches régionales, sans établir un service propre et distinct de la Chambre à l'échelle de toute la Nouvelle-Aquitaine. Des services départementaux pourront être admis séparément si leur accès est vérifiable.",
       "foundBy": "na-chambers",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "na-dnja",
@@ -168,20 +171,22 @@
       "name": "Étude économique individuelle pré-installation",
       "url": "https://les-aides.nouvelle-aquitaine.fr/economie-et-emploi/accompagnement-individuel-pre-installation-etude-economique",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "La fiche régionale décrit une prestation distincte et obligatoire dans certains parcours ; vérifier les organismes accessibles et la relation exacte avec le diagnostic avant de créer une entrée distincte ou d'enrichir celle-ci.",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-etude-economique-pre-installation",
+      "reason": "La fiche régionale établit une prestation distincte du diagnostic, obligatoire pour les demandes DJA et DNJA, et publie la voie d'accès par le PAIT puis l'organisme sélectionné choisi par le candidat.",
       "foundBy": "na-installation",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "na-suivi-post-installation",
       "name": "Suivi individuel post-installation",
       "url": "https://les-aides.nouvelle-aquitaine.fr/economie-et-emploi/accompagnement-individuel-post-installation-suivi",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
-      "reason": "Fiche repérée et page de sélection 2026 évoquant le suivi ; vérifier la voie d'accès actuelle et les organismes avant admission.",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-suivi-post-installation",
+      "reason": "La fiche régionale publie les bénéficiaires, la limite de trois suivis pendant les cinq années suivant l'installation et l'accès direct par l'organisme agréé choisi.",
       "foundBy": "na-installation",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "na-selection-organismes-2026",
@@ -220,10 +225,11 @@
       "name": "Accompagnement de l'ABDEA en Béarn",
       "url": "https://www.agriculturepaysanne.org/Nouvelle-rubrique-No-1322",
       "kind": "SUCCESSION_SERVICE",
-      "status": "TO_CHECK",
-      "reason": "La page décrit installation, transmission et accueils collectifs, mais le parcours spécifique de prestation et sa disponibilité restent à préciser avant une fiche autonome.",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-abdea-bearn-installation-transmission",
+      "reason": "Les pages actuelles de l'ABDEA décrivent deux parcours accessibles en Béarn : appui individualisé à l'installation, notamment foncier et viabilité économique, puis diagnostic de ferme et mise en relation pour la transmission. Elles publient des rendez-vous mensuels et un contact institutionnel commun.",
       "foundBy": "na-associations-departements",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "na-terre-de-liens-aquitaine",
@@ -262,20 +268,21 @@
       "id": "na-aita-animation-2026",
       "name": "AITA animation et communication 2026",
       "url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-actions-d-a3984.html?id_rub=209",
-      "kind": "SUCCESSION_SERVICE",
-      "status": "TO_CHECK",
-      "reason": "La page DRAAF a expiré pendant son ouverture. L'appel paraît viser des actions d'organismes ; rouvrir le texte officiel et identifier les services effectifs avant toute admission.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-aita-animation-communication-2026",
+      "reason": "La DRAAF et le cahier des charges documentent une aide financière aux structures qui réalisent des actions d'animation, d'information et de mise en relation. L'appel 2026 est publié avec une clôture au 3 avril ; cette échéance concerne les organismes, pas les agriculteurs.",
       "foundBy": "na-lower-levels",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-10-30"
     },
     {
       "id": "na-rdi-departemental",
       "name": "Répertoire Départ Installation dans les départements",
       "kind": "SUCCESSION_SERVICE",
-      "status": "TO_CHECK",
-      "reason": "L'ANICAP renvoie au répertoire, mais il faut ouvrir une page de l'opérateur et déterminer si l'accès est national ou si un département fournit un service propre avant de l'inscrire localement.",
+      "status": "REJECTED",
+      "reason": "Le Répertoire Départ Installation est déjà conservé comme piste nationale dans research/fr/country.json. Aucun service départemental distinct n'a été établi ici ; l'admettre au niveau régional dupliquerait le même outil avant la vérification de son parcours national.",
       "foundBy": "na-lower-levels",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-10-30"
     }
   ],
   "instrumentChecks": [
@@ -324,6 +331,11 @@
       "date": "2026-09-29",
       "by": "CHATGPT (gpt-6)",
       "summary": "Revalidation de la Safer ; ajout de la DNJA, du prêt d'honneur, du diagnostic, du Plan Capr'1, de l'AGAP et de trois services territoriaux de Terre de Liens. L'appel destiné aux organismes a été distingué des demandes des agriculteurs. Le blocage 403 des pages des Chambres et des pistes départementales restent à résoudre."
+    },
+    {
+      "date": "2026-10-30",
+      "by": "CHATGPT (Codex)",
+      "summary": "Passe groupée des six pistes ouvertes : admis l'étude économique, le suivi post-installation, les parcours d'installation et transmission de l'ABDEA en Béarn et l'aide AITA aux organismes avec son appel 2026 clos. La piste générique des Chambres et le RDI régional ont été rejetés faute de service régional distinct et pour éviter de dupliquer la piste nationale."
     }
   ]
 }

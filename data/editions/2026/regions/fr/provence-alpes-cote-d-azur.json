@@ -5,11 +5,11 @@
   "country": "FR",
   "region": "provence-alpes-cote-d-azur",
   "officialName": "Provence-Alpes-Côte d’Azur",
-  "published": "2026-10-25",
-  "summary": "En Provence-Alpes-Côte d'Azur, la Région publie la Dotation Jeunes Agriculteurs et un prêt d'honneur agricole est proposé par Initiative Sud. La Safer donne accès à ses appels à candidatures foncières. Terre de Liens PACA et le réseau ARDEAR accompagnent l'installation ou la transmission de fermes.",
+  "published": "2026-10-30",
+  "summary": "En Provence-Alpes-Côte d'Azur, la Région publie la Dotation Jeunes Agriculteurs et un prêt d'honneur agricole est proposé par Initiative Sud. Le programme AITA finance aussi des étapes de l'installation et de la transmission. La Safer donne accès à ses appels fonciers, tandis que les Points Accueil Installation, Terre de Liens et les ADEAR proposent des accompagnements. Des services plus locaux complètent cet ensemble.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Les quatre instruments attendus ont été recherchés auprès de la Région, de la Safer, des chambres et d'associations, avec une seconde passe sur les opérateurs découverts. Les pages de certaines chambres étaient inaccessibles et des offres départementales ou locales restent à vérifier. Les deux pages régionales de la DJA donnent des dates de clôture contradictoires.",
+    "note": "Les quatre instruments attendus et les cinq pistes encore ouvertes ont été recherchés auprès de la Région, de l'État, de la Safer, des chambres, des collectivités et des associations. Les Points Accueil Installation et l'AITA 2026 sont désormais documentés, ainsi qu'un espace-test et deux services locaux. Les deux pages régionales de la DJA donnent toujours des dates de clôture contradictoires.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -54,6 +54,22 @@
       {
         "method": "KNOWN_SOURCE",
         "detail": "https://terredeliens.org/provence-alpes-c%C3%B4te-dazur/"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://draaf.paca.agriculture.gouv.fr/mise-en-oeuvre-du-programme-pour-l-accompagnement-de-l-installation-et-de-la-a868.html"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://draaf.paca.agriculture.gouv.fr/labellisation-des-points-accueil-installation-a1294.html"
+      },
+      {
+        "method": "WEB_SEARCH",
+        "detail": "site:agriculturepaysanne.org PACA espace test agricole 2026 ADEAR accompagnement installation"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.terredeprovence-agglo.com/page/sinstaller-developper-son-exploitation"
       }
     ]
   },
@@ -325,15 +341,214 @@
       ],
       "generatorId": "chatgpt-1",
       "notes": "La certification mentionnée ne démontre pas que cette formation satisfait à une condition particulière de la DJA ; ce point reste à confirmer."
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-points-accueil-installation",
+      "name": "Points Accueil Installation de Provence-Alpes-Côte d'Azur",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Chambres d'agriculture de Provence-Alpes-Côte d'Azur",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Accueil, conseil et orientation pour construire un projet d'installation agricole, au moyen d'un Point Accueil Installation dans chacun des six départements de la région.",
+      "whoCanUseIt": "Tous les porteurs de projet agricole en Provence-Alpes-Côte d'Azur.",
+      "howToAccess": "Consulter la page régionale de labellisation, puis prendre contact avec le Point Accueil Installation du département du projet.",
+      "accessUrl": "https://draaf.paca.agriculture.gouv.fr/labellisation-des-points-accueil-installation-a1294.html",
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "lastEvidenceDate": "2026-08-05",
+      "sources": [
+        {
+          "url": "https://draaf.paca.agriculture.gouv.fr/labellisation-des-points-accueil-installation-a1294.html",
+          "title": "Labellisation des Points Accueil Installation — DRAAF PACA",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "des six Points Accueil Installation des départements de la région",
+            "La labellisation a été prolongée jusqu’au 31/12/2026"
+          ]
+        },
+        {
+          "url": "https://www.terredeprovence-agglo.com/page/sinstaller-developper-son-exploitation",
+          "title": "S'installer & développer son exploitation — Terre de Provence Agglomération",
+          "consultedOn": "2026-10-30",
+          "quotes": ["Point Accueil Installation – Chambre d’Agriculture 13 : Conseils, orientation, construction de projet."]
+        }
+      ],
+      "generatorId": "chatgpt-1",
+      "notes": "La labellisation publiée court jusqu'au 31 décembre 2026. La ressource ne présume pas son renouvellement ni le déploiement anticipé de France Services Agriculture."
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-aita-2026",
+      "name": "Programme AITA 2026 — installation et transmission",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direction régionale de l'alimentation, de l'agriculture et de la forêt Provence-Alpes-Côte d'Azur",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Prise en charge ou soutien de prestations du parcours d'installation et de transmission : diagnostics d'exploitation, plan de professionnalisation, stages, suivi du nouvel exploitant et incitation à la transmission.",
+      "whoCanUseIt": "Porteurs de projet agricole, nouveaux exploitants et cédants, selon le dispositif AITA demandé.",
+      "howToAccess": "Identifier le dispositif sur la page AITA de la DRAAF et déposer la demande correspondante auprès de la DDT ou DDTM du département avec le formulaire publié.",
+      "accessUrl": "https://draaf.paca.agriculture.gouv.fr/mise-en-oeuvre-du-programme-pour-l-accompagnement-de-l-installation-et-de-la-a868.html",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT", "TRANSFER"],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT", "TRANSFEROR"],
+      "lastEvidenceDate": "2026-08-05",
+      "sources": [
+        {
+          "url": "https://draaf.paca.agriculture.gouv.fr/mise-en-oeuvre-du-programme-pour-l-accompagnement-de-l-installation-et-de-la-a868.html",
+          "title": "Mise en œuvre du programme pour l'accompagnement de l'installation et de la transmission en agriculture — DRAAF PACA",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "Sa déclinaison, en région PACA pour la période 2017-2026",
+            "Prise en charge du diagnostic d’exploitation à reprendre",
+            "Bourse de stage d’application en exploitation",
+            "Suivi du nouvel exploitant",
+            "Prise en charge du diagnostic d’exploitation à céder",
+            "Incitation à la transmission de l’exploitation préalablement inscrite au répertoire départ installation (RDI)"
+          ]
+        },
+        {
+          "url": "https://draaf.paca.agriculture.gouv.fr/aita-formulaires-de-demande-d-aide-et-de-paiement-pour-les-porteurs-de-projet-a935.html",
+          "title": "AITA — formulaires de demande pour les porteurs de projet — DRAAF PACA",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "Les demandes d’aide et de paiement des porteurs de projet dans le cadre des dispositifs de l’AITA financés par l’Etat sont à déposer auprès des DDT/DDTM"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1",
+      "notes": "La DRAAF documente le programme régional pour 2017-2026 et maintient des formulaires à jour en 2026. Chaque dispositif conserve ses propres conditions ; aucune aide n'est présentée comme un versement automatique."
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-espace-test-carmejane",
+      "name": "Espace-test agricole de Carmejane",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Alpes-de-Haute-Provence"
+      },
+      "operator": "ADEAR des Alpes-de-Haute-Provence et partenaires de l'espace-test de Carmejane",
+      "operatorType": "MIXED",
+      "whatItOffers": "Un terrain irrigué équipé, du matériel et un accompagnement de projet, technique et comptable pour tester une activité agricole pendant un à trois ans avant une installation définitive.",
+      "whoCanUseIt": "Une ou deux personnes portant la même activité agricole sur le lieu-test de Carmejane.",
+      "howToAccess": "Consulter l'offre publiée par l'ADEAR des Alpes-de-Haute-Provence et prendre contact avec l'association par son canal institutionnel pour vérifier la place et les modalités actuelles.",
+      "accessUrl": "https://www.agriculturepaysanne.org/annonces/annonce.php?id=6887",
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-09-17",
+      "sources": [
+        {
+          "url": "https://www.agriculturepaysanne.org/annonces/annonce.php?id=6887",
+          "title": "Venez tester votre projet sur le lieu test équipé de Carmejane — FADEAR",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "offre 17 sept. 2026",
+            "8 000 m² de terrain équipé en irrigation",
+            "Une ou deux personnes sur la même activité",
+            "Le test peut durer de 1 à 3 ans.",
+            "accompagnement au projet par l'Adear",
+            "accompagnement compta / gestion d'activité par la couveuse Mosaïque"
+          ]
+        },
+        {
+          "url": "https://www.agriculturepaysanne.org/S-installer-306",
+          "title": "S'installer — ADEAR des Alpes-de-Haute-Provence",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "L’Adear coordonne l’Espace Test Agricole des Alpes de Haute-Provence",
+            "Plusieurs lieux tests sont régulièrement ouverts aux porteur·ses de projets pour tout type de productions"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1",
+      "notes": "La fiche reste une offre et l'ADEAR indique que plusieurs lieux ouvrent régulièrement. Aucune date limite de candidature n'est inventée."
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-adear13-installation",
+      "name": "Accompagnement à l'installation de l'ADEAR 13",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Bouches-du-Rhône"
+      },
+      "operator": "ADEAR 13",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Accompagnement à l'installation agricole et suivi après l'installation.",
+      "howToAccess": "Utiliser l'adresse institutionnelle de l'ADEAR 13 publiée par Terre de Provence Agglomération pour demander un accompagnement.",
+      "accessUrl": "https://www.terredeprovence-agglo.com/page/sinstaller-developper-son-exploitation",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ADEAR 13",
+          "value": "contact@adear13.org",
+          "sourceUrl": "https://www.terredeprovence-agglo.com/page/sinstaller-developper-son-exploitation"
+        }
+      ],
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.terredeprovence-agglo.com/page/sinstaller-developper-son-exploitation",
+          "title": "S'installer & développer son exploitation — Terre de Provence Agglomération",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "Terre de Provence Agglomération met à disposition des exploitants et futurs exploitants un ensemble de dispositifs, de permanences et de partenaires spécialisés",
+            "ADEAR 13 : Accompagnement à l’installation et suivi post-installation",
+            "contact@adear13.org"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1",
+      "notes": "La page propre de l'ADEAR 13 présente encore des liens étrangers au service dans son pied de page ; elle n'est ni la source ni la voie d'accès de cette fiche."
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-terre-provence-frais-foncier",
+      "name": "Aide aux frais de notaire et d'arpentage de Terre de Provence",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Terre de Provence Agglomération"
+      },
+      "operator": "Terre de Provence Agglomération",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Prise en charge partielle de frais de notaire et d'arpentage lors de l'acquisition d'un terrain agricole.",
+      "howToAccess": "Consulter la page agricole de l'agglomération et demander à la Safer les conditions applicables à l'opération foncière envisagée.",
+      "accessUrl": "https://www.terredeprovence-agglo.com/page/sinstaller-developper-son-exploitation",
+      "instrumentType": "GRANT",
+      "purposes": ["LAND_ACQUISITION"],
+      "languages": ["fr"],
+      "targetProfiles": ["LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://www.terredeprovence-agglo.com/page/sinstaller-developper-son-exploitation",
+          "title": "S'installer & développer son exploitation — Terre de Provence Agglomération",
+          "consultedOn": "2026-10-30",
+          "quotes": [
+            "Aide TPA : Frais de notaire et d’arpentage - Prise en charge partielle lors de l’acquisition d’un terrain agricole.",
+            "Contact : SAFER"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-1",
+      "notes": "La page publique ne donne ni montant, ni critères détaillés, ni période de demande ; ces éléments sont donc omis et doivent être confirmés auprès de l'opérateur. Aucun contact personnel publié sur la page n'est reproduit."
     }
   ],
   "news": [],
   "limitations": [
     "Les pages officielles relatives à la DJA présentent des échéances de clôture contradictoires, au 31 décembre 2027 et au 31 décembre 2028. Aucune date de clôture n'est publiée dans le champ calls.",
-    "Les pages régionales des Chambres d'agriculture relatives aux Points Accueil Installation et Transmission n'ont pas pu être ouvertes dans cette passe ; leurs services concrets restent des pistes à vérifier.",
+    "La labellisation des six Points Accueil Installation court jusqu'au 31 décembre 2026 ; son renouvellement en 2027 n'est pas présumé.",
     "La liste principale des appels Safer est intégrée depuis un autre site ; chaque annonce et sa date limite doivent être vérifiées séparément.",
-    "Les espaces-tests agricoles et les dispositifs locaux d'acquisition foncière repérés demandent une vérification du lieu, du gestionnaire et de leur accès actuel.",
-    "La page de l'ADEAR des Bouches-du-Rhône consultée présentait des liens étrangers au service dans son pied de page ; elle n'est pas utilisée comme source d'un nouveau recours publié.",
+    "L'offre de l'espace-test de Carmejane ne publie pas de date limite ; la disponibilité d'une place doit être confirmée auprès de l'ADEAR des Alpes-de-Haute-Provence.",
+    "La page de l'ADEAR des Bouches-du-Rhône présente des liens étrangers au service dans son pied de page ; la fiche repose donc sur la page propre de Terre de Provence Agglomération.",
+    "La page publique de l'aide foncière de Terre de Provence ne précise ni montant, ni conditions détaillées, ni période de demande.",
     "Les coûts des accompagnements associatifs et l'éventuelle reconnaissance des formations pour la DJA n'ont pas été établis."
   ]
 }
