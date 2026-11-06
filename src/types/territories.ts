@@ -35,6 +35,10 @@ export interface Jurisdiction {
    */
   lang: string;
   /**
+   * How dates, numbers and money are written for this jurisdiction's readers, as a BCP 47 tag of its own language and country, when that differs from the language's default: Austria writes German but says Jänner where Germany says Januar. Omitted, the language's own conventions apply.
+   */
+  locale?: string;
+  /**
    * What this jurisdiction calls its hubs, in its own language and vocabulary.
    */
   hubLabel: string;

@@ -26,12 +26,14 @@ const isLanguage = (value: string): value is Language =>
  * around text in another language: a page nobody reviewed, which the build is the right place to catch.
  */
 export function asLanguage(language: string): Language {
-  if (!isLanguage(language)) {
+  // A locale (`de-AT`) writes its language's words; only its dates and numbers differ.
+  const primary = language.split("-")[0] ?? language;
+  if (!isLanguage(primary)) {
     throw new Error(
       `no words are written in "${language}": add that language to words.ts and vocabulary.ts before publishing a territory in it`,
     );
   }
-  return language;
+  return primary;
 }
 
 /**
@@ -40,7 +42,7 @@ export function asLanguage(language: string): Language {
  * read.
  */
 export const dateIn = (iso: string, language: string): string =>
-  new Date(`${iso}T00:00:00Z`).toLocaleDateString(localeOf(asLanguage(language)), {
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString(localeOf(language), {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -49,7 +51,7 @@ export const dateIn = (iso: string, language: string): string =>
 
 /** An amount of money, which has a symbol and a convention of its own in each language. */
 export const moneyIn = (value: number, language: string): string =>
-  value.toLocaleString(localeOf(asLanguage(language)), {
+  value.toLocaleString(localeOf(language), {
     style: "currency",
     currency: "EUR",
     maximumFractionDigits: Number.isInteger(value) ? 0 : 2,
@@ -57,4 +59,4 @@ export const moneyIn = (value: number, language: string): string =>
 
 /** Several things in one sentence, joined the way the language joins them: "a, b and c", "a, b y c". */
 export const listIn = (items: readonly string[], language: string): string =>
-  new Intl.ListFormat(localeOf(asLanguage(language)), { style: "long", type: "conjunction" }).format(items);
+  new Intl.ListFormat(localeOf(language), { style: "long", type: "conjunction" }).format(items);
