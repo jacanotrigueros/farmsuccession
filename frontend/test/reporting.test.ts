@@ -20,7 +20,11 @@ const reportPages = [
 ];
 
 test("every site language has a public intake page that stays out of search indexes", () => {
-  assert.equal(reportPages.length, 6, "the catalogue no longer has the six language surfaces this test expects");
+  assert.equal(
+    reportPages.length,
+    Object.keys(catalogue.jurisdictions).length,
+    "an intake page is missing for a jurisdiction of the catalogue",
+  );
   for (const { file, language } of reportPages) {
     const html = readFileSync(file, "utf8");
     assert.match(html, /<meta name="robots" content="noindex, follow">/u, `${file} is an editorial utility, not a document to index`);
@@ -97,7 +101,11 @@ test("a search that found nothing offers the reader the way to say so", () => {
         return { file: path.join(DIST, iso.toLowerCase(), slug, "index.html"), language: lang, country: `${iso.toLowerCase()}/` };
       }),
   ];
-  assert.equal(searchPages.length, 6, "the catalogue no longer has the six language surfaces this test expects");
+  assert.equal(
+    searchPages.length,
+    Object.keys(catalogue.jurisdictions).length,
+    "a search page is missing for a jurisdiction of the catalogue",
+  );
 
   for (const { file, language, country } of searchPages) {
     const html = readFileSync(file, "utf8");

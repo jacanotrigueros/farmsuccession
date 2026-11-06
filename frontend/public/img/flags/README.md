@@ -1,6 +1,6 @@
 # Flags
 
-Five files, drawn beside a country's name at 24×18 pixels.
+Seven files, drawn beside a country's name at 24×18 pixels.
 
 They are files rather than emoji because a flag emoji is a pair of regional indicator letters and
 Windows ships no glyph for the pair: every Windows reader saw `ES` where the page meant Spain.
@@ -11,3 +11,6 @@ copied here so the site fetches nothing from anywhere else — the same rule eve
 `es.svg` is that file's first two paths, which are the three stripes, without the coat of arms: at this
 size the arms are a smudge of ten colours, and the flag without them is a flag of Spain rather than an
 approximation of one.
+
+`at.svg` follows the same three-band geometry and `id` as that library's Austrian file; it was written
+by hand for this repository rather than copied, and should be compared with flag-icons before release.

@@ -15,6 +15,12 @@ import { words } from "../src/lib/words.ts";
  * It reads `dist/`, so `npm run check` builds before it tests.
  */
 const DIST = path.join(import.meta.dirname, "..", "dist");
+/** Every jurisdiction of the catalogue, so a count follows the catalogue instead of a number written down once. */
+const catalogueJurisdictions = (
+  JSON.parse(readFileSync(path.join(path.join(import.meta.dirname, "..", ".."), "data", "territories.json"), "utf8")) as {
+    jurisdictions: Record<string, unknown>;
+  }
+).jurisdictions;
 const REPOSITORY = path.join(import.meta.dirname, "..", "..");
 
 function builtPages(dir = DIST): string[] {
@@ -204,7 +210,7 @@ test("project navigation is confined to home and country entry pages", () => {
       otherPages += 1;
     }
   }
-  assert.equal(entryPages, 6, "the European and five country entry pages were not all checked");
+  assert.equal(entryPages, Object.keys(catalogueJurisdictions).length, "the European and every country entry page were not all checked");
   assert.ok(otherPages > 400, "too few non-entry pages were checked for a site-wide footer rule");
 });
 

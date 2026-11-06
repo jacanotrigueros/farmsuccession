@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "AT",
+    "region": "tirol"
+  },
+  "language": "de",
+  "updatedOn": "2026-11-06",
+  "context": [
+    "Die bundesweiten Maßnahmen (Niederlassungsprämie, Zahlung für Junglandwirtinnen und Junglandwirte, Konsolidierung, Sozialversicherung) stehen in der Datei für Österreich und gelten in Tirol; hier gehören nur Zuschläge, Landeszuschüsse und eigene Angebote des Landes hin.",
+    "Beratung und Kurse in Tirol kommen vor allem von Landwirtschaftskammer und LFI; deren Seiten untersagen die Speicherung ohne Zustimmung oder nennen keine Bedingungen."
+  ],
+  "portals": [],
+  "openData": [],
+  "queries": [
+    {
+      "id": "tirol-entry-search",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "tirol.gv.at Junglandwirte Hofübergabe Förderung Landeskulturfonds Tirol Konsolidierung Hofübernahme"
+    }
+  ],
+  "leads": [
+    {
+      "id": "tirol-lk-hofuebergabe",
+      "name": "Landwirtschaftskammer Tirol — Beratung zur Hofübergabe",
+      "url": "https://tirol.lko.at/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Die Landwirtschaftskammer berät in Tirol zur Hofübergabe; nicht ausgewertet. Die Kammerseiten erlauben Links, untersagen aber Speicherung in Datenbanken und Vervielfältigung ohne Zustimmung; die Seiten des Fortbildungsinstituts nennen keine Nutzungsbedingungen. Nächster Schritt: gemeinsame Erlaubnisanfrage für Kammer- und LFI-Seiten, danach Angebot, Kosten und Zugang lesen.",
+      "foundBy": "at-state-handover",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "tirol-lfi-kurse",
+      "name": "LFI Tirol — Kurse zu Hofübergabe, Hofübernahme und Facharbeiterausbildung",
+      "url": "https://tirol.lfi.at/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Kursangebot des Landesinstituts, nicht ausgewertet. Die Kammerseiten erlauben Links, untersagen aber Speicherung in Datenbanken und Vervielfältigung ohne Zustimmung; die Seiten des Fortbildungsinstituts nennen keine Nutzungsbedingungen. Nächster Schritt: gemeinsame Erlaubnisanfrage für Kammer- und LFI-Seiten, danach Angebot, Kosten und Zugang lesen.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "tirol-landeskulturfonds-konsolidierung",
+      "name": "Landeskulturfonds Tirol — Konsolidierungskredite",
+      "url": "https://landeskulturfonds.tirol/at/themen/132-konsolidierungskredite",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Seite am 06.11.2026 gelesen: Der Landeskulturfonds vergibt Kredite für Junglandwirtinnen und Junglandwirte bei der Übernahme verschuldeter Betriebe, mit Zinsenzuschüssen von Bund und Land. Das Impressum nennt keine Nutzungsbedingungen. Nächster Schritt: Bedingungen klären oder um Erlaubnis bitten.",
+      "foundBy": "at-state-entry",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "tirol-landeskulturfonds-grundstuecksboerse",
+      "name": "Landeskulturfonds Tirol — Grundstücksbörse",
+      "url": "https://landeskulturfonds.tirol/at/themen/132-konsolidierungskredite",
+      "kind": "LAND_BANK",
+      "status": "TO_CHECK",
+      "reason": "Das Menü des Landeskulturfonds führt eine Grundstücksbörse sowie An- und Verkauf als landwirtschaftlicher Siedlungsträger; nicht geöffnet. Nächster Schritt: Seite lesen, Reichweite und Zugang prüfen, Nutzungsbedingungen klären.",
+      "foundBy": "at-state-handover",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "tirol-weiterbildung",
+      "name": "Land- und forstwirtschaftliche Weiterbildung",
+      "url": "https://www.tirol.gv.at/landwirtschaft-forstwirtschaft/agrar/bildung-und-schule/land-und-forstwirtschaftliche-weiterbildung/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Landesseite am 06.11.2026 gelesen: Vorbereitungslehrgänge und Fachkurse zur Berufsqualifikation für Erwachsene, auch für Hofübernehmende und Quereinsteigende. Das Land behält alle Rechte vor; eine Verwendung über die persönliche Information hinaus verlangt einen Antrag nach dem Tiroler Informationsweiterverwendungsgesetz. Nächster Schritt: Antrag stellen.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "tirol-lfa-facharbeiter",
+      "name": "LFA Tirol — Landwirtschaft",
+      "url": "https://www.lehrlingsstelle.at/tirol/landwirtschaft-t/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Seite am 06.11.2026 gelesen: Vorbereitungslehrgänge zur Facharbeiterprüfung, ausdrücklich auch für Hofübernehmende und Quereinsteigende. Die Lehrlings- und Fachausbildungsstelle erlaubt die Übernahme von Texten nur mit schriftlicher Zustimmung.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "at-land-niederlassung",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Gesucht: «tirol.gv.at Junglandwirte Hofübergabe Förderung Landeskulturfonds Tirol Konsolidierung Hofübernahme». Der Landeskulturfonds vergibt Konsolidierungskredite, ist aber wegen ungeklärter Nutzungsbedingungen noch offen (Lead tirol-landeskulturfonds-konsolidierung). Die bundesweite Niederlassungsprämie und die Konsolidierung gelten auch hier."
+    },
+    {
+      "expectedId": "at-land-hofuebergabe-beratung",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Die Beratung zur Hofübergabe bietet in Tirol die Landwirtschaftskammer an; ihre Seiten sind wegen der Nutzungsbedingungen nicht ausgewertet (Lead tirol-lk-hofuebergabe). Kein Angebot der Landesregierung gefunden."
+    },
+    {
+      "expectedId": "at-land-ausbildung",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Gefunden, aber noch nicht aufnehmbar: Weiterbildung des Landes und Vorbereitungslehrgänge der LFA (Leads tirol-weiterbildung, tirol-lfa-facharbeiter); das Land verlangt einen Antrag auf Weiterverwendung, die LFA eine schriftliche Zustimmung."
+    },
+    {
+      "expectedId": "at-land-flaechen-hofboerse",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Die Grundstücksbörse des Landeskulturfonds ist noch nicht geöffnet (Lead tirol-landeskulturfonds-grundstuecksboerse). Keine Hof- oder Flächenbörse mit eigener Reichweite in Tirol gefunden; die österreichweite Perspektiven-Suche ist auf Bundesebene als offener Lead vermerkt."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-11-06",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Erster Durchgang für Tirol nach Prompt 1.13.0: Landesseiten gesucht; kein eigenes Landesangebot aufgenommen; Kammer- und LFI-Angebote bis zu einer Erlaubnis offen."
+    },
+    {
+      "date": "2026-11-06",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Vertiefte Suche auf Landesseiten, Schulen und Lehrlings- und Fachausbildungsstellen; Nutzungsbedingungen je Domain gelesen. Neue Leads erfasst; nichts aufgenommen, weil die Bedingungen eine Zustimmung verlangen oder unklar sind."
+    }
+  ]
+}
