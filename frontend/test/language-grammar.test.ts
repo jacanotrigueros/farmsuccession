@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
+import { readFileSync } from "node:fs";
+import path from "node:path";
+
+import { localeOf } from "../public/locale.js";
 import { dateIn, moneyIn, numberIn } from "../src/lib/language.ts";
 import { quantity, stateLabel } from "../src/lib/vocabulary.ts";
 import { counted, words } from "../src/lib/words.ts";
@@ -39,6 +43,18 @@ test("Portugal's money and numbers use European Portuguese, not the default Braz
   );
   assert.equal(numberIn(1234.5, "pt"), "1234,5", "Portugal does not write this four-digit figure as Brazilian 1.234,5");
   assert.equal(dateIn("2026-09-28", "pt"), "28 de setembro de 2026", "locale selection must not change the day the source was read");
+});
+
+test("an Austrian locale writes German the Austrian way and still reads German words", () => {
+  assert.equal(dateIn("2027-01-15", "de-AT"), "15. Jänner 2027", "Austria says Jänner; the German default would print Januar");
+  assert.equal(dateIn("2027-01-15", "de"), "15. Januar 2027", "Germany keeps Januar");
+  assert.equal(moneyIn(1000, "de-AT"), "€ 1.000", "Austria puts the euro sign before the amount");
+  assert.equal(words("de-AT").aboutSlug, words("de").aboutSlug, "a locale formats differently but writes the same words as its language");
+  assert.throws(
+    () => dateIn("2027-01-15", "nl-BE-x"),
+    /no locale/u,
+    "a tag that is not a site language and a country is refused, not guessed",
+  );
 });
 
 test("French and Italian state adjectives agree with the resource they describe", () => {
@@ -108,5 +124,21 @@ test("the country split names its counted resources without guessing an article 
       `{where}${words(language).labelSeparator}{own} + {inherited}.`,
       `${language}: a count without a noun forced uninflected participles and forms such as pour France and per Italia; use a named count after the territory instead`,
     );
+  }
+});
+
+test("every locale in the catalogue is its own language written for one country, and can be formatted", () => {
+  const catalogue = JSON.parse(readFileSync(path.join(import.meta.dirname, "..", "..", "data", "territories.json"), "utf8")) as {
+    jurisdictions: Record<string, { lang: string; locale?: string }>;
+  };
+  const withLocale = Object.entries(catalogue.jurisdictions).filter(([, { locale }]) => locale !== undefined);
+  assert.ok(
+    withLocale.some(([iso]) => iso === "AT"),
+    "Austria no longer asks for its own locale, so this test proves nothing",
+  );
+  for (const [iso, { lang, locale }] of withLocale) {
+    assert.equal(locale!.split("-")[0], lang, `${iso}: a locale formats the jurisdiction's own language, never another one`);
+    assert.equal(locale!.split("-")[1], iso, `${iso}: a locale names the jurisdiction's own country`);
+    assert.equal(localeOf(locale!), locale, `${iso}: the site can format in ${locale}`);
   }
 });

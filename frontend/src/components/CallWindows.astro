@@ -21,8 +21,8 @@ import { dateIn } from "../lib/language.ts";
 import { callStateLabel } from "../lib/vocabulary.ts";
 import { words } from "../lib/words.ts";
 
-type Props = { calls: readonly Call[]; sources: readonly Source[]; language: string };
-const { calls, sources, language } = Astro.props;
+type Props = { calls: readonly Call[]; sources: readonly Source[]; language: string; locale?: string };
+const { calls, sources, language, locale = language } = Astro.props;
 const text = words(language);
 
 const consulted = new Map(sources.map((source) => [source.url, source.consultedOn]));
@@ -45,7 +45,7 @@ const consulted = new Map(sources.map((source) => [source.url, source.consultedO
             </p>
             {read && (
               <p class="meta">
-                {text.recordedOn} <time datetime={read}>{dateIn(read, language)}</time>
+                {text.recordedOn} <time datetime={read}>{dateIn(read, locale)}</time>
               </p>
             )}
             {(call.opens || call.closes) && (
@@ -54,7 +54,7 @@ const consulted = new Map(sources.map((source) => [source.url, source.consultedO
                   <div>
                     <dt class="meta">{text.opensLabel}</dt>
                     <dd class="font-semibold tabular-nums">
-                      <time datetime={call.opens}>{dateIn(call.opens, language)}</time>
+                      <time datetime={call.opens}>{dateIn(call.opens, locale)}</time>
                     </dd>
                   </div>
                 )}
@@ -62,7 +62,7 @@ const consulted = new Map(sources.map((source) => [source.url, source.consultedO
                   <div>
                     <dt class="meta">{text.closesLabel}</dt>
                     <dd class="font-semibold tabular-nums">
-                      <time datetime={call.closes}>{dateIn(call.closes, language)}</time>
+                      <time datetime={call.closes}>{dateIn(call.closes, locale)}</time>
                     </dd>
                   </div>
                 )}

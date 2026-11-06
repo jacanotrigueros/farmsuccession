@@ -21,12 +21,12 @@ import { dateIn } from "../lib/language.ts";
 import { words } from "../lib/words.ts";
 import { APPLY_TONE, applyKey } from "../../public/apply.js";
 
-type Props = { resource: Resource; language: string };
-const { resource, language } = Astro.props;
+type Props = { resource: Resource; language: string; locale?: string };
+const { resource, language, locale = language } = Astro.props;
 const text = words(language);
 const [checkedBefore, checkedAfter] = text.checkedOn.split("{date}");
 
-const on = (iso?: string): string => (iso ? dateIn(iso, language) : "");
+const on = (iso?: string): string => (iso ? dateIn(iso, locale) : "");
 const today = new Date().toISOString().slice(0, 10);
 
 /** Every documented period answers for itself, in the record's order (decisions/029). */
