@@ -11,8 +11,8 @@ const LOCALES = { en: "en", es: "es", de: "de", fr: "fr", it: "it", pt: "pt-PT" 
 export function localeOf(language) {
   const locale = LOCALES[language];
   if (locale) return locale;
-  const [primary, country] = language.split("-");
-  if (primary && LOCALES[primary] && country && /^[A-Z]{2}$/u.test(country)) return language;
+  const [, primary] = /^([a-z]{2})-[A-Z]{2}$/u.exec(language) ?? [];
+  if (primary && LOCALES[primary]) return language;
   throw new Error(`no locale for ${language}: write its formatting rules before publishing it`);
 }
 

@@ -51,10 +51,11 @@ test("an Austrian locale writes German the Austrian way and still reads German w
   assert.equal(moneyIn(1000, "de-AT"), "€ 1.000", "Austria puts the euro sign before the amount");
   assert.equal(words("de-AT").aboutSlug, words("de").aboutSlug, "a locale formats differently but writes the same words as its language");
   assert.throws(
-    () => dateIn("2027-01-15", "nl-BE-x"),
+    () => dateIn("2027-01-15", "de-AT-x"),
     /no locale/u,
     "a tag that is not a site language and a country is refused, not guessed",
   );
+  assert.throws(() => dateIn("2027-01-15", "xx-AT"), /no locale/u, "a country tag of a language the site does not write is refused");
 });
 
 test("French and Italian state adjectives agree with the resource they describe", () => {
