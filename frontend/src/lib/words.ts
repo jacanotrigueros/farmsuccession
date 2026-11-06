@@ -1933,7 +1933,11 @@ const NL = {
   notOfficial: "FarmSuccession is geen officiële dienst en vertegenwoordigt niet de overheden of organisaties waarnaar het verwijst.",
   contactTitle2: "Contact en correcties",
   contactLead: "Stuur voor een correctie:",
-  correctionSteps: ["het webadres van de vermelding;", "de informatie die moet veranderen;", "een openbare bron die de wijziging onderbouwt."],
+  correctionSteps: [
+    "het webadres van de vermelding;",
+    "de informatie die moet veranderen;",
+    "een openbare bron die de wijziging onderbouwt.",
+  ],
   noPersonalPapers: "Stuur geen persoonlijke aanvraagdocumenten.",
   reportSlug: "melden",
   reportTitle: "Een vermelding of correctie voorstellen",

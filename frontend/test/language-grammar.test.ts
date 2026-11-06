@@ -12,7 +12,7 @@ const forms = {
   fr: ["0 ressource", "1 ressource", "2 ressources"],
   it: ["0 risorse", "1 risorsa", "2 risorse"],
   pt: ["0 recursos", "1 recurso", "2 recursos"],
-  nl: ["0 hulpmiddelen", "1 hulpmiddel", "2 hulpmiddelen"],
+  nl: ["0 vermeldingen", "1 vermelding", "2 vermeldingen"],
 };
 for (const [language, expected] of Object.entries(forms)) {
   test(`${language}: zero, one and two use that language's noun forms`, () => {
