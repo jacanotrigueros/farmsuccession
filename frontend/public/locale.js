@@ -2,11 +2,18 @@
 /** @type {Record<string, string>} */
 const LOCALES = { en: "en", es: "es", de: "de", fr: "fr", it: "it", pt: "pt-PT", nl: "nl" };
 
-/** @param {string} language */
+/**
+ * The locale to format in. A site language uses its own conventions; a tag of a site language and a
+ * country (`de-AT`, from a jurisdiction's `locale` in the catalogue) uses that country's, so an Austrian
+ * page says Jänner while a German one says Januar. Anything else is refused rather than guessed.
+ * @param {string} language
+ */
 export function localeOf(language) {
   const locale = LOCALES[language];
-  if (!locale) throw new Error(`no locale for ${language}: write its formatting rules before publishing it`);
-  return locale;
+  if (locale) return locale;
+  const [, primary] = /^([a-z]{2})-[A-Z]{2}$/u.exec(language) ?? [];
+  if (primary && LOCALES[primary]) return language;
+  throw new Error(`no locale for ${language}: write its formatting rules before publishing it`);
 }
 
 /**

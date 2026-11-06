@@ -31,13 +31,13 @@ export type Figure =
 
 /**
  * Month names in the languages the editions are written in — Spanish, Catalan, Galician, French,
- * Italian, Portuguese, German and English — with the unaccented spellings pages also use. A month
+ * Italian, Portuguese, German (with Austria's Jänner and Feber) and English — with the unaccented spellings pages also use. A month
  * written as a word is the normal way a date reaches reader text, so a name missing from this list
  * is a date read as loose numbers.
  */
 const MONTH_NAMES: readonly (readonly string[])[] = [
-  ["enero", "gener", "xaneiro", "janvier", "gennaio", "janeiro", "januar", "january"],
-  ["febrero", "febrer", "febreiro", "février", "fevrier", "febbraio", "fevereiro", "februar", "february"],
+  ["enero", "gener", "xaneiro", "janvier", "gennaio", "janeiro", "januar", "jänner", "janner", "january"],
+  ["febrero", "febrer", "febreiro", "février", "fevrier", "febbraio", "fevereiro", "februar", "feber", "february"],
   ["marzo", "març", "marc", "mars", "março", "marco", "märz", "marz", "march"],
   ["abril", "avril", "aprile", "april"],
   ["mayo", "maig", "maio", "mai", "maggio", "may"],
