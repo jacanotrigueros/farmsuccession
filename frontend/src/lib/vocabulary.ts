@@ -102,15 +102,15 @@ export const kindBlurb = vocabulary<Resource["kind"]>({
     OTHER: "Outros recursos relacionados com a sucessão agrícola.",
   },
   nl: {
-    FINANCIAL_SUPPORT: "Subsidies, premies en leningen om een bedrijf te starten, te investeren of over te nemen.",
-    LAND_BANK: "Grondbanken en -beurzen die beschikbare grond koppelen aan mensen die grond zoeken.",
+    FINANCIAL_SUPPORT: "Subsidies, premies en leningen om een bedrijf te starten of over te nemen, of om te investeren.",
+    LAND_BANK: "Grondbanken en grondbeurzen die mensen helpen grond te vinden.",
     SUCCESSION_SERVICE: "Diensten die iemand die een bedrijf overdraagt in contact brengen met iemand die het wil voortzetten.",
-    TRAINING: "Cursussen en scholen voor de diploma's die veel regelingen vereisen.",
+    TRAINING: "Cursussen en opleidingen om te voldoen aan de opleidingseisen van veel subsidieregelingen.",
     ADVICE: "Steun bij het plannen van een overdracht, een start in de landbouw of de bedrijfsvoering.",
-    NETWORK: "Netwerken en gebiedsafspraken die de betrokkenen bij bedrijfsopvolging met elkaar verbinden.",
-    POLICY: "Overheidsregels en -strategieën die het kader vormen voor generatievernieuwing.",
-    OFFICIAL_PORTAL: "Officiële portalen die informatie en procedures bundelen.",
-    OTHER: "Andere hulpmiddelen rond bedrijfsopvolging in de landbouw.",
+    NETWORK: "Netwerken en regionale afspraken die mensen rond bedrijfsopvolging met elkaar verbinden.",
+    POLICY: "Regels en plannen van de overheid voor een nieuwe generatie boeren.",
+    OFFICIAL_PORTAL: "Officiële websites met informatie en uitleg over procedures.",
+    OTHER: "Andere informatie en hulp rond bedrijfsopvolging in de landbouw.",
   },
 });
 
@@ -183,11 +183,11 @@ export const kindLabel = vocabulary<Resource["kind"]>({
   },
   nl: {
     LAND_BANK: "Grondbank",
-    SUCCESSION_SERVICE: "Opvolgingsdienst",
+    SUCCESSION_SERVICE: "Hulp bij bedrijfsopvolging",
     FINANCIAL_SUPPORT: "Financiële steun",
     TRAINING: "Opleiding",
     ADVICE: "Advies",
-    OFFICIAL_PORTAL: "Officieel portaal",
+    OFFICIAL_PORTAL: "Officiële website",
     POLICY: "Beleidskader",
     NETWORK: "Netwerk",
     OTHER: "Overig",
@@ -242,10 +242,10 @@ export const stateLabel = vocabulary<Resource["status"]>({
     UNKNOWN: "Situação não confirmada",
   },
   nl: {
-    ACTIVE: "Actief hulpmiddel",
-    ANNOUNCED_NOT_OPERATING: "Aangekondigd hulpmiddel, nog niet in werking",
-    HISTORICAL: "Historisch hulpmiddel",
-    DISCONTINUED: "Beëindigd hulpmiddel",
+    ACTIVE: "In werking",
+    ANNOUNCED_NOT_OPERATING: "Aangekondigd, nog niet in werking",
+    HISTORICAL: "Uit het verleden",
+    DISCONTINUED: "Beëindigd",
     UNKNOWN: "Status niet bevestigd",
   },
 });
@@ -338,7 +338,7 @@ export const coverageLabel = vocabulary<EditionSnapshot["coverage"]["status"]>({
   nl: {
     NOT_STARTED: "Niet begonnen",
     PARTIAL: "Gedeeltelijk",
-    SEARCHED: "Gedocumenteerde zoektocht afgerond",
+    SEARCHED: "Onderzoek afgerond en vastgelegd",
   },
 });
 
@@ -390,7 +390,7 @@ export const operatorTypeLabel = vocabulary<Resource["operatorType"]>({
     PUBLIC: "Overheidsinstantie",
     NONPROFIT: "Organisatie zonder winstoogmerk",
     PRIVATE: "Particulier bedrijf",
-    MIXED: "Overheid en particulieren samen",
+    MIXED: "Overheid en private partijen samen",
     UNKNOWN: "De bronnen vermelden het niet",
   },
 });
@@ -542,7 +542,7 @@ export const purposeLabel = vocabulary<NonNullable<Resource["purposes"]>[number]
     OTHER: "Outro",
   },
   nl: {
-    FIRST_ESTABLISHMENT: "Eerste vestiging",
+    FIRST_ESTABLISHMENT: "Een eerste landbouwbedrijf starten",
     INVESTMENT: "Investering",
     LAND_ACQUISITION: "Aankoop van grond",
     TRANSFER: "Overdracht",
@@ -614,7 +614,7 @@ export const sectorLabel = vocabulary<NonNullable<Resource["sectors"]>[number]>(
     FORESTRY: "Silvicultura",
   },
   nl: {
-    AGRICULTURE: "Akkerbouw en tuinbouw",
+    AGRICULTURE: "Landbouw",
     LIVESTOCK: "Veehouderij",
     FORESTRY: "Bosbouw",
   },
@@ -733,7 +733,7 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
     YOUNG_FARMER: "Jonge boer",
     NEW_ENTRANT: "Nieuwe of toekomstige boer",
     SUCCESSOR: "Opvolger",
-    TRANSFEROR: "Overdrager",
+    TRANSFEROR: "Wie een bedrijf overdraagt",
     LANDOWNER: "Grondeigenaar",
     LAND_SEEKER: "Op zoek naar grond",
     GENERAL: "Iedereen",
@@ -748,7 +748,7 @@ const anyoneElse = vocabulary<"else">({
   fr: { else: "toute autre personne" },
   it: { else: "chiunque altro" },
   pt: { else: "qualquer outra pessoa" },
-  nl: { else: "iedereen anders" },
+  nl: { else: "alle anderen" },
 });
 
 /**
@@ -809,7 +809,7 @@ export const callStateLabel = vocabulary<Call["state"]>({
     NOT_PUBLISHED: "Não publicado",
   },
   nl: {
-    UPCOMING: "Komt eraan",
+    UPCOMING: "Nog niet begonnen",
     OPEN: "Open",
     CLOSED: "Gesloten",
     NOT_PUBLISHED: "Niet gepubliceerd",
@@ -896,9 +896,9 @@ export const newsTypeLabel = vocabulary<NewsItem["type"]>({
   },
   nl: {
     ANNOUNCEMENT: "Aangekondigd",
-    LAUNCH: "In werking getreden",
-    CALL_OPENED: "Een periode is geopend",
-    CALL_CLOSED: "Een periode is gesloten",
+    LAUNCH: "Van start gegaan",
+    CALL_OPENED: "Een aanvraagperiode is begonnen",
+    CALL_CLOSED: "Een aanvraagperiode is gesloten",
     LAW_OR_REGULATION: "Regelgeving gepubliceerd",
     CHANGE: "Gewijzigd",
     DISCONTINUATION: "Beëindigd",
@@ -972,7 +972,7 @@ const UNITS = countedVocabulary<Metric["unit"]>({
     EUR: ["euro", "euro"],
     HECTARES: ["hectare", "hectare"],
     PARCELS: ["perceel", "percelen"],
-    OFFERS: ["aanbod", "aanbiedingen"],
+    OFFERS: ["aanbieding", "aanbiedingen"],
     PROPERTIES: ["object", "objecten"],
     HOLDINGS: ["bedrijf", "bedrijven"],
     PEOPLE: ["persoon", "personen"],
