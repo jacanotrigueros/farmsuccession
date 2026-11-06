@@ -16,6 +16,7 @@ const forms = {
   fr: ["0 ressource", "1 ressource", "2 ressources"],
   it: ["0 risorse", "1 risorsa", "2 risorse"],
   pt: ["0 recursos", "1 recurso", "2 recursos"],
+  nl: ["0 vermeldingen", "1 vermelding", "2 vermeldingen"],
 };
 for (const [language, expected] of Object.entries(forms)) {
   test(`${language}: zero, one and two use that language's noun forms`, () => {
@@ -43,6 +44,12 @@ test("Portugal's money and numbers use European Portuguese, not the default Braz
   );
   assert.equal(numberIn(1234.5, "pt"), "1234,5", "Portugal does not write this four-digit figure as Brazilian 1.234,5");
   assert.equal(dateIn("2026-09-28", "pt"), "28 de setembro de 2026", "locale selection must not change the day the source was read");
+});
+
+test("Dutch writes money, figures and dates the Dutch way", () => {
+  assert.equal(moneyIn(1000, "nl"), "€ 1.000", "Dutch puts the euro sign before the amount and groups thousands with a dot");
+  assert.equal(numberIn(1234.5, "nl"), "1.234,5", "a Dutch decimal comma, not an English point");
+  assert.equal(dateIn("2026-09-28", "nl"), "28 september 2026", "Dutch month names are written in lower case");
 });
 
 test("an Austrian locale writes German the Austrian way and still reads German words", () => {
@@ -119,7 +126,7 @@ test("answers about a resource do not refer to a masculine call that does not ex
 });
 
 test("the country split names its counted resources without guessing an article or an adjective ending", () => {
-  for (const language of ["en", "es", "de", "fr", "it", "pt"]) {
+  for (const language of ["en", "es", "de", "fr", "it", "pt", "nl"]) {
     assert.equal(
       words(language).applicableSplit,
       `{where}${words(language).labelSeparator}{own} + {inherited}.`,

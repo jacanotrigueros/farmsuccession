@@ -1,6 +1,6 @@
 /** The same language rules for built text and for counts rewritten in the reader's browser. */
 /** @type {Record<string, string>} */
-const LOCALES = { en: "en", es: "es", de: "de", fr: "fr", it: "it", pt: "pt-PT" };
+const LOCALES = { en: "en", es: "es", de: "de", fr: "fr", it: "it", pt: "pt-PT", nl: "nl" };
 
 /**
  * The locale to format in. A site language uses its own conventions; a tag of a site language and a
@@ -17,7 +17,7 @@ export function localeOf(language) {
 }
 
 /**
- * These six languages use two noun forms here. French zero and decimals below two use the first;
+ * These seven languages use two noun forms here. French zero and decimals below two use the first;
  * French and Romance "many" categories use the same second form as "other" for these nouns and units.
  * @param {number} value @param {string} language @returns {0 | 1}
  */

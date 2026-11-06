@@ -133,7 +133,7 @@ export async function fetchPage(url: string, options: FetchOptions = {}): Promis
       signal: AbortSignal.timeout(options.timeoutMs ?? TIMEOUT_MS),
       headers: {
         "user-agent": options.userAgent ?? process.env.CHECKER_USER_AGENT ?? DEFAULT_USER_AGENT,
-        "accept-language": options.acceptLanguage ?? "es,fr,it,pt,de,en;q=0.8",
+        "accept-language": options.acceptLanguage ?? "es,fr,it,pt,de,nl,en;q=0.8",
         accept: "text/html,application/xhtml+xml,application/pdf;q=0.9,*/*;q=0.8",
       },
     });
