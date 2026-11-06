@@ -144,6 +144,16 @@ export function placeOf(territory: Territory, europe: string): string {
 /** The language a territory's text is written in, which is the language the page is in. */
 export const languageOf = (territory: Territory): string => territory.data.metadata.language;
 
+/**
+ * How a territory's dates, numbers and money are written: its jurisdiction's `locale` when the catalogue
+ * gives one, otherwise its language. Pages keep `languageOf` for what language the text is in (the
+ * `lang` attribute, the search bundle) and use this only to format.
+ */
+export const localeOf = (territory: Territory): string =>
+  territory.layer.level === "EU"
+    ? languageOf(territory)
+    : (territories.jurisdictions[territory.layer.country]?.locale ?? languageOf(territory));
+
 /** A review nobody has signed is the one thing a reader has to be told before anything else. */
 export const isDraft = (territory: Territory): boolean => territory.data.review.status === "DRAFT";
 

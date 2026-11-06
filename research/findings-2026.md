@@ -173,8 +173,8 @@ Still open:
 What this file does not cover:
 
 - Beratungs-, Bildungs- und Vermittlungsangebote der Landwirtschaftskammern, der Landjugend und von Vereinen zur Hofübergabe sind in dieser Fassung noch nicht dokumentiert.
-- Die Aufrufe und Fristen der Niederlassungsprämie je Bundesland konnten nicht gelesen werden, weil die Seite der AMA ihre Termine erst im Browser anzeigt.
-- Jedes Bundesland erhält eine eigene Seite für die dort bewilligten und angebotenen Leistungen.
+- Die Antragsfristen der Niederlassungsprämie in den einzelnen Bundesländern konnten nicht vollständig geprüft werden. Die entsprechende Terminseite der AMA wird erst im Browser vollständig angezeigt.
+- Für jedes Bundesland gibt es eine eigene Übersicht. Dort stehen die landesspezifischen Angebote, soweit sie in dieser Fassung dokumentiert sind.
 
 ### Portugal — country
 
@@ -762,7 +762,7 @@ Still open:
 What this file does not cover:
 
 - Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts im Burgenland sind in dieser Fassung noch nicht dokumentiert.
-- Eine Hof- oder Flächenbörse mit eigener Reichweite im Burgenland wurde in dieser Fassung nicht belegt.
+- Eine Hof- oder Flächenbörse für das Burgenland ist in dieser Fassung nicht dokumentiert.
 
 ### Calabria — region
 
@@ -1768,7 +1768,7 @@ Still open:
 What this file does not cover:
 
 - Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Kärnten sind in dieser Fassung noch nicht dokumentiert.
-- Eine Hof- oder Flächenbörse mit eigener Reichweite in Kärnten wurde in dieser Fassung nicht belegt.
+- Eine Hof- oder Flächenbörse für Kärnten ist in dieser Fassung nicht dokumentiert.
 
 ### La Gomera — region
 
@@ -2213,7 +2213,7 @@ Still open:
 What this file does not cover:
 
 - Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Niederösterreich sind in dieser Fassung noch nicht dokumentiert.
-- Eine Hof- oder Flächenbörse mit eigener Reichweite in Niederösterreich wurde in dieser Fassung nicht belegt.
+- Eine Hof- oder Flächenbörse für Niederösterreich ist in dieser Fassung nicht dokumentiert.
 
 ### Niedersachsen — region
 
@@ -2394,7 +2394,7 @@ Still open:
 What this file does not cover:
 
 - Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Oberösterreich sind in dieser Fassung noch nicht dokumentiert.
-- Eine Hof- oder Flächenbörse mit eigener Reichweite in Oberösterreich wurde in dieser Fassung nicht belegt.
+- Eine Hof- oder Flächenbörse für Oberösterreich ist in dieser Fassung nicht dokumentiert.
 
 ### Occitanie — region
 
@@ -2920,7 +2920,7 @@ Still open:
 What this file does not cover:
 
 - Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Salzburg sind in dieser Fassung noch nicht dokumentiert.
-- Eine Hof- oder Flächenbörse mit eigener Reichweite in Salzburg wurde in dieser Fassung nicht belegt.
+- Eine Hof- oder Flächenbörse für Salzburg ist in dieser Fassung nicht dokumentiert.
 
 ### Sardegna — region
 
@@ -3037,7 +3037,7 @@ Still open:
 What this file does not cover:
 
 - Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in der Steiermark sind in dieser Fassung noch nicht dokumentiert.
-- Eine Hof- oder Flächenbörse mit eigener Reichweite in der Steiermark wurde in dieser Fassung nicht belegt.
+- Eine Hof- oder Flächenbörse für die Steiermark ist in dieser Fassung nicht dokumentiert.
 
 ### Tenerife — region
 
@@ -3109,7 +3109,7 @@ Still open:
 What this file does not cover:
 
 - Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Tirol sind in dieser Fassung noch nicht dokumentiert.
-- Eine Hof- oder Flächenbörse mit eigener Reichweite in Tirol wurde in dieser Fassung nicht belegt.
+- Eine Hof- oder Flächenbörse für Tirol ist in dieser Fassung nicht dokumentiert.
 - Die Konsolidierungskredite und die Grundstücksbörse des Tiroler Landeskulturfonds sind noch nicht dokumentiert.
 
 ### Toscana — region
@@ -3274,7 +3274,7 @@ Still open:
 What this file does not cover:
 
 - Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Vorarlberg sind in dieser Fassung noch nicht dokumentiert.
-- Eine Hof- oder Flächenbörse mit eigener Reichweite in Vorarlberg wurde in dieser Fassung nicht belegt.
+- Eine Hof- oder Flächenbörse für Vorarlberg ist in dieser Fassung nicht dokumentiert.
 
 ### Wien — region
 
@@ -3299,4 +3299,4 @@ Still open:
 What this file does not cover:
 
 - Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Wien sind in dieser Fassung noch nicht dokumentiert.
-- Eine Hof- oder Flächenbörse mit eigener Reichweite in Wien wurde in dieser Fassung nicht belegt.
+- Eine Hof- oder Flächenbörse für Wien ist in dieser Fassung nicht dokumentiert.

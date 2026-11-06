@@ -65,7 +65,7 @@ test("cards name the documented served area without replacing their containing t
 });
 
 test("the separator before a value is the one its own language uses", () => {
-  for (const language of ["en", "es", "de", "it", "pt"]) {
+  for (const language of ["en", "es", "de", "it", "pt", "nl"]) {
     assert.equal(
       words(language).labelSeparator,
       ": ",
@@ -97,7 +97,7 @@ test("French punctuation keeps the space its typography gives it, and that space
     assert.doesNotMatch(value, /\u202f:/u, "French puts the ordinary non-breaking space before a colon, not the thin one");
   }
 
-  for (const language of ["en", "es", "de", "it", "pt"]) {
+  for (const language of ["en", "es", "de", "it", "pt", "nl"]) {
     for (const [key, value] of Object.entries(words(language))) {
       if (typeof value !== "string") continue;
       assert.doesNotMatch(value, /[\u00a0\u202f][:;?!]/u, `${language}.${key} spaces its punctuation the French way`);

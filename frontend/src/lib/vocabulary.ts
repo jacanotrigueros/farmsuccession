@@ -101,6 +101,17 @@ export const kindBlurb = vocabulary<Resource["kind"]>({
     OFFICIAL_PORTAL: "Portais oficiais que reúnem informação e procedimentos.",
     OTHER: "Outros recursos relacionados com a sucessão agrícola.",
   },
+  nl: {
+    FINANCIAL_SUPPORT: "Subsidies, premies en leningen om een bedrijf te starten of over te nemen, of om te investeren.",
+    LAND_BANK: "Grondbanken en grondbeurzen die mensen helpen grond te vinden.",
+    SUCCESSION_SERVICE: "Diensten die iemand die een bedrijf overdraagt in contact brengen met iemand die het wil voortzetten.",
+    TRAINING: "Cursussen en opleidingen om te voldoen aan de opleidingseisen van veel subsidieregelingen.",
+    ADVICE: "Steun bij het plannen van een overdracht, een start in de landbouw of de bedrijfsvoering.",
+    NETWORK: "Netwerken en regionale afspraken die mensen rond bedrijfsopvolging met elkaar verbinden.",
+    POLICY: "Regels en plannen van de overheid voor een nieuwe generatie boeren.",
+    OFFICIAL_PORTAL: "Officiële websites met informatie en uitleg over procedures.",
+    OTHER: "Andere informatie en hulp rond bedrijfsopvolging in de landbouw.",
+  },
 });
 
 export const kindLabel = vocabulary<Resource["kind"]>({
@@ -170,6 +181,17 @@ export const kindLabel = vocabulary<Resource["kind"]>({
     NETWORK: "Rede",
     OTHER: "Outro",
   },
+  nl: {
+    LAND_BANK: "Grondbank",
+    SUCCESSION_SERVICE: "Hulp bij bedrijfsopvolging",
+    FINANCIAL_SUPPORT: "Financiële steun",
+    TRAINING: "Opleiding",
+    ADVICE: "Advies",
+    OFFICIAL_PORTAL: "Officiële website",
+    POLICY: "Beleidskader",
+    NETWORK: "Netwerk",
+    OTHER: "Overig",
+  },
 });
 
 /**
@@ -219,6 +241,13 @@ export const stateLabel = vocabulary<Resource["status"]>({
     DISCONTINUED: "Recurso extinto",
     UNKNOWN: "Situação não confirmada",
   },
+  nl: {
+    ACTIVE: "In werking",
+    ANNOUNCED_NOT_OPERATING: "Aangekondigd, nog niet in werking",
+    HISTORICAL: "Uit het verleden",
+    DISCONTINUED: "Beëindigd",
+    UNKNOWN: "Status niet bevestigd",
+  },
 });
 
 /** How far a resource reaches. Said as an extent a reader can place themselves in, not as a tier name. */
@@ -265,6 +294,13 @@ export const reachLabel = vocabulary<Scope["level"]>({
     SUBREGIONAL: "Sub-regional",
     LOCAL: "Local",
   },
+  nl: {
+    EU: "Europese Unie",
+    NATIONAL: "Landelijk",
+    REGIONAL: "Regionaal",
+    SUBREGIONAL: "Subregionaal",
+    LOCAL: "Lokaal",
+  },
 });
 
 /** How far the research of a territory went, which the note under it then qualifies. */
@@ -298,6 +334,11 @@ export const coverageLabel = vocabulary<EditionSnapshot["coverage"]["status"]>({
     NOT_STARTED: "Não iniciada",
     PARTIAL: "Parcial",
     SEARCHED: "Pesquisa documentada concluída",
+  },
+  nl: {
+    NOT_STARTED: "Niet begonnen",
+    PARTIAL: "Gedeeltelijk",
+    SEARCHED: "Onderzoek afgerond en vastgelegd",
   },
 });
 
@@ -345,6 +386,13 @@ export const operatorTypeLabel = vocabulary<Resource["operatorType"]>({
     MIXED: "Pública e privada em conjunto",
     UNKNOWN: "As fontes não o dizem",
   },
+  nl: {
+    PUBLIC: "Overheidsinstantie",
+    NONPROFIT: "Organisatie zonder winstoogmerk",
+    PRIVATE: "Particulier bedrijf",
+    MIXED: "Overheid en private partijen samen",
+    UNKNOWN: "De bronnen vermelden het niet",
+  },
 });
 
 export const costLabel = vocabulary<NonNullable<Resource["accessCostType"]>>({
@@ -383,6 +431,12 @@ export const costLabel = vocabulary<NonNullable<Resource["accessCostType"]>>({
     FEE_REQUIRED: "Pago",
     NOT_APPLICABLE: "Não aplicável",
     UNKNOWN: "Não documentado",
+  },
+  nl: {
+    FREE: "Gratis",
+    FEE_REQUIRED: "Tegen betaling",
+    NOT_APPLICABLE: "Niet van toepassing",
+    UNKNOWN: "Niet gedocumenteerd",
   },
 });
 
@@ -428,6 +482,13 @@ export const instrumentLabel = vocabulary<NonNullable<Resource["instrumentType"]
     GUARANTEE: "Garantia",
     INTEREST_SUBSIDY: "Bonificação de juros",
     OTHER: "Outro",
+  },
+  nl: {
+    GRANT: "Subsidie",
+    LOAN: "Lening",
+    GUARANTEE: "Garantie",
+    INTEREST_SUBSIDY: "Rentesubsidie",
+    OTHER: "Overig",
   },
 });
 
@@ -480,6 +541,14 @@ export const purposeLabel = vocabulary<NonNullable<Resource["purposes"]>[number]
     RETIREMENT_SUCCESSION: "Reforma e sucessão",
     OTHER: "Outro",
   },
+  nl: {
+    FIRST_ESTABLISHMENT: "Een eerste landbouwbedrijf starten",
+    INVESTMENT: "Investering",
+    LAND_ACQUISITION: "Aankoop van grond",
+    TRANSFER: "Overdracht",
+    RETIREMENT_SUCCESSION: "Pensioen en opvolging",
+    OTHER: "Overig",
+  },
 });
 
 export const assetLabel = vocabulary<NonNullable<Resource["assetTypes"]>[number]>({
@@ -506,6 +575,10 @@ export const assetLabel = vocabulary<NonNullable<Resource["assetTypes"]>[number]
   pt: {
     PLOTS: "Parcelas",
     WHOLE_HOLDINGS: "Explorações completas",
+  },
+  nl: {
+    PLOTS: "Percelen",
+    WHOLE_HOLDINGS: "Hele bedrijven",
   },
 });
 
@@ -539,6 +612,11 @@ export const sectorLabel = vocabulary<NonNullable<Resource["sectors"]>[number]>(
     AGRICULTURE: "Agricultura",
     LIVESTOCK: "Pecuária",
     FORESTRY: "Silvicultura",
+  },
+  nl: {
+    AGRICULTURE: "Landbouw",
+    LIVESTOCK: "Veehouderij",
+    FORESTRY: "Bosbouw",
   },
 });
 
@@ -578,6 +656,12 @@ export const formatLabel = vocabulary<NonNullable<Resource["trainingFormats"]>[n
     ONLINE: "Online",
     HYBRID: "Mista",
     OTHER: "Outro",
+  },
+  nl: {
+    IN_PERSON: "Op locatie",
+    ONLINE: "Online",
+    HYBRID: "Hybride",
+    OTHER: "Overig",
   },
 });
 
@@ -645,6 +729,15 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
     LAND_SEEKER: "À procura de terras",
     GENERAL: "Qualquer pessoa",
   },
+  nl: {
+    YOUNG_FARMER: "Jonge boer",
+    NEW_ENTRANT: "Nieuwe of toekomstige boer",
+    SUCCESSOR: "Opvolger",
+    TRANSFEROR: "Wie een bedrijf overdraagt",
+    LANDOWNER: "Grondeigenaar",
+    LAND_SEEKER: "Op zoek naar grond",
+    GENERAL: "Iedereen",
+  },
 });
 
 /** What "anyone" becomes once the source has also named somebody: an addition, not the whole answer. */
@@ -655,6 +748,7 @@ const anyoneElse = vocabulary<"else">({
   fr: { else: "toute autre personne" },
   it: { else: "chiunque altro" },
   pt: { else: "qualquer outra pessoa" },
+  nl: { else: "alle anderen" },
 });
 
 /**
@@ -714,6 +808,12 @@ export const callStateLabel = vocabulary<Call["state"]>({
     CLOSED: "Fechado",
     NOT_PUBLISHED: "Não publicado",
   },
+  nl: {
+    UPCOMING: "Nog niet begonnen",
+    OPEN: "Open",
+    CLOSED: "Gesloten",
+    NOT_PUBLISHED: "Niet gepubliceerd",
+  },
 });
 
 export const channelLabel = vocabulary<ContactPoint["channel"]>({
@@ -723,6 +823,7 @@ export const channelLabel = vocabulary<ContactPoint["channel"]>({
   fr: { EMAIL: "Courriel", PHONE: "Téléphone", FORM: "Formulaire", OFFICE: "Bureau" },
   it: { EMAIL: "Email", PHONE: "Telefono", FORM: "Modulo", OFFICE: "Ufficio" },
   pt: { EMAIL: "Email", PHONE: "Telefone", FORM: "Formulário", OFFICE: "Balcão" },
+  nl: { EMAIL: "E-mail", PHONE: "Telefoon", FORM: "Formulier", OFFICE: "Loket" },
 });
 
 /** What happened, as a thing that happened rather than as an event class. */
@@ -793,6 +894,17 @@ export const newsTypeLabel = vocabulary<NewsItem["type"]>({
     FIGURE: "Número publicado",
     OTHER: "Aconteceu",
   },
+  nl: {
+    ANNOUNCEMENT: "Aangekondigd",
+    LAUNCH: "Van start gegaan",
+    CALL_OPENED: "Een aanvraagperiode is begonnen",
+    CALL_CLOSED: "Een aanvraagperiode is gesloten",
+    LAW_OR_REGULATION: "Regelgeving gepubliceerd",
+    CHANGE: "Gewijzigd",
+    DISCONTINUATION: "Beëindigd",
+    FIGURE: "Cijfer gepubliceerd",
+    OTHER: "Gebeurd",
+  },
 });
 
 const UNITS = countedVocabulary<Metric["unit"]>({
@@ -856,6 +968,16 @@ const UNITS = countedVocabulary<Metric["unit"]>({
     PEOPLE: ["pessoa", "pessoas"],
     HOURS: ["hora", "horas"],
   },
+  nl: {
+    EUR: ["euro", "euro"],
+    HECTARES: ["hectare", "hectare"],
+    PARCELS: ["perceel", "percelen"],
+    OFFERS: ["aanbieding", "aanbiedingen"],
+    PROPERTIES: ["object", "objecten"],
+    HOLDINGS: ["bedrijf", "bedrijven"],
+    PEOPLE: ["persoon", "personen"],
+    HOURS: ["uur", "uur"],
+  },
 });
 
 /** A published figure with its unit, written the way the language writes both. */
@@ -877,6 +999,7 @@ const LANGUAGE_NAMES = {
     fr: "French",
     gl: "Galician",
     it: "Italian",
+    nl: "Dutch",
     pt: "Portuguese",
   },
   es: {
@@ -888,6 +1011,7 @@ const LANGUAGE_NAMES = {
     fr: "francés",
     gl: "gallego",
     it: "italiano",
+    nl: "neerlandés",
     pt: "portugués",
   },
   de: {
@@ -899,6 +1023,7 @@ const LANGUAGE_NAMES = {
     fr: "Französisch",
     gl: "Galicisch",
     it: "Italienisch",
+    nl: "Niederländisch",
     pt: "Portugiesisch",
   },
   fr: {
@@ -910,6 +1035,7 @@ const LANGUAGE_NAMES = {
     fr: "français",
     gl: "galicien",
     it: "italien",
+    nl: "néerlandais",
     pt: "portugais",
   },
   it: {
@@ -921,6 +1047,7 @@ const LANGUAGE_NAMES = {
     fr: "francese",
     gl: "galiziano",
     it: "italiano",
+    nl: "olandese",
     pt: "portoghese",
   },
   pt: {
@@ -932,7 +1059,20 @@ const LANGUAGE_NAMES = {
     fr: "francês",
     gl: "galego",
     it: "italiano",
+    nl: "neerlandês",
     pt: "português",
+  },
+  nl: {
+    ca: "Catalaans",
+    de: "Duits",
+    en: "Engels",
+    es: "Spaans",
+    eu: "Baskisch",
+    fr: "Frans",
+    gl: "Galicisch",
+    it: "Italiaans",
+    nl: "Nederlands",
+    pt: "Portugees",
   },
 } as const satisfies Record<Language, Record<string, string>>;
 

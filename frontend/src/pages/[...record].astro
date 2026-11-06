@@ -34,6 +34,7 @@ import {
   placeOf,
   isDraft,
   languageOf,
+  localeOf,
   newsAbout,
   recordHref,
   records,
@@ -72,6 +73,7 @@ export function getStaticPaths() {
 
 const { resource, territory } = Astro.props;
 const language = languageOf(territory);
+const locale = localeOf(territory);
 const text = words(language);
 
 /** Every claim on this page cites one of the record's own sources, so each can be followed by number. */
@@ -249,7 +251,7 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
     ? [
         {
           label: text.latestPageDateRow,
-          value: dateIn(resource.lastEvidenceDate, language),
+          value: dateIn(resource.lastEvidenceDate, locale),
           datetime: resource.lastEvidenceDate,
           icon: ICON.date,
         },
@@ -257,7 +259,7 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
     : []),
   {
     label: editionNamed(currentEdition, language),
-    value: `${text.publishedOn} ${dateIn(territory.data.published, language)}`,
+    value: `${text.publishedOn} ${dateIn(territory.data.published, locale)}`,
     datetime: territory.data.published,
     icon: ICON.date,
   },
@@ -354,7 +356,7 @@ const reaches = leafLayers(territory.layer, territories)
           </div>
         )}
         <span hidden data-pagefind-meta={`area:${resource.scope.area ?? ""}`}></span>
-        <ApplyNow resource={resource} language={language} />
+        <ApplyNow resource={resource} language={language} locale={locale} />
         <p class="mt-8 flex flex-wrap gap-3" data-pagefind-ignore>
           <a href={resource.accessUrl} rel="noopener" class="btn btn-primary">
             <Icon name={ICON.external} aria-hidden="true" class="size-5 shrink-0" />
@@ -363,7 +365,7 @@ const reaches = leafLayers(territory.layer, territories)
           </a>
           <a href="#evidence" class="btn btn-quiet">
             <Icon name={ICON.evidence} aria-hidden="true" class="size-5 shrink-0" />
-            {counted(resource.sources.length, text.source, language)} · {counted(quotes, text.quote, language)}
+            {counted(resource.sources.length, text.source, locale)} · {counted(quotes, text.quote, locale)}
           </a>
         </p>
       </div>
@@ -418,10 +420,10 @@ const reaches = leafLayers(territory.layer, territories)
                 const cited = sourceNumber.get(metric.sourceUrl);
                 return (
                   <li class="rounded-r-lg border-s-4 border-accent bg-accent-tint p-5">
-                    <span class="block text-2xl font-bold text-ink tabular-nums">{quantity(metric.value, metric.unit, language)}</span>
+                    <span class="block text-2xl font-bold text-ink tabular-nums">{quantity(metric.value, metric.unit, locale)}</span>
                     <span class="mt-1 block">{metric.label}</span>
                     <span class="meta mt-1 block">
-                      {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, language)}</time>{" "}
+                      {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, locale)}</time>{" "}
                       {cited && <SourceRef number={cited} language={language} />}
                     </span>
                   </li>
@@ -442,12 +444,12 @@ const reaches = leafLayers(territory.layer, territories)
                 return (
                   <li class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
                     <span class="shrink-0 text-lg font-bold text-ink tabular-nums sm:w-44">
-                      {quantity(metric.value, metric.unit, language)}
+                      {quantity(metric.value, metric.unit, locale)}
                     </span>
                     <span>
                       {metric.label}
                       <span class="meta block">
-                        {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, language)}</time>{" "}
+                        {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, locale)}</time>{" "}
                         {cited && <SourceRef number={cited} language={language} />}
                       </span>
                     </span>
@@ -464,7 +466,7 @@ const reaches = leafLayers(territory.layer, territories)
               {text.periodsTitle}
             </h2>
             <div class="mt-4">
-              <CallWindows calls={resource.calls} sources={resource.sources} language={language} />
+              <CallWindows calls={resource.calls} sources={resource.sources} language={language} locale={locale} />
             </div>
           </section>
         )}
@@ -509,7 +511,7 @@ const reaches = leafLayers(territory.layer, territories)
               {news.map((item) => (
                 <li>
                   <p class="meta">
-                    <time datetime={item.date}>{dateIn(item.date, language)}</time> · {newsTypeLabel(item.type, language)}
+                    <time datetime={item.date}>{dateIn(item.date, locale)}</time> · {newsTypeLabel(item.type, language)}
                   </p>
                   <p class="font-semibold">{item.headline}</p>
                   <p class="max-w-3xl">{item.summary}</p>
@@ -520,7 +522,7 @@ const reaches = leafLayers(territory.layer, territories)
                           {source.title}
                         </a>
                         {", "}
-                        {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, language)}</time>
+                        {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, locale)}</time>
                       </li>
                     ))}
                   </ul>
@@ -548,7 +550,7 @@ const reaches = leafLayers(territory.layer, territories)
           {text.evidenceTitle}
         </h2>
         <div class="mt-2">
-          <Evidence sources={resource.sources} language={language} />
+          <Evidence sources={resource.sources} language={language} locale={locale} />
         </div>
       </div>
     </section>

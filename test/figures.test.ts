@@ -73,6 +73,11 @@ test("a date is one figure, not its three numbers", () => {
   assert.deepEqual(read("la graduatoria del 06.08.2026"), ["2026-08-06"], "decrees and German pages date with full stops");
 });
 
+test("an Austrian month name is a month, so an Austrian date is one figure", () => {
+  assert.deepEqual(read("bis 15. Jänner 2027"), ["2027-01-15"], "Austria writes Jänner where Germany writes Januar");
+  assert.deepEqual(read("am 3. Feber 2027"), ["2027-02-03"], "Feber is Austrian February");
+});
+
 test("a grouped amount is not a dotted date", () => {
   assert.deepEqual(read("Risorse a bando: 11.200.000,00 euro"), ["11200000 EUR"]);
 });

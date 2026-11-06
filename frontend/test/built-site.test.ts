@@ -356,7 +356,7 @@ test("the page for an address that does not exist speaks every language of the s
  * never been indexed at all. The links stay exactly as they are, and they stop asking to be followed.
  */
 test("a link to the correction form does not ask a crawler to follow it", () => {
-  const slugs = [...new Set(["en", "es", "de", "fr", "it", "pt"].map((language) => words(language).reportSlug))];
+  const slugs = [...new Set(["en", "es", "de", "fr", "it", "pt", "nl"].map((language) => words(language).reportSlug))];
   const toTheForm = new RegExp(`<a\\b[^>]*href="(/(?:[a-z]{2}/)?(?:${slugs.join("|")})/[^"]*)"[^>]*>`, "gu");
   let checked = 0;
   for (const { file, html } of pages) {

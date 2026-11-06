@@ -22,7 +22,7 @@ function row() {
   return { nodes, querySelector: (selector: string) => nodes.get(selector) ?? null };
 }
 
-for (const language of ["en", "es", "de", "fr", "it", "pt"]) {
+for (const language of ["en", "es", "de", "fr", "it", "pt", "nl"]) {
   test(`${language}: a live result labels source prose without changing translated interface labels`, () => {
     const result = row();
     setResultLanguage(result, { meta: { language } });

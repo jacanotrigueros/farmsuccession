@@ -10,6 +10,38 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.8.0 — 2026-11-07
+
+Austria's pages are read again in Austrian German and write their dates and
+money the Austrian way, and the site can now write Dutch. No record enters or
+leaves; what the site can do grows, so the middle digit moves. Version 1.7.0
+was closed but never published, so this is the first published version with
+Austria.
+
+### Austria, in its own German
+
+- **Every Austrian text a reader sees was read again** against the quotes of
+  its records: the national summary, the nine Länder and the five records. The
+  wording is plainer and addresses the reader as "Sie"; no figure, date,
+  quote or source changed.
+- **Dates and money are written as in Austria**: Jänner where Germany writes
+  Januar, and the euro sign before the amount. A country can now name how its
+  readers write dates and figures when that differs from its language.
+- The checks that compare figures in a text with its evidence read Jänner and
+  Feber as months.
+
+### Dutch
+
+- **The site writes Dutch**: every label, heading and explanation, and every
+  word the data's codes become, read by a native-level reviewer. No territory
+  is written in Dutch yet, so no page shows it until the Netherlands arrives.
+
+### Not data
+
+- A link to a local folder that entered the repository by mistake left it.
+
+369 records over 111 edition files, as in 1.7.0.
+
 ## 1.7.0 — 2026-11-07
 
 Austria enters as the sixth country, written in German, with a national layer
