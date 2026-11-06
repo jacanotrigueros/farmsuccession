@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "AT",
+    "region": "oberoesterreich"
+  },
+  "language": "de",
+  "updatedOn": "2026-11-06",
+  "context": [
+    "Die bundesweiten Maßnahmen (Niederlassungsprämie, Zahlung für Junglandwirtinnen und Junglandwirte, Konsolidierung, Sozialversicherung) stehen in der Datei für Österreich und gelten in Oberösterreich; hier gehören nur Zuschläge, Landeszuschüsse und eigene Angebote des Landes hin.",
+    "Beratung und Kurse in Oberösterreich kommen vor allem von Landwirtschaftskammer und LFI; deren Seiten untersagen die Speicherung ohne Zustimmung oder nennen keine Bedingungen."
+  ],
+  "portals": [],
+  "openData": [],
+  "queries": [
+    {
+      "id": "oberoesterreich-entry-search",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "land-oberoesterreich.gv.at Junglandwirte Hofübergabe Förderung Konsolidierung Oberösterreich"
+    }
+  ],
+  "leads": [
+    {
+      "id": "oberoesterreich-lk-hofuebergabe",
+      "name": "Landwirtschaftskammer Oberösterreich — Beratung zur Hofübergabe",
+      "url": "https://ooe.lko.at/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Die Landwirtschaftskammer berät in Oberösterreich zur Hofübergabe; nicht ausgewertet. Die Kammerseiten erlauben Links, untersagen aber Speicherung in Datenbanken und Vervielfältigung ohne Zustimmung; die Seiten des Fortbildungsinstituts nennen keine Nutzungsbedingungen. Nächster Schritt: gemeinsame Erlaubnisanfrage für Kammer- und LFI-Seiten, danach Angebot, Kosten und Zugang lesen.",
+      "foundBy": "at-state-handover",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "oberoesterreich-lfi-kurse",
+      "name": "LFI Oberösterreich — Kurse zu Hofübergabe, Hofübernahme und Facharbeiterausbildung",
+      "url": "https://ooe.lfi.at/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Kursangebot des Landesinstituts, nicht ausgewertet. Die Kammerseiten erlauben Links, untersagen aber Speicherung in Datenbanken und Vervielfältigung ohne Zustimmung; die Seiten des Fortbildungsinstituts nennen keine Nutzungsbedingungen. Nächster Schritt: gemeinsame Erlaubnisanfrage für Kammer- und LFI-Seiten, danach Angebot, Kosten und Zugang lesen.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "oberoesterreich-konsolidierung-landeszuschuss",
+      "name": "Konsolidierung landwirtschaftlicher Betriebe",
+      "url": "https://www.land-oberoesterreich.gv.at/14450.htm",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "oberoesterreich-konsolidierung-landeszuschuss",
+      "reason": "Landesseite am 06.11.2026 gelesen: Landeszuschuss zum Konsolidierungskredit, Förderwerbende, Voraussetzungen und Antragsweg über die Abteilung Land- und Forstwirtschaft. Die Nutzungsbedingungen des Landes stellen die Informationen kostenlos zur Weiterverwendung bereit.",
+      "foundBy": "at-state-entry",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "oberoesterreich-niederlassung-75-01",
+      "name": "Förderung der ersten Niederlassung von Junglandwirtinnen und Junglandwirten (75-01)",
+      "url": "https://www.land-oberoesterreich.gv.at/294232.htm",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Die Landesseite beschreibt die bundesweite Niederlassungsprämie, die auf Bundesebene dokumentiert ist; ein eigener Zuschlag des Landes ist darauf nicht belegt.",
+      "foundBy": "at-state-entry",
+      "checkedOn": "2026-11-06"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "at-land-niederlassung",
+      "status": "FOUND",
+      "leadId": "oberoesterreich-konsolidierung-landeszuschuss",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "expectedId": "at-land-hofuebergabe-beratung",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Die Beratung zur Hofübergabe bietet in Oberösterreich die Landwirtschaftskammer an; ihre Seiten sind wegen der Nutzungsbedingungen nicht ausgewertet (Lead oberoesterreich-lk-hofuebergabe). Kein Angebot der Landesregierung gefunden."
+    },
+    {
+      "expectedId": "at-land-ausbildung",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Kurse zur Facharbeiter- und Meisterausbildung veranstaltet das LFI; seine Seiten sind noch nicht ausgewertet (Lead oberoesterreich-lfi-kurse). Fachschulen und Lehrlings- und Fachausbildungsstelle wurden in diesem Durchgang nicht gesucht."
+    },
+    {
+      "expectedId": "at-land-flaechen-hofboerse",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Keine Hof- oder Flächenbörse mit eigener Reichweite in Oberösterreich gefunden; die österreichweite Perspektiven-Suche ist auf Bundesebene als offener Lead vermerkt."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-11-06",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Erster Durchgang für Oberösterreich nach Prompt 1.13.0: Landesseiten gesucht; Landeszuschuss zur Konsolidierung aufgenommen; Kammer- und LFI-Angebote bis zu einer Erlaubnis offen."
+    }
+  ]
+}

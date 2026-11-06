@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "COUNTRY",
+    "country": "AT"
+  },
+  "language": "de",
+  "updatedOn": "2026-11-06",
+  "context": [
+    "Österreich hat einen nationalen GAP-Strategieplan 2023–2027. Die Agrarmarkt Austria wickelt Direktzahlungen und die Projektförderungen über die Digitale Förderplattform ab; bewilligende oder beratende Stellen der Niederlassungsprämie sind je Bundesland die Landesregierung (Kärnten, Oberösterreich, Salzburg, Steiermark, Tirol) oder die Landwirtschaftskammer (Burgenland, Niederösterreich, Vorarlberg, Wien).",
+    "Die neun Bundesländer sind die regionalen Rechercheeinheiten. Jedes Land richtet eine eigene Landwirtschaftskammer ein; die Landwirtschaftskammer Österreich ist ein Dachverband. Bundesweite Maßnahmen gehören nicht in die Länderdateien, nur dort bewilligte Zuschläge, Landeszuschüsse und eigene Angebote.",
+    "Nutzungsrechte vor dem Zitieren prüfen: Die Agrarmarkt Austria stellt ihre Inhalte unter CC BY 4.0; das BMLUK erlaubt den Nachdruck außer zu kommerziellen Zwecken bei Quellenangabe; die SVS erklärt ihre Inhalte zu freien Werken nach § 7 UrhG und erlaubt die Weiterverwendung bis auf Widerruf mit Quellenangabe. Die Seiten der Landwirtschaftskammern (lko.at und die Länderkammern) erlauben Links, untersagen aber jede weitergehende Nutzung einschließlich der Speicherung in Datenbanken ohne Zustimmung; die Landjugend untersagt das Kopieren ohne schriftliche Genehmigung; das Transparenzportal erlaubt eine öffentliche Verwendung nur mit Zustimmung. Solche Quellen bleiben bis zu einer Erlaubnis offen.",
+    "Die Seite der AMA mit den Aufrufen und Fristen der Maßnahme 75-01 zeigt die Termine erst im Browser; der automatische Abruf liefert nur das Gerüst der Seite.",
+    "Der Zinsenzuschuss der Konsolidierungsförderung setzt einen Landeszuschuss voraus; die Abwicklungsstellen sind je Land verschieden (Landwirtschaftskammer, Amt der Landesregierung, in Tirol auch der Landeskulturfonds)."
+  ],
+  "portals": [
+    {
+      "name": "BMLUK Förderangebote in Kurz-Übersicht",
+      "url": "https://www.bmluk.gv.at/service/foerderungen/uebersicht.html",
+      "what": "Bundesweite Liste der Förderungen mit Förderungsgeber, beteiligten Ländern und Verweis auf den Eintrag im Transparenzportal."
+    },
+    {
+      "name": "AMA Digitale Förderplattform",
+      "url": "https://dfp.ama.at/foerderungen-fristen/75-01-bml/das-wichtigste-im-ueberblick",
+      "what": "Bedingungen, Merkblätter, Aufrufe und Kontaktstellen je Land der Projektförderungen, darunter die Niederlassung von Junglandwirtinnen und Junglandwirten."
+    },
+    {
+      "name": "BMLUK Sonderrichtlinien 2023–2027",
+      "url": "https://www.bmluk.gv.at/themen/landwirtschaft/gemeinsame-agrarpolitik-foerderungen/nationaler-strategieplan/foerderinfo/sonderrichtlinien-2023-2027/sonderrichtlinie-konsolidierung.html",
+      "what": "Rechtsgrundlagen der Förderungen mit den aktuellen Fassungen als PDF."
+    }
+  ],
+  "openData": [
+    {
+      "name": "data.gv.at",
+      "url": "https://www.data.gv.at/",
+      "how": "Die Sitemap https://www.data.gv.at/sitemaps/sitemap_index.xml listet die Datensätze; eine aktuelle Such-API wurde nicht bestätigt. Für Hofübergabe oder Niederlassung wurde kein einschlägiger Datensatz gefunden."
+    }
+  ],
+  "queries": [
+    {
+      "id": "at-national-handover",
+      "kinds": ["SUCCESSION_SERVICE", "ADVICE", "LAND_BANK"],
+      "query": "Österreich Hofnachfolge Hofübergabe Hofbörse Landwirtschaftskammer Perspektive Landwirtschaft"
+    },
+    {
+      "id": "at-national-support",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "Österreich Junglandwirte Niederlassung AMA 75-01 Agrarinvestitionskredit Konsolidierungskredit"
+    },
+    {
+      "id": "at-konsolidierung",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "bmluk.gv.at Sonderrichtlinie Konsolidierung Junglandwirtinnen Junglandwirte übernommen Betriebe",
+      "note": "Führt zur Seite der Sonderrichtlinie und zu den Seiten der Länder und Kammern, die sie abwickeln."
+    },
+    {
+      "id": "at-state-handover",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE", "TRAINING"],
+      "query": "{region} Hofübergabe Beratung Landwirtschaftskammer Seminar Hofübernahme"
+    },
+    {
+      "id": "at-state-entry",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "query": "{region} Niederlassungsprämie Junglandwirte Landeszuschuss Konsolidierungskredit"
+    },
+    {
+      "id": "at-state-training",
+      "kinds": ["TRAINING"],
+      "query": "{region} LFI Facharbeiter Landwirtschaft zweiter Bildungsweg Meister"
+    },
+    {
+      "id": "at-national-training",
+      "kinds": ["TRAINING"],
+      "query": "Österreich landwirtschaftliche Ausbildung LFI Hofübergabe"
+    }
+  ],
+  "leads": [
+    {
+      "id": "at-niederlassung-junglandwirte",
+      "name": "75-01-BML Förderung der Niederlassung von Junglandwirtinnen und Junglandwirten",
+      "url": "https://dfp.ama.at/foerderungen-fristen/75-01-bml/das-wichtigste-im-ueberblick",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "at-niederlassung-junglandwirte",
+      "reason": "Seite der AMA am 06.11.2026 gelesen: Gegenstand, Altersgrenze, Mindestfläche, Qualifikation, Prämie und Zuschläge, Antragsweg und Kontaktstellen je Land. Inhalte unter CC BY 4.0. Die Seite der Aufrufe und Fristen zeigt die Termine nur im Browser; keine Termine übernommen.",
+      "foundBy": "at-national-support",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "at-zahlung-junglandwirte",
+      "name": "Ergänzende Einkommensstützung für Junglandwirtinnen und Junglandwirte",
+      "url": "https://www.bmluk.gv.at/themen/landwirtschaft/gemeinsame-agrarpolitik-foerderungen/nationaler-strategieplan/direktzahlungen-ab-2023/unterstuetzungjunglandwirtinnenundjunglandwirte.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "at-zahlung-junglandwirte",
+      "reason": "Seite des BMLUK am 06.11.2026 gelesen: Definition Junglandwirt, Qualifikation, Betrag je Hektar, Höchstfläche und Dauer, Antrag im Mehrfachantrag. Nachdruck außer zu kommerziellen Zwecken bei Quellenangabe erlaubt. Die frühere Seite für die Zeit bis 2022 wurde nicht verwendet.",
+      "foundBy": "at-national-support",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "at-konsolidierung-junglandwirte",
+      "name": "Sonderrichtlinie Konsolidierung",
+      "url": "https://www.bmluk.gv.at/themen/landwirtschaft/gemeinsame-agrarpolitik-foerderungen/nationaler-strategieplan/foerderinfo/sonderrichtlinien-2023-2027/sonderrichtlinie-konsolidierung.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "at-konsolidierung-junglandwirte",
+      "reason": "Seite und Sonderrichtlinie in der Fassung der 2. Änderung (in Kraft 22.11.2024) am 06.11.2026 gelesen: Förderwerbende, Ausschluss reiner Forstbetriebe, Zinsenzuschuss, Kreditgrenzen, Laufzeit, Antragsfrist und Geltung bis 30. Juni 2030. Der Landeszuschuss und die Abwicklungsstelle je Land gehören in die Länderdateien.",
+      "foundBy": "at-konsolidierung",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "at-svs-hofuebergabe",
+      "name": "SVS Hofübergabe",
+      "url": "https://www.svs.at/cdscontent/?contentid=10007.816608&portal=svsportal",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "at-svs-hofuebergabe",
+      "reason": "Seite der SVS am 06.11.2026 gelesen: Melde- und Auskunftspflichten von Übergebenden und Übernehmenden, Fristen und Formulare. Inhalte nach § 7 UrhG frei, Weiterverwendung bis auf Widerruf mit Quellenangabe erlaubt.",
+      "foundBy": "at-national-handover",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "at-perspektive-landwirtschaft",
+      "name": "Perspektive Landwirtschaft — Perspektiven-Suche",
+      "url": "https://www.perspektive-landwirtschaft.at/perspektiven-suche/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "TO_CHECK",
+      "reason": "Österreichweiter Verein mit Vermittlung für außerfamiliäre Hofnachfolge, Pacht und Kooperation (Perspektiven-Suche), kostenlosem Selbstcheck, Beratungsgesprächen, Hofbesuchen und Bildungsangebot. Ein Steckbrief auf der Perspektiven-Suche wird erst nach Zahlung des Mitgliedsbeitrags freigeschaltet (laut FAQ 70 € regulär oder 120 € fördernd im Jahr); ohne Internet nimmt der Verein Interessierte in seine Kartei auf und schickt Anfragen per Post. Seiten am 06.11.2026 gelesen. Impressum und Datenschutz nennen keine Nutzungsbedingungen; erst nach einer Erlaubnis aufnehmen. Nächster Schritt: Erlaubnisanfrage durch den Gründer.",
+      "foundBy": "at-national-handover",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "at-lko-hofuebergabe",
+      "name": "Landwirtschaftskammer Österreich — Hofübergabe-Broschüre",
+      "url": "https://www.lko.at/hof%C3%BCbergabe-brosch%C3%BCre%2B2400%2B3610948",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Bundesweite Broschüre der Landwirtschaftskammern zur Hofübergabe; die Beratung selbst leisten die Landeskammern. Die Nutzungsbedingungen der Kammerseiten erlauben Links, untersagen aber Speicherung in Datenbanken und Vervielfältigung ohne Zustimmung. Nächster Schritt: Erlaubnisanfrage für die Kammerseiten, die auch für die Länderpässe nötig ist.",
+      "foundBy": "at-national-handover",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "at-landjugend-hofuebergabe",
+      "name": "Landjugend Österreich — Hofübergabe",
+      "url": "https://landjugend.at/programm/landwirtschaft-umwelt/hofuebergabe",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Programmseite der Landjugend zur Hofübergabe am 06.11.2026 gelesen. Das Impressum untersagt das Kopieren und Veröffentlichen von Inhalten ohne schriftliche Genehmigung. Nächster Schritt: Erlaubnisanfrage, danach Angebot, Termine und Zugang prüfen.",
+      "foundBy": "at-national-handover",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "at-lebensqualitaet-bauernhof",
+      "name": "Lebensqualität Bauernhof",
+      "url": "https://www.lebensqualitaet-bauernhof.at/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Beratungs- und Bildungsangebot im Umfeld der Landwirtschaftskammern, auch zu Generationenkonflikten bei der Hofübergabe. Das Impressum wurde ohne lesbaren Text abgerufen; Nutzungsbedingungen unbekannt. Nächster Schritt: Impressum im Browser lesen, Angebot und Betreiber bestätigen.",
+      "foundBy": "at-national-handover",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "at-aik",
+      "name": "Agrarinvestitionskredite (AIK)",
+      "url": "https://www.bmluk.gv.at/themen/landwirtschaft/gemeinsame-agrarpolitik-foerderungen/nationaler-strategieplan/aik-kreditvolumen-2026.html",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Allgemeine Investitionsförderung mit Zinsenzuschuss für alle landwirtschaftlichen Betriebe; die gelesene Seite stellt keinen eigenen Bezug zu Einstieg, Übernahme oder Hofnachfolge her. Der Konsolidierungskredit für Junglandwirte ist als eigene Maßnahme aufgenommen.",
+      "foundBy": "at-national-support",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "at-transparenzportal",
+      "name": "Transparenzportal — Förderungseinträge",
+      "url": "https://www.transparenzportal.gv.at/tdb/tp/leistung/1068204.html",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "REJECTED",
+      "reason": "Dient als Fundstelle, ersetzt aber nicht die Seiten der zuständigen Ministerien und der AMA, die dieselben Maßnahmen beschreiben. Die Nutzungsbedingungen erlauben eine öffentliche Verwendung nur mit Zustimmung.",
+      "foundBy": "at-national-support",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "at-lfi-hofuebernahme",
+      "name": "Ländliches Fortbildungsinstitut (LFI) — Kurse zu Hofübergabe und Hofübernahme",
+      "url": "https://www.lfi.at/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Die Landesinstitute des LFI veranstalten Kurse zur Hofübergabe und Hofübernahme; das Kursangebot wird je Land veröffentlicht und gehört in die Länderpässe. Die Seiten laufen auf der Plattform der Landwirtschaftskammern; das Impressum des LFI nennt keine Nutzungsbedingungen, die Kammerseiten untersagen Speicherung und Vervielfältigung ohne Zustimmung. Nächster Schritt: eine gemeinsame Erlaubnisanfrage für Kammer- und LFI-Seiten.",
+      "foundBy": "at-national-training",
+      "checkedOn": "2026-11-06"
+    }
+  ],
+  "expectedInstruments": [
+    {
+      "id": "at-land-niederlassung",
+      "name": "Landesstelle und Landeszuschüsse für Niederlassung und Konsolidierung prüfen",
+      "kinds": ["FINANCIAL_SUPPORT"],
+      "lookFor": "Ob das Land über die bundesweite Niederlassungsprämie 75-01 und den Bundeszuschuss zur Konsolidierung hinaus eigene Zuschläge, Landeszuschüsse oder eigene Aufrufe mit Fristen veröffentlicht, und welche Stelle sie bewilligt (Amt der Landesregierung, Landwirtschaftskammer, Landeskulturfonds). Die bundesweiten Bedingungen nicht wiederholen."
+    },
+    {
+      "id": "at-land-hofuebergabe-beratung",
+      "name": "Beratung zur Hofübergabe und Hofübernahme im Land prüfen",
+      "kinds": ["ADVICE", "SUCCESSION_SERVICE"],
+      "lookFor": "Hofübergabeberatung, Generationengespräche oder Mediation der Landwirtschaftskammer, des LFI oder von Vereinen im Land, mit Zugangsweg und Kosten. Vor dem Zitieren die Nutzungsbedingungen der Kammerseiten beachten."
+    },
+    {
+      "id": "at-land-ausbildung",
+      "name": "Ausbildung zur Facharbeiterin oder zum Facharbeiter und Meisterausbildung im Land prüfen",
+      "kinds": ["TRAINING"],
+      "lookFor": "Kurse des LFI, Fachschulen oder der Lehrlings- und Fachausbildungsstelle des Landes, die zur Facharbeiter- oder Meisterprüfung führen, auch auf dem zweiten Bildungsweg für Quereinsteigende; diese Qualifikation verlangen die Junglandwirte-Förderungen."
+    },
+    {
+      "id": "at-land-flaechen-hofboerse",
+      "name": "Hof- oder Flächenbörse und Vermittlung im Land prüfen",
+      "kinds": ["LAND_BANK", "SUCCESSION_SERVICE"],
+      "lookFor": "Hof- und Flächenbörsen, Pachtvermittlung oder Vermittlung außerfamiliärer Hofnachfolge durch Land, Kammer, Gemeinden oder Vereine, mit nachgewiesener Reichweite im Land."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-11-06",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Erste Länderpassage für Österreich nach Prompt 1.13.0, auf Grundlage der privaten Discovery vom 06.11.2026. Vier bundesweite Angebote aufgenommen (Niederlassungsprämie 75-01, Zahlung für Junglandwirtinnen und Junglandwirte, Konsolidierung bei Übernahme, SVS Hofübergabe). Nutzungsbedingungen je Quelle gelesen; Perspektive Landwirtschaft, Landwirtschaftskammern, Landjugend und Lebensqualität Bauernhof bleiben bis zu einer Erlaubnis oder Klärung offen. AIK und Transparenzportal abgelehnt. Die neun Bundesländer sind noch nicht recherchiert. Nachtrag: Mitgliedsbeitrag und Zugang der Perspektiven-Suche sowie die Bedingungen der LFI-Seiten gelesen; der SVS-Eintrag behält den Namen, den die Seite selbst trägt."
+    }
+  ]
+}
