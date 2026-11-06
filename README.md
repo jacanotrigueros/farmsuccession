@@ -38,20 +38,21 @@ than describing what it intends to be.
 | Territorial model (EU → country → hub → region)              | Implemented once, in `src/layers.ts`                                                                                                                  |
 | Offline validation: schema, semantics, whole-edition rules   | `npm run validate`                                                                                                                                    |
 | Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`                                                                                             |
-| The research process, with every version of it kept          | `prompts/`, currently 1.12.0                                                                                                                          |
+| The research process, with every version of it kept          | `prompts/`, currently 1.13.0                                                                                                                          |
 | The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                                                                                                    |
-| Published data                                               | The 2026 edition of the EU layer and five countries: 101 files, 319 records                                                                           |
-| The site                                                     | Builds from the data: 439 pages, scripts only for search, filtering and the application answer; published to Pages by hand, live at farmsuccession.eu |
+| Published data                                               | The 2026 edition of the EU layer and six countries: 111 files, 369 records                                                                            |
+| The site                                                     | Builds from the data: 509 pages, scripts only for search, filtering and the application answer; published to Pages by hand, live at farmsuccession.eu |
 
 ## What is published today
 
 The 2026 edition covers the European layer; Spain, with its three multi-island and
 multi-province groupings and its 28 regional territories; Germany, with its 16 Länder;
-France, with its 18 régions; Italy, with its 19 regions and two autonomous provinces; and
-Portugal, with its 9: **319 records**, each with the page it came from, the date that
-page was read and the words that were on it — 511 sources, 1,547 quotes, 493 distinct
-pages — plus 31 dated developments of the year and the 101 research briefs that say how
-each territory was searched, including the 231 leads that were considered and rejected.
+France, with its 18 régions; Italy, with its 19 regions and two autonomous provinces;
+Portugal, with its 9; and Austria, with its 9 Länder: **369 records**, each with the page
+it came from, the date that page was read and the words that were on it — 623 sources,
+2,012 quotes, 603 distinct pages — plus 34 dated developments of the year and the 111
+research briefs that say how each territory was searched, including the 253 leads that
+were considered and rejected.
 
 [**What the 2026 research found**](research/findings-2026.md) is the account of that
 work territory by territory: what each pass published, what it looked for and did not
