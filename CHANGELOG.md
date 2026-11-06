@@ -10,6 +10,41 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.7.0 — 2026-11-07
+
+Austria enters as the sixth country, written in German, with a national layer
+and a page for each of its nine Länder. Five records enter. The site can now
+carry a second country in a language it already writes, so the middle digit
+moves.
+
+### Austria: five records and nine Länder
+
+- **Nationally, four.** The 75-01 establishment aid for young farmers, with its
+  base premium and the supplements for taking over the whole holding, a master
+  qualification and farm accounts; the yearly payment for young farmers; the
+  interest subsidy on a consolidation loan for a young farmer who takes over an
+  indebted holding; and the social-insurance page on what a farm handover
+  obliges both sides to report.
+- **Oberösterreich adds its own interest subsidy** to the consolidation loan,
+  on top of the federal one.
+- **The other eight Länder have no record of their own yet.** Their pages show
+  the national and European support that applies there. Advice on handing a
+  farm over, the courses of the chambers and the Ländliches Fortbildungsinstitut,
+  the skilled-worker training of the Lehrlings- und Fachausbildungsstellen and
+  several Land pages are left out until their publishers allow the reuse; each
+  stays open in the Land's research brief with what it offers.
+
+### What the site does
+
+- **A second country writing a language the site already writes** gets its own
+  project and history pages, which name the first country's pages as their
+  original instead of posing as a second translation. Austria's German pages
+  point to Germany's.
+- Austria has its own addresses: `/at/suchen/`, `/at/angebote/` and
+  `/at/regionen/`.
+
+369 records over 111 edition files, against 364 over 101 in 1.6.1.
+
 ## 1.6.1 — 2026-11-06
 
 Nineteen records enter and nine say something different from what they did.
