@@ -10,6 +10,69 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.6.1 — 2026-11-06
+
+Nineteen records enter and nine say something different from what they did.
+The Sardegna young farmer call, which the site showed as closed on 31 October,
+is open until 30 November. Nothing the site does changes, so only the last
+digit moves.
+
+### Calls that moved
+
+- **Sardegna's SRE01 call for young farmers was extended** to 30 November 2026
+  by a determination of 28 October. The record quotes the dated determinations
+  and no longer gives an opening day, which the page no longer states.
+- **Puglia's SRD01.06 investment support** now says what it offers: up to 80%
+  of eligible productive investment, only for young farmers settled through
+  the 2025 call of submeasure 6.1. Its SRE01 record carries a newer reading of
+  its source.
+
+### Sources read again on 5 November
+
+- The Valencian young farmer procedure shows the same dates in a new layout,
+  and the Safer Auvergne-Rhône-Alpes lists its twelve departments without a
+  separator; both quotes follow the pages.
+- Guyane's FEADER installation page moved to a new address, quotes unchanged.
+  The Safer Guyane no longer writes "Guyane (973)" on its calls page, so the
+  quote and the two notes that rested on it are gone.
+- Catalonia's Banc de Terres record follows its home page's new wording.
+
+### France, Spain, Portugal, Italy and Germany: nineteen records enter
+
+- **France gains ten.** Nationally, Objectif Terres, the national platform for
+  land access and farm transfer, kept distinct from the regional Terre de Liens
+  services. In Provence-Alpes-Côte d'Azur: the Points Accueil Installation, the
+  2026 AITA programme, the Carmejane test farm, ADEAR 13's installation support
+  and Terre de Provence's help with notary and surveying costs. In
+  Nouvelle-Aquitaine: the pre-installation economic study, post-installation
+  follow-up, the 2026 AITA animation actions and ABDEA's installation and
+  transmission support in Béarn.
+- **Spain gains two.** RETA's national observatory of agricultural test
+  spaces, whose phase markers do not prove that places are open, and El
+  Planter, Catalonia's virtual office for joining farming. A facilitator lead
+  closed as part of El Planter rather than a second record, and the Real
+  Decreto 613/2001 lead closed without a record: its text was last updated in
+  2006 and offers no current application route.
+- **Portugal gains three.** RICTA, the Azores' interest subsidy for buying
+  land, renewed in July 2026, and in Centro two COAPE services: its land bank
+  for shepherds and its installation advice.
+- **Italy gains two.** The Banca della Terra di Sicilia, as a historical land
+  bank with no open 2026 route verified, and Puglia's 2026 online course for
+  young and new farmers, already held.
+- **Germany gains two.** Sachsen-Anhalt's young farmer network and the
+  Landwirtschaftskammer Niedersachsen's start-up coaching, which covers taking
+  over a holding. Two leads closed without a record: Berlin's Stadtgüter
+  manages its land in Brandenburg, and Bavaria's AELF offers general business
+  advice, not a distinct farm-transfer service.
+
+### Not data
+
+- Release notes no longer carry readings of how the site is found, and the
+  repository no longer holds strategy, measurement or promotion notes. The
+  rules and evidence that make the data publishable stay.
+
+364 records over 101 edition files, against 345 in 1.6.0.
+
 ## 1.6.0 — 2026-10-29
 
 Twenty-one records enter and nine say something different from what they did,
