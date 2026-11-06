@@ -126,7 +126,7 @@ test("the catalogue and the corpus name the same countries", () => {
     ),
   ].toSorted();
   assert.deepEqual(
-    countryCodes(territories),
+    countryCodes(territories).toSorted(),
     documented,
     "the catalogue and the edition files disagree about which countries exist: one of them is a port that only half landed",
   );

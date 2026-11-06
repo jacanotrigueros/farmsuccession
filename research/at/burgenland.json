@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "territory": {
+    "level": "REGION",
+    "country": "AT",
+    "region": "burgenland"
+  },
+  "language": "de",
+  "updatedOn": "2026-11-06",
+  "context": [
+    "Die bundesweiten Maßnahmen (Niederlassungsprämie, Zahlung für Junglandwirtinnen und Junglandwirte, Konsolidierung, Sozialversicherung) stehen in der Datei für Österreich und gelten im Burgenland; hier gehören nur Zuschläge, Landeszuschüsse und eigene Angebote des Landes hin.",
+    "Beratung und Kurse im Burgenland kommen vor allem von Landwirtschaftskammer und LFI; deren Seiten untersagen die Speicherung ohne Zustimmung oder nennen keine Bedingungen."
+  ],
+  "portals": [],
+  "openData": [],
+  "queries": [
+    {
+      "id": "burgenland-entry-search",
+      "kinds": ["FINANCIAL_SUPPORT", "ADVICE"],
+      "query": "Burgenland Landesförderung Junglandwirte Hofübernahme Land Burgenland Agrarförderung burgenland.at"
+    }
+  ],
+  "leads": [
+    {
+      "id": "burgenland-lk-hofuebergabe",
+      "name": "Landwirtschaftskammer Burgenland — Beratung zur Hofübergabe",
+      "url": "https://bgld.lko.at/",
+      "kind": "ADVICE",
+      "status": "TO_CHECK",
+      "reason": "Die Landwirtschaftskammer berät im Burgenland zur Hofübergabe; nicht ausgewertet. Die Kammerseiten erlauben Links, untersagen aber Speicherung in Datenbanken und Vervielfältigung ohne Zustimmung; die Seiten des Fortbildungsinstituts nennen keine Nutzungsbedingungen. Nächster Schritt: gemeinsame Erlaubnisanfrage für Kammer- und LFI-Seiten, danach Angebot, Kosten und Zugang lesen.",
+      "foundBy": "at-state-handover",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "burgenland-lfi-kurse",
+      "name": "LFI Burgenland — Kurse zu Hofübergabe, Hofübernahme und Facharbeiterausbildung",
+      "url": "https://bgld.lfi.at/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Kursangebot des Landesinstituts, nicht ausgewertet. Die Kammerseiten erlauben Links, untersagen aber Speicherung in Datenbanken und Vervielfältigung ohne Zustimmung; die Seiten des Fortbildungsinstituts nennen keine Nutzungsbedingungen. Nächster Schritt: gemeinsame Erlaubnisanfrage für Kammer- und LFI-Seiten, danach Angebot, Kosten und Zugang lesen.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "burgenland-niederlassung-75-01",
+      "name": "Förderung der ersten Niederlassung von Junglandwirtinnen und Junglandwirten (75-01)",
+      "url": "https://www.burgenland.at/themen/agrar/foerderungen/gemeinsame-agrarpolitik-strategieplan-2023-2027/foerderung-der-ersten-niederlassung-von-junglandwirtinnen-und-junglandwirten-75-01/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "REJECTED",
+      "reason": "Die Landesseite beschreibt die bundesweite Niederlassungsprämie, die auf Bundesebene dokumentiert ist; ein eigener Zuschlag des Landes ist darauf nicht belegt.",
+      "foundBy": "at-state-entry",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "burgenland-lfa-facharbeiter",
+      "name": "LFA Burgenland — Facharbeiter Landwirtschaft",
+      "url": "https://www.lehrlingsstelle.at/burgenland/landwirtschaft-bgld/landwirtschaft-facharbeiter-bgld/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Ausbildungswege zur Facharbeiterin oder zum Facharbeiter, auch im zweiten Bildungsweg; durch die Suche gefunden, nicht ausgewertet. Die Lehrlings- und Fachausbildungsstelle erlaubt die Übernahme von Texten nur mit schriftlicher Zustimmung.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
+    }
+  ],
+  "instrumentChecks": [
+    {
+      "expectedId": "at-land-niederlassung",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Gesucht: «Burgenland Landesförderung Junglandwirte Hofübernahme Land Burgenland Agrarförderung burgenland.at». Keine Landesseite mit eigenen Zuschlägen, Landeszuschüssen oder Aufrufen gefunden; die Treffer betrafen andere Länder oder die bundesweiten Maßnahmen, die auf Bundesebene dokumentiert sind und auch hier gelten."
+    },
+    {
+      "expectedId": "at-land-hofuebergabe-beratung",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Die Beratung zur Hofübergabe bietet im Burgenland die Landwirtschaftskammer an; ihre Seiten sind wegen der Nutzungsbedingungen nicht ausgewertet (Lead burgenland-lk-hofuebergabe). Kein Angebot der Landesregierung gefunden."
+    },
+    {
+      "expectedId": "at-land-ausbildung",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Gefunden, aber noch nicht aufnehmbar: Facharbeiterausbildung der LFA (Lead burgenland-lfa-facharbeiter), deren Texte nur mit schriftlicher Zustimmung übernommen werden dürfen."
+    },
+    {
+      "expectedId": "at-land-flaechen-hofboerse",
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-06",
+      "reason": "Keine Hof- oder Flächenbörse mit eigener Reichweite im Burgenland gefunden; die österreichweite Perspektiven-Suche ist auf Bundesebene als offener Lead vermerkt."
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-11-06",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Erster Durchgang für Burgenland nach Prompt 1.13.0: Landesseiten gesucht; kein eigenes Landesangebot aufgenommen; Kammer- und LFI-Angebote bis zu einer Erlaubnis offen."
+    },
+    {
+      "date": "2026-11-06",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Vertiefte Suche auf Landesseiten, Schulen und Lehrlings- und Fachausbildungsstellen; Nutzungsbedingungen je Domain gelesen. Neue Leads erfasst; nichts aufgenommen, weil die Bedingungen eine Zustimmung verlangen oder unklar sind."
+    }
+  ]
+}
