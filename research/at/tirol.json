@@ -60,6 +60,26 @@
       "reason": "Das Menü des Landeskulturfonds führt eine Grundstücksbörse sowie An- und Verkauf als landwirtschaftlicher Siedlungsträger; nicht geöffnet. Nächster Schritt: Seite lesen, Reichweite und Zugang prüfen, Nutzungsbedingungen klären.",
       "foundBy": "at-state-handover",
       "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "tirol-weiterbildung",
+      "name": "Land- und forstwirtschaftliche Weiterbildung",
+      "url": "https://www.tirol.gv.at/landwirtschaft-forstwirtschaft/agrar/bildung-und-schule/land-und-forstwirtschaftliche-weiterbildung/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Landesseite am 06.11.2026 gelesen: Vorbereitungslehrgänge und Fachkurse zur Berufsqualifikation für Erwachsene, auch für Hofübernehmende und Quereinsteigende. Das Land behält alle Rechte vor; eine Verwendung über die persönliche Information hinaus verlangt einen Antrag nach dem Tiroler Informationsweiterverwendungsgesetz. Nächster Schritt: Antrag stellen.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "tirol-lfa-facharbeiter",
+      "name": "LFA Tirol — Landwirtschaft",
+      "url": "https://www.lehrlingsstelle.at/tirol/landwirtschaft-t/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Seite am 06.11.2026 gelesen: Vorbereitungslehrgänge zur Facharbeiterprüfung, ausdrücklich auch für Hofübernehmende und Quereinsteigende. Die Lehrlings- und Fachausbildungsstelle erlaubt die Übernahme von Texten nur mit schriftlicher Zustimmung.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
     }
   ],
   "instrumentChecks": [
@@ -79,7 +99,7 @@
       "expectedId": "at-land-ausbildung",
       "status": "NOT_FOUND",
       "checkedOn": "2026-11-06",
-      "reason": "Kurse zur Facharbeiter- und Meisterausbildung veranstaltet das LFI; seine Seiten sind noch nicht ausgewertet (Lead tirol-lfi-kurse). Fachschulen und Lehrlings- und Fachausbildungsstelle wurden in diesem Durchgang nicht gesucht."
+      "reason": "Gefunden, aber noch nicht aufnehmbar: Weiterbildung des Landes und Vorbereitungslehrgänge der LFA (Leads tirol-weiterbildung, tirol-lfa-facharbeiter); das Land verlangt einen Antrag auf Weiterverwendung, die LFA eine schriftliche Zustimmung."
     },
     {
       "expectedId": "at-land-flaechen-hofboerse",
@@ -93,6 +113,11 @@
       "date": "2026-11-06",
       "by": "CLAUDE (claude-opus-5-5)",
       "summary": "Erster Durchgang für Tirol nach Prompt 1.13.0: Landesseiten gesucht; kein eigenes Landesangebot aufgenommen; Kammer- und LFI-Angebote bis zu einer Erlaubnis offen."
+    },
+    {
+      "date": "2026-11-06",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Vertiefte Suche auf Landesseiten, Schulen und Lehrlings- und Fachausbildungsstellen; Nutzungsbedingungen je Domain gelesen. Neue Leads erfasst; nichts aufgenommen, weil die Bedingungen eine Zustimmung verlangen oder unklar sind."
     }
   ]
 }

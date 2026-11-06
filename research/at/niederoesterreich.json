@@ -40,6 +40,36 @@
       "reason": "Kursangebot des Landesinstituts, nicht ausgewertet. Die Kammerseiten erlauben Links, untersagen aber Speicherung in Datenbanken und Vervielfältigung ohne Zustimmung; die Seiten des Fortbildungsinstituts nennen keine Nutzungsbedingungen. Nächster Schritt: gemeinsame Erlaubnisanfrage für Kammer- und LFI-Seiten, danach Angebot, Kosten und Zugang lesen.",
       "foundBy": "at-state-training",
       "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "niederoesterreich-berufsausbildung",
+      "name": "Berufsausbildung in der Land- und Forstwirtschaft",
+      "url": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Berufsausbildung_in_der_Land-_und_Forstwirtschaft.html",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Landesseite am 06.11.2026 gelesen: Wege zur Facharbeiter- und Meisterprüfung, auch für Erwachsene über die Lehrlings- und Fachausbildungsstelle. Das Impressum verlangt für jede Weiterverwendung außerhalb der Landesseiten eine schriftliche Genehmigung. Nächster Schritt: Erlaubnisanfrage an das Land.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "niederoesterreich-fachschulen",
+      "name": "Landwirtschaftliche Fachschulen",
+      "url": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Landwirtschaftliche_Fachschulen.html",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Landesseite am 06.11.2026 gelesen: Fachschulen des Landes, auch in Formen für Erwachsene. Gleiche Bedingungen wie die Seite zur Berufsausbildung.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "niederoesterreich-lfa-facharbeiter",
+      "name": "LFA Niederösterreich — Facharbeiterausbildung",
+      "url": "https://www.lehrlingsstelle.at/landwirtschaft-ablauf-facharbeiter-noe/",
+      "kind": "TRAINING",
+      "status": "TO_CHECK",
+      "reason": "Seite am 06.11.2026 gelesen: Ablauf der Facharbeiterausbildung, auch im zweiten Bildungsweg. Die Lehrlings- und Fachausbildungsstelle erlaubt die Übernahme von Texten nur mit schriftlicher Zustimmung.",
+      "foundBy": "at-state-training",
+      "checkedOn": "2026-11-06"
     }
   ],
   "instrumentChecks": [
@@ -59,7 +89,7 @@
       "expectedId": "at-land-ausbildung",
       "status": "NOT_FOUND",
       "checkedOn": "2026-11-06",
-      "reason": "Kurse zur Facharbeiter- und Meisterausbildung veranstaltet das LFI; seine Seiten sind noch nicht ausgewertet (Lead niederoesterreich-lfi-kurse). Fachschulen und Lehrlings- und Fachausbildungsstelle wurden in diesem Durchgang nicht gesucht."
+      "reason": "Gefunden, aber noch nicht aufnehmbar: Landesseiten zur Berufsausbildung und zu den Fachschulen und die Facharbeiterausbildung der LFA (Leads niederoesterreich-berufsausbildung, niederoesterreich-fachschulen, niederoesterreich-lfa-facharbeiter); Land und LFA verlangen eine schriftliche Zustimmung."
     },
     {
       "expectedId": "at-land-flaechen-hofboerse",
@@ -73,6 +103,11 @@
       "date": "2026-11-06",
       "by": "CLAUDE (claude-opus-5-5)",
       "summary": "Erster Durchgang für Niederösterreich nach Prompt 1.13.0: Landesseiten gesucht; kein eigenes Landesangebot aufgenommen; Kammer- und LFI-Angebote bis zu einer Erlaubnis offen."
+    },
+    {
+      "date": "2026-11-06",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Vertiefte Suche auf Landesseiten, Schulen und Lehrlings- und Fachausbildungsstellen; Nutzungsbedingungen je Domain gelesen. Neue Leads erfasst; nichts aufgenommen, weil die Bedingungen eine Zustimmung verlangen oder unklar sind."
     }
   ]
 }

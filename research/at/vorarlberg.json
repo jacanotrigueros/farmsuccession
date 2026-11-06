@@ -40,6 +40,16 @@
       "reason": "Kursangebot des Landesinstituts, nicht ausgewertet. Die Kammerseiten erlauben Links, untersagen aber Speicherung in Datenbanken und Vervielfältigung ohne Zustimmung; die Seiten des Fortbildungsinstituts nennen keine Nutzungsbedingungen. Nächster Schritt: gemeinsame Erlaubnisanfrage für Kammer- und LFI-Seiten, danach Angebot, Kosten und Zugang lesen.",
       "foundBy": "at-state-training",
       "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "vorarlberg-zinszuschuss-junguebernehmer",
+      "name": "Gewährung von Zinszuschüssen an Jungübernehmer in der Landwirtschaft",
+      "url": "https://vbg.lko.at/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "TO_CHECK",
+      "reason": "Laut Transparenzportal gewährt das Land Vorarlberg Zinszuschüsse an Personen, die einen Betrieb als Eigentümer übernehmen; der Antrag läuft über die Landwirtschaftskammer. Eine eigene Seite des Landes wurde nicht gefunden, und das Transparenzportal erlaubt eine öffentliche Verwendung nur mit Zustimmung. Nächster Schritt: Seite des Landes oder der Kammer finden und Erlaubnis klären.",
+      "foundBy": "at-state-entry",
+      "checkedOn": "2026-11-06"
     }
   ],
   "instrumentChecks": [
@@ -47,7 +57,7 @@
       "expectedId": "at-land-niederlassung",
       "status": "NOT_FOUND",
       "checkedOn": "2026-11-06",
-      "reason": "Gesucht: «vorarlberg.at Junglandwirte Hofübernahme Förderung Land Vorarlberg Landwirtschaft Hofübergabe». Keine Landesseite mit eigenen Zuschlägen, Landeszuschüssen oder Aufrufen gefunden; die Treffer betrafen andere Länder oder die bundesweiten Maßnahmen, die auf Bundesebene dokumentiert sind und auch hier gelten."
+      "reason": "Gefunden, aber noch nicht aufnehmbar: ein Zinszuschuss des Landes für Hofübernehmende (Lead vorarlberg-zinszuschuss-junguebernehmer), belegt nur im Transparenzportal; eine eigene Seite des Landes wurde nicht gefunden, der Antrag läuft über die Landwirtschaftskammer."
     },
     {
       "expectedId": "at-land-hofuebergabe-beratung",
@@ -73,6 +83,11 @@
       "date": "2026-11-06",
       "by": "CLAUDE (claude-opus-5-5)",
       "summary": "Erster Durchgang für Vorarlberg nach Prompt 1.13.0: Landesseiten gesucht; kein eigenes Landesangebot aufgenommen; Kammer- und LFI-Angebote bis zu einer Erlaubnis offen."
+    },
+    {
+      "date": "2026-11-06",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Vertiefte Suche auf Landesseiten, Schulen und Lehrlings- und Fachausbildungsstellen; Nutzungsbedingungen je Domain gelesen. Neue Leads erfasst; nichts aufgenommen, weil die Bedingungen eine Zustimmung verlangen oder unklar sind."
     }
   ]
 }

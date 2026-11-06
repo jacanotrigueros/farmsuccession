@@ -40,6 +40,16 @@
       "reason": "Kursangebot des Landesinstituts, nicht ausgewertet. Die Kammerseiten erlauben Links, untersagen aber Speicherung in Datenbanken und Vervielfältigung ohne Zustimmung; die Seiten des Fortbildungsinstituts nennen keine Nutzungsbedingungen. Nächster Schritt: gemeinsame Erlaubnisanfrage für Kammer- und LFI-Seiten, danach Angebot, Kosten und Zugang lesen.",
       "foundBy": "at-state-training",
       "checkedOn": "2026-11-06"
+    },
+    {
+      "id": "wien-foerderungswesen",
+      "name": "Landwirtschaftliches Förderungswesen",
+      "url": "https://www.wien.gv.at/umwelt/wasserrecht/agrarwesen/foerderungswesen.html",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "REJECTED",
+      "reason": "Seite am 06.11.2026 gelesen: Die Magistratsabteilung 58 verwaltet das Agrarbudget und erstellt Förderrichtlinien; ein eigenes Angebot der Stadt für Einstieg oder Übernahme ist darauf nicht belegt.",
+      "foundBy": "at-state-entry",
+      "checkedOn": "2026-11-06"
     }
   ],
   "instrumentChecks": [
@@ -47,7 +57,7 @@
       "expectedId": "at-land-niederlassung",
       "status": "NOT_FOUND",
       "checkedOn": "2026-11-06",
-      "reason": "Gesucht: «wien.gv.at Landwirtschaft Junglandwirte Förderung Hofübernahme Wien Stadtlandwirtschaft». Keine Landesseite mit eigenen Zuschlägen, Landeszuschüssen oder Aufrufen gefunden; die Treffer betrafen andere Länder oder die bundesweiten Maßnahmen, die auf Bundesebene dokumentiert sind und auch hier gelten."
+      "reason": "Gesucht: Seiten der Stadt Wien zu Agrarförderung, Junglandwirten und Hofübernahme. Die Seite des Förderungswesens (Lead wien-foerderungswesen) nennt kein eigenes Angebot der Stadt; die bundesweiten Maßnahmen gelten auch hier."
     },
     {
       "expectedId": "at-land-hofuebergabe-beratung",
@@ -73,6 +83,11 @@
       "date": "2026-11-06",
       "by": "CLAUDE (claude-opus-5-5)",
       "summary": "Erster Durchgang für Wien nach Prompt 1.13.0: Landesseiten gesucht; kein eigenes Landesangebot aufgenommen; Kammer- und LFI-Angebote bis zu einer Erlaubnis offen."
+    },
+    {
+      "date": "2026-11-06",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Vertiefte Suche auf Landesseiten, Schulen und Lehrlings- und Fachausbildungsstellen; Nutzungsbedingungen je Domain gelesen. Neue Leads erfasst; nichts aufgenommen, weil die Bedingungen eine Zustimmung verlangen oder unklar sind."
     }
   ]
 }
