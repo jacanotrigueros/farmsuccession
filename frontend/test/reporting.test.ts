@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readdirSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
@@ -117,4 +117,55 @@ test("a search that found nothing offers the reader the way to say so", () => {
     );
     assert.match(html, /<script[^>]*src="\/search\.js"/u, `${file} never loads the script that reveals the offer`);
   }
+});
+
+/** Preparing an email must be useful even when no mail application is configured. */
+test("preparing a report shows a copyable draft without navigating, and an edit invalidates it", async () => {
+  const { runInNewContext } = await import("node:vm");
+  class Select {
+    name = "issue";
+    value = "broken";
+    dataset = { mailLabel: "Qué ha cambiado" };
+    selectedIndex = 0;
+    options = [{ text: "El enlace oficial ya no funciona" }];
+  }
+  const detail = { name: "detail", value: "Revisar <texto> & comillas: café", dataset: { mailLabel: "Revisión" } };
+  const context = { name: "from", value: "/es/recursos/example/", dataset: { mailLabel: "Página" } };
+  const fields = [new Select(), detail, context];
+  const preview = { value: "", focus() {}, select() {} };
+  const openMail = { href: "mailto:contact@farmsuccession.eu" };
+  const draft = { hidden: true, contains: (target: unknown) => target === preview };
+  const listeners: Record<string, (event: { target?: unknown; preventDefault: () => void }) => void> = {};
+  const form = {
+    dataset: { subject: "[FarmSuccession] Corrección" },
+    reportValidity: () => true,
+    addEventListener: (type: string, listener: (typeof listeners)[string]) => (listeners[type] = listener),
+    querySelectorAll: () => fields,
+    querySelector: (selector: string) =>
+      ({ "[data-mail-draft]": draft, "[data-mail-preview]": preview, "[data-open-mail]": openMail })[selector],
+  };
+  const location = { search: "", href: "https://farmsuccession.eu/es/avisar/" };
+  runInNewContext(readFileSync(path.join(DIST, "report.js"), "utf8"), {
+    window: { location },
+    URLSearchParams,
+    HTMLSelectElement: Select,
+    document: {
+      querySelector: () => null,
+      querySelectorAll: (selector: string) => (selector === "form[data-report]" ? [form] : []),
+    },
+  });
+  let prevented = false;
+  listeners.submit!({ preventDefault: () => (prevented = true) });
+  assert.equal(prevented, true);
+  assert.equal(location.href, "https://farmsuccession.eu/es/avisar/", "preparing must not launch a mail application");
+  assert.equal(draft.hidden, false);
+  assert.equal(
+    preview.value,
+    "[FarmSuccession] Corrección\n\nQué ha cambiado: El enlace oficial ya no funciona\n\nRevisión: Revisar <texto> & comillas: café\n\nPágina: /es/recursos/example/",
+  );
+  const mail = new URL(openMail.href);
+  assert.equal(mail.searchParams.get("subject"), form.dataset.subject);
+  assert.equal(mail.searchParams.get("body"), preview.value.split("\n\n").slice(1).join("\n\n"));
+  listeners.input!({ target: detail, preventDefault() {} });
+  assert.equal(draft.hidden, true, "changed answers must not leave an obsolete draft available");
 });

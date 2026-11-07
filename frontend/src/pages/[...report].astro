@@ -150,6 +150,24 @@ const home = href(territory.layer);
             </a>
           </div>
           <p class="meta">{text.reportEmailFallback}</p>
+          <div hidden data-mail-draft class="grid gap-4 rounded-lg border border-brand bg-card p-5">
+            <p role="status" class="font-bold text-brand-strong">
+              {text.reportDraftReady}
+            </p>
+            <label for="missing-mail-draft" class="font-bold">
+              {text.reportDraftLabel}
+            </label>
+            <textarea
+              id="missing-mail-draft"
+              data-mail-preview
+              readonly
+              rows="10"
+              class="w-full rounded-lg border border-line-strong bg-page p-3"
+            ></textarea>
+            <a data-open-mail href="mailto:contact@farmsuccession.eu" class="btn btn-primary justify-self-start">
+              {text.reportOpenEmail}
+            </a>
+          </div>
         </form>
       </section>
 
@@ -236,6 +254,24 @@ const home = href(territory.layer);
             </a>
           </div>
           <p class="meta">{text.reportEmailFallback}</p>
+          <div hidden data-mail-draft class="grid gap-4 rounded-lg border border-brand bg-card p-5">
+            <p role="status" class="font-bold text-brand-strong">
+              {text.reportDraftReady}
+            </p>
+            <label for="correction-mail-draft" class="font-bold">
+              {text.reportDraftLabel}
+            </label>
+            <textarea
+              id="correction-mail-draft"
+              data-mail-preview
+              readonly
+              rows="10"
+              class="w-full rounded-lg border border-line-strong bg-page p-3"
+            ></textarea>
+            <a data-open-mail href="mailto:contact@farmsuccession.eu" class="btn btn-primary justify-self-start">
+              {text.reportOpenEmail}
+            </a>
+          </div>
         </form>
       </section>
 
@@ -312,6 +348,24 @@ const home = href(territory.layer);
             </a>
           </div>
           <p class="meta">{text.reportEmailFallback}</p>
+          <div hidden data-mail-draft class="grid gap-4 rounded-lg border border-brand bg-card p-5">
+            <p role="status" class="font-bold text-brand-strong">
+              {text.reportDraftReady}
+            </p>
+            <label for="looking-mail-draft" class="font-bold">
+              {text.reportDraftLabel}
+            </label>
+            <textarea
+              id="looking-mail-draft"
+              data-mail-preview
+              readonly
+              rows="10"
+              class="w-full rounded-lg border border-line-strong bg-page p-3"
+            ></textarea>
+            <a data-open-mail href="mailto:contact@farmsuccession.eu" class="btn btn-primary justify-self-start">
+              {text.reportOpenEmail}
+            </a>
+          </div>
         </form>
       </section>
     </div>

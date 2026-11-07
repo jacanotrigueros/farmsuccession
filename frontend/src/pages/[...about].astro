@@ -60,6 +60,7 @@ const historyPath = territory.layer.level === "EU" ? `/${text.historySlug}/` : `
   </PageHeader>
 
   <div class="wrap grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
+    <OnThisPage sections={sections} language={language} />
     <div class="grid max-w-3xl content-start">
       <section class="py-8 first:pt-0" aria-labelledby="overview">
         <h2 id="overview" class="scroll-mt-6 text-2xl font-bold">
@@ -159,7 +160,5 @@ const historyPath = territory.layer.level === "EU" ? `/${text.historySlug}/` : `
         </p>
       </section>
     </div>
-
-    <OnThisPage sections={sections} language={language} />
   </div>
 </SiteLayout>
