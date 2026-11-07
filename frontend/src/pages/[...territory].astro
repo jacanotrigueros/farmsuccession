@@ -86,7 +86,9 @@ const groupings =
  */
 const hubOf = (child: Territory): Territory | undefined => view(child).layers.find(({ layer }) => layer.level === "HUB");
 const under = [
-  ...children.filter((child) => hubOf(child) === undefined).map((child) => ({ hub: undefined, members: [child] })),
+  ...children
+    .filter((child) => territory.layer.level !== "COUNTRY" || hubOf(child) === undefined)
+    .map((child) => ({ hub: undefined, members: [child] })),
   ...groupings
     .map((hub) => ({ hub, members: children.filter((child) => hubOf(child) === hub) }))
     .filter(({ members }) => members.length > 0),
@@ -155,19 +157,20 @@ const quoted = everythingHere.reduce((total, { sources }) => total + sources.red
 const about = (forms: readonly [string, string], howMany: number): string => counted(howMany, forms, locale).replace("{where}", name);
 
 /**
- * A country answers with everything that applies in it, how many territories it has and how much
- * evidence is behind that. A territory answers with the two figures that are actually different there:
+ * A country or grouping with children counts the complete search scope and its territories.
+ * A leaf territory answers with the two figures that are actually different there:
  * what was written for it, and what reaches it from a wider layer.
  */
-const figures = isCountry
-  ? [
-      { icon: ICON.resources, value: everythingHere.length, label: about(text.statApplicable, everythingHere.length) },
-      { icon: ICON.territory, value: children.length, label: counted(children.length, text.statTerritories, locale) },
-    ]
-  : [
-      { icon: ICON.resources, value: own.length, label: about(text.statOwn, own.length) },
-      { icon: ICON.scope, value: inheritedCount, label: about(text.statOtherScopes, inheritedCount) },
-    ];
+const figures =
+  children.length > 0
+    ? [
+        { icon: ICON.resources, value: everythingHere.length, label: about(text.statApplicable, everythingHere.length) },
+        { icon: ICON.territory, value: children.length, label: counted(children.length, text.statTerritories, locale) },
+      ]
+    : [
+        { icon: ICON.resources, value: own.length, label: about(text.statOwn, own.length) },
+        { icon: ICON.scope, value: inheritedCount, label: about(text.statOtherScopes, inheritedCount) },
+      ];
 /** How the country's total divides: what the country itself documented, and what Europe adds to it. */
 const split = text.applicableSplit
   .replace("{own}", counted(own.length + below, text.record, locale))
@@ -197,11 +200,6 @@ const countsOf = (child: Territory): string =>
     .replace("{own}", counted(child.data.resources.length, text.territoryOwnWord, locale))
     .replace("{total}", counted(view(child).resources.length, text.territoryTotalWord, locale));
 
-/** The records of a grouping are the ones its territories share: the search that shows them is theirs. */
-const slugOf = (place: Territory): string => (place.layer.level === "REGION" ? `${country}/${place.layer.region}` : "");
-const sharedSearch = (members: Territory[]): string =>
-  searchUrl("/", { country: country || null, selected: { territory: members.map(slugOf).filter(Boolean) } });
-
 /** The heading of the records this territory recorded, and the sentence under a country's own. */
 const alsoTitle = (inheritedCount === 1 ? text.alsoApplies[0] : text.alsoApplies[1])
   .replace("{count}", counted(inheritedCount, text.record, locale))
@@ -228,8 +226,14 @@ const recordCount = howMany("{count}");
  * Searching from a territory searches its country, with this territory already chosen — never the European
  * search, which would show a reader schemes that do not apply where they are. A country searches itself.
  */
-const pinned = territory.layer.level === "REGION" ? [{ name: "territory", value: `${country}/${territory.layer.region}` }] : [];
-const selected = Object.fromEntries(pinned.map((field) => [field.name, [field.value]]));
+const scopedRegions =
+  territory.layer.level === "REGION"
+    ? [`${country}/${territory.layer.region}`]
+    : territory.layer.level === "HUB"
+      ? children.flatMap(({ layer }) => (layer.level === "REGION" ? [`${country}/${layer.region}`] : []))
+      : [];
+const pinned = scopedRegions.map((value) => ({ name: "territory", value }));
+const selected: Record<string, string[]> = scopedRegions.length > 0 ? { territory: scopedRegions } : {};
 const pinnedQuery = queryFromState({ selected }, country || undefined);
 const searchHere = (kinds: readonly string[]) => searchUrl("/", { country: country || null, selected: { ...selected, kind: [...kinds] } });
 
@@ -331,7 +335,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
               </h3>
               {hub.data.resources.length > 0 && (
                 <p class="meta mt-1">
-                  <a class="inline-flex min-h-(--spacing-target) items-center underline" href={sharedSearch(members)}>
+                  <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${href(hub.layer)}#own`}>
                     {counted(hub.data.resources.length, text.sharedRecords, locale)}
                   </a>
                 </p>

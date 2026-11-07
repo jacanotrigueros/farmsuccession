@@ -1,5 +1,5 @@
 ---
-/** A grid of record cards. Two columns, because a third makes the summary of each one too narrow to read. */
+/** Divided rows reduce the visual weight of long regional lists; two columns retain a readable measure. */
 import ResourceCard from "./ResourceCard.astro";
 import type { Resource, Territory } from "../lib/corpus.ts";
 
@@ -11,8 +11,8 @@ type Props = {
 const { items, language, level = "h3" } = Astro.props;
 ---
 
-<ul data-records class="grid gap-5 md:grid-cols-2">
+<ul data-records class="grid gap-x-8 md:grid-cols-2">
   {items.map(({ resource, recordedIn }) => (
-    <ResourceCard resource={resource} recordedIn={recordedIn} language={language} level={level} />
+    <ResourceCard resource={resource} recordedIn={recordedIn} language={language} level={level} compact />
   ))}
 </ul>

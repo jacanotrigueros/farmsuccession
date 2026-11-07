@@ -15,6 +15,7 @@
  * A record has exactly one page, under the country that recorded it. Every territory that inherits the
  * record links here rather than carrying a copy of the evidence at an address of its own.
  */
+import { resourcePlaceParts } from "../../public/resource-place.js";
 import { countryFilters, searchUrl } from "../../public/search-scope.js";
 import { Icon } from "astro-icon/components";
 import ApplyNow from "../components/ApplyNow.astro";
@@ -87,6 +88,7 @@ const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure
 /** How much evidence there is, which is what the way down to it says rather than naming the section. */
 const quotes = resource.sources.reduce((total, source) => total + source.quotes.length, 0);
 const place = placeOf(territory, text.euName);
+const servedPlace = resourcePlaceParts(place, resource.scope.area, text.reachRow, text.labelSeparator);
 
 /**
  * The title is the line a result shows, and somebody looking for an instrument looks for it where they
@@ -349,7 +351,10 @@ const browseHere = searchUrl("/", {
         <p class="mt-4 flex flex-wrap items-start gap-x-5 gap-y-2 text-muted">
           <span class="inline-flex min-w-0 items-start gap-1.5">
             <Icon name={ICON.territory} aria-hidden="true" class="mt-0.5 size-5 shrink-0" />
-            <span>{place}</span>
+            <span>
+              {servedPlace.label}
+              {servedPlace.area}
+            </span>
           </span>
           <span class="inline-flex min-w-0 items-start gap-1.5" data-pagefind-meta="operator">
             <Icon name={ICON.operator} aria-hidden="true" class="mt-0.5 size-5 shrink-0" />
