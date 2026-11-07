@@ -73,14 +73,17 @@ npm run build          # writes frontend/dist, which is output and is not commit
 
 The rules, which are requirements rather than preferences:
 
-- **The published pages make no third-party request and store nothing in the reader's
-  browser, and a page ships JavaScript only for something it actually carries.** The
+- **Reading the published pages makes no third-party request and stores nothing in the
+  reader's browser, and a page ships JavaScript only for something it actually carries.** The
   audience is often on a phone on a rural connection. Tests over `dist/` enforce all
   three: a page may load `/search.js` only if it has a search form, `/apply.js` only
   if it has an application-period block, `/filter.js` only if it has an in-page filter,
   and `/report.js` only if it has the public correction form; never inline, and nothing
   shipped to a browser — this project's code or the search engine's — may touch a cookie
-  or any storage.
+  or any storage. Explicit report delivery is the narrow exception: after configuration
+  under `decisions/037`, a visitor may submit a native form to the named Formspree
+  endpoint. Loading a page, typing, searching or editing never contacts that service.
+  No remote widget, script, CAPTCHA asset or background connection is permitted.
 - **Every enhancement sits on a page that is already complete.** Every record in scope
   is in the HTML before anything runs; the search field stays hidden until the index
   answers; a reader whose browser never gets there loses the typing, not the answer. A
@@ -274,8 +277,10 @@ the other way round.
 - No AI agent runtime in the pipeline. Discovery and drafting may use any
   practical means (scripts, open-data APIs, sitemaps, search, manual additions,
   ChatGPT, Claude), but what gets published is decided by deterministic checks.
-- The published site is cookie-free, has no analytics and makes no third-party
-  requests. What the project knows about its readers comes instead from Google
+- Reading the published site is cookie-free, has no analytics and makes no third-party
+  requests. Explicit form delivery is governed by `decisions/037`; an external
+  confirmation page has the provider's own privacy behaviour. What the project knows
+  about its readers comes instead from Google
   Search Console and Bing Webmaster Tools, which measure the search engines' own
   side: which pages they have indexed, what people searched for, which results
   they clicked. Both are verified through the DNS zone, so they add nothing to a

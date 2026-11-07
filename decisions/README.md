@@ -86,3 +86,4 @@ on the way in, which is the only honest reason for a measurement to move.
 | [034](034-an-inline-style-is-an-error.md)                         | The policy travels in the page; an inline style is an error    |
 | [035](035-a-measurement-defends-025.md)                           | A measurement defends 025, and says when to come back          |
 | [036](036-help-readers-choose-before-listing-everything.md)       | Help readers choose before listing everything                  |
+| [037](037-public-reports-use-explicit-form-delivery.md)           | Formspree delivery: pending setup and complete form migration  |
