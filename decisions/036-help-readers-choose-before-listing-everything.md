@@ -45,6 +45,44 @@ never collapsed, clamped or shortened. Regional disclosures contain directory
 links, not the source evidence itself. Inherited cards stay visible: a reader
 must still see resources that apply through wider layers.
 
+## Second interface pass
+
+The same proposal was extended on 2026-11-07 after the maintainer asked for a
+broader pass over interface wording and visual consistency. The maintainer will
+run the site and perform the visual review.
+
+- The home hero has a direct country-selection action alongside the complete
+  European catalogue, so choosing a place does not require scrolling first.
+- Topic cards use the existing category SVGs instead of four separate raster
+  illustrations. Country, grouping and regional pages use a compact version
+  with clear names and counts; the home retains the explanatory hints.
+- Empty topics say that no resource has yet been documented, rather than implying
+  that no service exists. Their text retains normal contrast.
+- Country headers concentrate on resources and territories. Source and quotation
+  counts move to the coverage section, where they explain the evidence.
+- Headings, introductory paragraphs and quotations have a reading measure. Flags
+  are inline with the heading instead of becoming a separate flex row on a phone.
+  Quotations remain complete and expanded.
+- Status tags get consistent symbols in both built cards and enhanced search
+  results. A short explanation on record pages separates operating status from an
+  open application period. Published figures get a direct page-index link; contact
+  forms get a descriptive action rather than a raw URL.
+- The search field has a question as its accessible label. A short hint explains
+  that resources retain their source language. Explicitly widening to Europe
+  keeps the query and thematic filters and drops geographic restrictions, even
+  when the national index fails to load.
+- Preparing a correction or suggestion shows a selectable email draft locally.
+  Opening an email application is a separate action; the draft can also be copied
+  into webmail. Changing an answer hides the obsolete draft. Without JavaScript,
+  the original mail form remains. Nothing is submitted by preparing the draft.
+- The intake page no longer jumps past its introduction on load. The record's
+  feedback copy asks for a concrete improvement instead of asking a yes/no question
+  that has no response control. Utility copy is excluded from the record's search
+  body.
+
+All new interface words are supplied for the seven supported languages. The
+underlying resource descriptions and quoted source material are not rewritten.
+
 ## Findings retained for further consideration
 
 - The search's existing pagination, active filters, empty-state recovery and
@@ -53,9 +91,9 @@ must still see resources that apply through wider layers.
 - A territory with no own records still shows what it inherits and says that its
   own coverage is empty. Keep that distinction; an empty local layer does not
   mean no applicable resources.
-- The correction form explicitly prepares email and prints the address. It still
-  depends on a configured mail application. Copying a prepared message could be
-  considered separately; this change does not add a submission service.
+- The correction form now offers a selectable draft as well as an explicit mail
+  action and a visible address. Sending still happens in the reader's email
+  service; this change does not add a submission service.
 - Country and record headings can be long, especially on phones. This proposal
   preserves the full source names, body size and touch targets rather than
   reducing type to squeeze them into a screenshot.
@@ -77,7 +115,8 @@ markup, accessibility structure and the no-storage/no-third-party contracts.
 The public desktop inspection is complete. A separate headless browser could
 not start in this execution environment (`socket() failed: Operation not
 permitted`), so screenshots and overflow checks of the modified build at 320px,
-390px and desktop widths are **not verified**. The draft needs that visual pass
-before merge, especially disclosure expansion and the reordered prose index.
+390px and desktop widths are **not verified**. The maintainer will perform that visual pass
+before merge, especially disclosure expansion, the reordered prose index, status
+symbols and the prepared-email flow.
 No before/after scroll reduction is claimed for the modified build without that
 measurement. This review is an inspection, not a usability study with readers.

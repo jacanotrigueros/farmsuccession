@@ -268,6 +268,7 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
 const sections = [
   ...(resource.whoCanUseIt ? [{ id: "who", label: text.whoTitle }] : []),
   { id: "access", label: text.accessTitle },
+  ...(forYou.length + otherFigures.length > 0 ? [{ id: "figures", label: text.figuresTitle }] : []),
   ...(resource.calls && resource.calls.length > 0 ? [{ id: "dates", label: text.navPeriods }] : []),
   ...(resource.contactPoints ? [{ id: "contacts", label: text.contactTitle }] : []),
   { id: "facts", label: text.factsTitle },
@@ -339,7 +340,10 @@ const browseHere = searchUrl("/", {
             <StatusTag status={resource.status} language={language} />
           </span>
         </p>
-        <h1 class="page-title mt-4 text-3xl text-balance sm:text-4xl" data-pagefind-meta="title">
+        <p class="meta mt-2 max-w-3xl" data-pagefind-ignore>
+          {text.statusExplained}
+        </p>
+        <h1 class="page-title mt-4 max-w-5xl text-3xl text-balance sm:text-4xl" data-pagefind-meta="title">
           {resource.name}
         </h1>
         <p class="mt-4 flex flex-wrap items-start gap-x-5 gap-y-2 text-muted">
@@ -353,7 +357,7 @@ const browseHere = searchUrl("/", {
           </span>
         </p>
         <h2 class="eyebrow mt-8">{text.offersTitle}</h2>
-        <p class="mt-2 text-lg" data-pagefind-meta="summary">
+        <p class="mt-2 max-w-3xl text-lg" data-pagefind-meta="summary">
           {resource.whatItOffers}
         </p>
         {isDraft(territory) && (
@@ -499,7 +503,7 @@ const browseHere = searchUrl("/", {
                     {contact.channel === "PHONE" && <a href={`tel:${contact.value.replace(/\s/gu, "")}`}>{contact.value}</a>}
                     {contact.channel === "FORM" && (
                       <a href={contact.value} rel="noopener">
-                        {contact.value}
+                        {text.openContactForm}
                       </a>
                     )}
                     {contact.channel === "OFFICE" && <span>{contact.value}</span>}
@@ -568,7 +572,7 @@ const browseHere = searchUrl("/", {
       </div>
     </section>
 
-    <section class="wrap py-8" aria-labelledby="helpful">
+    <section class="wrap py-8" aria-labelledby="helpful" data-pagefind-ignore>
       <p class="mb-6">
         <a href={browseHere} class="btn btn-quiet">
           {text.browseAll.replace("{where}", territory.data.officialName)}

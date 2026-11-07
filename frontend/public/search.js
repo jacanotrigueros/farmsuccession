@@ -19,7 +19,7 @@ import { resultDescription, setResultLanguage } from "/result-description.js";
  */
 import { resourcePlace } from "/resource-place.js";
 import { createEngine } from "/search-engine.js";
-import { effectiveFilters, facetsOf, queryFromState, scopeFromPath, stateFromQuery } from "/search-scope.js";
+import { effectiveFilters, europeanSearch, facetsOf, queryFromState, scopeFromPath, stateFromQuery } from "/search-scope.js";
 import { counted as countIn, numberIn } from "/locale.js";
 
 /** One page of results. Twenty is what a reader can read to the end before deciding to look further. */
@@ -92,7 +92,9 @@ if (form && state && resultsList && everything && template && askBlock && filter
 
     const status = row.querySelector("[data-result-status]");
     status.dataset.status = result.meta.status;
-    status.textContent = labelOf("status", result.meta.status);
+    const statusIcon = document.querySelector(`template[data-status-icon-for="${result.meta.status}"]`);
+    if (statusIcon) status.append(statusIcon.content.cloneNode(true));
+    status.append(labelOf("status", result.meta.status));
 
     row.querySelector("[data-result-operator]").textContent = result.meta.operator ?? "";
     const place = resourcePlace(result.meta.territory ?? "", result.meta.area, words.area, words.separator);
@@ -244,6 +246,8 @@ if (form && state && resultsList && everything && template && askBlock && filter
     const term = field.value.trim();
     const selected = chosen();
     const mine = (latest += 1);
+    const wider = form.querySelector("[data-widen]");
+    if (wider) wider.href = europeanSearch({ q: term, selected });
 
     if (push) {
       history.replaceState(null, "", `${location.pathname}${queryFromState({ q: term, selected }, scope.country)}`);
@@ -329,6 +333,8 @@ if (form && state && resultsList && everything && template && askBlock && filter
   };
 
   async function start() {
+    const wider = form.querySelector("[data-widen]");
+    if (wider) wider.href = europeanSearch(stateFromQuery(location.search, scope.country));
     try {
       engine = await createEngine({ bundles: "/pagefind/", languages });
     } catch {

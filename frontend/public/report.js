@@ -35,10 +35,14 @@ if (requested === "missing" || requested === "correction" || requested === "look
   for (const section of document.querySelectorAll("[data-report-section]")) {
     if (section.dataset.reportSection !== requested) section.hidden = true;
   }
-  document.querySelector(`[data-report-section="${requested}"]`)?.scrollIntoView();
 }
 
 for (const form of document.querySelectorAll("form[data-report]")) {
+  const draft = form.querySelector("[data-mail-draft]");
+  // A changed answer invalidates the prepared draft, so a stale message cannot be opened accidentally.
+  form.addEventListener("input", (event) => {
+    if (draft && !draft.contains(event.target)) draft.hidden = true;
+  });
   form.addEventListener("submit", (event) => {
     if (!form.reportValidity()) return;
     event.preventDefault();
@@ -53,7 +57,14 @@ for (const form of document.querySelectorAll("form[data-report]")) {
     }
 
     const subject = form.dataset.subject ?? "FarmSuccession";
-    window.location.href =
-      "mailto:contact@farmsuccession.eu?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n\n"));
+    const message = lines.join("\n\n");
+    const preview = form.querySelector("[data-mail-preview]");
+    const openMail = form.querySelector("[data-open-mail]");
+    if (!draft || !preview || !openMail) return;
+    preview.value = subject + "\n\n" + message;
+    openMail.href = "mailto:contact@farmsuccession.eu?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(message);
+    draft.hidden = false;
+    preview.focus();
+    preview.select();
   });
 }

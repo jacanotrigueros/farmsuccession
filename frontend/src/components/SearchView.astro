@@ -23,7 +23,7 @@ import { Icon } from "astro-icon/components";
 import Breadcrumbs from "./Breadcrumbs.astro";
 import ResourceCard from "./ResourceCard.astro";
 import type { Resource, Territory } from "../lib/corpus.ts";
-import { ICON, kindIcon } from "../lib/icons.ts";
+import { ICON, kindIcon, statusIcon } from "../lib/icons.ts";
 import { counted, words } from "../lib/words.ts";
 import { searchPath } from "../../public/search-scope.js";
 
@@ -59,6 +59,7 @@ const reportHome = country ? `/${country.toLowerCase()}/` : "/";
 const reportHref = `${reportHome}${text.reportSlug}/`;
 
 const kinds = [...new Set(listed.map(({ resource }) => resource.kind))];
+const statuses = [...new Set(listed.map(({ resource }) => resource.status))];
 
 /**
  * The groups that open themselves. A reader narrows by what a thing is and by whether it is operating
@@ -132,6 +133,7 @@ const strings = {
   <p class="mt-3 max-w-3xl" data-hint>
     {text.browseHint}
   </p>
+  <p class="meta mt-2 max-w-3xl">{text.searchLanguageHint}</p>
 
   <aside
     class="mt-5 max-w-3xl rounded-lg border border-line-strong bg-card p-5"
@@ -159,7 +161,7 @@ const strings = {
 
   <div hidden data-field class="mt-5 flex max-w-4xl flex-col gap-3 sm:flex-row">
     <label for="query" class="sr-only">
-      {text.searchAction}
+      {text.searchLabel}
     </label>
     <div class="relative flex-1">
       <Icon name={ICON.search} aria-hidden="true" class="pointer-events-none absolute top-1/2 left-4 size-6 -translate-y-1/2 text-muted" />
@@ -190,6 +192,7 @@ const strings = {
     <p class="mt-3">
       <a
         href={searchPath("/", undefined)}
+        data-widen
         class="inline-flex min-h-(--spacing-target) items-center gap-2 font-bold text-brand-strong underline underline-offset-2"
       >
         <Icon name={ICON.europe} aria-hidden="true" class="size-5" />
@@ -387,6 +390,12 @@ const strings = {
 {kinds.map((kind) => (
   <template data-icon-for={kind}>
     <Icon name={kindIcon(kind)} aria-hidden="true" />
+  </template>
+))}
+
+{statuses.map((status) => (
+  <template data-status-icon-for={status}>
+    <Icon name={statusIcon(status)} aria-hidden="true" class="size-4 shrink-0" />
   </template>
 ))}
 

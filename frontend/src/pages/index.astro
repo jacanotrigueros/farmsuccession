@@ -102,9 +102,15 @@ const trust = [
           button={text.searchAction}
           examples={text.searchExamples}
         />
-        <a href={searchUrl("/")} class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
-          {text.browseAcrossEurope}
-        </a>
+        <div class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <a href="#countries" class="btn btn-quiet">
+            <Icon name={ICON.territory} aria-hidden="true" class="size-5 shrink-0" />
+            {text.browseCountries}
+          </a>
+          <a href={searchUrl("/")} class="inline-flex min-h-(--spacing-target) items-center font-bold underline">
+            {text.browseAcrossEurope}
+          </a>
+        </div>
       </div>
     </div>
   </section>
