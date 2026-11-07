@@ -378,8 +378,13 @@ test("the sitemap lists every page the build produced, except the ones that ask 
   const built = pages.filter(({ file }) => file.endsWith("index.html"));
   const asked = (html: string) => /<meta\s+name="robots"\s+content="noindex/u.test(html);
   const address = ({ file }: { file: string }) => `/${file.replace(/index\.html$/u, "")}`;
+  const canonicalOf = (html: string) => /<link\s+rel="canonical"\s+href="([^"]+)"/u.exec(html)?.[1];
+  const aCopy = (page: { file: string; html: string }) => {
+    const canonical = canonicalOf(page.html);
+    return canonical !== undefined && canonical !== `https://farmsuccession.eu${address(page)}`;
+  };
 
-  const offered = built.filter(({ html }) => !asked(html)).map(address);
+  const offered = built.filter((page) => !asked(page.html) && !aCopy(page)).map(address);
   for (const page of offered) {
     assert.ok(listed.has(page), `${page} was built and is not in the sitemap, so nothing will find it unless a page links to it`);
   }
@@ -393,6 +398,12 @@ test("the sitemap lists every page the build produced, except the ones that ask 
     assert.ok(!listed.has(page), `${page} asks search engines not to index it and the sitemap offers it anyway`);
   }
   assert.ok(!xml.includes("/404/"), "the sitemap offers the page for addresses that do not exist");
+  // A page that names another as its original is a copy; offering it tells a search engine the opposite.
+  const copies = built.filter(aCopy).map(address);
+  assert.ok(copies.length > 0, "no page names another as its original, so this check proved nothing");
+  for (const page of copies) {
+    assert.ok(!listed.has(page), `${page} names another page as its original and the sitemap offers it anyway`);
+  }
 });
 
 /**
