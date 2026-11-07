@@ -13,7 +13,7 @@ record evidence, footer, navigation and translations were read in the repository
 This covers the distinct page types; it is not a claim that every URL or language
 was manually inspected.
 
-On the published Spain page at the browser's 1,350px-wide desktop viewport, the
+On the published Spain page in the initial desktop browser inspection, the
 page was about 12,558px tall. The needs heading started around 8,238px down,
 after the territorial navigation and an expanded directory of every record.
 National and European records then appeared again as full cards. Those are
@@ -142,11 +142,52 @@ The two sets must agree and the country list must contain no duplicate record
 destinations. Existing tests retain full quotations, dated call answers, language
 markup, accessibility structure and the no-storage/no-third-party contracts.
 
-The public desktop inspection is complete. A separate headless browser could
-not start in this execution environment (`socket() failed: Operation not
-permitted`), so screenshots and overflow checks of the modified build at 320px,
-390px and desktop widths are **not verified**. The maintainer will perform that visual pass
-before merge, especially disclosure expansion, the reordered prose index, status
-symbols and the prepared-email flow.
-No before/after scroll reduction is claimed for the modified build without that
-measurement. This review is an inspection, not a usability study with readers.
+The original headless-browser attempt could not start (`socket() failed:
+Operation not permitted`). A later pass successfully ran the built PR through
+Astro preview in the desktop environment and navigated it in Chrome at
+`http://127.0.0.1:4321`. No production deployment was needed.
+
+### Rendered-browser verification
+
+| Case                    | Observed result                                                                                                                                                                                                                                  |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Spain overview          | 136 resource links, 136 unique destinations; 28 regional disclosures initially closed.                                                                                                                                                           |
+| Cataluña filter         | Choosing land banks leaves eight visible rows: six own and two inherited. Counts update with the visible lists.                                                                                                                                  |
+| Canarias                | Seven island links render. The advice search retains all seven selected island territories; widening to Europe keeps ADVICE and drops the geographic filters.                                                                                    |
+| Madeira                 | Three separate call answers render with their own opening, closing and consultation dates. At the test date, two are open and one deadline has passed.                                                                                           |
+| Announced observatory   | With no documented call, the panel says documented availability and announced/not operating, rather than inventing an application period.                                                                                                        |
+| Municipal land resource | Madrid's municipal scope is visible in the record header.                                                                                                                                                                                        |
+| Correction draft        | Following the record's correction link preserves its context. Preparing shows selectable plain text without navigation or sending; editing the answer hides the obsolete draft. No email was sent or mail application opened.                    |
+| Narrow reflow           | At 400% browser zoom, a 340px CSS viewport showed no horizontal document overflow in Cataluña, Canarias or Madeira. The body font remained 17 CSS px. Zoom was restored afterwards. This is a reflow check, not phone emulation or a touch test. |
+
+The real-browser pass found a layout issue: a list-specific first-item padding
+exception put the first grid row's left and right tags 20px out of alignment.
+The territorial grid now overrides that exception; both items were rechecked
+at 20px top padding and the affected captures were refreshed.
+
+No errors from the local application's origin were observed in the collected
+console entries. The browser extension produced its own metadata errors; those
+are separate from the application. Browser policy blocked DevTools, so exact
+320px/390px device emulation and touch interaction remain unverified. No
+before/after percentage reduction in scrolling is claimed.
+
+### Screenshots from the local PR build
+
+These are unedited browser captures, stored as the JPEG bytes returned by the
+browser. They are documentation assets and are not shipped with the public site.
+
+Cataluña: land-bank filtering and compact, aligned rows.
+
+![Cataluña filtered resource rows](assets/036/cataluna-filtered.jpg)
+
+Canarias: all seven islands and the shared-resource section.
+
+![Canarias child territories](assets/036/canarias-children.jpg)
+
+Madeira: independent dated answers for three calls.
+
+![Madeira application periods](assets/036/madeira-calls.jpg)
+
+Correction: a selectable test draft, not a sent message.
+
+![Prepared correction draft](assets/036/correction-draft.jpg)

@@ -11,8 +11,15 @@ type Props = {
 const { items, language, level = "h3" } = Astro.props;
 ---
 
-<ul data-records class="grid gap-x-8 md:grid-cols-2">
+<ul data-records class="territory-records grid gap-x-8 md:grid-cols-2">
   {items.map(({ resource, recordedIn }) => (
     <ResourceCard resource={resource} recordedIn={recordedIn} language={language} level={level} compact />
   ))}
 </ul>
+
+<style>
+  /* A grid has two first-row items: the first item must not inherit a list-only padding exception. */
+  .territory-records > :global(.result-row:first-child) {
+    padding-top: 1.25rem;
+  }
+</style>
