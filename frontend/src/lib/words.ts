@@ -191,7 +191,14 @@ const EN = {
   reportLookingWhereHint: "Optional. A region, a province or a country.",
   reportLookingForm: "Did not find what you were looking for?",
   reportMailSubjectLooking: "[FarmSuccession] Not found",
-  helpfulQuestion: "Help improve this record",
+  helpfulQuestion: "Did this record help you?",
+  helpfulFeedbackLead:
+    "If something was missing or unclear, tell us what you needed. One sentence is enough; the record is included automatically.",
+  helpfulFeedbackAction: "Tell us what was missing",
+  reportFeedbackTitle: "This record did not help me",
+  reportFeedbackLabel: "What was missing for this record to help you?",
+  reportFeedbackHint: "For example: a clearer explanation, a useful link or a next step. Do not include private application details.",
+  reportMailSubjectFeedback: "[FarmSuccession] Record feedback",
   helpfulWriteIn: "If information is missing or incorrect, you can write to",
   removalLead:
     "Requests are reviewed manually. Before removing information, we confirm the request through an institutional contact published by the official source. Sending this form does not delete any record.",
@@ -524,7 +531,15 @@ const ES = {
   reportLookingWhereHint: "Opcional. Una región, una provincia o un país.",
   reportLookingForm: "¿No has encontrado lo que buscabas?",
   reportMailSubjectLooking: "[FarmSuccession] No encontrado",
-  helpfulQuestion: "Ayúdanos a mejorar esta ficha",
+  helpfulQuestion: "¿Te ha resultado útil esta ficha?",
+  helpfulFeedbackLead:
+    "Si faltaba algo o no se entendía bien, cuéntanos qué necesitabas. Con una frase basta; la ficha se incluye automáticamente.",
+  helpfulFeedbackAction: "Dinos qué te faltó",
+  reportFeedbackTitle: "Esta ficha no me ha ayudado",
+  reportFeedbackLabel: "¿Qué te faltó para que esta ficha te resultara útil?",
+  reportFeedbackHint:
+    "Por ejemplo: una explicación más clara, un enlace útil o un siguiente paso. No incluyas datos privados de solicitudes.",
+  reportMailSubjectFeedback: "[FarmSuccession] Comentario sobre una ficha",
   helpfulWriteIn: "Si falta información o hay algún error, puedes escribirnos a",
   removalLead:
     "Las solicitudes se revisan manualmente. Antes de retirar información, confirmamos la petición mediante un contacto institucional publicado en la fuente oficial. Enviar este formulario no elimina ninguna ficha.",
@@ -860,7 +875,15 @@ const DE = {
   reportLookingWhereHint: "Freiwillig. Ein Bundesland, ein Landkreis oder ein Land.",
   reportLookingForm: "Nicht gefunden, wonach Sie gesucht haben?",
   reportMailSubjectLooking: "[FarmSuccession] Nicht gefunden",
-  helpfulQuestion: "Helfen Sie, diesen Eintrag zu verbessern",
+  helpfulQuestion: "Hat Ihnen dieser Eintrag geholfen?",
+  helpfulFeedbackLead:
+    "Wenn etwas fehlte oder unklar war, sagen Sie uns, was Sie gebraucht hätten. Ein Satz genügt; der Eintrag wird automatisch mitgeschickt.",
+  helpfulFeedbackAction: "Sagen Sie uns, was gefehlt hat",
+  reportFeedbackTitle: "Dieser Eintrag hat mir nicht geholfen",
+  reportFeedbackLabel: "Was hat gefehlt, damit dieser Eintrag Ihnen hilft?",
+  reportFeedbackHint:
+    "Zum Beispiel eine klarere Erklärung, ein hilfreicher Link oder ein nächster Schritt. Senden Sie keine vertraulichen Antragsdaten.",
+  reportMailSubjectFeedback: "[FarmSuccession] Rückmeldung zu einem Eintrag",
   helpfulWriteIn: "Wenn Informationen fehlen oder falsch sind, schreiben Sie an",
   removalLead:
     "Anträge werden manuell geprüft. Vor einer Entfernung bestätigen wir den Antrag über einen institutionellen Kontakt aus der offiziellen Quelle. Das Absenden dieses Formulars löscht keinen Eintrag.",
@@ -1201,7 +1224,15 @@ const FR = {
   reportLookingWhereHint: "Facultatif. Une région, un département ou un pays.",
   reportLookingForm: "Vous n’avez pas trouvé ce que vous cherchiez ?",
   reportMailSubjectLooking: "[FarmSuccession] Introuvable",
-  helpfulQuestion: "Aidez à améliorer cette fiche",
+  helpfulQuestion: "Cette fiche vous a-t-elle aidé ?",
+  helpfulFeedbackLead:
+    "Si quelque chose manquait ou était peu clair, dites-nous ce dont vous aviez besoin. Une phrase suffit ; la fiche est incluse automatiquement.",
+  helpfulFeedbackAction: "Dites-nous ce qui manquait",
+  reportFeedbackTitle: "Cette fiche ne m’a pas aidé",
+  reportFeedbackLabel: "Que manquait-il pour que cette fiche vous aide ?",
+  reportFeedbackHint:
+    "Par exemple : une explication plus claire, un lien utile ou une prochaine étape. Ne communiquez pas de renseignements privés sur une demande.",
+  reportMailSubjectFeedback: "[FarmSuccession] Retour sur une fiche",
   helpfulWriteIn: "Si des informations manquent ou sont incorrectes, vous pouvez écrire à",
   removalLead:
     "Les demandes sont examinées manuellement. Avant tout retrait, nous confirmons la demande auprès d’un contact institutionnel publié par la source officielle. L’envoi de ce formulaire ne supprime aucune fiche.",
@@ -1539,7 +1570,15 @@ const IT = {
   reportLookingWhereHint: "Facoltativo. Una regione, una provincia o un paese.",
   reportLookingForm: "Non hai trovato quello che cercavi?",
   reportMailSubjectLooking: "[FarmSuccession] Non trovato",
-  helpfulQuestion: "Aiutaci a migliorare questa scheda",
+  helpfulQuestion: "Questa scheda ti è stata utile?",
+  helpfulFeedbackLead:
+    "Se mancava qualcosa o un punto non era chiaro, raccontaci cosa ti serviva. Basta una frase; la scheda viene inclusa automaticamente.",
+  helpfulFeedbackAction: "Dicci cosa mancava",
+  reportFeedbackTitle: "Questa scheda non mi ha aiutato",
+  reportFeedbackLabel: "Cosa mancava perché questa scheda ti fosse utile?",
+  reportFeedbackHint:
+    "Ad esempio: una spiegazione più chiara, un link utile o un passo successivo. Non includere dati privati delle domande.",
+  reportMailSubjectFeedback: "[FarmSuccession] Commento su una scheda",
   helpfulWriteIn: "Se mancano informazioni o trovi un errore, puoi scrivere a",
   removalLead:
     "Le richieste sono esaminate manualmente. Prima di rimuovere informazioni, confermiamo la richiesta tramite un contatto istituzionale pubblicato dalla fonte ufficiale. L’invio del modulo non elimina alcuna scheda.",
@@ -1874,7 +1913,15 @@ const PT = {
   reportLookingWhereHint: "Opcional. Uma região, um distrito ou um país.",
   reportLookingForm: "Não encontrou o que procurava?",
   reportMailSubjectLooking: "[FarmSuccession] Não encontrado",
-  helpfulQuestion: "Ajude a melhorar esta ficha",
+  helpfulQuestion: "Esta ficha foi útil?",
+  helpfulFeedbackLead:
+    "Se faltava algo ou não estava claro, diga-nos de que precisava. Basta uma frase; a ficha é incluída automaticamente.",
+  helpfulFeedbackAction: "Diga-nos o que faltava",
+  reportFeedbackTitle: "Esta ficha não me ajudou",
+  reportFeedbackLabel: "O que faltava para esta ficha lhe ser útil?",
+  reportFeedbackHint:
+    "Por exemplo: uma explicação mais clara, uma ligação útil ou um próximo passo. Não inclua dados privados de candidaturas.",
+  reportMailSubjectFeedback: "[FarmSuccession] Comentário sobre uma ficha",
   helpfulWriteIn: "Se faltarem informações ou encontrar um erro, pode escrever para",
   removalLead:
     "Os pedidos são analisados manualmente. Antes de remover informação, confirmamos o pedido através de um contacto institucional publicado na fonte oficial. Enviar este formulário não elimina nenhuma ficha.",
@@ -2217,7 +2264,15 @@ const NL = {
   reportLookingWhereHint: "Optioneel. Een regio, een provincie of een land.",
   reportLookingForm: "Niet gevonden wat u zocht?",
   reportMailSubjectLooking: "[FarmSuccession] Niet gevonden",
-  helpfulQuestion: "Help deze vermelding te verbeteren",
+  helpfulQuestion: "Heeft deze vermelding u geholpen?",
+  helpfulFeedbackLead:
+    "Als iets ontbrak of onduidelijk was, vertel dan wat u nodig had. Eén zin volstaat; de vermelding wordt automatisch meegestuurd.",
+  helpfulFeedbackAction: "Vertel wat er ontbrak",
+  reportFeedbackTitle: "Deze vermelding heeft mij niet geholpen",
+  reportFeedbackLabel: "Wat ontbrak er om deze vermelding nuttig te maken?",
+  reportFeedbackHint:
+    "Bijvoorbeeld: een duidelijkere uitleg, een nuttige link of een volgende stap. Vermeld geen privégegevens van aanvragen.",
+  reportMailSubjectFeedback: "[FarmSuccession] Reactie op een vermelding",
   helpfulWriteIn: "Ontbreekt er informatie of klopt er iets niet, schrijf dan naar",
   removalLead:
     "Verzoeken worden handmatig beoordeeld. Voordat we informatie verwijderen, bevestigen we het verzoek via een institutioneel contact dat in de officiële bron staat. Dit formulier versturen verwijdert geen vermelding.",

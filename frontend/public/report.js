@@ -26,7 +26,7 @@ if (contextBox && hasContext) contextBox.classList.remove("hidden");
 const looking = params.get("looking");
 if (looking) for (const field of document.querySelectorAll('[data-prefill="looking"]')) field.value = looking;
 
-const kinds = ["missing", "correction", "looking", "removal"];
+const kinds = ["missing", "correction", "looking", "feedback", "removal"];
 const requested = kinds.includes(params.get("type")) ? params.get("type") : "missing";
 
 for (const form of document.querySelectorAll("form[data-report]")) {
@@ -39,6 +39,13 @@ for (const form of document.querySelectorAll("form[data-report]")) {
       form.dataset.subject = reason.options[reason.selectedIndex]?.dataset.subject ?? "FarmSuccession";
       const subject = form.querySelector('[name="_subject"]');
       if (subject) subject.value = form.dataset.subject;
+      const option = reason.options[reason.selectedIndex];
+      const label = form.querySelector("[data-report-detail-label]");
+      const hint = form.querySelector("[data-report-detail-hint]");
+      const detail = form.querySelector('[name="detail"]');
+      if (label) label.textContent = option.dataset.detailLabel;
+      if (hint) hint.textContent = option.dataset.detailHint;
+      if (detail) detail.dataset.mailLabel = option.dataset.detailLabel;
       const source = form.querySelector("[data-report-source]");
       if (source) source.required = kind === "missing" || kind === "removal";
       const verification = form.querySelector("[data-removal-review]");

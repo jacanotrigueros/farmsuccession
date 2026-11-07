@@ -49,7 +49,7 @@ No paid plan, trial upgrade or cloud billing account is needed for the proposed 
 One message form lives in
 [`frontend/src/pages/[...report].astro`](../frontend/src/pages/[...report].astro),
 with a reason selector. Existing links retain `?type=missing`, `correction`,
-`looking` or `removal` to preselect the reason and carry their context. Changing the
+`looking`, `feedback` or `removal` to preselect the reason and carry their context. Changing the
 reason updates the fields and subject in place without discarding the message.
 `ReportDelivery.astro` supplies one configured native POST or the email fallback.
 
@@ -59,6 +59,13 @@ reason updates the fields and subject in place without discarding the message.
 | `correction`: report a change          | Resource detail and project contact page                                | Issue category, message, optional replacement URL and originating record context                                   |
 | `looking`: report an unmet search      | No-results offer in `SearchView.astro`, populated by `public/search.js` | Editable prefilled search wording, optional place and originating search context                                   |
 | `removal`: request a review of removal | Footer, project page or the shared selector                             | Affected public URL, message and the independent-verification notice; never an instruction to delete automatically |
+
+The shared selector also accepts `feedback` from a record's “tell us what was
+missing” action. It preserves the originating record, territory and page. Its
+message label asks what would make the record useful and suggests clarity, links
+or a next step, without requiring a second URL. It uses the same delivery,
+provider-hosted CAPTCHA, privacy notice and editorial review as other messages.
+This is a written comment, not a saved yes/no vote or an automatic content change.
 
 Relevant entry-point files are `src/pages/[...territory].astro`,
 `src/pages/[...record].astro`, `src/pages/[...about].astro`,

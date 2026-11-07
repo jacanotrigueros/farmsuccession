@@ -83,9 +83,15 @@ const fieldClass =
               ["missing", text.reportMissingTitle, text.reportMailSubjectMissing],
               ["correction", text.reportCorrectionTitle, text.reportMailSubjectCorrection],
               ["looking", text.reportLookingTitle, text.reportMailSubjectLooking],
+              ["feedback", text.reportFeedbackTitle, text.reportMailSubjectFeedback],
               ["removal", text.reportRemovalAction, text.reportMailSubjectRemoval],
             ].map(([kind, label, subject]) => (
-              <option value={kind} data-subject={subject}>
+              <option
+                value={kind}
+                data-subject={subject}
+                data-detail-label={kind === "feedback" ? text.reportFeedbackLabel : text.reportDetailLabel}
+                data-detail-hint={kind === "feedback" ? text.reportFeedbackHint : text.reportDetailHint}
+              >
                 {label}
               </option>
             ))}
@@ -122,10 +128,10 @@ const fieldClass =
           />
         </div>
         <div>
-          <label for="report-detail" class="block font-bold">
+          <label for="report-detail" data-report-detail-label class="block font-bold">
             {text.reportDetailLabel}
           </label>
-          <p id="report-detail-hint" class="meta mt-1">
+          <p id="report-detail-hint" data-report-detail-hint class="meta mt-1">
             {text.reportDetailHint}
           </p>
           <textarea

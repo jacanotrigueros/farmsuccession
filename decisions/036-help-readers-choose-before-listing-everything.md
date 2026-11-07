@@ -191,3 +191,30 @@ Madeira: independent dated answers for three calls.
 Correction: a selectable test draft, not a sent message.
 
 ![Prepared correction draft](assets/036/correction-draft.jpg)
+
+### Follow-up: make unhelpful records easy to report
+
+The record footer now asks whether the record helped and prioritises “tell us
+what was missing”. That action opens the shared intake with `type=feedback`,
+the record name, territory and original page already included. A distinct subject
+and focused message prompt distinguish usefulness comments from factual errors;
+the existing correction action remains alongside it.
+
+The implementation collects a written explanation through the existing intake.
+It adds no voting widget, background request, storage, success acknowledgement
+or yes/no counter. A click only opens the form; a message is sent explicitly
+through the configured transport. This lets a reader explain missing information,
+unclear wording or a missing next step without suggesting a vote was recorded.
+All seven interface dictionaries carry the copy. No new account or service is
+introduced; Formspree activation and its existing free allowance still apply.
+
+Verification: the frontend check passed with 159 tests, including corpus-wide
+checks that every record links to its own contextual feedback form and interaction
+checks that the message label, hint, mail label and subject follow the selected
+reason. In Chrome, the Madrid record's feedback action preselected the right
+reason and context; preparing a fictional email included the feedback prompt and
+message, without sending. Switching to correction and back restored each prompt,
+kept the message and invalidated the obsolete draft. The committed unconfigured
+transport was used; no provider receipt or CAPTCHA activation is claimed.
+
+![Record usefulness feedback with an actionable next step](assets/037/record-helpfulness.jpg)

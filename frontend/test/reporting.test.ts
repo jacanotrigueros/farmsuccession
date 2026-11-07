@@ -20,7 +20,7 @@ const reportPages = [
     .map(([iso, { lang }]) => ({ file: path.join(DIST, iso.toLowerCase(), words(lang).reportSlug, "index.html"), language: lang })),
 ];
 
-test("every jurisdiction has one localized intake with all four reasons and no account", () => {
+test("every jurisdiction has one localized intake with all five reasons and no account", () => {
   assert.equal(reportPages.length, Object.keys(catalogue.jurisdictions).length);
   for (const { file, language } of reportPages) {
     const html = readFileSync(file, "utf8");
@@ -29,7 +29,7 @@ test("every jurisdiction has one localized intake with all four reasons and no a
     assert.ok(html.includes(text.reportTitle));
     assert.equal([...html.matchAll(/<form\b/gu)].length, 1, `${file}: duplicate forms defeat the shared intake`);
     assert.match(html, /name="kind"[^>]*required/u);
-    for (const kind of ["missing", "correction", "looking", "removal"]) assert.ok(html.includes(`<option value="${kind}"`));
+    for (const kind of ["missing", "correction", "looking", "feedback", "removal"]) assert.ok(html.includes(`<option value="${kind}"`));
     assert.match(html, /name="detail"[^>]*required/u);
     assert.match(html, /name="source"[^>]*type="url"/u);
     assert.match(html, /name="issue"/u);
@@ -155,11 +155,11 @@ test("preparing a report shows a copyable draft without navigating, and an edit 
 
 test("reason changes preserve the message, scope fields and require independent removal review without intercepting POST", async () => {
   const { runInNewContext } = await import("node:vm");
-  const kinds = ["missing", "correction", "looking", "removal"];
+  const kinds = ["missing", "correction", "looking", "feedback", "removal"];
   const listeners: Record<string, () => void> = {};
   class Reason {
     selectedIndex = 0;
-    options = kinds.map((kind) => ({ dataset: { subject: `Subject ${kind}` } }));
+    options = kinds.map((kind) => ({ dataset: { subject: `Subject ${kind}`, detailLabel: `Label ${kind}`, detailHint: `Hint ${kind}` } }));
     get value() {
       return kinds[this.selectedIndex]!;
     }
@@ -175,7 +175,9 @@ test("reason changes preserve the message, scope fields and require independent 
   const source = { required: false };
   const verification = { hidden: false };
   const draft = { hidden: false };
-  const detail = { value: "" };
+  const detail = { value: "", dataset: { mailLabel: "" } };
+  const detailLabel = { textContent: "" };
+  const detailHint = { textContent: "" };
   const from = { value: "" };
   const safeText = { textContent: "" };
   const groups = ["correction", "looking"].map((kind) => ({
@@ -193,6 +195,9 @@ test("reason changes preserve the message, scope fields and require independent 
         (
           {
             "[data-report-kind]": reason,
+            "[data-report-detail-label]": detailLabel,
+            "[data-report-detail-hint]": detailHint,
+            '[name="detail"]': detail,
             '[name="_subject"]': subject,
             "[data-report-source]": source,
             "[data-removal-review]": verification,
@@ -237,6 +242,9 @@ test("reason changes preserve the message, scope fields and require independent 
     listeners.change!();
     assert.equal(form.dataset.kind, kind);
     assert.equal(subject.value, `Subject ${kind}`);
+    assert.equal(detailLabel.textContent, `Label ${kind}`);
+    assert.equal(detailHint.textContent, `Hint ${kind}`);
+    assert.equal(detail.dataset.mailLabel, `Label ${kind}`);
     assert.equal(source.required, kind === "missing" || kind === "removal");
     assert.equal(verification.hidden, kind !== "removal");
     assert.equal(detail.value, "Edited by visitor", "changing reason must not discard the message");
