@@ -3,7 +3,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
-import { recordSlug, regionSlug, SEARCH_SLUGS } from "../public/search-scope.js";
+import { recordSlug, regionSlug, searchPath, SEARCH_SLUGS } from "../public/search-scope.js";
 import { words } from "../src/lib/words.ts";
 
 /**
@@ -170,6 +170,8 @@ test("a country page links every one of its records by name", () => {
       .trim();
     const link = [...country.html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === address);
     assert.ok(link, `${country.file} does not link ${address}`);
+    const copies = [...country.html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].filter(([, href]) => href === address);
+    assert.equal(copies.length, 1, `${country.file} repeats ${address} in competing lists`);
     const linkedName = (link[2] ?? "")
       .replaceAll(/<[^>]*>/gu, " ")
       .replaceAll(/\s+/gu, " ")
@@ -178,6 +180,28 @@ test("a country page links every one of its records by name", () => {
     checked += 1;
   }
   assert.ok(checked > 250, `only ${checked} country records were checked; the index did not cover the corpus`);
+});
+
+/** The complete country catalogue survives progressive disclosure, including inherited EU records. */
+test("country entry pages expose the same unique record destinations as their complete search fallback", () => {
+  const recordAddresses = new Set(
+    pages.filter(({ html }) => html.includes("data-pagefind-body")).map(({ file }) => `/${file.replace(/index\.html$/u, "")}`),
+  );
+  assert.ok(recordAddresses.size > 250, "no complete record corpus to compare");
+  const listedRecords = (html: string) =>
+    [...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)]
+      .map(([, href]) => href!)
+      .filter((href) => recordAddresses.has(href))
+      .toSorted();
+  for (const iso of Object.keys(catalogueJurisdictions)) {
+    const country = pages.find(({ file }) => file === path.join(iso.toLowerCase(), "index.html"));
+    if (!country) continue;
+    const search = pages.find(({ file }) => file === path.join(searchPath("/", iso).slice(1), "index.html"));
+    assert.ok(search, `${iso}: missing complete national search fallback`);
+    const actual = listedRecords(country.html);
+    assert.equal(actual.length, new Set(actual).size, `${iso}: a resource destination is repeated`);
+    assert.deepEqual(actual, listedRecords(search.html), `${iso}: progressive disclosure lost or widened the country's records`);
+  }
 });
 
 /**

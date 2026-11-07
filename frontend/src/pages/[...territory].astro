@@ -4,8 +4,8 @@
  * a region. One route, because they are the same page — what differs is how much a reader inherits before
  * reaching it, and that is data.
  *
- * The page is a band that says where you are and what applies here, a strip of its own sections, the
- * territories under it, what a reader might have come to sort out, and then the records themselves in two
+ * The page opens with where you are and what applies here, then what a reader came to sort out, the
+ * territories under it, and the records themselves in two
  * groups: the ones this territory recorded, and the ones that reach it from a wider layer. The split is
  * the point. "This is ours" and "this applies in the whole country" are different answers to the same
  * question, no figure on the page credits a territory with another layer's instruments, and a reader who
@@ -108,12 +108,12 @@ const inheritedCount = inheritedGroups.reduce((total, { items }) => total + item
 const isCountry = territory.layer.level === "COUNTRY";
 
 /**
- * Every record that applies in a country, grouped by the layer that recorded it. The country page names
- * each one directly: the search remains useful for narrowing, but it is not the only page that exposes
- * the records below the national layer to readers and crawlers.
+ * The records below the national layer, once each. National and European records already have cards
+ * below; repeating their names in this directory made two competing lists of the same resources.
+ * Regional links stay in the HTML inside native disclosures, including without JavaScript.
  */
 const countryRecordGroups = isCountry
-  ? [territory, ...groupings, ...children, ...layers.filter((layer) => layer !== territory)]
+  ? [...groupings, ...children]
       .map((recordedIn) => ({
         name: recordedIn.layer.level === "EU" ? text.euName : recordedIn.data.officialName,
         recordedIn,
@@ -125,11 +125,11 @@ const countryRecordCount = countryRecordGroups.reduce((total, { items }) => tota
 
 /** The strip names the sections it leads to. Coverage closes the page and is not one of its answers. */
 const sections = [
-  ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle }] : []),
-  ...(countryRecordCount > 0 ? [{ id: "all-records", label: text.everythingHere }] : []),
   { id: "needs", label: text.navNeeds },
+  ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle }] : []),
   ...(isCountry && own.length === 0 ? [] : [{ id: "own", label: isCountry ? text.wholeCountryTitle : text.navOwn }]),
   ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav }] : []),
+  ...(countryRecordCount > 0 ? [{ id: "all-records", label: text.regionalRecordsTitle }] : []),
   ...(territory.data.news.some((item) => !item.resourceIds?.length) ? [{ id: "news", label: text.newsTitle }] : []),
   ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
 ];
@@ -187,11 +187,11 @@ const kinds = [...new Set([...own, ...inheritedGroups.flatMap(({ items }) => ite
   .toSorted((a, b) => lastOf(a.kind) - lastOf(b.kind) || a.label.localeCompare(b.label, language));
 
 /**
- * Whether this page has anything to narrow: more than one kind of record, and a section of its own to
- * hold the control. A country that documented nothing itself has no such section, and the handful of
- * European records that reach it are not a list anybody needs to filter.
+ * Regions and groupings can narrow all their cards locally. A country also carries a regional
+ * directory, which this filter cannot narrow: its complete national search is the filtering surface
+ * instead of a local control that silently ignores most of the country’s resources.
  */
-const narrows = kinds.length > 1 && !(isCountry && own.length === 0);
+const narrows = kinds.length > 1 && !isCountry;
 
 /** What a territory card says: written for it, and applicable there in total. */
 const countsOf = (child: Territory): string =>
@@ -305,6 +305,17 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
   <PageIndex sections={sections} language={language} />
 
+  <section class="border-y border-line bg-card" aria-labelledby="needs">
+    <div class="wrap py-12">
+      <Needs
+        resources={everythingHere}
+        language={language}
+        hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
+        hrefForKind={(kind) => searchHere([kind])}
+      />
+    </div>
+  </section>
+
   {(children.length > 0 || groupings.length > 0) && (
     <section class="wrap py-12" aria-labelledby="territories">
       <h2 id="territories" class="scroll-mt-6 text-2xl font-bold">
@@ -349,48 +360,6 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
       </ul>
     </section>
   )}
-
-  {countryRecordCount > 0 && (
-    <section class="border-y border-line bg-card" aria-labelledby="all-records">
-      <div class="wrap py-12">
-        <h2 id="all-records" class="scroll-mt-6 text-2xl font-bold">
-          {text.everythingHere}
-        </h2>
-        <p class="meta mt-1">{counted(countryRecordCount, text.record, locale)}</p>
-        <div class="mt-6 grid items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {countryRecordGroups.map(({ name: from, recordedIn, items }) => (
-            <section class="card p-5" aria-label={from}>
-              <h3 class="text-lg font-bold">{from}</h3>
-              <ul class="mt-3 grid gap-2">
-                {items.map((resource) => (
-                  <li>
-                    <a
-                      href={recordHref(resource.id, recordedIn)}
-                      lang={languageOf(recordedIn)}
-                      class="inline-flex min-h-(--spacing-target) items-center font-bold text-brand-strong underline"
-                    >
-                      {resource.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <section class="border-y border-line bg-card" aria-labelledby="needs">
-    <div class="wrap py-12">
-      <Needs
-        resources={everythingHere}
-        language={language}
-        hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
-        hrefForKind={(kind) => searchHere([kind])}
-      />
-    </div>
-  </section>
 
   {!(isCountry && own.length === 0) && (
     <section class="wrap py-12" aria-labelledby="own">
@@ -473,6 +442,42 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
           </div>
         </details>
       ))}
+    </section>
+  )}
+
+  {countryRecordCount > 0 && (
+    <section class="border-y border-line bg-card" aria-labelledby="all-records">
+      <div class="wrap py-12">
+        <h2 id="all-records" class="scroll-mt-6 text-2xl font-bold">
+          {text.regionalRecordsTitle}
+        </h2>
+        <p class="meta mt-1">{counted(countryRecordCount, text.record, locale)}</p>
+        <p class="mt-2 max-w-3xl text-muted">{text.regionalRecordsLead}</p>
+        <div class="mt-6 grid items-start gap-3 md:grid-cols-2">
+          {countryRecordGroups.map(({ name: from, recordedIn, items }) => (
+            <details class="regional-group card p-4">
+              <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
+                <h3 class="flex-1 text-lg font-bold">{from}</h3>
+                <span class="meta">{counted(items.length, text.record, locale)}</span>
+                <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0 text-brand-strong" />
+              </summary>
+              <ul class="mt-3 grid gap-2">
+                {items.map((resource) => (
+                  <li>
+                    <a
+                      href={recordHref(resource.id, recordedIn)}
+                      lang={languageOf(recordedIn)}
+                      class="inline-flex min-h-(--spacing-target) items-center font-bold text-brand-strong underline"
+                    >
+                      {resource.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
+        </div>
+      </div>
     </section>
   )}
 
@@ -560,9 +565,11 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
       border-top-width: 1px;
     }
   }
+  .regional-group > summary::-webkit-details-marker,
   .inherited-group > summary::-webkit-details-marker {
     display: none;
   }
+  .regional-group[open] > summary :global(.group-chevron),
   .inherited-group[open] > summary :global(.group-chevron) {
     transform: rotate(180deg);
   }

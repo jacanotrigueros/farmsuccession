@@ -198,7 +198,7 @@ const strings = {
     </p>
   )}
 
-  <div class="mt-10 grid gap-8 border-t border-line pt-8 lg:grid-cols-[18rem_minmax(0,1fr)]">
+  <div class="search-layout mt-10 grid gap-8 border-t border-line pt-8 lg:grid-cols-[18rem_minmax(0,1fr)]">
     {/*
      * The filters are a column of their own rather than a band across the top: a country has
      * twenty-eight territories, and twenty-eight checkboxes above the results pushed the results off
@@ -269,7 +269,7 @@ const strings = {
       </details>
     </aside>
 
-    <div class="min-w-0">
+    <div class="search-results min-w-0">
       <h2 id="results" class="sr-only" tabindex="-1">
         {text.resultsHeading}
       </h2>
@@ -393,6 +393,10 @@ const strings = {
 <script is:inline type="module" src="/search.js" defer></script>
 
 <style>
+  .search-layout > [data-filters][hidden] + .search-results {
+    grid-column: 1 / -1;
+  }
+
   /* The same divided row a listed record uses: the rule belongs to the first result as much as to the
      rest, except at the top of the list, where it would double the heading's own. */
   .result-row:first-child {
