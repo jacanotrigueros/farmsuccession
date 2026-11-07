@@ -1,6 +1,7 @@
 // @ts-check
 /**
- * Set the public endpoint after verifying the maintainer's Formspree Free inbox.
+ * Set the public endpoint after verifying the maintainer's Formspree Free inbox
+ * and enabling/testing provider-hosted CAPTCHA. A hidden field cannot enable it.
  * Empty keeps the working email fallback. This is never an account/API secret.
  * Setup and receipt checks: decisions/037-public-reports-use-explicit-form-delivery.md.
  */

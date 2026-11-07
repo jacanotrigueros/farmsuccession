@@ -151,14 +151,20 @@ const EN = {
   reportNewSourceLabel: "Public source that shows the change (optional)",
   reportNewSourceHint: "If you know a current official or provider page, paste it here.",
   reportPrepare: "Prepare email",
+  reportReasonLabel: "Reason for your message",
+  reportPublicPageLabel: "Public page URL",
+  reportPublicPageHint: "Include a public link when suggesting a resource or requesting removal. For other messages, it is optional.",
+  reportMailSubject: "[FarmSuccession] Public report",
   reportSend: "Send report",
   reportDeliveryPrivacy:
-    "When you send, Formspree processes your answers and technical data, including your IP address, in the United States to email the report to FarmSuccession. Confirmation opens on Formspree. No account or email address is required. Do not include private documents.",
+    "When you send, Formspree processes your answers and technical data, including your IP address, in the United States to email the report to FarmSuccession. Spam verification and confirmation take place on Formspree. No account or email address is required. Do not include private documents.",
   reportProviderPrivacy: "Formspree privacy policy",
   reportRemovalTitle: "Request removal from the directory",
   reportRemovalLead:
     "If you or your organisation would rather not appear here, tell us which public page to review. You can also contact us directly by email.",
   reportRemovalAction: "Request removal",
+  reportRemovalVerification:
+    "Requests are reviewed manually. Before removing information, we confirm the request through an institutional contact published by the official source. Sending this form does not delete any record.",
   reportRemovalUrlLabel: "Public page to remove",
   reportRemovalUrlHint: "The FarmSuccession page or the public resource concerned.",
   reportRemovalReasonLabel: "Additional information (optional)",
@@ -188,7 +194,7 @@ const EN = {
   helpfulQuestion: "Help improve this record",
   helpfulWriteIn: "If information is missing or incorrect, you can write to",
   removalLead:
-    "If you or your organisation would rather not appear in the inventory, write to the address below and the information will be removed.",
+    "Requests are reviewed manually. Before removing information, we confirm the request through an institutional contact published by the official source. Sending this form does not delete any record.",
   privacyTitle: "Privacy",
   privacyLead:
     "This site has no analytics, advertising cookies or account system. Search runs in your browser. The hosting provider may process technical access logs. Emailing us shares the information you choose to send.",
@@ -477,14 +483,20 @@ const ES = {
   reportNewSourceLabel: "Fuente pública que muestra el cambio (opcional)",
   reportNewSourceHint: "Si conoces una página oficial o del proveedor actual, pégala aquí.",
   reportPrepare: "Preparar correo",
+  reportReasonLabel: "Motivo del mensaje",
+  reportPublicPageLabel: "URL de la página pública",
+  reportPublicPageHint: "Incluye un enlace público si propones un recurso o solicitas una retirada. En los demás casos es opcional.",
+  reportMailSubject: "[FarmSuccession] Aviso",
   reportSend: "Enviar aviso",
   reportDeliveryPrivacy:
-    "Al enviar, Formspree trata tus respuestas y datos técnicos, incluida tu dirección IP, en Estados Unidos para entregar el aviso a FarmSuccession por correo. La confirmación se abre en Formspree. No necesitas cuenta ni indicar tu correo. No incluyas documentos privados.",
+    "Al enviar, Formspree trata tus respuestas y datos técnicos, incluida tu dirección IP, en Estados Unidos para entregar el aviso a FarmSuccession por correo. La verificación antispam y la confirmación se realizan en Formspree. No necesitas cuenta ni indicar tu correo. No incluyas documentos privados.",
   reportProviderPrivacy: "Privacidad de Formspree",
   reportRemovalTitle: "Solicitar la retirada del directorio",
   reportRemovalLead:
     "Si tú o tu organización preferís no aparecer aquí, indica qué página pública debemos revisar. También puedes escribirnos directamente por correo.",
   reportRemovalAction: "Solicitar retirada",
+  reportRemovalVerification:
+    "Las solicitudes se revisan manualmente. Antes de retirar información, confirmamos la petición mediante un contacto institucional publicado en la fuente oficial. Enviar este formulario no elimina ninguna ficha.",
   reportRemovalUrlLabel: "Página pública que quieres retirar",
   reportRemovalUrlHint: "La página de FarmSuccession o del recurso público afectado.",
   reportRemovalReasonLabel: "Información adicional (opcional)",
@@ -514,7 +526,8 @@ const ES = {
   reportMailSubjectLooking: "[FarmSuccession] No encontrado",
   helpfulQuestion: "Ayúdanos a mejorar esta ficha",
   helpfulWriteIn: "Si falta información o hay algún error, puedes escribirnos a",
-  removalLead: "Si tú o tu entidad no queréis aparecer en el inventario, escribe a la dirección siguiente y se retirará la información.",
+  removalLead:
+    "Las solicitudes se revisan manualmente. Antes de retirar información, confirmamos la petición mediante un contacto institucional publicado en la fuente oficial. Enviar este formulario no elimina ninguna ficha.",
   privacyTitle: "Privacidad",
   privacyLead:
     "Este sitio no utiliza analítica, cookies publicitarias ni cuentas de usuario. La búsqueda se ejecuta en tu navegador. El proveedor de alojamiento puede tratar registros técnicos de acceso. Al escribirnos compartes la información que decidas enviar.",
@@ -804,14 +817,21 @@ const DE = {
   reportNewSourceLabel: "Öffentliche Quelle für die Änderung (optional)",
   reportNewSourceHint: "Wenn Sie eine aktuelle offizielle Seite oder Anbieterseite kennen, fügen Sie sie hier ein.",
   reportPrepare: "E-Mail vorbereiten",
+  reportReasonLabel: "Grund Ihrer Nachricht",
+  reportPublicPageLabel: "URL der öffentlichen Seite",
+  reportPublicPageHint:
+    "Geben Sie einen öffentlichen Link an, wenn Sie ein Angebot vorschlagen oder eine Entfernung beantragen. Bei anderen Nachrichten ist er optional.",
+  reportMailSubject: "[FarmSuccession] Hinweis",
   reportSend: "Hinweis senden",
   reportDeliveryPrivacy:
-    "Beim Absenden verarbeitet Formspree Ihre Antworten und technische Daten, einschließlich Ihrer IP-Adresse, in den USA und leitet den Hinweis per E-Mail an FarmSuccession weiter. Die Bestätigung öffnet sich bei Formspree. Sie benötigen weder ein Konto noch eine eigene E-Mail-Adresse. Fügen Sie keine vertraulichen Dokumente bei.",
+    "Beim Absenden verarbeitet Formspree Ihre Antworten und technische Daten, einschließlich Ihrer IP-Adresse, in den USA und leitet den Hinweis per E-Mail an FarmSuccession weiter. Die Spamprüfung und die Bestätigung erfolgen bei Formspree. Sie benötigen weder ein Konto noch eine eigene E-Mail-Adresse. Fügen Sie keine vertraulichen Dokumente bei.",
   reportProviderPrivacy: "Datenschutzerklärung von Formspree",
   reportRemovalTitle: "Entfernung aus dem Verzeichnis beantragen",
   reportRemovalLead:
     "Wenn Sie oder Ihre Organisation hier nicht erscheinen möchten, nennen Sie uns die zu prüfende öffentliche Seite. Sie können uns auch direkt per E-Mail kontaktieren.",
   reportRemovalAction: "Entfernung beantragen",
+  reportRemovalVerification:
+    "Anträge werden manuell geprüft. Vor einer Entfernung bestätigen wir den Antrag über einen institutionellen Kontakt aus der offiziellen Quelle. Das Absenden dieses Formulars löscht keinen Eintrag.",
   reportRemovalUrlLabel: "Zu entfernende öffentliche Seite",
   reportRemovalUrlHint: "Die betroffene Seite auf FarmSuccession oder die öffentliche Seite des Angebots.",
   reportRemovalReasonLabel: "Weitere Angaben (optional)",
@@ -843,7 +863,7 @@ const DE = {
   helpfulQuestion: "Helfen Sie, diesen Eintrag zu verbessern",
   helpfulWriteIn: "Wenn Informationen fehlen oder falsch sind, schreiben Sie an",
   removalLead:
-    "Wenn Sie oder Ihre Organisation nicht im Verzeichnis erscheinen möchten, schreiben Sie an die untenstehende Adresse; die Angaben werden entfernt.",
+    "Anträge werden manuell geprüft. Vor einer Entfernung bestätigen wir den Antrag über einen institutionellen Kontakt aus der offiziellen Quelle. Das Absenden dieses Formulars löscht keinen Eintrag.",
   privacyTitle: "Datenschutz",
   privacyLead:
     "Diese Website nutzt keine Nutzungsanalyse, Werbe-Cookies oder Benutzerkonten. Die Suche läuft im Browser. Der Hostinganbieter kann technische Zugriffsprotokolle verarbeiten. Per E-Mail übermitteln Sie die Informationen, die Sie selbst auswählen.",
@@ -1137,14 +1157,21 @@ const FR = {
   reportNewSourceLabel: "Source publique montrant le changement (facultatif)",
   reportNewSourceHint: "Si vous connaissez une page officielle ou du fournisseur à jour, collez-la ici.",
   reportPrepare: "Préparer le courriel",
+  reportReasonLabel: "Motif du message",
+  reportPublicPageLabel: "URL de la page publique",
+  reportPublicPageHint:
+    "Ajoutez un lien public pour proposer une ressource ou demander un retrait. Pour les autres messages, il est facultatif.",
+  reportMailSubject: "[FarmSuccession] Signalement",
   reportSend: "Envoyer le signalement",
   reportDeliveryPrivacy:
-    "Lors de l’envoi, Formspree traite vos réponses et des données techniques, dont votre adresse IP, aux États-Unis pour transmettre le signalement à FarmSuccession par courriel. La confirmation s’ouvre sur Formspree. Aucun compte ni adresse courriel ne vous est demandé. Ne joignez pas de documents privés.",
+    "Lors de l’envoi, Formspree traite vos réponses et des données techniques, dont votre adresse IP, aux États-Unis pour transmettre le signalement à FarmSuccession par courriel. La vérification antispam et la confirmation ont lieu sur Formspree. Aucun compte ni adresse courriel ne vous est demandé. Ne joignez pas de documents privés.",
   reportProviderPrivacy: "Confidentialité de Formspree",
   reportRemovalTitle: "Demander un retrait du répertoire",
   reportRemovalLead:
     "Si vous ou votre organisation préférez ne pas figurer ici, indiquez la page publique à examiner. Vous pouvez aussi nous écrire directement par courriel.",
   reportRemovalAction: "Demander un retrait",
+  reportRemovalVerification:
+    "Les demandes sont examinées manuellement. Avant tout retrait, nous confirmons la demande auprès d’un contact institutionnel publié par la source officielle. L’envoi de ce formulaire ne supprime aucune fiche.",
   reportRemovalUrlLabel: "Page publique à retirer",
   reportRemovalUrlHint: "La page de FarmSuccession ou de la ressource publique concernée.",
   reportRemovalReasonLabel: "Précisions (facultatif)",
@@ -1177,7 +1204,7 @@ const FR = {
   helpfulQuestion: "Aidez à améliorer cette fiche",
   helpfulWriteIn: "Si des informations manquent ou sont incorrectes, vous pouvez écrire à",
   removalLead:
-    "Si vous ou votre organisme ne souhaitez pas figurer dans l’inventaire, écrivez à l’adresse ci-dessous et les informations seront retirées.",
+    "Les demandes sont examinées manuellement. Avant tout retrait, nous confirmons la demande auprès d’un contact institutionnel publié par la source officielle. L’envoi de ce formulaire ne supprime aucune fiche.",
   privacyTitle: "Confidentialité",
   privacyLead:
     "Ce site n’utilise ni analyse d’audience, ni cookies publicitaires, ni comptes utilisateurs. La recherche s’exécute dans votre navigateur. L’hébergeur peut traiter des journaux techniques d’accès. Un courriel partage les informations que vous choisissez d’envoyer.",
@@ -1470,14 +1497,20 @@ const IT = {
   reportNewSourceLabel: "Fonte pubblica che mostra il cambiamento (facoltativa)",
   reportNewSourceHint: "Se conosci una pagina ufficiale o del fornitore aggiornata, incollala qui.",
   reportPrepare: "Prepara email",
+  reportReasonLabel: "Motivo del messaggio",
+  reportPublicPageLabel: "URL della pagina pubblica",
+  reportPublicPageHint: "Includi un link pubblico se proponi una risorsa o chiedi una rimozione. Negli altri casi è facoltativo.",
+  reportMailSubject: "[FarmSuccession] Segnalazione",
   reportSend: "Invia segnalazione",
   reportDeliveryPrivacy:
-    "Al momento dell’invio, Formspree tratta le risposte e i dati tecnici, compreso l’indirizzo IP, negli Stati Uniti per recapitare la segnalazione a FarmSuccession via email. La conferma si apre su Formspree. Non servono un account o il tuo indirizzo email. Non includere documenti privati.",
+    "Al momento dell’invio, Formspree tratta le risposte e i dati tecnici, compreso l’indirizzo IP, negli Stati Uniti per recapitare la segnalazione a FarmSuccession via email. La verifica antispam e la conferma avvengono su Formspree. Non servono un account o il tuo indirizzo email. Non includere documenti privati.",
   reportProviderPrivacy: "Informativa sulla privacy di Formspree",
   reportRemovalTitle: "Richiedi la rimozione dal repertorio",
   reportRemovalLead:
     "Se tu o la tua organizzazione preferite non comparire qui, indica la pagina pubblica da esaminare. Puoi anche scriverci direttamente via email.",
   reportRemovalAction: "Richiedi la rimozione",
+  reportRemovalVerification:
+    "Le richieste sono esaminate manualmente. Prima di rimuovere informazioni, confermiamo la richiesta tramite un contatto istituzionale pubblicato dalla fonte ufficiale. L’invio del modulo non elimina alcuna scheda.",
   reportRemovalUrlLabel: "Pagina pubblica da rimuovere",
   reportRemovalUrlHint: "La pagina di FarmSuccession o della risorsa pubblica interessata.",
   reportRemovalReasonLabel: "Ulteriori informazioni (facoltative)",
@@ -1509,7 +1542,7 @@ const IT = {
   helpfulQuestion: "Aiutaci a migliorare questa scheda",
   helpfulWriteIn: "Se mancano informazioni o trovi un errore, puoi scrivere a",
   removalLead:
-    "Se tu o la tua organizzazione preferite non comparire nell’inventario, scrivete all’indirizzo seguente e le informazioni saranno rimosse.",
+    "Le richieste sono esaminate manualmente. Prima di rimuovere informazioni, confermiamo la richiesta tramite un contatto istituzionale pubblicato dalla fonte ufficiale. L’invio del modulo non elimina alcuna scheda.",
   privacyTitle: "Riservatezza",
   privacyLead:
     "Questo sito non utilizza analisi del traffico, cookie pubblicitari o account utente. La ricerca avviene nel browser. Il fornitore di hosting può trattare registri tecnici di accesso. Scrivendoci condividi le informazioni che scegli di inviare.",
@@ -1800,14 +1833,20 @@ const PT = {
   reportNewSourceLabel: "Fonte pública que mostra a alteração (opcional)",
   reportNewSourceHint: "Se conhece uma página oficial ou do fornecedor atual, cole-a aqui.",
   reportPrepare: "Preparar email",
+  reportReasonLabel: "Motivo da mensagem",
+  reportPublicPageLabel: "URL da página pública",
+  reportPublicPageHint: "Inclua uma ligação pública se sugerir um recurso ou pedir uma remoção. Nos restantes casos é opcional.",
+  reportMailSubject: "[FarmSuccession] Aviso",
   reportSend: "Enviar aviso",
   reportDeliveryPrivacy:
-    "Ao enviar, o Formspree trata as respostas e os dados técnicos, incluindo o endereço IP, nos Estados Unidos para entregar o aviso ao FarmSuccession por email. A confirmação abre no Formspree. Não precisa de conta nem de indicar o seu email. Não inclua documentos privados.",
+    "Ao enviar, o Formspree trata as respostas e os dados técnicos, incluindo o endereço IP, nos Estados Unidos para entregar o aviso ao FarmSuccession por email. A verificação antisspam e a confirmação são feitas no Formspree. Não precisa de conta nem de indicar o seu email. Não inclua documentos privados.",
   reportProviderPrivacy: "Privacidade do Formspree",
   reportRemovalTitle: "Pedir a remoção do diretório",
   reportRemovalLead:
     "Se preferir que a sua informação ou a da sua organização não apareça aqui, indique a página pública a rever. Também pode escrever-nos diretamente por email.",
   reportRemovalAction: "Pedir remoção",
+  reportRemovalVerification:
+    "Os pedidos são analisados manualmente. Antes de remover informação, confirmamos o pedido através de um contacto institucional publicado na fonte oficial. Enviar este formulário não elimina nenhuma ficha.",
   reportRemovalUrlLabel: "Página pública a remover",
   reportRemovalUrlHint: "A página do FarmSuccession ou do recurso público em causa.",
   reportRemovalReasonLabel: "Informação adicional (opcional)",
@@ -1838,7 +1877,7 @@ const PT = {
   helpfulQuestion: "Ajude a melhorar esta ficha",
   helpfulWriteIn: "Se faltarem informações ou encontrar um erro, pode escrever para",
   removalLead:
-    "Se você ou a sua entidade preferirem não constar do inventário, escreva para o endereço abaixo e a informação será removida.",
+    "Os pedidos são analisados manualmente. Antes de remover informação, confirmamos o pedido através de um contacto institucional publicado na fonte oficial. Enviar este formulário não elimina nenhuma ficha.",
   privacyTitle: "Privacidade",
   privacyLead:
     "Este sítio não utiliza análise de audiência, cookies publicitários ou contas de utilizador. A pesquisa decorre no navegador. O fornecedor de alojamento pode tratar registos técnicos de acesso. Ao escrever-nos partilha a informação que escolher enviar.",
@@ -2136,14 +2175,21 @@ const NL = {
   reportNewSourceLabel: "Openbare bron die de wijziging laat zien (optioneel)",
   reportNewSourceHint: "Kent u een actuele officiële pagina of een pagina van de aanbieder, plak die dan hier.",
   reportPrepare: "E-mail opstellen",
+  reportReasonLabel: "Reden voor uw bericht",
+  reportPublicPageLabel: "URL van de openbare pagina",
+  reportPublicPageHint:
+    "Voeg een openbare link toe als u een voorziening voorstelt of verwijdering aanvraagt. Voor andere berichten is deze optioneel.",
+  reportMailSubject: "[FarmSuccession] Melding",
   reportSend: "Melding versturen",
   reportDeliveryPrivacy:
-    "Bij het versturen verwerkt Formspree uw antwoorden en technische gegevens, waaronder uw IP-adres, in de Verenigde Staten om de melding per e-mail aan FarmSuccession te bezorgen. De bevestiging opent bij Formspree. U hebt geen account nodig en hoeft geen e-mailadres op te geven. Voeg geen privédocumenten toe.",
+    "Bij het versturen verwerkt Formspree uw antwoorden en technische gegevens, waaronder uw IP-adres, in de Verenigde Staten om de melding per e-mail aan FarmSuccession te bezorgen. De spamcontrole en bevestiging vinden plaats bij Formspree. U hebt geen account nodig en hoeft geen e-mailadres op te geven. Voeg geen privédocumenten toe.",
   reportProviderPrivacy: "Privacybeleid van Formspree",
   reportRemovalTitle: "Verwijdering uit het overzicht aanvragen",
   reportRemovalLead:
     "Als u of uw organisatie hier liever niet vermeld wordt, geef dan aan welke openbare pagina we moeten bekijken. U kunt ons ook rechtstreeks e-mailen.",
   reportRemovalAction: "Verwijdering aanvragen",
+  reportRemovalVerification:
+    "Verzoeken worden handmatig beoordeeld. Voordat we informatie verwijderen, bevestigen we het verzoek via een institutioneel contact dat in de officiële bron staat. Dit formulier versturen verwijdert geen vermelding.",
   reportRemovalUrlLabel: "Te verwijderen openbare pagina",
   reportRemovalUrlHint: "De betreffende FarmSuccession-pagina of de openbare pagina van de voorziening.",
   reportRemovalReasonLabel: "Aanvullende informatie (optioneel)",
@@ -2174,7 +2220,7 @@ const NL = {
   helpfulQuestion: "Help deze vermelding te verbeteren",
   helpfulWriteIn: "Ontbreekt er informatie of klopt er iets niet, schrijf dan naar",
   removalLead:
-    "Wilt u of uw organisatie liever niet in de gids staan? Schrijf dan naar het adres hieronder. De informatie wordt dan verwijderd.",
+    "Verzoeken worden handmatig beoordeeld. Voordat we informatie verwijderen, bevestigen we het verzoek via een institutioneel contact dat in de officiële bron staat. Dit formulier versturen verwijdert geen vermelding.",
   privacyTitle: "Privacy",
   privacyLead:
     "Deze site gebruikt geen analysetools of cookies en heeft geen accounts. Zoeken gebeurt in uw browser. De aanbieder die de site beheert, kan technische gegevens over bezoeken verwerken. Als u ons mailt, deelt u alleen de informatie die u zelf meestuurt.",

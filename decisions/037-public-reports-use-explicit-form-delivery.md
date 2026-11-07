@@ -46,31 +46,40 @@ No paid plan, trial upgrade or cloud billing account is needed for the proposed 
 
 ### Existing forms and what must migrate
 
-All three message forms live in
-[`frontend/src/pages/[...report].astro`](../frontend/src/pages/[...report].astro).
-Before this change they used `mailto:` and
-[`frontend/public/report.js`](../frontend/public/report.js) prepares a selectable
-draft. They now share `ReportDelivery.astro`, using native POST when configured
-and retaining that draft flow when no endpoint has been supplied.
+One message form lives in
+[`frontend/src/pages/[...report].astro`](../frontend/src/pages/[...report].astro),
+with a reason selector. Existing links retain `?type=missing`, `correction`,
+`looking` or `removal` to preselect the reason and carry their context. Changing the
+reason updates the fields and subject in place without discarding the message.
+`ReportDelivery.astro` supplies one configured native POST or the email fallback.
 
-| Kind                              | Entry points                                                                | Required answers                        | Optional/context data to preserve                                                                |
-| --------------------------------- | --------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `missing`: suggest a resource     | Country, region, grouping and EU directory links; project contact page      | Public source URL and short explanation | Resource name; territory and originating page when supplied                                      |
-| `correction`: report a change     | The correction link on every resource detail page; project contact page     | Issue category and short explanation    | Replacement public URL; resource name, territory and originating record page                     |
-| `looking`: report an unmet search | The no-results offer in `SearchView.astro`, populated by `public/search.js` | What the visitor was looking for        | Place; territory and search-page path; prefilled search wording must remain visible and editable |
+| Reason                                 | Entry points                                                            | Relevant information                                                                                               |
+| -------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `missing`: suggest a resource          | Country, region, grouping and EU directory links; project contact page  | Public source URL and a message identifying the resource                                                           |
+| `correction`: report a change          | Resource detail and project contact page                                | Issue category, message, optional replacement URL and originating record context                                   |
+| `looking`: report an unmet search      | No-results offer in `SearchView.astro`, populated by `public/search.js` | Editable prefilled search wording, optional place and originating search context                                   |
+| `removal`: request a review of removal | Footer, project page or the shared selector                             | Affected public URL, message and the independent-verification notice; never an instruction to delete automatically |
 
 Relevant entry-point files are `src/pages/[...territory].astro`,
 `src/pages/[...record].astro`, `src/pages/[...about].astro`,
 `src/components/SearchView.astro` and `public/search.js`, all under `frontend/`.
-Use one delivery configuration for all three kinds, not three separately maintained
-integrations. Send a stable `kind`, interface language and distinguishable subject.
-Do not silently discard the issue category or contextual fields.
+The selector sends a single `kind`; there is no competing hidden reason value.
+Language and subject accompany it. Inapplicable issue/place controls are hidden
+and disabled by the first-party enhancement, so stale answers are not sent.
+
+The message and reason are required in native HTML. JavaScript additionally
+requires the URL for resource suggestions and removal requests. Without JavaScript
+all controls remain available and the URL hint explains when to include it, but
+its requirement cannot follow a changed selector in static HTML. Submitted fields
+are untrusted in every case: the maintainer verifies a public source before any
+editorial action. The resource name can be included in the message; a separate
+optional name field is no longer needed.
 
 The current catalogue builds **seven intake routes**: EU, DE, ES, FR, IT, PT and AT;
-Austria shares German interface words. The existing three kinds produced 21 rendered forms. With the added removal kind,
-there are now 28 forms across those routes, all sharing one delivery configuration. The integration derives routes from the catalogue; no country list is hard-coded.
-All seven dictionaries in `src/lib/words.ts`, including Dutch, have delivery and
-removal wording without adding a territory.
+Austria shares German interface words. Each route now contains **one form**,
+replacing the earlier 28 rendered forms. Routes derive from the catalogue, with
+no hard-coded country list. All seven interface dictionaries, including Dutch,
+contain the shared-form and verification wording without adding a territory.
 
 ### Other form-like and email entry points
 
@@ -127,8 +136,13 @@ Implementation requirements:
    identity details or private application papers. Treat submitted text/context as
    untrusted. Every report remains a lead for human investigation, never publication.
 5. Add the standard `_gotcha` honeypot, basic provider spam filtering and domain
-   restriction. Configure CAPTCHA off initially to avoid a Google step; reconsider
-   if actual abuse requires it. Honeypots do not guarantee spam prevention.
+   restriction. Enable provider-hosted reCAPTCHA before activation, on the Free form's
+   Settings → Spam protection screen. The challenge happens on Formspree after
+   explicit POST; never embed Google's script on our pages. Retain the honeypot
+   as an additional filter. A CAPTCHA distinguishes likely humans from bots;
+   it does not establish identity, authority to represent an organisation or
+   correctness of the request. Domain restriction is an origin/spam filter,
+   not identity verification either.
 6. Use a clear localized “Send report” action. Keep the visible email alternative.
    Let the provider own the native POST confirmation/error; do not show a local
    success message before acceptance. Do not assume a paid custom redirect is free.
@@ -138,12 +152,33 @@ Implementation requirements:
    existing labels. Do not ship a fake endpoint, disabled send button or success
    screen for a message that has gone nowhere.
 
+### Removal requests require independent verification
+
+A public report can request investigation; it cannot delete, hide or unpublish a
+record. The static browser code has no repository credential, mutation endpoint or
+publication job. Formspree delivers to an inbox; it has no authorised path to edit
+the corpus. Do not later connect these messages to an automated deletion workflow.
+
+Before acting on a removal request, the maintainer reviews its scope and reason
+and confirms the request through an institutional channel independently obtained
+from the official source or existing documented provider contact. Do not treat
+an address, phone number or link supplied in the message as proof of authority.
+An email input, email-shaped text, CAPTCHA completion or knowledge of a public
+record URL is not identity verification. A forged, unconfirmed or bulk request
+must not trigger removal. Any resulting editorial change follows the ordinary
+repository review and publication process; no form gets to bypass it.
+
+The removal form now explains this review boundary in every language, including
+in the email fallback. Legacy wording promising unconditional removal is replaced.
+On 7 November the maintainer requested this stricter protection; it replaces the
+earlier suggestion to start with CAPTCHA disabled. Real CAPTCHA activation and
+challenge testing remain pending the provider account, just like inbox receipt.
+
 ### Remaining maintainer configuration
 
 The shared transport, per-form privacy disclosure, metadata, honeypot, conditional
-CSP and removal links are implemented. A four-choice navigation shows one form at a
-time with JavaScript and preserves the original context when changing kinds; native
-fragment links keep every form reachable without JavaScript. Every interface dictionary includes the new wording. Configure
+CSP and removal links are implemented. One reason selector updates the shared form in place and preserves the message
+and original page context. Native HTML remains usable without JavaScript. Every interface dictionary includes the new wording. Configure
 one location: `frontend/reporting.config.mjs`, whose `reportEndpoint` is intentionally
 empty until the maintainer supplies the real public form URL.
 
@@ -153,7 +188,11 @@ The following account/receipt work has **not** been performed:
    `contact@farmsuccession.eu` as the notification destination. Review the applicable
    processor terms and international-transfer provisions before enabling collection.
    Do not subscribe to a paid plan or use a trial as the free solution.
-2. Configure notification delivery, allowed production domain and spam settings.
+2. Configure notification delivery and the allowed production domain; **enable
+   hosted reCAPTCHA in Formspree's Spam protection settings**. This cannot be
+   enabled or proved by a hidden HTML field: it is a provider-account setting.
+   Check the hosted challenge and acceptance with the real configured account.
+   Do not assume it is enabled merely because the integration is present.
    Set `reportEndpoint` in `frontend/reporting.config.mjs` to the public `/f/…` URL,
    then rebuild the static site. Recheck
    current free allowances and settings at activation; all report kinds share the
@@ -179,8 +218,8 @@ included in this free option; use Tally if that becomes a requirement.
 ### Acceptance and browser checks before activation
 
 - Update `frontend/test/reporting.test.ts` for configured and unconfigured builds.
-  Check every catalogue-derived intake route, each kind's required fields and
-  preserved context, localized delivery/privacy wording and the provider subject.
+  Check every catalogue-derived intake route, its single form, reason-specific
+  controls and preserved context, localized privacy wording and provider subject.
 - Keep `frontend/test/built-site.test.ts` strict: no remote asset/script or background
   connection, no storage, no inline JavaScript; only explicit form delivery gains
   the named CSP exception. Run both root and frontend `npm run check`.
@@ -191,6 +230,11 @@ included in this free option; use Tally if that becomes a requirement.
 - Exercise validation and delivery without JavaScript, the unconfigured fallback,
   narrow layouts and keyboard use. For an eventual AJAX implementation, use a local
   test stub for failure/rate-limit scenarios; do not exhaust a live free quota.
+- With the real account, verify that hosted CAPTCHA rejects or challenges unverified
+  submissions and that a legitimate submission reaches the inbox. Do not solve a
+  live challenge without the required user confirmation. Inspect the provider spam
+  inbox as well as notifications. Verify a fictitious removal request cannot change
+  the published corpus and does not result in an automatic deletion action.
 - Opening any page and editing its fields must produce **zero provider requests**.
   A submit must send exactly the intended fields. With the maintainer's configured
   account, use clearly marked fictional reports to verify each kind reaches the
@@ -202,31 +246,40 @@ verification of the configured interface uses a temporary fixture URL only; the
 fixture is never submitted and is not the committed configuration. The earlier UX
 screenshots exercise the email draft, not provider delivery.
 
-### Verification of this implementation
+### Verification of the unified implementation
 
-- Root `npm run check`: passed, 251 tests; corpus validation retains 0 errors,
-  the existing metric warning and the existing shared-access-page review item.
-- Frontend `npm run check`: passed, 161 tests, in both a configured fixture build
-  and the final unconfigured build. Every catalogue-derived intake route contains
-  all four native forms with the same transport, appropriate encoding, metadata
-  and no visitor account/email requirement. CSP keeps background connections local.
-- Chrome: followed the Madrid resource correction link and retained its context;
-  followed Cataluña's missing-resource link; followed a zero-result search and
-  edited its prefilled wording; used the footer removal link. Confirmed that the
-  empty removal URL blocks submission and that removal reasons are optional.
-- With the committed empty configuration restored, prepared a removal email draft
-  in Chrome without navigation, opening a mail client or sending a message.
+- Root `npm run check` passes 251 tests, with the existing corpus warning/review
+  unchanged and no corpus errors. Frontend `npm run check` passes 159 tests in
+  both configured-fixture and final unconfigured builds. The reduction from the
+  earlier 161 reflects replacing split-form assertions with shared-form checks,
+  not skipping tests. Every catalogue-derived route contains exactly one form.
+- Interaction regression checks cover preselected reason, preserved editable
+  message/context, changing subjects, required URL for suggestion/removal,
+  disabled irrelevant controls and the independent removal-verification notice.
+  Configured delivery is not intercepted by the script; the unconfigured email
+  draft remains selectable and obsolete drafts are invalidated.
+- Chrome: the single form preselects removal from the footer and correction from
+  the Madrid resource link, retaining record context. An empty removal URL blocks
+  submission. Switching removal → correction → unmet search retains the written
+  message, changes the relevant controls, relaxes the URL requirement as intended
+  and hides the removal notice for other reasons. In the restored unconfigured
+  build, preparing the shared email draft works; changing the reason hides the
+  obsolete draft and preserves the message. No mail application was opened.
 - The configured screenshots below use fictional input and a temporary fixture
-  endpoint. They demonstrate the interface, not successful provider delivery.
-  No fixture endpoint is committed and no valid report was submitted to it.
-- New form layouts have been inspected at desktop width. No new phone/device or
-  no-JavaScript browser run is claimed; native HTML operation without JavaScript
-  is covered by built-page checks. Provider acceptance, quota error pages and
-  mailbox receipt remain live activation checks.
+  endpoint. They show the shared selector, privacy copy and manual-review boundary,
+  not successful delivery or an activated CAPTCHA. No valid report was submitted.
+- The earlier split-form browser review exercised Cataluña's suggestion and
+  editable zero-result-search wording. New shared-form prefill is covered by
+  regression tests. Desktop layout was inspected; no new phone/device or
+  no-JavaScript browser run is claimed. Native HTML remains complete, with the
+  conditional-URL-validation limitation described above.
+- Hosted CAPTCHA activation/challenge, provider acceptance, quota rejection and
+  real mailbox receipt remain account activation checks. No provider account,
+  verification of a requester or deletion of a corpus record is claimed.
 
-![Configured correction with privacy beside Send](assets/037/correction-configured.jpg)
+![Unified correction with privacy beside Send](assets/037/correction-configured.jpg)
 
-![Configured removal with optional explanation](assets/037/removal-configured.jpg)
+![Unified removal with independent verification notice](assets/037/removal-configured.jpg)
 
 ## What would overturn it
 

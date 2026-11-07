@@ -83,7 +83,8 @@ The rules, which are requirements rather than preferences:
   or any storage. Explicit report delivery is the narrow exception: after configuration
   under `decisions/037`, a visitor may submit a native form to the named Formspree
   endpoint. Loading a page, typing, searching or editing never contacts that service.
-  No remote widget, script, CAPTCHA asset or background connection is permitted.
+  No remote widget, script, CAPTCHA asset or background connection is permitted on
+  FarmSuccession pages. The provider-hosted CAPTCHA runs only after explicit submission.
 - **Every enhancement sits on a page that is already complete.** Every record in scope
   is in the HTML before anything runs; the search field stays hidden until the index
   answers; a reader whose browser never gets there loses the typing, not the answer. A

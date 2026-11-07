@@ -1,17 +1,8 @@
 ---
-/**
- * Public intake for knowledge the directory has missed or that has changed.
- *
- * This stays on the same side of the project's boundary as the About page: a reader can tell the
- * maintainer what to investigate, but nothing they type becomes data. GitHub remains an editorial tool
- * behind the site, never a prerequisite for somebody who knows a territory better than this inventory.
- *
- * A configured native HTML POST delivers reports only after explicit submission. Without an endpoint,
- * the working email draft remains available. Nothing is sent while reading or editing the page.
- */
+/** One public intake, with a preselected reason and context from the page that led here. */
 import { reportEndpoint } from "../../reporting.config.mjs";
-import ReportDelivery from "../components/ReportDelivery.astro";
 import PageHeader from "../components/PageHeader.astro";
+import ReportDelivery from "../components/ReportDelivery.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { countryTerritories, euTerritory, href, languageOf, type Territory } from "../lib/corpus.ts";
 import { words } from "../lib/words.ts";
@@ -30,6 +21,8 @@ const { territory } = Astro.props;
 const language = languageOf(territory);
 const text = words(language);
 const home = href(territory.layer);
+const fieldClass =
+  "mt-2 min-h-(--spacing-target) min-w-0 w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand";
 ---
 
 <SiteLayout title={`${text.reportTitle} · ${text.siteName}`} description={text.reportIntro} language={language} current={home} noindex>
@@ -39,335 +32,135 @@ const home = href(territory.layer);
     title={text.reportTitle}
     lead={text.reportIntro}
   />
-
   <div class="wrap py-10">
-    <div class="grid max-w-3xl gap-10">
-      <nav aria-label={text.reportTitle} class="grid gap-3 sm:grid-cols-2">
-        {[
-          ["missing", text.reportMissingTitle],
-          ["correction", text.reportCorrectionTitle],
-          ["looking", text.reportLookingTitle],
-          ["removal", text.reportRemovalAction],
-        ].map(([kind, label]) => (
-          <a
-            data-report-choice={kind}
-            class="btn btn-quiet justify-start aria-[current=true]:border-brand aria-[current=true]:bg-brand aria-[current=true]:text-on-brand"
-            href={`?type=${kind}#${kind}`}
-          >
-            {label}
-          </a>
-        ))}
-      </nav>
+    <div class="grid min-w-0 max-w-3xl gap-6">
       <aside class="notice" aria-label={text.reportVerification}>
         <div>
           <p class="font-bold">{text.reportVerification}</p>
           <p class="mt-1">{text.reportNoPapers}</p>
         </div>
       </aside>
-
       <div data-report-context class="card hidden p-5" aria-labelledby="report-context-title">
         <h2 id="report-context-title" class="text-lg font-bold">
           {text.reportContextLabel}
         </h2>
         <dl class="mt-3 grid gap-2">
-          <div data-context-row="territory" hidden>
-            <dt class="font-bold">{text.reportTerritoryLabel}</dt>
-            <dd data-context-value="territory"></dd>
-          </div>
-          <div data-context-row="record" hidden>
-            <dt class="font-bold">{text.reportRecordLabel}</dt>
-            <dd data-context-value="record"></dd>
-          </div>
-          <div data-context-row="from" hidden>
-            <dt class="font-bold">{text.reportFromLabel}</dt>
-            <dd class="break-words" data-context-value="from"></dd>
-          </div>
+          {[
+            ["territory", text.reportTerritoryLabel],
+            ["record", text.reportRecordLabel],
+            ["from", text.reportFromLabel],
+          ].map(([key, label]) => (
+            <div data-context-row={key} hidden>
+              <dt class="font-bold">{label}</dt>
+              <dd class="break-words" data-context-value={key}></dd>
+            </div>
+          ))}
         </dl>
       </div>
-
-      <section id="missing" data-report-section="missing" aria-labelledby="missing-title">
-        <h2 id="missing-title" class="text-2xl font-bold">
-          {text.reportMissingTitle}
-        </h2>
-        <p class="mt-2">{text.reportMissingLead}</p>
-
-        <form
-          class="mt-6 grid gap-5"
-          data-report
-          data-kind="missing"
-          data-subject={text.reportMailSubjectMissing}
-          action={reportEndpoint || "mailto:contact@farmsuccession.eu"}
-          data-report-transport={reportEndpoint ? "post" : "email"}
-          method="post"
-          enctype={reportEndpoint ? "application/x-www-form-urlencoded" : "text/plain"}
-        >
-          <input type="hidden" name="territory" data-context-input="territory" data-mail-label={text.reportTerritoryLabel} />
-          <input type="hidden" name="from" data-context-input="from" data-mail-label={text.reportFromLabel} />
-
-          <div>
-            <label for="missing-source" class="block font-bold">
-              {text.reportSourceLabel}
-            </label>
-            <p id="missing-source-hint" class="meta mt-1">
-              {text.reportSourceHint}
-            </p>
-            <input
-              id="missing-source"
-              name="source"
-              type="url"
-              inputmode="url"
-              required
-              aria-describedby="missing-source-hint"
-              data-mail-label={text.reportSourceLabel}
-              class="mt-2 min-h-(--spacing-target) w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-            />
-          </div>
-
-          <div>
-            <label for="missing-name" class="block font-bold">
-              {text.reportNameLabel}
-            </label>
-            <p id="missing-name-hint" class="meta mt-1">
-              {text.reportNameHint}
-            </p>
-            <input
-              id="missing-name"
-              name="name"
-              type="text"
-              aria-describedby="missing-name-hint"
-              data-mail-label={text.reportNameLabel}
-              class="mt-2 min-h-(--spacing-target) w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-            />
-          </div>
-
-          <div>
-            <label for="missing-detail" class="block font-bold">
-              {text.reportDetailLabel}
-            </label>
-            <p id="missing-detail-hint" class="meta mt-1">
-              {text.reportDetailHint}
-            </p>
-            <textarea
-              id="missing-detail"
-              name="detail"
-              rows="4"
-              required
-              aria-describedby="missing-detail-hint"
-              data-mail-label={text.reportDetailLabel}
-              class="mt-2 w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-            ></textarea>
-          </div>
-
-          <ReportDelivery language={language} kind="missing" subject={text.reportMailSubjectMissing} />
-        </form>
-      </section>
-
-      <section id="correction" data-report-section="correction" class="border-t border-line pt-10" aria-labelledby="correction-title">
-        <h2 id="correction-title" class="text-2xl font-bold">
-          {text.reportCorrectionTitle}
-        </h2>
-        <p class="mt-2">{text.reportCorrectionLead}</p>
-
-        <form
-          class="mt-6 grid gap-5"
-          data-report
-          data-kind="correction"
-          data-subject={text.reportMailSubjectCorrection}
-          action={reportEndpoint || "mailto:contact@farmsuccession.eu"}
-          data-report-transport={reportEndpoint ? "post" : "email"}
-          method="post"
-          enctype={reportEndpoint ? "application/x-www-form-urlencoded" : "text/plain"}
-        >
-          <input type="hidden" name="territory" data-context-input="territory" data-mail-label={text.reportTerritoryLabel} />
-          <input type="hidden" name="record" data-context-input="record" data-mail-label={text.reportRecordLabel} />
-          <input type="hidden" name="from" data-context-input="from" data-mail-label={text.reportFromLabel} />
-
-          <div>
-            <label for="correction-kind" class="block font-bold">
-              {text.reportIssueLabel}
-            </label>
-            <select
-              id="correction-kind"
-              name="issue"
-              required
-              data-mail-label={text.reportIssueLabel}
-              class="mt-2 min-h-(--spacing-target) w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-            >
-              <option value="changed">{text.reportIssueChanged}</option>
-              <option value="broken">{text.reportIssueBroken}</option>
-              <option value="gone">{text.reportIssueGone}</option>
-              <option value="missing">{text.reportIssueMissing}</option>
-              <option value="other">{text.reportIssueOther}</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="correction-detail" class="block font-bold">
-              {text.reportDetailLabel}
-            </label>
-            <p id="correction-detail-hint" class="meta mt-1">
-              {text.reportDetailHint}
-            </p>
-            <textarea
-              id="correction-detail"
-              name="detail"
-              rows="4"
-              required
-              aria-describedby="correction-detail-hint"
-              data-mail-label={text.reportDetailLabel}
-              class="mt-2 w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-            ></textarea>
-          </div>
-
-          <div>
-            <label for="correction-source" class="block font-bold">
-              {text.reportNewSourceLabel}
-            </label>
-            <p id="correction-source-hint" class="meta mt-1">
-              {text.reportNewSourceHint}
-            </p>
-            <input
-              id="correction-source"
-              name="source"
-              type="url"
-              inputmode="url"
-              aria-describedby="correction-source-hint"
-              data-mail-label={text.reportNewSourceLabel}
-              class="mt-2 min-h-(--spacing-target) w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-            />
-          </div>
-
-          <ReportDelivery language={language} kind="correction" subject={text.reportMailSubjectCorrection} />
-        </form>
-      </section>
-
-      {/*
-        The two sections above ask a reader who already knows something: a resource exists, or a record
-        is wrong. This one asks the reader who found nothing, which is the only person who can say where
-        the directory has a hole. It is the cheapest coverage signal the project can get, and it costs
-        the reader one sentence.
-
-        What they typed into the search arrives in the first field when they came from a search that
-        found nothing, so nobody is asked to write it twice. The same delivery configuration applies to every report kind.
-      */}
-      <section id="looking" data-report-section="looking" class="border-t border-line pt-10" aria-labelledby="looking-title">
-        <h2 id="looking-title" class="text-2xl font-bold">
-          {text.reportLookingTitle}
-        </h2>
-        <p class="mt-2">{text.reportLookingLead}</p>
-
-        <form
-          class="mt-6 grid gap-5"
-          data-report
-          data-kind="looking"
-          data-subject={text.reportMailSubjectLooking}
-          action={reportEndpoint || "mailto:contact@farmsuccession.eu"}
-          data-report-transport={reportEndpoint ? "post" : "email"}
-          method="post"
-          enctype={reportEndpoint ? "application/x-www-form-urlencoded" : "text/plain"}
-        >
-          <input type="hidden" name="territory" data-context-input="territory" data-mail-label={text.reportTerritoryLabel} />
-          <input type="hidden" name="from" data-context-input="from" data-mail-label={text.reportFromLabel} />
-
-          <div>
-            <label for="looking-detail" class="block font-bold">
-              {text.reportLookingLabel}
-            </label>
-            <p id="looking-detail-hint" class="meta mt-1">
-              {text.reportLookingHint}
-            </p>
-            <textarea
-              id="looking-detail"
-              name="detail"
-              rows="4"
-              required
-              data-prefill="looking"
-              aria-describedby="looking-detail-hint"
-              data-mail-label={text.reportLookingLabel}
-              class="mt-2 w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-            ></textarea>
-          </div>
-
-          <div>
-            <label for="looking-where" class="block font-bold">
-              {text.reportLookingWhereLabel}
-            </label>
-            <p id="looking-where-hint" class="meta mt-1">
-              {text.reportLookingWhereHint}
-            </p>
-            <input
-              id="looking-where"
-              name="where"
-              type="text"
-              aria-describedby="looking-where-hint"
-              data-mail-label={text.reportLookingWhereLabel}
-              class="mt-2 min-h-(--spacing-target) w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-            />
-          </div>
-
-          <ReportDelivery language={language} kind="looking" subject={text.reportMailSubjectLooking} />
-        </form>
-      </section>
-      <section id="removal" data-report-section="removal" class="border-t border-line pt-10" aria-labelledby="removal-title">
-        <h2 id="removal-title" class="text-2xl font-bold">
-          {text.reportRemovalTitle}
-        </h2>
-        <p class="mt-2">{text.reportRemovalLead}</p>
-
-        <form
-          class="mt-6 grid gap-5"
-          data-report
-          data-kind="removal"
-          data-subject={text.reportMailSubjectRemoval}
-          action={reportEndpoint || "mailto:contact@farmsuccession.eu"}
-          data-report-transport={reportEndpoint ? "post" : "email"}
-          method="post"
-          enctype={reportEndpoint ? "application/x-www-form-urlencoded" : "text/plain"}
-        >
-          <input type="hidden" name="territory" data-context-input="territory" data-mail-label={text.reportTerritoryLabel} />
-          <input type="hidden" name="from" data-context-input="from" data-mail-label={text.reportFromLabel} />
-
-          <div>
-            <label for="removal-source" class="block font-bold">
-              {text.reportRemovalUrlLabel}
-            </label>
-            <p id="removal-source-hint" class="meta mt-1">
-              {text.reportRemovalUrlHint}
-            </p>
-            <input
-              id="removal-source"
-              name="source"
-              type="url"
-              inputmode="url"
-              required
-              aria-describedby="removal-source-hint"
-              data-mail-label={text.reportRemovalUrlLabel}
-              class="mt-2 min-h-(--spacing-target) w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-            />
-          </div>
-
-          <div>
-            <label for="removal-detail" class="block font-bold">
-              {text.reportRemovalReasonLabel}
-            </label>
-            <p id="removal-detail-hint" class="meta mt-1">
-              {text.reportRemovalReasonHint}
-            </p>
-            <textarea
-              id="removal-detail"
-              name="detail"
-              rows="4"
-              aria-describedby="removal-detail-hint"
-              data-mail-label={text.reportRemovalReasonLabel}
-              class="mt-2 w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-            ></textarea>
-          </div>
-
-          <ReportDelivery language={language} kind="removal" subject={text.reportMailSubjectRemoval} />
-        </form>
-      </section>
+      <form
+        class="grid min-w-0 gap-5"
+        data-report
+        data-kind="missing"
+        data-subject={text.reportMailSubject}
+        action={reportEndpoint || "mailto:contact@farmsuccession.eu"}
+        data-report-transport={reportEndpoint ? "post" : "email"}
+        method="post"
+        enctype={reportEndpoint ? "application/x-www-form-urlencoded" : "text/plain"}
+      >
+        {[
+          ["territory", text.reportTerritoryLabel],
+          ["record", text.reportRecordLabel],
+          ["from", text.reportFromLabel],
+        ].map(([key, label]) => (
+          <input type="hidden" name={key} data-context-input={key} data-mail-label={label} />
+        ))}
+        <div class="min-w-0">
+          <label for="report-kind" class="block font-bold">
+            {text.reportReasonLabel}
+          </label>
+          <select id="report-kind" name="kind" data-report-kind required data-mail-label={text.reportReasonLabel} class={fieldClass}>
+            {[
+              ["missing", text.reportMissingTitle, text.reportMailSubjectMissing],
+              ["correction", text.reportCorrectionTitle, text.reportMailSubjectCorrection],
+              ["looking", text.reportLookingTitle, text.reportMailSubjectLooking],
+              ["removal", text.reportRemovalAction, text.reportMailSubjectRemoval],
+            ].map(([kind, label, subject]) => (
+              <option value={kind} data-subject={subject}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div data-report-only="correction">
+          <label for="report-issue" class="block font-bold">
+            {text.reportIssueLabel}
+          </label>
+          <select id="report-issue" name="issue" data-mail-label={text.reportIssueLabel} class={fieldClass}>
+            <option value="changed">{text.reportIssueChanged}</option>
+            <option value="broken">{text.reportIssueBroken}</option>
+            <option value="gone">{text.reportIssueGone}</option>
+            <option value="missing">{text.reportIssueMissing}</option>
+            <option value="other">{text.reportIssueOther}</option>
+          </select>
+        </div>
+        <div>
+          <label for="report-source" class="block font-bold">
+            {text.reportPublicPageLabel}
+          </label>
+          <p id="report-source-hint" class="meta mt-1">
+            {text.reportPublicPageHint}
+          </p>
+          <input
+            id="report-source"
+            name="source"
+            type="url"
+            inputmode="url"
+            data-report-source
+            aria-describedby="report-source-hint"
+            data-mail-label={text.reportPublicPageLabel}
+            class={fieldClass}
+          />
+        </div>
+        <div>
+          <label for="report-detail" class="block font-bold">
+            {text.reportDetailLabel}
+          </label>
+          <p id="report-detail-hint" class="meta mt-1">
+            {text.reportDetailHint}
+          </p>
+          <textarea
+            id="report-detail"
+            name="detail"
+            rows="4"
+            required
+            data-prefill="looking"
+            aria-describedby="report-detail-hint"
+            data-mail-label={text.reportDetailLabel}
+            class={fieldClass}
+          ></textarea>
+        </div>
+        <div data-report-only="looking">
+          <label for="report-where" class="block font-bold">
+            {text.reportLookingWhereLabel}
+          </label>
+          <p id="report-where-hint" class="meta mt-1">
+            {text.reportLookingWhereHint}
+          </p>
+          <input
+            id="report-where"
+            name="where"
+            type="text"
+            aria-describedby="report-where-hint"
+            data-mail-label={text.reportLookingWhereLabel}
+            class={fieldClass}
+          />
+        </div>
+        <p data-removal-review class="font-bold">
+          {text.reportRemovalVerification}
+        </p>
+        <ReportDelivery language={language} kind="report" subject={text.reportMailSubject} />
+      </form>
     </div>
   </div>
-
   <script is:inline type="module" src="/report.js" defer />
 </SiteLayout>

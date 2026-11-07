@@ -28,17 +28,31 @@ if (looking) for (const field of document.querySelectorAll('[data-prefill="looki
 
 const kinds = ["missing", "correction", "looking", "removal"];
 const requested = kinds.includes(params.get("type")) ? params.get("type") : "missing";
-for (const section of document.querySelectorAll("[data-report-section]")) {
-  if (section.dataset.reportSection !== requested) section.hidden = true;
-}
-for (const link of document.querySelectorAll("[data-report-choice]")) {
-  const query = new URLSearchParams(params);
-  query.set("type", link.dataset.reportChoice);
-  link.search = "?" + query;
-  if (link.dataset.reportChoice === requested) link.setAttribute("aria-current", "true");
-}
 
 for (const form of document.querySelectorAll("form[data-report]")) {
+  const reason = form.querySelector("[data-report-kind]");
+  if (reason) {
+    reason.value = requested;
+    const updateReason = () => {
+      const kind = reason.value;
+      form.dataset.kind = kind;
+      form.dataset.subject = reason.options[reason.selectedIndex]?.dataset.subject ?? "FarmSuccession";
+      const subject = form.querySelector('[name="_subject"]');
+      if (subject) subject.value = form.dataset.subject;
+      const source = form.querySelector("[data-report-source]");
+      if (source) source.required = kind === "missing" || kind === "removal";
+      const verification = form.querySelector("[data-removal-review]");
+      if (verification) verification.hidden = kind !== "removal";
+      for (const group of form.querySelectorAll("[data-report-only]")) {
+        group.hidden = group.dataset.reportOnly !== kind;
+        for (const field of group.querySelectorAll("input, select, textarea")) field.disabled = group.hidden;
+      }
+      const preview = form.querySelector("[data-mail-draft]");
+      if (preview) preview.hidden = true;
+    };
+    updateReason();
+    reason.addEventListener("change", updateReason);
+  }
   if (form.dataset.reportTransport === "post") continue;
   const draft = form.querySelector("[data-mail-draft]");
   // A changed answer invalidates the prepared draft, so a stale message cannot be opened accidentally.
@@ -52,7 +66,7 @@ for (const form of document.querySelectorAll("form[data-report]")) {
     const lines = [];
     const fields = form.querySelectorAll("input[name], textarea[name], select[name]");
     for (const field of fields) {
-      if (!field.value) continue;
+      if (!field.value || field.disabled) continue;
       const label = field.dataset.mailLabel ?? field.name;
       const value = field instanceof HTMLSelectElement ? (field.options[field.selectedIndex]?.text ?? field.value) : field.value;
       lines.push(`${label}: ${value}`);
