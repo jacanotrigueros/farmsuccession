@@ -11,6 +11,7 @@ import { asLanguage, type Language } from "./language.ts";
 
 /** The English chrome, which is also the list every other language has to answer in full. */
 const EN = {
+  adviceEntry: "Get advice",
   needsLead: "Choose a topic to explore the documented resources.",
   noResourcesDocumented: "Not yet documented",
   territoriesLead: "Choose a territory to see its local resources and those that also apply from wider areas.",
@@ -319,6 +320,7 @@ const EN = {
  */
 const ES = {
   siteName: "FarmSuccession",
+  adviceEntry: "Buscar asesoramiento",
   needsLead: "Elige un tema para explorar los recursos documentados.",
   noResourcesDocumented: "Todavía sin recursos documentados",
   territoriesLead: "Elige un territorio para ver sus recursos locales y los de otros ámbitos que también se aplican allí.",
@@ -630,6 +632,7 @@ const ES = {
  */
 const DE = {
   siteName: "FarmSuccession",
+  adviceEntry: "Beratung finden",
   needsLead: "Wählen Sie ein Thema, um die dokumentierten Angebote zu entdecken.",
   noResourcesDocumented: "Noch keine Angebote dokumentiert",
   territoriesLead: "Wählen Sie ein Gebiet, um seine lokalen Angebote und die dort ebenfalls geltenden überregionalen Angebote zu sehen.",
@@ -941,6 +944,7 @@ const DE = {
 /** French, the chrome of the country that arrived with this milestone. */
 const FR = {
   siteName: "FarmSuccession",
+  adviceEntry: "Trouver un accompagnement",
   needsLead: "Choisissez un sujet pour explorer les ressources documentées.",
   noResourcesDocumented: "Aucune ressource documentée pour le moment",
   territoriesLead: "Choisissez un territoire pour voir ses ressources locales et celles des autres échelons qui s’y appliquent aussi.",
@@ -1258,6 +1262,7 @@ const FR = {
 /** Italian, the chrome of the country that arrived with this milestone. */
 const IT = {
   siteName: "FarmSuccession",
+  adviceEntry: "Trovare consulenza",
   needsLead: "Scegli un tema per esplorare le risorse documentate.",
   noResourcesDocumented: "Nessuna risorsa ancora documentata",
   territoriesLead: "Scegli un territorio per vedere le sue risorse locali e quelle degli altri ambiti che vi si applicano.",
@@ -1575,6 +1580,7 @@ const IT = {
 /** Portuguese, the chrome of the last country of the edition. */
 const PT = {
   siteName: "FarmSuccession",
+  adviceEntry: "Encontrar aconselhamento",
   needsLead: "Escolha um tema para explorar os recursos documentados.",
   noResourcesDocumented: "Ainda sem recursos documentados",
   territoriesLead: "Escolha um território para ver os seus recursos locais e os de outros âmbitos que também se aplicam ali.",
@@ -1887,6 +1893,7 @@ const PT = {
 /** Dutch, for the twelve provinces of the European Netherlands. */
 const NL = {
   siteName: "FarmSuccession",
+  adviceEntry: "Advies vinden",
   needsLead: "Kies een onderwerp om de gedocumenteerde vermeldingen te bekijken.",
   noResourcesDocumented: "Nog geen vermeldingen opgenomen",
   territoriesLead: "Kies een gebied om lokale vermeldingen te zien en vermeldingen uit ruimere gebieden die er ook gelden.",

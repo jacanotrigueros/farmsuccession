@@ -80,6 +80,13 @@ run the site and perform the visual review.
   that has no response control. Utility copy is excluded from the record's search
   body.
 
+A final hierarchy check promotes advice into the primary topic grid. Someone
+who needs guidance should not have to look under background resource types to
+find it. Its link filters exactly ADVICE, its count uses the same kind, and it is
+removed from the secondary list. The existing index grouping and documentary
+categories stay unchanged. The five primary topics use a three-column maximum
+rather than leaving a single fifth card under a four-column row.
+
 All new interface words are supplied for the seven supported languages. The
 underlying resource descriptions and quoted source material are not rewritten.
 

@@ -12,21 +12,37 @@ type Props = {
   language: string;
   hrefFor: (goal: GoalId) => string;
   compact?: boolean;
-  hrefForKind?: (kind: Resource["kind"]) => string;
+  hrefForKind: (kind: Resource["kind"]) => string;
 };
 const { resources, language, hrefFor, hrefForKind, compact = false } = Astro.props;
 const text = words(language);
 
 const goals = GOALS.filter((goal) => goal.id !== "context").map((goal) => ({
-  id: goal.id,
+  href: hrefFor(goal.id),
   ...situation(goal.id, language),
   icon: kindIcon(goal.kinds[0]),
   found: resources.filter((resource) => goalOf(resource.kind) === goal.id).length,
 }));
 
+/** Advice is a next step in its own right, not background policy information. */
+const topics = [
+  ...goals,
+  {
+    href: hrefForKind("ADVICE"),
+    title: text.adviceEntry,
+    hint: kindBlurb("ADVICE", language),
+    icon: kindIcon("ADVICE"),
+    found: resources.filter((resource) => resource.kind === "ADVICE").length,
+  },
+];
+
 /** Everything that is context rather than an answer, counted by kind and in the order the data gives. */
 const last = (kind: Resource["kind"]) => (kind === "OTHER" ? 1 : 0);
-const others = [...new Set(resources.filter((resource) => goalOf(resource.kind) === "context").map((resource) => resource.kind))]
+const others = [
+  ...new Set(
+    resources.filter((resource) => goalOf(resource.kind) === "context" && resource.kind !== "ADVICE").map((resource) => resource.kind),
+  ),
+]
   .map((kind) => ({ kind, count: resources.filter((resource) => resource.kind === kind).length }))
   .toSorted((a, b) => last(a.kind) - last(b.kind) || b.count - a.count);
 ---
@@ -37,15 +53,15 @@ const others = [...new Set(resources.filter((resource) => goalOf(resource.kind) 
 </h2>
 <p class="mt-2 max-w-3xl text-muted">{text.needsLead}</p>
 
-<ul class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-  {goals.map((goal) => (
+<ul class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+  {topics.map((goal) => (
     <li class:list={["card relative flex items-start gap-3", compact ? "p-4" : "p-5", goal.found > 0 && "card-link"]}>
       <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-tint text-brand">
         <Icon name={goal.icon} aria-hidden="true" class="size-6" />
       </span>
       <div class="min-w-0 flex-1">
         {goal.found > 0 ? (
-          <a href={hrefFor(goal.id)} class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
+          <a href={goal.href} class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
             {goal.title}
           </a>
         ) : (
@@ -72,10 +88,7 @@ const others = [...new Set(resources.filter((resource) => goalOf(resource.kind) 
           </span>
           <div class="min-w-0 flex-1">
             <p class="flex items-baseline justify-between gap-3">
-              <a
-                href={hrefForKind ? hrefForKind(kind) : hrefFor("context")}
-                class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline"
-              >
+              <a href={hrefForKind(kind)} class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
                 {kindLabel(kind, language)}
               </a>
               <span class="meta tabular-nums">{count}</span>
