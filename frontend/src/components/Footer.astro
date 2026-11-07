@@ -43,6 +43,15 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
       </p>
       <p class="meta mt-3">{editionNamed(currentEdition, language)}</p>
       <p class="meta mt-3">
+        <a
+          class="inline-flex min-h-(--spacing-target) items-center underline"
+          rel="nofollow"
+          href={`${country ? `/${country.toLowerCase()}` : ""}/${text.reportSlug}/?type=removal#removal`}
+        >
+          {text.reportRemovalAction}
+        </a>
+      </p>
+      <p class="meta mt-3">
         {text.optOut}{" "}
         <a class="inline-flex min-h-(--spacing-target) items-center underline" href="mailto:contact@farmsuccession.eu">
           contact@farmsuccession.eu

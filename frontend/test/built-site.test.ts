@@ -3,6 +3,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
+import { reportEndpoint } from "../reporting.config.mjs";
 import { recordSlug, regionSlug, searchPath, SEARCH_SLUGS } from "../public/search-scope.js";
 import { words } from "../src/lib/words.ts";
 
@@ -752,6 +753,23 @@ test("a page tells the browser to refuse anything that did not come from this si
     for (const directive of ["default-src 'self'", "object-src 'none'", "base-uri 'none'", "form-action 'self' mailto:"]) {
       assert.ok(policy.includes(directive), `${file} is missing ${directive} from its Content-Security-Policy`);
     }
+
+    assert.equal(
+      policy
+        .split(";")
+        .map((part) => part.trim())
+        .find((part) => part.startsWith("form-action ")),
+      `form-action 'self' mailto:${reportEndpoint ? " https://formspree.io" : ""}`,
+      `${file}: only the configured provider may receive an explicit report`,
+    );
+    assert.equal(
+      policy
+        .split(";")
+        .map((part) => part.trim())
+        .find((part) => part.startsWith("connect-src ")),
+      "connect-src 'self'",
+      `${file}: form delivery must not permit third-party background connections`,
+    );
 
     assert.ok(
       policy.includes("'wasm-unsafe-eval'"),

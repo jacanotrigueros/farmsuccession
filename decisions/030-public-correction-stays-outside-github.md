@@ -14,7 +14,7 @@ when the visitor explicitly submits it. Reading, search and field editing remain
 free of third-party requests. GitHub stays behind the site and reports never publish
 anything automatically.
 
-Implementation and activation are pending. Until configured and verified, the
+The conditional Formspree integration is implemented; activation is pending. Until configured and verified, the
 existing email-draft flow remains the honest fallback; this note does not claim
 that a working submission endpoint has been deployed. The original reasoning below
 is retained as the history of the email choice.

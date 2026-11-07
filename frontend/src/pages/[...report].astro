@@ -6,11 +6,11 @@
  * maintainer what to investigate, but nothing they type becomes data. GitHub remains an editorial tool
  * behind the site, never a prerequisite for somebody who knows a territory better than this inventory.
  *
- * GitHub Pages has no server and the site deliberately makes no third-party request. The form therefore
- * prepares an ordinary email in the reader's mail client. A tiny first-party script adds the context from
- * the page that sent them here and writes a readable subject/body; without it the form still targets the
- * same mailbox and the address is printed beside it.
+ * A configured native HTML POST delivers reports only after explicit submission. Without an endpoint,
+ * the working email draft remains available. Nothing is sent while reading or editing the page.
  */
+import { reportEndpoint } from "../../reporting.config.mjs";
+import ReportDelivery from "../components/ReportDelivery.astro";
 import PageHeader from "../components/PageHeader.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { countryTerritories, euTerritory, href, languageOf, type Territory } from "../lib/corpus.ts";
@@ -42,6 +42,22 @@ const home = href(territory.layer);
 
   <div class="wrap py-10">
     <div class="grid max-w-3xl gap-10">
+      <nav aria-label={text.reportTitle} class="grid gap-3 sm:grid-cols-2">
+        {[
+          ["missing", text.reportMissingTitle],
+          ["correction", text.reportCorrectionTitle],
+          ["looking", text.reportLookingTitle],
+          ["removal", text.reportRemovalAction],
+        ].map(([kind, label]) => (
+          <a
+            data-report-choice={kind}
+            class="btn btn-quiet justify-start aria-[current=true]:border-brand aria-[current=true]:bg-brand aria-[current=true]:text-on-brand"
+            href={`?type=${kind}#${kind}`}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
       <aside class="notice" aria-label={text.reportVerification}>
         <div>
           <p class="font-bold">{text.reportVerification}</p>
@@ -80,9 +96,10 @@ const home = href(territory.layer);
           data-report
           data-kind="missing"
           data-subject={text.reportMailSubjectMissing}
-          action="mailto:contact@farmsuccession.eu"
+          action={reportEndpoint || "mailto:contact@farmsuccession.eu"}
+          data-report-transport={reportEndpoint ? "post" : "email"}
           method="post"
-          enctype="text/plain"
+          enctype={reportEndpoint ? "application/x-www-form-urlencoded" : "text/plain"}
         >
           <input type="hidden" name="territory" data-context-input="territory" data-mail-label={text.reportTerritoryLabel} />
           <input type="hidden" name="from" data-context-input="from" data-mail-label={text.reportFromLabel} />
@@ -141,33 +158,7 @@ const home = href(territory.layer);
             ></textarea>
           </div>
 
-          <div class="flex flex-wrap items-center gap-4">
-            <button type="submit" class="btn btn-primary">
-              {text.reportPrepare}
-            </button>
-            <a class="inline-flex min-h-(--spacing-target) items-center underline" href="mailto:contact@farmsuccession.eu">
-              contact@farmsuccession.eu
-            </a>
-          </div>
-          <p class="meta">{text.reportEmailFallback}</p>
-          <div hidden data-mail-draft class="grid gap-4 rounded-lg border border-brand bg-card p-5">
-            <p role="status" class="font-bold text-brand-strong">
-              {text.reportDraftReady}
-            </p>
-            <label for="missing-mail-draft" class="font-bold">
-              {text.reportDraftLabel}
-            </label>
-            <textarea
-              id="missing-mail-draft"
-              data-mail-preview
-              readonly
-              rows="10"
-              class="w-full rounded-lg border border-line-strong bg-page p-3"
-            ></textarea>
-            <a data-open-mail href="mailto:contact@farmsuccession.eu" class="btn btn-primary justify-self-start">
-              {text.reportOpenEmail}
-            </a>
-          </div>
+          <ReportDelivery language={language} kind="missing" subject={text.reportMailSubjectMissing} />
         </form>
       </section>
 
@@ -182,9 +173,10 @@ const home = href(territory.layer);
           data-report
           data-kind="correction"
           data-subject={text.reportMailSubjectCorrection}
-          action="mailto:contact@farmsuccession.eu"
+          action={reportEndpoint || "mailto:contact@farmsuccession.eu"}
+          data-report-transport={reportEndpoint ? "post" : "email"}
           method="post"
-          enctype="text/plain"
+          enctype={reportEndpoint ? "application/x-www-form-urlencoded" : "text/plain"}
         >
           <input type="hidden" name="territory" data-context-input="territory" data-mail-label={text.reportTerritoryLabel} />
           <input type="hidden" name="record" data-context-input="record" data-mail-label={text.reportRecordLabel} />
@@ -245,33 +237,7 @@ const home = href(territory.layer);
             />
           </div>
 
-          <div class="flex flex-wrap items-center gap-4">
-            <button type="submit" class="btn btn-primary">
-              {text.reportPrepare}
-            </button>
-            <a class="inline-flex min-h-(--spacing-target) items-center underline" href="mailto:contact@farmsuccession.eu">
-              contact@farmsuccession.eu
-            </a>
-          </div>
-          <p class="meta">{text.reportEmailFallback}</p>
-          <div hidden data-mail-draft class="grid gap-4 rounded-lg border border-brand bg-card p-5">
-            <p role="status" class="font-bold text-brand-strong">
-              {text.reportDraftReady}
-            </p>
-            <label for="correction-mail-draft" class="font-bold">
-              {text.reportDraftLabel}
-            </label>
-            <textarea
-              id="correction-mail-draft"
-              data-mail-preview
-              readonly
-              rows="10"
-              class="w-full rounded-lg border border-line-strong bg-page p-3"
-            ></textarea>
-            <a data-open-mail href="mailto:contact@farmsuccession.eu" class="btn btn-primary justify-self-start">
-              {text.reportOpenEmail}
-            </a>
-          </div>
+          <ReportDelivery language={language} kind="correction" subject={text.reportMailSubjectCorrection} />
         </form>
       </section>
 
@@ -282,8 +248,7 @@ const home = href(territory.layer);
         the reader one sentence.
 
         What they typed into the search arrives in the first field when they came from a search that
-        found nothing, so nobody is asked to write it twice. Nothing is sent anywhere: the form prepares
-        an email they read, edit and send themselves, like the other two.
+        found nothing, so nobody is asked to write it twice. The same delivery configuration applies to every report kind.
       */}
       <section id="looking" data-report-section="looking" class="border-t border-line pt-10" aria-labelledby="looking-title">
         <h2 id="looking-title" class="text-2xl font-bold">
@@ -296,9 +261,10 @@ const home = href(territory.layer);
           data-report
           data-kind="looking"
           data-subject={text.reportMailSubjectLooking}
-          action="mailto:contact@farmsuccession.eu"
+          action={reportEndpoint || "mailto:contact@farmsuccession.eu"}
+          data-report-transport={reportEndpoint ? "post" : "email"}
           method="post"
-          enctype="text/plain"
+          enctype={reportEndpoint ? "application/x-www-form-urlencoded" : "text/plain"}
         >
           <input type="hidden" name="territory" data-context-input="territory" data-mail-label={text.reportTerritoryLabel} />
           <input type="hidden" name="from" data-context-input="from" data-mail-label={text.reportFromLabel} />
@@ -339,33 +305,65 @@ const home = href(territory.layer);
             />
           </div>
 
-          <div class="flex flex-wrap items-center gap-4">
-            <button type="submit" class="btn btn-primary">
-              {text.reportPrepare}
-            </button>
-            <a class="inline-flex min-h-(--spacing-target) items-center underline" href="mailto:contact@farmsuccession.eu">
-              contact@farmsuccession.eu
-            </a>
-          </div>
-          <p class="meta">{text.reportEmailFallback}</p>
-          <div hidden data-mail-draft class="grid gap-4 rounded-lg border border-brand bg-card p-5">
-            <p role="status" class="font-bold text-brand-strong">
-              {text.reportDraftReady}
-            </p>
-            <label for="looking-mail-draft" class="font-bold">
-              {text.reportDraftLabel}
+          <ReportDelivery language={language} kind="looking" subject={text.reportMailSubjectLooking} />
+        </form>
+      </section>
+      <section id="removal" data-report-section="removal" class="border-t border-line pt-10" aria-labelledby="removal-title">
+        <h2 id="removal-title" class="text-2xl font-bold">
+          {text.reportRemovalTitle}
+        </h2>
+        <p class="mt-2">{text.reportRemovalLead}</p>
+
+        <form
+          class="mt-6 grid gap-5"
+          data-report
+          data-kind="removal"
+          data-subject={text.reportMailSubjectRemoval}
+          action={reportEndpoint || "mailto:contact@farmsuccession.eu"}
+          data-report-transport={reportEndpoint ? "post" : "email"}
+          method="post"
+          enctype={reportEndpoint ? "application/x-www-form-urlencoded" : "text/plain"}
+        >
+          <input type="hidden" name="territory" data-context-input="territory" data-mail-label={text.reportTerritoryLabel} />
+          <input type="hidden" name="from" data-context-input="from" data-mail-label={text.reportFromLabel} />
+
+          <div>
+            <label for="removal-source" class="block font-bold">
+              {text.reportRemovalUrlLabel}
             </label>
-            <textarea
-              id="looking-mail-draft"
-              data-mail-preview
-              readonly
-              rows="10"
-              class="w-full rounded-lg border border-line-strong bg-page p-3"
-            ></textarea>
-            <a data-open-mail href="mailto:contact@farmsuccession.eu" class="btn btn-primary justify-self-start">
-              {text.reportOpenEmail}
-            </a>
+            <p id="removal-source-hint" class="meta mt-1">
+              {text.reportRemovalUrlHint}
+            </p>
+            <input
+              id="removal-source"
+              name="source"
+              type="url"
+              inputmode="url"
+              required
+              aria-describedby="removal-source-hint"
+              data-mail-label={text.reportRemovalUrlLabel}
+              class="mt-2 min-h-(--spacing-target) w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
+            />
           </div>
+
+          <div>
+            <label for="removal-detail" class="block font-bold">
+              {text.reportRemovalReasonLabel}
+            </label>
+            <p id="removal-detail-hint" class="meta mt-1">
+              {text.reportRemovalReasonHint}
+            </p>
+            <textarea
+              id="removal-detail"
+              name="detail"
+              rows="4"
+              aria-describedby="removal-detail-hint"
+              data-mail-label={text.reportRemovalReasonLabel}
+              class="mt-2 w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
+            ></textarea>
+          </div>
+
+          <ReportDelivery language={language} kind="removal" subject={text.reportMailSubjectRemoval} />
         </form>
       </section>
     </div>

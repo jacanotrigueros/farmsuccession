@@ -1,10 +1,6 @@
 /**
- * Turn a public correction/suggestion form into an ordinary email draft.
- *
- * There is deliberately no network request here. FarmSuccession is served by GitHub Pages and promises
- * that reading it never tells a third party that the reader was here. A serverless form service would
- * break that promise; a repository credential cannot safely live in a public bundle. The user's own mail client is
- * therefore the transport, and GitHub can remain the maintainer's internal editorial queue afterwards.
+ * Prefill report context without requests. Native POST forms keep browser validation and provider
+ * confirmation/errors. Unconfigured builds prepare a copyable draft. No background delivery or secret.
  */
 const params = new URLSearchParams(window.location.search);
 const context = {
@@ -30,14 +26,20 @@ if (contextBox && hasContext) contextBox.classList.remove("hidden");
 const looking = params.get("looking");
 if (looking) for (const field of document.querySelectorAll('[data-prefill="looking"]')) field.value = looking;
 
-const requested = params.get("type");
-if (requested === "missing" || requested === "correction" || requested === "looking") {
-  for (const section of document.querySelectorAll("[data-report-section]")) {
-    if (section.dataset.reportSection !== requested) section.hidden = true;
-  }
+const kinds = ["missing", "correction", "looking", "removal"];
+const requested = kinds.includes(params.get("type")) ? params.get("type") : "missing";
+for (const section of document.querySelectorAll("[data-report-section]")) {
+  if (section.dataset.reportSection !== requested) section.hidden = true;
+}
+for (const link of document.querySelectorAll("[data-report-choice]")) {
+  const query = new URLSearchParams(params);
+  query.set("type", link.dataset.reportChoice);
+  link.search = "?" + query;
+  if (link.dataset.reportChoice === requested) link.setAttribute("aria-current", "true");
 }
 
 for (const form of document.querySelectorAll("form[data-report]")) {
+  if (form.dataset.reportTransport === "post") continue;
   const draft = form.querySelector("[data-mail-draft]");
   // A changed answer invalidates the prepared draft, so a stale message cannot be opened accidentally.
   form.addEventListener("input", (event) => {

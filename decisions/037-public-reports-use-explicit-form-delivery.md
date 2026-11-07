@@ -1,9 +1,10 @@
 # 037 — Public reports use explicit form delivery
 
-**2026-11-07. Status: Formspree selected by the maintainer; implementation and activation pending.**
+**2026-11-07. Status: Formspree selected; integration implemented, account activation pending.**
 The maintainer wants visitors to submit a short form rather than compose an email.
 This records the selected provider, the complete existing-form inventory and
-the work to implement. This PR does not add an endpoint or change delivery.
+the implemented integration and the remaining activation work. This PR adds native
+Formspree delivery when configured; no operational endpoint is committed.
 
 ## The question
 
@@ -47,9 +48,10 @@ No paid plan, trial upgrade or cloud billing account is needed for the proposed 
 
 All three message forms live in
 [`frontend/src/pages/[...report].astro`](../frontend/src/pages/[...report].astro).
-They currently use `mailto:` and
+Before this change they used `mailto:` and
 [`frontend/public/report.js`](../frontend/public/report.js) prepares a selectable
-draft. None currently delivers a message on its own.
+draft. They now share `ReportDelivery.astro`, using native POST when configured
+and retaining that draft flow when no endpoint has been supplied.
 
 | Kind                              | Entry points                                                                | Required answers                        | Optional/context data to preserve                                                                |
 | --------------------------------- | --------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -65,10 +67,10 @@ integrations. Send a stable `kind`, interface language and distinguishable subje
 Do not silently discard the issue category or contextual fields.
 
 The current catalogue builds **seven intake routes**: EU, DE, ES, FR, IT, PT and AT;
-Austria shares German interface words. Thus there are 21 rendered message forms,
-not 21 separate services. Derive this inventory from the catalogue when implementing;
-do not hard-code these countries into the integration. Update all seven dictionaries
-in `src/lib/words.ts`, including the Dutch dictionary, without adding a new territory.
+Austria shares German interface words. The existing three kinds produced 21 rendered forms. With the added removal kind,
+there are now 28 forms across those routes, all sharing one delivery configuration. The integration derives routes from the catalogue; no country list is hard-coded.
+All seven dictionaries in `src/lib/words.ts`, including Dutch, have delivery and
+removal wording without adding a territory.
 
 ### Other form-like and email entry points
 
@@ -78,7 +80,7 @@ in `src/lib/words.ts`, including the Dutch dictionary, without adding a new terr
 - The resource detail page has both a correction button and email-only helper copy.
   Make the form the primary correction action and the printed address an alternative.
 - `Footer.astro` and the project page offer **removal requests only by email**.
-  Include this gap in the delivery feature: add a distinct `removal` intake kind
+  This gap is now covered by a distinct `removal` intake kind
   with the affected public URL and a short explanation. Preserve direct email as an
   alternative, especially for a person who does not want to use another processor.
   Do not label a removal request as a broken link or automatically remove records.
@@ -97,7 +99,7 @@ rg -n '<form|mailto:|reportSlug|data-not-found-link' frontend/src frontend/publi
 ## The decision
 
 **Use Formspree Free for the existing UI.** The maintainer selected this option after
-reviewing the alternatives. Account configuration, implementation and activation
+reviewing the alternatives. The integration is implemented; account configuration and activation
 remain pending; there is no operational endpoint in this PR.
 It removes the mail-client dependency without adding our own backend, SDK, secret
 or deployment. Tally remains the documented alternative if the free spreadsheet
@@ -136,24 +138,31 @@ Implementation requirements:
    existing labels. Do not ship a fake endpoint, disabled send button or success
    screen for a message that has gone nowhere.
 
-### Maintainer configuration and implementation handoff
+### Remaining maintainer configuration
 
-This is the pending work for the next implementer; it has **not** been performed:
+The shared transport, per-form privacy disclosure, metadata, honeypot, conditional
+CSP and removal links are implemented. A four-choice navigation shows one form at a
+time with JavaScript and preserves the original context when changing kinds; native
+fragment links keep every form reachable without JavaScript. Every interface dictionary includes the new wording. Configure
+one location: `frontend/reporting.config.mjs`, whose `reportEndpoint` is intentionally
+empty until the maintainer supplies the real public form URL.
+
+The following account/receipt work has **not** been performed:
 
 1. The maintainer creates a **Free** Formspree account/form and verifies
    `contact@farmsuccession.eu` as the notification destination. Review the applicable
    processor terms and international-transfer provisions before enabling collection.
    Do not subscribe to a paid plan or use a trial as the free solution.
 2. Configure notification delivery, allowed production domain and spam settings.
-   Record the public `/f/…` endpoint in one project configuration location. Recheck
+   Set `reportEndpoint` in `frontend/reporting.config.mjs` to the public `/f/…` URL,
+   then rebuild the static site. Recheck
    current free allowances and settings at activation; all report kinds share the
    account's 50-submission monthly allowance.
-3. Implement the migration above for every existing kind plus the removal entry
-   points. Keep provider management access private. No user-submitted reports,
+3. Keep provider management access private. No user-submitted reports,
    inbox contents or personal test data belong in this public repository.
-4. Complete the tests below, then let the maintainer decide when to publish. Record
+4. Complete the live receipt checks below, then let the maintainer decide when to publish. Record
    the activation state and configuration instructions here so another implementer
-   does not mistake a documented proposal for an operational inbox.
+   does not mistake a configured UI for a verified operational inbox.
 
 ## What it costs
 
@@ -188,8 +197,36 @@ included in this free option; use Tally if that becomes a requirement.
   inbox/dashboard and the provider displays a genuine confirmation. Check rejection
   behaviour, record the results and add representative screenshots to the PR.
 
-No provider account, real submission, receipt or new-delivery browser test is claimed
-by this documentation change. The earlier UX screenshots exercise the email draft.
+No provider account, real submission or inbox receipt is claimed. Browser and build
+verification of the configured interface uses a temporary fixture URL only; the
+fixture is never submitted and is not the committed configuration. The earlier UX
+screenshots exercise the email draft, not provider delivery.
+
+### Verification of this implementation
+
+- Root `npm run check`: passed, 251 tests; corpus validation retains 0 errors,
+  the existing metric warning and the existing shared-access-page review item.
+- Frontend `npm run check`: passed, 161 tests, in both a configured fixture build
+  and the final unconfigured build. Every catalogue-derived intake route contains
+  all four native forms with the same transport, appropriate encoding, metadata
+  and no visitor account/email requirement. CSP keeps background connections local.
+- Chrome: followed the Madrid resource correction link and retained its context;
+  followed Cataluña's missing-resource link; followed a zero-result search and
+  edited its prefilled wording; used the footer removal link. Confirmed that the
+  empty removal URL blocks submission and that removal reasons are optional.
+- With the committed empty configuration restored, prepared a removal email draft
+  in Chrome without navigation, opening a mail client or sending a message.
+- The configured screenshots below use fictional input and a temporary fixture
+  endpoint. They demonstrate the interface, not successful provider delivery.
+  No fixture endpoint is committed and no valid report was submitted to it.
+- New form layouts have been inspected at desktop width. No new phone/device or
+  no-JavaScript browser run is claimed; native HTML operation without JavaScript
+  is covered by built-page checks. Provider acceptance, quota error pages and
+  mailbox receipt remain live activation checks.
+
+![Configured correction with privacy beside Send](assets/037/correction-configured.jpg)
+
+![Configured removal with optional explanation](assets/037/removal-configured.jpg)
 
 ## What would overturn it
 

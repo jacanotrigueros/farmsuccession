@@ -586,15 +586,15 @@ const browseHere = searchUrl("/", {
       <p id="helpful" class="font-bold">
         {text.helpfulQuestion}
       </p>
+      <p class="mt-6">
+        <a class="btn btn-quiet" rel="nofollow" href={`${reportPath}?${reportQuery}`}>
+          {text.reportChangeForm}
+        </a>
+      </p>
       <p class="mt-3 max-w-3xl">
         {text.helpfulWriteIn}{" "}
         <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`mailto:${contact}`}>
           {contact}
-        </a>
-      </p>
-      <p class="mt-6">
-        <a class="btn btn-quiet" rel="nofollow" href={`${reportPath}?${reportQuery}`}>
-          {text.reportChangeForm}
         </a>
       </p>
     </section>

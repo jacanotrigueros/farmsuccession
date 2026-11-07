@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
+import { reportEndpoint } from "../reporting.config.mjs";
 import { SEARCH_SLUGS } from "../public/search-scope.js";
 import { words } from "../src/lib/words.ts";
 
@@ -29,7 +30,10 @@ test("every site language has a public intake page that stays out of search inde
     const html = readFileSync(file, "utf8");
     assert.match(html, /<meta name="robots" content="noindex, follow">/u, `${file} is an editorial utility, not a document to index`);
     assert.ok(html.includes(words(language).reportTitle), `${file} is not written in its own language`);
-    assert.match(html, /action="mailto:contact@farmsuccession\.eu"/u, `${file} has no transport when JavaScript is unavailable`);
+    assert.ok(
+      html.includes(`action="${reportEndpoint || "mailto:contact@farmsuccession.eu"}"`),
+      `${file} has no transport without JavaScript`,
+    );
     assert.match(html, /<script[^>]*src="\/report\.js"/u, `${file} never loads the first-party enhancement that structures the email`);
   }
 });
@@ -168,4 +172,80 @@ test("preparing a report shows a copyable draft without navigating, and an edit 
   assert.equal(mail.searchParams.get("body"), preview.value.split("\n\n").slice(1).join("\n\n"));
   listeners.input!({ target: detail, preventDefault() {} });
   assert.equal(draft.hidden, true, "changed answers must not leave an obsolete draft available");
+});
+
+test("all four report kinds share one transport, with honest fallback and privacy", () => {
+  for (const { file, language } of reportPages) {
+    const html = readFileSync(file, "utf8");
+    const text = words(language);
+    const forms = [...html.matchAll(/<form\b[^>]*data-report[^>]*>[\s\S]*?<\/form>/gu)].map(([form]) => form);
+    assert.equal(forms.length, 4, `${file}: a report kind was missed`);
+    for (const kind of ["missing", "correction", "looking", "removal"]) {
+      assert.ok(html.includes(`href="?type=${kind}#${kind}"`), `${file}: visitors cannot choose ${kind} without JavaScript`);
+    }
+    for (const kind of ["missing", "correction", "looking", "removal"]) {
+      const form = forms.find((form) => form.includes(`data-kind="${kind}"`));
+      assert.ok(form, `${file}: missing ${kind}`);
+      assert.ok(form.includes(`action="${reportEndpoint || "mailto:contact@farmsuccession.eu"}"`));
+      assert.ok(form.includes(`data-report-transport="${reportEndpoint ? "post" : "email"}"`));
+      assert.match(form, /method="post"/u);
+      assert.doesNotMatch(form, /type="file"|type="email"|name="email"|name="account"/u);
+      if (reportEndpoint) {
+        assert.match(form, /enctype="application\/x-www-form-urlencoded"/u);
+        assert.ok(form.includes(`name="kind" value="${kind}"`));
+        assert.match(form, /name="_subject" value="[^"]+"/u);
+        assert.ok(form.includes(`name="_language" value="${language === "pt" ? "pt-PT" : language}"`));
+        assert.match(form, /name="_gotcha"[^>]*tabindex="-1"/u);
+        assert.ok(form.includes(text.reportSend));
+        assert.doesNotMatch(form, /data-mail-draft|name="_next"/u);
+      } else {
+        assert.ok(form.includes(text.reportPrepare));
+        assert.match(form, /data-mail-draft/u);
+        assert.doesNotMatch(form, /name="_gotcha"|name="_subject"/u);
+      }
+    }
+    assert.equal(html.includes("data-report-privacy"), Boolean(reportEndpoint));
+    if (reportEndpoint) {
+      assert.equal([...html.matchAll(/data-report-privacy/gu)].length, 4, "each form needs its own disclosure beside the submit action");
+      assert.ok(html.includes("https://formspree.io/legal/privacy-policy/"));
+      assert.ok(html.includes(text.reportDeliveryPrivacy));
+    }
+    const removal = forms.find((form) => form.includes('data-kind="removal"'))!;
+    assert.match(removal, /name="source"[^>]*type="url"[^>]*required/u);
+    assert.doesNotMatch(removal, /name="detail"[^>]*required/u, "removal must not require private reasons");
+    assert.match(removal, /name="detail"/u);
+  }
+});
+
+test("native POST keeps safe context prefill without intercepting delivery or claiming success", async () => {
+  const { runInNewContext } = await import("node:vm");
+  const from = { value: "" };
+  const contextText = { textContent: "" };
+  const sections = ["missing", "correction", "looking", "removal"].map((kind) => ({ dataset: { reportSection: kind }, hidden: false }));
+  const form = {
+    dataset: { reportTransport: "post" },
+    addEventListener() {
+      assert.fail("native POST must retain browser/provider validation, confirmation and errors");
+    },
+  };
+  runInNewContext(readFileSync(path.join(DIST, "report.js"), "utf8"), {
+    window: { location: { search: "?type=removal&from=%2Fes%2F&territory=%3CSpain%3E" } },
+    URLSearchParams,
+    document: {
+      querySelector: () => null,
+      querySelectorAll: (selector: string) => {
+        if (selector === "form[data-report]") return [form];
+        if (selector === "[data-report-section]") return sections;
+        if (selector === '[data-context-input="from"]') return [from];
+        if (selector === '[data-context-value="territory"]') return [contextText];
+        return [];
+      },
+    },
+  });
+  assert.equal(from.value, "/es/");
+  assert.equal(contextText.textContent, "<Spain>", "context must remain text, not markup");
+  assert.deepEqual(
+    sections.filter((section) => !section.hidden).map((section) => section.dataset.reportSection),
+    ["removal"],
+  );
 });
