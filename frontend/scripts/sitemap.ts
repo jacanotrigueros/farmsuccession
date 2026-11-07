@@ -30,17 +30,22 @@ const SITE = "https://farmsuccession.eu";
  * Every page of the built site that asks to be offered, as the path a reader would type.
  *
  * A page that carries `noindex` is skipped — a search page, which is not a document of its own, and a
- * region that documented nothing itself, whose list is its country's list. The rule is read off the page
- * rather than worked out again here: the page already decided, and a sitemap that decided separately
- * would be free to disagree with it.
+ * region that documented nothing itself, whose list is its country's list. So is a page whose canonical
+ * names another address: Austria's project and history pages repeat Germany's and say so, and offering
+ * the copy would contradict it. The rule is read off the page rather than worked out again here: the page
+ * already decided, and a sitemap that decided separately would be free to disagree with it.
  */
 function builtPages(dir = DIST): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) return builtPages(full);
     if (entry.name !== "index.html") return [];
-    if (/<meta\s+name="robots"\s+content="noindex/u.test(readFileSync(full, "utf8"))) return [];
-    return [`/${path.relative(DIST, path.dirname(full)).split(path.sep).join("/")}/`.replace("//", "/")];
+    const html = readFileSync(full, "utf8");
+    if (/<meta\s+name="robots"\s+content="noindex/u.test(html)) return [];
+    const page = `/${path.relative(DIST, path.dirname(full)).split(path.sep).join("/")}/`.replace("//", "/");
+    const canonical = /<link\s+rel="canonical"\s+href="([^"]+)"/u.exec(html)?.[1];
+    if (canonical !== undefined && canonical !== SITE + page) return [];
+    return [page];
   });
 }
 
