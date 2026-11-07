@@ -10,6 +10,19 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.8.1 — 2026-11-07
+
+The sitemap stops offering Austria's project and history pages, which name
+Germany's as their original. A search engine is no longer told the opposite
+of what those pages say. Nothing a reader sees changes, so only the last digit
+moves.
+
+- The sitemap leaves out any page whose canonical address is another page,
+  as it already left out the pages that ask not to be indexed: 479 pages
+  instead of 481.
+
+369 records over 111 edition files, as in 1.8.0.
+
 ## 1.8.0 — 2026-11-07
 
 Austria's pages are read again in Austrian German and write their dates and
