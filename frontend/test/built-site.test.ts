@@ -3,7 +3,10 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
-import { recordSlug, regionSlug, SEARCH_SLUGS } from "../public/search-scope.js";
+import { decodeHTML } from "entities";
+
+import { reportEndpoint } from "../reporting.config.mjs";
+import { recordSlug, regionSlug, searchPath, SEARCH_SLUGS } from "../public/search-scope.js";
 import { words } from "../src/lib/words.ts";
 
 /**
@@ -170,6 +173,8 @@ test("a country page links every one of its records by name", () => {
       .trim();
     const link = [...country.html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === address);
     assert.ok(link, `${country.file} does not link ${address}`);
+    const copies = [...country.html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].filter(([, href]) => href === address);
+    assert.equal(copies.length, 1, `${country.file} repeats ${address} in competing lists`);
     const linkedName = (link[2] ?? "")
       .replaceAll(/<[^>]*>/gu, " ")
       .replaceAll(/\s+/gu, " ")
@@ -178,6 +183,28 @@ test("a country page links every one of its records by name", () => {
     checked += 1;
   }
   assert.ok(checked > 250, `only ${checked} country records were checked; the index did not cover the corpus`);
+});
+
+/** The complete country catalogue survives progressive disclosure, including inherited EU records. */
+test("country entry pages expose the same unique record destinations as their complete search fallback", () => {
+  const recordAddresses = new Set(
+    pages.filter(({ html }) => html.includes("data-pagefind-body")).map(({ file }) => `/${file.replace(/index\.html$/u, "")}`),
+  );
+  assert.ok(recordAddresses.size > 250, "no complete record corpus to compare");
+  const listedRecords = (html: string) =>
+    [...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)]
+      .map(([, href]) => href!)
+      .filter((href) => recordAddresses.has(href))
+      .toSorted();
+  for (const iso of Object.keys(catalogueJurisdictions)) {
+    const country = pages.find(({ file }) => file === path.join(iso.toLowerCase(), "index.html"));
+    if (!country) continue;
+    const search = pages.find(({ file }) => file === path.join(searchPath("/", iso).slice(1), "index.html"));
+    assert.ok(search, `${iso}: missing complete national search fallback`);
+    const actual = listedRecords(country.html);
+    assert.equal(actual.length, new Set(actual).size, `${iso}: a resource destination is repeated`);
+    assert.deepEqual(actual, listedRecords(search.html), `${iso}: progressive disclosure lost or widened the country's records`);
+  }
 });
 
 /**
@@ -729,6 +756,23 @@ test("a page tells the browser to refuse anything that did not come from this si
       assert.ok(policy.includes(directive), `${file} is missing ${directive} from its Content-Security-Policy`);
     }
 
+    assert.equal(
+      policy
+        .split(";")
+        .map((part) => part.trim())
+        .find((part) => part.startsWith("form-action ")),
+      `form-action 'self' mailto:${reportEndpoint ? " https://formspree.io" : ""}`,
+      `${file}: only the configured provider may receive an explicit report`,
+    );
+    assert.equal(
+      policy
+        .split(";")
+        .map((part) => part.trim())
+        .find((part) => part.startsWith("connect-src ")),
+      "connect-src 'self'",
+      `${file}: form delivery must not permit third-party background connections`,
+    );
+
     assert.ok(
       policy.includes("'wasm-unsafe-eval'"),
       `${file} forbids WebAssembly, and the search compiles it: every search page would fail to load its index`,
@@ -760,16 +804,8 @@ test("no page styles anything inline, because the policy cannot cover an attribu
   }
 });
 
-/**
- * The question a record asks, and the only shape it can honestly take on a site with no server.
- *
- * It was two links styled as buttons, each preparing a letter in the reader's mail client. Where no mail
- * client is configured, pressing one did nothing and the page looked broken. A control is a promise that
- * pressing it does something here, so the question now ends in an address that can be read and copied
- * without being pressed. This test is that rule: a record may ask, and it may not ask with a control
- * that cannot act.
- */
-test("every record asks whether it helped and gives an address to answer at, not a button", () => {
+/** Reader feedback must lead to an actionable, contextual report, never a pretend vote. */
+test("every record prioritises actionable feedback with its context and retains the email alternative", () => {
   const byLanguage = new Set<string>();
   let checked = 0;
   for (const { file, html } of pages) {
@@ -785,6 +821,17 @@ test("every record asks whether it helped and gives an address to answer at, not
     const section = html.slice(at, end);
 
     assert.ok(section.includes(text.helpfulQuestion), `${file} asks whether it helped in another language`);
+    assert.ok(section.includes(text.helpfulFeedbackLead));
+    assert.ok(section.includes(text.helpfulFeedbackAction));
+    const target = /<a\b[^>]*data-record-feedback[^>]*href="([^"]+)"/u.exec(section)?.[1];
+    assert.ok(target, `${file}: a reader who was not helped has no direct report action`);
+    const feedback = new URL(decodeHTML(target), "https://farmsuccession.eu");
+    assert.equal(feedback.searchParams.get("type"), "feedback");
+    assert.equal(feedback.searchParams.get("from"), "/" + file.replace(/index\.html$/u, ""));
+    assert.ok(feedback.searchParams.get("record"), `${file}: the reader must identify the record again`);
+    assert.ok(feedback.searchParams.get("territory"));
+    assert.ok(feedback.pathname.endsWith(`/${text.reportSlug}/`));
+    assert.doesNotMatch(section, /<button\b/u, "feedback must not pretend to store a vote");
     assert.ok(section.includes(text.helpfulWriteIn), `${file} asks the question without saying where an answer goes`);
     assert.ok(
       section.includes(">contact@farmsuccession.eu<"),

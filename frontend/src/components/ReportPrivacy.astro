@@ -1,0 +1,18 @@
+---
+import { reportEndpoint } from "../../reporting.config.mjs";
+import { words } from "../lib/words.ts";
+
+interface Props {
+  language: string;
+}
+const text = words(Astro.props.language);
+---
+
+{reportEndpoint && (
+  <p data-report-privacy class="meta">
+    {text.reportDeliveryPrivacy}{" "}
+    <a class="underline" href="https://formspree.io/legal/privacy-policy/" rel="noreferrer">
+      {text.reportProviderPrivacy}
+    </a>
+  </p>
+)}

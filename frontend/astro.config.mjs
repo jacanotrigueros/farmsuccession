@@ -5,6 +5,8 @@ import tailwind from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 
+import { reportEndpoint } from "./reporting.config.mjs";
+
 /**
  * Where the repository is, injected as a constant because this file is the only one that can know.
  *
@@ -38,7 +40,8 @@ export default defineConfig({
    * proves what the build produced; it says nothing about what a page may do once it is open in front of
    * somebody. This policy says it again as a rule the browser enforces — a script, a stylesheet, a font,
    * an image or a connection from another host is refused, and so is a form that would post somewhere
-   * else. The mail address a reader writes a correction to is the one exception, and it is named.
+   * else. Explicit report submission may post to the configured Formspree origin (decision 037).
+   * Reading still contacts only this site; connect-src remains self-only.
    *
    * It is a `<meta>` rather than a header because GitHub Pages sends no headers of its own on a custom
    * domain. That is the whole cost of the choice: `frame-ancestors` exists only as a header, so this
@@ -55,7 +58,7 @@ export default defineConfig({
         "img-src 'self'",
         "font-src 'self'",
         "connect-src 'self'",
-        "form-action 'self' mailto:",
+        `form-action 'self' mailto:${reportEndpoint ? " https://formspree.io" : ""}`,
         "base-uri 'none'",
         "object-src 'none'",
       ],

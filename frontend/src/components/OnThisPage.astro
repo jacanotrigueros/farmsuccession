@@ -22,7 +22,7 @@ const { sections, language } = Astro.props;
 const text = words(language);
 ---
 
-<nav aria-label={text.onThisPage} class="card self-start p-5 lg:sticky lg:top-4">
+<nav aria-label={text.onThisPage} class="card self-start p-5 lg:sticky lg:top-4 lg:order-last">
   <p class="meta font-bold">{text.onThisPage}</p>
   <ul class="mt-2">
     {sections.map((section) => (

@@ -7,12 +7,9 @@
  * into institutional vocabulary before they can even choose a heading — and "Succession service", "Policy
  * framework" and "Land bank" are not how anybody describes their own need out loud.
  *
- * So the sections of a territory page are these, and the record's kind stays on the record as a tag. The
- * mapping is deliberate and not a taxonomy: the last group is everything that is context rather than
- * something to apply for, and it is also where a kind goes when it answers a situation the four cards
- * do not name. Advice is one of those: somebody who wants to be walked through a handover is not
- * looking for a course, and folding the two together hid twenty-four records of one behind the name of
- * the other.
+ * These stable groups also supply the record index's situation metadata. They are not a taxonomy:
+ * the topic chooser can expose a kind directly. Advice stays distinct from training and now has its
+ * own primary entry, without changing the existing index grouping or mixing courses with guidance.
  */
 import type { Resource } from "../../../src/types/edition.ts";
 

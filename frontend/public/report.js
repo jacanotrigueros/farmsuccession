@@ -1,10 +1,6 @@
 /**
- * Turn a public correction/suggestion form into an ordinary email draft.
- *
- * There is deliberately no network request here. FarmSuccession is served by GitHub Pages and promises
- * that reading it never tells a third party that the reader was here. A serverless form service would
- * break that promise; a repository credential cannot safely live in a public bundle. The user's own mail client is
- * therefore the transport, and GitHub can remain the maintainer's internal editorial queue afterwards.
+ * Prefill report context without requests. Native POST forms keep browser validation and provider
+ * confirmation/errors. Unconfigured builds prepare a copyable draft. No background delivery or secret.
  */
 const params = new URLSearchParams(window.location.search);
 const context = {
@@ -30,15 +26,46 @@ if (contextBox && hasContext) contextBox.classList.remove("hidden");
 const looking = params.get("looking");
 if (looking) for (const field of document.querySelectorAll('[data-prefill="looking"]')) field.value = looking;
 
-const requested = params.get("type");
-if (requested === "missing" || requested === "correction" || requested === "looking") {
-  for (const section of document.querySelectorAll("[data-report-section]")) {
-    if (section.dataset.reportSection !== requested) section.hidden = true;
-  }
-  document.querySelector(`[data-report-section="${requested}"]`)?.scrollIntoView();
-}
+const kinds = ["missing", "correction", "looking", "feedback", "removal"];
+const requested = kinds.includes(params.get("type")) ? params.get("type") : "missing";
 
 for (const form of document.querySelectorAll("form[data-report]")) {
+  const reason = form.querySelector("[data-report-kind]");
+  if (reason) {
+    reason.value = requested;
+    const updateReason = () => {
+      const kind = reason.value;
+      form.dataset.kind = kind;
+      form.dataset.subject = reason.options[reason.selectedIndex]?.dataset.subject ?? "FarmSuccession";
+      const subject = form.querySelector('[name="_subject"]');
+      if (subject) subject.value = form.dataset.subject;
+      const option = reason.options[reason.selectedIndex];
+      const label = form.querySelector("[data-report-detail-label]");
+      const hint = form.querySelector("[data-report-detail-hint]");
+      const detail = form.querySelector('[name="detail"]');
+      if (label) label.textContent = option.dataset.detailLabel;
+      if (hint) hint.textContent = option.dataset.detailHint;
+      if (detail) detail.dataset.mailLabel = option.dataset.detailLabel;
+      const source = form.querySelector("[data-report-source]");
+      if (source) source.required = kind === "missing" || kind === "removal";
+      const verification = form.querySelector("[data-removal-review]");
+      if (verification) verification.hidden = kind !== "removal";
+      for (const group of form.querySelectorAll("[data-report-only]")) {
+        group.hidden = !group.dataset.reportOnly.split(" ").includes(kind);
+        for (const field of group.querySelectorAll("input, select, textarea")) field.disabled = group.hidden;
+      }
+      const preview = form.querySelector("[data-mail-draft]");
+      if (preview) preview.hidden = true;
+    };
+    updateReason();
+    reason.addEventListener("change", updateReason);
+  }
+  if (form.dataset.reportTransport === "post") continue;
+  const draft = form.querySelector("[data-mail-draft]");
+  // A changed answer invalidates the prepared draft, so a stale message cannot be opened accidentally.
+  form.addEventListener("input", (event) => {
+    if (draft && !draft.contains(event.target)) draft.hidden = true;
+  });
   form.addEventListener("submit", (event) => {
     if (!form.reportValidity()) return;
     event.preventDefault();
@@ -46,14 +73,21 @@ for (const form of document.querySelectorAll("form[data-report]")) {
     const lines = [];
     const fields = form.querySelectorAll("input[name], textarea[name], select[name]");
     for (const field of fields) {
-      if (!field.value) continue;
+      if (!field.value || field.disabled) continue;
       const label = field.dataset.mailLabel ?? field.name;
       const value = field instanceof HTMLSelectElement ? (field.options[field.selectedIndex]?.text ?? field.value) : field.value;
       lines.push(`${label}: ${value}`);
     }
 
     const subject = form.dataset.subject ?? "FarmSuccession";
-    window.location.href =
-      "mailto:contact@farmsuccession.eu?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n\n"));
+    const message = lines.join("\n\n");
+    const preview = form.querySelector("[data-mail-preview]");
+    const openMail = form.querySelector("[data-open-mail]");
+    if (!draft || !preview || !openMail) return;
+    preview.value = subject + "\n\n" + message;
+    openMail.href = "mailto:contact@farmsuccession.eu?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(message);
+    draft.hidden = false;
+    preview.focus();
+    preview.select();
   });
 }

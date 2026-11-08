@@ -18,6 +18,16 @@ export const KIND_ICON: Record<string, string> = {
 
 export const kindIcon = (kind: string) => KIND_ICON[kind] ?? KIND_ICON.OTHER!;
 
+/** Status has its own symbol as well as a word and colour. */
+const STATUS_ICON: Record<string, string> = {
+  ACTIVE: "lucide:circle-check",
+  ANNOUNCED_NOT_OPERATING: "lucide:clock-3",
+  HISTORICAL: "lucide:archive",
+  DISCONTINUED: "lucide:circle-off",
+  UNKNOWN: "lucide:circle-help",
+};
+export const statusIcon = (status: string): string => STATUS_ICON[status] ?? STATUS_ICON.UNKNOWN!;
+
 /** Practical attributes of a record, shown in its facts panel. */
 export const PRACTICAL_ICON: Record<string, string> = {
   instrumentType: "lucide:banknote",
