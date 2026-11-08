@@ -1,6 +1,6 @@
 # 037 — Public reports use explicit form delivery
 
-**2026-11-08. Status: maintainer-provided endpoint configured; provider protection and receipt checks pending.**
+**2026-11-08. Status: endpoint and provider protection configured; inbox receipt is checked from the published site.**
 The maintainer wants visitors to submit a short form rather than compose an email.
 This records the selected provider, the complete existing-form inventory and
 the implemented integration and the remaining activation work. This PR adds native
@@ -181,6 +181,17 @@ in the email fallback. Legacy wording promising unconditional removal is replace
 On 7 November the maintainer requested this stricter protection; it replaces the
 earlier suggestion to start with CAPTCHA disabled. Real CAPTCHA activation and
 challenge testing remain pending the provider account, just like inbox receipt.
+
+### Activation state — 8 November 2026
+
+The form is on Formspree Free with hosted reCAPTCHA and Formshield on, and the project
+accepts submissions only from `farmsuccession.eu`. Domain restriction is a project
+setting, not a form setting. Two test submissions from a local build reached the
+provider and went to its spam inbox as "Unauthorized domain", which is the restriction
+working and also means a local build cannot prove delivery: inbox receipt can only be
+checked from the published site. The invisible CAPTCHA options need a third-party script
+on our own pages, so they stay out; the visible checkbox runs on Formspree after the
+explicit submission.
 
 ### Remaining maintainer configuration
 
