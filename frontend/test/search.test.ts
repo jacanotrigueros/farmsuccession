@@ -6,6 +6,7 @@ import { test } from "node:test";
 import {
   recordSlug,
   effectiveFilters,
+  europeanSearch,
   facetsOf,
   queryFromState,
   regionSlug,
@@ -194,4 +195,16 @@ test("every record is in exactly one language bundle, and the manifest says whic
       `nothing indexes ${snapshot.metadata.language}, so its records cannot be found by typing in it`,
     );
   }
+});
+
+test("explicitly widening to Europe retains the question and thematic filters while removing geographic constraints", () => {
+  const selected = { country: ["ES"], territory: ["ES/galicia"], kind: ["LAND_BANK"], status: ["ACTIVE"], profile: ["YOUNG_FARMER"] };
+  const url = europeanSearch({ q: "tierra & agua", selected });
+  assert.ok(url.startsWith("/search/?"));
+  assert.deepEqual(stateFromQuery(new URL(url, "https://farmsuccession.eu").search, null), {
+    q: "tierra & agua",
+    selected: { kind: ["LAND_BANK"], status: ["ACTIVE"], profile: ["YOUNG_FARMER"] },
+  });
+  assert.deepEqual(selected.territory, ["ES/galicia"], "widening must not mutate the current search");
+  assert.equal(europeanSearch(), "/search/");
 });

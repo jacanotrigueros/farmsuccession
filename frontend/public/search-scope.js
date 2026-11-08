@@ -129,3 +129,13 @@ export const territorySearchUrl = (root, country, territory) =>
 export const countryFilters = (origin, reaches) => [
   ...new Set([origin, ...reaches.map((place) => place.split("/")[0] ?? "").filter((code) => code)]),
 ];
+
+/** Keep the question and thematic filters when explicitly leaving a national scope.
+ * Country and territory constraints would keep an ostensibly European search local.
+ * @param {State} state
+ * @returns {string}
+ */
+export function europeanSearch({ q = "", selected = {} } = {}) {
+  const thematic = Object.fromEntries(Object.entries(selected).filter(([facet]) => facet !== "country" && facet !== "territory"));
+  return searchUrl("/", { q, selected: thematic });
+}

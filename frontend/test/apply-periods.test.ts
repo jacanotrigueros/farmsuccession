@@ -92,3 +92,16 @@ test("one-call records still render one answer and active records without calls 
     }
   }
 });
+
+test("resources without a documented call describe availability rather than inventing an application question", () => {
+  let checked = 0;
+  for (const { resource, country, language } of records.filter(({ resource }) => !resource.calls?.length)) {
+    const blocks = blocksOf(htmlOf(resource, country));
+    if (blocks.length === 0) continue;
+    const body = decodeHTML(blocks[0]![2]!);
+    const heading = /<h2\b[^>]*>([\s\S]*?)<\/h2>/u.exec(body)?.[1]?.trim();
+    assert.equal(heading, words(language).availabilityTitle, `${resource.id}: no call means no application-period question`);
+    checked++;
+  }
+  assert.ok(checked > 0, "announced and unconfirmed records must be inspected too");
+});

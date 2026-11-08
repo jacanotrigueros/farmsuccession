@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
-import { readdirSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
+import { reportEndpoint } from "../reporting.config.mjs";
 import { SEARCH_SLUGS } from "../public/search-scope.js";
 import { words } from "../src/lib/words.ts";
 
@@ -19,77 +20,65 @@ const reportPages = [
     .map(([iso, { lang }]) => ({ file: path.join(DIST, iso.toLowerCase(), words(lang).reportSlug, "index.html"), language: lang })),
 ];
 
-test("every site language has a public intake page that stays out of search indexes", () => {
-  assert.equal(
-    reportPages.length,
-    Object.keys(catalogue.jurisdictions).length,
-    "an intake page is missing for a jurisdiction of the catalogue",
-  );
+test("every jurisdiction has one localized intake with all five reasons and no account", () => {
+  assert.equal(reportPages.length, Object.keys(catalogue.jurisdictions).length);
   for (const { file, language } of reportPages) {
     const html = readFileSync(file, "utf8");
-    assert.match(html, /<meta name="robots" content="noindex, follow">/u, `${file} is an editorial utility, not a document to index`);
-    assert.ok(html.includes(words(language).reportTitle), `${file} is not written in its own language`);
-    assert.match(html, /action="mailto:contact@farmsuccession\.eu"/u, `${file} has no transport when JavaScript is unavailable`);
-    assert.match(html, /<script[^>]*src="\/report\.js"/u, `${file} never loads the first-party enhancement that structures the email`);
-  }
-});
-
-test("a new-resource report asks for a public URL and a reason, not an account", () => {
-  for (const { file } of reportPages) {
-    const html = readFileSync(file, "utf8");
-    const section = html.slice(html.indexOf('id="missing"'), html.indexOf('id="correction"'));
-    assert.match(section, /name="source"[^>]*type="url"[^>]*required/u, `${file} can accept a resource with no public page`);
-    assert.match(section, /name="detail"[^>]*required/u, `${file} can accept a resource with no explanation`);
-    assert.doesNotMatch(
-      section,
-      /name="email"|name="account"|github\.com/iu,
-      `${file} asks a local contributor for an account the task does not need`,
+    const text = words(language);
+    assert.match(html, /<meta name="robots" content="noindex, follow">/u);
+    assert.ok(html.includes(text.reportTitle));
+    assert.equal([...html.matchAll(/<form\b/gu)].length, 1, `${file}: duplicate forms defeat the shared intake`);
+    assert.match(html, /name="kind"[^>]*required/u);
+    for (const kind of ["missing", "correction", "looking", "feedback", "removal"]) assert.ok(html.includes(`<option value="${kind}"`));
+    assert.match(html, /name="detail"[^>]*required/u);
+    assert.match(html, /name="source"[^>]*type="url"/u);
+    assert.match(
+      html,
+      /data-report-only="missing correction removal"(?:(?!data-report-only)[\s\S])*name="source"/u,
+      "someone saying a record did not help must not be asked for a URL first",
     );
+    assert.match(html, /name="issue"/u);
+    assert.match(html, /name="where"/u);
+    assert.match(html, /data-prefill="looking"/u);
+    for (const name of ["territory", "record", "from"]) assert.ok(html.includes(`name="${name}"`));
+    assert.doesNotMatch(html, /name="email"|name="account"|type="file"/u);
+    assert.ok(html.includes(text.reportRemovalVerification));
+    assert.equal([...html.matchAll(/data-removal-review/gu)].length, 1);
+    assert.match(html, /<script[^>]*src="\/report\.js"/u);
   }
 });
 
-test("the reporting enhancement contains no endpoint, token or browser storage", () => {
+test("the shared native transport discloses processing and preserves the working unconfigured fallback", () => {
+  for (const { file, language } of reportPages) {
+    const html = readFileSync(file, "utf8");
+    const text = words(language);
+    assert.ok(html.includes(`action="${reportEndpoint || "mailto:contact@farmsuccession.eu"}"`));
+    assert.ok(html.includes(`data-report-transport="${reportEndpoint ? "post" : "email"}"`));
+    assert.match(html, /method="post"/u);
+    if (reportEndpoint) {
+      assert.match(html, /enctype="application\/x-www-form-urlencoded"/u);
+      assert.equal([...html.matchAll(/name="kind"/gu)].length, 1, "the selected reason must not compete with hidden metadata");
+      assert.match(html, /name="_subject" value="[^"]+"/u);
+      assert.ok(html.includes(`name="_language" value="${language === "pt" ? "pt-PT" : language}"`));
+      assert.match(html, /name="_gotcha"[^>]*tabindex="-1"/u);
+      assert.ok(html.includes(text.reportSend));
+      assert.equal([...html.matchAll(/data-report-privacy/gu)].length, 1);
+      assert.ok(html.includes(text.reportDeliveryPrivacy));
+      assert.doesNotMatch(html, /data-mail-draft|name="_next"/u);
+    } else {
+      assert.ok(html.includes(text.reportPrepare));
+      assert.match(html, /data-mail-draft/u);
+      assert.doesNotMatch(html, /name="_gotcha"|name="_subject"|data-report-privacy/u);
+    }
+  }
+});
+
+test("the reporting enhancement has no background delivery, credential or browser storage", () => {
   const script = readFileSync(path.join(DIST, "report.js"), "utf8");
   assert.doesNotMatch(script, /fetch\(|XMLHttpRequest|github\.com|api\.github|token|localStorage|sessionStorage|document\.cookie/iu);
   assert.match(script, /mailto:contact@farmsuccession\.eu/u);
 });
 
-/**
- * The reader who searched and found nothing is the only person who can say where this directory has a
- * hole, and they are the one person about to leave. The two sections above them need somebody who
- * already knows an answer: a resource exists, or a record is wrong. This one needs only the question.
- *
- * It asks for one sentence and an optional place, and never for a name, an address or an account.
- */
-test("every language asks the reader who found nothing what they came for", () => {
-  for (const { file, language } of reportPages) {
-    const html = readFileSync(file, "utf8");
-    const text = words(language);
-    const at = html.indexOf('id="looking"');
-    assert.ok(at > 0, `${file} never asks what a reader came for: a search that found nothing has nowhere to go`);
-
-    const section = html.slice(at);
-    assert.ok(section.includes(text.reportLookingTitle), `${file} asks the third question in another language`);
-    assert.match(section, /name="detail"[^>]*required/u, `${file} would accept a report that says nothing`);
-    assert.match(section, /name="where"/u, `${file} cannot be told where the reader was looking`);
-    assert.doesNotMatch(
-      section,
-      /name="email"|name="account"|type="email"/iu,
-      `${file} asks for a way to reply that this form has never needed`,
-    );
-    assert.ok(
-      section.includes(`data-subject="${text.reportMailSubjectLooking}"`),
-      `${file} files a gap under the same subject as something else, so no inbox can tell them apart`,
-    );
-  }
-});
-
-/**
- * And the way in. A section nobody is sent to is a section nobody uses: the moment a search says it
- * found nothing is the moment to offer it, in the language of that page, pointing at that page's own
- * intake. The link is written into the page rather than built at runtime, so it still goes somewhere
- * useful if the script never runs.
- */
 test("a search that found nothing offers the reader the way to say so", () => {
   const searchPages = [
     { file: path.join(DIST, "search", "index.html"), language: "en", country: "" },
@@ -116,5 +105,156 @@ test("a search that found nothing offers the reader the way to say so", () => {
       `${file} points a reader at the wrong intake page, or at one in another language`,
     );
     assert.match(html, /<script[^>]*src="\/search\.js"/u, `${file} never loads the script that reveals the offer`);
+  }
+});
+
+test("preparing a report shows a copyable draft without navigating, and an edit invalidates it", async () => {
+  const { runInNewContext } = await import("node:vm");
+  class Select {
+    name = "issue";
+    value = "broken";
+    dataset = { mailLabel: "Qué ha cambiado" };
+    selectedIndex = 0;
+    options = [{ text: "El enlace oficial ya no funciona" }];
+  }
+  const detail = { name: "detail", value: "Revisar <texto> & comillas: café", dataset: { mailLabel: "Revisión" } };
+  const context = { name: "from", value: "/es/recursos/example/", dataset: { mailLabel: "Página" } };
+  const fields = [new Select(), detail, context];
+  const preview = { value: "", focus() {}, select() {} };
+  const openMail = { href: "mailto:contact@farmsuccession.eu" };
+  const draft = { hidden: true, contains: (target: unknown) => target === preview };
+  const listeners: Record<string, (event: { target?: unknown; preventDefault: () => void }) => void> = {};
+  const form = {
+    dataset: { subject: "[FarmSuccession] Corrección" },
+    reportValidity: () => true,
+    addEventListener: (type: string, listener: (typeof listeners)[string]) => (listeners[type] = listener),
+    querySelectorAll: () => fields,
+    querySelector: (selector: string) =>
+      ({ "[data-mail-draft]": draft, "[data-mail-preview]": preview, "[data-open-mail]": openMail })[selector],
+  };
+  const location = { search: "", href: "https://farmsuccession.eu/es/avisar/" };
+  runInNewContext(readFileSync(path.join(DIST, "report.js"), "utf8"), {
+    window: { location },
+    URLSearchParams,
+    HTMLSelectElement: Select,
+    document: {
+      querySelector: () => null,
+      querySelectorAll: (selector: string) => (selector === "form[data-report]" ? [form] : []),
+    },
+  });
+  let prevented = false;
+  listeners.submit!({ preventDefault: () => (prevented = true) });
+  assert.equal(prevented, true);
+  assert.equal(location.href, "https://farmsuccession.eu/es/avisar/", "preparing must not launch a mail application");
+  assert.equal(draft.hidden, false);
+  assert.equal(
+    preview.value,
+    "[FarmSuccession] Corrección\n\nQué ha cambiado: El enlace oficial ya no funciona\n\nRevisión: Revisar <texto> & comillas: café\n\nPágina: /es/recursos/example/",
+  );
+  const mail = new URL(openMail.href);
+  assert.equal(mail.searchParams.get("subject"), form.dataset.subject);
+  assert.equal(mail.searchParams.get("body"), preview.value.split("\n\n").slice(1).join("\n\n"));
+  listeners.input!({ target: detail, preventDefault() {} });
+  assert.equal(draft.hidden, true, "changed answers must not leave an obsolete draft available");
+});
+
+test("reason changes preserve the message, scope fields and require independent removal review without intercepting POST", async () => {
+  const { runInNewContext } = await import("node:vm");
+  const kinds = ["missing", "correction", "looking", "feedback", "removal"];
+  const listeners: Record<string, () => void> = {};
+  class Reason {
+    selectedIndex = 0;
+    options = kinds.map((kind) => ({ dataset: { subject: `Subject ${kind}`, detailLabel: `Label ${kind}`, detailHint: `Hint ${kind}` } }));
+    get value() {
+      return kinds[this.selectedIndex]!;
+    }
+    set value(value: string) {
+      this.selectedIndex = kinds.indexOf(value);
+    }
+    addEventListener(type: string, listener: () => void) {
+      listeners[type] = listener;
+    }
+  }
+  const reason = new Reason();
+  const subject = { value: "" };
+  const source = { required: false };
+  const verification = { hidden: false };
+  const draft = { hidden: false };
+  const detail = { value: "", dataset: { mailLabel: "" } };
+  const detailLabel = { textContent: "" };
+  const detailHint = { textContent: "" };
+  const from = { value: "" };
+  const safeText = { textContent: "" };
+  const groups = ["correction", "looking", "missing correction removal"].map((kind) => ({
+    dataset: { reportOnly: kind },
+    hidden: false,
+    field: { disabled: false },
+    querySelectorAll() {
+      return [this.field];
+    },
+  }));
+  const form = {
+    dataset: { reportTransport: "post", kind: "", subject: "" },
+    querySelector(selector: string) {
+      return (
+        (
+          {
+            "[data-report-kind]": reason,
+            "[data-report-detail-label]": detailLabel,
+            "[data-report-detail-hint]": detailHint,
+            '[name="detail"]': detail,
+            '[name="_subject"]': subject,
+            "[data-report-source]": source,
+            "[data-removal-review]": verification,
+            "[data-mail-draft]": draft,
+          } as Record<string, unknown>
+        )[selector] ?? null
+      );
+    },
+    querySelectorAll() {
+      return groups;
+    },
+    addEventListener() {
+      assert.fail("native POST must keep browser/provider validation, confirmation and errors");
+    },
+  };
+  runInNewContext(readFileSync(path.join(DIST, "report.js"), "utf8"), {
+    window: { location: { search: "?type=looking&looking=Original+question&from=%2Fes%2Fbuscar%2F&territory=%3CSpain%3E" } },
+    URLSearchParams,
+    document: {
+      querySelector: () => null,
+      querySelectorAll: (selector: string) => {
+        if (selector === "form[data-report]") return [form];
+        if (selector === '[data-prefill="looking"]') return [detail];
+        if (selector === '[data-context-input="from"]') return [from];
+        if (selector === '[data-context-value="territory"]') return [safeText];
+        return [];
+      },
+    },
+  });
+  assert.equal(reason.value, "looking");
+  assert.equal(detail.value, "Original question");
+  assert.equal(from.value, "/es/buscar/");
+  assert.equal(safeText.textContent, "<Spain>");
+  assert.equal(source.required, false);
+  assert.equal(verification.hidden, true);
+  assert.equal(groups[0]!.field.disabled, true);
+  assert.equal(groups[1]!.field.disabled, false);
+  assert.equal(groups[2]!.field.disabled, true, "an unmet search has no public page to ask for");
+  detail.value = "Edited by visitor";
+  for (const kind of kinds) {
+    reason.value = kind;
+    draft.hidden = false;
+    listeners.change!();
+    assert.equal(form.dataset.kind, kind);
+    assert.equal(subject.value, `Subject ${kind}`);
+    assert.equal(detailLabel.textContent, `Label ${kind}`);
+    assert.equal(detailHint.textContent, `Hint ${kind}`);
+    assert.equal(detail.dataset.mailLabel, `Label ${kind}`);
+    assert.equal(source.required, kind === "missing" || kind === "removal");
+    assert.equal(verification.hidden, kind !== "removal");
+    assert.equal(detail.value, "Edited by visitor", "changing reason must not discard the message");
+    assert.equal(draft.hidden, true, "a changed reason invalidates a prepared email");
+    for (const group of groups) assert.equal(group.field.disabled, !group.dataset.reportOnly.split(" ").includes(kind));
   }
 });

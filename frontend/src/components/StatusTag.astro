@@ -9,6 +9,8 @@
  * Green for operating and slate for everything else, with the word beside it: the colour is never the only
  * thing carrying the difference.
  */
+import { Icon } from "astro-icon/components";
+import { statusIcon } from "../lib/icons.ts";
 import type { Resource } from "../lib/corpus.ts";
 import { stateLabel } from "../lib/vocabulary.ts";
 
@@ -17,5 +19,6 @@ const { status, language } = Astro.props;
 ---
 
 <span class="tag tag-status" data-status={status}>
+  <Icon name={statusIcon(status)} aria-hidden="true" class="size-4 shrink-0" />
   {stateLabel(status, language)}
 </span>

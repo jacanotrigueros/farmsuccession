@@ -10,6 +10,29 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 1.9.0 — 2026-11-08
+
+A reader now chooses before being shown everything, and can send a report without
+needing a mail program. No record enters or leaves; what the site can do grows, so
+the middle digit moves.
+
+- Country pages open with what a reader came to sort out and name each resource
+  once. Regional resources stay in the page, inside closed sections. Advice becomes
+  a main topic, and funding is no longer named as if it also returned training.
+- Groupings of regions show their territories, and a search started from one stays
+  inside it.
+- Record pages put the official link before the application periods, show a
+  municipal scope in their heading, and no longer ask whether a resource with no
+  documented call is open for applications.
+- One form per language replaces four. Sending it hands the message to Formspree,
+  and the form says so beside the button; reading, searching or typing still
+  contacts nobody else. A removal request is reviewed by a person and confirmed
+  through an official contact: no form can delete a record.
+- The kind filter no longer makes sixteen German regional pages wider than a 320px
+  screen.
+
+369 records over 111 edition files, as in 1.8.1.
+
 ## 1.8.1 — 2026-11-07
 
 The sitemap stops offering Austria's project and history pages, which name

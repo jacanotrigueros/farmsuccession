@@ -4,6 +4,21 @@
 and corrections. It prepares an ordinary email to `contact@farmsuccession.eu`;
 GitHub remains an editorial tool behind the site.
 
+## Follow-up — 7 November 2026
+
+The maintainer selected **Formspree Free** to remove the mail-client dependency.
+[Decision 037](037-public-reports-use-explicit-form-delivery.md) records the full
+form inventory, implementation requirements and account/receipt checks. It replaces
+this decision's transport choice: a report may contact the configured provider only
+when the visitor explicitly submits it. Reading, search and field editing remain
+free of third-party requests. GitHub stays behind the site and reports never publish
+anything automatically.
+
+The conditional Formspree integration is implemented; activation is pending. Until configured and verified, the
+existing email-draft flow remains the honest fallback; this note does not claim
+that a working submission endpoint has been deployed. The original reasoning below
+is retained as the history of the email choice.
+
 ## The question
 
 Should a reader who knows that FarmSuccession is missing a resource or carries stale

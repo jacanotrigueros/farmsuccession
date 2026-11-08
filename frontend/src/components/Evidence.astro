@@ -68,7 +68,10 @@ const hostOf = (url: string): string => {
           </span>
         </p>
         {source.quotes.map((quote) => (
-          <blockquote cite={source.url} class="mt-3 border-s-3 border-accent-line ps-4 font-serif text-lg leading-relaxed text-ink">
+          <blockquote
+            cite={source.url}
+            class="mt-3 max-w-3xl border-s-3 border-accent-line ps-4 font-serif text-lg leading-relaxed text-ink"
+          >
             {quote}
           </blockquote>
         ))}
