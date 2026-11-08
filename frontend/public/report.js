@@ -51,7 +51,7 @@ for (const form of document.querySelectorAll("form[data-report]")) {
       const verification = form.querySelector("[data-removal-review]");
       if (verification) verification.hidden = kind !== "removal";
       for (const group of form.querySelectorAll("[data-report-only]")) {
-        group.hidden = group.dataset.reportOnly !== kind;
+        group.hidden = !group.dataset.reportOnly.split(" ").includes(kind);
         for (const field of group.querySelectorAll("input, select, textarea")) field.disabled = group.hidden;
       }
       const preview = form.querySelector("[data-mail-draft]");

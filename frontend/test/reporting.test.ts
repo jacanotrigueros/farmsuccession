@@ -32,6 +32,11 @@ test("every jurisdiction has one localized intake with all five reasons and no a
     for (const kind of ["missing", "correction", "looking", "feedback", "removal"]) assert.ok(html.includes(`<option value="${kind}"`));
     assert.match(html, /name="detail"[^>]*required/u);
     assert.match(html, /name="source"[^>]*type="url"/u);
+    assert.match(
+      html,
+      /data-report-only="missing correction removal"(?:(?!data-report-only)[\s\S])*name="source"/u,
+      "someone saying a record did not help must not be asked for a URL first",
+    );
     assert.match(html, /name="issue"/u);
     assert.match(html, /name="where"/u);
     assert.match(html, /data-prefill="looking"/u);
@@ -180,7 +185,7 @@ test("reason changes preserve the message, scope fields and require independent 
   const detailHint = { textContent: "" };
   const from = { value: "" };
   const safeText = { textContent: "" };
-  const groups = ["correction", "looking"].map((kind) => ({
+  const groups = ["correction", "looking", "missing correction removal"].map((kind) => ({
     dataset: { reportOnly: kind },
     hidden: false,
     field: { disabled: false },
@@ -235,6 +240,7 @@ test("reason changes preserve the message, scope fields and require independent 
   assert.equal(verification.hidden, true);
   assert.equal(groups[0]!.field.disabled, true);
   assert.equal(groups[1]!.field.disabled, false);
+  assert.equal(groups[2]!.field.disabled, true, "an unmet search has no public page to ask for");
   detail.value = "Edited by visitor";
   for (const kind of kinds) {
     reason.value = kind;
@@ -249,6 +255,6 @@ test("reason changes preserve the message, scope fields and require independent 
     assert.equal(verification.hidden, kind !== "removal");
     assert.equal(detail.value, "Edited by visitor", "changing reason must not discard the message");
     assert.equal(draft.hidden, true, "a changed reason invalidates a prepared email");
-    for (const group of groups) assert.equal(group.field.disabled, group.dataset.reportOnly !== kind);
+    for (const group of groups) assert.equal(group.field.disabled, !group.dataset.reportOnly.split(" ").includes(kind));
   }
 });
