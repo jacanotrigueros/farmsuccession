@@ -395,7 +395,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
           <select
             id="only"
             name="only"
-            class="min-h-(--spacing-target) rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
+            class="min-h-(--spacing-target) max-w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
           >
             <option value="">{text.allKinds}</option>
             {kinds.map(({ kind, label }) => (

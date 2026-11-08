@@ -90,3 +90,9 @@ test("documentary groupings show their children and pin every local search to al
     assert.equal(Number(displayed), total, `${route}: headline total must match its complete search scope`);
   }
 });
+
+test("the kind filter cannot push a page wider than a 320px screen", () => {
+  // German kind names made this select wider than the phone, and with it the whole page.
+  const html = htmlAt("de/regionen/baden-wuerttemberg");
+  assert.match(html, /<select[^>]*id="only"[^>]*max-w-full/u);
+});
