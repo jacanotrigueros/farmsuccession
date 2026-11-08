@@ -1,10 +1,11 @@
 # 037 — Public reports use explicit form delivery
 
-**2026-11-07. Status: Formspree selected; integration implemented, account activation pending.**
+**2026-11-08. Status: maintainer-provided endpoint configured; provider protection and receipt checks pending.**
 The maintainer wants visitors to submit a short form rather than compose an email.
 This records the selected provider, the complete existing-form inventory and
 the implemented integration and the remaining activation work. This PR adds native
-Formspree delivery when configured; no operational endpoint is committed.
+Formspree delivery using the public endpoint supplied by the maintainer. Provider
+acceptance, CAPTCHA settings and inbox receipt have not yet been verified.
 
 ## The question
 
@@ -115,8 +116,8 @@ rg -n '<form|mailto:|reportSlug|data-not-found-link' frontend/src frontend/publi
 ## The decision
 
 **Use Formspree Free for the existing UI.** The maintainer selected this option after
-reviewing the alternatives. The integration is implemented; account configuration and activation
-remain pending; there is no operational endpoint in this PR.
+reviewing the alternatives. The integration and public endpoint are configured;
+provider settings, receipt verification and publication remain pending.
 It removes the mail-client dependency without adding our own backend, SDK, secret
 or deployment. Tally remains the documented alternative if the free spreadsheet
 integration or higher allowance is the priority. Do not configure both by default:
@@ -186,10 +187,12 @@ challenge testing remain pending the provider account, just like inbox receipt.
 The shared transport, per-form privacy disclosure, metadata, honeypot, conditional
 CSP and removal links are implemented. One reason selector updates the shared form in place and preserves the message
 and original page context. Native HTML remains usable without JavaScript. Every interface dictionary includes the new wording. Configure
-one location: `frontend/reporting.config.mjs`, whose `reportEndpoint` is intentionally
-empty until the maintainer supplies the real public form URL.
+one location: `frontend/reporting.config.mjs`. On 8 November the maintainer supplied
+`https://formspree.io/f/mkjjayyn`, which is now the committed `reportEndpoint`.
+This configures the destination; it does not prove CAPTCHA is enabled or that
+notification email reaches the intended mailbox.
 
-The following account/receipt work has **not** been performed:
+The following provider settings and receipt checks have **not been verified here**:
 
 1. The maintainer creates a **Free** Formspree account/form and verifies
    `contact@farmsuccession.eu` as the notification destination. Review the applicable
