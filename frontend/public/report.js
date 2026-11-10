@@ -1,6 +1,7 @@
 /**
  * Prefill report context without requests. Native POST forms keep browser validation and provider
- * confirmation/errors. Unconfigured builds prepare a copyable draft. No background delivery or secret.
+ * confirmation/errors. Only the validation message is localized to the page language.
+ * Unconfigured builds prepare a copyable draft. No background delivery or secret.
  */
 const params = new URLSearchParams(window.location.search);
 const context = {
@@ -30,6 +31,24 @@ const kinds = ["missing", "correction", "looking", "feedback", "removal"];
 const requested = kinds.includes(params.get("type")) ? params.get("type") : "missing";
 
 for (const form of document.querySelectorAll("form[data-report]")) {
+  // Native browser validation normally uses the reader's browser language rather than the page
+  // language. Keep required/type=url and native POST; replace only the built-in error sentence.
+  form.addEventListener(
+    "invalid",
+    (event) => {
+      const field = event.target;
+      if (typeof field?.setCustomValidity !== "function") return;
+      if (field.validity?.valueMissing) field.setCustomValidity(form.dataset.validationRequired);
+      else if (field.validity?.typeMismatch) field.setCustomValidity(form.dataset.validationUrl);
+    },
+    true,
+  );
+  const clearValidation = (event) => {
+    if (typeof event.target?.setCustomValidity === "function") event.target.setCustomValidity("");
+  };
+  form.addEventListener("input", clearValidation);
+  form.addEventListener("change", clearValidation);
+
   const reason = form.querySelector("[data-report-kind]");
   if (reason) {
     reason.value = requested;
