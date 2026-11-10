@@ -17,10 +17,18 @@ type Props = {
 const { resources, language, hrefFor, hrefForKind, compact = false } = Astro.props;
 const text = words(language);
 
+/** Original small pictograms illustrate tasks; documentary categories and status keep simple icons. */
+const goalPictograms: Record<string, string> = {
+  handover: "handover",
+  land: "land",
+  money: "funding",
+  learn: "training",
+};
+
 const goals = GOALS.filter((goal) => goal.id !== "context").map((goal) => ({
   href: hrefFor(goal.id),
   ...situation(goal.id, language),
-  icon: kindIcon(goal.kinds[0]),
+  art: goalPictograms[goal.id],
   found: resources.filter((resource) => goalOf(resource.kind) === goal.id).length,
 }));
 
@@ -31,7 +39,7 @@ const topics = [
     href: hrefForKind("ADVICE"),
     title: text.adviceEntry,
     hint: kindBlurb("ADVICE", language),
-    icon: kindIcon("ADVICE"),
+    art: "advice",
     found: resources.filter((resource) => resource.kind === "ADVICE").length,
   },
 ];
@@ -62,9 +70,15 @@ const others = [
         goal.found > 0 && "card-link",
       ]}
     >
-      <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-accent-tint text-accent">
-        <Icon name={goal.icon} aria-hidden="true" class="size-6" />
-      </span>
+      <img
+        src={`/img/needs/${goal.art}.svg`}
+        width="72"
+        height="72"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        class:list={["shrink-0 rounded-xl", compact ? "size-12" : "size-14"]}
+      />
       <div class="min-w-0 flex-1">
         {goal.found > 0 ? (
           <a href={goal.href} class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
