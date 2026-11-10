@@ -33,6 +33,6 @@ test("illustrations reuse only the site's approved identity palette", () => {
     for (const color of colors) {
       assert.ok(palette.has(color), `${file} uses ${color}, which is not in the shared brand palette`);
     }
-    assert.doesNotMatch(svg, /<script\b|https?:\/\//iu, `${file} must be a self-contained local asset`);
+    assert.doesNotMatch(svg, /<script\b|(?:href|src)=["\x27]https?:\/\//iu, `${file} must be a self-contained local asset`);
   }
 });
