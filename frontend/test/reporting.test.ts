@@ -243,7 +243,9 @@ test("reason changes preserve the message, scope fields and require independent 
   const invalidField = {
     validity: { valueMissing: true, typeMismatch: false },
     message: "",
-    setCustomValidity(message: string) { this.message = message; },
+    setCustomValidity(message: string) {
+      this.message = message;
+    },
   };
   formListeners.invalid!({ target: invalidField });
   assert.equal(invalidField.message, "Obligatorio");
