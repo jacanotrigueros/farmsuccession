@@ -336,22 +336,28 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
                       <span class="meta">{countsOf(child)}</span>
                     </a>
                     {isCountry && child.data.resources.length > 0 && (
-                  <details class="regional-resources mt-2 border-t border-line pt-2">
-                    <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-control font-bold text-brand-strong">
-                      {counted(child.data.resources.length, text.record, locale)}
-                      <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
-                    </summary>
-                    <ul class="grid gap-1">
-                      {child.data.resources.toSorted((a, b) => a.name.localeCompare(b.name, language)).map((resource) => (
-                        <li>
-                          <a href={recordHref(resource.id, child)} lang={languageOf(child)} class="inline-flex min-h-(--spacing-target) items-center underline">
-                            {resource.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                )}
+                      <details class="regional-resources mt-2 border-t border-line pt-2">
+                        <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-control font-bold text-brand-strong">
+                          {counted(child.data.resources.length, text.record, locale)}
+                          <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
+                        </summary>
+                        <ul class="grid gap-1">
+                          {child.data.resources
+                            .toSorted((a, b) => a.name.localeCompare(b.name, language))
+                            .map((resource) => (
+                              <li>
+                                <a
+                                  href={recordHref(resource.id, child)}
+                                  lang={languageOf(child)}
+                                  class="inline-flex min-h-(--spacing-target) items-center underline"
+                                >
+                                  {resource.name}
+                                </a>
+                              </li>
+                            ))}
+                        </ul>
+                      </details>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -362,13 +368,19 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
                     <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
                   </summary>
                   <ul class="grid gap-1">
-                    {hub.data.resources.toSorted((a, b) => a.name.localeCompare(b.name, language)).map((resource) => (
-                      <li>
-                        <a href={recordHref(resource.id, hub)} lang={languageOf(hub)} class="inline-flex min-h-(--spacing-target) items-center underline">
-                          {resource.name}
-                        </a>
-                      </li>
-                    ))}
+                    {hub.data.resources
+                      .toSorted((a, b) => a.name.localeCompare(b.name, language))
+                      .map((resource) => (
+                        <li>
+                          <a
+                            href={recordHref(resource.id, hub)}
+                            lang={languageOf(hub)}
+                            class="inline-flex min-h-(--spacing-target) items-center underline"
+                          >
+                            {resource.name}
+                          </a>
+                        </li>
+                      ))}
                   </ul>
                 </details>
               )}
@@ -387,13 +399,19 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
                       <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
                     </summary>
                     <ul class="grid gap-1">
-                      {child.data.resources.toSorted((a, b) => a.name.localeCompare(b.name, language)).map((resource) => (
-                        <li>
-                          <a href={recordHref(resource.id, child)} lang={languageOf(child)} class="inline-flex min-h-(--spacing-target) items-center underline">
-                            {resource.name}
-                          </a>
-                        </li>
-                      ))}
+                      {child.data.resources
+                        .toSorted((a, b) => a.name.localeCompare(b.name, language))
+                        .map((resource) => (
+                          <li>
+                            <a
+                              href={recordHref(resource.id, child)}
+                              lang={languageOf(child)}
+                              class="inline-flex min-h-(--spacing-target) items-center underline"
+                            >
+                              {resource.name}
+                            </a>
+                          </li>
+                        ))}
                     </ul>
                   </details>
                 )}
