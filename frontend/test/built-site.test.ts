@@ -214,9 +214,9 @@ test("country entry pages expose the same unique record destinations as their co
 test("the complete, localized footer is shared by every built page", () => {
   let checked = 0;
   for (const { file, html } of pages) {
-    const footer = /<footer\\b[\\s\\S]*?<\\/footer>/u.exec(html)?.[0];
+    const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0];
     assert.ok(footer, `${file} has no footer`);
-    const language = /<html\\b[^>]*\\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const first = file.split(path.sep)[0] ?? "";
     const root = /^[a-z]{2}$/u.test(first) ? `/${first}/` : "/";
     const about = `${root}${words(language).aboutSlug}/`;
@@ -844,17 +844,17 @@ test("every record prioritises actionable feedback with its context and retains 
 test("search fallback and primary controls are sized for the full content area", () => {
   const html = pages.find(({ file }) => file === path.join("search", "index.html"))?.html ?? "";
   assert.ok(html, "Europe search page was not built");
-  const fallback = /<aside\\b[^>]*data-search-fallback[^>]*>/u.exec(html)?.[0] ?? "";
-  assert.match(fallback, /\\bw-full\\b/u, "search initial state is constrained to a narrow column");
+  const fallback = /<aside\b[^>]*data-search-fallback[^>]*>/u.exec(html)?.[0] ?? "";
+  assert.match(fallback, /\bw-full\b/u, "search initial state is constrained to a narrow column");
   assert.doesNotMatch(fallback, /max-w-3xl/u);
-  const form = /<div\\b[^>]*data-field[^>]*>/u.exec(html)?.[0] ?? "";
-  assert.match(form, /\\bw-full\\b/u, "loaded query controls must also use the available width");
+  const form = /<div\b[^>]*data-field[^>]*>/u.exec(html)?.[0] ?? "";
+  assert.match(form, /\bw-full\b/u, "loaded query controls must also use the available width");
 });
 
 test("on-page navigation remains one scrollable row, not wrapped pill buttons", () => {
   const html = pages.find(({ file }) => file === path.join("es", "index.html"))?.html ?? "";
   assert.ok(html, "Spanish country page was not built");
-  const nav = /<nav\\b[^>]*data-pagefind-ignore[^>]*>[\\s\\S]*?<\\/nav>/u.exec(html)?.[0] ?? "";
+  const nav = /<nav\b[^>]*data-pagefind-ignore[^>]*>[\s\S]*?<\/nav>/u.exec(html)?.[0] ?? "";
   assert.match(nav, /overflow-x-auto/u, "country section navigation must be operable on narrow screens");
   assert.doesNotMatch(nav, /rounded-full/u, "section navigation must not become a second button menu");
 });
