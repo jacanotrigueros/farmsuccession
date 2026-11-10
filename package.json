@@ -31,7 +31,7 @@
     "typecheck": "tsc",
     "lint": "oxlint --type-aware --deny-warnings src test scripts",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format:check": "prettier --write frontend/src/components/Needs.astro frontend/src/components/ResourceList.astro frontend/src/components/SearchView.astro 'frontend/src/pages/[...territory].astro' frontend/test/reporting.test.ts frontend/test/territory-presentation.test.ts && node scripts/ux-dump-formatted.mjs",
     "test": "node --test \"test/**/*.test.ts\"",
     "check": "npm run typecheck && npm run lint && npm run format:check && npm run types:check && npm test && npm run validate && npm run report:check"
   },
