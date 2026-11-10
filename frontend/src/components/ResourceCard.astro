@@ -30,8 +30,9 @@ type Props = {
   language: string;
   level?: "h2" | "h3" | "h4";
   compact?: boolean;
+  showFullSummary?: boolean;
 };
-const { resource, recordedIn, language, level = "h3", compact = false } = Astro.props;
+const { resource, recordedIn, language, level = "h3", compact = false, showFullSummary = false } = Astro.props;
 const Heading = level;
 const recordLanguage = languageOf(recordedIn);
 const text = words(language);
@@ -60,7 +61,7 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName), resource.scop
       {resource.name}
     </a>
   </Heading>
-  <p lang={recordLanguage} class:list={["mt-3", compact ? "line-clamp-2" : "line-clamp-3"]}>
+  <p lang={recordLanguage} class:list={["mt-3", showFullSummary ? "max-w-5xl" : compact ? "line-clamp-2" : "line-clamp-3"]}>
     {resource.whatItOffers}
   </p>
   {compact ? (
