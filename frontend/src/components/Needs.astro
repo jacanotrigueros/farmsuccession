@@ -18,12 +18,13 @@ const { resources, language, hrefFor, hrefForKind, compact = false } = Astro.pro
 const text = words(language);
 
 /** Original small pictograms illustrate tasks; documentary categories and status keep simple icons. */
-const goalPictograms: Record<string, string> = {
+const goalPictograms = {
   handover: "handover",
   land: "land",
   money: "funding",
   learn: "training",
-};
+  context: "advice",
+} as const;
 
 const goals = GOALS.filter((goal) => goal.id !== "context").map((goal) => ({
   href: hrefFor(goal.id),
