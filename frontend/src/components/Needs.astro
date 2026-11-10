@@ -1,5 +1,5 @@
 ---
-/** Topic entry points, using the same category icons as the results they open. */
+/** Practical entry points come first; documentary background is secondary. */
 import { Icon } from "astro-icon/components";
 import type { Resource } from "../lib/corpus.ts";
 import { GOALS, goalOf, type GoalId } from "../lib/goals.ts";
@@ -55,8 +55,8 @@ const others = [
 
 <ul class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
   {topics.map((goal) => (
-    <li class:list={["card relative flex items-start gap-3", compact ? "p-4" : "p-5", goal.found > 0 && "card-link"]}>
-      <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-tint text-brand">
+    <li class:list={["card relative flex min-h-full items-start gap-3 border-t-4 border-t-accent-line", compact ? "p-4" : "p-5", goal.found > 0 && "card-link"]}>
+      <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-accent-tint text-accent">
         <Icon name={goal.icon} aria-hidden="true" class="size-6" />
       </span>
       <div class="min-w-0 flex-1">
@@ -78,25 +78,23 @@ const others = [
 </ul>
 
 {others.length > 0 && (
-  <>
-    <h3 class:list={[compact ? "mt-6" : "mt-10", "text-lg font-bold"]}>{text.kindsTitle}</h3>
-    <ul class="mt-2 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
+  <div class:list={[compact ? "mt-6 p-4" : "mt-10 p-5 sm:p-6", "rounded-xl border border-line bg-page"]}>
+    <h3 class="text-lg font-bold text-muted">{text.kindsTitle}</h3>
+    <ul class="mt-3 grid gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
       {others.map(({ kind, count }) => (
-        <li class="relative flex items-start gap-3 border-b border-line py-4" data-kind={kind}>
-          <span class="tag-kind inline-flex size-9 shrink-0 items-center justify-center rounded-lg">
-            <Icon name={kindIcon(kind)} aria-hidden="true" class="size-5" />
-          </span>
+        <li class="relative flex items-start gap-2 border-t border-line py-3" data-kind={kind}>
+          <Icon name={kindIcon(kind)} aria-hidden="true" class="mt-1 size-5 shrink-0 text-muted" />
           <div class="min-w-0 flex-1">
-            <p class="flex items-baseline justify-between gap-3">
-              <a href={hrefForKind(kind)} class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
+            <p class="flex flex-wrap items-baseline justify-between gap-x-2">
+              <a href={hrefForKind(kind)} class="text-control font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
                 {kindLabel(kind, language)}
               </a>
               <span class="meta tabular-nums">{count}</span>
             </p>
-            {!compact && <p class="meta mt-0.5">{kindBlurb(kind, language)}</p>}
+            {!compact && <p class="meta mt-1">{kindBlurb(kind, language)}</p>}
           </div>
         </li>
       ))}
     </ul>
-  </>
+  </div>
 )}
