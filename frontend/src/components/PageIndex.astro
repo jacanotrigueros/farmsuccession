@@ -6,10 +6,7 @@
  * first thing in the first section. The links wrap onto a second line rather than scrolling sideways,
  * because a link that is off the edge of a phone is a link nobody uses.
  *
- * Each link is a short name for a place on the page, not the heading it leads to, and it carries no
- * count: the headings are long enough to say what a section is about, and six of them with a number
- * each took two lines of the strip, which stopped reading as one strip at all. The counts are beside
- * the headings themselves, where a reader is actually choosing.
+ * Links remain short anchors to the page's sections, not a competing set of calls to action.
  */
 import { words } from "../lib/words.ts";
 
@@ -19,12 +16,12 @@ const text = words(language);
 ---
 
 <nav aria-label={text.onThisPage} class="border-y border-line bg-card" data-pagefind-ignore>
-  <div class="wrap flex flex-wrap items-center gap-2 py-3">
-    <span class="meta me-2 font-bold">{text.onThisPage}</span>
+  <div class="wrap flex items-center gap-5 overflow-x-auto py-2 [scrollbar-width:thin]">
+    <span class="shrink-0 text-meta font-bold text-muted">{text.onThisPage}</span>
     {sections.map(({ id, label }) => (
       <a
         href={`#${id}`}
-        class="inline-flex min-h-(--spacing-target) items-center gap-2 rounded-full border border-line-strong px-4 text-control font-bold text-brand-strong no-underline hover:border-brand hover:bg-brand-tint"
+        class="inline-flex min-h-(--spacing-target) shrink-0 items-center border-b-2 border-transparent text-control font-bold text-brand-strong no-underline hover:border-brand hover:text-brand"
       >
         {label}
       </a>
