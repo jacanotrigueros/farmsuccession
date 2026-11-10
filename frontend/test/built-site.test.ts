@@ -275,6 +275,11 @@ test("a page says what has not been reviewed, and the count follows the data", (
  * segment of its own, and this is the check that it stays there.
  */
 test("a territory never shares a namespace with a page of the site", () => {
+  assert.match(notFound.html, /src="\/img\/404-wayfinding\.svg"/u, "404 illustration missing");
+  assert.match(notFound.html, /href="\/search\/"/u, "404 lacks a direct route to search");
+  assert.match(notFound.html, /href="\/"/u, "404 lacks a route to the home page");
+  assert.doesNotMatch(notFound.html, /data-search/u, "404 must not carry a second search form or client index");
+
   const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
     jurisdictions: Record<string, { lang: string }>;
   };
@@ -326,7 +331,7 @@ test("a page declares the language its text is actually written in", () => {
  * What a reader who mistyped an address gets, and what a crawler is told. Both are easy to leave out —
  * nothing on the site links to either — and both are how somebody arrives at all.
  */
-test("the page for an address that does not exist speaks every language of the site", () => {
+test("the illustrated 404 gives clear recovery actions and localized country links", () => {
   const notFound = pages.find(({ file }) => file === "404.html");
   assert.ok(notFound, "the build produced no 404 page: an unknown address would answer with nothing at all");
 
@@ -356,8 +361,8 @@ test("the page for an address that does not exist speaks every language of the s
       `the 404 page offers no way back into ${iso}, so a reader lost under /${iso.toLowerCase()}/ is sent to another country`,
     );
     assert.ok(
-      notFound.html.includes(words(lang).notFoundText),
-      `the 404 page does not say what happened in ${lang}. One file answers every unknown address on a site written in six languages, so it says it in all of them.`,
+      notFound.html.includes(`${words(lang).startHere}:`),
+      `the 404 page offers no localized way back for ${lang}`,
     );
   }
 });
@@ -857,4 +862,12 @@ test("on-page navigation remains one scrollable row, not wrapped pill buttons", 
   const nav = /<nav\b[^>]*data-pagefind-ignore[^>]*>[\s\S]*?<\/nav>/u.exec(html)?.[0] ?? "";
   assert.match(nav, /overflow-x-auto/u, "country section navigation must be operable on narrow screens");
   assert.doesNotMatch(nav, /rounded-full/u, "section navigation must not become a second button menu");
+});
+
+// Five original pictograms illustrate reader journeys without icon fonts or third-party assets.
+test("practical needs use branded local images, while documentary categories stay quiet", () => {
+  const home = pages.find(({ file }) => file === "index.html")?.html ?? "";
+  for (const name of ["handover", "land", "funding", "training", "advice"]) {
+    assert.ok(home.includes(`src="/img/needs/${name}.svg"`), `the ${name} journey has no branded pictogram`);
+  }
 });
