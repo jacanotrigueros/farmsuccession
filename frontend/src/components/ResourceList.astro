@@ -1,5 +1,5 @@
 ---
-/** Document rows become light, scannable cards against the muted territory surface. */
+/** Territorial records occupy the available width; no clipped descriptions or cramped columns. */
 import ResourceCard from "./ResourceCard.astro";
 import type { Resource, Territory } from "../lib/corpus.ts";
 
@@ -11,9 +11,9 @@ type Props = {
 const { items, language, level = "h3" } = Astro.props;
 ---
 
-<ul data-records class="territory-records grid items-start gap-3 md:grid-cols-2">
+<ul data-records class="territory-records grid items-start gap-3">
   {items.map(({ resource, recordedIn }) => (
-    <ResourceCard resource={resource} recordedIn={recordedIn} language={language} level={level} compact />
+    <ResourceCard resource={resource} recordedIn={recordedIn} language={language} level={level} compact showFullSummary />
   ))}
 </ul>
 
