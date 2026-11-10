@@ -836,3 +836,25 @@ test("every record prioritises actionable feedback with its context and retains 
   assert.ok(checked > 100, `only ${checked} records asked the question; every record page should`);
   assert.equal(byLanguage.size, 6, "the question was not checked in all six languages");
 });
+
+/**
+ * Short entry-point explanations may use more width than running prose, and a search whose
+ * index is still loading must not look like a small dialog stranded at the left edge.
+ */
+test("search fallback and primary controls are sized for the full content area", () => {
+  const html = pages.find(({ file }) => file === path.join("search", "index.html"))?.html ?? "";
+  assert.ok(html, "Europe search page was not built");
+  const fallback = /<aside\\b[^>]*data-search-fallback[^>]*>/u.exec(html)?.[0] ?? "";
+  assert.match(fallback, /\\bw-full\\b/u, "search initial state is constrained to a narrow column");
+  assert.doesNotMatch(fallback, /max-w-3xl/u);
+  const form = /<div\\b[^>]*data-field[^>]*>/u.exec(html)?.[0] ?? "";
+  assert.match(form, /\\bw-full\\b/u, "loaded query controls must also use the available width");
+});
+
+test("on-page navigation remains one scrollable row, not wrapped pill buttons", () => {
+  const html = pages.find(({ file }) => file === path.join("es", "index.html"))?.html ?? "";
+  assert.ok(html, "Spanish country page was not built");
+  const nav = /<nav\\b[^>]*data-pagefind-ignore[^>]*>[\\s\\S]*?<\\/nav>/u.exec(html)?.[0] ?? "";
+  assert.match(nav, /overflow-x-auto/u, "country section navigation must be operable on narrow screens");
+  assert.doesNotMatch(nav, /rounded-full/u, "section navigation must not become a second button menu");
+});
