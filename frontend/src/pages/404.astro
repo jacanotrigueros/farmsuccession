@@ -1,30 +1,23 @@
 ---
 /**
- * The page a reader gets for an address that does not exist. GitHub Pages serves this one file for every
- * unknown path, which is the whole difficulty: the site is written in six languages, and the file cannot
- * know which of them the person who mistyped was reading.
+ * A single, illustrated recovery page for every unknown route. Static hosting cannot infer a
+ * language from a non-existent URL, so present concise English guidance plus links into each
+ * country's own language. All exits work without JavaScript or the search index.
  *
- * So it says it in all of them, without a line of JavaScript. The heading is English, because the layer
- * this page belongs to is; under it, every country says the same two sentences in its own language and
- * offers the way back into itself. A reader who was in Spain and lost their way reads Spanish, in the
- * second block of the page, on an address that was never built.
- *
- * The alternative was one block, swapped by a script that reads the broken path — tidier for whoever can
- * run it, and nothing at all for whoever cannot. This page is for somebody who already took a wrong turn.
+ * Do not repeat six copies of the error explanation: the decision is where to go next.
  */
-import SearchBox from "../components/SearchBox.astro";
+import { Icon } from "astro-icon/components";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { countryTerritories, euTerritory, href, languageOf } from "../lib/corpus.ts";
+import { ICON } from "../lib/icons.ts";
 import { words } from "../lib/words.ts";
 import { searchUrl } from "../../public/search-scope.js";
 
 const europe = euTerritory();
-if (!europe) throw new Error("no European layer: the page that recovers a reader has nowhere to send them");
+if (!europe) throw new Error("no European layer: the recovery page has nowhere to send readers");
 
 const language = languageOf(europe);
 const text = words(language);
-
-/** Every country, in its own language, so one of these blocks is the reader's. */
 const ways = countryTerritories()
   .filter((territory) => territory.layer.level === "COUNTRY")
   .map((territory) => ({ territory, language: languageOf(territory), text: words(languageOf(territory)) }));
@@ -37,49 +30,52 @@ const ways = countryTerritories()
   canonical={false}
   noindex
 >
-  {/* The band every page of this site opens with, so the page that says you are lost still looks like the
-    site you were in. There is no trail above its title: nothing sits above an address that was never
-    built. */}
-  <div class="border-b border-line bg-card">
-    <div class="wrap py-10">
-      <h1 class="page-title text-3xl text-balance sm:text-4xl">{text.notFoundTitle}</h1>
-      <p class="mt-4 max-w-3xl text-lg">{text.notFoundText}</p>
-
-      <div class="mt-8">
-        <SearchBox
-          action={searchUrl("/")}
-          id="lost-q"
-          label={text.searchAcrossEurope}
-          button={text.searchAction}
-          examples={text.searchExamples}
+  <main>
+    <section class="border-b border-line bg-card">
+      <div class="wrap grid items-center gap-8 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(17rem,25rem)] lg:gap-16 lg:py-16">
+        <div>
+          <p class="eyebrow">404</p>
+          <h1 class="page-title mt-2 text-3xl sm:text-4xl">{text.notFoundTitle}</h1>
+          <p class="mt-4 max-w-3xl text-lg text-muted">{text.notFoundText}</p>
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="/" class="btn btn-primary">
+              <Icon name="lucide:house" aria-hidden="true" class="size-5 shrink-0" />
+              {text.startHere}
+            </a>
+            <a href={searchUrl("/")} class="btn btn-quiet">
+              <Icon name={ICON.search} aria-hidden="true" class="size-5 shrink-0" />
+              {text.searchAction}
+            </a>
+          </div>
+        </div>
+        <img
+          src="/img/404-wayfinding.svg"
+          alt=""
+          width="480"
+          height="330"
+          decoding="async"
+          class="mx-auto block h-auto w-full max-w-md rounded-2xl"
         />
-        <a href="/" class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
-          {text.startHere}
-        </a>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="wrap py-12">
-    <section aria-labelledby="countries">
-      <h2 id="countries" class="text-2xl font-bold">
-        {text.countriesTitle}
-      </h2>
-      <ul class="mt-4 grid gap-x-8 gap-y-6 sm:grid-cols-2">
+    <section class="wrap py-8 sm:py-10" aria-labelledby="countries">
+      <h2 id="countries" class="text-xl font-bold">{text.countriesTitle}</h2>
+      <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {ways.map(({ territory, language: own, text: here }) => (
           <li lang={own === language ? undefined : own}>
-            <h3 class="text-lg font-bold">{territory.data.officialName}</h3>
-            <p class="mt-1 text-muted">{here.notFoundText}</p>
             <a
               href={href(territory.layer)}
               hreflang={own}
-              class="mt-1 inline-flex min-h-(--spacing-target) items-center font-bold underline"
+              aria-label={`${here.startHere}: ${territory.data.officialName}`}
+              class="card card-link flex min-h-(--spacing-target) items-center justify-between gap-3 px-4 py-3 font-bold no-underline"
             >
-              {here.startHere}
+              {territory.data.officialName}
+              <Icon name={ICON.chevron} aria-hidden="true" class="size-5 shrink-0 text-muted" />
             </a>
           </li>
         ))}
       </ul>
     </section>
-  </div>
+  </main>
 </SiteLayout>
