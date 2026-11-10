@@ -98,7 +98,7 @@ test("the kind filter cannot push a page wider than a 320px screen", () => {
 });
 
 test("country pages expose each regional resource inside its territory rather than a duplicate section", () => {
-  for (const iso of Object.keys(catalogue.jurisdictions)) {
+  for (const iso of new Set(snapshots.flatMap(({ layer }) => layer.level === "COUNTRY" ? [layer.country] : []))) {
     if (iso === "EU") continue;
     const cc = iso.toLowerCase();
     const html = htmlAt(cc);
