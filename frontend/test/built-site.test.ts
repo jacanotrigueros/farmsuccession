@@ -208,37 +208,25 @@ test("country entry pages expose the same unique record destinations as their co
 });
 
 /**
- * About, method, privacy and the former project's history remain one step from each home page. They are
- * not repeated below every record: doing so makes project documentation the strongest destination in a
- * directory whose records are the destination.
+ * Every page shares the same footer. A page deep in the catalogue must offer the same
+ * project, method, privacy and history destinations as an entry page, in its own language.
  */
-test("project navigation is confined to home and country entry pages", () => {
-  let entryPages = 0;
-  let otherPages = 0;
+test("the complete, localized footer is shared by every built page", () => {
+  let checked = 0;
   for (const { file, html } of pages) {
-    const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0];
+    const footer = /<footer\\b[\\s\\S]*?<\\/footer>/u.exec(html)?.[0];
     assert.ok(footer, `${file} has no footer`);
-    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const language = /<html\\b[^>]*\\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const first = file.split(path.sep)[0] ?? "";
-    const inCountry = /^[a-z]{2}$/u.test(first);
-    const isCountry = inCountry && file === path.join(first, "index.html");
-    const isEntry = file === "index.html" || isCountry;
-    const root = inCountry ? `/${first}/` : "/";
+    const root = /^[a-z]{2}$/u.test(first) ? `/${first}/` : "/";
     const about = `${root}${words(language).aboutSlug}/`;
     const history = `${root}${words(language).historySlug}/`;
-
-    if (isEntry) {
-      assert.ok(footer.includes(`href="${about}"`), `${file} does not lead to its project page`);
-      assert.ok(footer.includes(`href="${history}"`), `${file} does not lead to its history page`);
-      entryPages += 1;
-    } else {
-      assert.ok(!footer.includes(`href="${about}`), `${file} repeats project navigation in its footer`);
-      assert.ok(!footer.includes(`href="${history}`), `${file} repeats history navigation in its footer`);
-      otherPages += 1;
+    for (const target of [about, history, `${about}#method`, `${about}#privacy`]) {
+      assert.ok(footer.includes(`href="${target}"`), `${file}: footer omits ${target}`);
     }
+    checked++;
   }
-  assert.equal(entryPages, Object.keys(catalogueJurisdictions).length, "the European and every country entry page were not all checked");
-  assert.ok(otherPages > 400, "too few non-entry pages were checked for a site-wide footer rule");
+  assert.ok(checked > 400, "too few built pages checked for footer consistency");
 });
 
 /**
