@@ -98,7 +98,7 @@ test("the kind filter cannot push a page wider than a 320px screen", () => {
 });
 
 test("country pages expose each regional resource inside its territory rather than a duplicate section", () => {
-  for (const iso of new Set(snapshots.flatMap(({ layer }) => layer.level === "COUNTRY" ? [layer.country] : []))) {
+  for (const iso of new Set(snapshots.flatMap(({ layer }) => (layer.level === "COUNTRY" ? [layer.country] : [])))) {
     if (iso === "EU") continue;
     const cc = iso.toLowerCase();
     const html = htmlAt(cc);
@@ -109,11 +109,7 @@ test("country pages expose each regional resource inside its territory rather th
     assert.match(html, /class="regional-resources /u, `${cc}: no in-place regional resources`);
     for (const resource of local) {
       const url = resourceUrl(resource.id, iso);
-      assert.equal(
-        links(html).filter((value) => value === url).length,
-        1,
-        `${cc}: ${resource.id} must have exactly one direct index link`,
-      );
+      assert.equal(links(html).filter((value) => value === url).length, 1, `${cc}: ${resource.id} must have exactly one direct index link`);
     }
   }
 });
