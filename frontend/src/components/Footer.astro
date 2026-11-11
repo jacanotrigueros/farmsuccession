@@ -2,9 +2,8 @@
 /**
  * What the site is, how current it is, who the words belong to, and how to be taken out of it.
  *
- * The last of those is not politeness. The inventory is built from what public bodies publish about
- * themselves, without asking them first, so the page that says so is also the page that has to say how to
- * ask for a record to be removed — and it has to say it where somebody would go looking.
+ * A provider must be able to find the correction/removal route and the scope of the
+ * project’s licence. Public accessibility does not itself establish reuse rights.
  *
  * It offers the countries as one link to the section of the home page that presents them with their
  * figures, rather than as a column of five: a reader who is already inside a country is not choosing one,
@@ -92,6 +91,9 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
     <div class="grid content-start">
       <p class="meta">{text.notAService}</p>
       <p class="meta mt-3">{text.licence}</p>
+      <a class="meta inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#licence`}>
+        {text.licenceTitle}
+      </a>
     </div>
   </div>
 </footer>

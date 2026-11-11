@@ -61,7 +61,7 @@ const EN = {
   territoryTotalWord: ["applicable", "applicable"],
   trustSourced: "Source-linked",
   trustDated: "Sources dated",
-  trustOpen: "Openly licensed data",
+  trustOpen: "Original content under CC BY 4.0",
   countriesTitle: "Countries",
   countriesLead: "{territories} across {countries}.",
   statApplicable: ["documented resource in {where}", "documented resources in {where}"],
@@ -96,7 +96,7 @@ const EN = {
   aboutTitle: "About this project",
   stewardshipTitle: "Who maintains it",
   stewardshipLead:
-    "José Antonio Cano Trigueros maintains the site as an independent, non-commercial project. It has no external funding, consortium or institutional backing.",
+    "José Antonio Cano Trigueros maintains FarmSuccession as a personal project, independent of his employer. It does not represent an administration, consortium or any organisation listed in the directory.",
   aboutIntro:
     "An independent directory maintained by José Antonio Cano Trigueros. It brings together land, funding, training and advice to start farming, take over a holding or hand one on. Applications and services are handled by the organisations linked in each record.",
   overviewTitle: "What this project is",
@@ -233,12 +233,17 @@ const EN = {
   backAbout: "Return to About this project",
   licenceTitle: "Licence",
   licenceLead:
-    "Original directory content is offered under CC BY 4.0. We have contacted some organisations to request permission for specific references or excerpts. Permission given to FarmSuccession does not transfer to people reusing this directory. Third-party quotations, images, documents and linked content retain their own rights; check the original source and, when permission is required, request it directly from the third-party organisation responsible for that information. You may freely cite and link to FarmSuccession with attribution, but our licence cannot grant rights over third-party material.",
+    "Our original descriptions and the rights we can license in the selection and organisation of the directory are available under CC BY 4.0. You may share and adapt them, including commercially, with appropriate credit, a licence link and an indication of changes, without suggesting endorsement. No additional restrictions are imposed on those licensed materials.",
+  licenceThirdParty:
+    "Quotations, images, documents, databases and other third-party materials, including linked pages and the historical toolkit, retain their own rights and conditions. We have contacted some organisations for specific permissions; this does not mean every source has given permission or endorses the project. A permission given specifically to FarmSuccession does not automatically extend to reusers. Check the original terms and, where authorisation is needed, contact the rights holder or responsible organisation directly. FarmSuccession cannot license their rights.",
+  licenceLawful:
+    "Ordinary links, mentions, unprotected facts and uses already permitted by a licence or applicable law do not always require separate permission. This notice does not restrict those uses or make attribution a condition for merely linking. Repository code and third-party dependencies are distinguished in the repository’s LICENSE.",
+  sourceRights: "Quotes and source materials have their own rights. Check the original source’s terms before reusing them.",
   trust:
     "Each record links to its public sources and states when each was read. Automatic checks try to read those sources again; they do not replace human review or confirm current availability.",
   optOut: "If your organisation does not want to appear in the inventory, request its removal:",
   notAService: "This directory does not replace the official services.",
-  licence: "Data, site and code under CC BY 4.0. The quoted excerpts belong to the public bodies that published them.",
+  licence: "Original FarmSuccession content: CC BY 4.0. Third-party quotations and materials retain their own rights.",
   offersTitle: "What it offers",
   availabilityTitle: "Documented availability",
   datesTitle: "Can I apply now?",
@@ -398,7 +403,7 @@ const ES = {
   territoryTotalWord: ["aplicable", "aplicables"],
   trustSourced: "Con fuente enlazada",
   trustDated: "Fuentes fechadas",
-  trustOpen: "Datos con licencia abierta",
+  trustOpen: "Contenido original bajo CC BY 4.0",
   countriesTitle: "Países",
   countriesLead: "{territories} en {countries}.",
   statApplicable: ["recurso documentado en {where}", "recursos documentados en {where}"],
@@ -435,7 +440,7 @@ const ES = {
   aboutTitle: "Sobre el proyecto",
   stewardshipTitle: "Quién lo mantiene",
   stewardshipLead:
-    "José Antonio Cano Trigueros mantiene el sitio como proyecto independiente y no comercial. No tiene financiación externa, consorcio ni respaldo institucional.",
+    "José Antonio Cano Trigueros mantiene FarmSuccession como proyecto personal, independiente de su empleador. No representa a una administración, un consorcio ni a las organizaciones del directorio.",
   aboutIntro:
     "Directorio independiente mantenido por José Antonio Cano Trigueros. Reúne tierras, ayudas, formación y asesoramiento para incorporarse al campo, hacerse cargo de una explotación o traspasarla. Los trámites y servicios corresponden a las entidades enlazadas en cada ficha.",
   overviewTitle: "Qué es este proyecto",
@@ -574,12 +579,18 @@ const ES = {
   backAbout: "Volver a Sobre el proyecto",
   licenceTitle: "Licencia",
   licenceLead:
-    "El contenido original de FarmSuccession se ofrece bajo CC BY 4.0. Hemos contactado con algunas organizaciones para solicitar permiso para referencias o extractos concretos. Una autorización concedida a FarmSuccession no se transmite a quienes reutilicen el directorio. Las citas, imágenes, documentos y demás contenidos de terceros conservan sus derechos: consulta las condiciones de la fuente original y, cuando sea necesaria una autorización, solicítala directamente a la organización responsable de esa información. Puedes citar y enlazar gratuitamente FarmSuccession con atribución, pero nuestra licencia no concede derechos sobre materiales ajenos.",
+    "Nuestras descripciones originales y los derechos que podemos conceder sobre la selección y organización del directorio están disponibles bajo CC BY 4.0. Puedes compartirlas y adaptarlas, incluso comercialmente, con la atribución adecuada, un enlace a la licencia y una indicación de los cambios, sin sugerir respaldo. No imponemos restricciones adicionales a esos materiales licenciados.",
+  licenceThirdParty:
+    "Las citas, imágenes, documentos, bases de datos y demás materiales de terceros, incluidas las páginas enlazadas y la guía histórica, conservan sus derechos y condiciones. Hemos contactado con algunas organizaciones para solicitar permisos concretos; eso no significa que todas las fuentes hayan dado permiso o respalden el proyecto. Una autorización específica a FarmSuccession no se extiende automáticamente a quienes reutilicen el directorio. Consulta las condiciones originales y, si necesitas autorización, contacta directamente con el titular de los derechos o la organización responsable. FarmSuccession no puede conceder derechos ajenos.",
+  licenceLawful:
+    "Los enlaces habituales, las menciones, los hechos no protegidos y los usos ya permitidos por una licencia o por la ley aplicable no requieren siempre un permiso adicional. Este aviso no restringe esos usos ni exige atribución por el mero hecho de enlazar. El archivo LICENSE del repositorio distingue el código propio y las dependencias de terceros.",
+  sourceRights:
+    "Las citas y los materiales de las fuentes tienen sus propios derechos. Consulta las condiciones de la fuente original antes de reutilizarlos.",
   trust:
     "Cada ficha enlaza sus fuentes públicas e indica cuándo se leyó cada una. Las comprobaciones automáticas intentan volver a leerlas; no sustituyen la revisión humana ni confirman la disponibilidad actual.",
   optOut: "Si tu entidad no quiere aparecer en el inventario, solicita su retirada:",
   notAService: "Este directorio no sustituye a los servicios oficiales.",
-  licence: "Datos, sitio y código con licencia CC BY 4.0. Las citas pertenecen a los organismos públicos que las publicaron.",
+  licence: "Contenido original de FarmSuccession: CC BY 4.0. Las citas y materiales de terceros conservan sus derechos.",
   offersTitle: "Qué ofrece",
   availabilityTitle: "Disponibilidad documentada",
   datesTitle: "¿Se puede solicitar ahora?",
@@ -740,7 +751,7 @@ const DE = {
   territoryTotalWord: ["geltendes", "geltende"],
   trustSourced: "Quelle verlinkt",
   trustDated: "Quellen datiert",
-  trustOpen: "Offen lizenzierte Daten",
+  trustOpen: "Eigene Inhalte unter CC BY 4.0",
   countriesTitle: "Länder",
   countriesLead: "{territories} in {countries}.",
   statApplicable: ["dokumentiertes Angebot in {where}", "dokumentierte Angebote in {where}"],
@@ -777,7 +788,7 @@ const DE = {
   aboutTitle: "Über das Projekt",
   stewardshipTitle: "Wer es betreibt",
   stewardshipLead:
-    "José Antonio Cano Trigueros betreibt die Website als unabhängiges, nicht kommerzielles Projekt. Sie hat keine externe Finanzierung, kein Konsortium und keine institutionelle Trägerschaft.",
+    "José Antonio Cano Trigueros betreibt FarmSuccession als persönliches Projekt, unabhängig von seinem Arbeitgeber. Es vertritt weder eine Behörde noch ein Konsortium oder eine im Verzeichnis genannte Organisation.",
   aboutIntro:
     "Unabhängiges Verzeichnis, betreut von José Antonio Cano Trigueros. Es bündelt Flächen, Förderung, Ausbildung und Beratung für den Einstieg in die Landwirtschaft, die Übernahme eines Betriebs oder seine Übergabe. Zuständig für Anträge und Leistungen sind die in jedem Eintrag verlinkten Organisationen.",
   overviewTitle: "Was dieses Projekt ist",
@@ -918,12 +929,17 @@ const DE = {
   backAbout: "Zurück zu Über das Projekt",
   licenceTitle: "Lizenz",
   licenceLead:
-    "Eigene Inhalte von FarmSuccession stehen unter CC BY 4.0. Wir haben einige Organisationen um Erlaubnis für bestimmte Verweise oder Auszüge gebeten. Eine FarmSuccession erteilte Genehmigung gilt nicht automatisch für die Nachnutzung durch Dritte. Zitate, Bilder, Dokumente und verlinkte Inhalte behalten ihre jeweiligen Rechte. Prüfen Sie die Bedingungen der Originalquelle und holen Sie eine erforderliche Genehmigung direkt bei der für diese Informationen verantwortlichen Drittorganisation ein. FarmSuccession darf mit Namensnennung kostenlos zitiert und verlinkt werden; unsere Lizenz überträgt keine Rechte an fremdem Material.",
+    "Unsere eigenen Beschreibungen und die von uns lizenzierbaren Rechte an Auswahl und Anordnung des Verzeichnisses stehen unter CC BY 4.0. Sie dürfen diese auch kommerziell teilen und bearbeiten, mit angemessener Namensnennung, Lizenzlink und Änderungshinweis, ohne eine Unterstützung zu suggerieren. Für diese lizenzierten Materialien gelten keine zusätzlichen Einschränkungen.",
+  licenceThirdParty:
+    "Zitate, Bilder, Dokumente, Datenbanken und sonstige fremde Materialien, einschließlich verlinkter Seiten und des historischen Leitfadens, behalten ihre eigenen Rechte und Bedingungen. Wir haben einige Organisationen um konkrete Genehmigungen gebeten. Das bedeutet weder, dass alle Quellen zugestimmt haben, noch dass sie das Projekt unterstützen. Eine speziell FarmSuccession erteilte Genehmigung gilt nicht automatisch für Nachnutzer. Prüfen Sie die Originalbedingungen und wenden Sie sich bei erforderlicher Genehmigung direkt an den Rechteinhaber oder die verantwortliche Organisation. FarmSuccession kann keine fremden Rechte vergeben.",
+  licenceLawful:
+    "Übliche Links, Erwähnungen, ungeschützte Tatsachen und bereits durch eine Lizenz oder geltendes Recht erlaubte Nutzungen benötigen nicht immer eine gesonderte Genehmigung. Dieser Hinweis schränkt solche Nutzungen nicht ein und verlangt keine Namensnennung allein für einen Link. Die Datei LICENSE im Repository unterscheidet eigenen Code und fremde Abhängigkeiten.",
+  sourceRights: "Zitate und Quellmaterialien haben eigene Rechte. Prüfen Sie vor einer Nachnutzung die Bedingungen der Originalquelle.",
   trust:
     "Jeder Eintrag verlinkt seine öffentlichen Quellen und nennt deren Abrufdaten. Automatische Prüfungen versuchen, die Quellen erneut zu lesen; sie ersetzen keine menschliche Durchsicht und bestätigen keine aktuelle Verfügbarkeit.",
   optOut: "Wenn Ihre Organisation nicht im Verzeichnis erscheinen möchte, beantragen Sie die Entfernung:",
   notAService: "Dieses Verzeichnis ersetzt die amtlichen Stellen nicht.",
-  licence: "Daten, Website und Code unter CC BY 4.0. Die zitierten Auszüge gehören den öffentlichen Stellen, die sie veröffentlicht haben.",
+  licence: "Eigene FarmSuccession-Inhalte: CC BY 4.0. Zitate und Materialien Dritter behalten ihre eigenen Rechte.",
   offersTitle: "Was es bietet",
   availabilityTitle: "Dokumentierte Verfügbarkeit",
   datesTitle: "Kann ich jetzt einen Antrag stellen?",
@@ -1087,7 +1103,7 @@ const FR = {
   territoryTotalWord: ["applicable", "applicables"],
   trustSourced: "Lien vers la source publique",
   trustDated: "Sources datées",
-  trustOpen: "Données sous licence ouverte",
+  trustOpen: "Contenus originaux sous CC BY 4.0",
   countriesTitle: "Pays",
   countriesLead: "{territories} dans {countries}.",
   statApplicable: ["ressource documentée : {where}", "ressources documentées : {where}"],
@@ -1124,7 +1140,7 @@ const FR = {
   aboutTitle: "À propos du projet",
   stewardshipTitle: "Qui le maintient",
   stewardshipLead:
-    "José Antonio Cano Trigueros maintient le site comme un projet indépendant et non commercial. Il ne bénéficie d’aucun financement externe, consortium ou soutien institutionnel.",
+    "José Antonio Cano Trigueros maintient FarmSuccession comme projet personnel, indépendant de son employeur. Le projet ne représente ni administration, ni consortium, ni organisme figurant dans l’annuaire.",
   aboutIntro:
     "Annuaire indépendant maintenu par José Antonio Cano Trigueros. Il rassemble des terres, des aides, des formations et des conseils pour s’installer, reprendre une exploitation ou transmettre la sienne. Les démarches relèvent des organismes indiqués dans chaque fiche.",
   overviewTitle: "Ce qu’est ce projet",
@@ -1267,12 +1283,18 @@ const FR = {
   backAbout: "Retour à À propos du projet",
   licenceTitle: "Licence",
   licenceLead:
-    "Les contenus originaux de FarmSuccession sont sous licence CC BY 4.0. Nous avons contacté certains organismes pour demander l'autorisation de faire référence à leurs services ou de reprendre de courts extraits. Une autorisation accordée à FarmSuccession ne s'étend pas automatiquement aux réutilisateurs de l'annuaire. Citations, images, documents et contenus liés conservent leurs droits propres : vérifiez les conditions de la source et, si une autorisation est nécessaire, adressez-vous directement à l'organisme tiers responsable de ces informations. Vous pouvez citer et lier FarmSuccession gratuitement avec attribution, mais notre licence ne couvre pas les contenus de tiers.",
+    "Nos descriptions originales et les droits que nous pouvons accorder sur la sélection et l’organisation de l’annuaire sont sous CC BY 4.0. Vous pouvez les partager et les adapter, y compris commercialement, avec une attribution appropriée, un lien vers la licence et une indication des modifications, sans suggérer de soutien. Aucune restriction supplémentaire n’est imposée à ces contenus sous licence.",
+  licenceThirdParty:
+    "Les citations, images, documents, bases de données et autres contenus de tiers, dont les pages liées et le guide historique, conservent leurs droits et conditions. Nous avons sollicité certains organismes pour des autorisations précises. Cela ne signifie pas que toutes les sources ont donné leur accord ou soutiennent le projet. Une autorisation spécifique à FarmSuccession ne s’étend pas automatiquement aux réutilisateurs. Vérifiez les conditions d’origine et, si une autorisation est nécessaire, contactez directement le titulaire des droits ou l’organisme responsable. FarmSuccession ne peut pas accorder de droits appartenant à des tiers.",
+  licenceLawful:
+    "Les liens ordinaires, les mentions, les faits non protégés et les usages déjà permis par une licence ou le droit applicable ne nécessitent pas toujours d’autorisation distincte. Cet avis ne limite pas ces usages et n’impose pas d’attribution pour un simple lien. Le fichier LICENSE du dépôt distingue le code propre au projet et les dépendances tierces.",
+  sourceRights:
+    "Les citations et les documents sources ont leurs propres droits. Consultez les conditions de la source originale avant de les réutiliser.",
   trust:
     "Chaque fiche renvoie à ses sources publiques et indique la date de leur lecture. Les contrôles automatiques tentent de les relire\u202f; ils ne remplacent pas une relecture humaine et ne confirment pas la disponibilité actuelle.",
   optOut: "Si votre organisme ne souhaite pas figurer dans l’annuaire, demandez son retrait :",
   notAService: "Cet annuaire ne remplace pas les services officiels.",
-  licence: "Données, site et code sous CC BY 4.0. Les extraits cités appartiennent aux organismes publics qui les ont publiés.",
+  licence: "Contenus originaux de FarmSuccession : CC BY 4.0. Les citations et contenus de tiers conservent leurs droits.",
   offersTitle: "Ce qu’elle offre",
   availabilityTitle: "Disponibilité documentée",
   datesTitle: "Peut-on candidater maintenant ?",
@@ -1436,7 +1458,7 @@ const IT = {
   territoryTotalWord: ["applicabile", "applicabili"],
   trustSourced: "Link alla fonte pubblica",
   trustDated: "Fonti datate",
-  trustOpen: "Dati con licenza aperta",
+  trustOpen: "Contenuti originali sotto CC BY 4.0",
   countriesTitle: "Paesi",
   countriesLead: "{territories} in {countries}.",
   statApplicable: ["risorsa documentata: {where}", "risorse documentate: {where}"],
@@ -1473,7 +1495,7 @@ const IT = {
   aboutTitle: "Il progetto",
   stewardshipTitle: "Chi lo gestisce",
   stewardshipLead:
-    "José Antonio Cano Trigueros gestisce il sito come progetto indipendente e non commerciale. Non dispone di finanziamenti esterni, consorzi o sostegno istituzionale.",
+    "José Antonio Cano Trigueros mantiene FarmSuccession come progetto personale, indipendente dal suo datore di lavoro. Non rappresenta amministrazioni, consorzi o organizzazioni presenti nel repertorio.",
   aboutIntro:
     "Elenco indipendente curato da José Antonio Cano Trigueros. Raccoglie terreni, aiuti, formazione e consulenza per iniziare un’attività agricola, rilevare un’azienda o cedere la propria. Le domande e i servizi sono gestiti dagli enti indicati in ogni scheda.",
   overviewTitle: "Che cos’è questo progetto",
@@ -1613,12 +1635,18 @@ const IT = {
   backAbout: "Torna a Il progetto",
   licenceTitle: "Licenza",
   licenceLead:
-    "I contenuti originali di FarmSuccession sono disponibili con licenza CC BY 4.0. Abbiamo contattato alcune organizzazioni per ottenere il permesso di fare riferimenti o usare brevi estratti. Un'autorizzazione concessa a FarmSuccession non si estende automaticamente a chi riutilizza l'elenco. Citazioni, immagini, documenti e materiali collegati di terzi mantengono i propri diritti: verificare la fonte originale e, quando occorre un'autorizzazione, richiederla direttamente all'organizzazione terza responsabile delle informazioni. È possibile citare e collegare gratuitamente FarmSuccession con attribuzione, ma la nostra licenza non concede diritti sui materiali altrui.",
+    "Le nostre descrizioni originali e i diritti che possiamo concedere sulla selezione e organizzazione del repertorio sono disponibili sotto CC BY 4.0. È possibile condividerli e adattarli, anche commercialmente, con attribuzione adeguata, un collegamento alla licenza e un’indicazione delle modifiche, senza suggerire sostegno. Non imponiamo ulteriori restrizioni a questi materiali concessi in licenza.",
+  licenceThirdParty:
+    "Citazioni, immagini, documenti, banche dati e altri materiali di terzi, comprese le pagine collegate e la guida storica, conservano i propri diritti e condizioni. Abbiamo contattato alcune organizzazioni per autorizzazioni specifiche; ciò non significa che tutte le fonti abbiano dato il permesso o sostengano il progetto. Un’autorizzazione specifica a FarmSuccession non si estende automaticamente a chi riutilizza il repertorio. Verificare le condizioni originali e, se occorre un’autorizzazione, contattare direttamente il titolare dei diritti o l’organizzazione responsabile. FarmSuccession non può concedere diritti altrui.",
+  licenceLawful:
+    "Collegamenti ordinari, menzioni, fatti non protetti e usi già consentiti da una licenza o dalla legge applicabile non richiedono sempre un permesso separato. Questo avviso non limita tali usi né impone l’attribuzione per un semplice collegamento. Il file LICENSE del repository distingue il codice proprio e le dipendenze di terzi.",
+  sourceRights:
+    "Citazioni e materiali delle fonti hanno i propri diritti. Verificare le condizioni della fonte originale prima di riutilizzarli.",
   trust:
     "Ogni scheda rimanda alle proprie fonti pubbliche e indica quando ciascuna è stata letta. I controlli automatici tentano di rileggerle; non sostituiscono la revisione umana né confermano la disponibilità attuale.",
   optOut: "Se il tuo ente non vuole comparire nell’elenco, chiedine la rimozione:",
   notAService: "Questo elenco non sostituisce i servizi ufficiali.",
-  licence: "Dati, sito e codice con licenza CC BY 4.0. Gli estratti citati appartengono agli enti pubblici che li hanno pubblicati.",
+  licence: "Contenuti originali di FarmSuccession: CC BY 4.0. Citazioni e materiali di terzi conservano i propri diritti.",
   offersTitle: "Cosa offre",
   availabilityTitle: "Disponibilità documentata",
   datesTitle: "È possibile presentare domanda adesso?",
@@ -1780,7 +1808,7 @@ const PT = {
   territoryTotalWord: ["aplicável", "aplicáveis"],
   trustSourced: "Ligação à fonte pública",
   trustDated: "Fontes datadas",
-  trustOpen: "Dados com licença aberta",
+  trustOpen: "Conteúdo original sob CC BY 4.0",
   countriesTitle: "Países",
   countriesLead: "{territories} em {countries}.",
   statApplicable: ["recurso documentado: {where}", "recursos documentados: {where}"],
@@ -1817,7 +1845,7 @@ const PT = {
   aboutTitle: "Sobre o projeto",
   stewardshipTitle: "Quem o mantém",
   stewardshipLead:
-    "José Antonio Cano Trigueros mantém o sítio como um projeto independente e não comercial. Não tem financiamento externo, consórcio nem apoio institucional.",
+    "José Antonio Cano Trigueros mantém o FarmSuccession como projeto pessoal, independente da sua entidade empregadora. Não representa uma administração, um consórcio ou qualquer organização do diretório.",
   aboutIntro:
     "Diretório independente mantido por José Antonio Cano Trigueros. Reúne terras, apoios, formação e aconselhamento para iniciar a atividade agrícola, assumir uma exploração ou transmitir a sua. As candidaturas e os serviços são tratados pelas entidades indicadas em cada ficha.",
   overviewTitle: "O que é este projeto",
@@ -1956,12 +1984,18 @@ const PT = {
   backAbout: "Voltar a Sobre o projeto",
   licenceTitle: "Licença",
   licenceLead:
-    "O conteúdo original do FarmSuccession é disponibilizado sob CC BY 4.0. Contactámos algumas organizações para pedir autorização para referências ou excertos específicos. Uma autorização concedida ao FarmSuccession não se estende automaticamente a quem reutiliza o diretório. Citações, imagens, documentos e conteúdos de terceiros mantêm os seus direitos: consulte a fonte original e, quando for necessária autorização, peça-a diretamente à organização terceira responsável pela informação. Pode citar e criar ligações gratuitas para o FarmSuccession com atribuição, mas a nossa licença não concede direitos sobre materiais de terceiros.",
+    "As nossas descrições originais e os direitos que podemos conceder sobre a seleção e organização do diretório estão disponíveis sob CC BY 4.0. Podem ser partilhados e adaptados, incluindo comercialmente, com atribuição adequada, uma ligação à licença e indicação das alterações, sem sugerir apoio. Não impomos restrições adicionais a esses materiais licenciados.",
+  licenceThirdParty:
+    "Citações, imagens, documentos, bases de dados e outros materiais de terceiros, incluindo páginas ligadas e o guia histórico, conservam os seus direitos e condições. Contactámos algumas organizações para autorizações específicas; isso não significa que todas as fontes tenham dado autorização ou apoiem o projeto. Uma autorização específica ao FarmSuccession não se estende automaticamente a quem reutiliza o diretório. Consulte as condições originais e, se precisar de autorização, contacte diretamente o titular dos direitos ou a organização responsável. O FarmSuccession não pode conceder direitos alheios.",
+  licenceLawful:
+    "Ligações habituais, menções, factos não protegidos e usos já permitidos por uma licença ou pela lei aplicável nem sempre exigem autorização separada. Este aviso não restringe esses usos nem exige atribuição por uma simples ligação. O ficheiro LICENSE do repositório distingue o código próprio e as dependências de terceiros.",
+  sourceRights:
+    "Citações e materiais das fontes têm os seus próprios direitos. Consulte as condições da fonte original antes de os reutilizar.",
   trust:
     "Cada ficha remete para as suas fontes públicas e indica quando cada uma foi lida. As verificações automáticas tentam voltar a lê-las; não substituem a revisão humana nem confirmam a disponibilidade atual.",
   optOut: "Se a sua entidade não quiser constar do diretório, peça a sua remoção:",
   notAService: "Este diretório não substitui os serviços oficiais.",
-  licence: "Dados, sítio e código sob CC BY 4.0. Os excertos citados pertencem às entidades públicas que os publicaram.",
+  licence: "Conteúdo original do FarmSuccession: CC BY 4.0. Citações e materiais de terceiros conservam os seus direitos.",
   offersTitle: "O que oferece",
   availabilityTitle: "Disponibilidade documentada",
   datesTitle: "É possível candidatar-se agora?",
@@ -2126,7 +2160,7 @@ const NL = {
   territoryTotalWord: ["van toepassing", "van toepassing"],
   trustSourced: "Met bronvermelding",
   trustDated: "Met raadpleegdatum",
-  trustOpen: "Gegevens onder een open licentie",
+  trustOpen: "Eigen inhoud onder CC BY 4.0",
   countriesTitle: "Landen",
   countriesLead: "{territories} in {countries}.",
   statApplicable: ["gedocumenteerde vermelding in {where}", "gedocumenteerde vermeldingen in {where}"],
@@ -2163,7 +2197,7 @@ const NL = {
   aboutTitle: "Over dit project",
   stewardshipTitle: "Wie het onderhoudt",
   stewardshipLead:
-    "José Antonio Cano Trigueros onderhoudt de site als onafhankelijk, niet-commercieel project. Er is geen externe financiering, consortium of institutionele steun.",
+    "José Antonio Cano Trigueros onderhoudt FarmSuccession als persoonlijk project, onafhankelijk van zijn werkgever. Het vertegenwoordigt geen overheid, consortium of organisatie uit de gids.",
   aboutIntro:
     "Een onafhankelijke gids, onderhouden door José Antonio Cano Trigueros. Hier vindt u informatie over grond, financiering, opleiding en advies om te beginnen met boeren, een bedrijf over te nemen of over te dragen. Aanvragen en diensten lopen via de organisaties waarnaar elke vermelding verwijst.",
   overviewTitle: "Wat dit project is",
@@ -2307,12 +2341,17 @@ const NL = {
   backAbout: "Terug naar Over dit project",
   licenceTitle: "Licentie",
   licenceLead:
-    "De eigen inhoud van FarmSuccession valt onder CC BY 4.0. We hebben sommige organisaties om toestemming gevraagd voor specifieke verwijzingen of fragmenten. Toestemming aan FarmSuccession geldt niet automatisch voor wie de gids hergebruikt. Citaten, afbeeldingen, documenten en gelinkt materiaal van derden behouden hun eigen rechten: controleer de oorspronkelijke bron en vraag waar nodig rechtstreeks toestemming aan de externe organisatie die verantwoordelijk is voor die informatie. Naar FarmSuccession mag gratis worden verwezen en gelinkt met bronvermelding; onze licentie geeft geen rechten op materiaal van anderen.",
+    "Onze eigen beschrijvingen en de rechten die wij op de selectie en ordening van de gids kunnen verlenen, zijn beschikbaar onder CC BY 4.0. U mag ze delen en bewerken, ook commercieel, met passende naamsvermelding, een licentielink en vermelding van wijzigingen, zonder steun te suggereren. Voor dit gelicentieerde materiaal leggen wij geen aanvullende beperkingen op.",
+  licenceThirdParty:
+    "Citaten, afbeeldingen, documenten, databanken en ander materiaal van derden, waaronder gelinkte pagina’s en de historische handleiding, behouden hun eigen rechten en voorwaarden. Wij hebben enkele organisaties om specifieke toestemming gevraagd; dat betekent niet dat alle bronnen toestemming hebben gegeven of het project steunen. Toestemming specifiek aan FarmSuccession geldt niet automatisch voor hergebruikers. Controleer de oorspronkelijke voorwaarden en neem, als toestemming nodig is, rechtstreeks contact op met de rechthebbende of verantwoordelijke organisatie. FarmSuccession kan geen rechten van anderen verlenen.",
+  licenceLawful:
+    "Gewone links, vermeldingen, onbeschermde feiten en gebruik dat al door een licentie of het toepasselijke recht is toegestaan, vragen niet altijd om afzonderlijke toestemming. Deze toelichting beperkt dat gebruik niet en eist geen naamsvermelding voor een gewone link. Het bestand LICENSE in de repository maakt onderscheid tussen eigen code en afhankelijkheden van derden.",
+  sourceRights: "Citaten en bronmateriaal hebben hun eigen rechten. Controleer vóór hergebruik de voorwaarden van de oorspronkelijke bron.",
   trust:
     "Elke vermelding verwijst naar openbare bronnen en vermeldt wanneer elke bron is gelezen. Automatische controles proberen die bronnen opnieuw te lezen. Ze vervangen geen controle door een persoon en bevestigen niet of u nu van een regeling of dienst gebruik kunt maken.",
   optOut: "Wil uw organisatie niet in de gids staan? Vraag dan om verwijdering:",
   notAService: "Deze gids vervangt de officiële diensten niet.",
-  licence: "Data, site en code onder CC BY 4.0. De geciteerde fragmenten behoren toe aan de overheidsinstanties die ze publiceerden.",
+  licence: "Eigen FarmSuccession-inhoud: CC BY 4.0. Citaten en materiaal van derden behouden hun eigen rechten.",
   offersTitle: "Wat het biedt",
   availabilityTitle: "Gedocumenteerde beschikbaarheid",
   datesTitle: "Wat zeggen de bronnen over aanvragen?",

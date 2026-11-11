@@ -310,7 +310,12 @@ same ground for a human reader.
 
 ## Licence
 
-[CC BY 4.0](LICENSE) — the data, the site and the code that produces them. Use
-them, including commercially, with attribution. The quoted excerpts belong to
-the public bodies that published them and are cited, with their source and the
-date they were read, as evidence.
+[CC BY 4.0](LICENSE) covers the maintainer’s original descriptions, documentation,
+code and rights in the selection and arrangement of the directory. It does not
+relicense every element of a JSON file or generated page. Third-party quotations,
+documents (including the historical toolkit), databases and dependencies retain
+their own rights and conditions. A specific permission to FarmSuccession does not
+automatically extend to reusers: check the original terms and, if needed, contact
+the rights holder directly. Lawful linking, mentions, unprotected facts and uses
+already allowed by a licence or law remain unaffected. See [data reuse](data/README.md)
+and the [shipped dependency notices](frontend/public/licenses/).
