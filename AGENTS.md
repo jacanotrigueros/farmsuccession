@@ -132,7 +132,7 @@ The rules, which are requirements rather than preferences:
 - **Sizes are a constraint**: 17px body, nothing functional under 16px, metadata never
   under 15px, anything tappable at least 44px, and the page works at 320px wide. The
   readers are farmers, often older, often on a phone.
-- **No imagery beyond one illustration in the home hero.** The schema has no image
+- **Illustrations are limited to the home hero and the 404 recovery page.** The schema has no image
   field; operator emblems are protected marks; a grid that is mostly placeholder reads
   as broken. Every asset is first-party and committed, and `image.domains` and
   `image.remotePatterns` stay empty — which is also what keeps the one open advisory in

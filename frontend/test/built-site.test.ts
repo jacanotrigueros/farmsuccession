@@ -275,11 +275,6 @@ test("a page says what has not been reviewed, and the count follows the data", (
  * segment of its own, and this is the check that it stays there.
  */
 test("a territory never shares a namespace with a page of the site", () => {
-  assert.match(notFound.html, /src="\/img\/404-wayfinding\.svg"/u, "404 illustration missing");
-  assert.match(notFound.html, /href="\/search\/"/u, "404 lacks a direct route to search");
-  assert.match(notFound.html, /href="\/"/u, "404 lacks a route to the home page");
-  assert.doesNotMatch(notFound.html, /data-search/u, "404 must not carry a second search form or client index");
-
   const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
     jurisdictions: Record<string, { lang: string }>;
   };
@@ -335,6 +330,11 @@ test("the illustrated 404 gives clear recovery actions and localized country lin
   const notFound = pages.find(({ file }) => file === "404.html");
   assert.ok(notFound, "the build produced no 404 page: an unknown address would answer with nothing at all");
 
+  assert.match(notFound.html, /src="\/img\/404-wayfinding\.webp"/u, "404 illustration missing");
+  assert.match(notFound.html, /href="\/search\/"/u, "404 lacks a direct route to search");
+  assert.match(notFound.html, /href="\/"/u, "404 lacks a route to the home page");
+  assert.doesNotMatch(notFound.html, /data-search/u, "404 must not carry a second search form or client index");
+
   // This file is served for every address that does not exist, so it is the one page with no address of
   // its own. Requested directly it answers 200, which is what static hosting can do; what it must not do
   // is ask to be indexed, or name an address nobody can open.
@@ -360,10 +360,7 @@ test("the illustrated 404 gives clear recovery actions and localized country lin
       new RegExp(`href="/${iso.toLowerCase()}/"`, "u"),
       `the 404 page offers no way back into ${iso}, so a reader lost under /${iso.toLowerCase()}/ is sent to another country`,
     );
-    assert.ok(
-      notFound.html.includes(`${words(lang).startHere}:`),
-      `the 404 page offers no localized way back for ${lang}`,
-    );
+    assert.ok(notFound.html.includes(`${words(lang).startHere}:`), `the 404 page offers no localized way back for ${lang}`);
   }
 });
 
@@ -859,15 +856,20 @@ test("search fallback and primary controls are sized for the full content area",
 test("on-page navigation remains one scrollable row, not wrapped pill buttons", () => {
   const html = pages.find(({ file }) => file === path.join("es", "index.html"))?.html ?? "";
   assert.ok(html, "Spanish country page was not built");
-  const nav = /<nav\b[^>]*data-pagefind-ignore[^>]*>[\s\S]*?<\/nav>/u.exec(html)?.[0] ?? "";
+  const nav =
+    [...html.matchAll(/<nav\b[^>]*data-pagefind-ignore[^>]*>[\s\S]*?<\/nav>/gu)]
+      .map(([markup]) => markup)
+      .find((markup) => markup.includes(`aria-label="${words("es").onThisPage}"`)) ?? "";
   assert.match(nav, /overflow-x-auto/u, "country section navigation must be operable on narrow screens");
   assert.doesNotMatch(nav, /rounded-full/u, "section navigation must not become a second button menu");
 });
 
-// Five original pictograms illustrate reader journeys without icon fonts or third-party assets.
-test("practical needs use branded local images, while documentary categories stay quiet", () => {
+// Reuse the same recognizable symbols as resource cards, rendered inline with no image fetch.
+test("practical needs retain descriptive icons from the shared resource vocabulary", () => {
   const home = pages.find(({ file }) => file === "index.html")?.html ?? "";
-  for (const name of ["handover", "land", "funding", "training", "advice"]) {
-    assert.ok(home.includes(`src="/img/needs/${name}.svg"`), `the ${name} journey has no branded pictogram`);
+  assert.ok(home, "Europe home page was not built");
+  for (const name of ["handshake", "land-plot", "hand-coins", "graduation-cap", "messages-square"]) {
+    assert.ok(home.includes(`data-icon="lucide:${name}"`), `the ${name} entry has no descriptive icon`);
   }
+  assert.doesNotMatch(home, /src="\/img\/needs\//u, "retired illustrations must not be fetched");
 });

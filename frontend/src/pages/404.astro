@@ -49,10 +49,10 @@ const ways = countryTerritories()
           </div>
         </div>
         <img
-          src="/img/404-wayfinding.svg"
+          src="/img/404-wayfinding.webp"
           alt=""
-          width="480"
-          height="330"
+          width="768"
+          height="512"
           decoding="async"
           class="mx-auto block h-auto w-full max-w-md rounded-2xl"
         />
@@ -60,7 +60,9 @@ const ways = countryTerritories()
     </section>
 
     <section class="wrap py-8 sm:py-10" aria-labelledby="countries">
-      <h2 id="countries" class="text-xl font-bold">{text.countriesTitle}</h2>
+      <h2 id="countries" class="text-xl font-bold">
+        {text.countriesTitle}
+      </h2>
       <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {ways.map(({ territory, language: own, text: here }) => (
           <li lang={own === language ? undefined : own}>

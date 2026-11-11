@@ -17,19 +17,10 @@ type Props = {
 const { resources, language, hrefFor, hrefForKind, compact = false } = Astro.props;
 const text = words(language);
 
-/** Original small pictograms illustrate tasks; documentary categories and status keep simple icons. */
-const goalPictograms = {
-  handover: "handover",
-  land: "land",
-  money: "funding",
-  learn: "training",
-  context: "advice",
-} as const;
-
 const goals = GOALS.filter((goal) => goal.id !== "context").map((goal) => ({
   href: hrefFor(goal.id),
   ...situation(goal.id, language),
-  art: goalPictograms[goal.id],
+  icon: kindIcon(goal.kinds[0]),
   found: resources.filter((resource) => goalOf(resource.kind) === goal.id).length,
 }));
 
@@ -40,7 +31,7 @@ const topics = [
     href: hrefForKind("ADVICE"),
     title: text.adviceEntry,
     hint: kindBlurb("ADVICE", language),
-    art: "advice",
+    icon: kindIcon("ADVICE"),
     found: resources.filter((resource) => resource.kind === "ADVICE").length,
   },
 ];
@@ -64,22 +55,15 @@ const others = [
 
 <ul class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
   {topics.map((goal) => (
-    <li
-      class:list={[
-        "card relative flex min-h-full items-start gap-3 border-t-4 border-t-accent-line",
-        compact ? "p-4" : "p-5",
-        goal.found > 0 && "card-link",
-      ]}
-    >
-      <img
-        src={`/img/needs/${goal.art}.svg`}
-        width="72"
-        height="72"
-        alt=""
-        loading="lazy"
-        decoding="async"
-        class:list={["shrink-0 rounded-xl", compact ? "size-12" : "size-14"]}
-      />
+    <li class:list={["card relative flex min-h-full items-start gap-3", compact ? "p-4" : "p-5", goal.found > 0 && "card-link"]}>
+      <span
+        class:list={[
+          "inline-flex shrink-0 items-center justify-center rounded-xl border border-accent-line bg-brand-tint text-brand",
+          compact ? "size-12" : "size-14",
+        ]}
+      >
+        <Icon name={goal.icon} aria-hidden="true" class:list={[compact ? "size-7" : "size-8"]} />
+      </span>
       <div class="min-w-0 flex-1">
         {goal.found > 0 ? (
           <a href={goal.href} class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
