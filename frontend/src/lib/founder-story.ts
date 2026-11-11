@@ -1,0 +1,147 @@
+/**
+ * The founder's account of why this directory exists. Editorial copy, not a claim
+ * that FarmSuccession can solve generational renewal or broker a farm transfer.
+ * Keep the same facts in every language and the original 2014–2016 history separate.
+ */
+export const founderStory = {
+  en: {
+    link: "Why FarmSuccession exists",
+    title: "Why succession matters",
+    paragraphs: [
+      "I believe one of our greatest failures as a society would be to leave the next generation without a realistic path into farming. Technology and AI will change how we work, including my own profession, but we will still need people to produce our food.",
+      "Farming needs to be an attractive, viable option. That means making it easier to enter the sector or hand on a holding, while making training, advice and resources available to improve practices and care for the land. It is not about producing at any cost.",
+      "That is why I chose the name FarmSuccession. Generational renewal has been a European challenge for decades, and no single website can solve it. My contribution is more modest: making existing opportunities easier to find."
+    ],
+    originTitle: "How the idea changed",
+    origin: [
+      "I first explored a commercial service to connect people transferring farms with potential successors. Research showed me that specialist organisations already do this work, and that a transfer involves much more than a matching website.",
+      "I also found land-access services, funding, training and advice scattered across many organisations and territories. I decided to turn that research into a free, independent directory that links to the original providers. FarmSuccession does not arrange transfers, handle applications or replace professional advice."
+    ],
+    personalTitle: "The person behind the project",
+    personal: [
+      "As of November 2026, I work as a software developer for a company that brings farmers' products to consumers. That experience has strengthened my interest in the future of farming. FarmSuccession is my personal, independent project, not an initiative of my employer.",
+      "Outside work, I care for fruit trees on a small plot and try to support biodiversity, including with insect shelters. I am not a professional farmer; these small experiences have made me appreciate the work and knowledge involved in growing food.",
+      "Building and maintaining this directory also lets me apply my software skills to a real problem. Automation and AI can help organise research, but they do not replace the original sources, verification or the people who provide the services."
+    ]
+  },
+  es: {
+    link: "Por qué existe FarmSuccession",
+    title: "Por qué importa el relevo generacional",
+    paragraphs: [
+      "Creo que uno de los mayores fracasos que podríamos tener como sociedad sería no conseguir que nuevas generaciones quieran y puedan dedicarse a producir nuestros alimentos. La tecnología y la inteligencia artificial transformarán muchas profesiones, incluida la mía, pero seguiremos necesitando personas que trabajen en el sector primario.",
+      "Necesitamos que dedicarse al campo sea una opción atractiva, viable y accesible. Eso significa facilitar la incorporación y la transmisión de explotaciones, pero también ofrecer formación, asesoramiento y recursos para mejorar las prácticas y cuidar nuestro entorno. No se trata de producir a cualquier precio.",
+      "Por eso elegí el nombre FarmSuccession. El relevo generacional preocupa a Europa desde hace décadas y ninguna web puede resolverlo por sí sola. Mi contribución es más modesta: ayudar a encontrar las oportunidades y los recursos que ya existen."
+    ],
+    originTitle: "Cómo cambió la idea",
+    origin: [
+      "Al principio investigué una posible plataforma comercial para conectar a quienes querían transmitir una explotación con personas interesadas en continuarla. Descubrí que ya había organizaciones especializadas y que una transmisión implica mucho más que poner en contacto a dos personas.",
+      "También encontré servicios de acceso a tierras, ayudas, formación y asesoramiento dispersos entre organizaciones y territorios. Decidí aprovechar esa investigación para crear un directorio gratuito e independiente que enlazara con sus fuentes originales. FarmSuccession no intermedia en transmisiones, no tramita solicitudes ni sustituye el asesoramiento profesional."
+    ],
+    personalTitle: "Quién está detrás",
+    personal: [
+      "A noviembre de 2026 trabajo como desarrollador de software en una empresa que acerca los productos de los agricultores a los consumidores. Esa experiencia ha reforzado mi interés por el futuro del campo. FarmSuccession es un proyecto personal e independiente, sin participación de mi empleador.",
+      "Fuera del trabajo cuido árboles frutales en una pequeña parcela e intento favorecer la biodiversidad, por ejemplo con refugios para insectos. No soy agricultor profesional: estas experiencias modestas me ayudan a valorar el conocimiento y el esfuerzo que requiere producir alimentos.",
+      "Construir y mantener este directorio también me permite aplicar mis conocimientos tecnológicos a un problema real. La automatización y la IA pueden ayudar en la investigación, pero no sustituyen las fuentes originales, las comprobaciones ni a las organizaciones que prestan los servicios."
+    ]
+  },
+  fr: {
+    link: "Pourquoi FarmSuccession existe",
+    title: "Pourquoi la transmission compte",
+    paragraphs: [
+      "Je pense que l'un de nos plus grands échecs collectifs serait de ne pas permettre aux nouvelles générations de vivre de l'agriculture. Les technologies et l'IA transformeront nos métiers, y compris le mien, mais nous aurons toujours besoin de personnes pour produire notre alimentation.",
+      "L'agriculture doit être une activité attractive, viable et accessible. Il faut faciliter l'installation et la transmission tout en donnant accès à la formation, aux conseils et aux ressources nécessaires pour améliorer les pratiques et prendre soin de notre environnement. Il ne s'agit pas de produire à n'importe quel prix.",
+      "C'est pourquoi j'ai choisi le nom FarmSuccession. Le renouvellement des générations est un défi européen de longue date. Ce site ne prétend pas le résoudre : il vise à rendre les ressources existantes plus faciles à trouver."
+    ],
+    originTitle: "Comment l'idée a évolué",
+    origin: [
+      "J'ai d'abord étudié un service commercial qui mettrait en relation les cédants et les repreneurs d'exploitations. J'ai découvert des organismes déjà spécialisés dans cet accompagnement et compris qu'une transmission dépasse largement la simple mise en relation.",
+      "J'ai aussi trouvé des dispositifs fonciers, des aides, des formations et des conseils dispersés entre organismes et territoires. J'ai donc choisi de créer un annuaire documentaire gratuit et indépendant renvoyant aux sources originales. FarmSuccession n'organise pas de transmissions, ne traite pas de demandes et ne remplace pas un conseil professionnel."
+    ],
+    personalTitle: "Qui porte ce projet",
+    personal: [
+      "En novembre 2026, je travaille comme développeur logiciel dans une entreprise qui rapproche les produits des agriculteurs des consommateurs. Cette expérience a renforcé mon intérêt pour l'avenir de l'agriculture. FarmSuccession est un projet personnel indépendant de mon employeur.",
+      "Je m'occupe aussi d'arbres fruitiers sur une petite parcelle et j'essaie d'y favoriser la biodiversité, notamment avec des abris pour insectes. Je ne suis pas agriculteur professionnel ; ces expériences modestes me font apprécier le savoir-faire nécessaire à la production alimentaire.",
+      "Cet annuaire me permet d'appliquer mes compétences techniques à un problème concret. L'automatisation et l'IA facilitent certaines recherches, sans remplacer les sources, les vérifications ni les organismes compétents."
+    ]
+  },
+  de: {
+    link: "Warum es FarmSuccession gibt",
+    title: "Warum Hofnachfolge wichtig ist",
+    paragraphs: [
+      "Ich halte es für eines unserer größten gesellschaftlichen Versäumnisse, wenn die nächste Generation keinen realistischen Weg in die Landwirtschaft findet. Technologie und KI werden viele Berufe verändern, auch meinen. Lebensmittel werden wir aber weiterhin brauchen – und Menschen, die sie erzeugen.",
+      "Landwirtschaft muss attraktiv, tragfähig und zugänglich sein. Dazu gehören einfachere Einstiegs- und Übergabemöglichkeiten ebenso wie Ausbildung, Beratung und Informationen, um Arbeitsweisen weiterzuentwickeln und die Umwelt zu schützen. Es geht nicht darum, um jeden Preis zu produzieren.",
+      "Deshalb heißt dieses Projekt FarmSuccession. Der Generationswechsel beschäftigt Europa seit Jahrzehnten. Eine Website allein kann ihn nicht lösen. Sie kann aber helfen, bestehende Angebote leichter zu finden."
+    ],
+    originTitle: "Wie sich die Idee verändert hat",
+    origin: [
+      "Zunächst untersuchte ich ein kommerzielles Angebot, das Hofabgebende und mögliche Nachfolger zusammenbringen sollte. Dabei zeigte sich, dass Fachorganisationen diese Arbeit bereits leisten und eine Hofübergabe weit mehr als eine Kontaktplattform erfordert.",
+      "Zugleich fand ich verstreute Angebote zu Flächenzugang, Förderung, Ausbildung und Beratung. Daraus entstand ein kostenloses, unabhängiges Verzeichnis mit Links zu den Originalquellen. FarmSuccession vermittelt keine Hofübergaben, bearbeitet keine Anträge und ersetzt keine Fachberatung."
+    ],
+    personalTitle: "Wer hinter dem Projekt steht",
+    personal: [
+      "Im November 2026 arbeite ich als Softwareentwickler bei einem Unternehmen, das landwirtschaftliche Erzeugnisse näher an Verbraucher bringt. Diese Erfahrung hat mein Interesse an der Zukunft der Landwirtschaft gestärkt. FarmSuccession ist mein persönliches Projekt, unabhängig von meinem Arbeitgeber.",
+      "Privat pflege ich Obstbäume auf einem kleinen Grundstück und versuche, die Artenvielfalt zu fördern, etwa mit Insektenunterkünften. Ich bin kein Beruflandwirt; gerade diese kleinen Erfahrungen lassen mich die Arbeit und das Wissen hinter unserer Ernährung schätzen.",
+      "Das Verzeichnis gibt mir die Möglichkeit, meine technischen Fähigkeiten für ein konkretes Problem einzusetzen. Automatisierung und KI können bei der Recherche helfen, ersetzen aber weder Originalquellen noch Prüfungen oder die zuständigen Organisationen."
+    ]
+  },
+  it: {
+    link: "Perché esiste FarmSuccession",
+    title: "Perché conta il ricambio generazionale",
+    paragraphs: [
+      "Credo che uno dei nostri maggiori fallimenti come società sarebbe non offrire alle nuove generazioni una possibilità concreta di lavorare in agricoltura. Tecnologia e intelligenza artificiale cambieranno molte professioni, compresa la mia, ma avremo sempre bisogno di persone che producano il nostro cibo.",
+      "L'agricoltura deve essere una scelta attraente, sostenibile dal punto di vista economico e accessibile. Servono percorsi più semplici per iniziare o trasferire un'azienda, insieme a formazione, consulenza e risorse per migliorare le pratiche e prendersi cura dell'ambiente. Non si tratta di produrre a qualsiasi costo.",
+      "Per questo ho scelto il nome FarmSuccession. Il ricambio generazionale è da decenni una sfida europea. Un sito non può risolverla da solo, ma può aiutare a trovare le opportunità già disponibili."
+    ],
+    originTitle: "Come è cambiata l'idea",
+    origin: [
+      "Inizialmente ho valutato un servizio commerciale per mettere in contatto chi cede un'azienda agricola e chi vorrebbe proseguirne l'attività. Ho scoperto che esistono già organizzazioni specializzate e che una successione richiede molto più di una piattaforma di contatto.",
+      "Ho trovato anche servizi per l'accesso alla terra, aiuti, formazione e consulenza sparsi tra organizzazioni e territori. Ho quindi creato un repertorio documentale gratuito e indipendente che rimanda alle fonti originali. FarmSuccession non media trasferimenti, non gestisce domande e non sostituisce la consulenza professionale."
+    ],
+    personalTitle: "Chi c'è dietro al progetto",
+    personal: [
+      "A novembre 2026 lavoro come sviluppatore software in un'azienda che avvicina i prodotti degli agricoltori ai consumatori. Questa esperienza ha rafforzato il mio interesse per il futuro dell'agricoltura. FarmSuccession è un progetto personale, indipendente dal mio datore di lavoro.",
+      "Nel tempo libero curo alberi da frutto su un piccolo terreno e cerco di favorire la biodiversità, anche con rifugi per insetti. Non sono un agricoltore professionista: queste piccole esperienze mi fanno apprezzare il lavoro necessario per produrre cibo.",
+      "Questo repertorio mi permette anche di applicare le mie competenze tecniche a un problema reale. Automazione e IA possono aiutare la ricerca, ma non sostituiscono fonti originali, verifiche o organizzazioni competenti."
+    ]
+  },
+  pt: {
+    link: "Porque existe o FarmSuccession",
+    title: "Porque importa a renovação geracional",
+    paragraphs: [
+      "Acredito que uma das nossas maiores falhas enquanto sociedade seria não permitir que as novas gerações encontrassem um futuro na agricultura. A tecnologia e a inteligência artificial vão transformar muitas profissões, incluindo a minha, mas continuaremos a precisar de pessoas que produzam os nossos alimentos.",
+      "A agricultura tem de ser uma opção atrativa, viável e acessível. É preciso facilitar a entrada no setor e a transmissão de explorações, oferecendo também formação, aconselhamento e recursos para melhorar práticas e cuidar do ambiente. Não se trata de produzir a qualquer preço.",
+      "Foi por isso que escolhi o nome FarmSuccession. A renovação geracional é um desafio europeu há décadas. Este site não o resolve sozinho, mas pode tornar os recursos existentes mais fáceis de encontrar."
+    ],
+    originTitle: "Como a ideia evoluiu",
+    origin: [
+      "Comecei por estudar um serviço comercial para aproximar proprietários que pretendiam transmitir explorações e possíveis sucessores. Descobri que já existem organizações especializadas e que uma transmissão envolve muito mais do que uma plataforma de contactos.",
+      "Encontrei também serviços de acesso à terra, apoios, formação e aconselhamento dispersos por organizações e territórios. Decidi transformar essa pesquisa num diretório documental gratuito e independente, com ligações às fontes originais. O FarmSuccession não faz intermediação, não trata candidaturas nem substitui aconselhamento profissional."
+    ],
+    personalTitle: "Quem está por detrás",
+    personal: [
+      "Em novembro de 2026 trabalho como programador numa empresa que aproxima os produtos dos agricultores dos consumidores. Esta experiência reforçou o meu interesse pelo futuro da agricultura. O FarmSuccession é um projeto pessoal, independente da minha entidade empregadora.",
+      "Fora do trabalho cuido de árvores de fruto num pequeno terreno e procuro favorecer a biodiversidade, por exemplo com abrigos para insetos. Não sou agricultor profissional; estas experiências modestas ajudam-me a valorizar o conhecimento necessário para produzir alimentos.",
+      "Este diretório também me permite aplicar competências tecnológicas a um problema real. A automatização e a IA podem apoiar a pesquisa, mas não substituem as fontes originais, as verificações nem as organizações responsáveis."
+    ]
+  },
+  nl: {
+    link: "Waarom FarmSuccession bestaat",
+    title: "Waarom bedrijfsopvolging belangrijk is",
+    paragraphs: [
+      "Ik vind dat we als samenleving ernstig tekortschieten als nieuwe generaties geen reële kans krijgen om boer te worden. Technologie en AI zullen veel beroepen veranderen, ook het mijne, maar we blijven mensen nodig hebben die ons voedsel produceren.",
+      "Landbouw moet aantrekkelijk, haalbaar en toegankelijk zijn. Dat vraagt om eenvoudiger instappen en overdragen, maar ook om opleiding, advies en middelen om werkwijzen te verbeteren en zorg te dragen voor onze omgeving. Het gaat niet om produceren tegen elke prijs.",
+      "Daarom koos ik de naam FarmSuccession. Generatiewisseling is al tientallen jaren een Europese uitdaging. Deze website lost dat niet alleen op, maar kan bestaande mogelijkheden beter vindbaar maken."
+    ],
+    originTitle: "Hoe het idee veranderde",
+    origin: [
+      "Eerst onderzocht ik een commerciële dienst om stoppende boeren en mogelijke opvolgers met elkaar in contact te brengen. Ik ontdekte dat gespecialiseerde organisaties dit al doen en dat een bedrijfsoverdracht veel meer vraagt dan een contactplatform.",
+      "Daarnaast vond ik verspreide informatie over grond, steun, opleidingen en advies. Daarom maakte ik een gratis, onafhankelijke documentatiegids met verwijzingen naar de oorspronkelijke aanbieders. FarmSuccession bemiddelt niet bij overdrachten, behandelt geen aanvragen en vervangt geen professioneel advies."
+    ],
+    personalTitle: "Wie achter het project staat",
+    personal: [
+      "In november 2026 werk ik als softwareontwikkelaar bij een bedrijf dat landbouwproducten dichter bij consumenten brengt. Die ervaring heeft mijn belangstelling voor de toekomst van de landbouw versterkt. FarmSuccession is mijn persoonlijke project, onafhankelijk van mijn werkgever.",
+      "Buiten mijn werk verzorg ik fruitbomen op een klein stuk grond en probeer ik biodiversiteit te bevorderen, bijvoorbeeld met insectenverblijven. Ik ben geen professionele boer; juist die bescheiden ervaringen vergroten mijn waardering voor het werk achter ons voedsel.",
+      "Met deze gids kan ik mijn technische kennis inzetten voor een concreet probleem. Automatisering en AI kunnen onderzoek ondersteunen, maar vervangen geen oorspronkelijke bronnen, controles of deskundige organisaties."
+    ]
+  }
+} as const;
