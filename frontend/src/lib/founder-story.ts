@@ -14,14 +14,14 @@ export const founderStory = {
     ],
     originTitle: "How the idea changed",
     origin: [
-      "I first explored a commercial service to connect people transferring farms with potential successors. Research showed me that specialist organisations already do this work, and that a transfer involves much more than a matching website.",
-      "I also found land-access services, funding, training and advice scattered across many organisations and territories. I decided to turn that research into a free, independent directory that links to the original providers. FarmSuccession does not arrange transfers, handle applications or replace professional advice."
+      "This did not begin as a purely altruistic idea. I first investigated a possible business: a land bank or platform connecting people looking to hand on farms with potential successors. I found specialist organisations already doing this work and learned that a farm transfer involves human, legal and financial complexities that a matching platform cannot solve on its own.",
+      "That research still revealed something useful. Land-access services, funding, training and advice existed, but were scattered across organisations, administrations and territories. Why should resources that already exist be so difficult to discover? I decided to use what I had learned to build FarmSuccession: a free, independent documentary directory linking to identifiable original sources and the organisations actually providing help. It does not arrange transfers, process applications or replace professional advice."
     ],
     personalTitle: "The person behind the project",
     personal: [
-      "As of November 2026, I work as a software developer for a company that brings farmers' products to consumers. That experience has strengthened my interest in the future of farming. FarmSuccession is my personal, independent project, not an initiative of my employer.",
-      "Outside work, I care for fruit trees on a small plot and try to support biodiversity, including with insect shelters. I am not a professional farmer; these small experiences have made me appreciate the work and knowledge involved in growing food.",
-      "Building and maintaining this directory also lets me apply my software skills to a real problem. Automation and AI can help organise research, but they do not replace the original sources, verification or the people who provide the services."
+      "I am a software developer, and technology is the profession I know. As of November 2026, I work for a company that brings farmers' products closer to consumers. That experience has brought me closer to the realities of farming and strengthened my belief that food production matters, however much technology changes our jobs. FarmSuccession is my own independent project, not an initiative of my employer.",
+      "Outside work I tend fruit trees on a small plot, learn from my mistakes and try to encourage biodiversity through simple measures such as insect shelters. I am not a professional farmer, and this is nothing like running a holding. It does, however, help me appreciate the knowledge, patience and work behind producing food.",
+      "As a developer, I can contribute through what I know: organising scattered information, making it searchable and automating repetitive work. I use software and AI tools to assist with research and maintenance, without treating their output as human verification or a replacement for the organisations providing each service. Building a useful, transparent product is also a genuine professional motivation."
     ]
   },
   es: {
