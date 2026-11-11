@@ -232,7 +232,7 @@ test("project navigation is confined to home and country entry pages", () => {
       assert.ok(footer.includes(`href="${history}"`), `${file} does not lead to its history page`);
       entryPages += 1;
     } else {
-      assert.ok(!footer.includes(`href="${about}`), `${file} repeats project navigation in its footer`);
+      assert.ok(!footer.includes(`href="${about}"`), `${file} repeats project navigation in its footer`);
       assert.ok(!footer.includes(`href="${history}`), `${file} repeats history navigation in its footer`);
       otherPages += 1;
     }
@@ -847,4 +847,19 @@ test("every record prioritises actionable feedback with its context and retains 
   }
   assert.ok(checked > 100, `only ${checked} records asked the question; every record page should`);
   assert.equal(byLanguage.size, 6, "the question was not checked in all six languages");
+});
+
+test("every page links its scoped licence notice and every evidence block warns about third-party rights", () => {
+  for (const { file, html } of pages) {
+    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const text = words(language);
+    const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0] ?? "";
+    assert.ok(footer.includes(text.licence), `${file}: missing scoped licence notice`);
+    const first = file.split(path.sep)[0] ?? "";
+    const root = /^[a-z]{2}$/u.test(first) ? `/${first}/` : "/";
+    assert.ok(footer.includes(`href="${root}${text.aboutSlug}/#licence"`), `${file}: cannot inspect reuse conditions`);
+    if (html.includes("<blockquote")) {
+      assert.ok(html.includes(text.sourceRights), `${file}: quotations have no adjacent third-party rights notice`);
+    }
+  }
 });

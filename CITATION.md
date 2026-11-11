@@ -46,6 +46,8 @@ that a programme remains available, replace the cited official source or turn
 an automated check into human review. Each record states when its sources were
 read and preserves the supporting quotations.
 
-The original data, site and code are licensed under
-[CC BY 4.0](LICENSE). Quoted excerpts and linked documents retain the rights of
-their publishers.
+The maintainer’s original material and licensable rights in the directory’s
+selection and arrangement are under [CC BY 4.0](LICENSE). Third-party quotations,
+documents, databases and dependencies retain their own rights and conditions.
+Citing an edition does not authorise reuse of those materials. Consult the
+[reuse explanation](data/README.md) and original rights holders where needed.
