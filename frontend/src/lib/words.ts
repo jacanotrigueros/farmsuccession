@@ -233,7 +233,7 @@ const EN = {
   backAbout: "Return to About this project",
   licenceTitle: "Licence",
   licenceLead:
-    "Original directory content is offered under CC BY 4.0. We have contacted some organisations to request permission for specific references or excerpts. Permission given to FarmSuccession does not transfer to people reusing this directory. Third-party quotations, images, documents and linked content retain their own rights; check the original source and obtain permission when required. You may freely cite and link to FarmSuccession with attribution, but our licence cannot grant rights over third-party material.",
+    "Original directory content is offered under CC BY 4.0. We have contacted some organisations to request permission for specific references or excerpts. Permission given to FarmSuccession does not transfer to people reusing this directory. Third-party quotations, images, documents and linked content retain their own rights; check the original source and, when permission is required, request it directly from the third-party organisation responsible for that information. You may freely cite and link to FarmSuccession with attribution, but our licence cannot grant rights over third-party material.",
   trust:
     "Each record links to its public sources and states when each was read. Automatic checks try to read those sources again; they do not replace human review or confirm current availability.",
   optOut: "If your organisation does not want to appear in the inventory, request its removal:",
@@ -574,7 +574,7 @@ const ES = {
   backAbout: "Volver a Sobre el proyecto",
   licenceTitle: "Licencia",
   licenceLead:
-    "El contenido original de FarmSuccession se ofrece bajo CC BY 4.0. Hemos contactado con algunas organizaciones para solicitar permiso para referencias o extractos concretos. Una autorización concedida a FarmSuccession no se transmite a quienes reutilicen el directorio. Las citas, imágenes, documentos y demás contenidos de terceros conservan sus derechos: consulta las condiciones de la fuente original y solicita autorización cuando corresponda. Puedes citar y enlazar gratuitamente FarmSuccession con atribución, pero nuestra licencia no concede derechos sobre materiales ajenos.",
+    "El contenido original de FarmSuccession se ofrece bajo CC BY 4.0. Hemos contactado con algunas organizaciones para solicitar permiso para referencias o extractos concretos. Una autorización concedida a FarmSuccession no se transmite a quienes reutilicen el directorio. Las citas, imágenes, documentos y demás contenidos de terceros conservan sus derechos: consulta las condiciones de la fuente original y, cuando sea necesaria una autorización, solicítala directamente a la organización responsable de esa información. Puedes citar y enlazar gratuitamente FarmSuccession con atribución, pero nuestra licencia no concede derechos sobre materiales ajenos.",
   trust:
     "Cada ficha enlaza sus fuentes públicas e indica cuándo se leyó cada una. Las comprobaciones automáticas intentan volver a leerlas; no sustituyen la revisión humana ni confirman la disponibilidad actual.",
   optOut: "Si tu entidad no quiere aparecer en el inventario, solicita su retirada:",
@@ -918,7 +918,7 @@ const DE = {
   backAbout: "Zurück zu Über das Projekt",
   licenceTitle: "Lizenz",
   licenceLead:
-    "Eigene Inhalte von FarmSuccession stehen unter CC BY 4.0. Wir haben einige Organisationen um Erlaubnis für bestimmte Verweise oder Auszüge gebeten. Eine FarmSuccession erteilte Genehmigung gilt nicht automatisch für die Nachnutzung durch Dritte. Zitate, Bilder, Dokumente und verlinkte Inhalte behalten ihre jeweiligen Rechte. Prüfen Sie die Bedingungen der Originalquelle und holen Sie gegebenenfalls eine eigene Genehmigung ein. FarmSuccession darf mit Namensnennung kostenlos zitiert und verlinkt werden; unsere Lizenz überträgt keine Rechte an fremdem Material.",
+    "Eigene Inhalte von FarmSuccession stehen unter CC BY 4.0. Wir haben einige Organisationen um Erlaubnis für bestimmte Verweise oder Auszüge gebeten. Eine FarmSuccession erteilte Genehmigung gilt nicht automatisch für die Nachnutzung durch Dritte. Zitate, Bilder, Dokumente und verlinkte Inhalte behalten ihre jeweiligen Rechte. Prüfen Sie die Bedingungen der Originalquelle und holen Sie eine erforderliche Genehmigung direkt bei der für diese Informationen verantwortlichen Drittorganisation ein. FarmSuccession darf mit Namensnennung kostenlos zitiert und verlinkt werden; unsere Lizenz überträgt keine Rechte an fremdem Material.",
   trust:
     "Jeder Eintrag verlinkt seine öffentlichen Quellen und nennt deren Abrufdaten. Automatische Prüfungen versuchen, die Quellen erneut zu lesen; sie ersetzen keine menschliche Durchsicht und bestätigen keine aktuelle Verfügbarkeit.",
   optOut: "Wenn Ihre Organisation nicht im Verzeichnis erscheinen möchte, beantragen Sie die Entfernung:",
@@ -1267,7 +1267,7 @@ const FR = {
   backAbout: "Retour à À propos du projet",
   licenceTitle: "Licence",
   licenceLead:
-    "Les contenus originaux de FarmSuccession sont sous licence CC BY 4.0. Nous avons contacté certains organismes pour demander l'autorisation de faire référence à leurs services ou de reprendre de courts extraits. Une autorisation accordée à FarmSuccession ne s'étend pas automatiquement aux réutilisateurs de l'annuaire. Citations, images, documents et contenus liés conservent leurs droits propres : vérifiez les conditions de la source et demandez une autorisation si nécessaire. Vous pouvez citer et lier FarmSuccession gratuitement avec attribution, mais notre licence ne couvre pas les contenus de tiers.",
+    "Les contenus originaux de FarmSuccession sont sous licence CC BY 4.0. Nous avons contacté certains organismes pour demander l'autorisation de faire référence à leurs services ou de reprendre de courts extraits. Une autorisation accordée à FarmSuccession ne s'étend pas automatiquement aux réutilisateurs de l'annuaire. Citations, images, documents et contenus liés conservent leurs droits propres : vérifiez les conditions de la source et, si une autorisation est nécessaire, adressez-vous directement à l'organisme tiers responsable de ces informations. Vous pouvez citer et lier FarmSuccession gratuitement avec attribution, mais notre licence ne couvre pas les contenus de tiers.",
   trust:
     "Chaque fiche renvoie à ses sources publiques et indique la date de leur lecture. Les contrôles automatiques tentent de les relire\u202f; ils ne remplacent pas une relecture humaine et ne confirment pas la disponibilité actuelle.",
   optOut: "Si votre organisme ne souhaite pas figurer dans l’annuaire, demandez son retrait :",
@@ -1613,7 +1613,7 @@ const IT = {
   backAbout: "Torna a Il progetto",
   licenceTitle: "Licenza",
   licenceLead:
-    "I contenuti originali di FarmSuccession sono disponibili con licenza CC BY 4.0. Abbiamo contattato alcune organizzazioni per ottenere il permesso di fare riferimenti o usare brevi estratti. Un'autorizzazione concessa a FarmSuccession non si estende automaticamente a chi riutilizza l'elenco. Citazioni, immagini, documenti e materiali collegati di terzi mantengono i propri diritti: verificare la fonte originale e chiedere il permesso quando necessario. È possibile citare e collegare gratuitamente FarmSuccession con attribuzione, ma la nostra licenza non concede diritti sui materiali altrui.",
+    "I contenuti originali di FarmSuccession sono disponibili con licenza CC BY 4.0. Abbiamo contattato alcune organizzazioni per ottenere il permesso di fare riferimenti o usare brevi estratti. Un'autorizzazione concessa a FarmSuccession non si estende automaticamente a chi riutilizza l'elenco. Citazioni, immagini, documenti e materiali collegati di terzi mantengono i propri diritti: verificare la fonte originale e, quando occorre un'autorizzazione, richiederla direttamente all'organizzazione terza responsabile delle informazioni. È possibile citare e collegare gratuitamente FarmSuccession con attribuzione, ma la nostra licenza non concede diritti sui materiali altrui.",
   trust:
     "Ogni scheda rimanda alle proprie fonti pubbliche e indica quando ciascuna è stata letta. I controlli automatici tentano di rileggerle; non sostituiscono la revisione umana né confermano la disponibilità attuale.",
   optOut: "Se il tuo ente non vuole comparire nell’elenco, chiedine la rimozione:",
@@ -1956,7 +1956,7 @@ const PT = {
   backAbout: "Voltar a Sobre o projeto",
   licenceTitle: "Licença",
   licenceLead:
-    "O conteúdo original do FarmSuccession é disponibilizado sob CC BY 4.0. Contactámos algumas organizações para pedir autorização para referências ou excertos específicos. Uma autorização concedida ao FarmSuccession não se estende automaticamente a quem reutiliza o diretório. Citações, imagens, documentos e conteúdos de terceiros mantêm os seus direitos: consulte a fonte original e peça autorização quando necessário. Pode citar e criar ligações gratuitas para o FarmSuccession com atribuição, mas a nossa licença não concede direitos sobre materiais de terceiros.",
+    "O conteúdo original do FarmSuccession é disponibilizado sob CC BY 4.0. Contactámos algumas organizações para pedir autorização para referências ou excertos específicos. Uma autorização concedida ao FarmSuccession não se estende automaticamente a quem reutiliza o diretório. Citações, imagens, documentos e conteúdos de terceiros mantêm os seus direitos: consulte a fonte original e, quando for necessária autorização, peça-a diretamente à organização terceira responsável pela informação. Pode citar e criar ligações gratuitas para o FarmSuccession com atribuição, mas a nossa licença não concede direitos sobre materiais de terceiros.",
   trust:
     "Cada ficha remete para as suas fontes públicas e indica quando cada uma foi lida. As verificações automáticas tentam voltar a lê-las; não substituem a revisão humana nem confirmam a disponibilidade atual.",
   optOut: "Se a sua entidade não quiser constar do diretório, peça a sua remoção:",
@@ -2307,7 +2307,7 @@ const NL = {
   backAbout: "Terug naar Over dit project",
   licenceTitle: "Licentie",
   licenceLead:
-    "De eigen inhoud van FarmSuccession valt onder CC BY 4.0. We hebben sommige organisaties om toestemming gevraagd voor specifieke verwijzingen of fragmenten. Toestemming aan FarmSuccession geldt niet automatisch voor wie de gids hergebruikt. Citaten, afbeeldingen, documenten en gelinkt materiaal van derden behouden hun eigen rechten: controleer de oorspronkelijke bron en vraag waar nodig toestemming. Naar FarmSuccession mag gratis worden verwezen en gelinkt met bronvermelding; onze licentie geeft geen rechten op materiaal van anderen.",
+    "De eigen inhoud van FarmSuccession valt onder CC BY 4.0. We hebben sommige organisaties om toestemming gevraagd voor specifieke verwijzingen of fragmenten. Toestemming aan FarmSuccession geldt niet automatisch voor wie de gids hergebruikt. Citaten, afbeeldingen, documenten en gelinkt materiaal van derden behouden hun eigen rechten: controleer de oorspronkelijke bron en vraag waar nodig rechtstreeks toestemming aan de externe organisatie die verantwoordelijk is voor die informatie. Naar FarmSuccession mag gratis worden verwezen en gelinkt met bronvermelding; onze licentie geeft geen rechten op materiaal van anderen.",
   trust:
     "Elke vermelding verwijst naar openbare bronnen en vermeldt wanneer elke bron is gelezen. Automatische controles proberen die bronnen opnieuw te lezen. Ze vervangen geen controle door een persoon en bevestigen niet of u nu van een regeling of dienst gebruik kunt maken.",
   optOut: "Wil uw organisatie niet in de gids staan? Vraag dan om verwijdering:",
