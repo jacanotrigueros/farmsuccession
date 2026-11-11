@@ -208,37 +208,25 @@ test("country entry pages expose the same unique record destinations as their co
 });
 
 /**
- * About, method, privacy and the former project's history remain one step from each home page. They are
- * not repeated below every record: doing so makes project documentation the strongest destination in a
- * directory whose records are the destination.
+ * Every page shares the same footer. A page deep in the catalogue must offer the same
+ * project, method, privacy and history destinations as an entry page, in its own language.
  */
-test("project navigation is confined to home and country entry pages", () => {
-  let entryPages = 0;
-  let otherPages = 0;
+test("the complete, localized footer is shared by every built page", () => {
+  let checked = 0;
   for (const { file, html } of pages) {
     const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0];
     assert.ok(footer, `${file} has no footer`);
     const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const first = file.split(path.sep)[0] ?? "";
-    const inCountry = /^[a-z]{2}$/u.test(first);
-    const isCountry = inCountry && file === path.join(first, "index.html");
-    const isEntry = file === "index.html" || isCountry;
-    const root = inCountry ? `/${first}/` : "/";
+    const root = /^[a-z]{2}$/u.test(first) ? `/${first}/` : "/";
     const about = `${root}${words(language).aboutSlug}/`;
     const history = `${root}${words(language).historySlug}/`;
-
-    if (isEntry) {
-      assert.ok(footer.includes(`href="${about}"`), `${file} does not lead to its project page`);
-      assert.ok(footer.includes(`href="${history}"`), `${file} does not lead to its history page`);
-      entryPages += 1;
-    } else {
-      assert.ok(!footer.includes(`href="${about}`), `${file} repeats project navigation in its footer`);
-      assert.ok(!footer.includes(`href="${history}`), `${file} repeats history navigation in its footer`);
-      otherPages += 1;
+    for (const target of [about, history, `${about}#method`, `${about}#privacy`]) {
+      assert.ok(footer.includes(`href="${target}"`), `${file}: footer omits ${target}`);
     }
+    checked++;
   }
-  assert.equal(entryPages, Object.keys(catalogueJurisdictions).length, "the European and every country entry page were not all checked");
-  assert.ok(otherPages > 400, "too few non-entry pages were checked for a site-wide footer rule");
+  assert.ok(checked > 400, "too few built pages checked for footer consistency");
 });
 
 /**
@@ -338,9 +326,14 @@ test("a page declares the language its text is actually written in", () => {
  * What a reader who mistyped an address gets, and what a crawler is told. Both are easy to leave out —
  * nothing on the site links to either — and both are how somebody arrives at all.
  */
-test("the page for an address that does not exist speaks every language of the site", () => {
+test("the illustrated 404 gives clear recovery actions and localized country links", () => {
   const notFound = pages.find(({ file }) => file === "404.html");
   assert.ok(notFound, "the build produced no 404 page: an unknown address would answer with nothing at all");
+
+  assert.match(notFound.html, /src="\/img\/404-wayfinding\.webp"/u, "404 illustration missing");
+  assert.match(notFound.html, /href="\/search\/"/u, "404 lacks a direct route to search");
+  assert.match(notFound.html, /href="\/"/u, "404 lacks a route to the home page");
+  assert.doesNotMatch(notFound.html, /data-search/u, "404 must not carry a second search form or client index");
 
   // This file is served for every address that does not exist, so it is the one page with no address of
   // its own. Requested directly it answers 200, which is what static hosting can do; what it must not do
@@ -367,10 +360,7 @@ test("the page for an address that does not exist speaks every language of the s
       new RegExp(`href="/${iso.toLowerCase()}/"`, "u"),
       `the 404 page offers no way back into ${iso}, so a reader lost under /${iso.toLowerCase()}/ is sent to another country`,
     );
-    assert.ok(
-      notFound.html.includes(words(lang).notFoundText),
-      `the 404 page does not say what happened in ${lang}. One file answers every unknown address on a site written in six languages, so it says it in all of them.`,
-    );
+    assert.ok(notFound.html.includes(`${words(lang).startHere}:`), `the 404 page offers no localized way back for ${lang}`);
   }
 });
 
@@ -847,4 +837,39 @@ test("every record prioritises actionable feedback with its context and retains 
   }
   assert.ok(checked > 100, `only ${checked} records asked the question; every record page should`);
   assert.equal(byLanguage.size, 6, "the question was not checked in all six languages");
+});
+
+/**
+ * Short entry-point explanations may use more width than running prose, and a search whose
+ * index is still loading must not look like a small dialog stranded at the left edge.
+ */
+test("search fallback and primary controls are sized for the full content area", () => {
+  const html = pages.find(({ file }) => file === path.join("search", "index.html"))?.html ?? "";
+  assert.ok(html, "Europe search page was not built");
+  const fallback = /<aside\b[^>]*data-search-fallback[^>]*>/u.exec(html)?.[0] ?? "";
+  assert.match(fallback, /\bw-full\b/u, "search initial state is constrained to a narrow column");
+  assert.doesNotMatch(fallback, /max-w-3xl/u);
+  const form = /<div\b[^>]*data-field[^>]*>/u.exec(html)?.[0] ?? "";
+  assert.match(form, /\bw-full\b/u, "loaded query controls must also use the available width");
+});
+
+test("on-page navigation remains one scrollable row, not wrapped pill buttons", () => {
+  const html = pages.find(({ file }) => file === path.join("es", "index.html"))?.html ?? "";
+  assert.ok(html, "Spanish country page was not built");
+  const nav =
+    [...html.matchAll(/<nav\b[^>]*data-pagefind-ignore[^>]*>[\s\S]*?<\/nav>/gu)]
+      .map(([markup]) => markup)
+      .find((markup) => markup.includes(`aria-label="${words("es").onThisPage}"`)) ?? "";
+  assert.match(nav, /overflow-x-auto/u, "country section navigation must be operable on narrow screens");
+  assert.doesNotMatch(nav, /rounded-full/u, "section navigation must not become a second button menu");
+});
+
+// Reuse the same recognizable symbols as resource cards, rendered inline with no image fetch.
+test("practical needs retain descriptive icons from the shared resource vocabulary", () => {
+  const home = pages.find(({ file }) => file === "index.html")?.html ?? "";
+  assert.ok(home, "Europe home page was not built");
+  for (const name of ["handshake", "land-plot", "hand-coins", "graduation-cap", "messages-square"]) {
+    assert.ok(home.includes(`data-icon="lucide:${name}"`), `the ${name} entry has no descriptive icon`);
+  }
+  assert.doesNotMatch(home, /src="\/img\/needs\//u, "retired illustrations must not be fetched");
 });

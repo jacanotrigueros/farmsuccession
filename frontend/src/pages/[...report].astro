@@ -62,6 +62,8 @@ const fieldClass =
         data-report
         data-kind="missing"
         data-subject={text.reportMailSubject}
+        data-validation-required={text.reportRequiredMessage}
+        data-validation-url={text.reportUrlMessage}
         action={reportEndpoint || "mailto:contact@farmsuccession.eu"}
         data-report-transport={reportEndpoint ? "post" : "email"}
         method="post"

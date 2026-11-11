@@ -31,6 +31,9 @@ test("every jurisdiction has one localized intake with all five reasons and no a
     assert.match(html, /name="kind"[^>]*required/u);
     for (const kind of ["missing", "correction", "looking", "feedback", "removal"]) assert.ok(html.includes(`<option value="${kind}"`));
     assert.match(html, /name="detail"[^>]*required/u);
+    assert.ok(html.includes(`data-validation-required="${text.reportRequiredMessage}"`));
+    assert.ok(html.includes(`data-validation-url="${text.reportUrlMessage}"`));
+    assert.ok(html.includes(text.reportAlternativeEmail));
     assert.match(html, /name="source"[^>]*type="url"/u);
     assert.match(
       html,
@@ -193,8 +196,9 @@ test("reason changes preserve the message, scope fields and require independent 
       return [this.field];
     },
   }));
+  const formListeners: Record<string, (...args: unknown[]) => void> = {};
   const form = {
-    dataset: { reportTransport: "post", kind: "", subject: "" },
+    dataset: { reportTransport: "post", kind: "", subject: "", validationRequired: "Obligatorio", validationUrl: "URL inválida" },
     querySelector(selector: string) {
       return (
         (
@@ -214,8 +218,8 @@ test("reason changes preserve the message, scope fields and require independent 
     querySelectorAll() {
       return groups;
     },
-    addEventListener() {
-      assert.fail("native POST must keep browser/provider validation, confirmation and errors");
+    addEventListener(type: string, fn: (...args: unknown[]) => void) {
+      formListeners[type] = fn;
     },
   };
   runInNewContext(readFileSync(path.join(DIST, "report.js"), "utf8"), {
@@ -232,6 +236,25 @@ test("reason changes preserve the message, scope fields and require independent 
       },
     },
   });
+  assert.ok(formListeners.invalid, "the form must localize native invalid feedback");
+  assert.ok(formListeners.input);
+  assert.ok(formListeners.change);
+  assert.equal(formListeners.submit, undefined, "native POST must retain browser/provider delivery and errors");
+  const invalidField = {
+    validity: { valueMissing: true, typeMismatch: false },
+    message: "",
+    setCustomValidity(message: string) {
+      this.message = message;
+    },
+  };
+  formListeners.invalid!({ target: invalidField });
+  assert.equal(invalidField.message, "Obligatorio");
+  formListeners.input!({ target: invalidField });
+  assert.equal(invalidField.message, "");
+  invalidField.validity.valueMissing = false;
+  invalidField.validity.typeMismatch = true;
+  formListeners.invalid!({ target: invalidField });
+  assert.equal(invalidField.message, "URL inválida");
   assert.equal(reason.value, "looking");
   assert.equal(detail.value, "Original question");
   assert.equal(from.value, "/es/buscar/");

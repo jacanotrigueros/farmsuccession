@@ -96,3 +96,20 @@ test("the kind filter cannot push a page wider than a 320px screen", () => {
   const html = htmlAt("de/regionen/baden-wuerttemberg");
   assert.match(html, /<select[^>]*id="only"[^>]*max-w-full/u);
 });
+
+test("country pages expose each regional resource inside its territory rather than a duplicate section", () => {
+  for (const iso of new Set(snapshots.flatMap(({ layer }) => (layer.level === "COUNTRY" ? [layer.country] : [])))) {
+    if (iso === "EU") continue;
+    const cc = iso.toLowerCase();
+    const html = htmlAt(cc);
+    assert.doesNotMatch(html, /id="all-records"/u, `${cc}: a second regional index duplicates territory navigation`);
+    const regional = snapshots.filter(({ layer }) => layer.level === "REGION" && layer.country === iso);
+    const local = regional.flatMap(({ data }) => data.resources);
+    if (local.length === 0) continue;
+    assert.match(html, /class="regional-resources /u, `${cc}: no in-place regional resources`);
+    for (const resource of local) {
+      const url = resourceUrl(resource.id, iso);
+      assert.equal(links(html).filter((value) => value === url).length, 1, `${cc}: ${resource.id} must have exactly one direct index link`);
+    }
+  }
+});

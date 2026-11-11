@@ -146,7 +146,7 @@ const trust = [
   </section>
 
   <section class="border-b border-line bg-card" aria-labelledby="needs">
-    <div class="wrap py-12">
+    <div class="wrap py-10">
       <Needs
         resources={everything}
         language={language}
@@ -156,14 +156,14 @@ const trust = [
     </div>
   </section>
 
-  <section class="wrap py-8" aria-label={text.statsLabel}>
+  <section class="wrap py-6" aria-label={text.statsLabel}>
     <div class="rounded-lg bg-page p-5">
-      <ul class="grid grid-cols-2 gap-4 sm:grid-cols-4" aria-label={text.statsLabel}>
+      <ul class="grid grid-cols-2 items-start gap-4 sm:grid-cols-4" aria-label={text.statsLabel}>
         {figures.map((figure) => (
-          <li class="flex items-center gap-3">
-            <Icon name={figure.icon} aria-hidden="true" class="size-5 shrink-0 text-brand" />
-            <p>
-              <span class="block text-2xl font-bold text-brand tabular-nums">{figure.value}</span>
+          <li class="flex min-w-0 items-start gap-3">
+            <Icon name={figure.icon} aria-hidden="true" class="mt-1 size-5 shrink-0 text-brand" />
+            <p class="min-w-0">
+              <span class="block text-2xl leading-tight font-bold text-brand tabular-nums">{figure.value}</span>
               <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
             </p>
           </li>
@@ -186,7 +186,7 @@ const trust = [
 
   <StandaloneNews items={europe.data.news} language={language} />
 
-  <div class="wrap py-8">
+  <div class="wrap pt-4 pb-6">
     <p class="meta flex items-start gap-2">
       <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
       <span>

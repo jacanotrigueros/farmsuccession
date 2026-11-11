@@ -30,8 +30,9 @@ type Props = {
   language: string;
   level?: "h2" | "h3" | "h4";
   compact?: boolean;
+  showFullSummary?: boolean;
 };
-const { resource, recordedIn, language, level = "h3", compact = false } = Astro.props;
+const { resource, recordedIn, language, level = "h3", compact = false, showFullSummary = false } = Astro.props;
 const Heading = level;
 const recordLanguage = languageOf(recordedIn);
 const text = words(language);
@@ -42,7 +43,7 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName), resource.scop
 <li
   class:list={[
     "relative flex min-w-0 flex-col hyphens-auto [overflow-wrap:anywhere]",
-    compact ? "result-row border-b border-line py-5" : "resource-card card card-link p-5",
+    compact ? "result-row card card-link p-4 sm:p-5" : "resource-card card card-link p-5",
   ]}
   data-kind={resource.kind}
   data-status={resource.status}
@@ -60,7 +61,7 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName), resource.scop
       {resource.name}
     </a>
   </Heading>
-  <p lang={recordLanguage} class:list={["mt-3", compact ? "line-clamp-2" : "line-clamp-3"]}>
+  <p lang={recordLanguage} class:list={["mt-3", showFullSummary ? "max-w-5xl" : compact ? "line-clamp-2" : "line-clamp-3"]}>
     {resource.whatItOffers}
   </p>
   {compact ? (
@@ -109,8 +110,12 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName), resource.scop
     padding-inline: 0;
     --tw-ring-color: transparent;
   }
-  .result-row:first-child {
-    padding-top: 0;
+  .result-row :global(.tag-kind) {
+    border: 0;
+    background: transparent;
+    padding-inline: 0;
+    color: var(--color-muted);
+    --tw-ring-color: transparent;
   }
   .result-row:focus-within {
     background: var(--color-brand-tint);
