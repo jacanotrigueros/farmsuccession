@@ -105,7 +105,9 @@ const figures = [
       <h2 id="countries" class="text-2xl font-bold">
         {text.countriesTitle}
       </h2>
-      <ul class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4" aria-label={text.statsLabel}>
+      {/* Spread edge to edge so the first figure lines up with the first card and the last with the last
+          card's right edge; on a phone they fall into two columns. */}
+      <ul class="mt-4 grid grid-cols-2 gap-4 sm:flex sm:justify-between" aria-label={text.statsLabel}>
         {figures.map((figure) => (
           <li class="flex min-w-0 items-start gap-3">
             <Icon name={figure.icon} aria-hidden="true" class="mt-1 size-5 shrink-0 text-brand" />
