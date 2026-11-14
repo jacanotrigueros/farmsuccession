@@ -109,3 +109,21 @@ test("territories, records and utilities never become translations by sharing a 
   }
   assert.ok(checked > 0, "no other pages: the exclusion of territorial translations was never tested");
 });
+
+test("the founder and reuse explanations are reachable in each published document language", () => {
+  for (const { language, home } of everyCopy) {
+    const text = words(language);
+    const route = `${home}${text.aboutSlug}/`;
+    const html = read(route);
+    for (const anchor of ["why-succession", "free-access", "method", "licence"]) {
+      assert.ok(html.includes(`id="${anchor}"`), `${route}: missing ${anchor} destination`);
+      assert.ok(html.includes(`href="#${anchor}"`), `${route}: ${anchor} is absent from the section menu`);
+    }
+    const entry = read(home);
+    assert.ok(entry.includes(`href="${route}#why-succession"`), `${home}: no secondary route to the founder account`);
+    // Consumers must be able to distinguish the grant from third-party evidence and lawful uses.
+    for (const paragraph of [text.licenceLead, text.licenceThirdParty, text.licenceLawful]) {
+      assert.ok(html.includes(paragraph), `${route}: incomplete reuse explanation`);
+    }
+  }
+});

@@ -839,6 +839,21 @@ test("every record prioritises actionable feedback with its context and retains 
   assert.equal(byLanguage.size, 6, "the question was not checked in all six languages");
 });
 
+test("every page links its scoped licence notice and every evidence block warns about third-party rights", () => {
+  for (const { file, html } of pages) {
+    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const text = words(language);
+    const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0] ?? "";
+    assert.ok(footer.includes(text.licence), `${file}: missing scoped licence notice`);
+    const first = file.split(path.sep)[0] ?? "";
+    const root = /^[a-z]{2}$/u.test(first) ? `/${first}/` : "/";
+    assert.ok(footer.includes(`href="${root}${text.aboutSlug}/#licence"`), `${file}: cannot inspect reuse conditions`);
+    if (html.includes("<blockquote")) {
+      assert.ok(html.includes(text.sourceRights), `${file}: quotations have no adjacent third-party rights notice`);
+    }
+  }
+});
+
 /**
  * Short entry-point explanations may use more width than running prose, and a search whose
  * index is still loading must not look like a small dialog stranded at the left edge.
