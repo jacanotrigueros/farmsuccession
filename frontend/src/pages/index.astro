@@ -26,7 +26,7 @@ import {
 } from "../lib/corpus.ts";
 import { GOALS } from "../lib/goals.ts";
 import { flagOf, ICON } from "../lib/icons.ts";
-import { counted, editionNamed, words } from "../lib/words.ts";
+import { counted, words } from "../lib/words.ts";
 import { searchUrl } from "../../public/search-scope.js";
 
 const europe = euTerritory();
@@ -76,17 +76,16 @@ const figures = [
 <SiteLayout title={`${text.siteName} · ${text.tagline}`} description={text.lead} language={language} current="/">
   <section class="border-b border-line bg-card">
     <div class="wrap py-10 lg:py-14">
-      <p class="eyebrow">
-        {text.siteName} · {editionNamed(currentEdition, language)}
-      </p>
+      {/* The header already names the site, so the hero opens with what a reader can do, not the name
+          again. The page title and description keep the searchable tagline and lead. */}
       {stats.news > 0 && (
-        <p class="meta mt-1 flex items-center gap-1.5">
+        <p class="meta flex items-center gap-1.5">
           <Icon name={ICON.date} aria-hidden="true" class="size-4 text-brand" />
           {text.newsCount.replace("{n}", String(stats.news)).replace("{edition}", currentEdition)}
         </p>
       )}
-      <h1 class="page-title mt-2 max-w-3xl text-3xl text-balance sm:text-4xl">{text.tagline}</h1>
-      <p class="mt-4 text-lg text-muted">{text.lead}</p>
+      <h1 class="page-title mt-2 max-w-3xl text-3xl text-balance sm:text-4xl">{text.heroTitle}</h1>
+      <p class="mt-4 text-lg text-muted">{text.heroLead}</p>
 
       <div class="mt-8 max-w-3xl">
         <SearchBox
