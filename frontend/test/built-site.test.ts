@@ -853,14 +853,18 @@ test("search fallback and primary controls are sized for the full content area",
   assert.match(form, /\bw-full\b/u, "loaded query controls must also use the available width");
 });
 
-test("on-page navigation remains one scrollable row, not wrapped pill buttons", () => {
+test("on-page navigation wraps onto more lines instead of scrolling sideways, and is not pill buttons", () => {
   const html = pages.find(({ file }) => file === path.join("es", "index.html"))?.html ?? "";
   assert.ok(html, "Spanish country page was not built");
   const nav =
     [...html.matchAll(/<nav\b[^>]*data-pagefind-ignore[^>]*>[\s\S]*?<\/nav>/gu)]
       .map(([markup]) => markup)
       .find((markup) => markup.includes(`aria-label="${words("es").onThisPage}"`)) ?? "";
-  assert.match(nav, /overflow-x-auto/u, "country section navigation must be operable on narrow screens");
+  assert.ok(nav, "the Spanish country page has no on-page navigation");
+  // A sideways strip hides every link past the edge of a phone, with nothing to say they are there;
+  // the audience is older readers with little digital practice, so every link must stay visible.
+  assert.match(nav, /\bflex-wrap\b/u, "section navigation must wrap so every link is visible on a phone");
+  assert.doesNotMatch(nav, /overflow-x-(?:auto|scroll)/u, "section navigation must never scroll sideways");
   assert.doesNotMatch(nav, /rounded-full/u, "section navigation must not become a second button menu");
 });
 
