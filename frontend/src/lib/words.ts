@@ -156,6 +156,9 @@ const EN = {
   reportPublicPageHint: "Include a public link when suggesting a resource or requesting removal. For other messages, it is optional.",
   reportMailSubject: "[FarmSuccession] Public report",
   reportSend: "Send report",
+  reportAlternativeEmail: "Or, if you prefer, email us at",
+  reportRequiredMessage: "Please complete this field.",
+  reportUrlMessage: "Enter a valid URL.",
   reportDeliveryPrivacy:
     "When you send, Formspree processes your answers and technical data, including your IP address, in the United States to email the report to FarmSuccession. Spam verification (Google reCAPTCHA) and confirmation take place on Formspree. No account or email address is required. Do not include private documents.",
   reportProviderPrivacy: "Formspree privacy policy",
@@ -495,6 +498,9 @@ const ES = {
   reportPublicPageHint: "Incluye un enlace público si propones un recurso o solicitas una retirada. En los demás casos es opcional.",
   reportMailSubject: "[FarmSuccession] Aviso",
   reportSend: "Enviar aviso",
+  reportAlternativeEmail: "O, si lo prefieres, escríbenos a",
+  reportRequiredMessage: "Completa este campo.",
+  reportUrlMessage: "Introduce una URL válida.",
   reportDeliveryPrivacy:
     "Al enviar, Formspree trata tus respuestas y datos técnicos, incluida tu dirección IP, en Estados Unidos para entregar el aviso a FarmSuccession por correo. La verificación antispam (Google reCAPTCHA) y la confirmación se realizan en Formspree. No necesitas cuenta ni indicar tu correo. No incluyas documentos privados.",
   reportProviderPrivacy: "Privacidad de Formspree",
@@ -838,6 +844,9 @@ const DE = {
     "Geben Sie einen öffentlichen Link an, wenn Sie ein Angebot vorschlagen oder eine Entfernung beantragen. Bei anderen Nachrichten ist er optional.",
   reportMailSubject: "[FarmSuccession] Hinweis",
   reportSend: "Hinweis senden",
+  reportAlternativeEmail: "Oder schreiben Sie uns alternativ an",
+  reportRequiredMessage: "Bitte füllen Sie dieses Feld aus.",
+  reportUrlMessage: "Geben Sie eine gültige URL ein.",
   reportDeliveryPrivacy:
     "Beim Absenden verarbeitet Formspree Ihre Antworten und technische Daten, einschließlich Ihrer IP-Adresse, in den USA und leitet den Hinweis per E-Mail an FarmSuccession weiter. Die Spamprüfung (Google reCAPTCHA) und die Bestätigung erfolgen bei Formspree. Sie benötigen weder ein Konto noch eine eigene E-Mail-Adresse. Fügen Sie keine vertraulichen Dokumente bei.",
   reportProviderPrivacy: "Datenschutzerklärung von Formspree",
@@ -1186,6 +1195,9 @@ const FR = {
     "Ajoutez un lien public pour proposer une ressource ou demander un retrait. Pour les autres messages, il est facultatif.",
   reportMailSubject: "[FarmSuccession] Signalement",
   reportSend: "Envoyer le signalement",
+  reportAlternativeEmail: "Ou, si vous préférez, écrivez-nous à",
+  reportRequiredMessage: "Veuillez remplir ce champ.",
+  reportUrlMessage: "Saisissez une URL valide.",
   reportDeliveryPrivacy:
     "Lors de l’envoi, Formspree traite vos réponses et des données techniques, dont votre adresse IP, aux États-Unis pour transmettre le signalement à FarmSuccession par courriel. La vérification antispam (Google reCAPTCHA) et la confirmation ont lieu sur Formspree. Aucun compte ni adresse courriel ne vous est demandé. Ne joignez pas de documents privés.",
   reportProviderPrivacy: "Confidentialité de Formspree",
@@ -1533,6 +1545,9 @@ const IT = {
   reportPublicPageHint: "Includi un link pubblico se proponi una risorsa o chiedi una rimozione. Negli altri casi è facoltativo.",
   reportMailSubject: "[FarmSuccession] Segnalazione",
   reportSend: "Invia segnalazione",
+  reportAlternativeEmail: "Oppure, se preferisci, scrivici a",
+  reportRequiredMessage: "Compila questo campo.",
+  reportUrlMessage: "Inserisci un URL valido.",
   reportDeliveryPrivacy:
     "Al momento dell’invio, Formspree tratta le risposte e i dati tecnici, compreso l’indirizzo IP, negli Stati Uniti per recapitare la segnalazione a FarmSuccession via email. La verifica antispam (Google reCAPTCHA) e la conferma avvengono su Formspree. Non servono un account o il tuo indirizzo email. Non includere documenti privati.",
   reportProviderPrivacy: "Informativa sulla privacy di Formspree",
@@ -1877,6 +1892,9 @@ const PT = {
   reportPublicPageHint: "Inclua uma ligação pública se sugerir um recurso ou pedir uma remoção. Nos restantes casos é opcional.",
   reportMailSubject: "[FarmSuccession] Aviso",
   reportSend: "Enviar aviso",
+  reportAlternativeEmail: "Ou, se preferir, escreva-nos para",
+  reportRequiredMessage: "Preencha este campo.",
+  reportUrlMessage: "Introduza um URL válido.",
   reportDeliveryPrivacy:
     "Ao enviar, o Formspree trata as respostas e os dados técnicos, incluindo o endereço IP, nos Estados Unidos para entregar o aviso ao FarmSuccession por email. A verificação antisspam (Google reCAPTCHA) e a confirmação são feitas no Formspree. Não precisa de conta nem de indicar o seu email. Não inclua documentos privados.",
   reportProviderPrivacy: "Privacidade do Formspree",
@@ -2228,6 +2246,9 @@ const NL = {
     "Voeg een openbare link toe als u een voorziening voorstelt of verwijdering aanvraagt. Voor andere berichten is deze optioneel.",
   reportMailSubject: "[FarmSuccession] Melding",
   reportSend: "Melding versturen",
+  reportAlternativeEmail: "Of mail ons liever via",
+  reportRequiredMessage: "Vul dit veld in.",
+  reportUrlMessage: "Vul een geldige URL in.",
   reportDeliveryPrivacy:
     "Bij het versturen verwerkt Formspree uw antwoorden en technische gegevens, waaronder uw IP-adres, in de Verenigde Staten om de melding per e-mail aan FarmSuccession te bezorgen. De spamcontrole (Google reCAPTCHA) en bevestiging vinden plaats bij Formspree. U hebt geen account nodig en hoeft geen e-mailadres op te geven. Voeg geen privédocumenten toe.",
   reportProviderPrivacy: "Privacybeleid van Formspree",

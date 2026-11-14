@@ -61,8 +61,6 @@ const original = versions.find((version) => version.language === language);
 const isCopy = original !== undefined && original.url !== here;
 const canonical = hasAddress ? (isCopy ? original.url : here) : undefined;
 const defaultVersion = versions.find(({ language }) => language === "en");
-/** Project pages belong in the navigation of entry pages, not below every record in the catalogue. */
-const showProjectNavigation = Astro.url.pathname === "/" || /^\/[a-z]{2}\/$/u.test(Astro.url.pathname);
 /**
  * The site's name, said once where a search engine looks for it: a result prints it on its own line, so
  * titles do not have to spend their room repeating it. The home page names the site as a WebSite.
@@ -132,6 +130,6 @@ const website =
     <main id="content" class="flex-1">
       <slot />
     </main>
-    <Footer language={language} current={current} showProjectNavigation={showProjectNavigation} />
+    <Footer language={language} current={current} />
   </body>
 </html>

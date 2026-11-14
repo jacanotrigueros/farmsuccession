@@ -57,3 +57,22 @@ A host that can serve a different file per path prefix, which would make the cho
 Or a sixth, seventh and eighth language: six blocks are a short page, twelve would not be,
 and the answer then is to show the European block and link to a page per language rather
 than to hide them.
+
+## Revision — 2026-11-11
+
+Repeating the full error explanation in every language made recovery unnecessarily long.
+The page now gives one short English explanation, direct home and European search links,
+and a compact country grid with each country named in its own language. These routes
+work without JavaScript. Country links carry language metadata and localized accessible
+names. The page still has no canonical address and asks not to be indexed.
+
+A local 768 × 512 WebP illustration of a fork in a rural path provides a visual cue for
+choosing another route. It is decorative, has an empty alternative text, reserves its
+aspect ratio, and weighs about 103 KiB. It replaces the rejected schematic SVG. No
+remote image request or additional script is introduced.
+
+Task entry points use the existing Lucide vocabulary again: handshake, land plot,
+hand with coins, graduation cap and conversation bubbles. Those symbols already appear
+on resource cards. Larger glyphs and shared forest, sage and wheat design tokens improve
+legibility without asking readers to learn five new illustrations. Tests check routes,
+indexing and the shared symbols; visual approval remains a separate maintainer review.

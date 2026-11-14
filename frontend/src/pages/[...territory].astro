@@ -114,24 +114,12 @@ const isCountry = territory.layer.level === "COUNTRY";
  * elsewhere; repeating their names in this directory made two competing lists of the same resources.
  * Regional links stay in the HTML inside native disclosures, including without JavaScript.
  */
-const countryRecordGroups = isCountry
-  ? [...groupings, ...children]
-      .map((recordedIn) => ({
-        name: recordedIn.layer.level === "EU" ? text.euName : recordedIn.data.officialName,
-        recordedIn,
-        items: recordedIn.data.resources.toSorted((a, b) => a.name.localeCompare(b.name, language)),
-      }))
-      .filter(({ items }) => items.length > 0)
-  : [];
-const countryRecordCount = countryRecordGroups.reduce((total, { items }) => total + items.length, 0);
-
 /** The strip names the sections it leads to. Coverage closes the page and is not one of its answers. */
 const sections = [
   { id: "needs", label: text.navNeeds },
   ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle }] : []),
   ...(isCountry && own.length === 0 ? [] : [{ id: "own", label: isCountry ? text.wholeCountryTitle : text.navOwn }]),
   ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav }] : []),
-  ...(countryRecordCount > 0 ? [{ id: "all-records", label: text.regionalRecordsTitle }] : []),
   ...(territory.data.news.some((item) => !item.resourceIds?.length) ? [{ id: "news", label: text.newsTitle }] : []),
   ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
 ];
@@ -325,7 +313,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         <Icon name={ICON.territory} aria-hidden="true" class="size-6 shrink-0 text-brand" />
         {text.territoriesTitle}
       </h2>
-      <p class="mt-2 max-w-3xl text-muted">{text.territoriesLead}</p>
+      <p class="mt-2 max-w-5xl text-muted">{text.territoriesLead}</p>
       <ul class="territory-list mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {under.map(({ hub, members }) =>
           hub ? (
@@ -342,22 +330,91 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
               )}
               <ul class="territory-list mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {members.map((child) => (
-                  <li>
+                  <li class="min-w-0">
                     <a href={href(child.layer)} class="territory-link card card-link">
                       <span class="font-bold text-ink">{child.data.officialName}</span>
                       <span class="meta">{countsOf(child)}</span>
                     </a>
+                    {isCountry && child.data.resources.length > 0 && (
+                      <details class="regional-resources mt-2 border-t border-line pt-2">
+                        <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-control font-bold text-brand-strong">
+                          {counted(child.data.resources.length, text.record, locale)}
+                          <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
+                        </summary>
+                        <ul class="grid gap-1">
+                          {child.data.resources
+                            .toSorted((a, b) => a.name.localeCompare(b.name, language))
+                            .map((resource) => (
+                              <li>
+                                <a
+                                  href={recordHref(resource.id, child)}
+                                  lang={languageOf(child)}
+                                  class="inline-flex min-h-(--spacing-target) items-center underline"
+                                >
+                                  {resource.name}
+                                </a>
+                              </li>
+                            ))}
+                        </ul>
+                      </details>
+                    )}
                   </li>
                 ))}
               </ul>
+              {isCountry && hub.data.resources.length > 0 && (
+                <details class="regional-resources mt-3 border-t border-line pt-2">
+                  <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-control font-bold text-brand-strong">
+                    {counted(hub.data.resources.length, text.record, locale)}
+                    <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
+                  </summary>
+                  <ul class="grid gap-1">
+                    {hub.data.resources
+                      .toSorted((a, b) => a.name.localeCompare(b.name, language))
+                      .map((resource) => (
+                        <li>
+                          <a
+                            href={recordHref(resource.id, hub)}
+                            lang={languageOf(hub)}
+                            class="inline-flex min-h-(--spacing-target) items-center underline"
+                          >
+                            {resource.name}
+                          </a>
+                        </li>
+                      ))}
+                  </ul>
+                </details>
+              )}
             </li>
           ) : (
             members.map((child) => (
-              <li>
+              <li class="min-w-0">
                 <a href={href(child.layer)} class="territory-link card card-link">
                   <span class="font-bold text-ink">{child.data.officialName}</span>
                   <span class="meta">{countsOf(child)}</span>
                 </a>
+                {isCountry && child.data.resources.length > 0 && (
+                  <details class="regional-resources mt-2 border-t border-line pt-2">
+                    <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-control font-bold text-brand-strong">
+                      {counted(child.data.resources.length, text.record, locale)}
+                      <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
+                    </summary>
+                    <ul class="grid gap-1">
+                      {child.data.resources
+                        .toSorted((a, b) => a.name.localeCompare(b.name, language))
+                        .map((resource) => (
+                          <li>
+                            <a
+                              href={recordHref(resource.id, child)}
+                              lang={languageOf(child)}
+                              class="inline-flex min-h-(--spacing-target) items-center underline"
+                            >
+                              {resource.name}
+                            </a>
+                          </li>
+                        ))}
+                    </ul>
+                  </details>
+                )}
               </li>
             ))
           ),
@@ -377,7 +434,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         )}
       </h2>
       {isCountry && own.length > 0 && (
-        <p class="meta mt-1 max-w-3xl" {...howMany(text.wholeCountryLead)}>
+        <p class="meta mt-1 max-w-5xl" {...howMany(text.wholeCountryLead)}>
           {nationalLead}
         </p>
       )}
@@ -429,7 +486,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
       <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...howMany(text.alsoApplies[0], text.alsoApplies[1])}>
         {alsoTitle}
       </h2>
-      <p class="meta mt-2 max-w-3xl">{text.alsoAppliesLead}</p>
+      <p class="meta mt-2 max-w-5xl">{text.alsoAppliesLead}</p>
       {inheritedGroups.map(({ name: from, items }) => (
         <details data-record-group class="inherited-group mt-6 border-t border-line pt-4" open>
           <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
@@ -450,46 +507,10 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     </section>
   )}
 
-  {countryRecordCount > 0 && (
-    <section class="border-y border-line bg-card" aria-labelledby="all-records">
-      <div class="wrap py-12">
-        <h2 id="all-records" class="scroll-mt-6 text-2xl font-bold">
-          {text.regionalRecordsTitle}
-        </h2>
-        <p class="meta mt-1">{counted(countryRecordCount, text.record, locale)}</p>
-        <p class="mt-2 max-w-3xl text-muted">{text.regionalRecordsLead}</p>
-        <div class="mt-6 grid items-start gap-3 md:grid-cols-2">
-          {countryRecordGroups.map(({ name: from, recordedIn, items }) => (
-            <details class="regional-group card p-4">
-              <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
-                <h3 class="flex-1 text-lg font-bold">{from}</h3>
-                <span class="meta">{counted(items.length, text.record, locale)}</span>
-                <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0 text-brand-strong" />
-              </summary>
-              <ul class="mt-3 grid gap-2">
-                {items.map((resource) => (
-                  <li>
-                    <a
-                      href={recordHref(resource.id, recordedIn)}
-                      lang={languageOf(recordedIn)}
-                      class="inline-flex min-h-(--spacing-target) items-center font-bold text-brand-strong underline"
-                    >
-                      {resource.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
   <StandaloneNews items={territory.data.news} language={language} locale={locale} />
 
   {territory.data.limitations.length > 0 && (
-    <section class="wrap pb-12" aria-labelledby="limits">
+    <section class="wrap pt-10 pb-12" aria-labelledby="limits">
       <div class="card p-6 sm:p-8">
         <h2 id="limits" class="flex scroll-mt-6 items-center gap-2 text-2xl font-bold">
           <Icon name={ICON.limits} aria-hidden="true" class="size-6 shrink-0 text-accent" />
@@ -582,11 +603,11 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
       border-top-width: 1px;
     }
   }
-  .regional-group > summary::-webkit-details-marker,
+  .regional-resources > summary::-webkit-details-marker,
   .inherited-group > summary::-webkit-details-marker {
     display: none;
   }
-  .regional-group[open] > summary :global(.group-chevron),
+  .regional-resources[open] > summary :global(.group-chevron),
   .inherited-group[open] > summary :global(.group-chevron) {
     transform: rotate(180deg);
   }
