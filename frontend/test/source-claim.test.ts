@@ -27,25 +27,15 @@ const claims = (html: string): string[] =>
       .trim(),
   );
 
-test("the home badge and every footer render the same source claim for their language", () => {
+test("every footer renders the one shared source claim for its language, and the home page says it only there", () => {
   const home = readFileSync(path.join(DIST, "index.html"), "utf8");
-  const [hero, footer] = home.split(/<footer\b/u);
-  const heroClaims = claims(hero!);
+  const [body, footer] = home.split(/<footer\b/u);
+  // The home page said the same promise twice, once above the footer; the founder removed the
+  // repetition (14 Nov 2026). A second copy would also be a second place for the wording to drift.
+  assert.equal(claims(body!).length, 0, "the home page repeats the footer's source claim above the footer");
   const footerClaims = claims(footer!);
-  assert.equal(
-    heroClaims.length,
-    1,
-    "the home badge must use the shared source claim; a short independent trust label can overstate what the footer explains",
-  );
-  assert.equal(footerClaims.length, 1, "the footer must use the same source claim instead of defining verification independently");
-  assert.ok(heroClaims[0], "an empty shared claim gives the reader no account of the evidence");
-  assert.equal(
-    heroClaims[0],
-    footerClaims[0],
-    "the two surfaces must describe the same checks; shared data is ineffective if a template appends its own promise",
-  );
-
-  assert.equal(visible(containing(hero!, "li")), heroClaims[0], "the badge must not append a separate assurance to the shared claim");
+  assert.equal(footerClaims.length, 1, "the footer must use the shared source claim instead of defining verification independently");
+  assert.ok(footerClaims[0], "an empty shared claim gives the reader no account of the evidence");
   assert.equal(visible(containing(footer!, "p")), footerClaims[0], "the footer must not append a separate assurance to the shared claim");
 
   const byLanguage = new Map<string, string>();

@@ -230,11 +230,11 @@ test("the complete, localized footer is shared by every built page", () => {
 });
 
 /**
- * The home page counts the drafts rather than warning about one file, because it is about all of them;
- * every page about a single territory or record carries the warning itself. Either way the claim has to
- * follow the data, which is the one thing a reader cannot check for themselves.
+ * The warning sits where the reader uses the data: every page about a territory or a record of a draft
+ * file carries it. The home page no longer counts the drafts (founder, 14 Nov 2026); it would only
+ * repeat what each of those pages says, and the warning disappears file by file as files are reviewed.
  */
-test("a page says what has not been reviewed, and the count follows the data", () => {
+test("every country page and record page of a draft file says it has not been reviewed", () => {
   const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
     .toSorted()
     .toReversed();
@@ -250,12 +250,15 @@ test("a page says what has not been reviewed, and the count follows the data", (
   })(path.join(REPOSITORY, "data", "editions", edition));
   const drafts = files.filter(({ review }) => review.status === "DRAFT").length;
 
-  const home = pages.find(({ file }) => file === "index.html");
-  assert.ok(home, "no home page was built");
-  const said = /All (\d+) of its files are drafts|(\d+) of its (\d+) files are drafts/u.exec(home.html);
-  assert.ok(said, "the home page does not say how much of the edition nobody has checked yet");
-  const counted = Number(said[1] ?? said[2]);
-  assert.equal(counted, drafts, `the home page says ${counted} drafts and the edition has ${drafts}`);
+  // Every file of this edition is still a draft, so every country page must warn in its own language.
+  if (drafts === files.length) {
+    const countryPages = pages.filter(({ file }) => /^[a-z]{2}[\\/]index\.html$/u.test(file));
+    assert.ok(countryPages.length >= 6, `only ${countryPages.length} country pages were found`);
+    for (const { file, html } of countryPages) {
+      const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+      assert.ok(html.includes(words(language).draftNotice), `${file}: a country page of draft files does not warn its reader`);
+    }
+  }
 
   const eu = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
   assert.ok(eu, "no European record page was built");
