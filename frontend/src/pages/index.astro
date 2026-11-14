@@ -105,11 +105,11 @@ const figures = [
       <h2 id="countries" class="text-2xl font-bold">
         {text.countriesTitle}
       </h2>
-      {/* Spread edge to edge so the first figure lines up with the first card and the last with the last
-          card's right edge; on a phone they fall into two columns. */}
-      <ul class="mt-4 grid grid-cols-2 gap-4 sm:flex sm:justify-between" aria-label={text.statsLabel}>
+      {/* The figures share the cards' columns, so each figure sits over a column of countries and its icon
+          lines up with the flags inside the cards (the cards' own padding). */}
+      <ul class="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4" aria-label={text.statsLabel}>
         {figures.map((figure) => (
-          <li class="flex min-w-0 items-start gap-3">
+          <li class="flex min-w-0 items-start gap-3 sm:px-5">
             <Icon name={figure.icon} aria-hidden="true" class="mt-1 size-5 shrink-0 text-brand" />
             <p class="min-w-0">
               <span class="block text-2xl leading-tight font-bold text-brand tabular-nums">{figure.value}</span>
@@ -118,7 +118,7 @@ const figures = [
           </li>
         ))}
       </ul>
-      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {countries.map((country) => (
           <li>
             <a href={country.href} class="card card-link flex min-h-full items-center gap-3 p-5 no-underline">
