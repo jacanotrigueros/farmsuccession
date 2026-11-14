@@ -119,8 +119,10 @@ test("the founder and reuse explanations are reachable in each published documen
       assert.ok(html.includes(`id="${anchor}"`), `${route}: missing ${anchor} destination`);
       assert.ok(html.includes(`href="#${anchor}"`), `${route}: ${anchor} is absent from the section menu`);
     }
+    // The founder's account is reached through the project page (footer, then its section menu),
+    // not from the entry page's header, which belongs to what the reader came to find.
     const entry = read(home);
-    assert.ok(entry.includes(`href="${route}#why-succession"`), `${home}: no secondary route to the founder account`);
+    assert.ok(entry.includes(`href="${route}"`), `${home}: no route to the project page`);
     // Consumers must be able to distinguish the grant from third-party evidence and lawful uses.
     for (const paragraph of [text.licenceLead, text.licenceThirdParty, text.licenceLawful]) {
       assert.ok(html.includes(paragraph), `${route}: incomplete reuse explanation`);
