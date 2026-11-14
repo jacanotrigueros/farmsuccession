@@ -54,8 +54,9 @@ const countries = countryTerritories().map((country) => {
     href: href(country.layer),
     name: country.data.officialName,
     flag: flagOf(iso),
+    // Only what a reader can act on. A count of territory pages is not shown: it mixes units (Spain's
+    // 28 pages are 17 communities plus islands and Basque provinces), and the country page lists them.
     records: inside.reduce((total, { data }) => total + data.resources.length, 0) + europe.data.resources.length,
-    territories: regionsOf(iso).length,
   };
 });
 
@@ -93,7 +94,7 @@ const trust = [
         </p>
       )}
       <h1 class="page-title mt-2 max-w-3xl text-3xl text-balance sm:text-4xl">{text.tagline}</h1>
-      <p class="mt-4 max-w-3xl text-lg text-muted">{text.lead}</p>
+      <p class="mt-4 text-lg text-muted">{text.lead}</p>
       <p class="mt-3 max-w-3xl">
         <a
           class="inline-flex min-h-(--spacing-target) items-center font-bold text-brand-strong underline"
@@ -141,9 +142,7 @@ const trust = [
               <img src={country.flag} alt="" width="36" height="27" class="h-7 w-9 shrink-0 rounded-xs border border-line object-cover" />
               <span class="flex min-w-0 flex-1 flex-col">
                 <span class="text-lg font-bold text-ink">{country.name}</span>
-                <span class="meta">
-                  {counted(country.records, text.cardApplicable, language)} · {counted(country.territories, text.statTerritories, language)}
-                </span>
+                <span class="meta">{counted(country.records, text.cardApplicable, language)}</span>
               </span>
               <Icon name={ICON.chevron} aria-hidden="true" class="size-5 shrink-0 text-muted" />
             </a>
@@ -189,21 +188,20 @@ const trust = [
             {point.title}
           </li>
         ))}
+        {/* The state of the edition is part of the same caution, so it closes the same box rather than
+            standing alone further down the page. */}
+        <li class="flex w-full items-start gap-2">
+          <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
+          <span>
+            {editionNote}{" "}
+            <a href={`/${text.aboutSlug}/#method`} class="font-bold underline">
+              {text.methodTitle}
+            </a>
+          </span>
+        </li>
       </ul>
     </div>
   </section>
 
   <StandaloneNews items={europe.data.news} language={language} />
-
-  <div class="wrap pt-4 pb-6">
-    <p class="meta flex items-start gap-2">
-      <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
-      <span>
-        {editionNote}{" "}
-        <a href={`/${text.aboutSlug}/#method`} class="font-bold underline">
-          {text.methodTitle}
-        </a>
-      </span>
-    </p>
-  </div>
 </SiteLayout>
