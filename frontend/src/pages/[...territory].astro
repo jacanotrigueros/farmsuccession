@@ -329,7 +329,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
           {text.euCountriesTitle}
         </h2>
-        <p class="mt-2 max-w-3xl">{text.euCountriesLead}</p>
+        <p class="mt-2">{text.euCountriesLead}</p>
         <CountryCards language={language} />
       </div>
     </section>
@@ -506,7 +506,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
           <ResourceList items={own} language={language} />
         </div>
       ) : (
-        <p class="mt-3 max-w-3xl">{text.noneOwn.replace("{where}", name)}</p>
+        <p class="mt-3">{text.noneOwn.replace("{where}", name)}</p>
       )}
       {/*
         What is left when the choice empties this list. It can only ever be read next to records of
@@ -514,7 +514,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         says where those are rather than leaving a heading above nothing.
       */}
       {narrows && own.length > 0 && inheritedCount > 0 && (
-        <p hidden data-none class="mt-6 max-w-3xl">
+        <p hidden data-none class="mt-6">
           {text.noneOfThisKind}
         </p>
       )}
