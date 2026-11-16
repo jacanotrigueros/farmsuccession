@@ -25,9 +25,12 @@ const countries = countryTerritories().map((country) => {
     href: href(country.layer),
     name: country.data.officialName,
     flag: flagOf(iso),
-    records: inside.reduce((total, { data }) => total + data.resources.length, 0) + european,
+    own: inside.reduce((total, { data }) => total + data.resources.length, 0),
   };
 });
+/** A country with nothing of its own yet says so, rather than showing a total that looks researched. */
+const label = (own: number): string =>
+  own === 0 ? text.onlyEu.replace("{n}", String(european)) : counted(own + european, text.statRecords, language);
 ---
 
 <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -37,7 +40,7 @@ const countries = countryTerritories().map((country) => {
         <img src={country.flag} alt="" width="36" height="27" class="h-7 w-9 shrink-0 rounded-xs border border-line object-cover" />
         <span class="flex min-w-0 flex-1 flex-col">
           <span class="text-lg font-bold text-ink">{country.name}</span>
-          <span class="meta">{counted(country.records, text.statRecords, language)}</span>
+          <span class="meta">{label(country.own)}</span>
         </span>
         <Icon name={ICON.chevron} aria-hidden="true" class="size-5 shrink-0 text-muted" />
       </a>

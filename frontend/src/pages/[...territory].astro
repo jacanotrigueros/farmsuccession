@@ -200,7 +200,8 @@ const kinds = [...new Set([...own, ...inheritedGroups.flatMap(({ items }) => ite
  * directory, which this filter cannot narrow: its complete national search is the filtering surface
  * instead of a local control that silently ignores most of the country’s resources.
  */
-const narrows = kinds.length > 1 && !isCountry;
+// Europe holds a handful of frameworks: a filter over four records only adds a control to read.
+const narrows = kinds.length > 1 && !isCountry && !isEurope;
 
 /** What a territory card says: written for it, and applicable there in total. */
 const countsOf = (child: Territory): string =>
@@ -295,7 +296,12 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         examples={text.searchExamples}
         pinned={pinned}
       />
-      {!isEurope && (
+      {isEurope ? (
+        // A direct way to the framework for a reader who came for it, past a country list that will grow to 27.
+        <a href="#own" class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
+          {text.readEuResources.replace("{n}", String(own.length))}
+        </a>
+      ) : (
         <a
           href={searchPath("/", country || undefined) + pinnedQuery}
           class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
@@ -327,7 +333,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
   {sections.length >= 3 && <PageIndex sections={sections} language={language} />}
 
   {isEurope ? (
-    <section class="border-y border-line bg-card" aria-labelledby="countries">
+    <section class="border-y border-line bg-brand-tint" aria-labelledby="countries">
       <div class="wrap py-12">
         <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
           {text.euCountriesTitle}

@@ -11,10 +11,6 @@ import { namesPlace } from "../src/lib/place-name.ts";
 import { words } from "../src/lib/words.ts";
 
 const ROOT = path.join(import.meta.dirname, "..", "..");
-/** Every jurisdiction of the catalogue, so a count follows the catalogue instead of a number written down once. */
-const catalogueJurisdictions = (
-  JSON.parse(readFileSync(path.join(ROOT, "data", "territories.json"), "utf8")) as { jurisdictions: Record<string, unknown> }
-).jurisdictions;
 function snapshots(dir: string): EditionSnapshot[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const file = path.join(dir, entry.name);
