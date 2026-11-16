@@ -285,24 +285,25 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         <DraftNotice language={language} />
       </div>
     )}
-    {!isEurope && (
-      <div class="mt-8">
-        <SearchBox
-          action={searchPath("/", country || undefined)}
-          id="here"
-          label={text.searchHereLabel.replace("{where}", name)}
-          button={text.searchAction}
-          examples={text.searchExamples}
-          pinned={pinned}
-        />
+    {/* On Europe's page the search covers every country, so it says so instead of naming the EU layer. */}
+    <div class="mt-8">
+      <SearchBox
+        action={searchPath("/", country || undefined)}
+        id="here"
+        label={isEurope ? text.searchAcrossEurope : text.searchHereLabel.replace("{where}", name)}
+        button={text.searchAction}
+        examples={text.searchExamples}
+        pinned={pinned}
+      />
+      {!isEurope && (
         <a
           href={searchPath("/", country || undefined) + pinnedQuery}
           class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
         >
           {text.browseAll.replace("{where}", name)}
         </a>
-      </div>
-    )}
+      )}
+    </div>
     {!isEurope && (
       <div class="mt-8 rounded-lg bg-page p-5">
         <ul class="grid gap-4 sm:grid-cols-2" aria-label={text.statsLabel}>
