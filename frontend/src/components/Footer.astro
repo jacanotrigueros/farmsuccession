@@ -16,8 +16,14 @@ import SourceClaim from "./SourceClaim.astro";
 import { currentEdition, EUROPE_PAGE } from "../lib/corpus.ts";
 import { editionNamed, words } from "../lib/words.ts";
 import { searchPath } from "../../public/search-scope.js";
+import archived from "../../archives.json";
 
 type Props = { language: string; current?: string };
+/** Retired editions kept readable under /<edition>/ (decisions/038), newest first. */
+const earlier = archived.archives
+  .map(({ edition }) => edition)
+  .toSorted()
+  .toReversed();
 const { language, current = "/" } = Astro.props;
 const text = words(language);
 
@@ -40,7 +46,24 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
       <p class="meta mt-2 max-w-3xl">
         <SourceClaim language={language} />
       </p>
-      <p class="meta mt-3">{editionNamed(currentEdition, language)}</p>
+      <p class="meta mt-3">
+        {editionNamed(currentEdition, language)}
+        {earlier.length > 0 && (
+          <>
+            {" · "}
+            {/* No colon: French would need a narrow space before it, which the punctuation test enforces. */}
+            {text.earlierEditions}{" "}
+            {earlier.map((edition, index) => (
+              <>
+                {index > 0 && ", "}
+                <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`/${edition}/`}>
+                  {edition}
+                </a>
+              </>
+            ))}
+          </>
+        )}
+      </p>
       <p class="meta mt-3">
         <a
           class="inline-flex min-h-(--spacing-target) items-center underline"
