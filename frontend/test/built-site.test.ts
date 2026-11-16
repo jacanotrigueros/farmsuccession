@@ -264,12 +264,15 @@ test("every country page and record page of a draft file says it has not been re
     }
   }
 
-  const eu = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
-  assert.ok(eu, "no European record page was built");
+  const draft = pages.find(({ file }) => file === path.join("at", "angebote", "at-niederlassung-junglandwirte", "index.html"));
+  assert.ok(draft, "no Austrian record page was built");
   assert.ok(
-    eu.html.includes(words("en").draftNotice),
+    draft.html.includes(words("de").draftNotice),
     "a record page of a draft file does not carry the warning, which is the first thing its reader is owed",
   );
+  const reviewed = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
+  assert.ok(reviewed, "no European record page was built");
+  assert.ok(!reviewed.html.includes(words("en").draftNotice), "a record of a file a person reviewed still says nobody reviewed it");
 });
 
 /**
