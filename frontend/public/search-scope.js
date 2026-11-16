@@ -23,7 +23,16 @@
 /** @typedef {{ q?: string, selected?: Selected }} State */
 
 /** @type {Record<string, string>} */
-export const SEARCH_SLUGS = { EU: "search", ES: "buscar", FR: "rechercher", IT: "cerca", PT: "pesquisar", DE: "suchen", AT: "suchen" };
+export const SEARCH_SLUGS = {
+  EU: "search",
+  ES: "buscar",
+  FR: "rechercher",
+  IT: "cerca",
+  PT: "pesquisar",
+  DE: "suchen",
+  AT: "suchen",
+  NL: "zoeken",
+};
 
 /**
  * The segment every territory inside a country sits under, in that country's language.
@@ -34,7 +43,15 @@ export const SEARCH_SLUGS = { EU: "search", ES: "buscar", FR: "rechercher", IT: 
  * are a closed one, and the open list is the one that has to be fenced.
  */
 /** @type {Record<string, string>} */
-export const REGION_SLUGS = { ES: "regiones", FR: "regions", IT: "regioni", PT: "regioes", DE: "regionen", AT: "regionen" };
+export const REGION_SLUGS = {
+  ES: "regiones",
+  FR: "regions",
+  IT: "regioni",
+  PT: "regioes",
+  DE: "regionen",
+  AT: "regionen",
+  NL: "provincies",
+};
 
 /** @param {string} country */
 export const regionSlug = (country) => REGION_SLUGS[country] ?? "regions";
@@ -46,7 +63,15 @@ export const regionSlug = (country) => REGION_SLUGS[country] ?? "regions";
  *
  * @type {Record<string, string>}
  */
-export const RECORD_SLUGS = { ES: "recursos", FR: "ressources", IT: "risorse", PT: "recursos", DE: "angebote", AT: "angebote" };
+export const RECORD_SLUGS = {
+  ES: "recursos",
+  FR: "ressources",
+  IT: "risorse",
+  PT: "recursos",
+  DE: "angebote",
+  AT: "angebote",
+  NL: "vermeldingen",
+};
 
 /** @param {string} country */
 export const recordSlug = (country) => RECORD_SLUGS[country] ?? "resources";

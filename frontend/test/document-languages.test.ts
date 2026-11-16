@@ -34,8 +34,8 @@ for (const kind of ["about", "history"] as const) {
     }));
     assert.equal(
       versions.length,
-      6,
-      "the six-language document group changed: review which pages are genuine translations before extending it",
+      7,
+      "the seven-language document group changed: review which pages are genuine translations before extending it",
     );
     const english = versions.find(({ language }) => language === "en");
     assert.ok(english, "the English document is the existing default, not the European directory homepage");
