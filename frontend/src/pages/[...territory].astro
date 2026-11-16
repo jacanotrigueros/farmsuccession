@@ -322,7 +322,9 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     )}
   </PageHeader>
 
-  <PageIndex sections={sections} language={language} />
+  {/* Two sections are both in sight as the reader scrolls; a strip pointing at them is only one more
+      box to read (founder, 16 Nov 2026, on Europe's page). It earns its place from three on. */}
+  {sections.length >= 3 && <PageIndex sections={sections} language={language} />}
 
   {isEurope ? (
     <section class="border-y border-line bg-card" aria-labelledby="countries">
