@@ -548,7 +548,9 @@ test("a territory page says in its title what the page is about", () => {
   for (const { file, html } of territories) {
     const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const title = /<title>([^<]*)<\/title>/u.exec(html)?.[1] ?? "";
-    const about = words(language).territoryTitle.replace("{where}", "").trim();
+    // Europe's page has a title of its own, which names the subject in full.
+    const about =
+      file === path.join("eu", "index.html") ? words(language).euTitle : words(language).territoryTitle.replace("{where}", "").trim();
     assert.ok(
       title.includes(about),
       `${file} is titled "${title}", which is a name and not a subject. A reader meets this in a search result before they meet the page.`,
@@ -615,7 +617,11 @@ test("a record is never listed without saying which layer it comes from", () => 
         // The records of this territory hang from the heading that names it — "the whole country" on a
         // country, the territory's name below one — and the ones that reach it from a wider layer hang
         // from a heading naming that layer, one level further down.
-        const own = says(text.ownRecords).test(heading.text) || heading.text.startsWith(flat(text.wholeCountryTitle));
+        // Europe's page names its layer in "Understand the EU framework".
+        const own =
+          says(text.ownRecords).test(heading.text) ||
+          heading.text.startsWith(flat(text.wholeCountryTitle)) ||
+          heading.text.startsWith(flat(text.euFrameworkTitle));
         group = own ? heading.text : "";
         if (group) grouped += 1;
       }

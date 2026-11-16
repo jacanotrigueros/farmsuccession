@@ -9,6 +9,7 @@
  * It is written in the language of the European layer, because that is the layer it is about.
  */
 import { Icon } from "astro-icon/components";
+import CountryCards from "../components/CountryCards.astro";
 import Needs from "../components/Needs.astro";
 import StandaloneNews from "../components/StandaloneNews.astro";
 import SearchBox from "../components/SearchBox.astro";
@@ -18,14 +19,12 @@ import {
   countryTerritories,
   currentEdition,
   euTerritory,
-  href,
   hubTerritories,
   languageOf,
   regionTerritories,
-  regionsOf,
 } from "../lib/corpus.ts";
 import { GOALS } from "../lib/goals.ts";
-import { flagOf, ICON } from "../lib/icons.ts";
+import { ICON } from "../lib/icons.ts";
 import { counted, words } from "../lib/words.ts";
 import { searchUrl } from "../../public/search-scope.js";
 
@@ -37,26 +36,6 @@ if (!europe) {
 const language = languageOf(europe);
 const text = words(language);
 const stats = corpusStats();
-
-/** The flag of a country, as a file: a flag emoji is two letters on any system without a glyph for the pair. */
-
-/**
- * What a country card counts is what applies inside it — its own records, its groupings', its regions'
- * and the European ones — because that is what a reader gets by going there, not what the country file
- * happens to hold.
- */
-const countries = countryTerritories().map((country) => {
-  const iso = country.layer.level === "EU" ? "" : country.layer.country;
-  const inside = [country, ...hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === iso), ...regionsOf(iso)];
-  return {
-    href: href(country.layer),
-    name: country.data.officialName,
-    flag: flagOf(iso),
-    // Only what a reader can act on. A count of territory pages is not shown: it mixes units (Spain's
-    // 28 pages are 17 communities plus islands and Basque provinces), and the country page lists them.
-    records: inside.reduce((total, { data }) => total + data.resources.length, 0) + europe.data.resources.length,
-  };
-});
 
 /** Everything in the edition, which is what the cards on this page count and link into. */
 const everything = [europe, ...countryTerritories(), ...hubTerritories(), ...regionTerritories()].flatMap(({ data }) => data.resources);
@@ -117,20 +96,7 @@ const figures = [
           </li>
         ))}
       </ul>
-      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {countries.map((country) => (
-          <li>
-            <a href={country.href} class="card card-link flex min-h-full items-center gap-3 p-5 no-underline">
-              <img src={country.flag} alt="" width="36" height="27" class="h-7 w-9 shrink-0 rounded-xs border border-line object-cover" />
-              <span class="flex min-w-0 flex-1 flex-col">
-                <span class="text-lg font-bold text-ink">{country.name}</span>
-                <span class="meta">{counted(country.records, text.statRecords, language)}</span>
-              </span>
-              <Icon name={ICON.chevron} aria-hidden="true" class="size-5 shrink-0 text-muted" />
-            </a>
-          </li>
-        ))}
-      </ul>
+      <CountryCards language={language} />
     </div>
   </section>
 

@@ -70,6 +70,13 @@ const EN = {
   draftNotice: "Automatic draft: no person has reviewed this record. Check the official source before applying or making a decision.",
   publishedOn: "Published",
   edition: "{year} edition",
+  euEyebrow: "EU framework",
+  euTitle: "Farm succession in the European Union",
+  euCountriesTitle: "Find what applies in your country",
+  euCountriesLead:
+    "EU frameworks become aid, training and advice in each country. Choose yours to see its national and regional resources.",
+  euFrameworkTitle: "Understand the EU framework",
+  allCountries: "All countries",
   archivedNotice: "This is the {edition} edition, kept as it was published. Search and the newest information are in the current edition.",
   archivedLink: "Go to the current edition",
   earlierEditions: "Earlier editions",
@@ -411,6 +418,13 @@ const ES = {
     "Borrador automático: esta ficha no ha sido revisada por una persona. Comprueba la fuente oficial antes de solicitar la ayuda o tomar una decisión.",
   publishedOn: "Publicado",
   edition: "Edición {year}",
+  euEyebrow: "Marco europeo",
+  euTitle: "Relevo generacional agrario en la Unión Europea",
+  euCountriesTitle: "Encuentra lo que se aplica en tu país",
+  euCountriesLead:
+    "Los marcos europeos se convierten en ayudas, formación y asesoramiento en cada país. Elige el tuyo para ver sus recursos nacionales y regionales.",
+  euFrameworkTitle: "Entiende el marco europeo",
+  allCountries: "Todos los países",
   archivedNotice:
     "Esta es la edición {edition}, conservada tal como se publicó. La búsqueda y la información más reciente están en la edición actual.",
   archivedLink: "Ir a la edición actual",
@@ -757,6 +771,13 @@ const DE = {
     "Automatischer Entwurf: Niemand hat diesen Eintrag geprüft. Prüfen Sie die offizielle Quelle, bevor Sie einen Antrag stellen oder entscheiden.",
   publishedOn: "Veröffentlicht",
   edition: "Ausgabe {year}",
+  euEyebrow: "EU-Rahmen",
+  euTitle: "Hofnachfolge in der Europäischen Union",
+  euCountriesTitle: "Finden Sie, was in Ihrem Land gilt",
+  euCountriesLead:
+    "Die EU-Rahmen werden in jedem Land zu Förderung, Ausbildung und Beratung. Wählen Sie Ihr Land, um seine nationalen und regionalen Angebote zu sehen.",
+  euFrameworkTitle: "Den EU-Rahmen verstehen",
+  allCountries: "Alle Länder",
   archivedNotice:
     "Dies ist die Ausgabe {edition}, so erhalten, wie sie veröffentlicht wurde. Die Suche und die neuesten Informationen finden Sie in der aktuellen Ausgabe.",
   archivedLink: "Zur aktuellen Ausgabe",
@@ -1107,6 +1128,13 @@ const FR = {
     "Brouillon automatique : aucune personne n’a relu cette fiche. Vérifiez la source officielle avant de candidater ou de prendre une décision.",
   publishedOn: "Publié",
   edition: "Édition {year}",
+  euEyebrow: "Cadre européen",
+  euTitle: "La transmission agricole dans l’Union européenne",
+  euCountriesTitle: "Trouvez ce qui s’applique dans votre pays",
+  euCountriesLead:
+    "Les cadres européens deviennent des aides, des formations et des conseils dans chaque pays. Choisissez le vôtre pour voir ses ressources nationales et régionales.",
+  euFrameworkTitle: "Comprendre le cadre européen",
+  allCountries: "Tous les pays",
   archivedNotice:
     "Ceci est l’édition {edition}, conservée telle qu’elle a été publiée. La recherche et les informations les plus récentes se trouvent dans l’édition actuelle.",
   archivedLink: "Aller à l’édition actuelle",
@@ -1460,6 +1488,13 @@ const IT = {
     "Bozza automatica: nessuna persona ha rivisto questa scheda. Verifica la fonte ufficiale prima di presentare domanda o prendere una decisione.",
   publishedOn: "Pubblicato",
   edition: "Edizione {year}",
+  euEyebrow: "Quadro europeo",
+  euTitle: "Il ricambio generazionale agricolo nell’Unione europea",
+  euCountriesTitle: "Trova ciò che si applica nel tuo paese",
+  euCountriesLead:
+    "I quadri europei diventano aiuti, formazione e consulenza in ogni paese. Scegli il tuo per vedere le sue risorse nazionali e regionali.",
+  euFrameworkTitle: "Capire il quadro europeo",
+  allCountries: "Tutti i paesi",
   archivedNotice:
     "Questa è l’edizione {edition}, conservata così come è stata pubblicata. La ricerca e le informazioni più recenti sono nell’edizione attuale.",
   archivedLink: "Vai all’edizione attuale",
@@ -1808,6 +1843,13 @@ const PT = {
     "Rascunho automático: esta ficha não foi revista por uma pessoa. Confirme na fonte oficial antes de se candidatar ou tomar uma decisão.",
   publishedOn: "Publicado",
   edition: "Edição {year}",
+  euEyebrow: "Quadro europeu",
+  euTitle: "A sucessão agrícola na União Europeia",
+  euCountriesTitle: "Encontre o que se aplica no seu país",
+  euCountriesLead:
+    "Os quadros europeus tornam-se apoios, formação e aconselhamento em cada país. Escolha o seu para ver os recursos nacionais e regionais.",
+  euFrameworkTitle: "Compreender o quadro europeu",
+  allCountries: "Todos os países",
   archivedNotice:
     "Esta é a edição {edition}, conservada tal como foi publicada. A pesquisa e a informação mais recente estão na edição atual.",
   archivedLink: "Ir para a edição atual",
@@ -2158,6 +2200,12 @@ const NL = {
     "Automatisch opgesteld concept: niemand heeft deze vermelding nagekeken. Controleer de officiële bron voordat u een aanvraag doet of een besluit neemt.",
   publishedOn: "Gepubliceerd",
   edition: "Editie {year}",
+  euEyebrow: "EU-kader",
+  euTitle: "Bedrijfsopvolging in de landbouw in de Europese Unie",
+  euCountriesTitle: "Vind wat in uw land geldt",
+  euCountriesLead: "De EU-kaders worden in elk land steun, opleiding en advies. Kies uw land om de nationale en regionale bronnen te zien.",
+  euFrameworkTitle: "Het EU-kader begrijpen",
+  allCountries: "Alle landen",
   archivedNotice:
     "Dit is de editie {edition}, bewaard zoals die is gepubliceerd. Zoeken en de nieuwste informatie vindt u in de huidige editie.",
   archivedLink: "Naar de huidige editie",
