@@ -61,7 +61,7 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName), resource.scop
       {resource.name}
     </a>
   </Heading>
-  <p lang={recordLanguage} class:list={["mt-3", showFullSummary ? "max-w-5xl" : compact ? "line-clamp-2" : "line-clamp-3"]}>
+  <p lang={recordLanguage} class:list={["mt-3", showFullSummary ? "" : compact ? "line-clamp-2" : "line-clamp-3"]}>
     {resource.whatItOffers}
   </p>
   {compact ? (

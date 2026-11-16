@@ -197,6 +197,9 @@ test("country entry pages expose the same unique record destinations as their co
       .filter((href) => recordAddresses.has(href))
       .toSorted();
   for (const iso of Object.keys(catalogueJurisdictions)) {
+    // Europe's page lists only what applies at EU level; its search covers every country, so the two
+    // are not meant to match (founder, 16 Nov 2026).
+    if (iso === "EU") continue;
     const country = pages.find(({ file }) => file === path.join(iso.toLowerCase(), "index.html"));
     if (!country) continue;
     const search = pages.find(({ file }) => file === path.join(searchPath("/", iso).slice(1), "index.html"));
@@ -218,7 +221,8 @@ test("the complete, localized footer is shared by every built page", () => {
     assert.ok(footer, `${file} has no footer`);
     const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const first = file.split(path.sep)[0] ?? "";
-    const root = /^[a-z]{2}$/u.test(first) ? `/${first}/` : "/";
+    // Europe's page (/eu/) is no country: its footer links are the site's own.
+    const root = /^[a-z]{2}$/u.test(first) && first !== "eu" ? `/${first}/` : "/";
     const about = `${root}${words(language).aboutSlug}/`;
     const history = `${root}${words(language).historySlug}/`;
     for (const target of [about, history, `${about}#method`, `${about}#privacy`]) {
@@ -849,7 +853,8 @@ test("every page links its scoped licence notice and every evidence block warns 
     const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0] ?? "";
     assert.ok(footer.includes(text.licence), `${file}: missing scoped licence notice`);
     const first = file.split(path.sep)[0] ?? "";
-    const root = /^[a-z]{2}$/u.test(first) ? `/${first}/` : "/";
+    // Europe's page (/eu/) is no country: its footer links are the site's own.
+    const root = /^[a-z]{2}$/u.test(first) && first !== "eu" ? `/${first}/` : "/";
     assert.ok(footer.includes(`href="${root}${text.aboutSlug}/#licence"`), `${file}: cannot inspect reuse conditions`);
     if (html.includes("<blockquote")) {
       assert.ok(html.includes(text.sourceRights), `${file}: quotations have no adjacent third-party rights notice`);

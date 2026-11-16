@@ -22,6 +22,7 @@ import SearchBox from "../components/SearchBox.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
   countryTerritories,
+  euTerritory,
   currentEdition,
   href,
   hubTerritories,
@@ -29,6 +30,7 @@ import {
   recordHref,
   languageOf,
   localeOf,
+  pageOf,
   regionsOf,
   type Territory,
   view,
@@ -45,8 +47,10 @@ export function getStaticPaths() {
   // Written out here rather than in a helper: Astro lifts this function into a module of its own, where
   // anything declared beside it does not exist.
   const regions = countryTerritories().flatMap(({ layer }) => (layer.level === "EU" ? [] : regionsOf(layer.country)));
-  const all: Territory[] = [...countryTerritories(), ...hubTerritories(), ...regions];
-  return all.map((territory) => ({ params: { territory: href(territory.layer).slice(1, -1) }, props: { territory } }));
+  // The European layer has its own page (`/eu/`), built from the same template as every country.
+  const europe = euTerritory();
+  const all: Territory[] = [...(europe ? [europe] : []), ...countryTerritories(), ...hubTerritories(), ...regions];
+  return all.map((territory) => ({ params: { territory: pageOf(territory.layer).slice(1, -1) }, props: { territory } }));
 }
 
 const { territory } = Astro.props;
@@ -157,7 +161,10 @@ const figures =
       ]
     : [
         { icon: ICON.resources, value: own.length, label: about(text.statOwn, own.length) },
-        { icon: ICON.scope, value: inheritedCount, label: about(text.statOtherScopes, inheritedCount) },
+        // Europe is the top layer: nothing above it can apply there, so "0 from other scopes" says nothing.
+        ...(territory.layer.level === "EU"
+          ? []
+          : [{ icon: ICON.scope, value: inheritedCount, label: about(text.statOtherScopes, inheritedCount) }]),
       ];
 /** How the country's total divides: what the country itself documented, and what Europe adds to it. */
 const split = text.applicableSplit
@@ -242,19 +249,19 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
   title={`${text.territoryTitle.replace("{where}", name)} · ${text.siteName}`}
   description={territory.data.summary}
   language={language}
-  current={href(territory.layer)}
+  current={pageOf(territory.layer)}
   noindex={!indexed}
 >
   <PageHeader
     crumbs={layers.slice(0, -1).map((above) => ({
       label: above.layer.level === "EU" ? text.europe : above.data.officialName,
-      href: href(above.layer),
+      href: pageOf(above.layer),
     }))}
     crumbsLabel={text.whereYouAre}
     eyebrow={`${text.siteName} · ${editionNamed(currentEdition, language)}`}
     title={text.territoryTitle.replace("{where}", name)}
     lead={territory.data.summary}
-    flag={territory.layer.level === "COUNTRY" ? flagOf(country) : undefined}
+    flag={territory.layer.level === "COUNTRY" ? flagOf(country) : territory.layer.level === "EU" ? flagOf("EU") : undefined}
   >
     {isDraft(territory) && (
       <div class="mt-6">
@@ -473,7 +480,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         another scope further down the page — the control offers no kind this page does not hold — so it
         says where those are rather than leaving a heading above nothing.
       */}
-      {narrows && own.length > 0 && (
+      {narrows && own.length > 0 && inheritedCount > 0 && (
         <p hidden data-none class="mt-6 max-w-3xl">
           {text.noneOfThisKind}
         </p>

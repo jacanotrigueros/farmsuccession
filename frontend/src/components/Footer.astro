@@ -13,7 +13,7 @@
  * rather than disappearing on record, search or region pages.
  */
 import SourceClaim from "./SourceClaim.astro";
-import { currentEdition } from "../lib/corpus.ts";
+import { currentEdition, EUROPE_PAGE } from "../lib/corpus.ts";
 import { editionNamed, words } from "../lib/words.ts";
 import { searchPath } from "../../public/search-scope.js";
 
@@ -21,7 +21,8 @@ type Props = { language: string; current?: string };
 const { language, current = "/" } = Astro.props;
 const text = words(language);
 
-const country = current === "/" ? undefined : current.split("/")[1]?.toUpperCase();
+// Europe's page belongs to no country: its links are the site's own, like the home page's.
+const country = current === "/" || current.startsWith(EUROPE_PAGE) ? undefined : current.split("/")[1]?.toUpperCase();
 
 /** The pages about the project itself, in this page's own language, which is the one its reader can read. */
 const aboutPath = country ? `/${country.toLowerCase()}/${text.aboutSlug}/` : `/${text.aboutSlug}/`;

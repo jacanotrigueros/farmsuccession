@@ -11,7 +11,7 @@
  * language as the page they came from, and complete before anything is typed.
  */
 import { Icon } from "astro-icon/components";
-import { countryTerritories, euTerritory, href } from "../lib/corpus.ts";
+import { countryTerritories, euTerritory, EUROPE_PAGE, href } from "../lib/corpus.ts";
 import { flagOf, ICON } from "../lib/icons.ts";
 import { words } from "../lib/words.ts";
 import { searchPath } from "../../public/search-scope.js";
@@ -22,10 +22,11 @@ const text = words(language);
 
 const europe = euTerritory();
 /** The country a page belongs to, which is also the scope its search button leads to. */
-const countryOf = (place: string): string | undefined => (place === "/" ? undefined : place.slice(1, -1).toUpperCase());
+const countryOf = (place: string): string | undefined => (place === "/" || place === "/eu/" ? undefined : place.slice(1, -1).toUpperCase());
 
+/** Europe leads to the European layer's own page, so choosing it shows Europe's instruments, not every country's. */
 const places = [
-  { href: "/", label: text.europe, flag: flagOf("EU") },
+  { href: europe ? EUROPE_PAGE : "/", label: text.europe, flag: flagOf("EU") },
   ...countryTerritories().map((territory) => ({
     href: href(territory.layer),
     label: territory.data.officialName,
