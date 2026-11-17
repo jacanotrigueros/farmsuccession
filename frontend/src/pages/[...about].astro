@@ -12,9 +12,20 @@ import ReportPrivacy from "../components/ReportPrivacy.astro";
 import OnThisPage from "../components/OnThisPage.astro";
 import PageHeader from "../components/PageHeader.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
-import { countryTerritories, euTerritory, href, languageOf, type Territory } from "../lib/corpus.ts";
-import { words } from "../lib/words.ts";
-import { asLanguage } from "../lib/language.ts";
+import {
+  countryTerritories,
+  currentEdition,
+  euTerritory,
+  href,
+  hubTerritories,
+  languageOf,
+  localeOf,
+  regionsOf,
+  type Territory,
+  view,
+} from "../lib/corpus.ts";
+import { counted, editionNamed, words } from "../lib/words.ts";
+import { asLanguage, dateIn } from "../lib/language.ts";
 import { founderStory } from "../lib/founder-story.ts";
 
 export function getStaticPaths() {
@@ -33,6 +44,20 @@ const text = words(language);
 const story = founderStory[asLanguage(language)];
 const home = href(territory.layer);
 const reportPath = territory.layer.level === "EU" ? `/${text.reportSlug}/` : `${home}${text.reportSlug}/`;
+
+const locale = localeOf(territory);
+const country = territory.data.schemaId === "country-snapshot" ? territory.data.country : undefined;
+const evidence = country
+  ? [
+      ...view(territory).resources.map(({ resource }) => resource),
+      ...regionsOf(country).flatMap(({ data }) => data.resources),
+      ...hubTerritories()
+        .filter(({ data }) => "country" in data && data.country === country)
+        .flatMap(({ data }) => data.resources),
+    ].flatMap(({ sources }) => sources)
+  : [];
+const sourceCount = new Set(evidence.map(({ url }) => url)).size;
+const quoteCount = evidence.reduce((total, { quotes }) => total + quotes.length, 0);
 
 const sections = [
   { id: "overview", label: text.overviewTitle },
@@ -115,6 +140,18 @@ const historyPath = territory.layer.level === "EU" ? `/${text.historySlug}/` : `
           ))}
         </ul>
         <p class="mt-5">{text.methodLead}</p>
+        {country && (
+          <>
+            <ul class="meta mt-4 flex flex-wrap gap-x-6 gap-y-2" aria-label={text.statsLabel}>
+              <li>{counted(sourceCount, text.statSources, locale)}</li>
+              <li>{counted(quoteCount, text.statQuotes, locale)}</li>
+            </ul>
+            <p class="meta mt-2">
+              {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
+              <time datetime={territory.data.published}>{dateIn(territory.data.published, locale)}</time>
+            </p>
+          </>
+        )}
         {/* Each step is a card rather than a row of a list: they are four separate things that happen to
           every record, not four lines of one definition, and on a page of running text the boxes are
           what says so without a word. */}

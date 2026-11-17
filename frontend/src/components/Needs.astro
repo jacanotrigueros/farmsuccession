@@ -12,11 +12,12 @@ type Props = {
   language: string;
   hrefFor: (goal: GoalId) => string;
   compact?: boolean;
+  showLead?: boolean;
   /** The row of record kinds that answer no situation; a territory page leaves it to its search. */
   kinds?: boolean;
   hrefForKind: (kind: Resource["kind"]) => string;
 };
-const { resources, language, hrefFor, hrefForKind, compact = false, kinds = true } = Astro.props;
+const { resources, language, hrefFor, hrefForKind, compact = false, showLead = true, kinds = true } = Astro.props;
 const text = words(language);
 
 const goals = GOALS.filter((goal) => goal.id !== "context").map((goal) => ({
@@ -53,7 +54,7 @@ const others = [
   <Icon name={ICON.found} aria-hidden="true" class="size-6 shrink-0 text-brand" />
   {text.whatDoYouNeed}
 </h2>
-<p class="mt-2 text-muted">{text.needsLead}</p>
+{showLead && <p class="mt-2 text-muted">{text.needsLead}</p>}
 
 <ul class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
   {topics.map((goal) => (

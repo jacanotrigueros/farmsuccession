@@ -149,16 +149,8 @@ test("every link inside the site reaches a page the build produced", () => {
   }
 });
 
-/**
- * The first-establishment aid of every territory, named once more near the top of a country page because
- * it is what most readers came for. It is a shortcut to records the territories already list, not a second
- * catalogue, so the one-link-per-record rules below are read without it.
- */
-/** Also without the line that leads from a European card to the national record that applies it. */
-const withoutShortcuts = (html: string): string =>
-  html
-    .replace(/<section\b[^>]*aria-labelledby="install"[\s\S]*?<\/section>/u, "")
-    .replace(/<p\b[^>]*data-counterpart[^>]*>[\s\S]*?<\/p>/gu, "");
+/** Exclude editorial cross-references from Europe to the country's own records. */
+const withoutCounterparts = (html: string): string => html.replace(/<p\b[^>]*data-counterpart[^>]*>[\s\S]*?<\/p>/gu, "");
 
 /**
  * A country's page is the stable, indexable entrance to everything documented below it. Search pages can
@@ -182,7 +174,7 @@ test("a country page links every one of its records by name", () => {
       .replaceAll(/<[^>]*>/gu, " ")
       .replaceAll(/\s+/gu, " ")
       .trim();
-    const listing = withoutShortcuts(country.html);
+    const listing = withoutCounterparts(country.html);
     const link = [...listing.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === address);
     assert.ok(link, `${country.file} does not link ${address}`);
     const copies = [...listing.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].filter(([, href]) => href === address);
@@ -216,7 +208,7 @@ test("country entry pages expose the same unique record destinations as their co
     if (!country) continue;
     const search = pages.find(({ file }) => file === path.join(searchPath("/", iso).slice(1), "index.html"));
     assert.ok(search, `${iso}: missing complete national search fallback`);
-    const actual = listedRecords(withoutShortcuts(country.html));
+    const actual = listedRecords(withoutCounterparts(country.html));
     assert.equal(actual.length, new Set(actual).size, `${iso}: a resource destination is repeated`);
     assert.deepEqual(actual, listedRecords(search.html), `${iso}: progressive disclosure lost or widened the country's records`);
   }

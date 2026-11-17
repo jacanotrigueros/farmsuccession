@@ -462,6 +462,19 @@ export interface CountryIdentity {
    * ISO 3166-1 alpha-2, uppercase.
    */
   country: string;
+  /**
+   * Optional short search description of the country page, in its language. The public summary is used when this is absent.
+   */
+  metaDescription?: string;
+  /**
+   * Optional cross-references from European resource IDs to national resource IDs in this snapshot that explain their implementation.
+   */
+  euCounterparts?: {
+    /**
+     * @minItems 1
+     */
+    [k: string]: [Slug, ...Slug[]];
+  };
 }
 export interface HubIdentity {
   schemaId: "hub-snapshot";

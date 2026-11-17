@@ -159,6 +159,23 @@
           "description": "ISO 3166-1 alpha-2, uppercase.",
           "type": "string",
           "pattern": "^[A-Z]{2}$"
+        },
+        "metaDescription": {
+          "description": "Optional short search description of the country page, in its language. The public summary is used when this is absent.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 155
+        },
+        "euCounterparts": {
+          "description": "Optional cross-references from European resource IDs to national resource IDs in this snapshot that explain their implementation.",
+          "type": "object",
+          "propertyNames": { "$ref": "#/$defs/slug" },
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/slug" }
+          }
         }
       }
     },

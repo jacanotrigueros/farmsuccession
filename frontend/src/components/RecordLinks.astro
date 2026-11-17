@@ -1,33 +1,45 @@
 ---
-/**
- * The records one territory recorded, as plain links named the way the record names itself, in the order
- * a reader looks a name up. A country page lists them inside each territory's box, in the HTML, so the
- * country page names every record it documents without JavaScript and without a second index.
- *
- * Each carries its kind's icon, the same one the aid above it and its own card use, so a reader scanning a
- * list of names can tell a land bank from a course before reading it (founder, 18 Nov 2026).
- */
-import { Icon } from "astro-icon/components";
-import { languageOf, recordHref, type Resource, type Territory } from "../lib/corpus.ts";
-import { kindIcon } from "../lib/icons.ts";
+/** A territory's records are rendered as canonical links even inside a closed disclosure. */
+import { languageOf, localeOf, recordHref, type Resource, type Territory } from "../lib/corpus.ts";
+import { dateIn } from "../lib/language.ts";
+import { callStateLabel } from "../lib/vocabulary.ts";
+import { words } from "../lib/words.ts";
 
-type Props = { place: Territory; language: string; resources?: readonly Resource[] };
-const { place, language, resources = place.data.resources } = Astro.props;
+type Props = {
+  place: Territory;
+  language: string;
+  resources: readonly Resource[];
+  featured?: boolean;
+};
+const { place, language, resources, featured = false } = Astro.props;
+const text = words(language);
+const recordLanguage = languageOf(place);
 ---
 
-<ul class="pb-2">
+<ul class:list={["divide-y divide-line", featured && "border-t border-line"]}>
   {resources
     .toSorted((a, b) => a.name.localeCompare(b.name, language))
-    .map((resource) => (
-      <li>
-        <a
-          href={recordHref(resource.id, place)}
-          lang={languageOf(place)}
-          class="inline-flex min-h-(--spacing-target) items-start gap-2 py-2 underline"
-        >
-          <Icon name={kindIcon(resource.kind)} aria-hidden="true" class="mt-0.5 size-5 shrink-0 text-brand" />
-          <span>{resource.name}</span>
-        </a>
-      </li>
-    ))}
+    .map((resource) => {
+      // Show a dated closure when the record documents a single call. Several calls need the full context of the record page.
+      const call = featured && resource.calls?.length === 1 ? resource.calls[0] : undefined;
+      const closedOn = call?.state === "CLOSED" ? resource.sources.find(({ url }) => url === call.sourceUrl)?.consultedOn : undefined;
+      return (
+        <li>
+          <a
+            href={recordHref(resource.id, place)}
+            class="flex min-h-(--spacing-target) w-full flex-col justify-center px-4 py-2 text-brand-strong [overflow-wrap:anywhere]"
+          >
+            <span lang={recordLanguage} class="underline">
+              {resource.name}
+            </span>
+          </a>
+          {call && closedOn && (
+            <p class="meta px-4 pb-2">
+              <span lang={recordLanguage}>{call.name}</span> · {callStateLabel(call.state, language)} · {text.recordedOn}{" "}
+              <time datetime={closedOn}>{dateIn(closedOn, localeOf(place))}</time>
+            </p>
+          )}
+        </li>
+      );
+    })}
 </ul>

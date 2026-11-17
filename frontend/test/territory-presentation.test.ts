@@ -35,7 +35,7 @@ const links = (html: string) =>
 
 test("every regional and grouping page retains exactly its own and inherited resource destinations, including empty and large regions", () => {
   let checked = 0;
-  for (const { data, layer } of snapshots) {
+  for (const { layer } of snapshots) {
     if (layer.level !== "REGION" && layer.level !== "HUB") continue;
     const slug = layer.level === "REGION" ? layer.region : layer.hub;
     const route = `/${layer.country.toLowerCase()}/${regionSlug(layer.country)}/${slug}/`;
@@ -76,11 +76,14 @@ test("documentary groupings show their children and pin every local search to al
         `${route}: ${link} loses grouping scope`,
       );
     }
-    if (data.resources.length > 0) {
-      assert.ok(
-        htmlAt(`/${cc}/`).includes(`href="${route}#own"`),
-        `${route}: common-resource count must lead to the common records, not the full regional search`,
-      );
+    const country = htmlAt(cc);
+    const groupStart = country.indexOf(`href="${route}"`);
+    assert.ok(groupStart >= 0, `${route}: country page is missing the grouping link`);
+    const firstMember = Math.min(...members.map((member) => country.indexOf(`href="/${cc}/${regionSlug(layer.country)}/${member}/"`)));
+    assert.ok(firstMember > groupStart, `${route}: member links must follow the grouping title`);
+    for (const { id } of data.resources) {
+      const position = country.indexOf(`href="${resourceUrl(id, layer.country)}"`);
+      assert.ok(position > groupStart && position < firstMember, `${route}: shared record ${id} must appear above the members`);
     }
     const scopes = [...ancestorLayers(layer, catalogue), layer, ...leafLayers(layer, catalogue)].flatMap(
       (l) => byLayer.get(layerKey(l)) ?? [],
@@ -103,10 +106,9 @@ test("country pages expose each regional resource inside its territory rather th
   for (const iso of new Set(snapshots.flatMap(({ layer }) => (layer.level === "COUNTRY" ? [layer.country] : [])))) {
     if (iso === "EU") continue;
     const cc = iso.toLowerCase();
-    // The first-establishment shortcut names some of these records again, on purpose (built-site.test.ts).
-    const html = htmlAt(cc).replace(/<section\b[^>]*aria-labelledby="install"[\s\S]*?<\/section>/u, "");
+    const html = htmlAt(cc);
     assert.doesNotMatch(html, /id="all-records"/u, `${cc}: a second regional index duplicates territory navigation`);
-    const regional = snapshots.filter(({ layer }) => layer.level === "REGION" && layer.country === iso);
+    const regional = snapshots.filter(({ layer }) => (layer.level === "REGION" || layer.level === "HUB") && layer.country === iso);
     const local = regional.flatMap(({ data }) => data.resources);
     if (local.length === 0) continue;
     assert.match(html, /class="regional-resources /u, `${cc}: no in-place regional resources`);
@@ -114,5 +116,40 @@ test("country pages expose each regional resource inside its territory rather th
       const url = resourceUrl(resource.id, iso);
       assert.equal(links(html).filter((value) => value === url).length, 1, `${cc}: ${resource.id} must have exactly one direct index link`);
     }
+  }
+});
+
+test("Spain points to its documented grants, puts loans inside the disclosure, and explains inherited island resources", () => {
+  const html = htmlAt("es");
+  const form = html.indexOf('role="search"');
+  const shortcut = html.indexOf('href="#territories"');
+  assert.ok(shortcut >= 0 && shortcut < form, "the primary action must come before the search form");
+  assert.match(html, /<h2[^>]*id="territories"[^>]*>[\s\S]*?Ayudas y recursos por comunidad autónoma<\/h2>/u);
+  assert.doesNotMatch(html, /aria-label="El directorio en cifras"/u);
+  const aragon = html.slice(html.indexOf('href="/es/regiones/aragon/"'), html.indexOf('href="/es/regiones/cantabria/"'));
+  const disclosure = aragon.indexOf("<details");
+  assert.ok(disclosure > 0);
+  assert.match(aragon.slice(0, disclosure), /Subvención para el establecimiento de jóvenes agricultores/u);
+  assert.match(aragon.slice(disclosure), /Préstamos garantizados IFGC para jóvenes agricultores/u);
+  assert.match(html, /href="\/es\/regiones\/el-hierro\/"[^>]*>[\s\S]*?Recursos de Canarias y de otros ámbitos<\/span>\s*<\/a>/u);
+  assert.match(html, /href="\/es\/regiones\/formentera\/"[^>]*>[\s\S]*?Recursos de Illes Balears y de otros ámbitos<\/span>\s*<\/a>/u);
+  assert.match(html, /Convocatoria 2024<\/span> · Cerrada · [^<]*<time datetime="2026-10-13"/u);
+});
+
+test("country search titles omit the suffix and use the optional description from data", () => {
+  for (const { data } of snapshots) {
+    if (data.schemaId !== "country-snapshot") continue;
+    const html = htmlAt(data.country.toLowerCase());
+    const title = words(data.metadata.language).countryMetaTitle.replace("{where}", data.officialName);
+    assert.equal(/<title>([^<]+)<\/title>/u.exec(html)?.[1], title);
+    assert.equal(
+      decodeHTML(
+        /<meta name="description" content="([^"]+)">/u.exec(
+          readFileSync(path.join(DIST, data.country.toLowerCase(), "index.html"), "utf8"),
+        )?.[1] ?? "",
+      ),
+      data.metaDescription ?? data.summary,
+      `${data.country}: metadata must favour the short description when supplied`,
+    );
   }
 });

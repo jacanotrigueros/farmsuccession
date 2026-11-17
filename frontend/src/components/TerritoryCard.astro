@@ -10,14 +10,15 @@
  */
 import { Icon } from "astro-icon/components";
 import RecordLinks from "./RecordLinks.astro";
-import { href, languageOf, recordHref, type Territory } from "../lib/corpus.ts";
+import { href, localeOf, type Territory } from "../lib/corpus.ts";
 import { isFirstEstablishmentAid } from "../lib/goals.ts";
-import { ICON, kindIcon } from "../lib/icons.ts";
+import { ICON } from "../lib/icons.ts";
 import { words } from "../lib/words.ts";
 
-type Props = { child: Territory; language: string; withRecords: boolean };
-const { child, language, withRecords } = Astro.props;
+type Props = { child: Territory; language: string; withRecords: boolean; grouping?: string };
+const { child, language, withRecords, grouping } = Astro.props;
 const text = words(language);
+const number = new Intl.NumberFormat(localeOf(child));
 
 /** On a country page the aid to set up is shown at once; everything else the territory holds is one click away. */
 const aid = withRecords ? child.data.resources.filter(isFirstEstablishmentAid) : [];
@@ -27,27 +28,17 @@ const rest = withRecords ? child.data.resources.filter((resource) => !isFirstEst
 <li class="territory card min-w-0">
   <a href={href(child.layer)} class="territory-link">
     <span class="font-bold text-ink">{child.data.officialName}</span>
+    {withRecords && child.data.resources.length === 0 && (
+      <span>{grouping ? text.inheritedFromGroup.replace("{where}", grouping) : text.seeApplicable}</span>
+    )}
   </a>
-  {aid.length > 0 && (
-    <ul class="border-t border-line px-4 py-1" aria-label={text.installShortcut}>
-      {aid.map((resource) => (
-        <li>
-          <a
-            href={recordHref(resource.id, child)}
-            lang={languageOf(child)}
-            class="inline-flex min-h-(--spacing-target) items-start gap-2 py-2 text-brand-strong underline"
-          >
-            <Icon name={kindIcon("FINANCIAL_SUPPORT")} aria-hidden="true" class="mt-0.5 size-5 shrink-0" />
-            <span>{resource.name}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  )}
+  {aid.length > 0 && <RecordLinks place={child} language={language} resources={aid} featured />}
   {rest.length > 0 && (
-    <details class="regional-resources border-t border-line px-4">
-      <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-brand-strong">
-        {(aid.length > 0 ? text.moreRecords : text.showRecords).replace("{n}", String(rest.length))}
+    <details class="regional-resources border-t border-line">
+      <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 px-4 text-brand-strong">
+        {(aid.length > 0 ? text.moreRecords : text.showRecords)
+          .replace("{where}", child.data.officialName)
+          .replace("{n}", number.format(rest.length))}
         <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
       </summary>
       <RecordLinks place={child} language={language} resources={rest} />
@@ -66,6 +57,7 @@ const rest = withRecords ? child.data.resources.filter((resource) => !isFirstEst
     gap: 0.125rem;
     padding: 0.5rem 2.5rem 0.5rem 1rem;
     text-decoration: none;
+    overflow-wrap: anywhere;
     border-radius: inherit;
   }
   .territory-link::after {

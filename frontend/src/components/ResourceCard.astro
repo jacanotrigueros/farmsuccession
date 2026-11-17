@@ -20,7 +20,6 @@ import { Icon } from "astro-icon/components";
 import KindTag from "./KindTag.astro";
 import StatusTag from "./StatusTag.astro";
 import { countryTerritories, languageOf, placeOf, recordHref, type Resource, type Territory } from "../lib/corpus.ts";
-import { counterpartsIn } from "../lib/eu-counterparts.ts";
 import { ICON } from "../lib/icons.ts";
 import { euCardIn } from "../lib/eu-presentation.ts";
 import { words } from "../lib/words.ts";
@@ -48,12 +47,11 @@ const text = words(language);
 const translated = recordedIn.layer.level === "EU" ? euCardIn(resource.id, resource.whatItOffers, language) : undefined;
 const cardLanguage = translated ? language : recordLanguage;
 
-/** On a country's page, a European card leads to the national records that apply it there (eu-counterparts.ts). */
-const home =
-  country === undefined ? undefined : countryTerritories().find(({ layer }) => layer.level === "COUNTRY" && layer.country === country);
+/** National records linked editorially from this European card. */
+const home = countryTerritories().find(({ data }) => data.schemaId === "country-snapshot" && data.country === country);
 const counterparts =
-  recordedIn.layer.level === "EU" && home && country
-    ? counterpartsIn(resource.id, country).flatMap((id) => home.data.resources.filter((candidate) => candidate.id === id))
+  recordedIn.layer.level === "EU" && home?.data.schemaId === "country-snapshot"
+    ? (home.data.euCounterparts?.[resource.id] ?? []).flatMap((id) => home.data.resources.filter((candidate) => candidate.id === id))
     : [];
 
 const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), resource.scope.area, text.reachRow, text.labelSeparator);
@@ -95,7 +93,11 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), res
     counterparts.map((national) => (
       <p class="relative z-10 mt-3" data-counterpart>
         <span class="font-bold">{text.inCountry.replace("{where}", home.data.officialName)}</span>{" "}
-        <a href={recordHref(national.id, home)} lang={languageOf(home)} class="text-brand-strong underline">
+        <a
+          href={recordHref(national.id, home)}
+          lang={languageOf(home)}
+          class="inline-flex min-h-(--spacing-target) items-center text-brand-strong underline"
+        >
           {national.name}
         </a>
       </p>
