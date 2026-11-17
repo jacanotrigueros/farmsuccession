@@ -109,7 +109,7 @@ What happened during the year:
 
 What this file does not cover:
 
-- La fiscalidad de la transmisión de explotaciones.
+- El directorio aún no cubre la fiscalidad de la transmisión de explotaciones.
 
 ### France — country
 
