@@ -109,8 +109,7 @@ What happened during the year:
 
 What this file does not cover:
 
-- Las ayudas a la incorporación de jóvenes y nuevos agricultores se convocan en cada comunidad autónoma y se recogen en sus propios ficheros.
-- No se ha revisado la fiscalidad de la transmisión de explotaciones.
+- La fiscalidad de la transmisión de explotaciones.
 
 ### France — country
 
