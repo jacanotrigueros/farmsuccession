@@ -10,8 +10,9 @@
  * a search be shared between languages: the link carries codes, the page carries words.
  */
 import { countryFilters } from "../../public/search-scope.js";
-import { countryTerritories, leafLayers, territories, type Resource, type Territory } from "./corpus.ts";
+import { leafLayers, territories, type Resource, type Territory } from "./corpus.ts";
 import { ICON } from "./icons.ts";
+import { countryNameIn } from "./language.ts";
 import { kindLabel, profileLabel, reachLabel, standing, stateLabel } from "./vocabulary.ts";
 import { words } from "./words.ts";
 
@@ -54,13 +55,11 @@ export function facetsFor(listed: readonly Listed[], language: string, country?:
     for (const region of jurisdiction.regions) regionNames.set(`${iso}/${region.slug}`, region.name);
   }
 
-  /** The name of each country, which is what a reader chooses by — never the two letters of its code. */
-  const countryNames = new Map(
-    countryTerritories().flatMap((territory) =>
-      territory.layer.level === "EU" ? [] : [[territory.layer.country, territory.data.officialName] as const],
-    ),
-  );
-  const countryName = (code: string) => (code === "EU" ? text.euName : (countryNames.get(code) ?? code));
+  /**
+   * The name of each country in the page's language, which is what a reader chooses by — never the two
+   * letters of its code, and never a name in a language the reader may not read.
+   */
+  const countryName = (code: string) => (code === "EU" ? text.euName : countryNameIn(code, language));
 
   const facets: Facet[] = [
     {

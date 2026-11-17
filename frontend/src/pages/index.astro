@@ -9,7 +9,7 @@
  * It is written in the language of the European layer, because that is the layer it is about.
  */
 import { Icon } from "astro-icon/components";
-import SourceClaim from "../components/SourceClaim.astro";
+import CountryCards from "../components/CountryCards.astro";
 import Needs from "../components/Needs.astro";
 import StandaloneNews from "../components/StandaloneNews.astro";
 import SearchBox from "../components/SearchBox.astro";
@@ -19,16 +19,13 @@ import {
   countryTerritories,
   currentEdition,
   euTerritory,
-  href,
   hubTerritories,
   languageOf,
   regionTerritories,
-  regionsOf,
 } from "../lib/corpus.ts";
 import { GOALS } from "../lib/goals.ts";
-import { flagOf, ICON } from "../lib/icons.ts";
-import { counted, editionNamed, words } from "../lib/words.ts";
-import { founderStory } from "../lib/founder-story.ts";
+import { ICON } from "../lib/icons.ts";
+import { counted, words } from "../lib/words.ts";
 import { searchUrl } from "../../public/search-scope.js";
 
 const europe = euTerritory();
@@ -40,68 +37,34 @@ const language = languageOf(europe);
 const text = words(language);
 const stats = corpusStats();
 
-/** The flag of a country, as a file: a flag emoji is two letters on any system without a glyph for the pair. */
-
-/**
- * What a country card counts is what applies inside it — its own records, its groupings', its regions'
- * and the European ones — because that is what a reader gets by going there, not what the country file
- * happens to hold.
- */
-const countries = countryTerritories().map((country) => {
-  const iso = country.layer.level === "EU" ? "" : country.layer.country;
-  const inside = [country, ...hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === iso), ...regionsOf(iso)];
-  return {
-    href: href(country.layer),
-    name: country.data.officialName,
-    flag: flagOf(iso),
-    records: inside.reduce((total, { data }) => total + data.resources.length, 0) + europe.data.resources.length,
-    territories: regionsOf(iso).length,
-  };
-});
-
 /** Everything in the edition, which is what the cards on this page count and link into. */
 const everything = [europe, ...countryTerritories(), ...hubTerritories(), ...regionTerritories()].flatMap(({ data }) => data.resources);
 
-const editionNote = (stats.drafts === stats.files ? text.editionAllDrafts : text.editionSomeDrafts)
-  .replace("{edition}", currentEdition)
-  .replace("{drafts}", String(stats.drafts))
-  .replace("{files}", String(stats.files));
-
+/**
+ * The directory's size, one row under the country heading, each figure with its icon. The
+ * source-and-date promise and the licence are not repeated here: every page's footer says them.
+ */
 const figures = [
   { icon: ICON.resources, value: stats.records, label: counted(stats.records, text.statRecords, language) },
   { icon: ICON.europe, value: stats.countries, label: counted(stats.countries, text.statCountries, language) },
   { icon: ICON.territory, value: stats.territories, label: counted(stats.territories, text.statTerritories, language) },
   { icon: ICON.sources, value: stats.sources, label: counted(stats.sources, text.statSources, language) },
 ];
-
-const trust = [
-  { icon: ICON.checked, title: text.trustDated },
-  { icon: ICON.open, title: text.trustOpen },
-];
 ---
 
-<SiteLayout title={`${text.siteName} · ${text.tagline}`} description={text.lead} language={language} current="/">
+<SiteLayout title={`${text.tagline} · ${text.siteName}`} description={text.lead} language={language} current="/">
   <section class="border-b border-line bg-card">
     <div class="wrap py-10 lg:py-14">
-      <p class="eyebrow">
-        {text.siteName} · {editionNamed(currentEdition, language)}
-      </p>
+      {/* The header already names the site, so the hero opens with what a reader can do, not the name
+          again. The page title and description keep the searchable tagline and lead. */}
       {stats.news > 0 && (
-        <p class="meta mt-1 flex items-center gap-1.5">
+        <p class="meta flex items-center gap-1.5">
           <Icon name={ICON.date} aria-hidden="true" class="size-4 text-brand" />
           {text.newsCount.replace("{n}", String(stats.news)).replace("{edition}", currentEdition)}
         </p>
       )}
-      <h1 class="page-title mt-2 max-w-3xl text-3xl text-balance sm:text-4xl">{text.tagline}</h1>
-      <p class="mt-4 max-w-3xl text-lg text-muted">{text.lead}</p>
-      <p class="mt-3 max-w-3xl">
-        <a
-          class="inline-flex min-h-(--spacing-target) items-center font-bold text-brand-strong underline"
-          href={`/${text.aboutSlug}/#why-succession`}
-        >
-          {founderStory.en.link}
-        </a>
-      </p>
+      <h1 class="page-title mt-2 max-w-3xl text-3xl text-balance sm:text-4xl">{text.heroTitle}</h1>
+      <p class="mt-4 text-lg text-muted">{text.heroLead}</p>
 
       <div class="mt-8 max-w-3xl">
         <SearchBox
@@ -111,15 +74,6 @@ const trust = [
           button={text.searchAction}
           examples={text.searchExamples}
         />
-        <div class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <a href="#countries" class="btn btn-quiet">
-            <Icon name={ICON.territory} aria-hidden="true" class="size-5 shrink-0" />
-            {text.browseCountries}
-          </a>
-          <a href={searchUrl("/")} class="inline-flex min-h-(--spacing-target) items-center font-bold underline">
-            {text.browseAcrossEurope}
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -127,30 +81,22 @@ const trust = [
   <section class="border-b border-line" aria-labelledby="countries">
     <div class="wrap py-12">
       <h2 id="countries" class="text-2xl font-bold">
-        {text.countriesTitle}
+        {text.chooseCountry}
       </h2>
-      <p class="meta mt-1">
-        {text.countriesLead
-          .replace("{territories}", counted(stats.territories, text.statTerritories, language))
-          .replace("{countries}", counted(stats.countries, text.statCountries, language))}
-      </p>
-      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {countries.map((country) => (
-          <li>
-            <a href={country.href} class="card card-link flex min-h-full items-center gap-3 p-5 no-underline">
-              <img src={country.flag} alt="" width="36" height="27" class="h-7 w-9 shrink-0 rounded-xs border border-line object-cover" />
-              <span class="flex min-w-0 flex-1 flex-col">
-                <span class="text-lg font-bold text-ink">{country.name}</span>
-                <span class="meta">
-                  {counted(country.records, text.cardApplicable, language)} · {counted(country.territories, text.statTerritories, language)}
-                </span>
-              </span>
-              <Icon name={ICON.chevron} aria-hidden="true" class="size-5 shrink-0 text-muted" />
-            </a>
+      {/* The figures share the cards' columns, so each figure sits over a column of countries and its icon
+          lines up with the flags inside the cards (the cards' own padding). */}
+      <ul class="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4" aria-label={text.statsLabel}>
+        {figures.map((figure) => (
+          <li class="flex min-w-0 items-start gap-3 sm:px-5">
+            <Icon name={figure.icon} aria-hidden="true" class="mt-1 size-5 shrink-0 text-brand" />
+            <p class="min-w-0">
+              <span class="block text-2xl leading-tight font-bold text-brand tabular-nums">{figure.value}</span>
+              <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
+            </p>
           </li>
         ))}
       </ul>
-      <p class="meta mt-4">{text.euAlso.replace("{n}", String(europe.data.resources.length))}</p>
+      <CountryCards language={language} />
     </div>
   </section>
 
@@ -165,45 +111,5 @@ const trust = [
     </div>
   </section>
 
-  <section class="wrap py-6" aria-label={text.statsLabel}>
-    <div class="rounded-lg bg-page p-5">
-      <ul class="grid grid-cols-2 items-start gap-4 sm:grid-cols-4" aria-label={text.statsLabel}>
-        {figures.map((figure) => (
-          <li class="flex min-w-0 items-start gap-3">
-            <Icon name={figure.icon} aria-hidden="true" class="mt-1 size-5 shrink-0 text-brand" />
-            <p class="min-w-0">
-              <span class="block text-2xl leading-tight font-bold text-brand tabular-nums">{figure.value}</span>
-              <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
-            </p>
-          </li>
-        ))}
-      </ul>
-      <ul class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-line pt-4 text-meta">
-        <li class="flex w-full max-w-3xl items-start gap-2 text-control text-ink">
-          <Icon name={ICON.evidence} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-brand" />
-          <SourceClaim language={language} />
-        </li>
-        {trust.map((point) => (
-          <li class="flex items-center gap-2 font-bold text-ink">
-            <Icon name={point.icon} aria-hidden="true" class="size-4 shrink-0 text-brand" />
-            {point.title}
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
   <StandaloneNews items={europe.data.news} language={language} />
-
-  <div class="wrap pt-4 pb-6">
-    <p class="meta flex items-start gap-2">
-      <Icon name={ICON.draft} aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-accent" />
-      <span>
-        {editionNote}{" "}
-        <a href={`/${text.aboutSlug}/#method`} class="font-bold underline">
-          {text.methodTitle}
-        </a>
-      </span>
-    </p>
-  </div>
 </SiteLayout>

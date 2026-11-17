@@ -15,6 +15,7 @@ import { Icon } from "astro-icon/components";
 import DraftNotice from "../components/DraftNotice.astro";
 import Needs from "../components/Needs.astro";
 import PageHeader from "../components/PageHeader.astro";
+import CountryCards from "../components/CountryCards.astro";
 import PageIndex from "../components/PageIndex.astro";
 import ResourceList from "../components/ResourceList.astro";
 import StandaloneNews from "../components/StandaloneNews.astro";
@@ -22,6 +23,7 @@ import SearchBox from "../components/SearchBox.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
   countryTerritories,
+  euTerritory,
   currentEdition,
   href,
   hubTerritories,
@@ -29,14 +31,14 @@ import {
   recordHref,
   languageOf,
   localeOf,
+  pageOf,
   regionsOf,
   type Territory,
   view,
 } from "../lib/corpus.ts";
 import { GOALS } from "../lib/goals.ts";
 import { flagOf, ICON } from "../lib/icons.ts";
-import { asLanguage, dateIn } from "../lib/language.ts";
-import { founderStory } from "../lib/founder-story.ts";
+import { dateIn } from "../lib/language.ts";
 import { coverageLabel } from "../lib/vocabulary.ts";
 import { kindLabel } from "../lib/vocabulary.ts";
 import { counted, editionNamed, words } from "../lib/words.ts";
@@ -46,8 +48,10 @@ export function getStaticPaths() {
   // Written out here rather than in a helper: Astro lifts this function into a module of its own, where
   // anything declared beside it does not exist.
   const regions = countryTerritories().flatMap(({ layer }) => (layer.level === "EU" ? [] : regionsOf(layer.country)));
-  const all: Territory[] = [...countryTerritories(), ...hubTerritories(), ...regions];
-  return all.map((territory) => ({ params: { territory: href(territory.layer).slice(1, -1) }, props: { territory } }));
+  // The European layer has its own page (`/eu/`), built from the same template as every country.
+  const europe = euTerritory();
+  const all: Territory[] = [...(europe ? [europe] : []), ...countryTerritories(), ...hubTerritories(), ...regions];
+  return all.map((territory) => ({ params: { territory: pageOf(territory.layer).slice(1, -1) }, props: { territory } }));
 }
 
 const { territory } = Astro.props;
@@ -111,16 +115,36 @@ const inheritedCount = inheritedGroups.reduce((total, { items }) => total + item
 const isCountry = territory.layer.level === "COUNTRY";
 
 /**
+ * Europe's page explains a framework rather than listing services (founder, 16 Nov 2026, from the
+ * ChatGPT design he chose): its strongest action is choosing one's country, where the framework turns
+ * into aid, training and advice. It drops what only makes sense for a place a farmer applies in — the
+ * practical tasks, the search box (which at this level would search every country) and the figures —
+ * and keeps the shared header, cards and footer.
+ */
+const isEurope = territory.layer.level === "EU";
+const pageTitle = isEurope ? text.euTitle : text.territoryTitle.replace("{where}", name);
+/**
+ * Europe's page is found by people searching for EU policy and CAP support for young farmers, so its
+ * search title and snippet say that; its long introduction stays on the page, where it is read.
+ */
+const metaTitle = isEurope ? text.euMetaTitle : pageTitle;
+const metaDescription = isEurope ? text.euMetaDescription : territory.data.summary;
+/** A country inherits only from the European layer, so its heading can name it instead of "other scopes". */
+const inheritedForms = isCountry ? text.euAppliesIn : text.alsoApplies;
+
+/**
  * The records below the national layer, once each. National and European records already have cards
  * elsewhere; repeating their names in this directory made two competing lists of the same resources.
  * Regional links stay in the HTML inside native disclosures, including without JavaScript.
  */
 /** The strip names the sections it leads to. Coverage closes the page and is not one of its answers. */
 const sections = [
-  { id: "needs", label: text.navNeeds },
+  isEurope ? { id: "countries", label: text.euCountriesTitle } : { id: "needs", label: text.navNeeds },
   ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: text.territoriesTitle }] : []),
-  ...(isCountry && own.length === 0 ? [] : [{ id: "own", label: isCountry ? text.wholeCountryTitle : text.navOwn }]),
-  ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav }] : []),
+  ...(isCountry && own.length === 0
+    ? []
+    : [{ id: "own", label: isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.navOwn }]),
+  ...(inheritedCount > 0 ? [{ id: "inherited", label: isCountry ? text.euName : text.alsoAppliesNav }] : []),
   ...(territory.data.news.some((item) => !item.resourceIds?.length) ? [{ id: "news", label: text.newsTitle }] : []),
   ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
 ];
@@ -158,7 +182,10 @@ const figures =
       ]
     : [
         { icon: ICON.resources, value: own.length, label: about(text.statOwn, own.length) },
-        { icon: ICON.scope, value: inheritedCount, label: about(text.statOtherScopes, inheritedCount) },
+        // Europe is the top layer: nothing above it can apply there, so "0 from other scopes" says nothing.
+        ...(territory.layer.level === "EU"
+          ? []
+          : [{ icon: ICON.scope, value: inheritedCount, label: about(text.statOtherScopes, inheritedCount) }]),
       ];
 /** How the country's total divides: what the country itself documented, and what Europe adds to it. */
 const split = text.applicableSplit
@@ -181,6 +208,8 @@ const kinds = [...new Set([...own, ...inheritedGroups.flatMap(({ items }) => ite
  * directory, which this filter cannot narrow: its complete national search is the filtering surface
  * instead of a local control that silently ignores most of the country’s resources.
  */
+// Europe's records are of several kinds (frameworks, a portal, advice, a network), so a reader can narrow
+// them to the one they need rather than reading every card (founder, 17 Nov 2026).
 const narrows = kinds.length > 1 && !isCountry;
 
 /** What a territory card says: written for it, and applicable there in total. */
@@ -190,7 +219,7 @@ const countsOf = (child: Territory): string =>
     .replace("{total}", counted(view(child).resources.length, text.territoryTotalWord, locale));
 
 /** The heading of the records this territory recorded, and the sentence under a country's own. */
-const alsoTitle = (inheritedCount === 1 ? text.alsoApplies[0] : text.alsoApplies[1])
+const alsoTitle = (inheritedCount === 1 ? inheritedForms[0] : inheritedForms[1])
   .replace("{count}", counted(inheritedCount, text.record, locale))
   .replace("{where}", name);
 const nationalLead = text.wholeCountryLead.replace("{count}", counted(own.length, text.record, locale)).replace("{where}", name);
@@ -240,83 +269,106 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 ---
 
 <SiteLayout
-  title={`${text.territoryTitle.replace("{where}", name)} · ${text.siteName}`}
-  description={territory.data.summary}
+  title={`${metaTitle} · ${text.siteName}`}
+  description={metaDescription}
   language={language}
-  current={href(territory.layer)}
+  current={pageOf(territory.layer)}
   noindex={!indexed}
 >
   <PageHeader
-    crumbs={layers.slice(0, -1).map((above) => ({
-      label: above.layer.level === "EU" ? text.europe : above.data.officialName,
-      href: href(above.layer),
-    }))}
+    crumbs={
+      isEurope
+        ? [{ label: text.allCountries, href: "/" }]
+        : // The trail is how a reader moves, not how measures are inherited: a country is reached from the
+          // overview of every country, the way Europe's own page is, not from inside Europe's page.
+          layers
+            .slice(0, -1)
+            .map((above) =>
+              above.layer.level === "EU"
+                ? { label: text.allCountries, href: "/" }
+                : { label: above.data.officialName, href: pageOf(above.layer) },
+            )
+    }
     crumbsLabel={text.whereYouAre}
-    eyebrow={`${text.siteName} · ${editionNamed(currentEdition, language)}`}
-    title={text.territoryTitle.replace("{where}", name)}
+    eyebrow={isEurope ? text.euEyebrow : `${text.siteName} · ${editionNamed(currentEdition, language)}`}
+    title={pageTitle}
     lead={territory.data.summary}
-    flag={territory.layer.level === "COUNTRY" ? flagOf(country) : undefined}
+    flag={territory.layer.level === "COUNTRY" ? flagOf(country) : territory.layer.level === "EU" ? flagOf("EU") : undefined}
   >
     {isDraft(territory) && (
       <div class="mt-6">
         <DraftNotice language={language} />
       </div>
     )}
+    {/* On Europe's page the search covers every country, so it says so instead of naming the EU layer. */}
     <div class="mt-8">
       <SearchBox
         action={searchPath("/", country || undefined)}
         id="here"
-        label={text.searchHereLabel.replace("{where}", name)}
+        label={isEurope ? text.searchAcrossEurope : text.searchHereLabel.replace("{where}", name)}
         button={text.searchAction}
         examples={text.searchExamples}
         pinned={pinned}
       />
-      <a
-        href={searchPath("/", country || undefined) + pinnedQuery}
-        class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
-      >
-        {text.browseAll.replace("{where}", name)}
-      </a>
-    </div>
-    {isCountry && (
-      <p class="mt-3">
-        <a
-          class="inline-flex min-h-(--spacing-target) items-center font-bold text-brand-strong underline"
-          href={`${href(territory.layer)}${text.aboutSlug}/#why-succession`}
-        >
-          {founderStory[asLanguage(language)].link}
+      {isEurope ? (
+        // A direct way to the framework for a reader who came for it, past a country list that will grow to 27.
+        <a href="#own" class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline">
+          {text.readEuResources.replace("{n}", String(own.length))}
         </a>
-      </p>
-    )}
-    <div class="mt-8 rounded-lg bg-page p-5">
-      <ul class="grid gap-4 sm:grid-cols-2" aria-label={text.statsLabel}>
-        {figures.map((figure) => (
-          <li class="flex items-center gap-3">
-            <Icon name={figure.icon} aria-hidden="true" class="size-5 shrink-0 text-brand" />
-            <p>
-              <span class="block text-2xl font-bold text-brand tabular-nums">{figure.value}</span>
-              <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
-            </p>
-          </li>
-        ))}
-      </ul>
-      {isCountry && <p class="meta mt-4 border-t border-line pt-4">{split}</p>}
+      ) : (
+        <a
+          href={searchPath("/", country || undefined) + pinnedQuery}
+          class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
+        >
+          {text.browseAll.replace("{where}", name)}
+        </a>
+      )}
     </div>
+    {!isEurope && (
+      <div class="mt-8 rounded-lg bg-page p-5">
+        <ul class="grid gap-4 sm:grid-cols-2" aria-label={text.statsLabel}>
+          {figures.map((figure) => (
+            <li class="flex items-center gap-3">
+              <Icon name={figure.icon} aria-hidden="true" class="size-5 shrink-0 text-brand" />
+              <p>
+                <span class="block text-2xl font-bold text-brand tabular-nums">{figure.value}</span>
+                <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+        {isCountry && <p class="meta mt-4 border-t border-line pt-4">{split}</p>}
+      </div>
+    )}
   </PageHeader>
 
-  <PageIndex sections={sections} language={language} />
+  {/* Two sections are both in sight as the reader scrolls; a strip pointing at them is only one more
+      box to read (founder, 16 Nov 2026, on Europe's page). It earns its place from three on. */}
+  {sections.length >= 3 && <PageIndex sections={sections} language={language} />}
 
-  <section class="border-y border-line bg-card" aria-labelledby="needs">
-    <div class="wrap py-12">
-      <Needs
-        compact
-        resources={everythingHere}
-        language={language}
-        hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
-        hrefForKind={(kind) => searchHere([kind])}
-      />
-    </div>
-  </section>
+  {isEurope ? (
+    <section class="border-y border-line bg-brand-tint" aria-labelledby="countries">
+      <div class="wrap py-12">
+        <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
+          {text.euCountriesTitle}
+        </h2>
+        <p class="mt-2">{text.euCountriesLead}</p>
+        <CountryCards language={language} />
+      </div>
+    </section>
+  ) : (
+    <section class="border-y border-line bg-card" aria-labelledby="needs">
+      <div class="wrap py-12">
+        <Needs
+          compact
+          resources={everythingHere}
+          language={language}
+          hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
+          hrefForKind={(kind) => searchHere([kind])}
+        />
+      </div>
+    </section>
+  )}
 
   {(children.length > 0 || groupings.length > 0) && (
     <section class="wrap py-12" aria-labelledby="territories">
@@ -437,7 +489,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
   {!(isCountry && own.length === 0) && (
     <section class="wrap py-12" aria-labelledby="own">
       <h2 id="own" class="flex scroll-mt-6 flex-wrap items-baseline gap-x-3 text-2xl font-bold">
-        {isCountry ? text.wholeCountryTitle : text.ownRecords.replace("{where}", name)}
+        {isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.ownRecords.replace("{where}", name)}
         {own.length > 0 && !isCountry && (
           <span class="meta font-normal" {...recordCount}>
             {counted(own.length, text.record, locale)}
@@ -477,15 +529,15 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
           <ResourceList items={own} language={language} />
         </div>
       ) : (
-        <p class="mt-3 max-w-3xl">{text.noneOwn.replace("{where}", name)}</p>
+        <p class="mt-3">{text.noneOwn.replace("{where}", name)}</p>
       )}
       {/*
         What is left when the choice empties this list. It can only ever be read next to records of
         another scope further down the page — the control offers no kind this page does not hold — so it
         says where those are rather than leaving a heading above nothing.
       */}
-      {narrows && own.length > 0 && (
-        <p hidden data-none class="mt-6 max-w-3xl">
+      {narrows && own.length > 0 && inheritedCount > 0 && (
+        <p hidden data-none class="mt-6">
           {text.noneOfThisKind}
         </p>
       )}
@@ -494,10 +546,10 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
   {inheritedCount > 0 && (
     <section class="wrap pb-12" aria-labelledby="inherited">
-      <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...howMany(text.alsoApplies[0], text.alsoApplies[1])}>
+      <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...howMany(inheritedForms[0], inheritedForms[1])}>
         {alsoTitle}
       </h2>
-      <p class="meta mt-2 max-w-5xl">{text.alsoAppliesLead}</p>
+      <p class="meta mt-2 max-w-5xl">{isCountry ? text.euAppliesLead : text.alsoAppliesLead}</p>
       {inheritedGroups.map(({ name: from, items }) => (
         <details data-record-group class="inherited-group mt-6 border-t border-line pt-4" open>
           <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">

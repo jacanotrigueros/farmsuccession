@@ -197,6 +197,9 @@ test("country entry pages expose the same unique record destinations as their co
       .filter((href) => recordAddresses.has(href))
       .toSorted();
   for (const iso of Object.keys(catalogueJurisdictions)) {
+    // Europe's page lists only what applies at EU level; its search covers every country, so the two
+    // are not meant to match (founder, 16 Nov 2026).
+    if (iso === "EU") continue;
     const country = pages.find(({ file }) => file === path.join(iso.toLowerCase(), "index.html"));
     if (!country) continue;
     const search = pages.find(({ file }) => file === path.join(searchPath("/", iso).slice(1), "index.html"));
@@ -218,7 +221,8 @@ test("the complete, localized footer is shared by every built page", () => {
     assert.ok(footer, `${file} has no footer`);
     const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const first = file.split(path.sep)[0] ?? "";
-    const root = /^[a-z]{2}$/u.test(first) ? `/${first}/` : "/";
+    // Europe's page (/eu/) is no country: its footer links are the site's own.
+    const root = /^[a-z]{2}$/u.test(first) && first !== "eu" ? `/${first}/` : "/";
     const about = `${root}${words(language).aboutSlug}/`;
     const history = `${root}${words(language).historySlug}/`;
     for (const target of [about, history, `${about}#method`, `${about}#privacy`]) {
@@ -230,11 +234,11 @@ test("the complete, localized footer is shared by every built page", () => {
 });
 
 /**
- * The home page counts the drafts rather than warning about one file, because it is about all of them;
- * every page about a single territory or record carries the warning itself. Either way the claim has to
- * follow the data, which is the one thing a reader cannot check for themselves.
+ * The warning sits where the reader uses the data: every page about a territory or a record of a draft
+ * file carries it. The home page no longer counts the drafts (founder, 14 Nov 2026); it would only
+ * repeat what each of those pages says, and the warning disappears file by file as files are reviewed.
  */
-test("a page says what has not been reviewed, and the count follows the data", () => {
+test("every country page and record page of a draft file says it has not been reviewed", () => {
   const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
     .toSorted()
     .toReversed();
@@ -250,18 +254,34 @@ test("a page says what has not been reviewed, and the count follows the data", (
   })(path.join(REPOSITORY, "data", "editions", edition));
   const drafts = files.filter(({ review }) => review.status === "DRAFT").length;
 
-  const home = pages.find(({ file }) => file === "index.html");
-  assert.ok(home, "no home page was built");
-  const said = /All (\d+) of its files are drafts|(\d+) of its (\d+) files are drafts/u.exec(home.html);
-  assert.ok(said, "the home page does not say how much of the edition nobody has checked yet");
-  const counted = Number(said[1] ?? said[2]);
-  assert.equal(counted, drafts, `the home page says ${counted} drafts and the edition has ${drafts}`);
+  // Every file of this edition is still a draft, so every country page must warn in its own language.
+  if (drafts === files.length) {
+    const countryPages = pages.filter(({ file }) => /^[a-z]{2}[\\/]index\.html$/u.test(file));
+    assert.ok(countryPages.length >= 6, `only ${countryPages.length} country pages were found`);
+    for (const { file, html } of countryPages) {
+      const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+      assert.ok(html.includes(words(language).draftNotice), `${file}: a country page of draft files does not warn its reader`);
+    }
+  }
 
-  const eu = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
-  assert.ok(eu, "no European record page was built");
+  const draft = pages.find(({ file }) => file === path.join("at", "angebote", "at-niederlassung-junglandwirte", "index.html"));
+  assert.ok(draft, "no Austrian record page was built");
   assert.ok(
-    eu.html.includes(words("en").draftNotice),
+    draft.html.includes(words("de").draftNotice),
     "a record page of a draft file does not carry the warning, which is the first thing its reader is owed",
+  );
+  // A European record carries the warning exactly when the European file is a draft, whichever it is today.
+  const european = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", edition, "eu.json"), "utf8")) as {
+    review: { status: string };
+  };
+  const record = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
+  assert.ok(record, "no European record page was built");
+  assert.equal(
+    record.html.includes(words("en").draftNotice),
+    european.review.status === "DRAFT",
+    european.review.status === "DRAFT"
+      ? "a record of a draft file does not say nobody reviewed it"
+      : "a record of a file a person reviewed still says nobody reviewed it",
   );
 });
 
@@ -541,11 +561,99 @@ test("a territory page says in its title what the page is about", () => {
   for (const { file, html } of territories) {
     const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const title = /<title>([^<]*)<\/title>/u.exec(html)?.[1] ?? "";
-    const about = words(language).territoryTitle.replace("{where}", "").trim();
+    // Europe's page has a search title of its own, which names the subject in full.
+    const about =
+      file === path.join("eu", "index.html") ? words(language).euMetaTitle : words(language).territoryTitle.replace("{where}", "").trim();
     assert.ok(
       title.includes(about),
       `${file} is titled "${title}", which is a name and not a subject. A reader meets this in a search result before they meet the page.`,
     );
+  }
+});
+
+/**
+ * Country pages are about different countries, not translations of one another, so they carry no
+ * alternates between them (decision recorded in CLAUDE.md). Each still says in its structured data which
+ * language it is written in, and its breadcrumb trail is the path a reader takes: from the overview of
+ * every country, not from inside Europe's page.
+ */
+test("a country page states its own language and is reached from the overview of every country", () => {
+  const countries = pages.filter(({ file }) => /^[a-z]{2}$/u.test(file.split(path.sep)[0] ?? "") && file.split(path.sep).length === 2);
+  assert.ok(countries.length > 0, "no country page was built: this check would pass without checking anything");
+  for (const { file, html } of countries) {
+    if (file === path.join("eu", "index.html")) continue;
+    const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const data = [...html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/gu)].map(([, json]) => JSON.parse(json!));
+    assert.ok(
+      data.some((item) => item["@type"] === "WebPage" && item.inLanguage === language),
+      `${file} does not state its language as a WebPage, so a search engine has only the text to guess from`,
+    );
+    const trail = data.find((item) => item["@type"] === "BreadcrumbList");
+    assert.equal(
+      trail?.itemListElement?.[0]?.item,
+      "https://farmsuccession.eu/",
+      `${file} starts its trail somewhere other than the overview of every country`,
+    );
+    assert.ok(!html.includes('hreflang="'), `${file} declares language alternates, but a country page translates no other page`);
+  }
+});
+
+/**
+ * A European measure is applied by each country in its own way, so a European record leads on to every
+ * country page; and a record's trail is the path a reader takes, which passes through Europe's page only
+ * when the record is European (founder, 17 Nov 2026).
+ */
+test("a European record leads to every country, and only a European record's trail passes through Europe", () => {
+  const trailOf = (html: string): string[] => {
+    const data = [...html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/gu)].map(([, json]) => JSON.parse(json!));
+    return (data.find((item) => item["@type"] === "BreadcrumbList")?.itemListElement ?? []).map((item: { item: string }) => item.item);
+  };
+  const countryPages = pages
+    .filter(({ file }) => /^[a-z]{2}[\/]index\.html$/u.test(file) && !file.startsWith("eu"))
+    .map(({ file }) => `/${file.split(/[\/]/u)[0]}/`);
+  const european = pages.filter(({ file }) => file.startsWith(`resources${path.sep}`));
+  assert.ok(european.length > 0 && countryPages.length > 0, "no European record or country page was built");
+  for (const { file, html } of european) {
+    for (const country of countryPages) {
+      assert.ok(html.includes(`href="${country}"`), `${file} does not lead to ${country}, where the country applies the measure`);
+    }
+    assert.deepEqual(
+      trailOf(html).slice(0, 2),
+      ["https://farmsuccession.eu/", "https://farmsuccession.eu/eu/"],
+      `${file}: a European record's trail must pass through Europe's page`,
+    );
+  }
+  const national = pages.filter(
+    ({ file, html }) => /^[a-z]{2}[\/][^\/]+[\/][^\/]+[\/]index\.html$/u.test(file) && trailOf(html).length > 2,
+  );
+  assert.ok(national.length > 0, "no national record page was checked");
+  for (const { file, html } of national) {
+    assert.ok(
+      !trailOf(html).includes("https://farmsuccession.eu/eu/"),
+      `${file}: a national record's trail passes through Europe's page, which a reader did not take`,
+    );
+  }
+});
+
+/**
+ * A European record is English and applies everywhere, so its kind, audience and "European Union" are given
+ * to the search index in every language the site writes, as an attribute nothing on the page displays.
+ * A national record is already written in its readers' language and carries none.
+ */
+test("a European record can be searched for in every language, through the site's own vocabulary only", () => {
+  const european = pages.filter(({ file }) => file.startsWith(`resources${path.sep}`));
+  assert.ok(european.length > 0, "no European record page was built");
+  for (const { file, html } of european) {
+    const terms = /data-pagefind-index-attrs="data-terms" data-terms="([^"]*)"/u.exec(html)?.[1];
+    assert.ok(terms, `${file} gives the search no words in other languages, so a Spanish or Dutch reader finds it only by luck`);
+    for (const language of ["en", "es", "de", "fr", "it", "pt", "nl"]) {
+      assert.ok(terms.includes(words(language).euName), `${file}: the search terms leave out ${language}`);
+    }
+  }
+  const national = pages.filter(({ file, html }) => /^[a-z]{2}[\/]/u.test(file) && html.includes("data-pagefind-body"));
+  assert.ok(national.length > 0, "no national record page was built");
+  for (const { file, html } of national) {
+    assert.ok(!html.includes("data-terms="), `${file} is written in its readers' language and needs no translated terms`);
   }
 });
 
@@ -608,7 +716,11 @@ test("a record is never listed without saying which layer it comes from", () => 
         // The records of this territory hang from the heading that names it — "the whole country" on a
         // country, the territory's name below one — and the ones that reach it from a wider layer hang
         // from a heading naming that layer, one level further down.
-        const own = says(text.ownRecords).test(heading.text) || heading.text.startsWith(flat(text.wholeCountryTitle));
+        // Europe's page names its layer in "Understand the EU framework".
+        const own =
+          says(text.ownRecords).test(heading.text) ||
+          heading.text.startsWith(flat(text.wholeCountryTitle)) ||
+          heading.text.startsWith(flat(text.euFrameworkTitle));
         group = own ? heading.text : "";
         if (group) grouped += 1;
       }
@@ -846,7 +958,8 @@ test("every page links its scoped licence notice and every evidence block warns 
     const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0] ?? "";
     assert.ok(footer.includes(text.licence), `${file}: missing scoped licence notice`);
     const first = file.split(path.sep)[0] ?? "";
-    const root = /^[a-z]{2}$/u.test(first) ? `/${first}/` : "/";
+    // Europe's page (/eu/) is no country: its footer links are the site's own.
+    const root = /^[a-z]{2}$/u.test(first) && first !== "eu" ? `/${first}/` : "/";
     assert.ok(footer.includes(`href="${root}${text.aboutSlug}/#licence"`), `${file}: cannot inspect reuse conditions`);
     if (html.includes("<blockquote")) {
       assert.ok(html.includes(text.sourceRights), `${file}: quotations have no adjacent third-party rights notice`);
@@ -891,4 +1004,36 @@ test("practical needs retain descriptive icons from the shared resource vocabula
     assert.ok(home.includes(`data-icon="lucide:${name}"`), `the ${name} entry has no descriptive icon`);
   }
   assert.doesNotMatch(home, /src="\/img\/needs\//u, "retired illustrations must not be fetched");
+});
+
+/**
+ * A list of countries read in one language names them in that language: "Germany" on the English home
+ * page, not "Deutschland" next to English words, which a reader has to translate before they can choose
+ * (founder, 17 Nov 2026). The place picker adds each country's own name on a quieter line, marked with
+ * its language, because somebody looking for their own country recognises it first.
+ */
+test("country lists name each country in the page's language", () => {
+  const home = pages.find(({ file }) => file === "index.html");
+  assert.ok(home, "the home page was not built");
+  const html = decodeHTML(home.html);
+  const start = html.indexOf("territory-options");
+  const picker = html.slice(start, html.indexOf("</ul>", start));
+  const cards = html.slice(html.lastIndexOf("grid gap-4 sm:grid-cols-2 lg:grid-cols-4"));
+  const english = new Intl.DisplayNames(["en"], { type: "region" });
+  const published = Object.entries(catalogueJurisdictions as Record<string, { name: string; lang: string }>).filter(
+    ([iso]) => iso !== "EU" && cards.includes(`href="/${iso.toLowerCase()}/"`),
+  );
+  assert.ok(published.length > 0, "no country card on the home page: this check would pass without checking anything");
+  for (const [iso, { name, lang }] of published) {
+    const label = english.of(iso)!;
+    assert.ok(cards.includes(`>${label}<`), `${iso}: the home page's country card should read "${label}"`);
+    assert.ok(picker.includes(label), `${iso}: the place picker should name "${label}"`);
+    if (name === label) continue;
+    assert.ok(!cards.includes(`>${name}<`), `${iso}: the English card shows "${name}", a name in another language`);
+    assert.match(
+      picker,
+      new RegExp(`lang="${lang}"[^>]*>\\s*${name}\\s*<`, "u"),
+      `${iso}: the picker should add "${name}" marked lang="${lang}"`,
+    );
+  }
 });

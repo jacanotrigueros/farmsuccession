@@ -37,7 +37,7 @@ const Heading = level;
 const recordLanguage = languageOf(recordedIn);
 const text = words(language);
 
-const place = resourcePlaceParts(placeOf(recordedIn, text.euName), resource.scope.area, text.reachRow, text.labelSeparator);
+const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), resource.scope.area, text.reachRow, text.labelSeparator);
 ---
 
 <li
@@ -50,7 +50,8 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName), resource.scop
 >
   <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
     <KindTag kind={resource.kind} language={language} />
-    <StatusTag status={resource.status} language={language} />
+    {/* "Active" on a policy framework reads as something to apply for; its other statuses still show. */}
+    {!(resource.kind === "POLICY" && resource.status === "ACTIVE") && <StatusTag status={resource.status} language={language} />}
   </div>
   <Heading data-record class="mt-3 text-lg leading-snug font-bold">
     <a
@@ -61,7 +62,7 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName), resource.scop
       {resource.name}
     </a>
   </Heading>
-  <p lang={recordLanguage} class:list={["mt-3", showFullSummary ? "max-w-5xl" : compact ? "line-clamp-2" : "line-clamp-3"]}>
+  <p lang={recordLanguage} class:list={["mt-3", showFullSummary ? "" : compact ? "line-clamp-2" : "line-clamp-3"]}>
     {resource.whatItOffers}
   </p>
   {compact ? (

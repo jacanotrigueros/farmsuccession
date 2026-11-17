@@ -87,3 +87,4 @@ on the way in, which is the only honest reason for a measurement to move.
 | [035](035-a-measurement-defends-025.md)                           | A measurement defends 025, and says when to come back           |
 | [036](036-help-readers-choose-before-listing-everything.md)       | Help readers choose before listing everything                   |
 | [037](037-public-reports-use-explicit-form-delivery.md)           | Formspree delivery: shared forms and pending account activation |
+| [038](038-a-retired-edition-stays-readable.md)                    | A retired edition stays readable, as it was published           |

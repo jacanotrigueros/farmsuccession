@@ -11,10 +11,6 @@ import { namesPlace } from "../src/lib/place-name.ts";
 import { words } from "../src/lib/words.ts";
 
 const ROOT = path.join(import.meta.dirname, "..", "..");
-/** Every jurisdiction of the catalogue, so a count follows the catalogue instead of a number written down once. */
-const catalogueJurisdictions = (
-  JSON.parse(readFileSync(path.join(ROOT, "data", "territories.json"), "utf8")) as { jurisdictions: Record<string, unknown> }
-).jurisdictions;
 function snapshots(dir: string): EditionSnapshot[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const file = path.join(dir, entry.name);
@@ -171,5 +167,8 @@ test("a record's description ends inside what a result shows, in every country",
       `${route}: the description was cut after a space, which shows a result a gap before the ellipsis`,
     );
   }
-  assert.equal(seen.size, Object.keys(catalogueJurisdictions).length, "every country and the European layer were not all covered");
+  // A country prepared for research but not researched yet (the Netherlands, November 2026) has no
+  // record to describe; every jurisdiction with one must be covered.
+  const withRecords = new Set(entries.map(({ snapshot }) => ("country" in snapshot ? snapshot.country.toLowerCase() : "eu")));
+  assert.equal(seen.size, withRecords.size, "every country and the European layer with records were not all covered");
 });

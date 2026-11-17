@@ -3,11 +3,11 @@
   "schemaVersion": "1.0.0",
   "edition": "2026",
   "officialName": "European Union",
-  "published": "2026-09-14",
+  "published": "2026-11-17",
   "summary": "The EU sets the common framework for generational renewal in farming: the CAP interventions for young farmers, the Strategy for Generational Renewal in Agriculture and the EU CAP Network's knowledge on the topic. Aid is implemented nationally and regionally.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Review of the European Commission's generational renewal and young farmers pages and the EU CAP Network topic page. EU funding instruments managed by the EIB and national implementations are not listed individually.",
+    "note": "Review of the European Commission's generational renewal, young farmers and CAP Strategic Plans pages, the EU CAP Network topic page and the fi-compass toolkit on young farmers' loan applications. EU funding instruments managed by the EIB and national implementations are not listed individually.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -20,6 +20,14 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://agriculture.ec.europa.eu/vision-overview/generational-renewal/access-land_en"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://agriculture.ec.europa.eu/cap-my-country/cap-strategic-plans_en"
+      },
+      {
+        "method": "OFFICIAL_PORTAL",
+        "detail": "https://www.fi-compass.eu/f/developing-business-plans-loan-applications/why-this-guide-matters.html"
       }
     ]
   },
@@ -36,6 +44,13 @@
         "model": "claude-opus-5",
         "promptVersion": "1.0.0",
         "processedAt": "2026-09-14"
+      },
+      {
+        "id": "claude-2",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5-5",
+        "processedAt": "2026-11-17",
+        "promptVersion": "1.13.0"
       }
     ]
   },
@@ -50,7 +65,7 @@
       },
       "operator": "European Commission",
       "operatorType": "PUBLIC",
-      "whatItOffers": "EU policy framework to make farming more accessible: support for starting, fairer and more transparent land markets, earlier farm succession and pension security, training and rural services.",
+      "whatItOffers": "EU policy framework to make farming more accessible: support for starting, fairer and more transparent land markets, earlier farm succession and pension security, training and rural services. It proposes a Starter Pack for Young Farmers as a single national entry point to funding, training and advice, and aims to double the share of young and new farmers by 2040.",
       "whoCanUseIt": "Member States designing their measures; young farmers and new entrants as the target group.",
       "accessUrl": "https://agriculture.ec.europa.eu/vision-overview/generational-renewal_en",
       "languages": ["en"],
@@ -59,16 +74,20 @@
         {
           "url": "https://agriculture.ec.europa.eu/vision-overview/generational-renewal_en",
           "title": "Generational renewal in agriculture",
-          "consultedOn": "2026-09-14",
+          "consultedOn": "2026-11-17",
           "quotes": [
             "The Strategy for Generational Renewal in Agriculture sets out a comprehensive policy framework",
             "Access to land remains one of the biggest barriers for new entrants",
-            "Creating a European Land Observatory to improve transparency on land use, ownership and prices"
+            "Creating a European Land Observatory to improve transparency on land use, ownership and prices",
+            "It provides a coordinated EU and national response by combining financial support, fairer land markets, training, and reforms that promote timely farm succession and adequate pension security for retiring farmers.",
+            "Investment in rural infrastructure and services such as childcare, healthcare, transport and broadband.",
+            "A Starter Pack for Young Farmers will offer a single-entry point at national level, bringing together funding, training and advisory services.",
+            "By 2040, Europe aims to double the share of young and new farmers, ensuring that agriculture remains innovative, competitive and resilient."
           ]
         }
       ],
-      "notes": "The European Land Observatory is a measure of the Strategy; it is not recorded as an operating service.",
-      "generatorId": "claude-1"
+      "notes": "The Starter Pack and the European Land Observatory are measures the Strategy announces, not services operating today; the Observatory is documented separately as announced.",
+      "generatorId": "claude-2"
     },
     {
       "id": "eu-cap-young-farmers",
@@ -80,9 +99,9 @@
       },
       "operator": "European Commission",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Explains the CAP interventions for young farmers that every country tailors in its CAP Strategic Plan: complementary income support, installation aid, investment support and cooperation for farm succession.",
-      "whoCanUseIt": "Young farmers apply through their national or regional CAP authorities, not at EU level.",
-      "howToAccess": "Check the national or regional implementation of the CAP Strategic Plan.",
+      "whatItOffers": "Explains the CAP 2023-27 support for young farmers that every country tailors in its CAP Strategic Plan: the Complementary Income Support for Young Farmers (CISYF), an annual payment per eligible hectare or lump sum for young farmers newly set up for the first time, plus installation aid, investment support and cooperation for farm succession.",
+      "whoCanUseIt": "Young farmers as each country defines them within the EU rules: at most 35 to 40 years old (each country sets the exact limit), head of the holding with effective control over it, and with appropriate training or skills. CISYF is for those newly set up for the first time and entitled to basic income support.",
+      "howToAccess": "Apply to the managing authorities listed in your country's CAP Strategic Plan. Most countries pay CISYF under direct payments and open calls for application under rural development funds.",
       "accessUrl": "https://agriculture.ec.europa.eu/common-agricultural-policy/income-support/young-farmers_en",
       "languages": ["en"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
@@ -90,15 +109,96 @@
         {
           "url": "https://agriculture.ec.europa.eu/common-agricultural-policy/income-support/young-farmers_en",
           "title": "Young farmers",
-          "consultedOn": "2026-09-14",
+          "consultedOn": "2026-11-17",
           "quotes": [
             "The CAP 2023-27 provides for several interventions specifically for young farmers",
             "EU countries must dedicate an amount corresponding to at least 3% of their direct payments budget to support young farmers",
-            "in the context of farm succession, this applies in particular for generational renewal at farm level"
+            "in the context of farm succession, this applies in particular for generational renewal at farm level",
+            "The CISYF is a voluntary scheme under direct payments providing enhanced income support to young farmers who are newly set up for the first time and who are entitled to basic income support.",
+            "The support is granted in the form of an annual payment per eligible hectare or annual lump sum.",
+            "a young farmer can be maximum 35-40 years old (EU countries are to set the exact upper age limit)",
+            "must have an effective control over the holding",
+            "a young farmer must have appropriate training and/or skills",
+            "Young farmers in the EU can apply for CAP support to the managing authorities, which are listed in their country’s national CAP Strategic Plan.",
+            "Most EU countries support generational renewal through CISYF under direct payments and via rural development funds call for application."
           ]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-2"
+    },
+    {
+      "id": "eu-cap-strategic-plans",
+      "name": "CAP Strategic Plans by country",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "EU"
+      },
+      "operator": "European Commission",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "The Commission's gateway to the CAP Strategic Plan of each EU country for 2023-2027: the interventions and CAP instruments each country uses, how its plan was approved and its annual performance reports.",
+      "accessUrl": "https://agriculture.ec.europa.eu/cap-my-country/cap-strategic-plans_en",
+      "accessCostType": "FREE",
+      "languages": ["en"],
+      "targetProfiles": ["GENERAL"],
+      "sources": [
+        {
+          "url": "https://agriculture.ec.europa.eu/cap-my-country/cap-strategic-plans_en",
+          "title": "CAP Strategic Plans - Agriculture and rural development",
+          "consultedOn": "2026-11-17",
+          "quotes": [
+            "The CAP Strategic Plans include the intervention strategies, and the CAP instruments each EU country will use from 2023 to 2027 to achieve the CAP objectives.",
+            "the CAP Strategic Plan approved by the European Commission for each EU country;",
+            "their approval process;",
+            "the annual performance reports."
+          ]
+        }
+      ],
+      "generatorId": "claude-2"
+    },
+    {
+      "id": "eu-fi-compass-young-farmer-business-plans",
+      "name": "Business plans and loan applications by young farmers in the EU",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "EU"
+      },
+      "operator": "fi-compass (European Commission with the European Investment Bank)",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Toolkit for young and new farmers preparing a business plan to apply for a bank loan or other external financing: what banks look for, the most common reasons for rejection and how to prepare a finance-ready plan, for example by considering good and bad years and possible delays in grants or payments.",
+      "accessUrl": "https://www.fi-compass.eu/f/developing-business-plans-loan-applications/why-this-guide-matters.html",
+      "accessCostType": "FREE",
+      "languages": ["en"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.fi-compass.eu/f/developing-business-plans-loan-applications/why-this-guide-matters.html",
+          "title": "Why this guide matters - Business plans and loan applications by young farmers in the EU",
+          "consultedOn": "2026-11-17",
+          "quotes": [
+            "This toolkit is intended for young and new farmers who are preparing a business plan to apply for a bank loan or other forms of external financing.",
+            "how to prepare a credible, finance-ready business plan."
+          ]
+        },
+        {
+          "url": "https://www.fi-compass.eu/f/developing-business-plans-loan-applications/what-banks-look-for-in-your-business-plan.html",
+          "title": "What banks look for in your business plan - Business plans and loan applications by young farmers in the EU",
+          "consultedOn": "2026-11-17",
+          "quotes": [
+            "When banks assess young farmer loan applications, they evaluate the lending risk",
+            "consider different scenarios (e.g. good year vs bad year)",
+            "plan for possible delays in grants or payments"
+          ]
+        },
+        {
+          "url": "https://www.fi-compass.eu/about-fi-compass",
+          "title": "About | fi-compass",
+          "consultedOn": "2026-11-17",
+          "quotes": ["fi-compass is provided by the European Commission in partnership with the European Investment Bank."]
+        }
+      ],
+      "generatorId": "claude-2"
     },
     {
       "id": "eu-cap-network-generational-renewal",
@@ -110,7 +210,7 @@
       },
       "operator": "EU CAP Network",
       "operatorType": "PUBLIC",
-      "whatItOffers": "European knowledge hub on measures, projects, publications and good practices that support young farmers and new entrants.",
+      "whatItOffers": "EU CAP Network topic page on generational renewal: news, upcoming events, publications and good-practice projects from across the EU that support young farmers and new entrants in setting up a farm business.",
       "accessUrl": "https://eu-cap-network.ec.europa.eu/topics/generational-renewal_en",
       "accessCostType": "FREE",
       "languages": ["en"],
@@ -119,13 +219,16 @@
         {
           "url": "https://eu-cap-network.ec.europa.eu/topics/generational-renewal_en",
           "title": "Generational Renewal | EU CAP Network",
-          "consultedOn": "2026-09-14",
+          "consultedOn": "2026-11-17",
           "quotes": [
-            "Find out more about measures, projects and training to stimulate generational renewal and support young farmers and new entrants"
+            "Find out more about measures, projects and training to stimulate generational renewal and support young farmers and new entrants",
+            "support young farmers and new entrants in setting up a successful agri-business",
+            "All Generational Renewal publications",
+            "All Generational Renewal good practice"
           ]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-2"
     },
     {
       "id": "eu-observatory-on-farmland",
@@ -157,8 +260,5 @@
     }
   ],
   "news": [],
-  "limitations": [
-    "No EU-level event of 2026 that changes the instruments available to farmers was verified for this edition.",
-    "EU pages describe frameworks; eligibility and application routes are set by each country or region."
-  ]
+  "limitations": []
 }

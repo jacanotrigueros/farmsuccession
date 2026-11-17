@@ -17,6 +17,7 @@ import type { Layer } from "../../../src/layers.ts";
 import type { Call, ContactPoint, EditionSnapshot, Metric, NewsItem, Resource, Source } from "../../../src/types/edition.ts";
 import type { Territories } from "../../../src/types/territories.ts";
 import { recordSlug, regionSlug } from "../../public/search-scope.js";
+import { countryNameIn } from "./language.ts";
 
 /**
  * The repository's modules are loaded from the repository, not bundled into the site.
@@ -111,13 +112,24 @@ export function view(territory: Territory): { layers: Territory[]; resources: Vi
 }
 
 /**
- * Where a territory lives on the site. The EU layer is the home, because it is what every reader shares.
+ * Where a territory lives on the site. The EU layer is the root every country's address hangs from, so
+ * its address is `/`; the page that lists the EU layer's own instruments is `EUROPE_PAGE`.
  *
  * Everything below a country sits under one segment, in that country's own language — `/es/regiones/galicia/`,
  * `/de/regionen/bayern/` — so the catalogue's open list of territories can never collide with the site's
  * own pages. A grouping that publishes a layer of its own is a territory like any other and lives there
  * too: for a reader it is the place the page is about, not a tier of the model.
  */
+/**
+ * The page of the European layer: what applies at EU level, on its own, built by the same template as a
+ * country. The home page `/` is the overview of every country; choosing Europe leads here instead, so it
+ * shows Europe's own instruments rather than the whole directory again (founder, 16 Nov 2026).
+ */
+export const EUROPE_PAGE = "/eu/";
+
+/** The page that shows a territory: its address, except Europe's, which is `EUROPE_PAGE`. */
+export const pageOf = (layer: Layer): string => (layer.level === "EU" ? EUROPE_PAGE : href(layer));
+
 export function href(layer: Layer): string {
   if (layer.level === "EU") return "/";
   const country = layer.country.toLowerCase();
@@ -131,13 +143,12 @@ export function href(layer: Layer): string {
  *
  * A region's own name is not enough on a list that mixes territories of several countries, and it is not
  * enough on a record either — "Andalucía" says where only to somebody who already knows. The country
- * comes first, as the postal order of a place does.
+ * comes first, as the postal order of a place does, and in the reader's language: a region keeps its own
+ * name, which is the one on every sign and form, but "Spain" is what an English reader knows the country by.
  */
-export function placeOf(territory: Territory, europe: string): string {
+export function placeOf(territory: Territory, europe: string, language: string): string {
   if (territory.layer.level === "EU") return europe;
-  const iso = territory.layer.country;
-  const country = countryTerritories(territory.file.slice(0, 4)).find(({ layer }) => layer.level === "COUNTRY" && layer.country === iso);
-  const name = country?.data.officialName ?? iso;
+  const name = countryNameIn(territory.layer.country, language);
   return territory.layer.level === "COUNTRY" ? name : `${name} · ${territory.data.officialName}`;
 }
 
