@@ -33,3 +33,10 @@ export const goalOf = (kind: Resource["kind"]): GoalId => {
   if (goal === undefined) throw new Error(`no situation covers the record kind ${kind}: add it to goals.ts before publishing one`);
   return goal;
 };
+
+/**
+ * Aid to set up for the first time: a grant or loan whose purpose is a first establishment. It is what most
+ * readers of a country page came for, so a territory's card shows it without a click (founder, 18 Nov 2026).
+ */
+export const isFirstEstablishmentAid = (resource: Resource): boolean =>
+  resource.kind === "FINANCIAL_SUPPORT" && ((resource.purposes ?? []) as readonly string[]).includes("FIRST_ESTABLISHMENT");

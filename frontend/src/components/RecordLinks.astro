@@ -1,0 +1,33 @@
+---
+/**
+ * The records one territory recorded, as plain links named the way the record names itself, in the order
+ * a reader looks a name up. A country page lists them inside each territory's box, in the HTML, so the
+ * country page names every record it documents without JavaScript and without a second index.
+ *
+ * Each carries its kind's icon, the same one the aid above it and its own card use, so a reader scanning a
+ * list of names can tell a land bank from a course before reading it (founder, 18 Nov 2026).
+ */
+import { Icon } from "astro-icon/components";
+import { languageOf, recordHref, type Resource, type Territory } from "../lib/corpus.ts";
+import { kindIcon } from "../lib/icons.ts";
+
+type Props = { place: Territory; language: string; resources?: readonly Resource[] };
+const { place, language, resources = place.data.resources } = Astro.props;
+---
+
+<ul class="pb-2">
+  {resources
+    .toSorted((a, b) => a.name.localeCompare(b.name, language))
+    .map((resource) => (
+      <li>
+        <a
+          href={recordHref(resource.id, place)}
+          lang={languageOf(place)}
+          class="inline-flex min-h-(--spacing-target) items-start gap-2 py-2 underline"
+        >
+          <Icon name={kindIcon(resource.kind)} aria-hidden="true" class="mt-0.5 size-5 shrink-0 text-brand" />
+          <span>{resource.name}</span>
+        </a>
+      </li>
+    ))}
+</ul>

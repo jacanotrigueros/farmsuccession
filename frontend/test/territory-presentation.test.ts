@@ -29,7 +29,9 @@ const resourceUrl = (id: string, country?: string) =>
 const allRecords = new Set(
   snapshots.flatMap(({ data }) => data.resources.map((r) => resourceUrl(r.id, "country" in data ? data.country : undefined))),
 );
-const links = (html: string) => [...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].map((m) => m[1]!);
+// A European card may also lead to its national counterpart; that cross-reference is not one of the lists.
+const links = (html: string) =>
+  [...html.replace(/<p[^>]*data-counterpart[^>]*>[\s\S]*?<\/p>/gu, "").matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].map((m) => m[1]!);
 
 test("every regional and grouping page retains exactly its own and inherited resource destinations, including empty and large regions", () => {
   let checked = 0;
@@ -101,7 +103,8 @@ test("country pages expose each regional resource inside its territory rather th
   for (const iso of new Set(snapshots.flatMap(({ layer }) => (layer.level === "COUNTRY" ? [layer.country] : [])))) {
     if (iso === "EU") continue;
     const cc = iso.toLowerCase();
-    const html = htmlAt(cc);
+    // The first-establishment shortcut names some of these records again, on purpose (built-site.test.ts).
+    const html = htmlAt(cc).replace(/<section\b[^>]*aria-labelledby="install"[\s\S]*?<\/section>/u, "");
     assert.doesNotMatch(html, /id="all-records"/u, `${cc}: a second regional index duplicates territory navigation`);
     const regional = snapshots.filter(({ layer }) => layer.level === "REGION" && layer.country === iso);
     const local = regional.flatMap(({ data }) => data.resources);

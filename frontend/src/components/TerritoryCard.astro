@@ -1,0 +1,95 @@
+---
+/**
+ * One territory on its country's page: one box, a row a finger can hit that leads to the territory, and
+ * underneath it, on a country page, the territory's own records behind one disclosure.
+ *
+ * It used to be a card the full height of its grid row with the disclosure hanging below it, outside the
+ * box: each territory took three rows of screen, and inside a grouping the disclosure of the last card
+ * was drawn over the grouping's own (founder, 17 Nov 2026). Everything is inside the box now, so the box
+ * grows with what it holds and nothing can be drawn over anything else.
+ */
+import { Icon } from "astro-icon/components";
+import RecordLinks from "./RecordLinks.astro";
+import { href, languageOf, recordHref, type Territory } from "../lib/corpus.ts";
+import { isFirstEstablishmentAid } from "../lib/goals.ts";
+import { ICON, kindIcon } from "../lib/icons.ts";
+import { words } from "../lib/words.ts";
+
+type Props = { child: Territory; language: string; withRecords: boolean };
+const { child, language, withRecords } = Astro.props;
+const text = words(language);
+
+/** On a country page the aid to set up is shown at once; everything else the territory holds is one click away. */
+const aid = withRecords ? child.data.resources.filter(isFirstEstablishmentAid) : [];
+const rest = withRecords ? child.data.resources.filter((resource) => !isFirstEstablishmentAid(resource)) : [];
+---
+
+<li class="territory card min-w-0">
+  <a href={href(child.layer)} class="territory-link">
+    <span class="font-bold text-ink">{child.data.officialName}</span>
+  </a>
+  {aid.length > 0 && (
+    <ul class="border-t border-line px-4 py-1" aria-label={text.installShortcut}>
+      {aid.map((resource) => (
+        <li>
+          <a
+            href={recordHref(resource.id, child)}
+            lang={languageOf(child)}
+            class="inline-flex min-h-(--spacing-target) items-start gap-2 py-2 text-brand-strong underline"
+          >
+            <Icon name={kindIcon("FINANCIAL_SUPPORT")} aria-hidden="true" class="mt-0.5 size-5 shrink-0" />
+            <span>{resource.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+  {rest.length > 0 && (
+    <details class="regional-resources border-t border-line px-4">
+      <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-brand-strong">
+        {(aid.length > 0 ? text.moreRecords : text.showRecords).replace("{n}", String(rest.length))}
+        <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
+      </summary>
+      <RecordLinks place={child} language={language} resources={rest} />
+    </details>
+  )}
+</li>
+
+<style>
+  /* The whole row is the target, and the arrow says it leads somewhere. */
+  .territory-link {
+    position: relative;
+    display: flex;
+    min-height: var(--spacing-target);
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.125rem;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: inherit;
+  }
+  .territory-link::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 0.25rem);
+    right: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 2px solid var(--color-brand);
+    border-right: 2px solid var(--color-brand);
+    transform: rotate(45deg);
+  }
+  .territory-link:hover,
+  .territory-link:focus-visible {
+    background: var(--color-brand-tint);
+  }
+  .regional-resources > summary {
+    list-style: none;
+  }
+  .regional-resources > summary::-webkit-details-marker {
+    display: none;
+  }
+  .regional-resources[open] > summary :global(.group-chevron) {
+    transform: rotate(180deg);
+  }
+</style>

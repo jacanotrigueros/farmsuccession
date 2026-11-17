@@ -12,10 +12,11 @@
  * wants to know which page to watch for a change can see it without opening the record.
  */
 import { Icon } from "astro-icon/components";
-import DraftNotice from "../components/DraftNotice.astro";
 import Needs from "../components/Needs.astro";
 import PageHeader from "../components/PageHeader.astro";
 import CountryCards from "../components/CountryCards.astro";
+import RecordLinks from "../components/RecordLinks.astro";
+import TerritoryCard from "../components/TerritoryCard.astro";
 import PageIndex from "../components/PageIndex.astro";
 import ResourceList from "../components/ResourceList.astro";
 import StandaloneNews from "../components/StandaloneNews.astro";
@@ -27,7 +28,6 @@ import {
   currentEdition,
   href,
   hubTerritories,
-  isDraft,
   recordHref,
   languageOf,
   localeOf,
@@ -36,10 +36,9 @@ import {
   type Territory,
   view,
 } from "../lib/corpus.ts";
-import { GOALS } from "../lib/goals.ts";
-import { flagOf, ICON } from "../lib/icons.ts";
+import { GOALS, isFirstEstablishmentAid } from "../lib/goals.ts";
+import { flagOf, ICON, kindIcon } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
-import { coverageLabel } from "../lib/vocabulary.ts";
 import { kindLabel } from "../lib/vocabulary.ts";
 import { counted, editionNamed, words } from "../lib/words.ts";
 import { queryFromState, searchPath, searchUrl } from "../../public/search-scope.js";
@@ -62,6 +61,8 @@ const { layers, resources } = view(territory);
 const name = territory.data.officialName;
 
 const country = territory.layer.level === "EU" ? "" : territory.layer.country;
+/** A country speaks of itself as a country: what it runs is national, not "its own layer". */
+const isCountry = territory.layer.level === "COUNTRY";
 /**
  * The territories under this one. A region's grouping is not written on the region — a region is a
  * country and a slug, and which grouping it belongs to is the catalogue's business — so it is read from
@@ -99,8 +100,21 @@ const under = [
     .filter(({ members }) => members.length > 0),
 ];
 
+/**
+ * Aid to set up for the first time is what most readers of a country page came for, and in most countries it
+ * is convened territory by territory: each territory's card shows its own (TerritoryCard), and the page
+ * header leads there (ChatGPT review of /es/, founder 18 Nov 2026).
+ */
+const showsInstall =
+  isCountry && [...children, ...groupings].filter((place) => place.data.resources.some(isFirstEstablishmentAid)).length >= 2;
+
 /** What this territory recorded itself, and what reaches it from a wider layer, closest layer first. */
-const own = resources.filter(({ from }) => from === territory).map(({ resource }) => ({ resource, recordedIn: territory }));
+const settled = (status: string): number =>
+  status === "ACTIVE" ? 0 : status === "UNKNOWN" || status === "ANNOUNCED_NOT_OPERATING" ? 2 : 1;
+const own = resources
+  .filter(({ from }) => from === territory)
+  .map(({ resource }) => ({ resource, recordedIn: territory }))
+  .toSorted((a, b) => settled(a.resource.status) - settled(b.resource.status));
 const inheritedGroups = [...layers]
   .toReversed()
   .filter((layer) => layer !== territory)
@@ -111,9 +125,6 @@ const inheritedGroups = [...layers]
   .filter(({ items }) => items.length > 0);
 const inheritedCount = inheritedGroups.reduce((total, { items }) => total + items.length, 0);
 
-/** A country speaks of itself as a country: what it runs is national, not "its own layer". */
-const isCountry = territory.layer.level === "COUNTRY";
-
 /**
  * Europe's page explains a framework rather than listing services (founder, 16 Nov 2026, from the
  * ChatGPT design he chose): its strongest action is choosing one's country, where the framework turns
@@ -122,12 +133,12 @@ const isCountry = territory.layer.level === "COUNTRY";
  * and keeps the shared header, cards and footer.
  */
 const isEurope = territory.layer.level === "EU";
-const pageTitle = isEurope ? text.euTitle : text.territoryTitle.replace("{where}", name);
+const pageTitle = isEurope ? text.euTitle : (isCountry ? text.countryTitle : text.territoryTitle).replace("{where}", name);
 /**
  * Europe's page is found by people searching for EU policy and CAP support for young farmers, so its
  * search title and snippet say that; its long introduction stays on the page, where it is read.
  */
-const metaTitle = isEurope ? text.euMetaTitle : pageTitle;
+const metaTitle = isEurope ? text.euMetaTitle : isCountry ? text.countryMetaTitle.replace("{where}", name) : pageTitle;
 const metaDescription = isEurope ? text.euMetaDescription : territory.data.summary;
 /** A country inherits only from the European layer, so its heading can name it instead of "other scopes". */
 const inheritedForms = isCountry ? text.euAppliesIn : text.alsoApplies;
@@ -146,7 +157,6 @@ const sections = [
     : [{ id: "own", label: isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.navOwn }]),
   ...(inheritedCount > 0 ? [{ id: "inherited", label: isCountry ? text.euName : text.alsoAppliesNav }] : []),
   ...(territory.data.news.some((item) => !item.resourceIds?.length) ? [{ id: "news", label: text.newsTitle }] : []),
-  ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
 ];
 
 /**
@@ -211,12 +221,6 @@ const kinds = [...new Set([...own, ...inheritedGroups.flatMap(({ items }) => ite
 // Europe's records are of several kinds (frameworks, a portal, advice, a network), so a reader can narrow
 // them to the one they need rather than reading every card (founder, 17 Nov 2026).
 const narrows = kinds.length > 1 && !isCountry;
-
-/** What a territory card says: written for it, and applicable there in total. */
-const countsOf = (child: Territory): string =>
-  text.territoryCounts
-    .replace("{own}", counted(child.data.resources.length, text.territoryOwnWord, locale))
-    .replace("{total}", counted(view(child).resources.length, text.territoryTotalWord, locale));
 
 /** The heading of the records this territory recorded, and the sentence under a country's own. */
 const alsoTitle = (inheritedCount === 1 ? inheritedForms[0] : inheritedForms[1])
@@ -290,16 +294,11 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
             )
     }
     crumbsLabel={text.whereYouAre}
-    eyebrow={isEurope ? text.euEyebrow : `${text.siteName} · ${editionNamed(currentEdition, language)}`}
+    eyebrow={isEurope ? text.euEyebrow : isCountry ? undefined : `${text.siteName} · ${editionNamed(currentEdition, language)}`}
     title={pageTitle}
     lead={territory.data.summary}
     flag={territory.layer.level === "COUNTRY" ? flagOf(country) : territory.layer.level === "EU" ? flagOf("EU") : undefined}
   >
-    {isDraft(territory) && (
-      <div class="mt-6">
-        <DraftNotice language={language} />
-      </div>
-    )}
     {/* On Europe's page the search covers every country, so it says so instead of naming the EU layer. */}
     <div class="mt-8">
       <SearchBox
@@ -316,12 +315,19 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
           {text.readEuResources.replace("{n}", String(own.length))}
         </a>
       ) : (
-        <a
-          href={searchPath("/", country || undefined) + pinnedQuery}
-          class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline"
-        >
-          {text.browseAll.replace("{where}", name)}
-        </a>
+        <p class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+          {showsInstall && (
+            <a href="#territories" class="btn btn-primary">
+              {text.installShortcut}
+            </a>
+          )}
+          <a
+            href={searchPath("/", country || undefined) + pinnedQuery}
+            class="inline-flex min-h-(--spacing-target) items-center font-bold underline"
+          >
+            {text.browseAll.replace("{where}", name)}
+          </a>
+        </p>
       )}
     </div>
     {!isEurope && (
@@ -337,7 +343,6 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
             </li>
           ))}
         </ul>
-        {isCountry && <p class="meta mt-4 border-t border-line pt-4">{split}</p>}
       </div>
     )}
   </PageHeader>
@@ -365,19 +370,20 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
           language={language}
           hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
           hrefForKind={(kind) => searchHere([kind])}
+          kinds={false}
         />
       </div>
     </section>
   )}
 
   {(children.length > 0 || groupings.length > 0) && (
-    <section class="wrap py-12" aria-labelledby="territories">
+    <section class:list={["wrap pt-12", isCountry && own.length === 0 && "pb-12"]} aria-labelledby="territories">
       <h2 id="territories" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
         <Icon name={ICON.territory} aria-hidden="true" class="size-6 shrink-0 text-brand" />
         {text.territoriesTitle}
       </h2>
       <p class="mt-2 max-w-5xl text-muted">{text.territoriesLead}</p>
-      <ul class="territory-list mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="territory-list mt-6 grid grid-cols-1 items-start gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {under.map(({ hub, members }) =>
           hub ? (
             <li class="card p-4 sm:col-span-2 lg:col-span-3">
@@ -385,101 +391,53 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
                 <a href={href(hub.layer)}>{hub.data.officialName}</a>
               </h3>
               {hub.data.resources.length > 0 && (
-                <p class="meta mt-1">
+                <p class="meta">
                   <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${href(hub.layer)}#own`}>
                     {counted(hub.data.resources.length, text.sharedRecords, locale)}
                   </a>
                 </p>
               )}
-              <ul class="territory-list mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <ul class="territory-list mt-2 grid grid-cols-1 items-start gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {members.map((child) => (
-                  <li class="min-w-0">
-                    <a href={href(child.layer)} class="territory-link card card-link">
-                      <span class="font-bold text-ink">{child.data.officialName}</span>
-                      <span class="meta">{countsOf(child)}</span>
-                    </a>
-                    {isCountry && child.data.resources.length > 0 && (
-                      <details class="regional-resources mt-2 border-t border-line pt-2">
-                        <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-control font-bold text-brand-strong">
-                          {counted(child.data.resources.length, text.record, locale)}
-                          <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
-                        </summary>
-                        <ul class="grid gap-1">
-                          {child.data.resources
-                            .toSorted((a, b) => a.name.localeCompare(b.name, language))
-                            .map((resource) => (
-                              <li>
-                                <a
-                                  href={recordHref(resource.id, child)}
-                                  lang={languageOf(child)}
-                                  class="inline-flex min-h-(--spacing-target) items-center underline"
-                                >
-                                  {resource.name}
-                                </a>
-                              </li>
-                            ))}
-                        </ul>
-                      </details>
-                    )}
-                  </li>
+                  <TerritoryCard child={child} language={language} withRecords={isCountry} />
                 ))}
               </ul>
-              {isCountry && hub.data.resources.length > 0 && (
-                <details class="regional-resources mt-3 border-t border-line pt-2">
-                  <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-control font-bold text-brand-strong">
-                    {counted(hub.data.resources.length, text.record, locale)}
+              {isCountry && hub.data.resources.some(isFirstEstablishmentAid) && (
+                <ul class="mt-3 border-t border-line pt-1" aria-label={text.installShortcut}>
+                  {hub.data.resources.filter(isFirstEstablishmentAid).map((resource) => (
+                    <li>
+                      <a
+                        href={recordHref(resource.id, hub)}
+                        lang={languageOf(hub)}
+                        class="inline-flex min-h-(--spacing-target) items-start gap-2 py-2 text-brand-strong underline"
+                      >
+                        <Icon name={kindIcon("FINANCIAL_SUPPORT")} aria-hidden="true" class="mt-0.5 size-5 shrink-0" />
+                        <span>{resource.name}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {isCountry && hub.data.resources.some((resource) => !isFirstEstablishmentAid(resource)) && (
+                <details class="regional-resources mt-3 border-t border-line">
+                  <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-brand-strong">
+                    {(hub.data.resources.some(isFirstEstablishmentAid) ? text.moreRecords : text.showRecords).replace(
+                      "{n}",
+                      String(hub.data.resources.filter((resource) => !isFirstEstablishmentAid(resource)).length),
+                    )}{" "}
+                    · {hub.data.officialName}
                     <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
                   </summary>
-                  <ul class="grid gap-1">
-                    {hub.data.resources
-                      .toSorted((a, b) => a.name.localeCompare(b.name, language))
-                      .map((resource) => (
-                        <li>
-                          <a
-                            href={recordHref(resource.id, hub)}
-                            lang={languageOf(hub)}
-                            class="inline-flex min-h-(--spacing-target) items-center underline"
-                          >
-                            {resource.name}
-                          </a>
-                        </li>
-                      ))}
-                  </ul>
+                  <RecordLinks
+                    place={hub}
+                    language={language}
+                    resources={hub.data.resources.filter((resource) => !isFirstEstablishmentAid(resource))}
+                  />
                 </details>
               )}
             </li>
           ) : (
-            members.map((child) => (
-              <li class="min-w-0">
-                <a href={href(child.layer)} class="territory-link card card-link">
-                  <span class="font-bold text-ink">{child.data.officialName}</span>
-                  <span class="meta">{countsOf(child)}</span>
-                </a>
-                {isCountry && child.data.resources.length > 0 && (
-                  <details class="regional-resources mt-2 border-t border-line pt-2">
-                    <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 text-control font-bold text-brand-strong">
-                      {counted(child.data.resources.length, text.record, locale)}
-                      <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
-                    </summary>
-                    <ul class="grid gap-1">
-                      {child.data.resources
-                        .toSorted((a, b) => a.name.localeCompare(b.name, language))
-                        .map((resource) => (
-                          <li>
-                            <a
-                              href={recordHref(resource.id, child)}
-                              lang={languageOf(child)}
-                              class="inline-flex min-h-(--spacing-target) items-center underline"
-                            >
-                              {resource.name}
-                            </a>
-                          </li>
-                        ))}
-                    </ul>
-                  </details>
-                )}
-              </li>
-            ))
+            members.map((child) => <TerritoryCard child={child} language={language} withRecords={isCountry} />)
           ),
         )}
       </ul>
@@ -563,7 +521,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
             <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron ml-auto size-5 shrink-0 text-brand-strong" />
           </summary>
           <div class="mt-4">
-            <ResourceList items={items} language={language} level="h4" />
+            <ResourceList items={items} language={language} level="h4" country={country || undefined} />
           </div>
         </details>
       ))}
@@ -572,37 +530,36 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
   <StandaloneNews items={territory.data.news} language={language} locale={locale} />
 
-  {territory.data.limitations.length > 0 && (
-    <section class="wrap pt-10 pb-12" aria-labelledby="limits">
-      <div class="card p-6 sm:p-8">
-        <h2 id="limits" class="flex scroll-mt-6 items-center gap-2 text-2xl font-bold">
-          <Icon name={ICON.limits} aria-hidden="true" class="size-6 shrink-0 text-accent" />
-          {text.limits}
-        </h2>
-        <ul class="mt-3 list-disc space-y-2 ps-6">
-          {territory.data.limitations.map((limitation) => (
-            <li>{limitation}</li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )}
-
   <section class="wrap pb-8">
     <a class="btn btn-quiet" rel="nofollow" href={`${reportPath}?${reportQuery}`}>
       {text.reportOpenForm}
     </a>
   </section>
 
+  {/*
+    How to use what is above, rather than how it was researched: the research narrative and the coverage
+    label were the project talking to itself (founder, 17 Nov 2026). What the page does not cover yet stays,
+    because a reader acts on a gap; it is said here, beside the sources, once.
+  */}
   <section class="wrap border-t border-line py-8" aria-labelledby="coverage">
-    <h2 id="coverage" class="scroll-mt-6 text-lg font-bold">
-      {text.coverageNote}
+    <h2 id="coverage" class="flex scroll-mt-6 items-center gap-2 text-lg font-bold">
+      <Icon name={ICON.sources} aria-hidden="true" class="size-5 shrink-0 text-brand" />
+      {text.sourcesTitle}
     </h2>
-    {/* The last paragraph of the page, with nothing beside it: held to a reading measure it read as
-      pushed into the corner, so it takes the width of the section it closes. */}
-    <p class="mt-2 text-muted">
-      <strong class="text-ink">{coverageLabel(territory.data.coverage.status, language)}.</strong> {territory.data.coverage.note}
-    </p>
+    <p class="mt-2 max-w-5xl text-muted">{text.sourcesLead}</p>
+    {territory.data.limitations.length > 0 && (
+      <div class="mt-4">
+        <h3 id="limits" class="flex scroll-mt-6 items-center gap-2 font-bold">
+          <Icon name={ICON.limits} aria-hidden="true" class="size-5 shrink-0 text-accent" />
+          {text.notCoveredYet}
+        </h3>
+        <ul class="mt-1 list-disc space-y-1 ps-6 text-muted">
+          {territory.data.limitations.map((limitation) => (
+            <li>{limitation}</li>
+          ))}
+        </ul>
+      </div>
+    )}
     {isCountry && (
       <ul class="meta mt-4 flex flex-wrap gap-x-6 gap-y-2" aria-label={text.statsLabel}>
         <li class="flex items-center gap-2">
@@ -624,45 +581,16 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 </SiteLayout>
 
 <style>
-  /* A territory is a card with a chevron: the whole box is the target, and the arrow says it leads
-     somewhere. The count under the name is the territory's own records, not what it inherits. */
-  .territory-link {
-    position: relative;
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.25rem;
-    padding: 0.875rem 2.5rem 0.875rem 1rem;
-    text-decoration: none;
-  }
-  .territory-link::after {
-    content: "";
-    position: absolute;
-    top: calc(50% - 0.25rem);
-    right: 1rem;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-top: 2px solid var(--color-brand);
-    border-right: 2px solid var(--color-brand);
-    transform: rotate(45deg);
-  }
-  .territory-link:hover,
-  .territory-link:focus-visible {
-    background: var(--color-brand-tint);
-  }
-  /* On a phone, twenty-eight boxes are twenty-eight screens: the same list, as rows of about 60px. */
+  /* On a phone, twenty-eight boxes are twenty-eight screens: the same list, as divided rows. */
   @media (max-width: 599px) {
     .territory-list {
       gap: 0;
     }
-    .territory-list > li > .territory-link {
-      min-height: 3.75rem;
-      padding-block: 0.5rem;
+    .territory-list > :global(li.territory) {
       border-width: 0 0 1px;
       border-radius: 0;
     }
-    .territory-list > li:first-child > .territory-link {
+    .territory-list > :global(li.territory:first-child) {
       border-top-width: 1px;
     }
   }
