@@ -17,6 +17,7 @@ import type { Layer } from "../../../src/layers.ts";
 import type { Call, ContactPoint, EditionSnapshot, Metric, NewsItem, Resource, Source } from "../../../src/types/edition.ts";
 import type { Territories } from "../../../src/types/territories.ts";
 import { recordSlug, regionSlug } from "../../public/search-scope.js";
+import { countryNameIn } from "./language.ts";
 
 /**
  * The repository's modules are loaded from the repository, not bundled into the site.
@@ -142,13 +143,12 @@ export function href(layer: Layer): string {
  *
  * A region's own name is not enough on a list that mixes territories of several countries, and it is not
  * enough on a record either — "Andalucía" says where only to somebody who already knows. The country
- * comes first, as the postal order of a place does.
+ * comes first, as the postal order of a place does, and in the reader's language: a region keeps its own
+ * name, which is the one on every sign and form, but "Spain" is what an English reader knows the country by.
  */
-export function placeOf(territory: Territory, europe: string): string {
+export function placeOf(territory: Territory, europe: string, language: string): string {
   if (territory.layer.level === "EU") return europe;
-  const iso = territory.layer.country;
-  const country = countryTerritories(territory.file.slice(0, 4)).find(({ layer }) => layer.level === "COUNTRY" && layer.country === iso);
-  const name = country?.data.officialName ?? iso;
+  const name = countryNameIn(territory.layer.country, language);
   return territory.layer.level === "COUNTRY" ? name : `${name} · ${territory.data.officialName}`;
 }
 

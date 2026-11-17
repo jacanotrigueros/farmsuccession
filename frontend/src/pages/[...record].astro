@@ -91,7 +91,7 @@ const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure
 
 /** How much evidence there is, which is what the way down to it says rather than naming the section. */
 const quotes = resource.sources.reduce((total, source) => total + source.quotes.length, 0);
-const place = placeOf(territory, text.euName);
+const place = placeOf(territory, text.euName, language);
 const servedPlace = resourcePlaceParts(place, resource.scope.area, text.reachRow, text.labelSeparator);
 
 /**

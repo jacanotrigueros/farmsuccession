@@ -1005,3 +1005,35 @@ test("practical needs retain descriptive icons from the shared resource vocabula
   }
   assert.doesNotMatch(home, /src="\/img\/needs\//u, "retired illustrations must not be fetched");
 });
+
+/**
+ * A list of countries read in one language names them in that language: "Germany" on the English home
+ * page, not "Deutschland" next to English words, which a reader has to translate before they can choose
+ * (founder, 17 Nov 2026). The place picker adds each country's own name on a quieter line, marked with
+ * its language, because somebody looking for their own country recognises it first.
+ */
+test("country lists name each country in the page's language", () => {
+  const home = pages.find(({ file }) => file === "index.html");
+  assert.ok(home, "the home page was not built");
+  const html = decodeHTML(home.html);
+  const start = html.indexOf("territory-options");
+  const picker = html.slice(start, html.indexOf("</ul>", start));
+  const cards = html.slice(html.lastIndexOf("grid gap-4 sm:grid-cols-2 lg:grid-cols-4"));
+  const english = new Intl.DisplayNames(["en"], { type: "region" });
+  const published = Object.entries(catalogueJurisdictions as Record<string, { name: string; lang: string }>).filter(
+    ([iso]) => iso !== "EU" && cards.includes(`href="/${iso.toLowerCase()}/"`),
+  );
+  assert.ok(published.length > 0, "no country card on the home page: this check would pass without checking anything");
+  for (const [iso, { name, lang }] of published) {
+    const label = english.of(iso)!;
+    assert.ok(cards.includes(`>${label}<`), `${iso}: the home page's country card should read "${label}"`);
+    assert.ok(picker.includes(label), `${iso}: the place picker should name "${label}"`);
+    if (name === label) continue;
+    assert.ok(!cards.includes(`>${name}<`), `${iso}: the English card shows "${name}", a name in another language`);
+    assert.match(
+      picker,
+      new RegExp(`lang="${lang}"[^>]*>\\s*${name}\\s*<`, "u"),
+      `${iso}: the picker should add "${name}" marked lang="${lang}"`,
+    );
+  }
+});

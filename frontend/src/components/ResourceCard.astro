@@ -37,7 +37,7 @@ const Heading = level;
 const recordLanguage = languageOf(recordedIn);
 const text = words(language);
 
-const place = resourcePlaceParts(placeOf(recordedIn, text.euName), resource.scope.area, text.reachRow, text.labelSeparator);
+const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), resource.scope.area, text.reachRow, text.labelSeparator);
 ---
 
 <li

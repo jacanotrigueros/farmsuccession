@@ -11,7 +11,8 @@
  * language as the page they came from, and complete before anything is typed.
  */
 import { Icon } from "astro-icon/components";
-import { countryTerritories, euTerritory, EUROPE_PAGE, href } from "../lib/corpus.ts";
+import { countryTerritories, euTerritory, EUROPE_PAGE, href, languageOf } from "../lib/corpus.ts";
+import { countryNameIn } from "../lib/language.ts";
 import { flagOf, ICON } from "../lib/icons.ts";
 import { words } from "../lib/words.ts";
 import { searchPath } from "../../public/search-scope.js";
@@ -24,14 +25,30 @@ const europe = euTerritory();
 /** The country a page belongs to, which is also the scope its search button leads to. */
 const countryOf = (place: string): string | undefined => (place === "/" || place === "/eu/" ? undefined : place.slice(1, -1).toUpperCase());
 
-/** Europe leads to the European layer's own page, so choosing it shows Europe's instruments, not every country's. */
-const places = [
+/**
+ * Europe leads to the European layer's own page, so choosing it shows Europe's instruments, not every
+ * country's. Each country is named in the page's language, and, where its own name differs, that name
+ * follows on a quieter line: a reader looking for their own country recognises "Nederland" before they
+ * translate it.
+ */
+const places: { href: string; label: string; own?: string; ownLanguage?: string; flag: string }[] = [
   { href: europe ? EUROPE_PAGE : "/", label: text.europe, flag: flagOf("EU") },
-  ...countryTerritories().map((territory) => ({
-    href: href(territory.layer),
-    label: territory.data.officialName,
-    flag: flagOf(territory.layer.level === "EU" ? "EU" : territory.layer.country),
-  })),
+  ...countryTerritories()
+    .flatMap((territory) => {
+      if (territory.layer.level === "EU") return [];
+      const label = countryNameIn(territory.layer.country, language);
+      const own = territory.data.officialName;
+      return [
+        {
+          href: href(territory.layer),
+          label,
+          own: own === label ? undefined : own,
+          ownLanguage: languageOf(territory),
+          flag: flagOf(territory.layer.country),
+        },
+      ];
+    })
+    .toSorted((a, b) => a.label.localeCompare(b.label, language)),
 ];
 /**
  * The place a page belongs to is the longest one its path starts with: a region is inside its country.
@@ -81,7 +98,14 @@ const here = places.filter((place) => current.startsWith(place.href)).toSorted((
                       height="18"
                       class="h-4.5 w-6 shrink-0 rounded-xs border border-line object-cover"
                     />
-                    {place.label}
+                    <span class="flex flex-col py-1 leading-tight">
+                      {place.label}
+                      {place.own && (
+                        <span lang={place.ownLanguage} class="meta font-normal">
+                          {place.own}
+                        </span>
+                      )}
+                    </span>
                   </span>
                   {place.href === here?.href && <Icon name="lucide:check" aria-hidden="true" class="size-4 shrink-0" />}
                 </a>

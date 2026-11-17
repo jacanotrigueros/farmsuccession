@@ -49,6 +49,16 @@ export const dateIn = (iso: string, language: string): string =>
     timeZone: "UTC",
   });
 
+/**
+ * A country as a reader of this page names it: "Germany" on an English page, "Alemania" on a Spanish one.
+ * A territory's own `officialName` is written in its own language ("Deutschland", "Nederland"), which is
+ * right on that country's page and wrong on a list read in another language, where the reader looks for
+ * the word they know. The names come from the runtime's CLDR data, not from a table of ours, so every
+ * language the site writes gets every country without anybody translating them by hand.
+ */
+export const countryNameIn = (iso: string, language: string): string =>
+  new Intl.DisplayNames([localeOf(language)], { type: "region", fallback: "code" }).of(iso) ?? iso;
+
 /** An amount of money, which has a symbol and a convention of its own in each language. */
 export const moneyIn = (value: number, language: string): string =>
   value.toLocaleString(localeOf(language), {

@@ -11,6 +11,7 @@
 import { Icon } from "astro-icon/components";
 import { countryTerritories, euTerritory, href, hubTerritories, regionsOf } from "../lib/corpus.ts";
 import { flagOf, ICON } from "../lib/icons.ts";
+import { countryNameIn } from "../lib/language.ts";
 import { counted, words } from "../lib/words.ts";
 
 type Props = { language: string };
@@ -18,16 +19,18 @@ const { language } = Astro.props;
 const text = words(language);
 const european = euTerritory()?.data.resources.length ?? 0;
 
-const countries = countryTerritories().map((country) => {
-  const iso = country.layer.level === "EU" ? "" : country.layer.country;
-  const inside = [country, ...hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === iso), ...regionsOf(iso)];
-  return {
-    href: href(country.layer),
-    name: country.data.officialName,
-    flag: flagOf(iso),
-    own: inside.reduce((total, { data }) => total + data.resources.length, 0),
-  };
-});
+const countries = countryTerritories()
+  .map((country) => {
+    const iso = country.layer.level === "EU" ? "" : country.layer.country;
+    const inside = [country, ...hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === iso), ...regionsOf(iso)];
+    return {
+      href: href(country.layer),
+      name: countryNameIn(iso, language),
+      flag: flagOf(iso),
+      own: inside.reduce((total, { data }) => total + data.resources.length, 0),
+    };
+  })
+  .toSorted((a, b) => a.name.localeCompare(b.name, language));
 /** A country with nothing of its own yet says so, rather than showing a total that looks researched. */
 const label = (own: number): string =>
   own === 0 ? text.onlyEu.replace("{n}", String(european)) : counted(own + european, text.statRecords, language);
