@@ -21,6 +21,7 @@ import { Icon } from "astro-icon/components";
 import ApplyNow from "../components/ApplyNow.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CallWindows from "../components/CallWindows.astro";
+import CountryCards from "../components/CountryCards.astro";
 import DraftNotice from "../components/DraftNotice.astro";
 import Evidence from "../components/Evidence.astro";
 import FactList from "../components/FactList.astro";
@@ -31,7 +32,9 @@ import PageIndex from "../components/PageIndex.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
   currentEdition,
+  EUROPE_PAGE,
   href,
+  pageOf,
   placeOf,
   isDraft,
   languageOf,
@@ -54,6 +57,7 @@ import {
   costLabel,
   formatLabel,
   instrumentLabel,
+  kindLabel,
   languageName,
   newsTypeLabel,
   profileLabel,
@@ -148,6 +152,10 @@ const pageDescription = ((): string => {
   const room = SNIPPET - lead.length;
   const summary = resource.whatItOffers;
   if (summary.length <= room) return lead + summary;
+  // A sentence that ends is better than one cut off: stop at the last full stop, colon or semicolon in the
+  // room when what it leaves is still at least half of it, and only otherwise cut at a word.
+  const clause = /^(.*[.:;])\s/su.exec(summary.slice(0, room + 1))?.[1];
+  if (clause && clause.length >= room / 2) return lead + clause.replace(/[:;]$/u, ".");
   const cut = summary.slice(0, room - 1);
   const atWord = cut.includes(" ") ? cut.slice(0, cut.lastIndexOf(" ")) : cut;
   return `${lead}${atWord.replace(/[\s,;:·—-]+$/u, "")}…`;
@@ -263,15 +271,51 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
 
 const sections = [
   ...(resource.whoCanUseIt ? [{ id: "who", label: text.whoTitle }] : []),
-  { id: "access", label: text.accessTitle },
+  ...(resource.howToAccess ? [{ id: "access", label: text.accessTitle }] : []),
   ...(forYou.length + otherFigures.length > 0 ? [{ id: "figures", label: text.figuresTitle }] : []),
   ...(resource.calls && resource.calls.length > 0 ? [{ id: "dates", label: text.navPeriods }] : []),
   ...(resource.contactPoints ? [{ id: "contacts", label: text.contactTitle }] : []),
   { id: "facts", label: text.factsTitle },
+  ...(territory.layer.level === "EU" ? [{ id: "countries", label: text.euCountriesTitle }] : []),
   { id: "evidence", label: text.evidenceTitle },
 ];
 
-const trail = view(territory).layers;
+/**
+ * The trail is how a reader moves, not how measures are inherited: it starts at the overview of every
+ * country, and Europe's page is a step only on a European record. A national record does not pass
+ * through Europe's page, though Europe's measures apply to it.
+ */
+const isEuropean = territory.layer.level === "EU";
+
+/**
+ * A European record is written in English and applies in every country, so a reader searching in their own
+ * language would find it only by luck. Its kind, who it is for and "European Union" are the site's own
+ * translated vocabulary, never the record's text, and they are given to the search index in all seven
+ * languages as an attribute: the search can match them, nothing on the page shows them, and no search
+ * engine reads them as text of the page (founder, 17 Nov 2026).
+ */
+const SEARCH_LANGUAGES = ["en", "es", "de", "fr", "it", "pt", "nl"] as const;
+const searchTerms = isEuropean
+  ? [
+      ...new Set(
+        SEARCH_LANGUAGES.flatMap((other) => [
+          kindLabel(resource.kind, other),
+          ...(resource.targetProfiles ?? []).filter((profile) => profile !== "GENERAL").map((profile) => profileLabel(profile, other)),
+          words(other).euName,
+        ]),
+      ),
+    ].join(" · ")
+  : "";
+const trail = [
+  { label: text.allCountries, href: "/" },
+  ...view(territory)
+    .layers.filter((above) => isEuropean || above.layer.level !== "EU")
+    .map((above) =>
+      above.layer.level === "EU"
+        ? { label: text.euName, href: EUROPE_PAGE }
+        : { label: above.data.officialName, href: pageOf(above.layer) },
+    ),
+];
 
 /** The country the record belongs to, and every region it reaches — the two things a search filters by. */
 const country = territory.layer.level === "EU" ? "" : territory.layer.country;
@@ -286,7 +330,7 @@ const browseHere = searchUrl("/", {
 });
 ---
 
-<SiteLayout title={pageTitle} description={pageDescription} language={language} current={href(territory.layer)}>
+<SiteLayout title={pageTitle} description={pageDescription} language={language} current={pageOf(territory.layer)}>
   {/*
    * This page is the unit the search index is built from, and the only one: the territory pages list the
    * same records, and indexing them too would return a reader the same record several times over, once
@@ -305,6 +349,7 @@ const browseHere = searchUrl("/", {
     {countryFilters(country || "EU", reaches).map((code) => (
       <span hidden data-pagefind-filter={`country:${code}`}></span>
     ))}
+    {searchTerms && <span hidden data-pagefind-index-attrs="data-terms" data-terms={searchTerms}></span>}
     <span hidden data-pagefind-filter={`kind:${resource.kind}`} data-pagefind-meta={`kind:${resource.kind}`}></span>
     <span hidden data-pagefind-filter={`status:${resource.status}`} data-pagefind-meta={`status:${resource.status}`}></span>
     <span hidden data-pagefind-filter={`scope:${resource.scope.level}`}></span>
@@ -317,18 +362,12 @@ const browseHere = searchUrl("/", {
 
     <header class="border-b border-line bg-card" data-kind={resource.kind} data-status={resource.status}>
       <div class="wrap py-10">
-        <Breadcrumbs
-          items={trail.map((above) => ({
-            label: above.layer.level === "EU" ? text.europe : above.data.officialName,
-            href: href(above.layer),
-          }))}
-          current={resource.name}
-          showCurrent={false}
-          label={text.whereYouAre}
-        />
+        <Breadcrumbs items={trail} current={resource.name} showCurrent={false} label={text.whereYouAre} />
         {/* The tags carry this page's own words; the index carries the codes, in the hidden spans above,
           so a result can be described in the language of whichever page found it. */}
-        <p class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+        {/* Kept out of the indexed text (its filter still counts): a result excerpt that opens on the tags
+          read "resource." before anything the record says. */}
+        <p class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2" data-pagefind-ignore>
           <span data-pagefind-filter={`situation:${goalOf(resource.kind)}`}>
             <KindTag kind={resource.kind} language={language} />
           </span>
@@ -350,12 +389,15 @@ const browseHere = searchUrl("/", {
               {servedPlace.area}
             </span>
           </span>
+          {/* A real space: without it the extracted text ran the place into the operator. */}{" "}
           <span class="inline-flex min-w-0 items-start gap-1.5" data-pagefind-meta="operator">
             <Icon name={ICON.operator} aria-hidden="true" class="mt-0.5 size-5 shrink-0" />
             <span>{resource.operator}</span>
           </span>
         </p>
-        <h2 class="eyebrow mt-8">{text.offersTitle}</h2>
+        <h2 class="eyebrow mt-8" data-pagefind-ignore>
+          {text.offersTitle}
+        </h2>
         <p class="mt-2 max-w-5xl text-lg" data-pagefind-meta="summary">
           {resource.whatItOffers}
         </p>
@@ -393,19 +435,15 @@ const browseHere = searchUrl("/", {
           </section>
         )}
 
-        <section aria-labelledby="access">
-          <h2 id="access" class="scroll-mt-6 text-2xl font-bold">
-            {text.accessTitle}
-          </h2>
-          {resource.howToAccess ? (
+        {/* Without steps of its own the section only repeated the button at the top of the page. */}
+        {resource.howToAccess && (
+          <section aria-labelledby="access">
+            <h2 id="access" class="scroll-mt-6 text-2xl font-bold">
+              {text.accessTitle}
+            </h2>
             <p class="mt-3 max-w-3xl">{resource.howToAccess}</p>
-          ) : (
-            <a href={resource.accessUrl} rel="noopener" class="mt-3 inline-flex min-h-(--spacing-target) items-center font-bold underline">
-              {text.officialPage}
-              <span class="sr-only"> ({text.externalSite})</span>
-            </a>
-          )}
-        </section>
+          </section>
+        )}
 
         {resource.notes && (
           <section class="notice" aria-labelledby="notes">
@@ -559,6 +597,23 @@ const browseHere = searchUrl("/", {
       </aside>
     </div>
 
+    {/*
+      A European measure is applied by each country in its own way (founder, 17 Nov 2026), so a European
+      record leads on to the countries, where what each one documents is listed — the same cards as Europe's
+      page, so the two can never count differently.
+    */}
+    {isEuropean && (
+      <section class="border-t border-line bg-brand-tint" aria-labelledby="countries" data-pagefind-ignore>
+        <div class="wrap py-12">
+          <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
+            {text.euCountriesTitle}
+          </h2>
+          <p class="mt-2">{text.euCountriesLead}</p>
+          <CountryCards language={language} />
+        </div>
+      </section>
+    )}
+
     <section class="border-t border-line bg-card" aria-labelledby="evidence">
       <div class="wrap py-12">
         <h2 id="evidence" class="flex scroll-mt-6 items-center gap-2 text-2xl font-bold">
@@ -573,8 +628,8 @@ const browseHere = searchUrl("/", {
 
     <section class="wrap py-8" aria-labelledby="helpful" data-pagefind-ignore>
       <p class="mb-6">
-        <a href={browseHere} class="btn btn-quiet">
-          {text.browseAll.replace("{where}", territory.data.officialName)}
+        <a href={isEuropean ? `${EUROPE_PAGE}#own` : browseHere} class="btn btn-quiet">
+          {isEuropean ? text.browseEurope : text.browseAll.replace("{where}", territory.data.officialName)}
         </a>
       </p>
       <p id="helpful" class="font-bold">

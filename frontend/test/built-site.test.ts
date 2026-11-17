@@ -270,9 +270,19 @@ test("every country page and record page of a draft file says it has not been re
     draft.html.includes(words("de").draftNotice),
     "a record page of a draft file does not carry the warning, which is the first thing its reader is owed",
   );
-  const reviewed = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
-  assert.ok(reviewed, "no European record page was built");
-  assert.ok(!reviewed.html.includes(words("en").draftNotice), "a record of a file a person reviewed still says nobody reviewed it");
+  // A European record carries the warning exactly when the European file is a draft, whichever it is today.
+  const european = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", edition, "eu.json"), "utf8")) as {
+    review: { status: string };
+  };
+  const record = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
+  assert.ok(record, "no European record page was built");
+  assert.equal(
+    record.html.includes(words("en").draftNotice),
+    european.review.status === "DRAFT",
+    european.review.status === "DRAFT"
+      ? "a record of a draft file does not say nobody reviewed it"
+      : "a record of a file a person reviewed still says nobody reviewed it",
+  );
 });
 
 /**
@@ -551,13 +561,99 @@ test("a territory page says in its title what the page is about", () => {
   for (const { file, html } of territories) {
     const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const title = /<title>([^<]*)<\/title>/u.exec(html)?.[1] ?? "";
-    // Europe's page has a title of its own, which names the subject in full.
+    // Europe's page has a search title of its own, which names the subject in full.
     const about =
-      file === path.join("eu", "index.html") ? words(language).euTitle : words(language).territoryTitle.replace("{where}", "").trim();
+      file === path.join("eu", "index.html") ? words(language).euMetaTitle : words(language).territoryTitle.replace("{where}", "").trim();
     assert.ok(
       title.includes(about),
       `${file} is titled "${title}", which is a name and not a subject. A reader meets this in a search result before they meet the page.`,
     );
+  }
+});
+
+/**
+ * Country pages are about different countries, not translations of one another, so they carry no
+ * alternates between them (decision recorded in CLAUDE.md). Each still says in its structured data which
+ * language it is written in, and its breadcrumb trail is the path a reader takes: from the overview of
+ * every country, not from inside Europe's page.
+ */
+test("a country page states its own language and is reached from the overview of every country", () => {
+  const countries = pages.filter(({ file }) => /^[a-z]{2}$/u.test(file.split(path.sep)[0] ?? "") && file.split(path.sep).length === 2);
+  assert.ok(countries.length > 0, "no country page was built: this check would pass without checking anything");
+  for (const { file, html } of countries) {
+    if (file === path.join("eu", "index.html")) continue;
+    const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const data = [...html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/gu)].map(([, json]) => JSON.parse(json!));
+    assert.ok(
+      data.some((item) => item["@type"] === "WebPage" && item.inLanguage === language),
+      `${file} does not state its language as a WebPage, so a search engine has only the text to guess from`,
+    );
+    const trail = data.find((item) => item["@type"] === "BreadcrumbList");
+    assert.equal(
+      trail?.itemListElement?.[0]?.item,
+      "https://farmsuccession.eu/",
+      `${file} starts its trail somewhere other than the overview of every country`,
+    );
+    assert.ok(!html.includes('hreflang="'), `${file} declares language alternates, but a country page translates no other page`);
+  }
+});
+
+/**
+ * A European measure is applied by each country in its own way, so a European record leads on to every
+ * country page; and a record's trail is the path a reader takes, which passes through Europe's page only
+ * when the record is European (founder, 17 Nov 2026).
+ */
+test("a European record leads to every country, and only a European record's trail passes through Europe", () => {
+  const trailOf = (html: string): string[] => {
+    const data = [...html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/gu)].map(([, json]) => JSON.parse(json!));
+    return (data.find((item) => item["@type"] === "BreadcrumbList")?.itemListElement ?? []).map((item: { item: string }) => item.item);
+  };
+  const countryPages = pages
+    .filter(({ file }) => /^[a-z]{2}[\/]index\.html$/u.test(file) && !file.startsWith("eu"))
+    .map(({ file }) => `/${file.split(/[\/]/u)[0]}/`);
+  const european = pages.filter(({ file }) => file.startsWith(`resources${path.sep}`));
+  assert.ok(european.length > 0 && countryPages.length > 0, "no European record or country page was built");
+  for (const { file, html } of european) {
+    for (const country of countryPages) {
+      assert.ok(html.includes(`href="${country}"`), `${file} does not lead to ${country}, where the country applies the measure`);
+    }
+    assert.deepEqual(
+      trailOf(html).slice(0, 2),
+      ["https://farmsuccession.eu/", "https://farmsuccession.eu/eu/"],
+      `${file}: a European record's trail must pass through Europe's page`,
+    );
+  }
+  const national = pages.filter(
+    ({ file, html }) => /^[a-z]{2}[\/][^\/]+[\/][^\/]+[\/]index\.html$/u.test(file) && trailOf(html).length > 2,
+  );
+  assert.ok(national.length > 0, "no national record page was checked");
+  for (const { file, html } of national) {
+    assert.ok(
+      !trailOf(html).includes("https://farmsuccession.eu/eu/"),
+      `${file}: a national record's trail passes through Europe's page, which a reader did not take`,
+    );
+  }
+});
+
+/**
+ * A European record is English and applies everywhere, so its kind, audience and "European Union" are given
+ * to the search index in every language the site writes, as an attribute nothing on the page displays.
+ * A national record is already written in its readers' language and carries none.
+ */
+test("a European record can be searched for in every language, through the site's own vocabulary only", () => {
+  const european = pages.filter(({ file }) => file.startsWith(`resources${path.sep}`));
+  assert.ok(european.length > 0, "no European record page was built");
+  for (const { file, html } of european) {
+    const terms = /data-pagefind-index-attrs="data-terms" data-terms="([^"]*)"/u.exec(html)?.[1];
+    assert.ok(terms, `${file} gives the search no words in other languages, so a Spanish or Dutch reader finds it only by luck`);
+    for (const language of ["en", "es", "de", "fr", "it", "pt", "nl"]) {
+      assert.ok(terms.includes(words(language).euName), `${file}: the search terms leave out ${language}`);
+    }
+  }
+  const national = pages.filter(({ file, html }) => /^[a-z]{2}[\/]/u.test(file) && html.includes("data-pagefind-body"));
+  assert.ok(national.length > 0, "no national record page was built");
+  for (const { file, html } of national) {
+    assert.ok(!html.includes("data-terms="), `${file} is written in its readers' language and needs no translated terms`);
   }
 });
 

@@ -73,6 +73,23 @@ const website =
         "@type": "WebSite",
         name: siteName,
         url: new URL("/", Astro.site).href,
+        inLanguage: language,
+      }).replaceAll("<", "\\u003c")
+    : undefined;
+/**
+ * Every other indexable page says what it is and which language it is written in. A country page is not a
+ * translation of another, so its language is stated here rather than through alternates between countries.
+ */
+const webPage =
+  !website && canonical && !noindex
+    ? JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: title,
+        description,
+        url: canonical,
+        inLanguage: language,
+        isPartOf: { "@type": "WebSite", name: siteName, url: new URL("/", Astro.site).href },
       }).replaceAll("<", "\\u003c")
     : undefined;
 ---
@@ -92,6 +109,7 @@ const website =
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {website && <script type="application/ld+json" set:html={website} />}
+    {webPage && <script type="application/ld+json" set:html={webPage} />}
     <meta property="og:type" content="website" />
     {canonical && <meta property="og:url" content={canonical} />}
     {/*

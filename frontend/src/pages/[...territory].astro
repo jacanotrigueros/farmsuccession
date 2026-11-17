@@ -123,6 +123,14 @@ const isCountry = territory.layer.level === "COUNTRY";
  */
 const isEurope = territory.layer.level === "EU";
 const pageTitle = isEurope ? text.euTitle : text.territoryTitle.replace("{where}", name);
+/**
+ * Europe's page is found by people searching for EU policy and CAP support for young farmers, so its
+ * search title and snippet say that; its long introduction stays on the page, where it is read.
+ */
+const metaTitle = isEurope ? text.euMetaTitle : pageTitle;
+const metaDescription = isEurope ? text.euMetaDescription : territory.data.summary;
+/** A country inherits only from the European layer, so its heading can name it instead of "other scopes". */
+const inheritedForms = isCountry ? text.euAppliesIn : text.alsoApplies;
 
 /**
  * The records below the national layer, once each. National and European records already have cards
@@ -136,7 +144,7 @@ const sections = [
   ...(isCountry && own.length === 0
     ? []
     : [{ id: "own", label: isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.navOwn }]),
-  ...(inheritedCount > 0 ? [{ id: "inherited", label: text.alsoAppliesNav }] : []),
+  ...(inheritedCount > 0 ? [{ id: "inherited", label: isCountry ? text.euName : text.alsoAppliesNav }] : []),
   ...(territory.data.news.some((item) => !item.resourceIds?.length) ? [{ id: "news", label: text.newsTitle }] : []),
   ...(territory.data.limitations.length > 0 ? [{ id: "limits", label: text.limits }] : []),
 ];
@@ -200,8 +208,9 @@ const kinds = [...new Set([...own, ...inheritedGroups.flatMap(({ items }) => ite
  * directory, which this filter cannot narrow: its complete national search is the filtering surface
  * instead of a local control that silently ignores most of the country’s resources.
  */
-// Europe holds a handful of frameworks: a filter over four records only adds a control to read.
-const narrows = kinds.length > 1 && !isCountry && !isEurope;
+// Europe's records are of several kinds (frameworks, a portal, advice, a network), so a reader can narrow
+// them to the one they need rather than reading every card (founder, 17 Nov 2026).
+const narrows = kinds.length > 1 && !isCountry;
 
 /** What a territory card says: written for it, and applicable there in total. */
 const countsOf = (child: Territory): string =>
@@ -210,7 +219,7 @@ const countsOf = (child: Territory): string =>
     .replace("{total}", counted(view(child).resources.length, text.territoryTotalWord, locale));
 
 /** The heading of the records this territory recorded, and the sentence under a country's own. */
-const alsoTitle = (inheritedCount === 1 ? text.alsoApplies[0] : text.alsoApplies[1])
+const alsoTitle = (inheritedCount === 1 ? inheritedForms[0] : inheritedForms[1])
   .replace("{count}", counted(inheritedCount, text.record, locale))
   .replace("{where}", name);
 const nationalLead = text.wholeCountryLead.replace("{count}", counted(own.length, text.record, locale)).replace("{where}", name);
@@ -260,8 +269,8 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 ---
 
 <SiteLayout
-  title={`${pageTitle} · ${text.siteName}`}
-  description={territory.data.summary}
+  title={`${metaTitle} · ${text.siteName}`}
+  description={metaDescription}
   language={language}
   current={pageOf(territory.layer)}
   noindex={!indexed}
@@ -270,10 +279,15 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     crumbs={
       isEurope
         ? [{ label: text.allCountries, href: "/" }]
-        : layers.slice(0, -1).map((above) => ({
-            label: above.layer.level === "EU" ? text.europe : above.data.officialName,
-            href: pageOf(above.layer),
-          }))
+        : // The trail is how a reader moves, not how measures are inherited: a country is reached from the
+          // overview of every country, the way Europe's own page is, not from inside Europe's page.
+          layers
+            .slice(0, -1)
+            .map((above) =>
+              above.layer.level === "EU"
+                ? { label: text.allCountries, href: "/" }
+                : { label: above.data.officialName, href: pageOf(above.layer) },
+            )
     }
     crumbsLabel={text.whereYouAre}
     eyebrow={isEurope ? text.euEyebrow : `${text.siteName} · ${editionNamed(currentEdition, language)}`}
@@ -532,10 +546,10 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
   {inheritedCount > 0 && (
     <section class="wrap pb-12" aria-labelledby="inherited">
-      <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...howMany(text.alsoApplies[0], text.alsoApplies[1])}>
+      <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...howMany(inheritedForms[0], inheritedForms[1])}>
         {alsoTitle}
       </h2>
-      <p class="meta mt-2 max-w-5xl">{text.alsoAppliesLead}</p>
+      <p class="meta mt-2 max-w-5xl">{isCountry ? text.euAppliesLead : text.alsoAppliesLead}</p>
       {inheritedGroups.map(({ name: from, items }) => (
         <details data-record-group class="inherited-group mt-6 border-t border-line pt-4" open>
           <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">

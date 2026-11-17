@@ -306,38 +306,38 @@ export const reachLabel = vocabulary<Scope["level"]>({
 /** How far the research of a territory went, which the note under it then qualifies. */
 export const coverageLabel = vocabulary<EditionSnapshot["coverage"]["status"]>({
   en: {
-    NOT_STARTED: "Not started",
-    PARTIAL: "Partial",
+    NOT_STARTED: "Not researched yet",
+    PARTIAL: "Not every source checked yet",
     SEARCHED: "Documented search completed",
   },
   es: {
-    NOT_STARTED: "Sin empezar",
-    PARTIAL: "Parcial",
+    NOT_STARTED: "Aún sin investigar",
+    PARTIAL: "Aún quedan fuentes por revisar",
     SEARCHED: "Búsqueda documentada completada",
   },
   de: {
-    NOT_STARTED: "Nicht begonnen",
-    PARTIAL: "Teilweise",
+    NOT_STARTED: "Noch nicht recherchiert",
+    PARTIAL: "Noch nicht alle Quellen geprüft",
     SEARCHED: "Dokumentierte Recherche abgeschlossen",
   },
   fr: {
-    NOT_STARTED: "Non commencée",
-    PARTIAL: "Partielle",
+    NOT_STARTED: "Recherche pas encore commencée",
+    PARTIAL: "Toutes les sources ne sont pas encore vérifiées",
     SEARCHED: "Recherche documentée terminée",
   },
   it: {
-    NOT_STARTED: "Non iniziata",
-    PARTIAL: "Parziale",
+    NOT_STARTED: "Ricerca non ancora iniziata",
+    PARTIAL: "Non tutte le fonti sono ancora verificate",
     SEARCHED: "Ricerca documentata completata",
   },
   pt: {
-    NOT_STARTED: "Não iniciada",
-    PARTIAL: "Parcial",
+    NOT_STARTED: "Pesquisa ainda não iniciada",
+    PARTIAL: "Ainda há fontes por verificar",
     SEARCHED: "Pesquisa documentada concluída",
   },
   nl: {
-    NOT_STARTED: "Niet begonnen",
-    PARTIAL: "Gedeeltelijk",
+    NOT_STARTED: "Nog niet onderzocht",
+    PARTIAL: "Nog niet alle bronnen gecontroleerd",
     SEARCHED: "Onderzoek afgerond en vastgelegd",
   },
 });
