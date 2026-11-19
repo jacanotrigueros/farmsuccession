@@ -1,21 +1,55 @@
 ---
+/**
+ * "Farming in figures": three comparable national observations, each with its year, its Eurostat status
+ * and a link to the table a reader can open.
+ *
+ * The age of farm managers is the one that speaks to succession, so it is drawn: the country beside the
+ * EU-27 for each age band, on one scale from zero shared by every country page, with every value written
+ * out so the bars are never the only way to read it (ChatGPT review, founder 19 Nov 2026). The figures say
+ * who ran farms in the survey year; they are not a score and the page does not turn them into one.
+ *
+ * The Eurostat API queries stay in the data, and on each figure as `data-source`, for anybody auditing the
+ * number; the link a reader follows opens the same table in Eurostat's data browser.
+ */
 import type { CountryContext } from "../../../src/types/edition.ts";
 import { dateIn } from "../lib/language.ts";
 import { words } from "../lib/words.ts";
 
-type Props = { context: CountryContext; language: string; locale: string };
-const { context, language, locale } = Astro.props;
+type Props = { context: CountryContext; language: string; locale: string; name: string };
+const { context, language, locale, name } = Astro.props;
 const { land, economy, succession } = context;
 const text = words(language);
 const labels = text.countryContext;
-const percent = new Intl.NumberFormat(locale, {
-  style: "percent",
-  minimumFractionDigits: 1,
-  maximumFractionDigits: 1,
-});
+const percent = new Intl.NumberFormat(locale, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const hectares = new Intl.NumberFormat(locale, { style: "unit", unit: "hectare", unitDisplay: "short" });
-const older = percent.format(succession.atLeast65 / succession.holdings);
-const younger = percent.format((succession.under25 + succession.from25To34 + succession.from35To39) / succession.holdings);
+
+type Ages = { holdings: number; under25: number; from25To34: number; from35To39: number; atLeast65: number };
+const older = (table: Ages) => table.atLeast65 / table.holdings;
+const younger = (table: Ages) => (table.under25 + table.from25To34 + table.from35To39) / table.holdings;
+
+/** One scale for every country page, so a bar on /pt/ and a bar on /at/ can be compared by eye. */
+const SCALE = 0.6;
+const width = (share: number) => Math.min(100, (share / SCALE) * 100).toFixed(1);
+
+/** Eurostat's data browser speaks English, French and German; every other page opens the English table. */
+const browserLanguage = ["fr", "de"].includes(language) ? language : "en";
+const tableOf = (apiUrl: string) => {
+  const code = new URL(apiUrl).pathname.split("/").pop();
+  return `https://ec.europa.eu/eurostat/databrowser/view/${code}/default/table?lang=${browserLanguage}`;
+};
+const flagged = (flag?: string) => (flag === "IMPUTED" ? labels.imputed : flag === "PROVISIONAL" ? labels.provisional : undefined);
+
+const europe = succession.europe;
+const bands = [
+  { label: labels.olderBar, share: older },
+  { label: labels.youngerBar, share: younger },
+].map(({ label, share }) => ({
+  label,
+  rows: [
+    { who: name, value: share(succession), country: true },
+    ...(europe ? [{ who: labels.europe, value: share(europe), country: false }] : []),
+  ],
+}));
 ---
 
 <section class="wrap border-t border-line py-8" aria-labelledby="country-context" data-pagefind-ignore>
@@ -23,41 +57,64 @@ const younger = percent.format((succession.under25 + succession.from25To34 + suc
     {labels.title}
   </h2>
   <dl class="mt-4 grid gap-3 lg:grid-cols-3">
-    <div class="card min-w-0 p-4">
+    <div class="card min-w-0 p-4 lg:col-span-3" data-source={succession.sourceUrl}>
+      <dt class="font-bold">{labels.succession}</dt>
+      <dd class="mt-3 grid gap-4 sm:grid-cols-2">
+        {bands.map(({ label, rows }) => (
+          <div>
+            <p class="font-bold">{label}</p>
+            <ul class="mt-2 grid gap-2">
+              {rows.map(({ who, value, country }) => (
+                <li class="grid grid-cols-[minmax(5rem,auto)_1fr_auto] items-center gap-3">
+                  <span>{who}</span>
+                  {/* An SVG sets its width as an attribute: the site's content policy allows no inline style. */}
+                  <svg class="h-4 w-full" viewBox="0 0 100 4" preserveAspectRatio="none" aria-hidden="true">
+                    <rect width="100" height="4" rx="0.5" class="fill-page" />
+                    <rect width={width(value)} height="4" rx="0.5" class:list={[country ? "fill-brand" : "fill-line-strong"]} />
+                  </svg>
+                  <strong class="tabular-nums">{percent.format(value)}</strong>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </dd>
+      <dd class="mt-3" data-year={succession.year}>
+        {succession.year}
+        {flagged(succession.flag) && ` · ${flagged(succession.flag)}`}
+      </dd>
+      <dd>
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(succession.sourceUrl)}>
+          {labels.tableLink}
+        </a>
+      </dd>
+    </div>
+    <div class="card min-w-0 p-4" data-source={land.sourceUrl}>
       <dt class="font-bold">{labels.land}</dt>
       <dd class="mt-2 text-2xl font-bold text-brand">{hectares.format(land.hectares)}</dd>
-      <dd class="meta">{land.year}</dd>
+      <dd data-year={land.year}>
+        {land.year}
+        {flagged(land.flag) && ` · ${flagged(land.flag)}`}
+      </dd>
       <dd>
-        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={land.sourceUrl}>
-          {labels.landSource}
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(land.sourceUrl)}>
+          {labels.tableLink}
         </a>
       </dd>
     </div>
-    <div class="card min-w-0 p-4">
+    <div class="card min-w-0 p-4 lg:col-span-2" data-source={`${economy.sectorSourceUrl} ${economy.gdpSourceUrl}`}>
       <dt class="font-bold">{labels.economy}</dt>
       <dd class="mt-2 text-2xl font-bold text-brand">{percent.format(economy.sectorValueAdded / economy.gdp)}</dd>
-      <dd class="meta">{economy.year}</dd>
+      <dd data-year={economy.year}>
+        {economy.year}
+        {flagged(economy.flag) && ` · ${flagged(economy.flag)}`}
+      </dd>
       <dd class="flex flex-wrap gap-x-4">
-        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={economy.sectorSourceUrl}>
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(economy.sectorSourceUrl)}>
           {labels.economySource}
         </a>
-        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={economy.gdpSourceUrl}>
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(economy.gdpSourceUrl)}>
           {labels.gdpSource}
-        </a>
-      </dd>
-    </div>
-    <div class="card min-w-0 p-4">
-      <dt class="font-bold">{labels.succession}</dt>
-      <dd class="mt-2">
-        <strong class="text-2xl text-brand">{older}</strong> {labels.older}
-      </dd>
-      <dd class="mt-1">
-        <strong class="text-2xl text-brand">{younger}</strong> {labels.younger}
-      </dd>
-      <dd class="meta">{succession.year}</dd>
-      <dd>
-        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={succession.sourceUrl}>
-          {labels.successionSource}
         </a>
       </dd>
     </div>

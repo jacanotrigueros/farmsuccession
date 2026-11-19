@@ -169,15 +169,21 @@
         "euCounterparts": {
           "description": "Optional cross-references from European resource IDs to national resource IDs in this snapshot that explain their implementation.",
           "type": "object",
-          "propertyNames": { "$ref": "#/$defs/slug" },
+          "propertyNames": {
+            "$ref": "#/$defs/slug"
+          },
           "additionalProperties": {
             "type": "array",
             "minItems": 1,
             "uniqueItems": true,
-            "items": { "$ref": "#/$defs/slug" }
+            "items": {
+              "$ref": "#/$defs/slug"
+            }
           }
         },
-        "countryContext": { "$ref": "#/$defs/countryContext" }
+        "countryContext": {
+          "$ref": "#/$defs/countryContext"
+        }
       }
     },
     "countryContext": {
@@ -208,6 +214,10 @@
             },
             "sourceUrl": {
               "$ref": "#/$defs/httpsUrl"
+            },
+            "flag": {
+              "description": "Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.",
+              "enum": ["IMPUTED", "PROVISIONAL"]
             }
           },
           "description": "Utilised agricultural area from the farm structure survey."
@@ -226,7 +236,7 @@
             "sectorValueAdded": {
               "type": "number",
               "minimum": 0,
-              "description": "Gross value added of agriculture, forestry and fishing, in million euros."
+              "description": "Gross value added of crop and animal production (NACE A01), in million euros. Forestry and fishing are left out: fishing is another project's subject."
             },
             "gdp": {
               "type": "number",
@@ -238,6 +248,10 @@
             },
             "gdpSourceUrl": {
               "$ref": "#/$defs/httpsUrl"
+            },
+            "flag": {
+              "description": "Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.",
+              "enum": ["IMPUTED", "PROVISIONAL"]
             }
           },
           "description": "Gross value added and gross domestic product from annual national accounts at current prices."
@@ -280,6 +294,56 @@
             },
             "sourceUrl": {
               "$ref": "#/$defs/httpsUrl"
+            },
+            "flag": {
+              "description": "Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.",
+              "enum": ["IMPUTED", "PROVISIONAL"]
+            },
+            "europe": {
+              "description": "The same age table for the EU-27 aggregate and year, so a country's shares can be read against Europe's.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["year", "holdings", "under25", "from25To34", "from35To39", "atLeast65", "sourceUrl"],
+              "properties": {
+                "year": {
+                  "type": "integer",
+                  "minimum": 1900,
+                  "maximum": 9999,
+                  "description": "Reference year of the reported observations."
+                },
+                "holdings": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "Total agricultural holdings covered by the age table, across all ages."
+                },
+                "under25": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Holdings with a manager under 25."
+                },
+                "from25To34": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Holdings with a manager aged 25 to 34."
+                },
+                "from35To39": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Holdings with a manager aged 35 to 39."
+                },
+                "atLeast65": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Holdings with a manager aged 65 or over."
+                },
+                "sourceUrl": {
+                  "$ref": "#/$defs/httpsUrl"
+                },
+                "flag": {
+                  "description": "Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.",
+                  "enum": ["IMPUTED", "PROVISIONAL"]
+                }
+              }
             }
           },
           "description": "Reported holdings by age of the manager from the farm structure survey."

@@ -495,6 +495,10 @@ export interface CountryContext {
      */
     hectares: number;
     sourceUrl: HttpsUrl;
+    /**
+     * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+     */
+    flag?: "IMPUTED" | "PROVISIONAL";
   };
   /**
    * Gross value added and gross domestic product from annual national accounts at current prices.
@@ -505,7 +509,7 @@ export interface CountryContext {
      */
     year: number;
     /**
-     * Gross value added of agriculture, forestry and fishing, in million euros.
+     * Gross value added of crop and animal production (NACE A01), in million euros. Forestry and fishing are left out: fishing is another project's subject.
      */
     sectorValueAdded: number;
     /**
@@ -514,6 +518,10 @@ export interface CountryContext {
     gdp: number;
     sectorSourceUrl: HttpsUrl;
     gdpSourceUrl: HttpsUrl;
+    /**
+     * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+     */
+    flag?: "IMPUTED" | "PROVISIONAL";
   };
   /**
    * Reported holdings by age of the manager from the farm structure survey.
@@ -544,6 +552,44 @@ export interface CountryContext {
      */
     atLeast65: number;
     sourceUrl: HttpsUrl;
+    /**
+     * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+     */
+    flag?: "IMPUTED" | "PROVISIONAL";
+    /**
+     * The same age table for the EU-27 aggregate and year, so a country's shares can be read against Europe's.
+     */
+    europe?: {
+      /**
+       * Reference year of the reported observations.
+       */
+      year: number;
+      /**
+       * Total agricultural holdings covered by the age table, across all ages.
+       */
+      holdings: number;
+      /**
+       * Holdings with a manager under 25.
+       */
+      under25: number;
+      /**
+       * Holdings with a manager aged 25 to 34.
+       */
+      from25To34: number;
+      /**
+       * Holdings with a manager aged 35 to 39.
+       */
+      from35To39: number;
+      /**
+       * Holdings with a manager aged 65 or over.
+       */
+      atLeast65: number;
+      sourceUrl: HttpsUrl;
+      /**
+       * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+       */
+      flag?: "IMPUTED" | "PROVISIONAL";
+    };
   };
 }
 export interface HubIdentity {

@@ -12,6 +12,7 @@
  * wants to know which page to watch for a change can see it without opening the record.
  */
 import { Icon } from "astro-icon/components";
+import AgeComparison from "../components/AgeComparison.astro";
 import CountryContext from "../components/CountryContext.astro";
 import Needs from "../components/Needs.astro";
 import PageHeader from "../components/PageHeader.astro";
@@ -27,6 +28,7 @@ import {
   countryTerritories,
   euTerritory,
   currentEdition,
+  EUROPE_PAGE,
   href,
   hubTerritories,
   languageOf,
@@ -60,6 +62,7 @@ const text = words(language);
 const { layers, resources } = view(territory);
 const name = territory.data.officialName;
 const context = territory.data.schemaId === "country-snapshot" ? territory.data.countryContext : undefined;
+const headlinePercent = new Intl.NumberFormat(locale, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
 const country = territory.layer.level === "EU" ? "" : territory.layer.country;
 /** A country speaks of itself as a country: what it runs is national, not "its own layer". */
@@ -282,6 +285,24 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     lead={territory.data.summary}
     flag={territory.layer.level === "COUNTRY" ? flagOf(country) : territory.layer.level === "EU" ? flagOf("EU") : undefined}
   >
+    {/* The age of farm managers in one sentence, under the lead: the situation a reader is in, with the way to
+        compare it with the other countries (ChatGPT review, founder 19 Nov 2026). */}
+    {context && (
+      <p class="mt-3 max-w-5xl" data-headline>
+        {text.countryContext.headline
+          .replace("{year}", String(context.succession.year))
+          .replace("{older}", headlinePercent.format(context.succession.atLeast65 / context.succession.holdings))
+          .replace(
+            "{younger}",
+            headlinePercent.format(
+              (context.succession.under25 + context.succession.from25To34 + context.succession.from35To39) / context.succession.holdings,
+            ),
+          )}{" "}
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${EUROPE_PAGE}#age-comparison`}>
+          {text.countryContext.compare}
+        </a>
+      </p>
+    )}
     {showsInstall && (
       <a href="#territories" class="btn btn-primary mt-4">
         {text.installShortcut}
@@ -334,15 +355,18 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
   {sections.length >= 3 && <PageIndex sections={sections} language={language} />}
 
   {isEurope ? (
-    <section class="border-y border-line bg-brand-tint" aria-labelledby="countries">
-      <div class="wrap py-12">
-        <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
-          {text.euCountriesTitle}
-        </h2>
-        <p class="mt-2">{text.euCountriesLead}</p>
-        <CountryCards language={language} />
-      </div>
-    </section>
+    <>
+      <section class="border-y border-line bg-brand-tint" aria-labelledby="countries">
+        <div class="wrap py-12">
+          <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
+            {text.euCountriesTitle}
+          </h2>
+          <p class="mt-2">{text.euCountriesLead}</p>
+          <CountryCards language={language} />
+        </div>
+      </section>
+      <AgeComparison language={language} locale={locale} />
+    </>
   ) : (
     <section class="border-y border-line bg-card" aria-labelledby="needs">
       <div class="wrap py-12">
@@ -491,7 +515,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     </section>
   )}
 
-  {context && <CountryContext context={context} language={language} locale={locale} />}
+  {context && <CountryContext context={context} language={language} locale={locale} name={name} />}
 
   <StandaloneNews items={territory.data.news} language={language} locale={locale} />
 

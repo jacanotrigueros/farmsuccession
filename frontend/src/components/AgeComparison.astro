@@ -1,0 +1,80 @@
+---
+/**
+ * The age of farm managers in every country the site covers, side by side, on Europe's page.
+ *
+ * A table, because seven countries and two numbers read best as rows a reader can scan at 320 px and a
+ * screen reader can walk; sorted by the share aged 65 or over, with the EU-27 last as the reference. Each
+ * country links to its own page, where the same figures sit beside its resources.
+ */
+import { countryTerritories, href } from "../lib/corpus.ts";
+import { countryNameIn } from "../lib/language.ts";
+import { words } from "../lib/words.ts";
+
+type Props = { language: string; locale: string };
+const { language, locale } = Astro.props;
+const labels = words(language).countryContext;
+const percent = new Intl.NumberFormat(locale, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+type Ages = { holdings: number; under25: number; from25To34: number; from35To39: number; atLeast65: number };
+const older = (table: Ages) => table.atLeast65 / table.holdings;
+const younger = (table: Ages) => (table.under25 + table.from25To34 + table.from35To39) / table.holdings;
+
+const rows = countryTerritories().flatMap((territory) =>
+  territory.layer.level === "COUNTRY" && territory.data.schemaId === "country-snapshot" && territory.data.countryContext
+    ? [{ territory, country: territory.layer.country, ages: territory.data.countryContext.succession }]
+    : [],
+);
+const sorted = rows.toSorted((a, b) => older(b.ages) - older(a.ages));
+const europe = rows.find(({ ages }) => ages.europe)?.ages.europe;
+const year = rows[0]?.ages.year;
+---
+
+{rows.length > 1 && (
+  <section class="wrap py-12" aria-labelledby="age-comparison">
+    <h2 id="age-comparison" class="scroll-mt-6 text-2xl font-bold">
+      {labels.comparisonTitle}
+      {year && <span class="meta font-normal"> · {year}</span>}
+    </h2>
+    <p class="mt-2 max-w-5xl text-muted">{labels.comparisonLead}</p>
+    <div class="mt-6 max-w-3xl overflow-x-auto">
+      <table class="w-full border-collapse text-left">
+        <thead>
+          <tr class="border-b-2 border-line-strong">
+            <th scope="col" class="py-2 pe-4">
+              {labels.countryColumn}
+            </th>
+            <th scope="col" class="py-2 pe-4 text-right">
+              {labels.olderColumn}
+            </th>
+            <th scope="col" class="py-2 text-right">
+              {labels.youngerColumn}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {sorted.map(({ territory, country, ages }) => (
+            <tr class="border-b border-line">
+              <th scope="row" class="py-2 pe-4 font-normal">
+                <a class="inline-flex min-h-(--spacing-target) items-center underline" href={href(territory.layer)}>
+                  {countryNameIn(country, language)}
+                </a>
+              </th>
+              <td class="py-2 pe-4 text-right tabular-nums">{percent.format(older(ages))}</td>
+              <td class="py-2 text-right tabular-nums">{percent.format(younger(ages))}</td>
+            </tr>
+          ))}
+          {europe && (
+            <tr class="font-bold">
+              <th scope="row" class="py-3 pe-4">
+                {labels.europe}
+              </th>
+              <td class="py-3 pe-4 text-right tabular-nums">{percent.format(older(europe))}</td>
+              <td class="py-3 text-right tabular-nums">{percent.format(younger(europe))}</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+    <p class="meta mt-2">Eurostat · ef_fsi_agesex</p>
+  </section>
+)}

@@ -8,6 +8,7 @@
   "summary": "Si quieres empezar en el campo, consulta las ayudas de primera instalación de tu comunidad autónoma. También puedes buscar tierra, formación y asesoramiento, o encontrar recursos para traspasar tu explotación.",
   "metaDescription": "Consulta ayudas de primera instalación por comunidad autónoma, bancos de tierras y recursos para traspasar una explotación agraria en España.",
   "euCounterparts": {
+    "eu-cap-strategic-plans": ["es-medidas-pac-relevo-generacional"],
     "eu-cap-young-farmers": ["es-medidas-pac-relevo-generacional"]
   },
   "countryContext": {
@@ -15,14 +16,16 @@
     "land": {
       "year": 2023,
       "hectares": 23458590,
-      "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_lus?lang=en&time=2023&so_eur=TOTAL&crops=UAA&unit=HA&geo=ES"
+      "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_lus?lang=en&time=2023&so_eur=TOTAL&crops=UAA&unit=HA&geo=ES",
+      "flag": "IMPUTED"
     },
     "economy": {
-      "year": 2025,
-      "sectorValueAdded": 46587.0,
-      "gdp": 1690012.0,
-      "sectorSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&time=2025&unit=CP_MEUR&nace_r2=A&na_item=B1G&geo=ES",
-      "gdpSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?lang=en&time=2025&unit=CP_MEUR&na_item=B1GQ&geo=ES"
+      "year": 2024,
+      "sectorValueAdded": 39713.0,
+      "gdp": 1598588.0,
+      "sectorSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a64?lang=en&time=2024&unit=CP_MEUR&nace_r2=A01&na_item=B1G&geo=ES",
+      "gdpSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?lang=en&time=2024&unit=CP_MEUR&na_item=B1GQ&geo=ES",
+      "flag": "PROVISIONAL"
     },
     "succession": {
       "year": 2023,
@@ -31,7 +34,18 @@
       "from25To34": 29210,
       "from35To39": 29720,
       "atLeast65": 319050,
-      "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_agesex?lang=en&time=2023&so_eur=TOTAL&sex=T&unit=HLD&age=TOTAL&age=Y_LT25&age=Y25-34&age=Y35-39&age=Y_GE65&geo=ES"
+      "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_agesex?lang=en&time=2023&so_eur=TOTAL&sex=T&unit=HLD&age=TOTAL&age=Y_LT25&age=Y25-34&age=Y35-39&age=Y_GE65&geo=ES",
+      "flag": "IMPUTED",
+      "europe": {
+        "year": 2023,
+        "holdings": 8771680,
+        "under25": 49740,
+        "from25To34": 437990,
+        "from35To39": 446920,
+        "atLeast65": 3064730,
+        "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_agesex?lang=en&time=2023&so_eur=TOTAL&sex=T&unit=HLD&age=TOTAL&age=Y_LT25&age=Y25-34&age=Y35-39&age=Y_GE65&geo=EU27_2020",
+        "flag": "IMPUTED"
+      }
     }
   },
   "coverage": {
@@ -95,7 +109,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Conoce la plataforma anunciada para reunir ofertas y demandas de tierras agrarias e informar sobre financiación, transmisión de explotaciones y fiscalidad. No está operativa y prevé dar acceso preferente a fincas rústicas del Estado a jóvenes, mujeres y nuevos profesionales.",
+      "whatItOffers": "Plataforma estatal anunciada, todavía no operativa, para reunir la oferta y la demanda de tierras agrarias, informar sobre financiación, transmisión de explotaciones y fiscalidad, y poner fincas rústicas del Estado a disposición preferente de jóvenes, mujeres y nuevos profesionales.",
       "whoCanUseIt": "Según el anuncio, jóvenes, mujeres y nuevos profesionales del sector agrario.",
       "accessUrl": "https://www.mapa.gob.es/es/prensa/ultimas-noticias/detalle_noticias/pedro-s-nchez-anuncia-un-paquete-de-medidas-para-impulsar-el-relevo-generacional-en-la-agricultura/a2e88faf-65e3-44d7-ac4f-1d287c7771ab",
       "languages": ["es"],
@@ -141,7 +155,7 @@
       },
       "operator": "Red TERRAE (asociación intermunicipal)",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Consulta cómo funciona la plataforma para buscar fincas de uso agroecológico en municipios de la red o para ofrecer terrenos de forma gratuita y voluntaria. Su funcionamiento actual está sin confirmar.",
+      "whatItOffers": "Plataforma en la que propietarios pueden ofrecer tierras de forma gratuita y voluntaria y quienes buscan tierra pueden consultar las fincas disponibles, con fines agroecológicos, en municipios de la red.",
       "howToAccess": "Registro en la plataforma web.",
       "accessUrl": "https://bancode.tierrasagroecologicas.es/",
       "accessCostType": "FREE",
@@ -178,7 +192,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Consulta qué prevé la PAC 2023-2027 para incorporarte al campo: reserva nacional de derechos, ayuda complementaria a la renta para jóvenes y ayudas de primera instalación que gestionan las comunidades autónomas.",
+      "whatItOffers": "Resume lo que prevé el Plan Estratégico de la PAC 2023-2027 para incorporarse al campo: reserva nacional de derechos, ayuda complementaria a la renta para jóvenes y ayudas al establecimiento (primera instalación) que gestionan las comunidades autónomas.",
       "accessUrl": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/medidas-pac/",
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
@@ -206,7 +220,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Busca estancias formativas para jóvenes en explotaciones modelo de toda España y consulta la convocatoria del programa.",
+      "whatItOffers": "Estancias formativas de jóvenes en explotaciones modelo de todo el país, con un buscador de estancias y una convocatoria anual.",
       "howToAccess": "Solicitud de las personas jóvenes en la sede electrónica del Ministerio durante el plazo de la convocatoria.",
       "accessUrl": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/visitas-formativas",
       "calls": [
@@ -263,7 +277,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Usa esta guía del Ministerio para orientarte si quieres dedicarte a la agricultura o la ganadería y preparar tu propio proyecto.",
+      "whatItOffers": "Guía de orientación del Ministerio para quienes quieren dedicarse profesionalmente a la agricultura o la ganadería y crear su proyecto.",
       "accessUrl": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/guia-incorporacion-sector-agrario",
       "accessCostType": "FREE",
       "languages": ["es"],
@@ -291,7 +305,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Localiza la guía para incorporarte al campo, el programa CULTIVA, información sobre acceso a la tierra y las medidas de la PAC para el relevo generacional.",
+      "whatItOffers": "Portal del Ministerio que reúne la guía de incorporación al sector, el programa CULTIVA, información sobre acceso a la tierra, las medidas PAC de relevo generacional y datos sobre juventud agraria.",
       "accessUrl": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/",
       "accessCostType": "FREE",
       "languages": ["es"],
@@ -316,7 +330,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación, con ICO y SAECA",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Consulta esta línea de préstamos para jóvenes avalados por SAECA. Bonifica el 15 % del principal, hasta 15.000 euros por beneficiario.",
+      "whatItOffers": "Préstamos para jóvenes avalados por SAECA, con una bonificación del 15 % del principal (hasta 15.000 euros por beneficiario) y el pago de la comisión del aval y de la comisión de estudio.",
       "whoCanUseIt": "Titulares de explotaciones agrarias y otros beneficiarios de la línea que no tengan más de 40 años en el año de la solicitud.",
       "howToAccess": "Solicitar el préstamo en una entidad financiera colaboradora con aval de SAECA.",
       "accessUrl": "https://www.mapa.gob.es/es/ministerio/servicios/analisis-y-prospectiva/financiacion-fiscalidad-costes-energia/medidas-apoyo-subvenciones-financiacion/lineas-financiacion/linea-jovenes",
@@ -357,7 +371,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación, con SAECA y las comunidades autónomas participantes",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Consulta la garantía pública para préstamos destinados, entre otros fines, a la instalación de jóvenes y nuevos agricultores en las comunidades autónomas que ofrecen el instrumento.",
+      "whatItOffers": "Garantía pública sobre préstamos de entidades financieras colaboradoras para intervenciones del Plan Estratégico de la PAC, entre ellas la instalación de jóvenes y de nuevos agricultores, en las comunidades autónomas que ofrecen este instrumento.",
       "whoCanUseIt": "Beneficiarios de las intervenciones incluidas en el instrumento en diez comunidades autónomas, entre ellas Aragón, Castilla-La Mancha, Comunidad de Madrid y Galicia.",
       "howToAccess": "Convocatoria de la comunidad autónoma y préstamo en una entidad financiera adherida.",
       "accessUrl": "https://www.mapa.gob.es/es/pac/instrumentos-financieros/gestion-centralizada/ifgc",
@@ -387,7 +401,7 @@
       },
       "operator": "Asociación Red de Espacios Test Agrarios (RETA)",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Busca espacios test agrarios en el mapa y consulta en cada ficha si el espacio está en preparación o si ya cuenta con personas en pruebas activas o recién seleccionadas.",
+      "whatItOffers": "Mapa nacional para localizar espacios test agrarios, consultar su ficha y distinguir si están en diseño, en preparación o con personas téster activas o recientemente seleccionadas.",
       "howToAccess": "Abrir el mapa, filtrar por fase y consultar la ficha del espacio de interés. Después hay que comprobar con su operador si existe una convocatoria o vía de incorporación disponible.",
       "accessUrl": "https://espaciostestagrarios.org/intranet/observatorio",
       "accessCostType": "FREE",

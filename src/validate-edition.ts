@@ -91,8 +91,13 @@ export function checkSemantics(file: string, data: EditionSnapshot, territories:
     if ([land.year, economy.year, succession.year].some((year) => year > Number(consultedOn.slice(0, 4)))) {
       found.error("countryContext: observation year is after the consultation year");
     }
-    if (succession.under25 + succession.from25To34 + succession.from35To39 + succession.atLeast65 > succession.holdings) {
-      found.error("countryContext: age groups exceed the total number of holdings");
+    for (const table of [succession, ...(succession.europe ? [succession.europe] : [])]) {
+      if (table.under25 + table.from25To34 + table.from35To39 + table.atLeast65 > table.holdings) {
+        found.error("countryContext: age groups exceed the total number of holdings");
+      }
+    }
+    if (succession.europe && succession.europe.year !== succession.year) {
+      found.error("countryContext: the EU-27 reference is for another year than the country's age table");
     }
   }
 

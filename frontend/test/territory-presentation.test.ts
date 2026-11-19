@@ -168,13 +168,22 @@ test("country context gives each observation its year and source after the resou
     const { land, economy, succession, consultedOn } = data.countryContext;
     assert.ok(block, `${route}: missing context`);
     assert.ok(html.indexOf('id="country-context"') > html.indexOf('id="inherited"'), `${route}: context precedes resources`);
-    assert.equal(
-      [...block.matchAll(/class="meta"(?: [^>]*)?>(\d{4})<\/dd>/gu)].map((match) => match[1]).join(","),
-      [land.year, economy.year, succession.year].join(","),
+    assert.deepEqual(
+      [...block.matchAll(/data-year="(\d{4})"/gu)].map((match) => Number(match[1])).toSorted(),
+      [land.year, economy.year, succession.year].toSorted(),
+      `${route}: every figure states its year`,
     );
+    // The API query is kept for audit; the reader's link opens the same table in Eurostat's data browser.
     for (const source of [land.sourceUrl, economy.sectorSourceUrl, economy.gdpSourceUrl, succession.sourceUrl]) {
-      assert.ok(block.includes(`href="${source}"`), `${route}: missing source ${source}`);
+      assert.ok(block.includes(source), `${route}: missing source ${source}`);
+      const table = new URL(source).pathname.split("/").pop();
+      assert.match(
+        block,
+        new RegExp(`href="https://ec\\.europa\\.eu/eurostat/databrowser/view/${table}/`, "u"),
+        `${route}: no readable table for ${table}`,
+      );
     }
+    if (succession.europe) assert.match(block, /UE-27|EU-27/u, `${route}: the age bars have no EU-27 reference`);
     assert.ok(block.includes(`<time datetime="${consultedOn}"`));
   }
 });
