@@ -475,6 +475,76 @@ export interface CountryIdentity {
      */
     [k: string]: [Slug, ...Slug[]];
   };
+  countryContext?: CountryContext;
+}
+/**
+ * Dated national statistics with the original source observations. Economic observations are at current prices in million euros. Age counts are agricultural holdings grouped by age of the farm manager.
+ */
+export interface CountryContext {
+  consultedOn: IsoDate;
+  /**
+   * Utilised agricultural area from the farm structure survey.
+   */
+  land: {
+    /**
+     * Reference year of the reported observations.
+     */
+    year: number;
+    /**
+     * Published utilised agricultural area in hectares.
+     */
+    hectares: number;
+    sourceUrl: HttpsUrl;
+  };
+  /**
+   * Gross value added and gross domestic product from annual national accounts at current prices.
+   */
+  economy: {
+    /**
+     * Reference year of the reported observations.
+     */
+    year: number;
+    /**
+     * Gross value added of agriculture, forestry and fishing, in million euros.
+     */
+    sectorValueAdded: number;
+    /**
+     * Gross domestic product at market prices, in million euros.
+     */
+    gdp: number;
+    sectorSourceUrl: HttpsUrl;
+    gdpSourceUrl: HttpsUrl;
+  };
+  /**
+   * Reported holdings by age of the manager from the farm structure survey.
+   */
+  succession: {
+    /**
+     * Reference year of the reported observations.
+     */
+    year: number;
+    /**
+     * Total agricultural holdings covered by the age table, across all ages.
+     */
+    holdings: number;
+    /**
+     * Holdings with a manager under 25.
+     */
+    under25: number;
+    /**
+     * Holdings with a manager aged 25 to 34.
+     */
+    from25To34: number;
+    /**
+     * Holdings with a manager aged 35 to 39.
+     */
+    from35To39: number;
+    /**
+     * Holdings with a manager aged 65 or over.
+     */
+    atLeast65: number;
+    sourceUrl: HttpsUrl;
+  };
 }
 export interface HubIdentity {
   schemaId: "hub-snapshot";

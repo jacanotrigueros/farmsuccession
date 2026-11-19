@@ -33,6 +33,18 @@ const EN = {
   startHere: "Start here",
   ownRecords: "Resources specific to {where}",
   wholeCountryTitle: "Resources for the whole country",
+  countryContext: {
+    title: "Farming in figures",
+    land: "Agricultural area in use",
+    economy: "Agriculture, forestry and fishing as a share of GDP",
+    succession: "Generational renewal",
+    older: "of farm managers aged 65 or over",
+    younger: "of farm managers under 40",
+    landSource: "Agricultural area data",
+    economySource: "National accounts by industry",
+    gdpSource: "GDP data",
+    successionSource: "Farm manager age data",
+  },
   regionalRecordsTitle: "Resources by territory",
   regionalRecordsLead: "Open a territory to see its resources. Resources for the whole country and Europe are listed above.",
   wholeCountryLead: "Programs and resources recorded nationally. Check each record to see where it is offered.",
@@ -408,6 +420,18 @@ const ES = {
   startHere: "Empezar aquí",
   ownRecords: "Recursos específicos de {where}",
   wholeCountryTitle: "Recursos de ámbito estatal",
+  countryContext: {
+    title: "El campo en cifras",
+    land: "Superficie agrícola utilizada",
+    economy: "Peso de la agricultura, la silvicultura y la pesca en el PIB",
+    succession: "Relevo generacional",
+    older: "de responsables de explotación de 65 años o más",
+    younger: "de responsables de explotación menores de 40 años",
+    landSource: "Datos de superficie agrícola",
+    economySource: "Cuentas nacionales por actividad",
+    gdpSource: "Datos del PIB",
+    successionSource: "Datos de edad de los responsables",
+  },
   regionalRecordsTitle: "Recursos por territorio",
   regionalRecordsLead: "Abre un territorio para ver sus recursos. Los recursos para todo el país y Europa aparecen arriba.",
   wholeCountryLead: "Programas y recursos de ámbito estatal. Consulta en cada ficha dónde se ofrece.",
@@ -761,7 +785,7 @@ const ES = {
   showResults: "Ver {count}",
   shownRange: "{from}–{to} de {count}",
   widenToEurope: "Ampliar búsqueda a Europa",
-} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
+} as const satisfies Words;
 
 /**
  * German. The chrome of the country that arrived with this milestone, in the register this site uses for
@@ -790,6 +814,18 @@ const DE = {
   startHere: "Hier anfangen",
   ownRecords: "Angebote speziell für {where}",
   wholeCountryTitle: "Angebote für das ganze Land",
+  countryContext: {
+    title: "Landwirtschaft in Zahlen",
+    land: "Landwirtschaftlich genutzte Fläche",
+    economy: "Anteil der Land- und Forstwirtschaft und Fischerei am BIP",
+    succession: "Generationswechsel",
+    older: "der Betriebsleitungen sind mindestens 65 Jahre alt",
+    younger: "der Betriebsleitungen sind unter 40 Jahre alt",
+    landSource: "Daten zur Agrarfläche",
+    economySource: "Volkswirtschaftliche Gesamtrechnung nach Branchen",
+    gdpSource: "BIP-Daten",
+    successionSource: "Altersdaten der Betriebsleitungen",
+  },
   regionalRecordsTitle: "Angebote nach Gebiet",
   regionalRecordsLead: "Öffnen Sie ein Gebiet, um seine Angebote zu sehen. Landesweite und europäische Angebote stehen oben.",
   wholeCountryLead: "Programme und Angebote auf nationaler Ebene. Wo sie verfügbar sind, steht im jeweiligen Eintrag.",
@@ -1145,7 +1181,7 @@ const DE = {
   showResults: "{count} anzeigen",
   shownRange: "{from}–{to} von {count}",
   widenToEurope: "Suche auf Europa ausweiten",
-} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
+} as const satisfies Words;
 
 /** French, the chrome of the country that arrived with this milestone. */
 const FR = {
@@ -1171,6 +1207,18 @@ const FR = {
   startHere: "Commencer ici",
   ownRecords: "Ressources propres au territoire : {where}",
   wholeCountryTitle: "Ressources pour tout le pays",
+  countryContext: {
+    title: "L’agriculture en chiffres",
+    land: "Surface agricole utilisée",
+    economy: "Part de l’agriculture, de la sylviculture et de la pêche dans le PIB",
+    succession: "Renouvellement des générations",
+    older: "des chefs d’exploitation ont 65 ans ou plus",
+    younger: "des chefs d’exploitation ont moins de 40 ans",
+    landSource: "Données sur les surfaces agricoles",
+    economySource: "Comptes nationaux par branche",
+    gdpSource: "Données du PIB",
+    successionSource: "Données sur l’âge des chefs d’exploitation",
+  },
   regionalRecordsTitle: "Ressources par territoire",
   regionalRecordsLead: "Ouvrez un territoire pour voir ses ressources. Les ressources nationales et européennes figurent plus haut.",
   wholeCountryLead: "Programmes et ressources recensés à l’échelle nationale. Consultez chaque fiche pour savoir où ils sont proposés.",
@@ -1538,7 +1586,7 @@ const FR = {
   showResults: "Voir {count}",
   shownRange: "{from}–{to} sur {count}",
   widenToEurope: "Élargir la recherche à l’Europe",
-} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
+} as const satisfies Words;
 
 /** Italian, the chrome of the country that arrived with this milestone. */
 const IT = {
@@ -1564,6 +1612,18 @@ const IT = {
   startHere: "Inizia qui",
   ownRecords: "Risorse specifiche del territorio: {where}",
   wholeCountryTitle: "Risorse per tutto il paese",
+  countryContext: {
+    title: "L’agricoltura in cifre",
+    land: "Superficie agricola utilizzata",
+    economy: "Peso di agricoltura, silvicoltura e pesca sul PIL",
+    succession: "Ricambio generazionale",
+    older: "dei capi azienda ha almeno 65 anni",
+    younger: "dei capi azienda ha meno di 40 anni",
+    landSource: "Dati sulla superficie agricola",
+    economySource: "Conti nazionali per attività",
+    gdpSource: "Dati sul PIL",
+    successionSource: "Dati sull’età dei capi azienda",
+  },
   regionalRecordsTitle: "Risorse per territorio",
   regionalRecordsLead: "Apri un territorio per vedere le sue risorse. Le risorse nazionali ed europee sono elencate sopra.",
   wholeCountryLead: "Programmi e risorse di ambito nazionale. Consulta ogni scheda per sapere dove sono disponibili.",
@@ -1928,7 +1988,7 @@ const IT = {
   showResults: "Mostra {count}",
   shownRange: "{from}–{to} di {count}",
   widenToEurope: "Estendi la ricerca all’Europa",
-} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
+} as const satisfies Words;
 
 /** Portuguese, the chrome of the last country of the edition. */
 const PT = {
@@ -1954,6 +2014,18 @@ const PT = {
   startHere: "Começar aqui",
   ownRecords: "Recursos específicos do território: {where}",
   wholeCountryTitle: "Recursos para todo o país",
+  countryContext: {
+    title: "A agricultura em números",
+    land: "Superfície agrícola utilizada",
+    economy: "Peso da agricultura, da silvicultura e das pescas no PIB",
+    succession: "Renovação geracional",
+    older: "dos dirigentes das explorações têm 65 anos ou mais",
+    younger: "dos dirigentes das explorações têm menos de 40 anos",
+    landSource: "Dados sobre a superfície agrícola",
+    economySource: "Contas nacionais por atividade",
+    gdpSource: "Dados do PIB",
+    successionSource: "Dados sobre a idade dos dirigentes",
+  },
   regionalRecordsTitle: "Recursos por território",
   regionalRecordsLead: "Abra um território para ver os seus recursos. Os recursos nacionais e europeus estão listados acima.",
   wholeCountryLead: "Programas e recursos de âmbito nacional. Consulta cada ficha para saber onde estão disponíveis.",
@@ -2313,7 +2385,7 @@ const PT = {
   showResults: "Ver {count}",
   shownRange: "{from}–{to} de {count}",
   widenToEurope: "Alargar a pesquisa à Europa",
-} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
+} as const satisfies Words;
 
 /** Dutch, for the twelve provinces of the European Netherlands. */
 const NL = {
@@ -2339,6 +2411,18 @@ const NL = {
   startHere: "Begin hier",
   ownRecords: "Vermeldingen specifiek voor {where}",
   wholeCountryTitle: "Vermeldingen voor het hele land",
+  countryContext: {
+    title: "Landbouw in cijfers",
+    land: "Landbouwareaal in gebruik",
+    economy: "Aandeel van landbouw, bosbouw en visserij in het bbp",
+    succession: "Generatiewisseling",
+    older: "van de bedrijfsleiders is 65 jaar of ouder",
+    younger: "van de bedrijfsleiders is jonger dan 40 jaar",
+    landSource: "Gegevens over het landbouwareaal",
+    economySource: "Nationale rekeningen naar bedrijfstak",
+    gdpSource: "Bbp-gegevens",
+    successionSource: "Leeftijdsgegevens van bedrijfsleiders",
+  },
   regionalRecordsTitle: "Vermeldingen per gebied",
   regionalRecordsLead: "Open een gebied om de vermeldingen te bekijken. Landelijke en Europese vermeldingen staan hierboven.",
   wholeCountryLead: "Programma’s en regelingen op nationaal niveau. Kijk per vermelding waar ze beschikbaar zijn.",
@@ -2705,7 +2789,7 @@ const NL = {
   showResults: "Toon {count}",
   shownRange: "{from}–{to} van {count}",
   widenToEurope: "Zoek in heel Europa",
-} as const satisfies Record<keyof typeof EN, string | readonly string[] | readonly (readonly [string, string])[]>;
+} as const satisfies Words;
 
 const WORDS = { en: EN, es: ES, de: DE, fr: FR, it: IT, pt: PT, nl: NL };
 
@@ -2779,7 +2863,9 @@ export type Words = {
       : // A plain list of sentences — the steps of a correction — where only the count has to match.
         (typeof EN)[Key] extends readonly string[]
         ? readonly string[]
-        : string;
+        : Key extends "countryContext"
+          ? Readonly<Record<keyof typeof EN.countryContext, string>>
+          : string;
 };
 
 export const words = (language: string): Words => WORDS[asLanguage(language)];

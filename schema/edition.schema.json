@@ -176,6 +176,113 @@
             "uniqueItems": true,
             "items": { "$ref": "#/$defs/slug" }
           }
+        },
+        "countryContext": { "$ref": "#/$defs/countryContext" }
+      }
+    },
+    "countryContext": {
+      "title": "CountryContext",
+      "description": "Dated national statistics with the original source observations. Economic observations are at current prices in million euros. Age counts are agricultural holdings grouped by age of the farm manager.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["consultedOn", "land", "economy", "succession"],
+      "properties": {
+        "consultedOn": {
+          "$ref": "#/$defs/isoDate"
+        },
+        "land": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["year", "hectares", "sourceUrl"],
+          "properties": {
+            "year": {
+              "type": "integer",
+              "minimum": 1900,
+              "maximum": 9999,
+              "description": "Reference year of the reported observations."
+            },
+            "hectares": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Published utilised agricultural area in hectares."
+            },
+            "sourceUrl": {
+              "$ref": "#/$defs/httpsUrl"
+            }
+          },
+          "description": "Utilised agricultural area from the farm structure survey."
+        },
+        "economy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["year", "sectorValueAdded", "gdp", "sectorSourceUrl", "gdpSourceUrl"],
+          "properties": {
+            "year": {
+              "type": "integer",
+              "minimum": 1900,
+              "maximum": 9999,
+              "description": "Reference year of the reported observations."
+            },
+            "sectorValueAdded": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Gross value added of agriculture, forestry and fishing, in million euros."
+            },
+            "gdp": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "Gross domestic product at market prices, in million euros."
+            },
+            "sectorSourceUrl": {
+              "$ref": "#/$defs/httpsUrl"
+            },
+            "gdpSourceUrl": {
+              "$ref": "#/$defs/httpsUrl"
+            }
+          },
+          "description": "Gross value added and gross domestic product from annual national accounts at current prices."
+        },
+        "succession": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["year", "holdings", "under25", "from25To34", "from35To39", "atLeast65", "sourceUrl"],
+          "properties": {
+            "year": {
+              "type": "integer",
+              "minimum": 1900,
+              "maximum": 9999,
+              "description": "Reference year of the reported observations."
+            },
+            "holdings": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Total agricultural holdings covered by the age table, across all ages."
+            },
+            "under25": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Holdings with a manager under 25."
+            },
+            "from25To34": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Holdings with a manager aged 25 to 34."
+            },
+            "from35To39": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Holdings with a manager aged 35 to 39."
+            },
+            "atLeast65": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Holdings with a manager aged 65 or over."
+            },
+            "sourceUrl": {
+              "$ref": "#/$defs/httpsUrl"
+            }
+          },
+          "description": "Reported holdings by age of the manager from the farm structure survey."
         }
       }
     },

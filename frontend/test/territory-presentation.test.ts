@@ -153,3 +153,28 @@ test("country search titles omit the suffix and use the optional description fro
     );
   }
 });
+
+test("country context gives each observation its year and source after the resources", () => {
+  for (const { data, layer } of snapshots) {
+    if (layer.level === "EU") continue;
+    const slug = layer.level === "COUNTRY" ? "" : layer.level === "HUB" ? layer.hub : layer.region;
+    const route = slug ? `${layer.country.toLowerCase()}/${regionSlug(layer.country)}/${slug}` : layer.country.toLowerCase();
+    const html = htmlAt(route);
+    const block = /<section\b[^>]*aria-labelledby="country-context"[^>]*>([\s\S]*?)<\/section>/u.exec(html)?.[1];
+    if (data.schemaId !== "country-snapshot" || !data.countryContext) {
+      assert.equal(block, undefined, `${route}: only countries with observations show context`);
+      continue;
+    }
+    const { land, economy, succession, consultedOn } = data.countryContext;
+    assert.ok(block, `${route}: missing context`);
+    assert.ok(html.indexOf('id="country-context"') > html.indexOf('id="inherited"'), `${route}: context precedes resources`);
+    assert.equal(
+      [...block.matchAll(/class="meta"(?: [^>]*)?>(\d{4})<\/dd>/gu)].map((match) => match[1]).join(","),
+      [land.year, economy.year, succession.year].join(","),
+    );
+    for (const source of [land.sourceUrl, economy.sectorSourceUrl, economy.gdpSourceUrl, succession.sourceUrl]) {
+      assert.ok(block.includes(`href="${source}"`), `${route}: missing source ${source}`);
+    }
+    assert.ok(block.includes(`<time datetime="${consultedOn}"`));
+  }
+});

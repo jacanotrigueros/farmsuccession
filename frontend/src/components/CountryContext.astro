@@ -1,0 +1,68 @@
+---
+import type { CountryContext } from "../../../src/types/edition.ts";
+import { dateIn } from "../lib/language.ts";
+import { words } from "../lib/words.ts";
+
+type Props = { context: CountryContext; language: string; locale: string };
+const { context, language, locale } = Astro.props;
+const { land, economy, succession } = context;
+const text = words(language);
+const labels = text.countryContext;
+const percent = new Intl.NumberFormat(locale, {
+  style: "percent",
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1,
+});
+const hectares = new Intl.NumberFormat(locale, { style: "unit", unit: "hectare", unitDisplay: "short" });
+const older = percent.format(succession.atLeast65 / succession.holdings);
+const younger = percent.format((succession.under25 + succession.from25To34 + succession.from35To39) / succession.holdings);
+---
+
+<section class="wrap border-t border-line py-8" aria-labelledby="country-context" data-pagefind-ignore>
+  <h2 id="country-context" class="scroll-mt-6 text-2xl font-bold">
+    {labels.title}
+  </h2>
+  <dl class="mt-4 grid gap-3 lg:grid-cols-3">
+    <div class="card min-w-0 p-4">
+      <dt class="font-bold">{labels.land}</dt>
+      <dd class="mt-2 text-2xl font-bold text-brand">{hectares.format(land.hectares)}</dd>
+      <dd class="meta">{land.year}</dd>
+      <dd>
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={land.sourceUrl}>
+          {labels.landSource}
+        </a>
+      </dd>
+    </div>
+    <div class="card min-w-0 p-4">
+      <dt class="font-bold">{labels.economy}</dt>
+      <dd class="mt-2 text-2xl font-bold text-brand">{percent.format(economy.sectorValueAdded / economy.gdp)}</dd>
+      <dd class="meta">{economy.year}</dd>
+      <dd class="flex flex-wrap gap-x-4">
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={economy.sectorSourceUrl}>
+          {labels.economySource}
+        </a>
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={economy.gdpSourceUrl}>
+          {labels.gdpSource}
+        </a>
+      </dd>
+    </div>
+    <div class="card min-w-0 p-4">
+      <dt class="font-bold">{labels.succession}</dt>
+      <dd class="mt-2">
+        <strong class="text-2xl text-brand">{older}</strong> {labels.older}
+      </dd>
+      <dd class="mt-1">
+        <strong class="text-2xl text-brand">{younger}</strong> {labels.younger}
+      </dd>
+      <dd class="meta">{succession.year}</dd>
+      <dd>
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={succession.sourceUrl}>
+          {labels.successionSource}
+        </a>
+      </dd>
+    </div>
+  </dl>
+  <p class="meta mt-2">
+    Eurostat · {text.recordedOn} <time datetime={context.consultedOn}>{dateIn(context.consultedOn, locale)}</time>
+  </p>
+</section>

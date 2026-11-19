@@ -85,6 +85,16 @@ export function checkSemantics(file: string, data: EditionSnapshot, territories:
   checkIdentity(file, data, territories, found);
   checkDates(data, today, found);
   checkCoverage(data, found);
+  if (data.schemaId === "country-snapshot" && data.countryContext) {
+    const { consultedOn, land, economy, succession } = data.countryContext;
+    if (consultedOn > today) found.error("countryContext: consultation date is in the future");
+    if ([land.year, economy.year, succession.year].some((year) => year > Number(consultedOn.slice(0, 4)))) {
+      found.error("countryContext: observation year is after the consultation year");
+    }
+    if (succession.under25 + succession.from25To34 + succession.from35To39 + succession.atLeast65 > succession.holdings) {
+      found.error("countryContext: age groups exceed the total number of holdings");
+    }
+  }
 
   const ids = new Set<string>();
   for (const resource of data.resources) {
