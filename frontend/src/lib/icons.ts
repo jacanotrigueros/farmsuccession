@@ -1,19 +1,21 @@
 /**
- * One Lucide icon per concept, reused everywhere so an icon always means the
- * same thing. Icons are rendered to inline SVG at build time (astro-icon):
+ * One icon per concept, reused everywhere so an icon always means the same
+ * thing. The concepts a reader meets first (kinds, figures, navigation) use the
+ * project's own two-tone set in src/icons/farm (drawn for it, Nov 2026); the
+ * rest stay Lucide. Icons are rendered to inline SVG at build time (astro-icon):
  * no icon font, no request, no JavaScript. They are always aria-hidden and
  * never carry meaning on their own: the text next to them does.
  */
 export const KIND_ICON: Record<string, string> = {
-  LAND_BANK: "lucide:land-plot",
-  SUCCESSION_SERVICE: "lucide:handshake",
-  FINANCIAL_SUPPORT: "lucide:hand-coins",
-  TRAINING: "lucide:graduation-cap",
-  ADVICE: "lucide:messages-square",
-  OFFICIAL_PORTAL: "lucide:globe",
-  POLICY: "lucide:scale",
-  NETWORK: "lucide:network",
-  OTHER: "lucide:file-text",
+  LAND_BANK: "farm/land",
+  SUCCESSION_SERVICE: "farm/handover",
+  FINANCIAL_SUPPORT: "farm/funding",
+  TRAINING: "farm/training",
+  ADVICE: "farm/advice",
+  OFFICIAL_PORTAL: "farm/portal",
+  POLICY: "farm/policy",
+  NETWORK: "farm/network",
+  OTHER: "farm/other",
 };
 
 export const kindIcon = (kind: string) => KIND_ICON[kind] ?? KIND_ICON.OTHER!;
@@ -41,7 +43,7 @@ export const PRACTICAL_ICON: Record<string, string> = {
 
 export const ICON = {
   search: "lucide:search",
-  territory: "lucide:map-pin",
+  territory: "farm/territories",
   operator: "lucide:building-2",
   body: "lucide:landmark",
   external: "lucide:external-link",
@@ -54,15 +56,15 @@ export const ICON = {
   status: "lucide:activity",
   kind: "lucide:shapes",
   filters: "lucide:sliders-horizontal",
-  europe: "lucide:earth",
+  europe: "farm/countries",
   note: "lucide:info",
   found: "lucide:search-check",
   checked: "lucide:shield-check",
   open: "lucide:unlock",
-  resources: "lucide:file-text",
-  sources: "lucide:database",
-  chevron: "lucide:chevron-right",
-  chevronDown: "lucide:chevron-down",
+  resources: "farm/resources",
+  sources: "farm/sources",
+  chevron: "farm/open",
+  chevronDown: "farm/expand",
 } as const;
 
 /**

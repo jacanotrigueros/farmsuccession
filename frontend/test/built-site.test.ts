@@ -1005,8 +1005,9 @@ test("on-page navigation wraps onto more lines instead of scrolling sideways, an
 test("practical needs retain descriptive icons from the shared resource vocabulary", () => {
   const home = pages.find(({ file }) => file === "index.html")?.html ?? "";
   assert.ok(home, "Europe home page was not built");
-  for (const name of ["handshake", "land-plot", "hand-coins", "graduation-cap", "messages-square"]) {
-    assert.ok(home.includes(`data-icon="lucide:${name}"`), `the ${name} entry has no descriptive icon`);
+  // The project's own two-tone set (src/icons/farm), one drawing per concept.
+  for (const name of ["handover", "land", "funding", "training", "advice"]) {
+    assert.ok(home.includes(`data-icon="farm/${name}"`), `the ${name} entry has no descriptive icon`);
   }
   assert.doesNotMatch(home, /src="\/img\/needs\//u, "retired illustrations must not be fetched");
 });
