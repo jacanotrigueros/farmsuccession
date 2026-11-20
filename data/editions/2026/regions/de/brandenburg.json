@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "brandenburg",
   "officialName": "Brandenburg",
-  "published": "2026-09-30",
+  "published": "2026-11-20",
   "summary": "Brandenburg bietet eine laufend beantragbare Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte, Flächenvermittlung und öffentliche Pachtangebote. Für Gründung und Hofübernahme gibt es zudem Projektbegleitung sowie geförderte Beratung, die auch die Betriebsabgabe umfasst.",
   "coverage": {
     "status": "PARTIAL",
@@ -74,6 +74,13 @@
         "model": "gpt-6",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-29"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -142,18 +149,22 @@
       "sources": [
         {
           "url": "https://flaechenplattform.de/",
-          "title": "Flächenplattform Nachhaltige Landwirtschaft Brandenburg",
-          "consultedOn": "2026-09-29",
+          "title": "Agrarimmobilien-Webportal für nachhaltige Landwirtschaft: Flächenplattform Brandenburg",
+          "consultedOn": "2026-11-19",
           "quotes": [
-            "Flächeneigentümer:innen und Junglandwirt:innen inserieren kostenfrei",
+            "Flächeneigentümer:innen und Junglandwirt:innen inserieren kostenfrei ihr Wunsch-Profil für Angebote und Gesuche.",
             "Jetzt anmelden und inserieren",
-            "Angebote 5",
-            "Bündnis Junge Landwirtschaft e.V."
+            "Anzeigen in der Datenbank Gesuche 31 | Angebote 4",
+            "Bündnis Junge Landwirtschaft e.V.",
+            "Auf dieser Plattform vernetzen sich Flächeneigentümer:innen und Junglandwirt:innen, die gemeinsam bäuerliche Betriebe erhalten und damit die Landwirtschaft nachhaltig stärken.",
+            "Hier finden Sie Angebote und Gesuche für Flächen für die nachhaltige Landwirtschaft",
+            "Gemeinsam mit Vielen wollen wir Betriebsgründungen ermöglichen und bestehende Betriebe mit nachhaltigen Bewirtschaftungsmodellen unterstützen.",
+            "Landwirte im Haupt- und Nebenerwerb"
           ]
         }
       ],
       "notes": "Die Betreiberangabe der bisherigen Edition wurde berichtigt: Die Plattform nennt das Bündnis Junge Landwirtschaft e.V.; FÖL erscheint im Umfeld des Projekts, aber nicht als hier benannter Plattformbetreiber.",
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "brandenburg-klimaresiliente-landwirtschaft-gruendungsberatung",
