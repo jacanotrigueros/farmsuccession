@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "bayern",
   "officialName": "Bayern",
-  "published": "2026-10-29",
+  "published": "2026-11-20",
   "summary": "In Bayern sind Beratung zur Generationenfolge, Seminare zur Hofübergabe und landwirtschaftliche Familienberatung mit konkreten Zugangswegen belegt. Dazu gehört die kostenfreie und vertrauliche Beratung in der Diözese Würzburg. Eine eigene Niederlassungsprämie des Landes oder eine bayerische Hofbörse wurde nicht nachgewiesen.",
   "coverage": {
     "status": "PARTIAL",
@@ -103,6 +103,13 @@
         "model": "GPT-5",
         "promptVersion": "1.9.0",
         "processedAt": "2026-10-29"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -270,6 +277,39 @@
         }
       ],
       "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "bayern-bbv-kaufinteressentenliste",
+      "name": "Erwerb land- oder forstwirtschaftlicher Flächen",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Bayerischer Bauernverband",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Kaufinteressentenliste für land- und forstwirtschaftliche Flächen. Die Vormerkung erleichtert dem Anbieter im Veräußerungsfall die Suche nach Kaufinteressenten.",
+      "whoCanUseIt": "Land- und Forstwirte, die Interesse am Erwerb land- oder forstwirtschaftlicher Flächen haben.",
+      "howToAccess": "Bei einer Geschäftsstelle des Bayerischen Bauernverbandes einen Termin vereinbaren und sich in der Kaufinteressentenliste vormerken lassen. Nähere Auskünfte erteilt jede Geschäftsstelle.",
+      "accessUrl": "https://www.bayerischerbauernverband.de/LandSiedlung",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "FORESTRY"],
+      "targetProfiles": ["LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://www.bayerischerbauernverband.de/LandSiedlung",
+          "title": "Investitionsbetreuung | Bayerischer Bauernverband",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Erwerb land- oder forstwirtschaftlicher Flächen",
+            "Land- und Forstwirte, die Interesse am Erwerb land- oder forstwirtschaftlicher Flächen haben, können sich an Geschäftsstellen des Bayerischen Bauernverbandes in einer Kaufinteressentenliste vormerken lassen.",
+            "Um uns im Veräußerungsfall die Suche nach Kaufinteressenten zu erleichtern, bitten wir Sie, von der Möglichkeit der Vormerkung Gebrauch zu machen.",
+            "Nähere Auskünfte erhalten Sie an jeder Geschäftsstelle des Bayerischen Bauernverbandes.",
+            "Machen Sie gleich einen Termin bei Ihrer Geschäftsstelle aus!"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],
