@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "andalucia",
   "officialName": "Andalucía",
-  "published": "2026-10-18",
+  "published": "2026-11-20",
   "summary": "Andalucía reúne ayudas al establecimiento, acceso a tierras públicas, formación IFAPA, una escuela de pastores y servicios de acompañamiento para la incorporación y el relevo. Las convocatorias y la atención de los prestadores tienen requisitos y disponibilidad distintos.",
   "coverage": {
     "status": "PARTIAL",
@@ -99,6 +99,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -488,6 +495,43 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "andalucia-bollullos-par-del-condado-banco-tierras",
+      "name": "Banco de Tierras Agrícolas de Bollullos Par del Condado",
+      "kind": "LAND_BANK",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Bollullos Par del Condado"
+      },
+      "operator": "Ayuntamiento de Bollullos Par del Condado",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro municipal previsto para poner en contacto a propietarios de parcelas agrícolas con personas interesadas en cultivarlas, incluidas futuras incorporaciones a la actividad agraria. Los acuerdos entre propietario y cultivador tienen carácter privado.",
+      "whoCanUseIt": "Propietarios de parcelas agrícolas del término municipal que deseen inscribirlas y personas interesadas en su cultivo. Cualquier persona interesada podrá consultar el listado de parcelas.",
+      "howToAccess": "La ordenanza prevé solicitar el alta de parcelas mediante el modelo establecido. Para contactar con sus titulares, prevé presentar una solicitud de consulta en el Registro General del Ayuntamiento mediante el modelo correspondiente; los datos personales se consultan en la sede del registro, sin obtener copias.",
+      "accessUrl": "https://www.bollullospardelcondado.es/storage/app/media/ORDENANZAS/ORDENANZAS%20URBAN%C3%8DSTICAS%20Y%20DEL%20USO%20DEL%20SUELO/Ord%20Reguladora%20Banco%20de%20Tierras%20junio%202021.pdf",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "notes": "El documento regula el instrumento, pero no acredita su funcionamiento actual. La entrada en vigor queda condicionada a la publicación íntegra en el Boletín Oficial de la Provincia de Huelva y al transcurso del plazo legal.",
+      "sources": [
+        {
+          "url": "https://www.bollullospardelcondado.es/storage/app/media/ORDENANZAS/ORDENANZAS%20URBAN%C3%8DSTICAS%20Y%20DEL%20USO%20DEL%20SUELO/Ord%20Reguladora%20Banco%20de%20Tierras%20junio%202021.pdf",
+          "title": "ORDENANZA REGULADORA DEL BANCO DE TIERRAS AGRÍCOLAS DEL TÉRMINO MUNICIPAL DE BOLLULLOS PAR DEL CONDADO",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "El objeto de la Ordenanza municipal es la creación y regulación del Banco de Tierras Agrícolas de Bollullos Par del Condado",
+            "se pretende informar y facilitar el contacto entre propietarios de parcelas ubicadas en Bollullos Par del Condado y futuros agricultores.",
+            "El contrato entre ambos tendrá carácter privado.",
+            "Cualquier persona interesada podrá consultar el listado de parcelas que hayan sido dadas de alta en el Banco de Tierras Agrícolas de Bollullos Par del Condado.",
+            "podrán solicitar el alta en el registro mediante modelo establecido al efecto",
+            "en el Registro General del Ayuntamiento, en el modelo establecido al efecto, solicitud de consulta en la que constará, en todo caso:",
+            "sino únicamente a su consulta en la sede del mismo.",
+            "La presente Ordenanza entrará en vigor una vez que se haya publicado su texto íntegro en el Boletín Oficial de la Provincia de Huelva"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
