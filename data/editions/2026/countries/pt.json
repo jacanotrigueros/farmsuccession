@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "PT",
   "officialName": "Portugal",
-  "published": "2026-09-28",
+  "published": "2026-11-20",
   "summary": "No continente existem apoios à primeira instalação e acompanhamento técnico de jovens agricultores. A antiga Bolsa Nacional de Terras foi revogada; a operação do novo Banco e Bolsa continua por verificar. Uma ajuda a novos produtores pecuários esgotou a dotação.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -93,6 +93,13 @@
         "model": "Codex",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-28"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -129,7 +136,7 @@
     },
     {
       "id": "pt-premio-instalacao-jovens",
-      "name": "Prémio instalação jovens agricultores",
+      "name": "Prémio instalação Jovens Agricultores",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -137,9 +144,11 @@
       },
       "operator": "PEPAC no Continente",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Prémio para a primeira instalação de jovens agricultores, articulado com o investimento produtivo para jovens agricultores.",
-      "whoCanUseIt": "Jovens agricultores elegíveis à primeira instalação no PEPAC no Continente; esta intervenção não é a ajuda própria dos Açores ou da Madeira.",
+      "whatItOffers": "Prémio não reembolsável à primeira instalação de 25.000€, com acréscimos de 25.000€ pela instalação em regime de exclusividade e de 5.000€ pela localização em zona vulnerável definida na regulamentação. Articula-se com a intervenção C.2.2.2 — Investimento produtivo Jovens Agricultores; o incentivo combinado não pode exceder 120% do investimento elegível aprovado nessa intervenção.",
+      "whoCanUseIt": "Jovens dos 18 aos 40 anos, inclusive, que se instalem pela primeira vez como responsáveis pela exploração. Inclui sociedades por quotas com atividade agrícola no objeto social, desde que os sócios-gerentes jovens agricultores detenham a maioria do capital e, individualmente, mais de 25%. Exige formação agrícola adequada ou compromisso de a iniciar no prazo máximo de 12 meses após a submissão eletrónica e autenticação do termo de aceitação, e plano de negócios de cinco anos. Aplica-se ao PEPAC no Continente, não às ajudas próprias dos Açores e da Madeira.",
       "accessUrl": "https://pepacc.pt/concursos/premio-instalacao-jovens-agricultores-1o-concurso-4o-periodo/",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
       "languages": ["pt"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "sources": [
@@ -151,10 +160,28 @@
             "Prémio instalação jovens agricultores",
             "O candidato singular ou coletivo cumpre este critério desde que não tenha registo de início de atividade com CAE agrícola"
           ]
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2024/11/Ficha-de-intervencao-C.2.2.1-Premio-instalacao-Jovens-Agricultores-1.pdf",
+          "title": "Prémio instalação Jovens Agricultores",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Jovens agricultores, com idade compreendida entre os 18 e os 40 anos, inclusive, que se instalem pela primeira vez como agricultores na qualidade de responsável pelas explorações, incluindo pessoas coletivas que revistam a forma de sociedade por quotas e com a atividade agrícola no objeto social, desde que os sócios gerentes que forem jovens agricultores, detenham a maioria do capital social e individualmente uma participação superior a 25 % no capital social.",
+            "Possuir formação agrícola adequada ou comprometer-se a iniciar a mesma no prazo máximo de 12 meses após a submissão eletrónica e autenticação do termo de aceitação;",
+            "Existência de Plano de Negócios com a duração de cinco anos, que apresente coerência técnica, económica e financeira",
+            "O apoio à instalação associado ao Plano de Negócios assume a forma de um incentivo não reembolsável (Prémio à 1ª instalação), no valor de 25.000€, tendo os seguintes acréscimos:",
+            "25.000€ no caso de o jovem se instalar em regime de exclusividade;",
+            "5.000€ caso a instalação do jovem agricultor se localize em zona vulnerável definida pela Portaria n.º 301/2020, de 24 de dezembro.",
+            "O montante final de prémio, por jovem agricultor em 1.ª instalação, será ajustado de forma a que o incentivo combinado entre este prémio e o apoio não reembolsável atribuído a título da intervenção C.2.2.2 - Investimento produtivo Jovens Agricultores não poderá exceder 120% do montante de investimento elegível aprovado ao abrigo da referida intervenção.",
+            "Não terem recebido quaisquer ajudas no âmbito do pedido único, exceto nos dois anos anteriores ao ano de apresentação da candidatura;",
+            "Não estarem inscritos na autoridade tributária com atividade agrícola, exceto nos dois anos anteriores ao ano de apresentação da candidatura;",
+            "Não terem recebido quaisquer ajudas aos investimentos no setor agrícola, nem terem recebido prémio à primeira instalação;",
+            "Inscrição no Organismo Pagador enquanto beneficiário; Detenção da titularidade da exploração; Inscrição na autoridade tributária com atividade agrícola."
+          ]
         }
       ],
-      "notes": "A página consultada documenta a medida e os critérios, mas não mostra um período aberto na data da consulta.",
-      "generatorId": "chatgpt-1"
+      "notes": "A página de concurso anteriormente consultada documenta a medida e os critérios, mas não mostra um período aberto na data da consulta. A primeira instalação exige inscrição no Organismo Pagador, titularidade da exploração e inscrição fiscal com atividade agrícola. A ficha exclui ajudas anteriores ao investimento agrícola ou prémio de primeira instalação e admite ajudas do pedido único e inscrição fiscal agrícola apenas nos dois anos anteriores ao ano da candidatura.",
+      "generatorId": "chatgpt-2"
     },
     {
       "id": "pt-acompanhamento-tecnico-jovens",
