@@ -5,7 +5,7 @@
   "country": "PT",
   "region": "centro",
   "officialName": "Centro",
-  "published": "2026-10-30",
+  "published": "2026-11-20",
   "summary": "A Figueira da Foz e a COAPE oferecem vias locais para anunciar e procurar terrenos rurais. A COAPE mantém também um banco especializado em terrenos para pastorícia e presta apoio técnico à instalação agrícola. A disponibilidade atual de parcelas não pôde ser comprovada.",
   "coverage": {
     "status": "PARTIAL",
@@ -63,6 +63,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -78,9 +85,9 @@
       },
       "operator": "Câmara Municipal da Figueira da Foz",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Divulgação de prédios rústicos agroflorestais para venda, arrendamento ou cedência no concelho, com registo de proprietários e consulta cartográfica.",
-      "whoCanUseIt": "Proprietários de terrenos agroflorestais no concelho e pessoas interessadas em aceder a esses terrenos.",
-      "howToAccess": "Registar um terreno no formulário municipal e consultar a bolsa no sistema de informação geográfica ligado à página.",
+      "whatItOffers": "Divulgação de prédios rústicos agroflorestais para venda, arrendamento ou cedência no concelho, incluindo os municipais, com registo de proprietários e consulta cartográfica.",
+      "whoCanUseIt": "Proprietários que pretendam vender, arrendar ou ceder prédios rústicos com aptidão agrícola e/ou florestal localizados no concelho da Figueira da Foz e pessoas interessadas em aceder a esses terrenos. A adesão dos proprietários é gratuita.",
+      "howToAccess": "Registar um terreno no formulário municipal e consultar a bolsa no sistema de informação geográfica ligado à página. O regulamento prevê requerimento próprio, disponível em papel no Balcão de Atendimento da Câmara Municipal ou na Junta de Freguesia da área de residência, a entregar na Câmara Municipal com fotocópias do documento de identificação e da identificação fiscal, certidão das Finanças comprovativa do registo dos prédios rústicos e certidão do registo predial.",
       "accessUrl": "https://www.cm-figfoz.pt/pages/644",
       "assetTypes": ["PLOTS"],
       "sectors": ["AGRICULTURE", "FORESTRY"],
@@ -95,10 +102,26 @@
             "Tem um terreno agroflorestal que pretende vender, arrendar ou ceder no concelho da Figueira da Foz? Então registe-o na Bolsa de Terras, preenchendo o formulário.",
             "A criação da Bolsa de Terras visa divulgar os prédios rústicos agroflorestais para venda, arrendamento ou cedência no concelho da Figueira da Foz."
           ]
+        },
+        {
+          "url": "https://www.cm-figfoz.pt/cmfigueiradafoz/uploads/document/file/1719/regulamento_de_bolsa_de_terras_agroflorestais_da_figueira_da_foz__btaff_.pdf",
+          "title": "REGULAMENTO DA BOLSA DE TERRAS AGROFLORESTAIS DA FIGUEIRA DA FOZ",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "A criação da BTAFF visa divulgar os prédios rústicos agroflorestais para venda, arrendamento ou cedência no concelho da Figueira da Foz, incluindo os que são propriedade do Município.",
+            "Podem aderir à BTAFF, de forma gratuita, todos os proprietários que pretendam vender, arrendar ou ceder prédios rústicos com aptidão agrícola e/ou florestal, localizados no concelho da Figueira da Foz",
+            "O pedido de adesão é formulado através de requerimento próprio, conforme anexo ao presente regulamento, disponibilizado em suporte papel no Balcão de Atendimento da Câmara Municipal da Figueira da Foz ou na Junta de Freguesia da área de residência",
+            "Os respetivos requerimentos devem ser entregues na Câmara Municipal da Figueira da Foz e ser instruídos com os seguintes documentos:",
+            "Fotocópia do Bilhete de Identidade ou Cartão de Cidadão;",
+            "Fotocópia do documento de identificação fiscal;",
+            "Certidão das Finanças comprovativa do registo de prédios rústicos;",
+            "Certidão do Registo da Conservatória do Registo Predial;",
+            "A informação sobre os prédios rústicos ficará disponível para consulta dos potenciais interessados"
+          ]
         }
       ],
-      "notes": "O formulário é anunciado na página municipal, mas não foi confirmada uma oferta atual nem a operação do visor SIG.",
-      "generatorId": "chatgpt-1"
+      "notes": "O formulário é anunciado na página municipal, mas não foi confirmada uma oferta atual nem a operação do visor SIG. As condições documentais e a gratuitidade da adesão dos proprietários constam do regulamento; a sua disponibilização não comprova o funcionamento atual da bolsa.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "centro-coape-bolsa-terras",
