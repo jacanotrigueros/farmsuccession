@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "toscana",
   "officialName": "Toscana",
-  "published": "2026-10-08",
+  "published": "2026-11-20",
   "summary": "In Toscana sono documentati il premio SRE01 per il primo insediamento, la Banca della Terra, una scuola per nuovi pastori e un contributo camerale per nuove imprese e passaggi generazionali nelle province di Livorno e Grosseto. Il bando SRE01 2026 e le iscrizioni alla scuola sono chiusi; il bando camerale risulta aperto.",
   "coverage": {
     "status": "PARTIAL",
@@ -67,6 +67,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -81,10 +88,24 @@
       },
       "operator": "Regione Toscana",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Premio in conto capitale di 100.000 euro per il primo insediamento come capo di un'azienda agricola.",
-      "whoCanUseIt": "Giovani dai 18 ai 40 anni che si insediano per la prima volta e presentano un Piano di Sviluppo Aziendale; la formazione o competenza professionale e la qualifica IAP possono essere conseguite entro la conclusione del piano secondo il bando.",
-      "howToAccess": "Per il bando 2026 occorreva disporre dei terreni, creare il fascicolo aziendale e presentare domanda e piano tramite la piattaforma ARTEA entro il 22 giugno 2026, ore 13. La finestra è chiusa.",
+      "whatItOffers": "Premio in conto capitale di 100.000 euro per il primo insediamento come capo di un'azienda agricola. Se nella stessa azienda si insediano più giovani agricoltori, sono erogati al massimo due premi con un unico piano aziendale.",
+      "whoCanUseIt": "Giovani dai 18 ai 40 anni insediati per la prima volta come capo azienda entro il periodo precedente alla domanda previsto dal bando, che presentano un Piano di Sviluppo Aziendale. La formazione o competenza professionale e la qualifica di imprenditore agricolo professionale possono essere conseguite entro la conclusione del piano secondo il bando. Sono richiesti anche il conseguimento della condizione di agricoltore in attività entro i termini dell'avviso e l'iscrizione all'INPS nella gestione agricola entro la conclusione del piano.",
+      "howToAccess": "Per il bando 2026 occorreva disporre dei terreni, creare il fascicolo aziendale e presentare domanda e piano tramite la piattaforma ARTEA entro il 22 giugno 2026, ore 13. La finestra è chiusa e la pagina Giovanisì rinvia all'elenco delle domande potenzialmente finanziabili.",
       "accessUrl": "https://www.regione.toscana.it/-/giovani-agricoltori-premi-per-l-avviamento-dell-impresa-agricola-il-bando-2026",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Ufficio Giovanisì – Regione Toscana",
+          "value": "800 098 719",
+          "sourceUrl": "https://giovanisi.it/bando/insediamento-giovani-agricoltori-2026/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Ufficio Giovanisì – Regione Toscana",
+          "value": "info@giovanisi.it",
+          "sourceUrl": "https://giovanisi.it/bando/insediamento-giovani-agricoltori-2026/"
+        }
+      ],
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
       "calls": [
@@ -135,9 +156,30 @@
             "decreto dirigenziale 15659 del 13 luglio 2026",
             "Aggiornato al: 16.07.2026"
           ]
+        },
+        {
+          "url": "https://giovanisi.it/bando/insediamento-giovani-agricoltori-2026/",
+          "title": "Insediamento giovani agricoltori 2026 - Giovanisì",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Stato: In Graduatoria Scaduto il: 22/06/2026 13:00",
+            "Il bando dà la possibilità, ai giovani under 41, di ottenere un premio di 100.000 euro per l’avviamento dell’attività agricola in Toscana.",
+            "In caso di insediamento di più giovani agricoltori nella stessa azienda sono erogati fino ad un massimo di due premi con la presentazione di un unico piano aziendale.",
+            "Possono presentare domanda i giovani agricoltori under 41 (dai 18 ai 40 anni)",
+            "presentare un Piano di Sviluppo aziendale;",
+            "possedere entro la data di conclusione del Piano di Sviluppo Aziendale, un’adeguata formazione o competenza professionale;",
+            "diventare “Agricoltore in attività” entro i termini definiti dall’avviso;",
+            "diventare imprenditore agricolo professionale entro la data di conclusione del Piano di Sviluppo Aziendale;",
+            "iscrizione all’inps – gestione agricola entro la data di conclusione del Piano di Sviluppo aziendale;",
+            "essere insediati per la prima volta in qualità di capo azienda nei 30mesi precedenti alla presentazione della domanda di aiuto.",
+            "La domanda di sostegno deve essere presentata online sulla piattaforma gestionale dell’Anagrafe regionale delle aziende agricole sul sito di ARTEA (soggetto gestore), secondo le modalità indicate dall’art.5 del bando.",
+            "Ufficio Giovanisì – Regione Toscana Numero verde 800 098 719 info@giovanisi.it",
+            "Vai all’elenco delle domande potenzialmente finanziabili (Decreto n.15659 del 13-07-2026)"
+          ]
         }
       ],
-      "notes": "La pagina conserva l'etichetta generale «Stato: In corso», ma la scadenza de­lle domande, prorogata al 22 giugno 2026, è trascorsa. Il bando limita determinati trasferimenti familiari e tra coniugi: consultare i requisiti completi prima di planificare un subentro."
+      "notes": "La pagina regionale conserva l'etichetta generale «Stato: In corso», ma la scadenza delle domande, prorogata al 22 giugno 2026, è trascorsa. Il bando limita determinati trasferimenti familiari e tra coniugi: consultare i requisiti completi prima di planificare un subentro.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "toscana-banca-della-terra",
