@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "guyane",
   "officialName": "Guyane",
-  "published": "2026-11-05",
+  "published": "2026-11-20",
   "summary": "En Guyane, trois dotations FEADER visent des profils distincts de nouveaux agriculteurs. La Safer propose un accès au foncier et un accompagnement à la transmission. Une intervention de coopération pour la transmission est décrite, mais aucun appel ouvert n'a été vérifié.",
   "coverage": {
     "status": "PARTIAL",
@@ -59,6 +59,13 @@
         "tool": "CHATGPT",
         "model": "gpt-6",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -304,6 +311,40 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "guyane-portail-foncier-agricole-etat",
+      "name": "Les agriculteurs - Accès au foncier de l'État",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Les services de l'État en Guyane",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Présentation des procédures permettant aux agriculteurs de bénéficier de baux et de concessions sur le foncier agricole de l’État en Guyane, avec un schéma d’instruction et des rubriques consacrées aux formulaires de demande, aux bilans des attributions et aux procès-verbaux des commissions.",
+      "whoCanUseIt": "Agriculteurs en Guyane.",
+      "howToAccess": "Consulter le schéma de procédure et la rubrique « Formulaires de demande agricole » depuis cette page.",
+      "accessUrl": "https://www.guyane.gouv.fr/Actions-de-l-Etat/Acces-au-foncier-de-l-Etat/Les-agriculteurs",
+      "notes": "La page présente le cadre d’accès et les rubriques utiles, sans établir la disponibilité actuelle de foncier ou une période de dépôt des demandes.",
+      "lastEvidenceDate": "2023-08-07",
+      "sources": [
+        {
+          "url": "https://www.guyane.gouv.fr/Actions-de-l-Etat/Acces-au-foncier-de-l-Etat/Les-agriculteurs",
+          "title": "Les agriculteurs - Accès au foncier de l'État - Actions de l'État - Les services de l'État en Guyane",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Les services de l'État en Guyane",
+            "Les procédures d’accès au foncier agricole au titre des articles R5141-1 à R5141-25 du code général de la propriété des personnes publiques prévoient qu'en Guyane les agriculteurs peuvent bénéficier de baux et de concessions.",
+            "Le schéma de la procédure est résumé dans le document suivant",
+            "Schéma Procédure Instruction Agricole PDF - 3,49 Mb - 07/08/2023",
+            "Formulaires de demande agricole",
+            "Bilan des attributions de foncier agricole",
+            "PV des commissions d'attribution agricole"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
