@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "castilla-y-leon",
   "officialName": "Castilla y León",
-  "published": "2026-09-27",
+  "published": "2026-11-20",
   "summary": "Castilla y León combina la ayuda autonómica al establecimiento de jóvenes, una intervención específica de cooperación para la sucesión, cursos oficiales de incorporación, asesoramiento PEPAC y una red de asesoramiento de ASAJA. El Banco de Tierras del Bierzo añade acceso comarcal a parcelas, intermediación y acompañamiento; el Fondo de Tierras autonómico previsto por la ley no se ha verificado como un banco operativo unificado.",
   "coverage": {
     "status": "PARTIAL",
@@ -71,6 +71,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -226,7 +233,7 @@
       "operator": "Consejo Comarcal del Bierzo",
       "operatorType": "PUBLIC",
       "whatItOffers": "Centro público de intermediación para movilizar terrenos agrícolas, ganaderos o forestales mediante cesión o arrendamiento. Además del buscador de fincas, ofrece a demandantes asesoramiento técnico, jurídico y formativo, tutorización, apoyo a la comercialización, análisis de suelo y préstamo de maquinaria.",
-      "whoCanUseIt": "Personas propietarias que quieran incorporar voluntariamente fincas y personas que busquen tierra para desarrollar o ampliar una actividad agrícola, ganadera o forestal en El Bierzo.",
+      "whoCanUseIt": "Todas las personas interesadas, incluidas las personas propietarias que quieran incorporar voluntariamente fincas y quienes busquen tierra para desarrollar o ampliar una actividad agrícola, ganadera o forestal en El Bierzo.",
       "howToAccess": "Consultar las fincas disponibles en la web. Para inscribirse como demandante, acudir a las oficinas del Banco de Tierras o remitir por correo electrónico el modelo normalizado facilitado por el servicio.",
       "accessUrl": "https://www.bancodetierrasdelbierzo.es/",
       "contactPoints": [
@@ -240,7 +247,7 @@
       "accessCostType": "FREE",
       "assetTypes": ["PLOTS"],
       "languages": ["es"],
-      "targetProfiles": ["LAND_SEEKER", "LANDOWNER", "NEW_ENTRANT"],
+      "targetProfiles": ["GENERAL", "LAND_SEEKER", "LANDOWNER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-04-29",
       "metrics": [
         {
@@ -289,9 +296,24 @@
           "quotes": [
             "el Banco de Tierras, creado en marzo de 2013, gestiona actualmente 5.500 parcelas, de las cuales solo 489 permanecen libres."
           ]
+        },
+        {
+          "url": "https://www.bancodetierrasdelbierzo.es/funcionamiento/",
+          "title": "Funcionamiento - Banco de tierras",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "El Banco de Tierras proporciona un servicio de intermediación, gestión, asesoramiento técnico, jurídico y formativo a todas las personas interesadas.",
+            "Cesión de uso o arrendamiento de las fincas incorporadas al Banco.",
+            "Apoyo para la comercialización de sus productos.",
+            "Servicio de tutorización para autoempleo y creación de empresas en colaboración con el Servicio de Iniciativas Emprendedoras (SIE) del Consejo Comarcal de El Bierzo.",
+            "Análisis de suelo.",
+            "Préstamo de maquinaria agrícola.",
+            "Redacción del Contrato por personal técnico del Consejo Comarcal.",
+            "Gestión, Intermediación y seguimiento en todo el proceso."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "castilla-y-leon-cursos-incorporacion-empresa-agraria",
@@ -442,6 +464,95 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "castilla-y-leon-banco-tierras-san-esteban-del-valle",
+      "name": "Banco de tierras",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "San Esteban del Valle"
+      },
+      "operator": "Ayuntamiento de San Esteban del Valle",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Banco municipal para poner fincas agrícolas a disposición de personas que quieran explotarlas mediante cesiones gratuitas formalizadas por escrito. Ofrece intermediación y asesoramiento sobre el contrato; la incorporación de parcelas y las gestiones son gratuitas.",
+      "whoCanUseIt": "Personas propietarias que quieran incorporar parcelas y cualquier persona que precise tierras para desarrollar o ampliar una explotación agraria. Si concurren varias solicitudes sobre una finca, tienen prioridad quienes sean o se comprometan por escrito a ser agricultores a título principal; también se valora el empadronamiento en San Esteban del Valle o en localidades vecinas.",
+      "howToAccess": "Descargar y cumplimentar la solicitud de incorporación o de cesión de parcelas y presentarla en el ayuntamiento de San Esteban del Valle. Para incorporar parcelas hay que acreditar la propiedad. El banco comunica al solicitante de cesión si su petición ha sido aceptada y el procedimiento que debe seguir.",
+      "accessUrl": "https://www.sanestebandelvalle.es/bancoderecursos/banco_de_tierras.html",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "accessCostType": "FREE",
+      "targetProfiles": ["GENERAL", "LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "notes": "La página indica que el listado de fincas incorporadas se publicará próximamente; no permite confirmar la disponibilidad actual de parcelas. Los usos y técnicas agrícolas deben ser respetuosos con el medio ambiente.",
+      "sources": [
+        {
+          "url": "https://www.sanestebandelvalle.es/bancoderecursos/banco_de_tierras.html",
+          "title": "Banco de recursos - San Esteban del Valle",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Banco de tierras",
+            "Ayuntamiento de San Esteban del Valle (Ávila)",
+            "Pretende regular el aprovechamiento de fincas agrícolas, con el objetivo de evitar su abandono, poniéndolas a disposición de las personas que quieran explotarlas.",
+            "La incorporación de parcelas en el banco de tierras es totalmente gratuita, así como sus gestiones, tanto de solicitudes de cesión como de asesoramiento en los documentos legales para formalizar la cesión.",
+            "Cualquier persona que precise tierras para desarrollar o ampliar una explotación agraria puede dirigirse al banco de tierras, donde encontrará una relación de las fincas que están disponibles y podrá solicitar su cesión por un período de tiempo determinado.",
+            "El uso de las fincas inscritas en este banco de tierras siempre será gratuito (no se permite inscribir fincas para ser arrendadas).",
+            "Siempre se formalizará un acuerdo por escrito con el nuevo usuario",
+            "en el caso de llegar a un acuerdo, les asesoraremos sobre el contrato para formalizar la cesión.",
+            "El procedimiento se inicia presentando la solicitud de cesión en el ayuntamiento de San Esteban del Valle.",
+            "Además hay que acreditar la propiedad mediante algún documento.",
+            "Una vez registrada la solicitud, el banco de tierras se pondrá en contacto con usted comunicándole si fue aceptada o no y le indicará el procedimiento a seguir.",
+            "Si se reciben dos o más solicitudes sobre la misma finca se dará prioridad a los que sean (o vayan a ser, con compromiso por escrito) agricultores a título principal.",
+            "También se tendrá como criterio el empadronamiento en San Esteban del Valle (mayor puntuación) o en localidades vecinas.",
+            "Solicitud de incorporación de parcelas (descargar, cumplimentar y presentar en el ayuntamiento)",
+            "Solicitud de cesión de parcelas (descargar, cumplimentar y presentar en el ayuntamiento)",
+            "Listado de tierras (próximamente se mostrará aquí el listado con las fincas incorporadas.)",
+            "Los usos y técnicas agrícolas serán siempre respetuosos con el medio ambiente."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "castilla-y-leon-banco-tierras-santa-maria-del-paramo",
+      "name": "Banco de Tierras Municipal",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Santa María del Páramo"
+      },
+      "operator": "Ayuntamiento de Santa María del Páramo",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Inventario de fincas de titularidad municipal consultable a través de Google MyMaps. El Ayuntamiento plantea que algunas puedan venderse o arrendarse para emprender o producir, incluidos cultivos agroecológicos, cultivos tradicionales, nuevos cultivos y pastos.",
+      "whoCanUseIt": "Quienes quieran emprender o producir en las fincas. El Ayuntamiento manifiesta su intención de dar prioridad a titulares de fincas colindantes y a quienes desarrollen cultivos agroecológicos, recuperen cultivos tradicionales, introduzcan nuevos cultivos en la Comarca Paramesa o propongan otros usos compatibles.",
+      "howToAccess": "Consultar el enlace al inventario de fincas municipales publicado en la página del Banco de Tierras Municipal.",
+      "accessUrl": "https://www.santamariadelparamo.es/es/instalaciones/banco-de-tierras-municipal",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Banco de Tierras Municipal",
+          "value": "medioambiente@santamariadelparamo.es",
+          "sourceUrl": "https://www.santamariadelparamo.es/es/instalaciones/banco-de-tierras-municipal"
+        }
+      ],
+      "assetTypes": ["PLOTS"],
+      "notes": "La página permite localizar el inventario, pero no confirma qué fincas están actualmente disponibles para venta o arrendamiento ni publica un plazo de solicitud.",
+      "sources": [
+        {
+          "url": "https://www.santamariadelparamo.es/es/instalaciones/banco-de-tierras-municipal",
+          "title": "Banco de Tierras Municipal | Santa María del Páramo",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "El Ayuntamiento de Santa María del Páramo (León), a través de sus Concejalías de Promoción Económica y de Nuevas Tecnologías, ha elaborado un “Banco de Tierras”, consultable a través de Google MyMaps, con la relación de las fincas de titularidad municipal.",
+            "abriendo la posibilidad de que algunas de ellas sean susceptibles de venta o arrendamiento a todos aquellos que quieran emprender o producir en ellas.",
+            "Se quiere, no obstante, dar prioridad a su acceso a los titulares de las fincas colindantes, a quienes quieran desarrollar en ellas cultivos mediante prácticas agroecológicas, la recuperación de cultivos tradicionales o la introducción de nuevos cultivos en la Comarca Paramesa, o bien, destinarlas a otros usos diferentes y compatibles del territorio (pastos, actividades recreativas o de ocio, etc.)",
+            "Se puede consultar la relación de las fincas municipales de tal Banco de Tierras en el siguiente enlace: https://bit.ly/3SAdMZg",
+            "medioambiente@santamariadelparamo.es"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

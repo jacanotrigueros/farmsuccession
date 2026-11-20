@@ -6,14 +6,15 @@
     "region": "bretagne"
   },
   "language": "fr",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-11-20",
   "context": [
     "La Région Bretagne regroupe la DJA et son soutien régional complémentaire sous le nom AGRI Install.",
     "AGRI Transmission finance un diagnostic de transmissibilité pour les exploitations dont au moins un associé exploitant a 45 à 65 ans ; la demande est déposée par un organisme de conseil agréé.",
     "La Chambre d'agriculture de Bretagne présente le Répertoire Départ Installation comme un site et un accompagnement pour chercher une ferme ou un repreneur.",
     "La Safer Bretagne dispose de parcours actuels « Je m'installe », « Je cherche du foncier » et « Je transmets mon exploitation », avec appels à candidatures en vente et en location.",
     "Terre de Liens Bretagne et la FRCIVAM Bretagne décrivent des accompagnements concrets installation-transmission accessibles à l'échelle régionale.",
-    "Les espaces-test doivent être vérifiés opérateur par opérateur : Menez-Meur est explicitement en pause en 2026 et ne doit pas être présenté comme actif."
+    "Les espaces-test doivent être vérifiés opérateur par opérateur : Menez-Meur est explicitement en pause en 2026 et ne doit pas être présenté comme actif.",
+    "La mise en réserve foncière d’Ille-et-Vilaine constitue un dispositif départemental distinct de l’offre générale de la Safer Bretagne : convention dédiée, prise en charge des frais et dépôt auprès du Département."
   ],
   "portals": [
     {
@@ -181,6 +182,33 @@
       "reason": "Formation pertinente et actuellement référencée, mais l'édition privilégie les instruments distincts déjà opérés par la Chambre/RDI et la Région ; la page régionale d'orientation est un catalogue de formation et ne démontre pas à elle seule un instrument régional distinct à publier.",
       "checkedOn": "2026-09-28",
       "foundBy": "bretagne-local"
+    },
+    {
+      "id": "bretagne-ille-et-vilaine-aide-installation",
+      "name": "Aide à l'installation",
+      "url": "https://www.ille-et-vilaine.fr/les-aides-du-departement/aide-linstallation",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "bretagne-ille-et-vilaine-aide-installation",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "bretagne-ille-et-vilaine-mise-en-reserve-fonciere",
+      "name": "Mise en réserve foncière",
+      "url": "https://www.ille-et-vilaine.fr/portage-foncier",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "bretagne-ille-et-vilaine-mise-en-reserve-fonciere",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "bretagne-safer-recherche-terres-exploitation",
+      "name": "Vous recherchez des terres ou une exploitation - Safer Bretagne",
+      "url": "https://www.safer-bretagne.fr/agriculteurs/vous-recherchez-des-terres-ou-une-exploitation/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "bretagne-safer-bretagne",
+      "checkedOn": "2026-11-20"
     }
   ],
   "instrumentChecks": [
@@ -234,6 +262,21 @@
       "date": "2026-09-30",
       "by": "CLAUDE (Claude Code)",
       "summary": "Revue des sources : les deux fiches régionales AGRI Install et AGRI Transmission restent sans vérification manuelle documentée (403 automatique, défi Cloudflare dans le navigateur) ; les pistes disent l'étape suivante. Aucune donnée modifiée."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page du Département établit une aide financière distincte d’AGRI Install, destinée à l’installation hors cadre familial, avec des conditions cumulatives et un dépôt centralisé par la Chambre régionale d’agriculture de Bretagne. Elle est ajoutée comme aide départementale, et non comme banque foncière selon l’étiquette du registre."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page départementale établit un dispositif distinct de mise en réserve foncière, réalisé avec la SAFER Bretagne et accessible par un formulaire adressé au Département. J’ajoute cette ressource pour l’Ille-et-Vilaine, avec ses conditions cumulatives d’accès et la prise en charge des frais de portage pendant deux ans au maximum."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page décrit le service foncier déjà publié sous « bretagne-safer-bretagne » et précise les étapes de candidature et les conditions de sélection. Je propose de l'ajouter aux sources de cette fiche et d'enrichir les modalités d'accès, sans créer de doublon ni modifier les autres sources."
     }
   ]
 }

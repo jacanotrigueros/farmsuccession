@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "FR",
   "officialName": "France",
-  "published": "2026-10-30",
+  "published": "2026-11-20",
   "summary": "Objectif Terres met en relation les offres et les recherches de foncier agricole et permet de solliciter un accompagnement territorial. L’Initiative nationale pour l’agriculture française garantit des prêts agricoles, FEVE peut porter le foncier d’une ferme identifiée en France métropolitaine et la MSA exonère partiellement les jeunes chefs d’exploitation.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -94,6 +94,13 @@
         "model": "Codex",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-14"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -234,9 +241,9 @@
       },
       "operator": "Terre de Liens",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Plateforme de petites annonces pour mettre en relation les offres et les recherches de foncier agricole, faciliter la reprise de fermes et l’installation en agriculture biologique, avec une porte d’entrée vers l’accompagnement foncier des associations territoriales de Terre de Liens.",
-      "whoCanUseIt": "Personnes qui recherchent des terres, agriculteurs et propriétaires qui ont un bien agricole à transmettre, ainsi que personnes qui souhaitent se former, rejoindre un projet agricole ou trouver des associés.",
-      "howToAccess": "Consulter gratuitement les annonces. Créer un compte gratuit pour déposer une annonce, contacter un annonceur ou solliciter l’accompagnement de l’association Terre de Liens du territoire concerné.",
+      "whatItOffers": "Plateforme de petites annonces pour mettre en relation les offres et les recherches de foncier agricole, faciliter la reprise de fermes et l’installation en agriculture biologique, avec une porte d’entrée vers l’accompagnement foncier des associations territoriales de Terre de Liens. Le parcours de transmission donne aussi accès à des guides méthodologiques et à des exemples d’installations et de transmissions sur le Centre de Ressources Terre de Liens.",
+      "whoCanUseIt": "Personnes qui recherchent des terres, agriculteurs et propriétaires qui ont un bien agricole à transmettre, ainsi que personnes qui souhaitent se former, rejoindre un projet agricole ou trouver des associés. L’accompagnement foncier s’adresse notamment aux personnes recherchant des terres pour s’installer, des financements pour des terres ou une ferme déjà identifiées, ainsi qu’aux agriculteurs bientôt à la retraite et aux propriétaires privés préparant une transmission.",
+      "howToAccess": "Consulter gratuitement les annonces. Créer un compte gratuit pour déposer une annonce, contacter un annonceur ou solliciter l’accompagnement de l’association Terre de Liens du territoire concerné. Depuis la page « Transmettre ma ferme », accéder gratuitement au dossier « Je transmets mes terres ou ma ferme » du Centre de Ressources Terre de Liens.",
       "accessUrl": "https://www.objectif-terres.org/qui-sommes-nous",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "sectors": ["AGRICULTURE"],
@@ -266,10 +273,46 @@
             "d’échanger directement avec un annonceur",
             "de solliciter un accompagnement auprès d’une association régionale Terre de Liens"
           ]
+        },
+        {
+          "url": "https://www.objectif-terres.org/accompagnement/demarrer",
+          "title": "Être accompagné par Terre deLiens | Objectif Terres",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Pour faire une demande d'accompagnement, il vous faut au préalable : CREER UN COMPTE OU SE CONNECTER",
+            "Terre de Liens peut vous accompagner sur le volet foncier de votre projet, que vous soyez :",
+            "en recherche de terres en vue d’une installation",
+            "en recherche de financements pour des terres ou une ferme que vous avez identifié",
+            "dans une démarche de transmission de votre ferme ou de votre bien agricole, en tant qu’agricultrice ou agriculteur bientôt à la retraite ou en tant que propriétaire privé",
+            "Pour connaître nos modalités d’accueil, indiquez la région concernée par votre projet .",
+            "Notre capacité à vous accompagner pouvant être limitée, merci de cibler le territoire prioritaire sur lequel porte votre projet d’installation.",
+            "Précisez brièvement ce que vous attendez de Terre de Liens",
+            "Vous serez amené(e) à décrire votre projet plus précisément à l’étape suivante."
+          ]
+        },
+        {
+          "url": "https://www.objectif-terres.org/transmettre-ma-ferme",
+          "title": "Transmettre ma ferme | Objectif Terres",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "ont édité un ensemble de guides méthodologiques et recueilli une diversité de projets réussis et inspirants d’installations et de transmissions.",
+            "L’ensemble de ces ressources vous sont mises à disposition gratuitement sur le site du Centre de Ressources Terre de Liens",
+            "Je transmets mes terres ou ma ferme",
+            "Déposer une annonce pour rendre visible votre offre",
+            "Solliciter un accompagnement de votre projet auprès de l’une des dix-neuf associations territoriales Terre de Liens"
+          ]
         }
       ],
-      "notes": "La plateforme nationale porte les annonces et la demande initiale d’accompagnement. Les modalités et délais de l’accompagnement dépendent ensuite de l’association territoriale ; les services régionaux déjà documentés restent des ressources distinctes et ne sont pas recopiés ici.",
-      "generatorId": "chatgpt-1"
+      "notes": "La plateforme nationale porte les annonces et la demande initiale d’accompagnement. Les modalités et délais de l’accompagnement dépendent ensuite de l’association territoriale ; les services régionaux déjà documentés restent des ressources distinctes et ne sont pas recopiés ici. La capacité d’accompagnement peut être limitée.",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Demande d’accompagnement Terre de Liens",
+          "value": "https://www.objectif-terres.org/accompagnement/demarrer",
+          "sourceUrl": "https://www.objectif-terres.org/accompagnement/demarrer"
+        }
+      ],
+      "generatorId": "chatgpt-2"
     },
     {
       "id": "fr-france-services-agriculture",
@@ -301,6 +344,38 @@
       ],
       "notes": "Le ministère présente encore ce réseau comme une nouveauté à déployer ; aucune voie d'accès opérationnelle propre n'est publiée sur la page.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "fr-aita",
+      "name": "Programme pour l’accompagnement à l’installation et la transmission en agriculture (AITA)",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Ministère de l’agriculture — DGPE/SDC",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Cadre de gestion et de mise en œuvre du programme pour l’accompagnement à l’installation et la transmission en agriculture (AITA) pour l’année 2026, fixé par l’instruction technique DGPE/SDC/2026-54.",
+      "accessUrl": "https://info.agriculture.gouv.fr/boagri/instruction-2026-54",
+      "lastEvidenceDate": "2026-06-25",
+      "sources": [
+        {
+          "url": "https://info.agriculture.gouv.fr/boagri/instruction-2026-54",
+          "title": "DGPE/SDC/2026-54 du 25-06-2026",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Bulletin officiel Instructions du ministère de l’agriculture",
+            "DGPE/SDC Bureau du financement des entreprises",
+            "Statut : EnVigueur",
+            "La présente instruction technique présente les modalités de gestion et de mise en œuvre du programme pour l’accompagnement à l’installation et la transmission en agriculture (AITA) pour l’année 2026.",
+            "Instruction technique DGPE/SDC/2026-54 Publiée le 25-06-2026",
+            "Cette instruction n'est abrogée par aucune instruction.",
+            "Cette instruction n'est modifiée par aucune instruction."
+          ]
+        }
+      ],
+      "notes": "La notice donne accès au PDF de l’instruction ; elle ne constitue pas un guichet de demande d’accompagnement ou d’aide.",
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],

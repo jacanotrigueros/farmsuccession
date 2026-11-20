@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "asturias",
   "officialName": "Principado de Asturias",
-  "published": "2026-09-30",
+  "published": "2026-11-20",
   "summary": "Asturias dispone de apoyo específico a la entrada y al relevo: ayudas 2026 para jóvenes y nuevos agricultores, una ayuda a la cooperación para la sucesión dirigida a titulares que cesan y ceden la explotación, el Banco de Tierras con la bolsa Arrendalia y una vía oficial permanente para acreditar la cualificación mediante cursos de incorporación a la empresa agraria.",
   "coverage": {
     "status": "PARTIAL",
@@ -59,6 +59,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -124,7 +131,7 @@
       },
       "operator": "Consejería de Medio Rural y Política Agraria del Principado de Asturias",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Apoyo a agricultores o ganaderos que quieren cesar su actividad y ceder su explotación a otra persona del sector mediante un proyecto de cooperación que articula la sucesión.",
+      "whatItOffers": "Apoyo de hasta 65.000 euros a agricultores o ganaderos que quieren cesar su actividad y ceder su explotación a otra persona del sector mediante un proyecto de cooperación que articula la sucesión.",
       "whoCanUseIt": "Personas físicas jefas de explotación en situación de jubilación en el momento de la transmisión, o con otra causa justificada de cese como incapacidad laboral permanente, que ceden su explotación a otra persona física o jurídica que quiera sucederles.",
       "howToAccess": "Formalizar el proyecto de cooperación y la transmisión y presentar la solicitud mediante la ficha AYUD0505T01. La convocatoria 2026 está cerrada.",
       "accessUrl": "https://miprincipado.asturias.es/ast/-/dboid-6269000173263536107573",
@@ -153,9 +160,18 @@
             "Ayuda destinada al apoyo a agricultores o ganaderos que deseen cesar su actividad para ceder su explotación a otros del mismo sector",
             "Personas físicas, jefes de explotación, que estén en situación de jubilación en el momento de realizar la transmisión"
           ]
+        },
+        {
+          "url": "https://www.asturias.es/ast/ayuda-a-la-cooperaci%C3%B3n-para-la-sucesi%C3%B3n-de-explotaciones-agr%C3%ADcolas",
+          "title": "Arrendamientu de finques rústiques - Principado de Asturias",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Ayuda a la cooperación para la sucesión de explotaciones agrícolas",
+            "El Principáu d’Asturies, al traviés de la Comisión Rexonal del Bancu de Tierres, xestiona les ayudes pa la socesión d’esplotaciones agrícoles, que pueden algamar hasta los 65.000 euros."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "asturias-banco-tierras-arrendalia",
@@ -167,10 +183,10 @@
       },
       "operator": "Principado de Asturias, Comisión Regional del Banco de Tierras",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Gestiona una bolsa de fincas rústicas para su arrendamiento garantizado y facilita la movilidad de tierra agraria mediante incorporación de fincas y solicitudes de arrendamiento.",
+      "whatItOffers": "Gestiona una bolsa de fincas rústicas, públicas o privadas, desocupadas o infrautilizadas para su arrendamiento garantizado y la mejora de las explotaciones agrarias. La página ofrece un buscador de fincas y un documento informativo sobre el funcionamiento de la bolsa.",
       "whoCanUseIt": "Titulares de fincas rústicas que quieren ponerlas en arrendamiento y personas del sector agrario que buscan tierra para su explotación.",
-      "howToAccess": "Acceder al Banco de Tierras, consultar la bolsa Arrendalia y utilizar los procedimientos de incorporación de fincas o arrendamiento publicados por el Principado.",
-      "accessUrl": "https://www.asturias.es/temas/agricultura-gestion-forestal/banco-tierras",
+      "howToAccess": "Consultar el buscador de fincas rústicas y el documento informativo del programa Arrendalia. La página da acceso a los procedimientos de incorporación de fincas a la bolsa y de arrendamiento de fincas incorporadas.",
+      "accessUrl": "https://www.asturias.es/temas/agricultura-gestion-forestal/banco-tierras/arrendamiento-fincas-rusticas",
       "assetTypes": ["PLOTS"],
       "languages": ["es"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER"],
@@ -184,9 +200,22 @@
             "Bolsa de fincas rústicas para su arrendamiento garantizado: programa Arrendalia.",
             "Ayuda a la cooperación para la sucesión de explotaciones agrícolas"
           ]
+        },
+        {
+          "url": "https://www.asturias.es/temas/agricultura-gestion-forestal/banco-tierras/arrendamiento-fincas-rusticas",
+          "title": "Arrendamiento de fincas rústicas - Principado de Asturias",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Programa Arrendalia",
+            "Gestión de fincas rústicas, públicas o privadas, desocupadas o infrautilizadas para su puesta a disposición en el mercado arrendaticio, favoreciendo la movilidad de las tierra y la mejora de las explotaciones agrarias.",
+            "Documento informativo sobre el funcionamiento de la bolsa de fincas rústicas",
+            "Acceso al buscador de fincas rústicas",
+            "Incorporación de fincas a la bolsa de fincas rústicas para su arrendamiento",
+            "Arrendamiento de fincas incorporadas a la bolsa de fincas rústicas"
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "asturias-cualificacion-curso-incorporacion",

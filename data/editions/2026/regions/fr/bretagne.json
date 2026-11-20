@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "bretagne",
   "officialName": "Bretagne",
-  "published": "2026-10-25",
+  "published": "2026-11-20",
   "summary": "La Bretagne combine AGRI Install pour la première installation, AGRI Transmission pour préparer les exploitations à céder, le RDI et la Safer pour la mise en relation et le foncier, ainsi que Terre de Liens et les CIVAM pour l'accompagnement installation-transmission.",
   "coverage": {
     "status": "SEARCHED",
@@ -63,6 +63,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -188,13 +195,13 @@
       },
       "operator": "Safer Bretagne",
       "operatorType": "MIXED",
-      "whatItOffers": "Accès à la Safer Bretagne pour le foncier et la transmission, avec AGRI Install, AGRI Transmission, le RDI, Terre de Liens et les CIVAM.",
-      "whoCanUseIt": "Futurs agriculteurs, agriculteurs en recherche de foncier, propriétaires et exploitants qui souhaitent vendre ou transmettre en Bretagne.",
-      "howToAccess": "Consulter les appels à candidatures et les parcours « Je m'installe », « Je cherche du foncier » ou « Je transmets mon exploitation », puis contacter la Safer Bretagne.",
+      "whatItOffers": "Accès à la Safer Bretagne pour le foncier et la transmission, avec AGRI Install, AGRI Transmission, le RDI, Terre de Liens et les CIVAM. La Safer transmet des propriétés ou des parcelles et propose un accompagnement personnalisé de l'achat sur les plans techniques, juridiques et fiscaux.",
+      "whoCanUseIt": "Futurs agriculteurs, agriculteurs en recherche de foncier, propriétaires et exploitants qui souhaitent vendre ou transmettre en Bretagne. Toute personne intéressée peut se manifester lors d'un appel à candidatures ; pour être retenu, le projet doit être structuré et son financement assuré.",
+      "howToAccess": "Consulter les appels à candidatures et les parcours « Je m'installe », « Je cherche du foncier » ou « Je transmets mon exploitation », puis contacter la Safer Bretagne. Les projets d'attribution font l'objet d'un appel public à candidatures pendant 15 jours. Se manifester par écrit et transmettre la fiche candidature ; le conseiller foncier du secteur reprend contact pour préciser les conditions de cession, notamment financières. Après cet échange, compléter un dossier décrivant le projet.",
       "accessUrl": "https://www.safer-bretagne.fr/",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
-      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR", "LANDOWNER"],
+      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR", "LANDOWNER", "GENERAL"],
       "lastEvidenceDate": "2026-07-02",
       "sources": [
         {
@@ -218,10 +225,24 @@
           "title": "Contacts régionaux et départementaux - Safer Bretagne",
           "consultedOn": "2026-10-25",
           "quotes": ["Ille-et-Vilaine (35)", "Finistère (29)", "Morbihan (56)", "Côte d'Armor (22)"]
+        },
+        {
+          "url": "https://www.safer-bretagne.fr/agriculteurs/vous-recherchez-des-terres-ou-une-exploitation/",
+          "title": "Vous recherchez des terres ou une exploitation - Safer Bretagne",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "La Safer transmet des propriétés ou des parcelles.",
+            "Elle propose un accompagnement personnalisé : son statut et ses missions en font un partenaire privilégié de votre projet d’achat et son expertise sécurise votre transaction sur les plans techniques, juridiques et fiscaux.",
+            "Conformément au code rural, tous les projets d’attribution (suite à acquisition amiable ou à une préemption) réalisés par la Safer font l’objet d’un appel public de candidatures pendant 15 jours, dans deux journaux locaux d’annonces légales, en mairie, sur notre site internet et celui des préfectures (département et région).",
+            "Toute personne intéressée peut se manifester par écrit et nous transmettre la fiche candidature (lien ver la fiche à télécharger).",
+            "Le conseiller foncier du secteur vous recontactera et vous pourrez échanger avec lui pour connaître les conditions de la cession et notamment les conditions financières.",
+            "Après contact avec un conseiller foncier, vous compléterez un dossier de candidature dans lequel vous décrivez votre projet.",
+            "Votre projet est structuré et son financement doit être assuré. Ce sont des conditions nécessaires pour être retenu."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1",
-      "notes": "La Safer Bretagne intervient dans l’Ille-et-Vilaine (35), le Finistère (29), le Morbihan (56) et les Côtes-d’Armor (22)."
+      "notes": "La Safer Bretagne intervient dans l’Ille-et-Vilaine (35), le Finistère (29), le Morbihan (56) et les Côtes-d’Armor (22).",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "bretagne-terre-de-liens",
@@ -292,6 +313,107 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "bretagne-ille-et-vilaine-aide-installation",
+      "name": "Aide à l'installation",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Ille-et-Vilaine"
+      },
+      "operator": "Département d’Ille-et-Vilaine",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Aide financière au démarrage de l’activité agricole, versée en complément de la dotation Jeune Agriculteur (DJA) ou pour des porteurs de projet de plus de 40 ans.",
+      "whoCanUseIt": "Porteurs de projets remplissant trois conditions cumulatives : s’inscrire dans un plan de professionnalisation personnalisé (PPP), avec une étude économique prouvant la viabilité du projet ; s’installer hors cadre familial ; présenter un projet économe en intrants, diversifié ou à forte valeur ajoutée.",
+      "howToAccess": "Compléter le formulaire de demande disponible sur la page et le renvoyer avec les pièces jointes demandées au Service installation transmission de la Chambre Régionale d’Agriculture de Bretagne, qui centralise les demandes.",
+      "accessUrl": "https://www.ille-et-vilaine.fr/les-aides-du-departement/aide-linstallation",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Service installation transmission de la chambre régionale d’agriculture de Bretagne",
+          "value": "02 23 48 29 90",
+          "sourceUrl": "https://www.ille-et-vilaine.fr/les-aides-du-departement/aide-linstallation"
+        }
+      ],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "sources": [
+        {
+          "url": "https://www.ille-et-vilaine.fr/les-aides-du-departement/aide-linstallation",
+          "title": "Aide à l'installation | Département Ille et Vilaine",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Département d’Ille-et-Vilaine",
+            "Le Département favorise l'installation des jeunes agricultrices et agriculteurs et la reprise d'exploitations via l'aide à l'installation.",
+            "L’aide à l’installation est une aide financière au démarrage de l’activité agricole.",
+            "Cette aide est versée en complément de la dotation Jeune Agriculteur (DJA) ou pour des porteurs de projet de plus de 40 ans.",
+            "Les porteurs de projets doivent répondre à ces 3 conditions cumulées :",
+            "S’inscrire dans un plan de professionnalisation personnalisé (PPP), avec une étude économique prouvant la viabilité du projet.",
+            "S’installer hors cadre familial.",
+            "Présenter un projet économe en intrants ou diversifié ou à forte valeur ajoutée.",
+            "Compléter et renvoyer le formulaire de demande accompagné des pièces-jointes demandées auprès du Service installation transmission de la Chambre Régionale d’Agriculture de Bretagne qui centralise les demandes.",
+            "Service installation transmission de la chambre régionale d’agriculture de Bretagne 02 23 48 29 90"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "bretagne-ille-et-vilaine-mise-en-reserve-fonciere",
+      "name": "Mise en réserve foncière",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Ille-et-Vilaine"
+      },
+      "operator": "Département d’Ille-et-Vilaine, en convention avec la SAFER Bretagne",
+      "operatorType": "MIXED",
+      "whatItOffers": "Stockage temporaire de foncier, avec ou sans bâti, par la SAFER Bretagne dans l’attente d’une installation sur un projet durable ou agri-rural innovant. Le Département prend en charge les frais générés par cette mise en réserve pour une durée de portage ne pouvant excéder deux ans.",
+      "whoCanUseIt": "Porteurs de projet agricole durable ou agri-rural innovant ayant besoin de temps pour finaliser leur parcours d’installation ou les démarches d’acquisition citoyenne des biens. Trois conditions sont cumulatives : s’inscrire dans un plan de professionnalisation personnalisé (PPP) avec une étude économique prouvant la viabilité du projet, s’installer hors cadre familial et présenter un projet économe en intrants, diversifié ou à forte valeur ajoutée.",
+      "howToAccess": "Compléter le formulaire « Mise en réserve foncière » proposé sur la page et l’envoyer avec les pièces demandées au Département d'Ille-et-Vilaine - Service Agriculture, Alimentation, Energie, à l’adresse publiée.",
+      "accessUrl": "https://www.ille-et-vilaine.fr/portage-foncier",
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "YOUNG_FARMER"],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Service agriculture et alimentation",
+          "value": "02 99 02 47 79",
+          "sourceUrl": "https://www.ille-et-vilaine.fr/portage-foncier"
+        },
+        {
+          "channel": "OFFICE",
+          "label": "Département d'Ille-et-Vilaine - Service Agriculture, Alimentation, Energie",
+          "value": "1 avenue de la Préfecture – CS 24218 35042 Rennes Cedex",
+          "sourceUrl": "https://www.ille-et-vilaine.fr/portage-foncier"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.ille-et-vilaine.fr/portage-foncier",
+          "title": "Mise en réserve foncière | Département Ille et Vilaine",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "La mise en réserve foncière permet le stockage de foncier, avec bâti ou non, par l’intermédiaire de la SAFER Bretagne (au moyen d’une convention conclue entre cette dernière et le Département d’Ille-et-Vilaine).",
+            "Ceci dans l’attente d’une installation sur un projet durable et / ou agri-rural innovant.",
+            "L'accompagnement financier départemental correspond à la prise en charge des frais générés par la mise en réserve de foncier pour une durée de portage ne pouvant excéder 2 ans.",
+            "Porteur de projet agricole durable et / ou agri-rural innovant justifiant d’un besoin de temps pour finaliser leur parcours d’installation, réaliser les démarches en vue d’une acquisition citoyenne des biens…",
+            "Les porteurs de projets doivent répondre à ces 3 conditions cumulées :",
+            "S’inscrire dans un plan de professionnalisation personnalisé (PPP), avec une étude économique prouvant la viabilité du projet.",
+            "S’installer hors cadre familial.",
+            "Présenter un projet économe en intrants ou diversifié ou à forte valeur ajoutée.",
+            "Compléter et envoyer le formulaire ci-dessous accompagné des pièces-jointes demandées à :",
+            "Département d'Ille-et-Vilaine - Service Agriculture, Alimentation, Energie",
+            "1 avenue de la Préfecture – CS 24218 35042 Rennes Cedex",
+            "02 99 02 47 79",
+            "Favoriser l'installation de jeunes agricultrices et agriculteurs par la reprise d'exploitations de type familial pour la mise en œuvre de projets viables et autonomes."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

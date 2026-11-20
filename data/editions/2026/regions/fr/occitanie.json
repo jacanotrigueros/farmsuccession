@@ -268,7 +268,6 @@
     },
     {
       "id": "occitanie-safer-foncier",
-      "generatorId": "chatgpt-1",
       "name": "Accès au foncier et accompagnement par la Safer Occitanie",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
@@ -277,12 +276,12 @@
       },
       "operator": "Safer Occitanie",
       "operatorType": "MIXED",
-      "whatItOffers": "Recherche et proposition de biens fonciers adaptés à un projet d'installation, gestion des candidatures et appels à candidatures pour des biens agricoles.",
-      "whoCanUseIt": "Candidats à l'installation et personnes recherchant du foncier agricole en Occitanie.",
-      "howToAccess": "Consulter le parcours « S'installer » et les appels à candidatures de la Safer, puis contacter son service compétent.",
+      "whatItOffers": "Recherche et proposition de biens fonciers adaptés à un projet d'installation, gestion des candidatures et appels à candidatures pour des biens agricoles. Pour transmettre une exploitation : évaluation des biens, recherche de candidats à la reprise, solutions de vente ou de location partielles ou totales, cession de parts sociales, médiation en cas de concurrence entre acheteurs et accompagnement technique, juridique et fiscal jusqu’à la signature de l’acte.",
+      "whoCanUseIt": "Candidats à l'installation et personnes recherchant du foncier agricole en Occitanie, ainsi que personnes souhaitant transmettre leur exploitation.",
+      "howToAccess": "Consulter le parcours « S'installer » et les appels à candidatures de la Safer, puis contacter son service compétent. Pour une transmission, consulter le parcours « Transmettre », qui donne accès aux contacts des services départementaux et régionaux.",
       "accessUrl": "https://www.safer-occitanie.com/fr/page/s-installer.php",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
-      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "LAND_SEEKER"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR"],
       "sources": [
         {
           "url": "https://www.safer-occitanie.com/fr/page/s-installer.php",
@@ -314,9 +313,25 @@
           "quotes": [
             "fusion de la Safer Gascogne Haut Languedoc, la Safer Aveyron, lot, Tarn, Tarn et Garonne et de la Safer Languedoc-Roussillon."
           ]
+        },
+        {
+          "url": "https://www.safer-occitanie.com/fr/page/transmettre.php",
+          "title": "Transmettre - Safer Occitanie",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Avec la Safer, l’opérateur foncier de la transmission d’exploitation, vous bénéficiez :",
+            "D’une expertise reconnue pour l’évaluation de vos biens (terres, bâtiments, cheptel, matériel,…)",
+            "D’une solution sur mesure adaptée à vos souhaits et vos besoins (vente ou location, partielle ou totale, en une ou plusieurs fois, cession de parts sociales,…)",
+            "D’une recherche de candidats sérieux à la reprise de votre exploitation",
+            "D’une médiation en cas de concurrence entre acheteur",
+            "D’un partenaire privilégié pour sécuriser vos projets fonciers sur les plans techniques, juridiques et fiscaux",
+            "D’un conseil et d’un accompagnement, avec un interlocuteur unique, jusqu’à la signature de l’acte",
+            "Contact Services départementaux Contact Services régionaux"
+          ]
         }
       ],
-      "notes": "La Safer propose également une prestation de transmission ; les deux parcours relèvent ici du même opérateur régional. Les échéances appartiennent à chaque bien publié, et aucune n'est généralisée à ce service. La Safer Occitanie intervient dans l’Ariège (09), l’Aude (11), l’Aveyron (12), le Gard (30), la Haute-Garonne (31), le Gers (32), l’Hérault (34), le Lot (46), la Lozère (48), les Hautes-Pyrénées (65), les Pyrénées-Orientales (66), le Tarn (81) et le Tarn-et-Garonne (82). Elle est issue de la fusion de la Safer Gascogne Haut Languedoc, de la Safer Aveyron, Lot, Tarn, Tarn-et-Garonne et de la Safer Languedoc-Roussillon."
+      "notes": "La Safer propose également une prestation de transmission ; les deux parcours relèvent ici du même opérateur régional. Les échéances appartiennent à chaque bien publié, et aucune n'est généralisée à ce service. La Safer Occitanie intervient dans l’Ariège (09), l’Aude (11), l’Aveyron (12), le Gard (30), la Haute-Garonne (31), le Gers (32), l’Hérault (34), le Lot (46), la Lozère (48), les Hautes-Pyrénées (65), les Pyrénées-Orientales (66), le Tarn (81) et le Tarn-et-Garonne (82). Elle est issue de la fusion de la Safer Gascogne Haut Languedoc, de la Safer Aveyron, Lot, Tarn, Tarn-et-Garonne et de la Safer Languedoc-Roussillon.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "occitanie-fonciere-agricole",
@@ -515,6 +530,60 @@
             "Un accompagnement technique, humain et opérationnel de qualité dans les ADEAR-TV",
             "ardear.occitanie@jeminstallepaysan.org",
             "04 67 06 23 67"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "occitanie-pyrenees-orientales-installation-ppp",
+      "name": "Installation (AITA - volet 3)",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Pyrénées-Orientales"
+      },
+      "operator": "DDTM - service nature agriculture forêt",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Présentation de la préparation à l’installation par un plan de professionnalisation personnalisé (PPP) et ses stages constitutifs, contacts d’orientation et accès aux démarches d’agrément et de validation du PPP.",
+      "whoCanUseIt": "Les formulaires de dépôt des dossiers PPP sont réservés au Centre d’Élaboration des Plans de Professionnalisation Personnalisés (CEPPP).",
+      "howToAccess": "Le CEPPP accède aux liens de demande d’agrément et de validation PPP publiés sur la page. Les porteurs de projet peuvent joindre le point accueil installation de Jeunes Agriculteurs, le service entreprises de la Chambre d’agriculture ou le service nature agriculture forêt de la DDTM.",
+      "accessUrl": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Jeunes Agriculteurs - point accueil installation, lundi et jeudi",
+          "value": "04 68 51 90 80",
+          "sourceUrl": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Chambre d'agriculture - service entreprises",
+          "value": "04.68.35.74.00",
+          "sourceUrl": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation"
+        },
+        {
+          "channel": "PHONE",
+          "label": "DDTM - service nature agriculture forêt",
+          "value": "04.68.38.10.27",
+          "sourceUrl": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation",
+          "title": "Installation - Agriculture - Agriculture, forêt et développement rural - Actions de l'État - Les services de l'État dans les Pyrénées-Orientales",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Installation (AITA - volet 3)",
+            "La préparation à l’installation via la réalisation d’un plan de professionnalisation personnalisé et les stages constitutifs",
+            "Dépôt des dossiers \"Plan de Professionnalisation Personnalisé\" - PPP (formulaires réservés au Centre d’Élaboration des Plans de Professionnalisation Personnalisés - CEPPP)",
+            "Demande d'agrément PPP : https://demarche.numerique.gouv.fr/commencer/agrement_ppp_annee-2026_ddtm66-aita-volet-3-ceppp",
+            "Demande de validation PPP : https://demarche.numerique.gouv.fr/commencer/validation_ppp_annee-2026_ddtm66-aita-volet-3-cepp",
+            "Jeunes Agriculteurs - point accueil installation : 04 68 51 90 80 (lundi et le jeudi)",
+            "Chambre d'agriculture - service entreprises : 04.68.35.74.00",
+            "DDTM - service nature agriculture forêt : 04.68.38.10.27"
           ]
         }
       ],

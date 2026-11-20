@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "liguria",
   "officialName": "Liguria",
-  "published": "2026-09-20",
+  "published": "2026-11-20",
   "summary": "La Liguria finanzia il primo insediamento dei giovani agricoltori con un premio dedicato al ricambio generazionale e gestisce la Banca regionale della terra, una base dati dei terreni i cui proprietari si dichiarano disponibili a cederne il possesso o a gestirli in forma associata.",
   "coverage": {
     "status": "PARTIAL",
@@ -37,6 +37,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -95,7 +102,7 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Base dati informatizzata con le coordinate catastali e le informazioni sui terreni liguri i cui proprietari si dichiarano disponibili a cedere il possesso a terzi o ad aderire a forme di gestione consorziata o associata.",
       "whoCanUseIt": "Proprietari che vogliono rendere disponibili i propri terreni e imprese agricole o forestali che cercano superfici da recuperare.",
-      "howToAccess": "Consultare la base dati e seguire le procedure regionali di inserimento o richiesta dei terreni descritte sul portale agricolo.",
+      "howToAccess": "Consultare la base dati e seguire le procedure regionali di inserimento o richiesta dei terreni descritte sul portale agricolo. Per revocare la disponibilità di terreni già inseriti, accedere alla procedura regionale di revoca e autenticarsi con Spid, Cie o CNS per compilare l’istanza.",
       "accessUrl": "https://www.agriligurianet.it/en/impresa/politiche-di-sviluppo/banca-della-terra.html",
       "assetTypes": ["PLOTS"],
       "sectors": ["AGRICULTURE", "FORESTRY"],
@@ -111,9 +118,61 @@
             "La Brt consta di una base dati informatizzata in cui sono inserite le coordinate catastali e le ulteriori informazioni riguardanti i terreni situati in Liguria",
             "i cui proprietari, o aventi causa, si dichiarino disponibili a cedere la detenzione o il possesso a terzi ovvero ad aderire a forme di gestione consorziata o associata dei fondi"
           ]
+        },
+        {
+          "url": "https://www.regione.liguria.it/homepage-agricoltura/come-fare-per/brt-disponibilita-terreni.html",
+          "title": "Banca regionale della terra - segnalazione disponibilità di terreni",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Segnala la disponibilità di terreni da inserire nella Banca regionale della terra",
+            "Per poter procedere con la compilazione dell'istanza è necessario autenticarsi accedendo con Spid, Cie o CNS",
+            "La Brt è costituita da una base dati informatizzata in cui sono inserite le coordinate catastali e ulteriori informazioni riguardanti i terreni in Liguria, i cui proprietari o aventi causa si dichiarino disponibili a cedere la detenzione o il possesso a terzi, ovvero ad aderire a forme di gestione consorziata o associata dei fondi.",
+            "Tramite la Banca regionale della terra, Regione Liguria si prefigge di aumentare la superficie agricola e forestale utilizzata, attraverso processi di ricomposizione e riordino fondiario utili ad accrescere la competitività delle aziende agricole e forestali operanti in Liguria."
+          ]
+        },
+        {
+          "url": "https://www.regione.liguria.it/homepage-agricoltura/come-fare-per/brt-revoca-terreni.html",
+          "title": "Banca regionale della terra - revoca disponibilità di terreni già inseriti",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Revoca la disponibilità di terreni già inseriti nella Banca regionale della terra",
+            "Per poter procedere con la compilazione dell'istanza è necessario autenticarsi accedendo con Spid, Cie o CNS",
+            "Tramite la Banca regionale della terra, Regione Liguria si prefigge di aumentare la superficie agricola e forestale utilizzata, attraverso processi di ricomposizione e riordino fondiario utili ad accrescere la competitività delle aziende agricole e forestali operanti in Liguria."
+          ]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "liguria-siar-bandi-pubblici",
+      "name": "SIAR - Ricerca bandi pubblici",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Liguria",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Ricerca dei bandi pubblici regionali e dei documenti relativi al bando selezionato, con un filtro dedicato all’operazione M06.1.A per l’insediamento dei giovani agricoltori.",
+      "howToAccess": "Selezionare l’operazione nella ricerca dei bandi pubblici; la pagina permette di filtrare per scadenza e decreto e di nascondere i bandi scaduti.",
+      "accessUrl": "https://www.siarliguria.it/web/Public/Bandi.aspx",
+      "sources": [
+        {
+          "url": "https://www.siarliguria.it/web/Public/Bandi.aspx",
+          "title": "Siar Liguria - Sistema Informativo Agricoltura Regionale",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "SIAR - SISTEMA INFORMATIVO AGRICOLTURA REGIONE LIGURIA",
+            "RICERCA BANDI PUBBLICI:",
+            "OPERAZIONE M06.1.A - Aiuti all’avviamento per l’insediamento di giovani agricoltori - FA 2B",
+            "Data di scadenza (<=): Numero decreto: Data decreto: Nascondi bandi scaduti",
+            "Elenco dei documenti relativi al bando selezionato:",
+            "IL SISTEMA SUBIRA' UNA INTERRUZIONE NELLA GIORNATA DI OGGI PER AGGIORNAMENTI."
+          ]
+        }
+      ],
+      "notes": "La pagina espone un avviso di interruzione per aggiornamenti e rinvia alla pagina News & Comunicazioni per i dettagli; non documenta una finestra aperta per le domande dei giovani agricoltori.",
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],

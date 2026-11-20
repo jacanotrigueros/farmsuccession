@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "guadeloupe",
   "officialName": "Guadeloupe",
-  "published": "2026-10-25",
+  "published": "2026-11-20",
   "summary": "En Guadeloupe, la Région gère une aide FEADER à l'installation des jeunes agriculteurs. La Safer accompagne l'accès au foncier et la transmission de biens, mais ne présente actuellement aucun appel à candidatures ouvert. Guadeloupe AgroCampus propose un stage de préinstallation de 21 heures.",
   "coverage": {
     "status": "PARTIAL",
@@ -71,6 +71,13 @@
         "tool": "CHATGPT",
         "model": "GPT-6",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -128,10 +135,36 @@
       },
       "operator": "Safer de Guadeloupe",
       "operatorType": "MIXED",
-      "whatItOffers": "Un accompagnement foncier pour rechercher, acheter, louer, vendre ou transmettre des parcelles et des biens ruraux, avec publication d'avis d'appel à candidatures.",
-      "whoCanUseIt": "Les porteurs de projets ruraux, les agriculteurs et les propriétaires concernés par une acquisition, une location ou une transmission.",
-      "howToAccess": "Consulter les avis et les fiches de candidature sur le site de la Safer, ou contacter son équipe. Aucun appel n'est ouvert sur la page consultée le 29 septembre 2026.",
+      "whatItOffers": "Un accompagnement foncier pour rechercher, acheter, louer, vendre ou transmettre des parcelles et des biens ruraux, avec publication d'avis d'appel à candidatures. La Convention de mise à disposition (CMD) permet une location temporaire : la Safer réalise un état des lieux, trouve un exploitant et garantit le paiement du loyer au propriétaire, qui récupère son bien libre et entretenu au terme convenu. Le preneur accède à des terres inexploitées avec un contrat de location et un loyer équivalent à un fermage.",
+      "whoCanUseIt": "Les porteurs de projets ruraux, les agriculteurs et les propriétaires concernés par une acquisition, une location ou une transmission. La CMD s'adresse aux particuliers propriétaires de terres agricoles ainsi qu'aux collectivités territoriales et établissements publics ; elle prévoit notamment le cas d'un départ à la retraite sans vente ou de l'attente d'une reprise par un descendant.",
+      "howToAccess": "Consulter les avis et les fiches de candidature sur le site de la Safer, ou contacter son équipe. Aucun appel n'est ouvert sur la page consultée le 29 septembre 2026. Pour la CMD, contacter directement la Safer.",
       "accessUrl": "https://saferguadeloupe.com/appel-a-projet-ou-candidature/",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Safer Guadeloupe",
+          "value": "0590 32 57 57",
+          "sourceUrl": "https://saferguadeloupe.com/informations-sur-le-processus/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Safer Guadeloupe",
+          "value": "safergpe@safer-guadeloupe.fr",
+          "sourceUrl": "https://saferguadeloupe.com/informations-sur-le-processus/"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Safer Guadeloupe",
+          "value": "0590 32 57 57",
+          "sourceUrl": "https://saferguadeloupe.com/louer-la-cmd/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Safer Guadeloupe",
+          "value": "safergpe@safer-guadeloupe.fr",
+          "sourceUrl": "https://saferguadeloupe.com/louer-la-cmd/"
+        }
+      ],
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "TRANSFEROR", "LANDOWNER"],
@@ -178,9 +211,46 @@
           "title": "Le marché des terres agricoles en 2024 - Groupe Safer",
           "consultedOn": "2026-10-25",
           "quotes": ["Département et région d’outre-mer de Guadeloupe (971)"]
+        },
+        {
+          "url": "https://saferguadeloupe.com/informations-sur-le-processus/",
+          "title": "informations sur le processus – Safer Guadeloupe",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous êtes un agriculteur, une collectivité ou un opérateur public, un porteur de projet en milieu rural ou un investisseur ?",
+            "La Safer Guadeloupe vous accompagne.",
+            "Pour être accompagné jusqu’à la signature de l’acte.",
+            "La Safer transmet des propriétés ou des parcelles.",
+            "Vous êtes un agriculteur ou un propriétaire souhaitant vendre un bien rural ?",
+            "Vous êtes propriétaires de biens ruraux libre de toute occupation ( particuliers, collectivités…) , vous souhaitez louer votre bien .",
+            "La Safer assure la gestion locative et garantie le versement de votre redevance annuelle",
+            "Pour être garanti de retrouver votre bien libre à l’issue de la période déterminée",
+            "0590 32 57 57",
+            "safergpe@safer-guadeloupe.fr"
+          ]
+        },
+        {
+          "url": "https://saferguadeloupe.com/louer-la-cmd/",
+          "title": "louer / La CMD – Safer Guadeloupe",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Particuliers ou responsables de collectivités : vous êtes propriétaires de terres agricoles, louez et valorisez vos biens avec une formule souple de location temporaire : la Convention de mise à disposition de la Safer (CMD).",
+            "Vous souhaitez prendre votre retraite sans vendre votre propriété.",
+            "Vous ne pouvez pas exploiter vos biens, mais souhaitez qu’ils soient entretenus en attendant la reprise par un de vos descendants.",
+            "Collectivité territoriale ou établissement public",
+            "Vous êtes garanti de paiement par la Safer : à une date définie, un loyer, vous est versé.",
+            "Vous n’avez aucun souci de gestion : la Safer procède à un état des lieux et trouve un exploitant pour la durée convenue avec vous.",
+            "Vous récupérez votre bien libre et entretenu au terme de la convention.",
+            "Bénéficier d’un contrat de location en bonne et due forme;",
+            "Accéder à des terres inexploitées;",
+            "Disposer d’un loyer équivalent à un fermage",
+            "Contactez la SAFER",
+            "0590 32 57 57",
+            "safergpe@safer-guadeloupe.fr"
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "guadeloupe-agrocampus-stage-21-heures",

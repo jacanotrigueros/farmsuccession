@@ -5,7 +5,7 @@
   "country": "PT",
   "region": "regiao-autonoma-da-madeira",
   "officialName": "Região Autónoma da Madeira",
-  "published": "2026-10-27",
+  "published": "2026-11-20",
   "summary": "A Madeira mantém aberto até 18 de dezembro de 2026 o prémio regional à primeira instalação, dispõe de três avisos de investimento associado e de uma carteira pública de consultores para apoiar candidaturas PEPAC. Não foi verificado um mecanismo regional de acesso à terra ou sucessão de explorações.",
   "coverage": {
     "status": "PARTIAL",
@@ -67,6 +67,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -282,7 +289,7 @@
       },
       "operator": "Autoridade de Gestão PEPAC R.A. Madeira",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Diretório público de entidades que manifestaram disponibilidade para prestar serviços de consultoria no âmbito das intervenções PEPAC, usado também como rota recomendada nas candidaturas de investimento associado à instalação de jovens agricultores.",
+      "whatItOffers": "Diretório público de entidades que manifestaram disponibilidade para prestar serviços de consultoria no âmbito das intervenções PEPAC, usado também como rota recomendada nas candidaturas de investimento associado à instalação de jovens agricultores. A lista apresenta contactos e identifica as intervenções abrangidas pelos consultores, incluindo o investimento associado à instalação e o prémio à instalação de jovens agricultores.",
       "whoCanUseIt": "Potenciais beneficiários das intervenções PEPAC R.A. Madeira que pretendam contratar apoio especializado, incluindo jovens agricultores que preparem ou acompanhem candidaturas de instalação e investimento.",
       "howToAccess": "Consultar a Carteira de Consultores publicada pela Autoridade de Gestão e contactar diretamente uma das entidades listadas; a seleção e contratação são da responsabilidade do beneficiário.",
       "accessUrl": "https://pepac.madeira.gov.pt/index.php?Itemid=851&id=99&option=com_content&view=article",
@@ -306,10 +313,104 @@
           "quotes": [
             "A AG PEPAC R.A. Madeira recomenda o recurso a entidades especializadas para a elaboração e acompanhamento das candidaturas"
           ]
+        },
+        {
+          "url": "https://pepac.madeira.gov.pt/images/2026/merged_Lista_de_Consultores_04.11.2026.pdf",
+          "title": "Consultores",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Consultores Intervenção Contacto 1 Contacto 2 Email Morada",
+            "F.1.2 - Investimento associado à instalação de jovens agricultores",
+            "F.4.1 - Prémio à instalação de jovens agricultores"
+          ]
         }
       ],
       "notes": "A Autoridade de Gestão deixa claro que a lista é apenas informativa e não certifica nem recomenda os consultores; custos e condições dependem da contratação privada.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "madeira-f111-formacao-profissional",
+      "name": "F.11.1 - Formação profissional",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "PEPAC R.A. Madeira",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Apoio a entidades formadoras para ações de transferência de conhecimento, incluindo a aquisição de competências específicas por jovens agricultores em primeira instalação.",
+      "whoCanUseIt": "Entidades dos setores público ou privado reconhecidas e certificadas como entidades formadoras, com recursos humanos e materiais suficientes e pessoal devidamente qualificado. Devem apresentar um plano calendarizado que identifique atividades, destinatários e objetivos.",
+      "howToAccess": "A página remete para o Portal de Candidaturas PEPAC R.A. Madeira para apresentação da candidatura e disponibiliza um manual do utilizador.",
+      "accessUrl": "https://pepac.madeira.gov.pt/index.php?Itemid=269&id=33&option=com_content&view=article",
+      "notes": "Os beneficiários diretos são entidades formadoras, não os agricultores participantes. A página não indica um período de candidaturas nem uma ação de formação com inscrições para agricultores.",
+      "sources": [
+        {
+          "url": "https://pepac.madeira.gov.pt/index.php?Itemid=269&id=33&option=com_content&view=article",
+          "title": "Formação Profissional",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "F.11.1 - Formação profissional",
+            "A intervenção visa apoiar a transmissão do conhecimento necessário à aquisição de competências específicas para jovens agricultores em regime de 1º instalação, à concretização de projetos de investimento apresentados para financiamento e à melhoria do desempenho de explorações, empresas e outras entidades que já foram alvo de apoio.",
+            "Âmbito Territorial Região Autónoma da Madeira",
+            "Entidades dos setores público ou privado, reconhecidas como entidades formadoras.",
+            "Ser uma entidade certificada como entidade formadora;",
+            "Demonstrar a suficiência dos recursos humanos e dos meios materiais necessários aos serviços de transferência de conhecimento que se propõe prestar;",
+            "Demonstrar qualificação apropriada do pessoal relativamente aos serviços que se propõe prestar;",
+            "Apresentar um plano calendarizado com uma duração máxima a definir, devidamente justificado e fundamentado, onde conste a identificação das atividades a realizar, dos destinatários a envolver bem como os objetivos a alcançar.",
+            "Manual do Utilizador do Portal de Candidaturas PEPAC R.A. Madeira (pdf)",
+            "Para fazer a sua candidatura clique em: Portal de Candidaturas PEPAC R.A. Madeira"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "madeira-capacitacao-empresario-agricola",
+      "name": "Capacitação em Empresário Agrícola",
+      "kind": "TRAINING",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Escola Agrícola da Madeira",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Curso de Capacitação em Empresário Agrícola, com conteúdos programáticos e formulário de inscrição disponíveis na página.",
+      "whoCanUseIt": "Preferencialmente jovens agricultores que pretendam assumir pela primeira vez a gestão de uma exploração agrícola; também outros ativos com atividades agropecuárias que pretendam atualizar e melhorar conhecimentos e quem pretenda iniciar-se na atividade agrícola.",
+      "howToAccess": "Utilizar o Formulário de Inscrição indicado na página ou contactar a Escola Agrícola da Madeira. Para obter o Certificado Profissional, a página exige Cartão do Cidadão ou Passaporte e Certificado de Habilitações.",
+      "accessUrl": "https://escolaagricola.madeira.gov.pt/formacoes/capacitacao-em-empresario-agricola.html",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Escola Agrícola da Madeira",
+          "value": "escolaagricola@madeira.gov.pt",
+          "sourceUrl": "https://escolaagricola.madeira.gov.pt/formacoes/capacitacao-em-empresario-agricola.html"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Escola Agrícola da Madeira",
+          "value": "291 145 455",
+          "sourceUrl": "https://escolaagricola.madeira.gov.pt/formacoes/capacitacao-em-empresario-agricola.html"
+        }
+      ],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://escolaagricola.madeira.gov.pt/formacoes/capacitacao-em-empresario-agricola.html",
+          "title": "Capacitação em Empresário Agrícola",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Conteúdos Programáticos e Duração:",
+            "Despacho n.º 86/2018 - Capacitação em empresário agrícola (220h)",
+            "Preferencialmente jovens agricultores que pretendam assumir pela primeira vez a gestão de uma exploração agrícola, contemplando igualmente outros ativos que desenvolvam atividades agropecuárias que pretendam atualizar e melhorar os conhecimentos nas suas áreas de intervenção, ou ainda quem pretenda iniciar-se na atividade agrícola.",
+            "Requisitos para obter o Certificado Profissional: Cartão do Cidadão ou Passaporte Certificado de Habilitações",
+            "Inscrição: Formulário de Inscrição",
+            "Contactos Escola Agrícola da Madeira",
+            "291 145 455",
+            "escolaagricola@madeira.gov.pt"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [

@@ -6,13 +6,15 @@
     "region": "thueringen"
   },
   "language": "de",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-11-20",
   "context": [
     "Das Thüringer Landesverwaltungsamt veröffentlicht ELER-Förderprogramme mit Bedingungen, Downloads und Kontakt auf eigenen Detailseiten.",
     "Die Junglandwirteförderung deckt Neugründung, inner- und außerfamiliäre Hofübernahme sowie den Generationswechsel in juristischen Personen ab.",
     "Das Programm läuft im GAP-Zeitraum weiter, obwohl die jährliche Antragsfrist 2026 bereits am 31. Januar endete.",
     "Programmstatus und Antragsfenster müssen deshalb getrennt modelliert werden: ACTIVE ist mit einem CLOSED-Aufruf vereinbar.",
-    "Runde mit der nationalen Checkliste auf einer bestehenden Datei: es fehlten nur die erwarteten Instrumente."
+    "Runde mit der nationalen Checkliste auf einer bestehenden Datei: es fehlten nur die erwarteten Instrumente.",
+    "Die TBV-Sozialberatung belegt ein regionales Beratungsangebot zur Hofübergabe für die bisher offene Prüfung der Übergabeberatung.",
+    "Die veröffentlichten Beratungstermine enthalten keine Jahresangabe; für einen aktuellen Termin sollte die Beratungsstelle kontaktiert werden."
   ],
   "portals": [
     {
@@ -50,6 +52,15 @@
       "reason": "Die offizielle Detailseite belegt ein laufendes Förderprogramm, aktuelle Unterlagen von 2026, Hofübernahme als Fördergegenstand und eine geschlossene Jahresfrist 2026.",
       "foundBy": "th-young",
       "checkedOn": "2026-09-14"
+    },
+    {
+      "id": "th-tbv-sozialberatung",
+      "name": "Sozialberatung",
+      "url": "https://www.tbv-erfurt.de/service/sozialberatung",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "thueringen-tbv-sozialberatung",
+      "checkedOn": "2026-11-20"
     }
   ],
   "instrumentChecks": [
@@ -82,6 +93,11 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Runde mit der nationalen Checkliste: Landesförderung bestätigt; Hofbörse und Übergabeberatung offen."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "Die Betreiberseite belegt eine kostenfreie Sozialberatung in Thüringen, die ausdrücklich Hofabgaben, Hofübergaben sowie Gründung und Übernahme im Haupt- oder Nebenerwerb umfasst. Sie wird als eigenständiges regionales Beratungsangebot aufgenommen und ist nicht mit den bundesweiten SVLFG-Seminaren gleichzusetzen."
     }
   ]
 }

@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "comunitat-valenciana",
   "officialName": "Comunitat Valenciana",
-  "published": "2026-11-05",
+  "published": "2026-11-20",
   "summary": "La Comunitat Valenciana combina ayudas al establecimiento de personas jóvenes y nuevos agricultores, bancos de tierras municipales operativos en las tres provincias y asesoramiento específico de organizaciones agrarias. Pedreguer y Callosa de Segura amplían las rutas públicas verificadas con formularios municipales para ofrecer y solicitar parcelas. No se ha verificado una ayuda o servicio operativo específico de sucesión/cese.",
   "coverage": {
     "status": "PARTIAL",
@@ -79,6 +79,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -208,9 +215,20 @@
             "Durante todo el año.",
             "consellagrari@valencia.es"
           ]
+        },
+        {
+          "url": "https://sede.valencia.es/sede/descarga/doc/DOCUMENT_1_ORD0198_C",
+          "title": "ORDENANZA REGULADORA DEL BANCO DE TIERRAS AGRÍCOLAS DE VALÈNCIA",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Este registro funcionará como un instrumento para poner en contacto la oferta y la demanda de parcelas cultivadas o cultivables ubicadas en el término municipal de València.",
+            "Favorecer el acceso al recurso tierra a personas profesionales y jóvenes que se quieran incorporar a la actividad agraria.",
+            "La consulta de las datos del registro de Banco de Tierras Agrícolas de València podrá ser solicitada por aquellas personas, preferentemente, profesionales, cooperativas agrarias, sociedades agrarias de transformación o cualquier otra entidad de asociacionismo agrario o vecinal interesadas en el cultivo de parcelas",
+            "deberán presentar en el Registro de Entrada del Ayuntamiento de València una solicitud de consulta mediante el impreso normalizado que figura como anexo II a esta ordenanza"
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "comunitat-valenciana-banco-tierras-pinoso",
@@ -489,6 +507,124 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "comunitat-valenciana-banco-tierras-eslida",
+      "name": "Banco de Tierras de Eslida",
+      "kind": "LAND_BANK",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Eslida"
+      },
+      "operator": "Ayuntamiento de Eslida",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro municipal previsto para poner en contacto a propietarios de parcelas agrícolas y personas interesadas en cultivarlas, facilitar el acceso a nuevos agricultores y recuperar tierras abandonadas. La ordenanza contempla asesoramiento y mediación sobre las condiciones del contrato.",
+      "whoCanUseIt": "Propietarios de parcelas del término municipal de Eslida que soliciten su inscripción y personas que busquen tierras para cultivar, incluidos nuevos agricultores y quienes cultivan para autoconsumo. Cualquier persona interesada podrá consultar el listado de parcelas.",
+      "howToAccess": "La ordenanza incluye formularios de alta y baja de parcelas y de personas interesadas en cultivarlas, y prevé su presentación en el registro de entrada del Ayuntamiento. Para contactar con propietarios se solicita la inscripción o información sobre las tierras de interés; el Ayuntamiento consulta primero a la propiedad. Debe confirmarse con el Ayuntamiento la puesta en funcionamiento del registro.",
+      "accessUrl": "https://www.eslida.es/sites/L01120574/files/2024-06/Publicacio%CC%81%20BOP%20BANC%20TERRES.pdf",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["GENERAL", "LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2024-05-28",
+      "sources": [
+        {
+          "url": "https://www.eslida.es/sites/L01120574/files/2024-06/Publicacio%CC%81%20BOP%20BANC%20TERRES.pdf",
+          "title": "Ordenanza reguladora del banco de tierras agrícolas y creación del registro de datos personales correspondiente",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "queda elevado a definitivo el Acuerdo de aprobación de la Ordenanza Reguladora del banco de tierras agrícolas y creación del registro de datos personales correspondiente",
+            "El Banco de Tierras de Eslida es un programa impulsado por el Ayuntamiento de Eslida",
+            "El Banco de Tierras favorecerá la difusión de ofertas y demandas de tierras de cultivo, así como el contacto entre las personas propietarias que ofrecen terrenos para ceder y aquellas que quieran tierras para cultivarlas.",
+            "o bien para dar acceso a nuevos y nuevas labradoras y labradores o a personas que cultivan para autoconsumo.",
+            "unas tierras que estarán todas ellas dentro del ámbito territorial de Eslida.",
+            "las personas propietarias de las cuales han solicitado voluntariamente su inscripción",
+            "Cualquier persona interesada podrá consultar la lista de parcelas incluidas en el registro del Banco de Tierras agrícolas de Eslida.",
+            "presentados al registro de entrada con una instancia de solicitud de inscripción al Banco de Tierras.",
+            "La presentación de esta solicitud tendrá como consecuencia que desde el Ayuntamiento se contacte con la persona propietaria comunicando el interés sobre la parcela de su propiedad.",
+            "Las personas interesadas podrán solicitar asesoramiento y mediación en cuanto a las condiciones del contrato entre las dos partes.",
+            "El Ayuntamiento creará un Registro",
+            "SOLICITUD DE ALTA O BAJA DE PARCELAS",
+            "SOLICITUD DE ALTA O BAJA DE PERSONA INTERESADAS EN CULTIVAR PARCELAS",
+            "Número 65 - 28 de mayo de 2024"
+          ]
+        }
+      ],
+      "notes": "La publicación acredita la aprobación definitiva de la ordenanza y describe el procedimiento previsto, pero no demuestra que el registro esté actualmente operativo ni que haya parcelas disponibles. Los acuerdos entre las partes serán libres y voluntarios y la cesión deberá destinarse a uso agrícola.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "comunitat-valenciana-banc-terres-chilches-xilxes",
+      "name": "Banc de Terres de Chilches/Xilxes",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Chilches/Xilxes"
+      },
+      "operator": "Ayuntamiento de Chilches/Xilxes",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro municipal de parcelas agrícolas ofrecidas voluntariamente por sus propietarios para facilitar el contacto con personas interesadas en cultivarlas. Su función es informativa: el Ayuntamiento no interviene ni asesora sobre los contratos que puedan celebrar las partes.",
+      "whoCanUseIt": "Propietarios de parcelas agrícolas situadas en el término municipal que quieran inscribirlas y cualquier persona interesada en cultivar o explotar parcelas agrícolas.",
+      "howToAccess": "El reglamento prevé solicitar el alta de parcelas en el registro de entrada del Ayuntamiento mediante el anexo I. Para buscar tierras, consultar primero el listado de parcelas y presentar después el anexo II en el Registro de Entrada del Ayuntamiento para solicitar los datos de los propietarios de las parcelas elegidas.",
+      "accessUrl": "https://www.fvmp.es/pdf/ordenances-medi-ambient/banc-terres/aprobacion-definitiva-reglamento-regulador-banc-de-terres.pdf",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["GENERAL", "LANDOWNER", "LAND_SEEKER"],
+      "lastEvidenceDate": "2018-03-22",
+      "sources": [
+        {
+          "url": "https://www.fvmp.es/pdf/ordenances-medi-ambient/banc-terres/aprobacion-definitiva-reglamento-regulador-banc-de-terres.pdf",
+          "title": "Aprobación definitiva Reglamento regulador del Banc de Terres",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "El Banc de Terres es un registro administrativo de carácter público creado por el Ayuntamiento de Chilches/Xilxes y formado por parcelas aptas para su explotación agrícola cuyos propietarios han solicitado voluntariamente su inclusión en el mismo.",
+            "Este registro funcionará como un instrumento de puesta en contacto entre la oferta de parcelas aptas para la explotación agrícola y la demanda de dichas parcelas por personas interesadas en su cultivo.",
+            "El Ayuntamiento se abstendrá de intervenir, orientar o asesorar acerca de los negocios jurídicos que, en su caso, puedan llegar a",
+            "Las personas propietarias de parcelas agrícolas ubicadas en el término municipal que deseen su inclusión en el Banc de Terres podrán solicitar el alta en el registro de entrada del Ayuntamiento, mediante el impreso normalizado que se adjunta (Anexo I)",
+            "Cualquier persona interesada en el cultivo o explotación agrícola de parcelas podrá consultar, en primer lugar, el listado de parcelas que hayan sido dadas de alta en el registro administrativo del Banc de Terres.",
+            "deberán presentar en el Registro de Entrada del Ayuntamiento una solicitud de consulta mediante el impreso normalizado que se adjunta a las presentes bases en el Anexo II",
+            "BOP 35 - 22 de marzo de 2018"
+          ]
+        }
+      ],
+      "notes": "La fuente es el reglamento municipal publicado en el boletín provincial. No acredita que actualmente existan parcelas disponibles ni que el servicio continúe atendiendo solicitudes.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "comunitat-valenciana-banco-tierras-vinaros",
+      "name": "Banco de Tierras Agrícolas de Vinaròs",
+      "kind": "LAND_BANK",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Vinaròs"
+      },
+      "operator": "Ajuntament de Vinaròs",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro administrativo previsto para informar y facilitar el contacto entre propietarios de parcelas aptas para la explotación agrícola situadas en el término municipal y personas interesadas en cultivarlas, con el objetivo de recuperar tierras abandonadas o en previsión de abandono.",
+      "whoCanUseIt": "Propietarios de parcelas aptas para la explotación agrícola situadas en el término municipal y personas interesadas en su cultivo.",
+      "accessUrl": "https://www.vinaros.es/sites/default/files/2019-11/03237-2016.pdf",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER"],
+      "lastEvidenceDate": "2016-06-18",
+      "sources": [
+        {
+          "url": "https://www.vinaros.es/sites/default/files/2019-11/03237-2016.pdf",
+          "title": "Anunci aprovació definitiva modificació Ordenança Municipal de creació de dades de caràcter personal",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Crear del fichero de datos de carácter personal Banco de Tierras Agrícolas de Vinaròs",
+            "de l’Ajuntament de Vinaròs",
+            "el cual tiene por objeto informar y facilitar el contacto entre los propietarios de parcelas aptas para la explotación agrícola situadas en el término municipal y las personas interesadas en su cultivo.",
+            "Puesta en valor de las tierras agrícolas abandonadas o en previsión de abandono.",
+            "BOP 74 - 18 de junio de 2016"
+          ]
+        }
+      ],
+      "notes": "La fuente acredita la creación del fichero administrativo, pero no demuestra el funcionamiento actual del banco ni proporciona una vía de solicitud de parcelas. La oficina citada en el documento atiende derechos de protección de datos, no se identifica como punto de acceso al banco.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

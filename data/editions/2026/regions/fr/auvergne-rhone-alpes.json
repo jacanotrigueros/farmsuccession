@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "auvergne-rhone-alpes",
   "officialName": "Auvergne-Rhône-Alpes",
-  "published": "2026-11-05",
+  "published": "2026-11-20",
   "summary": "Auvergne-Rhône-Alpes dispose d'une Safer active pour l'accès au foncier et la transmission et d'un accompagnement territorial de Terre de Liens en Rhône-Alpes. La Dotation Jeunes Agriculteurs régionale et le programme AITA restent à revérifier faute de source consultable.",
   "coverage": {
     "status": "PARTIAL",
@@ -59,6 +59,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -73,10 +80,18 @@
       },
       "operator": "Safer Auvergne-Rhône-Alpes",
       "operatorType": "MIXED",
-      "whatItOffers": "Accompagne les futurs agriculteurs dans leurs recherches et démarches d'installation, les cédants dans la transmission de leur exploitation et publie les biens agricoles disponibles à la vente ou à la location via des appels à candidatures.",
-      "whoCanUseIt": "Porteurs de projet agricole, futurs agriculteurs, exploitants qui souhaitent transmettre, vendre ou louer, et propriétaires fonciers.",
-      "howToAccess": "Consulter les appels à candidatures, déposer un dossier dans le délai affiché pour un bien ou contacter un conseiller Safer pour un projet d'installation ou de transmission.",
+      "whatItOffers": "Accompagne les futurs agriculteurs dans leurs recherches et démarches d'installation, les cédants dans la transmission de leur exploitation et publie les biens agricoles disponibles à la vente ou à la location via des appels à candidatures. L’outil Safinance confronte les caractéristiques d’un projet aux critères des dispositifs de portage foncier recensés à l’échelle régionale et fournit automatiquement un récapitulatif personnalisé des dispositifs potentiellement accessibles et des contacts associés.",
+      "whoCanUseIt": "Porteurs de projet agricole, futurs agriculteurs, exploitants qui souhaitent transmettre, vendre ou louer, et propriétaires fonciers. Safinance s’adresse aux porteurs d’un projet agricole envisageant un portage foncier pour faciliter leur installation, consolider leur exploitation ou la soulager financièrement en cas de difficultés.",
+      "howToAccess": "Consulter les appels à candidatures, déposer un dossier dans le délai affiché pour un bien ou contacter un conseiller Safer pour un projet d'installation ou de transmission. Pour une orientation vers le portage foncier, remplir le formulaire de la page Safinance afin de recevoir automatiquement un document récapitulatif personnalisé des dispositifs potentiellement accessibles et des contacts des structures concernées.",
       "accessUrl": "https://safer-aura.fr/",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Safer Auvergne-Rhône-Alpes",
+          "value": "04 72 77 71 50",
+          "sourceUrl": "https://safer-aura.fr/porteurs-de-projet/je-souhaite-transmettre-mon-entreprise-agricole/"
+        }
+      ],
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "TRANSFEROR", "LANDOWNER"],
@@ -108,10 +123,39 @@
             "Ain (01) Allier (03) Ardèche (07) Cantal (15) Drôme (26) Isère (38)",
             "Loire (42) Haute-Loire (43) Puy-de-Dôme (63) Rhône & Métropole de Lyon (69) Savoie (73) Haute-Savoie (74)"
           ]
+        },
+        {
+          "url": "https://safer-aura.fr/porteurs-de-projet/je-souhaite-transmettre-mon-entreprise-agricole/",
+          "title": "Je souhaite transmettre mon exploitation agricole",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Nous suivons la transmission de vos biens jusqu'à la signature de l'acte de vente et/ou de location.",
+            "Vous souhaitez vendre tout ou partie de votre exploitation ?",
+            "Expertiser vos biens et fixer avec vous les conditions de la vente et/ou de la location de votre entreprise agricole",
+            "Mettre en publicité votre exploitation et recueillir les candidatures",
+            "Organiser des réunions de concertation pour examiner chaque projet",
+            "Sécuriser chaque étape jusqu'à la signature de l'acte chez le notaire",
+            "Contactez un conseiller",
+            "04 72 77 71 50"
+          ]
+        },
+        {
+          "url": "https://safer-aura.fr/safinance/",
+          "title": "Safinance",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous avez un projet agricole pour lequel vous envisagez de faire appel à une solution de portage foncier ?",
+            "Aujourd’hui proposé par plusieurs acteurs en Auvergne Rhône-Alpes, le portage foncier est un outil qui peut s’avérer utile pour faciliter votre installation, consolider votre exploitation ou soulager financièrement votre exploitation en cas de difficultés.",
+            "La Safer Auvergne-Rhône-Alpes met à votre disposition un outil d’aide à l’orientation.",
+            "Cet outil confronte les caractéristiques de votre projet avec les critères d’éligibilité des dispositifs de portage foncier recensés à l’échelle régionale.",
+            "Il permet ainsi de vous indiquer rapidement les solutions mobilisables, les structures concernées, et les contacts associés.",
+            "En remplissant le formulaire, vous recevrez automatiquement un document récapitulatif personnalisé, qui synthétise : les dispositifs pour lesquels votre projet est potentiellement éligible, les contacts de ces structures pour pouvoir les contacter",
+            "Remplissez le formulaire ci-dessous pour obtenir un premier retour automatisé et des ressources utiles pour la suite de votre démarche."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1",
-      "notes": "La Safer Auvergne-Rhône-Alpes intervient dans l’Ain (01), l’Allier (03), l’Ardèche (07), le Cantal (15), la Drôme (26), l’Isère (38), la Loire (42), la Haute-Loire (43), le Puy-de-Dôme (63), le Rhône et la Métropole de Lyon (69), la Savoie (73) et la Haute-Savoie (74)."
+      "notes": "La Safer Auvergne-Rhône-Alpes intervient dans l’Ain (01), l’Allier (03), l’Ardèche (07), le Cantal (15), la Drôme (26), l’Isère (38), la Loire (42), la Haute-Loire (43), le Puy-de-Dôme (63), le Rhône et la Métropole de Lyon (69), la Savoie (73) et la Haute-Savoie (74).",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "auvergne-rhone-alpes-terre-de-liens-rhone-alpes",
@@ -143,6 +187,101 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "auvergne-rhone-alpes-ajis",
+      "name": "Aide en faveur des Jeunes Installés par la Safer (AJIS)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer Auvergne-Rhône-Alpes",
+      "operatorType": "MIXED",
+      "whatItOffers": "Prise en charge partielle des frais d'acte notarié lors de l'achat de tout ou partie de l'exploitation via la Safer Auvergne-Rhône-Alpes à l'installation. L'aide est remise par chèque ; son montant est communiqué par les équipes après vérification de l'éligibilité.",
+      "whoCanUseIt": "Exploitants agricoles à titre principal, y compris en cas de pluriactivité, âgés de moins de 45 ans, s'installant pour la première fois en agriculture avec ou sans la DJA et dont le siège d'exploitation est en Auvergne-Rhône-Alpes. Les biens doivent avoir été achetés via la Safer AuRA en nom propre ou par une société dont le demandeur détient au moins la moitié des parts et/ou assure la gérance.",
+      "howToAccess": "Remplir le formulaire AJIS accessible depuis cette page dès l'achat et avant le 31 décembre de l'année d'acquisition. Déposer les justificatifs au plus tard dans les 12 mois suivant l'achat : attestation MSA pour une installation non aidée ou certificat de conformité pour une installation avec DJA, attestation notariale de signature de l'acte d'achat et carte d'identité. Pour une installation via une société, ajouter l'extrait Kbis, les statuts et, si l'achat est réalisé par une SCI ou un GFA, le bail signé entre la société et le demandeur.",
+      "accessUrl": "https://safer-aura.fr/solliciter-aide-ajis/",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT", "LAND_ACQUISITION"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://safer-aura.fr/solliciter-aide-ajis/",
+          "title": "Solliciter l’aide AJIS",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Aide en faveur des Jeunes Installés par la Safer",
+            "Si vous remplissez les conditions requises, ce dispositif offre une prise en charge partielle des frais d'acte notarié.",
+            "Il s'applique uniquement si vous avez acheté tout ou partie de votre exploitation via la Safer Auvergne-Rhône-Alpes lors de votre installation.",
+            "Vous êtes installé en qualité d'exploitant agricole à titre principal (y compris en cas de pluriactivité)",
+            "Vous avez acheté des biens via la Safer AuRA, en nom propre ou par le biais d'une société dont vous détenez au moins la moitié des parts et/ou vous avez la gérance.",
+            "Vous vous installez pour la première fois en agriculture avec ou sans la DJA.",
+            "Vous êtes âgé de moins de 45 ans.",
+            "Votre siège d'exploitation se situe en région Auvergne-Rhône-Alpes.",
+            "Vous pouvez postuler pour l'aide AJIS dès votre achat et avant le 31 décembre de l'année lors de laquelle l'acquisition a été réalisée.",
+            "les pièces sont à déposer au plus tard dans les 12 mois suivant votre achat",
+            "votre attestation MSA en cas d'installation non aidée ou votre certificat de conformité en cas d'installation aidée (obtention de la DJA)",
+            "votre attestation de la signature de l'acte d'achat délivrée par votre notaire",
+            "votre carte d'identité",
+            "Bail signé entre la société et vous, si l'achat a été réalisé par une SCI ou un GFA",
+            "Extrait Kbis Statuts de la société",
+            "Accéder au formulaire AJIS",
+            "Enfin, si vous êtes éligible, vous serez contacté par nos équipes. Elles vous indiqueront ensuite le montant de l'aide AJIS octroyée ainsi que les conditions de la remise du chèque."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "auvergne-rhone-alpes-boite-a-essais",
+      "name": "La Boîte à Essais",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Saint-Marcellin Vercors Isère Communauté"
+      },
+      "operator": "Association de la Boîte à Essais, avec Saint-Marcellin Vercors Isère Communauté et son réseau de partenaires",
+      "operatorType": "MIXED",
+      "whatItOffers": "Espace-test agricole d’environ 2 ha à Chatte pour développer une activité individuelle à petite échelle pendant une durée maximale de 3 ans. Propose un cadre légal via le Contrat d’Appui au Projet d’Entreprise (CAPE), du foncier, des serres et du matériel, ainsi qu’un accompagnement administratif et technique pour tester son projet et en évaluer la suite.",
+      "whoCanUseIt": "Porteurs de projet, avec pour objectif de soutenir la création et la reprise d’activités agricoles par des personnes non issues de ce milieu. Il faut respecter le cahier des charges de l’agriculture biologique, être dans une démarche d’apprentissage et de réseau sur le territoire, posséder l’expérience professionnelle nécessaire et disposer d’une trésorerie suffisante pour démarrer. L’élevage est exclu.",
+      "howToAccess": "Faire acte de candidature ou demander des informations auprès de la Boîte à Essais par son adresse électronique dédiée. Le dispositif peut aussi venir sur les terres du porteur de projet ou son futur lieu d’installation, sous forme d’espace test en archipel.",
+      "accessUrl": "https://saintmarcellin-vercors-isere.fr/boite-a-essais.html",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "La Boîte à Essais",
+          "value": "laboiteaessais@smvic.fr",
+          "sourceUrl": "https://saintmarcellin-vercors-isere.fr/boite-a-essais.html"
+        }
+      ],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "sources": [
+        {
+          "url": "https://saintmarcellin-vercors-isere.fr/boite-a-essais.html",
+          "title": "La Boîte à Essais : testez votre activité agricole ! - Saint-Marcellin Vercors Isère Communauté",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "La \"Boîte à Essais\" est un espace agricole de test d'environ 2 ha.",
+            "Situé sur la commune de Chatte, il est mis à disposition par la communauté de communes à des porteurs de projet, pour une activité individuelle à petite échelle.",
+            "L'espace test consiste à développer une activité agricole ou artisanale de manière responsable et autonome, en conditions réelles, sur une durée maximale de 3 ans et dans un cadre qui réduit la prise de risques.",
+            "L'objectif est simple : soutenir et accompagner la création et la reprise d'activités agricoles par des personnes non issues de ce milieu, tout en sécurisant le parcours de création d'activité.",
+            "Un cadre légal d'exercice de votre activité : SIRET, assurance responsabilité civile, statut d'entrepreneur à l'essai via le Contrat d'Appui au Projet d'Entreprise (CAPE).",
+            "Des moyens de productions agricoles (foncier, serres, chambre froide, lavage de légumes, matériel divers…).",
+            "Un dispositif d'accompagnement administratif et technique par le biais de l'association de la Boîte à Essais et de son réseau de partenaires (Communauté de communes, Comité de Territoire, conseillers spécialisés de la Chambre d'Agriculture…).",
+            "Cet accompagnement complet permet de tester son projet en grandeur nature, puis d'évaluer la suite à donner : poursuivre ou ajuster.",
+            "Pour être accueilli à la Boîte à Essais, quatre conditions à cocher : Respecter le cahier des charges de l'agriculture biologique. Etre dans une démarche d'apprentissage et de réseau sur le territoire. Posséder une expérience professionnelle nécessaire pour mener à bien l'activité. Disposer d'une trésorerie suffisante pour démarrer l'activité.",
+            "Seul l'élevage n'est pas possible.",
+            "NB : la Boîte à Essais peut venir à vous (sur vos terres ou votre futur lieu d'installation). Le dispositif s'appelle alors un espace test en archipel.",
+            "Pour faire acte de candidature ou avoir plus d'information sur la Boîte à Essais.",
+            "laboiteaessais@smvic.fr",
+            "sur le territoire de Saint-Marcellin Vercors Isère Communauté."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

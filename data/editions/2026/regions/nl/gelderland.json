@@ -5,12 +5,17 @@
   "country": "NL",
   "region": "gelderland",
   "officialName": "Gelderland",
-  "published": "2026-11-16",
+  "published": "2026-11-20",
   "summary": "Het overzicht voor Gelderland is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Gelderland gelden.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Nog niet onderzocht. De bronnen die voor Nederland zijn gevonden, staan klaar voor onderzoek; tot dat onderzoek klaar is, staan hier alleen de Europese bronnen die ook hier gelden.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.gelderland.nl/themas/organisatie/pacht-en-koop"
+      }
+    ]
   },
   "review": {
     "status": "DRAFT"
@@ -25,10 +30,48 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "gelderland-pacht-op-provinciale-gronden",
+      "name": "Pacht op provinciale gronden",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Gelderland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Toegang tot het aanbod van provinciale landbouwgrond die ieder jaar opnieuw wordt verpacht. De gronden liggen verspreid over heel Gelderland.",
+      "howToAccess": "Volg op de provinciale pagina de verwijzing naar pachtgrond.nu om te zien welke gronden beschikbaar zijn.",
+      "accessUrl": "https://www.gelderland.nl/themas/organisatie/pacht-en-koop",
+      "sectors": ["AGRICULTURE"],
+      "sources": [
+        {
+          "url": "https://www.gelderland.nl/themas/organisatie/pacht-en-koop",
+          "title": "Gronden en gebouwen kopen en landbouwgrond pachten",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Provincie Gelderland is eigenaar van gronden en gebouwen.",
+            "Pacht op provinciale gronden",
+            "We verpachten ieder jaar opnieuw landbouwgrond.",
+            "Deze grond is verspreid over heel Gelderland.",
+            "Op de website van pachtgrond.nu kunt u zien welke gronden er beschikbaar zijn."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": []
 }

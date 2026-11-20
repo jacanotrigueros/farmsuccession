@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "PT",
   "officialName": "Portugal",
-  "published": "2026-09-28",
+  "published": "2026-11-20",
   "summary": "No continente existem apoios à primeira instalação e acompanhamento técnico de jovens agricultores. A antiga Bolsa Nacional de Terras foi revogada; a operação do novo Banco e Bolsa continua por verificar. Uma ajuda a novos produtores pecuários esgotou a dotação.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -93,6 +93,13 @@
         "model": "Codex",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-28"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -129,7 +136,7 @@
     },
     {
       "id": "pt-premio-instalacao-jovens",
-      "name": "Prémio instalação jovens agricultores",
+      "name": "Prémio instalação Jovens Agricultores",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -137,9 +144,11 @@
       },
       "operator": "PEPAC no Continente",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Prémio para a primeira instalação de jovens agricultores, articulado com o investimento produtivo para jovens agricultores.",
-      "whoCanUseIt": "Jovens agricultores elegíveis à primeira instalação no PEPAC no Continente; esta intervenção não é a ajuda própria dos Açores ou da Madeira.",
+      "whatItOffers": "Prémio não reembolsável à primeira instalação de 25.000€, com acréscimos de 25.000€ pela instalação em regime de exclusividade e de 5.000€ pela localização em zona vulnerável definida na regulamentação. Articula-se com a intervenção C.2.2.2 — Investimento produtivo Jovens Agricultores; o incentivo combinado não pode exceder 120% do investimento elegível aprovado nessa intervenção.",
+      "whoCanUseIt": "Jovens dos 18 aos 40 anos, inclusive, que se instalem pela primeira vez como responsáveis pela exploração. Inclui sociedades por quotas com atividade agrícola no objeto social, desde que os sócios-gerentes jovens agricultores detenham a maioria do capital e, individualmente, mais de 25%. Exige formação agrícola adequada ou compromisso de a iniciar no prazo máximo de 12 meses após a submissão eletrónica e autenticação do termo de aceitação, e plano de negócios de cinco anos. Aplica-se ao PEPAC no Continente, não às ajudas próprias dos Açores e da Madeira.",
       "accessUrl": "https://pepacc.pt/concursos/premio-instalacao-jovens-agricultores-1o-concurso-4o-periodo/",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
       "languages": ["pt"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "sources": [
@@ -151,10 +160,28 @@
             "Prémio instalação jovens agricultores",
             "O candidato singular ou coletivo cumpre este critério desde que não tenha registo de início de atividade com CAE agrícola"
           ]
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2024/11/Ficha-de-intervencao-C.2.2.1-Premio-instalacao-Jovens-Agricultores-1.pdf",
+          "title": "Prémio instalação Jovens Agricultores",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Jovens agricultores, com idade compreendida entre os 18 e os 40 anos, inclusive, que se instalem pela primeira vez como agricultores na qualidade de responsável pelas explorações, incluindo pessoas coletivas que revistam a forma de sociedade por quotas e com a atividade agrícola no objeto social, desde que os sócios gerentes que forem jovens agricultores, detenham a maioria do capital social e individualmente uma participação superior a 25 % no capital social.",
+            "Possuir formação agrícola adequada ou comprometer-se a iniciar a mesma no prazo máximo de 12 meses após a submissão eletrónica e autenticação do termo de aceitação;",
+            "Existência de Plano de Negócios com a duração de cinco anos, que apresente coerência técnica, económica e financeira",
+            "O apoio à instalação associado ao Plano de Negócios assume a forma de um incentivo não reembolsável (Prémio à 1ª instalação), no valor de 25.000€, tendo os seguintes acréscimos:",
+            "25.000€ no caso de o jovem se instalar em regime de exclusividade;",
+            "5.000€ caso a instalação do jovem agricultor se localize em zona vulnerável definida pela Portaria n.º 301/2020, de 24 de dezembro.",
+            "O montante final de prémio, por jovem agricultor em 1.ª instalação, será ajustado de forma a que o incentivo combinado entre este prémio e o apoio não reembolsável atribuído a título da intervenção C.2.2.2 - Investimento produtivo Jovens Agricultores não poderá exceder 120% do montante de investimento elegível aprovado ao abrigo da referida intervenção.",
+            "Não terem recebido quaisquer ajudas no âmbito do pedido único, exceto nos dois anos anteriores ao ano de apresentação da candidatura;",
+            "Não estarem inscritos na autoridade tributária com atividade agrícola, exceto nos dois anos anteriores ao ano de apresentação da candidatura;",
+            "Não terem recebido quaisquer ajudas aos investimentos no setor agrícola, nem terem recebido prémio à primeira instalação;",
+            "Inscrição no Organismo Pagador enquanto beneficiário; Detenção da titularidade da exploração; Inscrição na autoridade tributária com atividade agrícola."
+          ]
         }
       ],
-      "notes": "A página consultada documenta a medida e os critérios, mas não mostra um período aberto na data da consulta.",
-      "generatorId": "chatgpt-1"
+      "notes": "A página de concurso anteriormente consultada documenta a medida e os critérios, mas não mostra um período aberto na data da consulta. A primeira instalação exige inscrição no Organismo Pagador, titularidade da exploração e inscrição fiscal com atividade agrícola. A ficha exclui ajudas anteriores ao investimento agrícola ou prémio de primeira instalação e admite ajudas do pedido único e inscrição fiscal agrícola apenas nos dois anos anteriores ao ano da candidatura.",
+      "generatorId": "chatgpt-2"
     },
     {
       "id": "pt-acompanhamento-tecnico-jovens",
@@ -245,6 +272,108 @@
       ],
       "notes": "Programa de 2026 com elegibilidade territorial restrita às freguesias da norma; dotação esgotada. A inclusão na camada Portugal não significa elegibilidade em todo o país ou nas regiões autónomas.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "pt-pepac-portarias-intervencao",
+      "name": "Portarias por intervenção",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "PEPAC no Continente",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Índice da legislação específica das intervenções do PEPAC no Continente, com versões originais e consolidadas em vigor dos diplomas. Inclui o prémio de instalação, o investimento produtivo de jovens agricultores e o investimento produtivo apoiado por instrumento financeiro.",
+      "howToAccess": "Consultar a intervenção pretendida nesta página. O histórico de alterações dos diplomas está disponível no Diário da República Eletrónico.",
+      "accessUrl": "https://pepacc.pt/legislacao/portarias-por-intervencao/",
+      "lastEvidenceDate": "2026-08-04",
+      "sources": [
+        {
+          "url": "https://pepacc.pt/legislacao/portarias-por-intervencao/",
+          "title": "Portarias por intervenção - PEPAC no Continente",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Portarias por intervenção - PEPAC no Continente",
+            "Consulte nesta página a legislação específica de cada intervenção.",
+            "C.2.2.1 – Prémio instalação jovens agricultores",
+            "C.2.2.2 – Investimento produtivo jovens agricultores",
+            "C.2.2.3 – Investimento produtivo jovens agricultores apoiado por instrumento financeiro",
+            "Nesta página poderá consultar todas as versões originais dos diplomas, e as respetivas versões consolidadas em vigor.",
+            "O histórico de alterações dos diplomas está disponível em Diário da República Eletrónico.",
+            "Última atualização: 4 de agosto, 2026"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "pt-investimento-produtivo-jovens-agricultores",
+      "name": "Investimento produtivo Jovens Agricultores",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "PEPAC no Continente",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Apoio ao investimento em ativos físicos, tangíveis e intangíveis necessários à atividade agrícola, incluindo máquinas e equipamentos, construções, melhoramentos fundiários, plantações, viveiros e sistemas de rega.",
+      "whoCanUseIt": "Jovens agricultores no âmbito do PEPAC no Continente.",
+      "howToAccess": "Consultar na página a ficha da intervenção C.2.2.2 para obter mais informações sobre os apoios.",
+      "accessUrl": "https://pepacc.pt/sobre-nos/o-que-esperar-do-pepac-continente/como-o-programa-se-organiza/investimento-produtivo-jovens-agricultores/",
+      "purposes": ["INVESTMENT"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["YOUNG_FARMER"],
+      "lastEvidenceDate": "2026-10-29",
+      "sources": [
+        {
+          "url": "https://pepacc.pt/sobre-nos/o-que-esperar-do-pepac-continente/como-o-programa-se-organiza/investimento-produtivo-jovens-agricultores/",
+          "title": "Investimento produtivo Jovens Agricultores - PEPAC no Continente",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Investimento produtivo Jovens Agricultores - PEPAC no Continente",
+            "Para atingir estes objetivos deverão ser promovidos investimentos em ativos físicos, tangíveis e intangíveis, necessários à atividade agrícola.",
+            "Estes investimentos consistem, designadamente, na aquisição e instalação de máquinas e equipamentos, edificação de construções, melhoramentos fundiários, plantações, viveiros e sistemas de rega.",
+            "Consulte a Ficha de Intervenção que preparámos, e saiba mais sobre estes apoios.",
+            "Ficha de intervenção C.2.2.2 – Investimento Produtivo Jovens Agricultores (4 MB)",
+            "Última atualização: 29 de outubro, 2026"
+          ]
+        }
+      ],
+      "notes": "A página apresenta os objetivos e os investimentos abrangidos, mas não permite confirmar a disponibilidade atual de candidaturas, os montantes ou as condições detalhadas de acesso.",
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "pt-e-formar-jovens-agricultores",
+      "name": "e-Formar Jovens Agricultores",
+      "kind": "TRAINING",
+      "status": "HISTORICAL",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "DGADR - Direção Geral de Agricultura e Desenvolvimento Rural",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Projeto piloto de produção de conteúdos digitais para apoiar a formação de jovens agricultores e o sucesso da instalação. A página apresenta manuais de formação sobre agricultura sustentável, aplicação de produtos fitofarmacêuticos e gestão da empresa agrícola.",
+      "whoCanUseIt": "Conteúdos dirigidos à formação de jovens agricultores.",
+      "howToAccess": "Consultar a secção Publicações da página do projeto, onde estão apresentados os manuais de formação.",
+      "accessUrl": "https://inovacao.rederural.gov.pt/projetos/projetos-rrn?catid=37%3Aprojetos-rrn&id=1159%3Ae-formar-jovens-agricultores&view=article",
+      "targetProfiles": ["YOUNG_FARMER"],
+      "sources": [
+        {
+          "url": "https://inovacao.rederural.gov.pt/projetos/projetos-rrn?catid=37%3Aprojetos-rrn&id=1159%3Ae-formar-jovens-agricultores&view=article",
+          "title": "e-Formar Jovens Agricultores",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "e-Formar Jovens Agricultores",
+            "Entidade líder do projeto: DGADR - Direção Geral de Agricultura e Desenvolvimento Rural",
+            "Maior facilidade de acesso a conteúdos técnicos de formação qualificante adequada ao sucesso da instalação, ao bom desempenho dos planos empresariais, sustentabilidade das explorações dos jovens agricultores",
+            "Produzir e-manuais que permitam apoiar a formação em e-learning, de modo a contribuir para melhorar a qualidade e eficácia da formação.",
+            "Encontram-se concluídas todas atividades previstas no plano de ação do projeto.",
+            "Publicações: Manual de Formação - Agricultura Sustentável Manual de Formação - Aplicação de produtos Fitofarmaceuticos Manual de Formação - Gestão da Empresa Agrícola"
+          ]
+        }
+      ],
+      "notes": "A página documenta a conclusão do projeto e os seus materiais; não comprova inscrições em cursos nem reconhecimento destes materiais para cumprir requisitos de acesso a ajudas à instalação.",
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],
