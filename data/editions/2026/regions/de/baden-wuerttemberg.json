@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "baden-wuerttemberg",
   "officialName": "Baden-Württemberg",
-  "published": "2026-10-26",
+  "published": "2026-11-20",
   "summary": "In Baden-Württemberg bestehen eine landesweite Hofbörse, ein zusätzlicher Junglandwirte-Zuschuss für geförderte Investitionen sowie Angebote zur außerfamiliären Hofnachfolge und Übergabeberatung. Ein gefördertes Beratungsmodul bezieht die Arbeitsorganisation bei geplanter Betriebsübergabe oder -übernahme ein. Die Zugangswege und Zuständigkeitsgebiete der Angebote unterscheiden sich.",
   "coverage": {
     "status": "PARTIAL",
@@ -64,6 +64,13 @@
         "model": "gpt-6",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-29"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -392,6 +399,50 @@
       ],
       "notes": "Die L-Bank beschreibt für Hofnachfolgende und Existenzgründende außerdem eine Ausnahme bei der Finanzierung des Flächenerwerbs. Die aktuellen Konditionen sind vor Antragstellung bei der Hausbank zu prüfen.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "baden-wuerttemberg-lbv-mediation",
+      "name": "Mediation – Konflikte lösen, Zukunft gestalten",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Landesbauernverband in Baden-Württemberg e.V.",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Präventive Mediation und Konfliktmediation bei familiären und betrieblichen Konflikten, ausdrücklich auch zur Begleitung von Hofübergaben, Erbregelungen und Betriebsübernahmen. Eine neutrale, speziell ausgebildete Person unterstützt die Beteiligten dabei, eigenverantwortlich eine Lösung zu erarbeiten. Auf Wunsch werden Fachberatungen aus Recht, Steuer und Betriebswirtschaft einbezogen.",
+      "whoCanUseIt": "Mitglieder des Landesbauernverbands in Baden-Württemberg.",
+      "howToAccess": "Über die Dienstleistungsseite Kontakt aufnehmen oder beim jeweiligen Kreisbauernverband Einzelheiten zum Angebot erfragen. Die Mitgliedschaft im regionalen Kreisbauernverband eröffnet auch den Zugang zu den Dienstleistungen des LBV.",
+      "accessUrl": "https://www.lbv-bw.de/dienstleistungen/mediation",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Landesbauernverband in Baden-Württemberg",
+          "value": "lbv@lbv-bw.de",
+          "sourceUrl": "https://www.lbv-bw.de/dienstleistungen/mediation"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.lbv-bw.de/dienstleistungen/mediation",
+          "title": "Mediation für Landwirte | Landesbauernverband in Baden-Württemberg",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Landesbauernverband in Baden-Württemberg e.V.",
+            "Mediation – Konflikte lösen, Zukunft gestalten",
+            "Der Landesbauernverband in Baden-Württemberg (LBV) bietet seinen Mitgliedern professionelle Mediationsangebote, um Konflikte frühzeitig zu lösen und tragfähige Vereinbarungen zu schaffen.",
+            "Mediation ist ein strukturiertes Verfahren, bei dem eine neutrale, speziell ausgebildete Person – der Mediator oder die Mediatorin – die Konfliktparteien unterstützt, eigenverantwortlich eine Lösung zu erarbeiten.",
+            "Der LBV bietet sowohl präventive Mediation (zur Begleitung von Veränderungsprozessen) als auch Konfliktmediation bei bereits eskalierten Streitigkeiten an.",
+            "Auf Wunsch begleiten wir die Mediation interdisziplinär – in Zusammenarbeit mit unseren Fachberaterinnen und Fachberatern aus Recht, Steuer und Betriebswirtschaft.",
+            "Begleitung bei Hofübergabe, Erbregelungen und Betriebsübernahmen",
+            "Über die Mitgliedschaft profitieren Sie zudem automatisch von den Dienstleistungen und dem Netzwerk des LBV.",
+            "Details zu den Dienstleistungen erhalten Sie über den jeweiligen Kreisbauernverband.",
+            "Zur Kontaktperson",
+            "E-Mail: lbv@lbv-bw.de"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
