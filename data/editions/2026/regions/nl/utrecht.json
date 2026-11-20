@@ -5,12 +5,17 @@
   "country": "NL",
   "region": "utrecht",
   "officialName": "Utrecht",
-  "published": "2026-11-16",
+  "published": "2026-11-20",
   "summary": "Het overzicht voor Utrecht is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Utrecht gelden.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Nog niet onderzocht. De bronnen die voor Nederland zijn gevonden, staan klaar voor onderzoek; tot dat onderzoek klaar is, staan hier alleen de Europese bronnen die ook hier gelden.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.provincie-utrecht.nl/onderwerpen/natuur/grondverkoop-en-pacht"
+      }
+    ]
   },
   "review": {
     "status": "DRAFT"
@@ -25,10 +30,78 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "utrecht-grondverkoop-en-pacht",
+      "name": "Grondverkoop en pacht",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "provincie Utrecht",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Overzicht en procedures voor het kopen, ruilen en pachten van provinciale grond. Gronden die nog niet voor beleidsdoelen zijn ingezet of verkocht, worden in principe jaarlijks aan agrariërs verpacht; waar mogelijk kan dat langer. Via het Pachtportaal zijn beschikbare percelen, kaarten en perceelkenmerken te bekijken.",
+      "whoCanUseIt": "Iedereen die geïnteresseerd is kan belangstelling voor grondverkoop kenbaar maken. Voor pacht moet de belangstellende een agrarisch bedrijf hebben, met landbouw als hoofdberoep, ingeschreven bij de KvK en geregistreerd bij RVO. Het bedrijf ligt in de omgeving van de grond, bij voorkeur binnen 5 km. De bedrijfscontinuïteit mag niet afhankelijk zijn van de provinciale percelen: maximaal 25% van het eigen areaal landbouwgrond in bezit of langdurige pacht kan van de provincie worden gepacht.",
+      "howToAccess": "Houd voor verkoop zelf de provinciale website in de gaten en neem contact op met de adviseur grondzaken bij het betreffende perceel. Meld belangstelling voor een gepubliceerde kavelruil bij grondzaken@provincie-utrecht.nl onder vermelding van 'Interesse kavelruil'. Reageren op pachtpercelen kan uitsluitend via www.pachtportaal.nl: registreer met uw RVO-nummer en e-mailadres en vul het profiel volledig in. Voor de pachtuitgifte van 2027 kunt u tot en met 23 november 2026 reageren.",
+      "accessUrl": "https://www.provincie-utrecht.nl/onderwerpen/natuur/grondverkoop-en-pacht",
+      "assetTypes": ["PLOTS"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Vragen over pacht",
+          "value": "pacht@provincie-utrecht.nl",
+          "sourceUrl": "https://www.provincie-utrecht.nl/onderwerpen/natuur/grondverkoop-en-pacht"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Grondzaken",
+          "value": "grondzaken@provincie-utrecht.nl",
+          "sourceUrl": "https://www.provincie-utrecht.nl/onderwerpen/natuur/grondverkoop-en-pacht"
+        }
+      ],
+      "notes": "Aan koop, ruil en pacht kunnen aanvullende gebruiksvoorwaarden verbonden zijn. De provincie kan de pachtvoorwaarden en criteria wijzigen voordat zij een aanbod doet. Kosteloze registratie bij het Pachtportaal betekent niet dat de pacht zelf gratis is.",
+      "sources": [
+        {
+          "url": "https://www.provincie-utrecht.nl/onderwerpen/natuur/grondverkoop-en-pacht",
+          "title": "Grondverkoop en pacht | provincie Utrecht",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Hiermee is het proces voor iedereen transparant en kan iedereen die geïnteresseerd is in de grond dit kenbaar maken.",
+            "Hieronder treft u een overzicht aan van de gronden die op dit moment in de openbare verkoop zijn.",
+            "Wilt u hier meer over weten of uw interesse kenbaar maken, neemt u contact op met de adviseur grondzaken die genoemd staat bij het betreffende perceel (of percelen).",
+            "Het is de verantwoordelijkheid van potentiële geïnteresseerde kopers om de websites van de provincie Utrecht in de gaten te houden.",
+            "Bent u geïnteresseerd in deelname in één van genoemde kavelruilen, meldt u zich dan aan bij bij grondzaken@provincie-utrecht.nl onder vermelding van: 'Interesse kavelruil'.",
+            "Zolang de gronden van de provincie nog niet zijn ingezet voor doelrealisatie of niet zijn verkocht, worden deze in principe jaarlijks verpacht aan agrariërs. Waar mogelijk worden percelen ook voor langere tijd in pacht uitgegeven.",
+            "De inschrijfperiode voor 2027 is open.",
+            "U kunt, voor de pachtuitgifte van 2027, tot en met 23 november 2026 reageren op de provinciale percelen, die gepubliceerd staan in het pachtportaal.",
+            "Via verschillende kaartweergaven wordt het te pachten perceel gevisualiseerd. U ziet alle kenmerken van het aanbod, per perceel en op eenduidige wijze gepresenteerd.",
+            "Reageren kan uitsluitend via de website www.pachtportaal.nl.",
+            "Hier kunt u zich kosteloos registreren met uw RVO-nummer en e-mailadres.",
+            "Als uw account volledig is ingevuld, kunt u zich inschrijven op de gepubliceerde percelen.",
+            "Concreet betekent dit dat een belangstellende niet meer dan 25% van het eigen areaal landbouwgrond (in bezit of langdurige pacht) kan pachten van de provincie.",
+            "De belangstellende heeft zijn /haar bedrijf in de omgeving van de te pachten gronden, bij voorkeur binnen 5 km.",
+            "De belangstellende heeft een agrarisch bedrijf en heeft zijn hoofdberoep in de landbouw. Het bedrijf moet ingeschreven zijn bij de Kamer van Koophandel (KvK) en is geregistreerd bij de Rijksdienst voor Ondernemend Nederland (RVO).",
+            "De provincie behoudt zich daarnaast het recht voor om de pachtvoorwaarden en criteria die gelden, te wijzigen. Dit geldt dan vóórdat u een aanbod wordt gedaan.",
+            "Ook in deze gevallen is er meestal sprake van aanvullende voorwaarden voor het gebruik van de grond.",
+            "Als u geïnteresseerd bent, is het goed om te weten dat de kans groot is dat er voorwaarden verbonden zijn aan het kopen van de grond.",
+            "Heeft u vragen? Mail ons dan via pacht@provincie-utrecht.nl"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": []
 }

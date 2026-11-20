@@ -5,7 +5,7 @@
   "country": "PT",
   "region": "centro",
   "officialName": "Centro",
-  "published": "2026-10-30",
+  "published": "2026-11-20",
   "summary": "A Figueira da Foz e a COAPE oferecem vias locais para anunciar e procurar terrenos rurais. A COAPE mantém também um banco especializado em terrenos para pastorícia e presta apoio técnico à instalação agrícola. A disponibilidade atual de parcelas não pôde ser comprovada.",
   "coverage": {
     "status": "PARTIAL",
@@ -63,6 +63,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -78,9 +85,9 @@
       },
       "operator": "Câmara Municipal da Figueira da Foz",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Divulgação de prédios rústicos agroflorestais para venda, arrendamento ou cedência no concelho, com registo de proprietários e consulta cartográfica.",
-      "whoCanUseIt": "Proprietários de terrenos agroflorestais no concelho e pessoas interessadas em aceder a esses terrenos.",
-      "howToAccess": "Registar um terreno no formulário municipal e consultar a bolsa no sistema de informação geográfica ligado à página.",
+      "whatItOffers": "Divulgação de prédios rústicos agroflorestais para venda, arrendamento ou cedência no concelho, incluindo os municipais, com registo de proprietários e consulta cartográfica.",
+      "whoCanUseIt": "Proprietários que pretendam vender, arrendar ou ceder prédios rústicos com aptidão agrícola e/ou florestal localizados no concelho da Figueira da Foz e pessoas interessadas em aceder a esses terrenos. A adesão dos proprietários é gratuita.",
+      "howToAccess": "Registar um terreno no formulário municipal e consultar a bolsa no sistema de informação geográfica ligado à página. O regulamento prevê requerimento próprio, disponível em papel no Balcão de Atendimento da Câmara Municipal ou na Junta de Freguesia da área de residência, a entregar na Câmara Municipal com fotocópias do documento de identificação e da identificação fiscal, certidão das Finanças comprovativa do registo dos prédios rústicos e certidão do registo predial.",
       "accessUrl": "https://www.cm-figfoz.pt/pages/644",
       "assetTypes": ["PLOTS"],
       "sectors": ["AGRICULTURE", "FORESTRY"],
@@ -95,10 +102,26 @@
             "Tem um terreno agroflorestal que pretende vender, arrendar ou ceder no concelho da Figueira da Foz? Então registe-o na Bolsa de Terras, preenchendo o formulário.",
             "A criação da Bolsa de Terras visa divulgar os prédios rústicos agroflorestais para venda, arrendamento ou cedência no concelho da Figueira da Foz."
           ]
+        },
+        {
+          "url": "https://www.cm-figfoz.pt/cmfigueiradafoz/uploads/document/file/1719/regulamento_de_bolsa_de_terras_agroflorestais_da_figueira_da_foz__btaff_.pdf",
+          "title": "REGULAMENTO DA BOLSA DE TERRAS AGROFLORESTAIS DA FIGUEIRA DA FOZ",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "A criação da BTAFF visa divulgar os prédios rústicos agroflorestais para venda, arrendamento ou cedência no concelho da Figueira da Foz, incluindo os que são propriedade do Município.",
+            "Podem aderir à BTAFF, de forma gratuita, todos os proprietários que pretendam vender, arrendar ou ceder prédios rústicos com aptidão agrícola e/ou florestal, localizados no concelho da Figueira da Foz",
+            "O pedido de adesão é formulado através de requerimento próprio, conforme anexo ao presente regulamento, disponibilizado em suporte papel no Balcão de Atendimento da Câmara Municipal da Figueira da Foz ou na Junta de Freguesia da área de residência",
+            "Os respetivos requerimentos devem ser entregues na Câmara Municipal da Figueira da Foz e ser instruídos com os seguintes documentos:",
+            "Fotocópia do Bilhete de Identidade ou Cartão de Cidadão;",
+            "Fotocópia do documento de identificação fiscal;",
+            "Certidão das Finanças comprovativa do registo de prédios rústicos;",
+            "Certidão do Registo da Conservatória do Registo Predial;",
+            "A informação sobre os prédios rústicos ficará disponível para consulta dos potenciais interessados"
+          ]
         }
       ],
-      "notes": "O formulário é anunciado na página municipal, mas não foi confirmada uma oferta atual nem a operação do visor SIG.",
-      "generatorId": "chatgpt-1"
+      "notes": "O formulário é anunciado na página municipal, mas não foi confirmada uma oferta atual nem a operação do visor SIG. As condições documentais e a gratuitidade da adesão dos proprietários constam do regulamento; a sua disponibilização não comprova o funcionamento atual da bolsa.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "centro-coape-bolsa-terras",
@@ -201,6 +224,97 @@
       ],
       "notes": "A página conserva referências e valores de programas de apoio antigos; esses montantes não são apresentados nesta ficha. O recurso descreve apenas o serviço próprio de aconselhamento e a sua via de contacto atual.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "centro-penela-bolsa-terras",
+      "name": "Bolsa de Terras Municipal",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "concelho de Penela"
+      },
+      "operator": "Município de Penela",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Intermediação entre proprietários de terras incultas ou abandonadas e pessoas sem terrenos para cultivar que pretendem desenvolver atividades do setor primário, promovendo o acesso a prédios rústicos com aptidão agrícola para arrendamento ou venda.",
+      "whoCanUseIt": "Proprietários que pretendam arrendar ou vender prédios rústicos com aptidão agrícola no concelho de Penela e pessoas que, não tendo terrenos para cultivar, pretendem desenvolver atividades do setor primário.",
+      "howToAccess": "Os proprietários devem preencher o formulário de adesão disponível na página municipal ou no Gabinete de Proteção Civil e Florestas e entregá-lo nos serviços municipais, acompanhado de cópia do documento de identificação, identificação fiscal e certidões das finanças e do registo predial dos terrenos. Para informações, consultar o regulamento ou contactar o Gabinete de Proteção Civil e Florestas.",
+      "accessUrl": "https://www.cm-penela.pt/artigo-62-0",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://cm-penela.pt/uploads/84b951ec16ca74f14e3c0a0894d60ee8.pdf",
+          "title": "REGULAMENTO DA BOLSA DE TERRAS",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "REGULAMENTO DA BOLSA DE TERRAS",
+            "O Município de Penela, através do Gabinete de Desenvolvimento Rural (GADRU), responsável pela identificação e inventário das unidades agrícolas abandonadas ou incultas",
+            "com vista à partilha e cruzamento da informação entre os seus proprietários e os interessados no arrendamento de terras com vista à exploração agrícola dos solos.",
+            "Orientação técnica na fase de implementação e desenvolvimento do Projeto de Exploração Agrícola.",
+            "Podem ser candidatos ao arrendamento todas as pessoas singulares ou coletivas que queiram desenvolver um projeto de exploração agrícola no Concelho de Penela.",
+            "Pessoa coletiva ou singular titular do direito de propriedade de solo agrícola cedido à Bolsa de Terras para que esta promova o seu arrendamento para a exploração agrícola empresarial por terceiro.",
+            "As candidaturas são formalizadas através de formulário próprio, a fornecer pelo GADRU, acompanhado de todos os documentos de identificação do candidato, o plano de negócios e a memória descritiva da atividade agrícola e dos projetos das benfeitorias a desenvolver, designado de Plano de Exploração Agrícola.",
+            "A avaliação das candidaturas apresentadas é efetuada pelo GADRU, que formulará uma proposta de deliberação sobre a unidade de cultura a atribuir ao candidato e que submeterá à Câmara Municipal",
+            "A renda anual devida pelo arrendamento agrícola é a constante da tabela de preços anexa a este regulamento."
+          ]
+        },
+        {
+          "url": "https://www.cm-penela.pt/artigo-62-0",
+          "title": "Bolsa de Terras Municipal",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "O programa “Bolsa de Terras”, de iniciativa do Município de Penela, tem como finalidade promover o desenvolvimento agrícola do concelho de Penela, através da criação de condições para o cultivo das terras que se encontram incultas ou abandonadas.",
+            "sustentada na intermediação entre os proprietários, que por opção ou incapacidade não lhes conferem uso, e todos aqueles que, não tendo terrenos para cultivar, pretendem desenvolver atividades do setor primário.",
+            "Suster o despovoamento dos meios rurais e o abandono dos campos agrícolas através da fixação de população agrícola ativa e da atração de novos operadores económicos, para o desenvolvimento de uma agricultura empresarial;",
+            "Podem aderir à Bolsa de Terras todos os proprietários que pretendam arrendar ou vender prédios rústicos com aptidão agrícola, localizados no concelho de Penela.",
+            "O pedido de adesão é feito em formulário próprio, disponível na página web do Município de Penela ou no Gabinete de Proteção Civil e Florestas.",
+            "O referido formulário deve ser entregue nos serviços municipais, acompanhado de fotocópia do Bilhete de Identidade ou do Cartão de Cidadão, identificação fiscal, certidão das finanças comprovativa do registo dos prédios rústicos e certidão do registo da Conservatória de Registo Predial.",
+            "Para mais informações poderá consultar o Regulamento da “Bolsa de Terras” ou contactar o Gabinete de Proteção Civil e Florestas."
+          ]
+        }
+      ],
+      "notes": "A página descreve a adesão dos proprietários, mas não permite confirmar a disponibilidade atual de terrenos.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "centro-mortagua-banco-terras",
+      "name": "Banco de Terras de Mortágua",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Mortágua"
+      },
+      "operator": "Município de Mortágua",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Acesso a prédios rústicos agrícolas ou florestais abandonados ou subvalorizados, mediante arrendamento dos proprietários ao município e posterior subarrendamento a interessados em investir no concelho.",
+      "whoCanUseIt": "Proprietários dispostos a arrendar os seus prédios rústicos ao município e empreendedores rurais que pretendam instalar-se no concelho ou ampliar os seus negócios nas áreas agrícola e florestal.",
+      "howToAccess": "Consultar na página municipal os avisos de abertura de candidaturas, a ficha de inscrição, a minuta do contrato de arrendamento e o regulamento municipal.",
+      "accessUrl": "https://www.cm-mortagua.pt/p/banco-de-terras",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "FORESTRY"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-11-04",
+      "sources": [
+        {
+          "url": "https://www.cm-mortagua.pt/p/banco-de-terras",
+          "title": "Banco de Terras de Mortágua | Câmara Municipal de Mortágua",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "O Banco de Terras é um instrumento, cujo principal objetivo é encontrar proprietários dispostos a ceder por arrendamento os seus prédios rústicos (agrícolas ou florestais), abandonados ou subvalorizados, ao Município de Mortágua, o qual irá subarrendar a potenciais interessados em investir no concelho, nas áreas agrícola e florestal.",
+            "Facilitar o acesso à terra a novos empreendedores rurais que pretendam instalar-se no concelho ou ampliar os seus negócios;",
+            "3º Aviso de Abertura para Candidaturas ao Banco de Terras de Mortágua",
+            "Ficha de Inscrição - Banco de Terras de Mortágua",
+            "Minuta do Contrato de Arrendamento",
+            "Regulamento Municipal do Banco de Terras de Mortágua",
+            "Conteúdo atualizado em4 de novembro de 2026às 15:13"
+          ]
+        }
+      ],
+      "notes": "A página disponibiliza ligações aos avisos e documentos de inscrição, mas o texto consultado não estabelece os prazos de candidatura nem a disponibilidade atual de terrenos.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

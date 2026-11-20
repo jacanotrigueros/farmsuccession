@@ -5,7 +5,7 @@
   "country": "PT",
   "region": "norte",
   "officialName": "Norte",
-  "published": "2026-09-28",
+  "published": "2026-11-20",
   "summary": "No Norte, os apoios à instalação e o acompanhamento técnico PEPAC são de âmbito nacional. A nível local, Caminha mantém uma bolsa municipal de terras e Braga disponibiliza um gabinete municipal de apoio com aconselhamento individualizado e promoção do empreendedorismo de jovens agricultores.",
   "coverage": {
     "status": "PARTIAL",
@@ -59,6 +59,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -74,14 +81,16 @@
       },
       "operator": "Câmara Municipal de Caminha",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Bolsa municipal que liga proprietários de terrenos agrícolas sem uso a munícipes que os querem cultivar, com protocolo de cedência e apoio jurídico da Câmara Municipal.",
-      "whoCanUseIt": "Proprietários de terrenos no concelho de Caminha disponíveis para produção agrícola e munícipes interessados em cultivar terrenos cedidos.",
-      "howToAccess": "Pedido de adesão na Câmara Municipal de Caminha ou nas Juntas de Freguesia.",
+      "whatItOffers": "Bolsa municipal que liga proprietários de terrenos agrícolas sem uso a interessados em cultivá-los, com protocolo de cedência e apoio jurídico da Câmara Municipal.",
+      "whoCanUseIt": "Podem aderir gratuitamente todos os proprietários que pretendam ceder prédios rústicos com aptidão agrícola no concelho de Caminha, exclusivamente para produção agrícola, e todos os interessados em desenvolver atividade agrícola nos terrenos cedidos.",
+      "howToAccess": "Obter o requerimento próprio nos anexos do regulamento, no Balcão de Atendimento da Câmara Municipal de Caminha, na Junta de Freguesia da área de residência ou no sítio municipal. O regulamento determina a entrega na Câmara Municipal, com os documentos de identificação e identificação fiscal e os elementos de identificação do prédio aplicáveis.",
       "accessUrl": "https://www.cm-caminha.pt/pages/1169",
       "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
       "languages": ["pt"],
       "targetProfiles": ["LAND_SEEKER", "LANDOWNER"],
-      "notes": "A página municipal continua acessível e publica requerimentos e candidatos, mas não apresenta data de atualização da bolsa; por prudência, o estado atual fica como desconhecido.",
+      "accessCostType": "FREE",
+      "notes": "A página municipal continua acessível e publica requerimentos e candidatos, mas não apresenta data de atualização da bolsa; o regulamento também não comprova operação atual. A gratuitidade refere-se à adesão, não às condições de cedência dos terrenos.",
       "sources": [
         {
           "url": "https://www.cm-caminha.pt/pages/1169",
@@ -93,9 +102,24 @@
             "cujo apoio jurídico para a definição dos termos do mesmo é assegurado pela Câmara Municipal",
             "O pedido de adesão pode ser feito na Câmara Municipal de Caminha ou nas Juntas de Freguesia."
           ]
+        },
+        {
+          "url": "https://www.cm-caminha.pt/cmcaminha/uploads/document/file/2730/regulamento_bolsa_de_terras.pdf",
+          "title": "REGULAMENTO MUNICIPAL DA BOLSA DE TERRAS DE CAMINHA",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Podem aderir à BTC, de forma gratuita, todos os proprietários que pretendam ceder os seus prédios rústicos com aptidão agrícola localizados no concelho de Caminha, unicamente para o desenvolvimento da produção agrícola.",
+            "Podem aderir à BTC, de forma gratuita todos os interessados em desenvolver a atividade agrícola nos terrenos cedidos.",
+            "O pedido de adesão é formulado através de requerimento próprio, conforme anexos ao presente regulamento, disponibilizados em suporte papel no Balcão de Atendimento da Câmara Municipal de Caminha ou na Junta de Freguesia da área de residência, ou em suporte digital através do site www.cm- caminha.pt.",
+            "Os respetivos requerimentos devem ser entregues na Câmara Municipal de Caminha e ser instruídos com os seguintes documentos:",
+            "fotocópia de Bilhete de Identidade ou Cartão de Cidadão;",
+            "fotocópia do documento de identificação fiscal (NIF);",
+            "numero da inscrição do Registo da Conservatória ou número da descrição da matriz;",
+            "A relação entre proprietário e produtor deverá ser estabelecida através de assinatura de protocolo de cedência, cujo apoio jurídico para a definição dos termos do mesmo deverá ser assegurado pela Câmara Municipal."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "norte-gabinete-apoio-agricultor-braga",
