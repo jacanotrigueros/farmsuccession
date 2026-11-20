@@ -5,12 +5,17 @@
   "country": "NL",
   "region": "noord-brabant",
   "officialName": "Noord-Brabant",
-  "published": "2026-11-16",
+  "published": "2026-11-20",
   "summary": "Het overzicht voor Noord-Brabant is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Noord-Brabant gelden.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Nog niet onderzocht. De bronnen die voor Nederland zijn gevonden, staan klaar voor onderzoek; tot dat onderzoek klaar is, staan hier alleen de Europese bronnen die ook hier gelden.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.brabant.nl/info/beheer-provinciale-gronden/inschrijving-pachtgronden-gunningslijst/"
+      }
+    ]
   },
   "review": {
     "status": "DRAFT"
@@ -25,10 +30,46 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "noord-brabant-inschrijving-pachtgronden",
+      "name": "Inschrijving pachtgronden en gunningslijst",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Noord-Brabant",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Openbare aanbieding van beschikbare provinciale gronden om te verpachten voor 2027 via de pachtbank. De pagina bevat ook een downloadbare gunningslijst voor de pacht van provinciale gronden.",
+      "howToAccess": "Het openbare aanbod verloopt via de pachtbank op www.pachtbank.nl. De gunningslijst is op de provinciale pagina beschikbaar.",
+      "accessUrl": "https://www.brabant.nl/info/beheer-provinciale-gronden/inschrijving-pachtgronden-gunningslijst/",
+      "sources": [
+        {
+          "url": "https://www.brabant.nl/info/beheer-provinciale-gronden/inschrijving-pachtgronden-gunningslijst/",
+          "title": "Inschrijving pachtgronden en gunningslijst | Brabant",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vanaf nu biedt de Provincie Noord-Brabant haar beschikbare gronden aan om te verpachten voor 2027.",
+            "Deze openbare aanbieding verloopt via de pachtbank.",
+            "Wilt u op de hoogte blijven wanneer de provincie haar gronden publiceert op www.pachtbank.nl",
+            "261111_Gunningslijst voor de pacht van provinciale gronden 2027 (xlsx, 43 kB)"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": []
 }
