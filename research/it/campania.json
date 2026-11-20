@@ -6,14 +6,15 @@
     "region": "campania"
   },
   "language": "it",
-  "updatedOn": "2026-09-28",
+  "updatedOn": "2026-11-20",
   "context": [
     "Il portale agricoltura.regione.campania.it pubblica una pagina per ogni intervento del complemento regionale, con scadenze, materiali e contatti.",
     "La Banca della Terra Campana è istituita da legge regionale e disciplinata da un regolamento del 2018; l’elenco dei terreni sulla pagina è fermo a dicembre 2019.",
     "Il bando di insediamento è stato prorogato dal 15 al 30 settembre 2026.",
     "SRE01 si rivolge ai giovani agricoltori; SRE02 è un intervento distinto per nuovi agricoltori. La graduatoria SRE02 del 2026 non riapre il bando chiuso nel 2024.",
     "Il bando SRH03 riguarda gli organismi formatori. Occorre verificare separatamente l'iscrizione dei partecipanti ai corsi di primo insediamento.",
-    "Il portale dei corsi collegato alla pagina regionale ha restituito un errore di accesso durante questa passata; non dedurre che le iscrizioni siano aperte o chiuse."
+    "Il portale dei corsi collegato alla pagina regionale ha restituito un errore di accesso durante questa passata; non dedurre che le iscrizioni siano aperte o chiuse.",
+    "L'indirizzo del regolamento regionale sulla Banca della terra è distinto dalla pista già registrata sulle associazioni fondiarie; il testo normativo non conferma assegnazioni attualmente disponibili."
   ],
   "portals": [
     {
@@ -159,6 +160,15 @@
       "reason": "La ricerca ha trovato il quadro normativo; resta da individuare e aprire la pagina di un'associazione operativa con inventario, contatti o procedura propria prima di ammettere un servizio locale.",
       "foundBy": "cam-locale",
       "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cam-regolamento-banca-terra",
+      "name": "Regolamento Regionale 28 agosto 2018, n. 6",
+      "url": "https://www.regione.campania.it/normativa/item.php?b79f7d70f28fffc18af20b3afb0a87ac=c343e07f3bf4311cb6a486e4d3501c2f&id_doc_type=3&id_tema=23&pgCode=G19I238R1786&refresh=on",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "campania-banca-della-terra",
+      "checkedOn": "2026-11-20"
     }
   ],
   "instrumentChecks": [
@@ -197,6 +207,11 @@
       "date": "2026-09-28",
       "by": "CHATGPT (gpt-6)",
       "summary": "Passata 1.9.0: verificata la proroga SRE01; Banca della Terra corretta da ACTIVE a UNKNOWN; aggiunti SRE02 con bando chiuso e il corso di primo insediamento con disponibilità UNKNOWN. Esaminati SRH03, servizi CAA e piste locali; restano da verificare modulo corsi, assegnazioni fondiarie e servizi di associazioni fondiarie."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La pagina contiene il regolamento della Banca della terra Campana, non una legge sulle associazioni fondiarie. Integro la risorsa esistente con destinatari, modalità di assegnazione e condizioni dell'affitto, conservando la fonte precedente e lo stato di operatività non accertata."
     }
   ]
 }
