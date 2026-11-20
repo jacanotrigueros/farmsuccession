@@ -6,12 +6,13 @@
     "region": "gipuzkoa"
   },
   "language": "es",
-  "updatedOn": "2026-10-02",
+  "updatedOn": "2026-11-20",
   "context": [
     "En Euskadi las ayudas del Plan Estratégico de la PAC se gestionan por las diputaciones forales; Gaztenek articula el acompañamiento a la primera instalación.",
     "Gipuzkoa tiene dos mecanismos de tierra distintos: GILUR para oferta/demanda privada y Lur Funtsa/Fondo de Suelo Agrario para fincas y derechos incorporados al fondo público.",
     "La Oficina de Intermediación para el Relevo Generacional Agrario es común a Álava, Bizkaia y Gipuzkoa y se documenta en la capa compartida del País Vasco.",
-    "Las páginas www.gipuzkoa.eus pueden quedar UNCHECKED por la cadena Izenpe en Node; la sede egoitza.gipuzkoa.eus sí ha sido legible en esta pasada web."
+    "Las páginas www.gipuzkoa.eus pueden quedar UNCHECKED por la cadena Izenpe en Node; la sede egoitza.gipuzkoa.eus sí ha sido legible en esta pasada web.",
+    "La dirección de inicio de GILUR documenta el instrumento de oferta y demanda privada, no la Oficina de Intermediación para el Relevo Generacional Agrario."
   ],
   "portals": [
     {
@@ -133,6 +134,15 @@
       "reason": "Financia a entidades que prestan asesoramiento general a explotaciones (gestoría, técnico, fiscal, laboral). No demuestra un servicio específico y accesible de incorporación o relevo, por lo que no cumple la regla de admisión ADVICE de FarmSuccession.",
       "foundBy": "gip-organizaciones-2026",
       "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "gip-gilur-inicio",
+      "name": "Gilur",
+      "url": "https://www.gipuzkoa.eus/es/web/gilur/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "gipuzkoa-gilur-tierras-explotaciones",
+      "checkedOn": "2026-11-20"
     }
   ],
   "instrumentChecks": [
@@ -197,6 +207,11 @@
       "date": "2026-10-02",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Re-lectura en vivo: los portales egoitza.gipuzkoa.eus y www.gipuzkoa.eus no se pueden comprobar de forma automática. Su cadena de certificados está completa, pero su raíz (Izenpe.com) no está entre las 120 del almacén de confianza de Node, y fijar una raíz añadiría un ancla de confianza, cosa que el proyecto no hace. Sus páginas quedan UNCHECKED, que no es un fallo más suave: el navegador las acepta porque esa raíz sí viene con el sistema operativo."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La página corresponde a GILUR, ya registrado en Gipuzkoa, y no a la Oficina de Intermediación para el Relevo Generacional Agrario indicada en la etiqueta del registro. Añado esta fuente al recurso existente: muestra los listados de oferta y demanda, las vías para presentar anuncios y la distinción entre terrenos privados y Lur Funtsa."
     }
   ]
 }
