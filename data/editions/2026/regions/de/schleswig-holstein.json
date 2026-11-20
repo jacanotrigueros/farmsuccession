@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "schleswig-holstein",
   "officialName": "Schleswig-Holstein",
-  "published": "2026-09-20",
+  "published": "2026-11-20",
   "summary": "In Schleswig-Holstein führt die Landwirtschaftskammer durch die Hofübergabe — von den wirtschaftlichen Voraussetzungen über den Übergabevertrag bis zur Frage, ob eine außerfamiliäre Übergabe in Betracht kommt —, während die Landgesellschaft Flächen aus ihrem Bodenfonds an Betriebe abgibt.",
   "coverage": {
     "status": "PARTIAL",
@@ -37,6 +37,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -91,7 +98,7 @@
       },
       "operator": "Landgesellschaft Schleswig-Holstein mbH",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Beschaffung, Bevorratung und Verwertung von Flächen im ländlichen Raum: Landwirtschaftliche Betriebe können Flächen aus dem eigenen Bodenfonds zur Aufstockung oder Arrondierung erwerben, etwa im Rahmen eines Landtauschverfahrens; auch Betriebsumsiedlungen werden begleitet.",
+      "whatItOffers": "Beschaffung, Bevorratung und Verwertung von Flächen im ländlichen Raum: Landwirtschaftliche Betriebe können Flächen aus dem eigenen Bodenfonds zur Aufstockung oder Arrondierung erwerben, etwa im Rahmen eines Landtauschverfahrens; auch Betriebsumsiedlungen werden begleitet. Solange die Flächen im Eigentum der Landgesellschaft sind, werden sie durch Landwirte auf Basis kurzfristiger Pachtverträge bewirtschaftet.",
       "whoCanUseIt": "Landwirtschaftliche Betriebe in Schleswig-Holstein, die Flächen aufstocken, arrondieren oder tauschen wollen.",
       "howToAccess": "Die Landgesellschaft Schleswig-Holstein über die Ansprechpartner des Flächenmanagements kontaktieren.",
       "accessUrl": "https://www.lgsh.de/flaechenmanagement/agrarstruktur/",
@@ -109,9 +116,20 @@
             "Flächen aus dem eigenen Bodenfonds können landwirtschaftliche Betriebe zur Aufstockung bzw. zur Arrondierung z.B. im Rahmen eines Landtauschverfahrens erwerben.",
             "Die Umsiedlung landwirtschaftlicher Betriebe wird durch die Landgesellschaft begleitet, koordiniert und durchgeführt."
           ]
+        },
+        {
+          "url": "https://www.lgsh.de/flaechenmanagement/bodenfonds/",
+          "title": "Bodenfonds | LGSH",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Der revolvierende Bodenfonds in Größe von etwa 4.000 ha schafft die Voraussetzung für Aufstockungen, Arrondierungen und Umsiedlungen landwirtschaftlicher Betriebe.",
+            "Grundlage für den Bodenfonds ist der kontinuierliche Erwerb von landwirtschaftlichen Flächen, die zur Erreichung der vielfältigen Anforderungen im ländlichen Raum bereitgestellt werden.",
+            "Solange diese Flächen im Eigentum der Landgesellschaft sind, werden sie durch Landwirte auf der Basis kurzfristiger Pachtverträge bewirtschaftet.",
+            "Sie wünschen Beratung zu diesem Thema? Finden Sie die richtigen Ansprechpartner."
+          ]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],
