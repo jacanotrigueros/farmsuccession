@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "comunitat-valenciana",
   "officialName": "Comunitat Valenciana",
-  "published": "2026-11-05",
+  "published": "2026-11-20",
   "summary": "La Comunitat Valenciana combina ayudas al establecimiento de personas jóvenes y nuevos agricultores, bancos de tierras municipales operativos en las tres provincias y asesoramiento específico de organizaciones agrarias. Pedreguer y Callosa de Segura amplían las rutas públicas verificadas con formularios municipales para ofrecer y solicitar parcelas. No se ha verificado una ayuda o servicio operativo específico de sucesión/cese.",
   "coverage": {
     "status": "PARTIAL",
@@ -79,6 +79,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -489,6 +496,51 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "comunitat-valenciana-banco-tierras-eslida",
+      "name": "Banco de Tierras de Eslida",
+      "kind": "LAND_BANK",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Eslida"
+      },
+      "operator": "Ayuntamiento de Eslida",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro municipal previsto para poner en contacto a propietarios de parcelas agrícolas y personas interesadas en cultivarlas, facilitar el acceso a nuevos agricultores y recuperar tierras abandonadas. La ordenanza contempla asesoramiento y mediación sobre las condiciones del contrato.",
+      "whoCanUseIt": "Propietarios de parcelas del término municipal de Eslida que soliciten su inscripción y personas que busquen tierras para cultivar, incluidos nuevos agricultores y quienes cultivan para autoconsumo. Cualquier persona interesada podrá consultar el listado de parcelas.",
+      "howToAccess": "La ordenanza incluye formularios de alta y baja de parcelas y de personas interesadas en cultivarlas, y prevé su presentación en el registro de entrada del Ayuntamiento. Para contactar con propietarios se solicita la inscripción o información sobre las tierras de interés; el Ayuntamiento consulta primero a la propiedad. Debe confirmarse con el Ayuntamiento la puesta en funcionamiento del registro.",
+      "accessUrl": "https://www.eslida.es/sites/L01120574/files/2024-06/Publicacio%CC%81%20BOP%20BANC%20TERRES.pdf",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["GENERAL", "LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2024-05-28",
+      "sources": [
+        {
+          "url": "https://www.eslida.es/sites/L01120574/files/2024-06/Publicacio%CC%81%20BOP%20BANC%20TERRES.pdf",
+          "title": "Ordenanza reguladora del banco de tierras agrícolas y creación del registro de datos personales correspondiente",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "queda elevado a definitivo el Acuerdo de aprobación de la Ordenanza Reguladora del banco de tierras agrícolas y creación del registro de datos personales correspondiente",
+            "El Banco de Tierras de Eslida es un programa impulsado por el Ayuntamiento de Eslida",
+            "El Banco de Tierras favorecerá la difusión de ofertas y demandas de tierras de cultivo, así como el contacto entre las personas propietarias que ofrecen terrenos para ceder y aquellas que quieran tierras para cultivarlas.",
+            "o bien para dar acceso a nuevos y nuevas labradoras y labradores o a personas que cultivan para autoconsumo.",
+            "unas tierras que estarán todas ellas dentro del ámbito territorial de Eslida.",
+            "las personas propietarias de las cuales han solicitado voluntariamente su inscripción",
+            "Cualquier persona interesada podrá consultar la lista de parcelas incluidas en el registro del Banco de Tierras agrícolas de Eslida.",
+            "presentados al registro de entrada con una instancia de solicitud de inscripción al Banco de Tierras.",
+            "La presentación de esta solicitud tendrá como consecuencia que desde el Ayuntamiento se contacte con la persona propietaria comunicando el interés sobre la parcela de su propiedad.",
+            "Las personas interesadas podrán solicitar asesoramiento y mediación en cuanto a las condiciones del contrato entre las dos partes.",
+            "El Ayuntamiento creará un Registro",
+            "SOLICITUD DE ALTA O BAJA DE PARCELAS",
+            "SOLICITUD DE ALTA O BAJA DE PERSONA INTERESADAS EN CULTIVAR PARCELAS",
+            "Número 65 - 28 de mayo de 2024"
+          ]
+        }
+      ],
+      "notes": "La publicación acredita la aprobación definitiva de la ordenanza y describe el procedimiento previsto, pero no demuestra que el registro esté actualmente operativo ni que haya parcelas disponibles. Los acuerdos entre las partes serán libres y voluntarios y la cesión deberá destinarse a uso agrícola.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
