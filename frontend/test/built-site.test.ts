@@ -551,13 +551,14 @@ test("every page names the site where a result reads it, and the home page names
  * it. It says what the page is about now, in the page's own language.
  */
 test("a territory page says in its title what the page is about", () => {
-  // A territory is a country page, or a page under that country's own segment for territories, and
-  // nothing else: /de/ and /de/regionen/bayern/ are territories, /de/geschichte/ is a page of the site.
+  // A territory is Europe's page or a page under a country's own segment for territories, and nothing
+  // else: /de/regionen/bayern/ is a territory, /de/geschichte/ is a page of the site. A country page may
+  // carry its own search title in its data, so territory-presentation.test.ts checks it against that.
   const territories = pages.filter(({ file }) => {
+    if (file === path.join("eu", "index.html")) return true;
     const parts = file.split(path.sep);
     const iso = parts[0] ?? "";
-    if (!/^[a-z]{2}$/u.test(iso)) return false;
-    return parts.length === 2 || parts[1] === regionSlug(iso.toUpperCase());
+    return /^[a-z]{2}$/u.test(iso) && parts[1] === regionSlug(iso.toUpperCase());
   });
   assert.ok(territories.length > 0, "no territory page was built: this check would pass without checking anything");
 
@@ -565,11 +566,8 @@ test("a territory page says in its title what the page is about", () => {
     const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const title = /<title>([^<]*)<\/title>/u.exec(html)?.[1] ?? "";
     // Europe's page has a search title of its own, which names the subject in full.
-    const isCountry = file.split(path.sep).length === 2;
     const about =
-      file === path.join("eu", "index.html")
-        ? words(language).euMetaTitle
-        : (isCountry ? words(language).countryMetaTitle : words(language).territoryTitle).replace("{where}", "").trim();
+      file === path.join("eu", "index.html") ? words(language).euMetaTitle : words(language).territoryTitle.replace("{where}", "").trim();
     assert.ok(
       title.includes(about),
       `${file} is titled "${title}", which is a name and not a subject. A reader meets this in a search result before they meet the page.`,
