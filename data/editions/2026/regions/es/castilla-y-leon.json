@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "castilla-y-leon",
   "officialName": "Castilla y León",
-  "published": "2026-09-27",
+  "published": "2026-11-20",
   "summary": "Castilla y León combina la ayuda autonómica al establecimiento de jóvenes, una intervención específica de cooperación para la sucesión, cursos oficiales de incorporación, asesoramiento PEPAC y una red de asesoramiento de ASAJA. El Banco de Tierras del Bierzo añade acceso comarcal a parcelas, intermediación y acompañamiento; el Fondo de Tierras autonómico previsto por la ley no se ha verificado como un banco operativo unificado.",
   "coverage": {
     "status": "PARTIAL",
@@ -71,6 +71,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -442,6 +449,54 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "castilla-y-leon-banco-tierras-san-esteban-del-valle",
+      "name": "Banco de tierras",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "San Esteban del Valle"
+      },
+      "operator": "Ayuntamiento de San Esteban del Valle",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Banco municipal para poner fincas agrícolas a disposición de personas que quieran explotarlas mediante cesiones gratuitas formalizadas por escrito. Ofrece intermediación y asesoramiento sobre el contrato; la incorporación de parcelas y las gestiones son gratuitas.",
+      "whoCanUseIt": "Personas propietarias que quieran incorporar parcelas y cualquier persona que precise tierras para desarrollar o ampliar una explotación agraria. Si concurren varias solicitudes sobre una finca, tienen prioridad quienes sean o se comprometan por escrito a ser agricultores a título principal; también se valora el empadronamiento en San Esteban del Valle o en localidades vecinas.",
+      "howToAccess": "Descargar y cumplimentar la solicitud de incorporación o de cesión de parcelas y presentarla en el ayuntamiento de San Esteban del Valle. Para incorporar parcelas hay que acreditar la propiedad. El banco comunica al solicitante de cesión si su petición ha sido aceptada y el procedimiento que debe seguir.",
+      "accessUrl": "https://www.sanestebandelvalle.es/bancoderecursos/banco_de_tierras.html",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "accessCostType": "FREE",
+      "targetProfiles": ["GENERAL", "LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "notes": "La página indica que el listado de fincas incorporadas se publicará próximamente; no permite confirmar la disponibilidad actual de parcelas. Los usos y técnicas agrícolas deben ser respetuosos con el medio ambiente.",
+      "sources": [
+        {
+          "url": "https://www.sanestebandelvalle.es/bancoderecursos/banco_de_tierras.html",
+          "title": "Banco de recursos - San Esteban del Valle",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Banco de tierras",
+            "Ayuntamiento de San Esteban del Valle (Ávila)",
+            "Pretende regular el aprovechamiento de fincas agrícolas, con el objetivo de evitar su abandono, poniéndolas a disposición de las personas que quieran explotarlas.",
+            "La incorporación de parcelas en el banco de tierras es totalmente gratuita, así como sus gestiones, tanto de solicitudes de cesión como de asesoramiento en los documentos legales para formalizar la cesión.",
+            "Cualquier persona que precise tierras para desarrollar o ampliar una explotación agraria puede dirigirse al banco de tierras, donde encontrará una relación de las fincas que están disponibles y podrá solicitar su cesión por un período de tiempo determinado.",
+            "El uso de las fincas inscritas en este banco de tierras siempre será gratuito (no se permite inscribir fincas para ser arrendadas).",
+            "Siempre se formalizará un acuerdo por escrito con el nuevo usuario",
+            "en el caso de llegar a un acuerdo, les asesoraremos sobre el contrato para formalizar la cesión.",
+            "El procedimiento se inicia presentando la solicitud de cesión en el ayuntamiento de San Esteban del Valle.",
+            "Además hay que acreditar la propiedad mediante algún documento.",
+            "Una vez registrada la solicitud, el banco de tierras se pondrá en contacto con usted comunicándole si fue aceptada o no y le indicará el procedimiento a seguir.",
+            "Si se reciben dos o más solicitudes sobre la misma finca se dará prioridad a los que sean (o vayan a ser, con compromiso por escrito) agricultores a título principal.",
+            "También se tendrá como criterio el empadronamiento en San Esteban del Valle (mayor puntuación) o en localidades vecinas.",
+            "Solicitud de incorporación de parcelas (descargar, cumplimentar y presentar en el ayuntamiento)",
+            "Solicitud de cesión de parcelas (descargar, cumplimentar y presentar en el ayuntamiento)",
+            "Listado de tierras (próximamente se mostrará aquí el listado con las fincas incorporadas.)",
+            "Los usos y técnicas agrícolas serán siempre respetuosos con el medio ambiente."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

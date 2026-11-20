@@ -6,13 +6,15 @@
     "region": "castilla-y-leon"
   },
   "language": "es",
-  "updatedOn": "2026-09-27",
+  "updatedOn": "2026-11-20",
   "context": [
     "La Consejería de Agricultura mantiene páginas generales de las intervenciones, mientras que las convocatorias, plazos y formularios se publican en la sede electrónica de Castilla y León; una intervención puede seguir en el PEPAC aunque su última convocatoria verificable esté cerrada.",
     "La ayuda de establecimiento incluye incrementos ligados al relevo, y la intervención 7169 compensa al cedente mediante un proyecto formal de cooperación para la sucesión. En septiembre de 2026 la última convocatoria localizada de establecimiento es la de 2025 y la última de sucesión es la de 2024.",
     "El Fondo de Tierras previsto por la Ley 1/2014 no debe confundirse con un banco autonómico ya operativo. Documentación institucional reciente sigue condicionando actuaciones a su futura constitución; en cambio, el Banco de Tierras del Bierzo es un servicio comarcal plenamente operativo.",
     "El sistema PEPAC de asesoramiento selecciona tanto entidades prestadoras como usuarios. Además de la ruta pública, ASAJA Castilla y León publica una página concreta del servicio y una red de oficinas provinciales.",
-    "Los Cursos de Incorporación a la Empresa Agraria (CIEA) se imparten por entidades registradas. En 2026 existen múltiples ediciones homologadas; no deben duplicarse como recursos separados por cada proveedor cuando representan la misma ruta formativa oficial."
+    "Los Cursos de Incorporación a la Empresa Agraria (CIEA) se imparten por entidades registradas. En 2026 existen múltiples ediciones homologadas; no deben duplicarse como recursos separados por cada proveedor cuando representan la misma ruta formativa oficial.",
+    "El banco municipal de San Esteban del Valle describe una ruta propia de solicitud y asesoramiento; la inscripción adicional en volveralpueblo.org no lo convierte en una mera remisión a una plataforma nacional.",
+    "Conviene comprobar con el ayuntamiento la operación actual y las parcelas disponibles, pues la página mantiene el listado como próximo."
   ],
   "portals": [
     {
@@ -200,6 +202,15 @@
       "reason": "Es un servicio relevante para incorporación y relevo, pero la propia página remite a contactos centrales de ASAJA en Madrid y lo describe como programa de alcance general/nacional. Debe evaluarse en una capa más amplia y no duplicarse como recurso exclusivo de Castilla y León.",
       "foundBy": "cyl-organizaciones",
       "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "cyl-banco-tierras-san-esteban-del-valle",
+      "name": "Banco de tierras",
+      "url": "https://www.sanestebandelvalle.es/bancoderecursos/banco_de_tierras.html",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "castilla-y-leon-banco-tierras-san-esteban-del-valle",
+      "checkedOn": "2026-11-20"
     }
   ],
   "instrumentChecks": [
@@ -254,6 +265,11 @@
       "date": "2026-09-27",
       "by": "CHATGPT (GPT-5.6 Sol)",
       "summary": "Pasada completa con research-territory 1.9.0. Actualizadas las convocatorias de establecimiento y sucesión; verificados CIEA 2026, asesoramiento PEPAC, ASAJA y el acceso real del Banco de Tierras del Bierzo. El supuesto banco autonómico se rechaza como servicio operativo actual; Espacio Test Bierzo queda TO_CHECK y la licitación de Cuéllar se preserva como actuación puntual cerrada."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La página municipal documenta un banco de tierras propio con cesión gratuita de parcelas, solicitudes en el ayuntamiento y asesoramiento contractual, distinto de los recursos ya publicados. Se propone incorporarlo con disponibilidad no confirmada: el listado sigue anunciado como próximo y la página no aporta evidencia reciente de funcionamiento."
     }
   ]
 }
