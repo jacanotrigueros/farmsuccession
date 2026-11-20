@@ -5,7 +5,7 @@
   "country": "ES",
   "hub": "illes-balears",
   "officialName": "Illes Balears",
-  "published": "2026-10-26",
+  "published": "2026-11-20",
   "summary": "En las Illes Balears, FOGAIBA mantiene abierta hasta el 30 de noviembre la segunda convocatoria de 2026 para el establecimiento de personas jóvenes agricultoras en todas las islas. El Govern también ha definido un Banc de Terres de sòl ramader común al archipiélago, todavía en fase de creación e implantación de su plataforma.",
   "coverage": {
     "status": "PARTIAL",
@@ -42,6 +42,13 @@
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-28"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -166,6 +173,36 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "illes-balears-fogaiba-portal-ayudas",
+      "name": "«Microsite públic del FOGAIBA»",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Fons de Garantia Agrària i Pesquera de les Illes Balears (FOGAIBA)",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Listado de ayudas con período de solicitud abierto, organizado por líneas, y acceso a ayudas en tramitación, formularios y comunicaciones. Incluye las subvenciones para la creación de empresas de jóvenes agricultores y agricultoras.",
+      "howToAccess": "Consultar el listado de ayudas con período de solicitud abierto y seleccionar la ayuda correspondiente; el menú también permite consultar las ayudas en tramitación y los formularios.",
+      "accessUrl": "https://www.caib.es/sites/ajudesdelfogaiba/",
+      "sources": [
+        {
+          "url": "https://www.caib.es/sites/ajudesdelfogaiba/",
+          "title": "Microsite públic del FOGAIBA-Llista d'ajudes amb període de sol·licitud obert",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Govern de les Illes Balears Microsite públic del FOGAIBA",
+            "Llista d'ajudes amb període de sol·licitud obert",
+            "Llista d'ajudes en tramitació",
+            "Accés al portal de ciutadà SGA Formularis",
+            "CEJA_Subvencions per a la creació d'empreses de joves agricultors i agricultores 2026 Fins dia 30 de novembre de 2026",
+            "Fons de Garantia Agrària i Pesquera de les Illes Balears (FOGAIBA)"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],

@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "ES",
   "officialName": "España",
-  "published": "2026-10-30",
+  "published": "2026-11-20",
   "summary": "Si quieres empezar en el campo, consulta las ayudas de primera instalación de tu comunidad autónoma. También puedes buscar tierra, formación y asesoramiento, o encontrar recursos para traspasar tu explotación.",
   "metaDescription": "Consulta ayudas de primera instalación por comunidad autónoma, bancos de tierras y recursos para traspasar una explotación agraria en España.",
   "euCounterparts": {
@@ -27,8 +27,8 @@
     },
     "economy": {
       "year": 2024,
-      "sectorValueAdded": 39713.0,
-      "gdp": 1598588.0,
+      "sectorValueAdded": 39713,
+      "gdp": 1598588,
       "sectorSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a64?lang=en&time=2024&unit=CP_MEUR&nace_r2=A01&na_item=B1G&geo=ES",
       "gdpSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?lang=en&time=2024&unit=CP_MEUR&na_item=B1GQ&geo=ES",
       "flag": "PROVISIONAL"
@@ -101,6 +101,13 @@
         "model": "Codex",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-25"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -161,12 +168,15 @@
       },
       "operator": "Red TERRAE (asociación intermunicipal)",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Plataforma en la que propietarios pueden ofrecer tierras de forma gratuita y voluntaria y quienes buscan tierra pueden consultar las fincas disponibles, con fines agroecológicos, en municipios de la red.",
-      "howToAccess": "Registro en la plataforma web.",
+      "whatItOffers": "Plataforma en la que propietarios pueden ofrecer tierras de forma gratuita y voluntaria y quienes buscan tierra pueden consultar las fincas disponibles, con fines agroecológicos, en municipios de la red. Facilita la cesión o el arrendamiento de terrenos abandonados a terceras personas para ponerlos en producción mediante iniciativas agroecológicas.",
+      "whoCanUseIt": "Propietarios de terrenos abandonados y personas que quieran desarrollar actividades del campo respetuosas con el medioambiente.",
+      "howToAccess": "Registro en la plataforma web. Para participar es necesario conocer y aceptar los fines y condiciones del Banco de Tierras Agroecológicas TERRAE.",
       "accessUrl": "https://bancode.tierrasagroecologicas.es/",
       "accessCostType": "FREE",
       "languages": ["es"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER"],
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "LIVESTOCK", "FORESTRY"],
       "metrics": [
         {
           "measure": "LAND_LISTINGS",
@@ -183,10 +193,22 @@
           "title": "Banco de Tierras Agroecológicas",
           "consultedOn": "2026-09-14",
           "quotes": ["Puedes incorporarlas de forma GRATUITA y VOLUNTARIA", "0 usuarios 0 demandas 0 ofertas"]
+        },
+        {
+          "url": "https://bancode.tierrasagroecologicas.es/fines-y-condiciones",
+          "title": "Banco de Tierras Agroecológicas Fines y condiciones",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "El banco de tierras es un servicio público, voluntario y gratuito, que facilita a los propietarios de terrenos abandonados cederlos o arrendarlos a terceras personas que los pongan en producción a través de iniciativas agroecológicas",
+            "usos agrícolas, ganaderos, forestales, de conservación de naturaleza y patrimonio u otros usos de interés social",
+            "El banco de tierras agroecológicas es una iniciativa liderada por la Asociación Intermunicipal Red Terrae, abierto a nuevas incorporaciones tanto públicas, como privadas.",
+            "acceso a la tierra y oportunidades de autoempleo a personas que quieran desarrollar actividades del campo respetuosas con el medioambiente",
+            "Para participar es necesario conocer y aceptar los fines y condiciones del Banco de Tierras Agroecológicas TERRAE."
+          ]
         }
       ],
       "notes": "La plataforma responde, pero sus contadores públicos muestran 0 usuarios, 0 demandas y 0 ofertas, por lo que no se demuestra actividad.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-2"
     },
     {
       "id": "es-medidas-pac-relevo-generacional",

@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "la-gomera",
   "officialName": "La Gomera",
-  "published": "2026-09-28",
+  "published": "2026-11-20",
   "summary": "La Gomera complementa las ayudas y formación comunes de Canarias con un Banco Insular de Tierras activo y con Emprende Rural La Gomera 2025–2026, que ofrece tutelaje, asesoramiento y acompañamiento a proyectos de emprendimiento rural con objetivo explícito de relevo generacional en el sector primario.",
   "coverage": {
     "status": "PARTIAL",
@@ -63,6 +63,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -80,14 +87,14 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Servicio público y gratuito para ofertar, solicitar, ceder o arrendar terrenos en desuso, con plataforma de oferta y demanda, información, asesoramiento, mediación y acompañamiento técnico para nuevos proyectos agrarios.",
       "whoCanUseIt": "Propietarios de terrenos abandonados o en desuso y personas que quieran iniciar o ampliar una actividad agraria o agroecológica en la isla.",
-      "howToAccess": "Registrarse en la plataforma del Banco de Tierras para ofertar o solicitar parcelas, o contactar con el Departamento de Agricultura del Cabildo para tramitarlo indirectamente y recibir información y mediación.",
+      "howToAccess": "Registrarse en la plataforma del Banco de Tierras para ofertar o solicitar parcelas, o contactar con el Departamento de Agricultura del Cabildo para tramitarlo indirectamente y recibir información y mediación. También se ofrece información y asesoramiento por teléfono y correo electrónico del banco.",
       "accessUrl": "https://www.lagomera.es/area/agricultura-ganaderia-pesca/banco-de-tierras",
       "accessCostType": "FREE",
       "assetTypes": ["PLOTS"],
       "sectors": ["AGRICULTURE", "LIVESTOCK", "FORESTRY"],
       "languages": ["es"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
-      "lastEvidenceDate": "2026-08-04",
+      "lastEvidenceDate": "2026-11-05",
       "contactPoints": [
         {
           "channel": "EMAIL",
@@ -100,9 +107,14 @@
           "label": "Departamento de Agricultura del Cabildo de La Gomera",
           "value": "922 47 00 68",
           "sourceUrl": "https://www.lagomera.es/area/agricultura-ganaderia-pesca/banco-de-tierras"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Banco Insular de Tierras de La Gomera",
+          "value": "649 60 93 71",
+          "sourceUrl": "https://www.lagomera.es/noticias/agricultura-ganaderia-pesca"
         }
       ],
-      "notes": "En agosto de 2026 el Cabildo anunció un convenio con Red TERRAE que garantiza durante dos años la dinamización y continuidad del banco y señaló la incorporación de nuevas parcelas en Agulo y San Sebastián de La Gomera.",
       "sources": [
         {
           "url": "https://www.lagomera.es/area/agricultura-ganaderia-pesca/banco-de-tierras",
@@ -121,16 +133,16 @@
         {
           "url": "https://www.lagomera.es/noticias/agricultura-ganaderia-pesca",
           "title": "Noticias de Agricultura, ganadería y pesca - Cabildo Insular de La Gomera",
-          "consultedOn": "2026-09-28",
+          "consultedOn": "2026-11-19",
           "quotes": [
-            "04.08.2026",
-            "El Cabildo consolida el Banco Insular de Tierras de La Gomera mediante un convenio con Red TERRAE",
-            "El acuerdo garantiza durante los próximos dos años la dinamización y continuidad de este servicio insular",
-            "El Banco de Tierras trabaja ya en la incorporación de nuevas parcelas en Agulo y San Sebastián de La Gomera"
+            "05.11.2026",
+            "El Cabildo impulsa el Banco Insular de Tierras para facilitar el acceso a terrenos agrícolas y recuperar suelo en desuso",
+            "El servicio, de carácter público y gratuito, conecta a propietarios de terrenos con personas interesadas en iniciar o ampliar proyectos vinculados al sector primario",
+            "Las personas interesadas pueden recibir información y asesoramiento a través del 649 60 93 71 y del correo bancodetierras@lagomera.es"
           ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "la-gomera-emprende-rural-2025-2026",

@@ -1,8 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "territory": { "level": "REGION", "country": "FR", "region": "normandie" },
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "normandie"
+  },
   "language": "fr",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-11-20",
   "context": [
     "Le site installer-transmettre-normandie.fr est le guichet régional commun, financé par la Région dans un contrat d’objectifs avec six partenaires agricoles.",
     "La Région publie par ailleurs des fiches d’aides au démarrage de l’installation sur normandie.fr, non citées dans cette passe.",
@@ -27,7 +31,11 @@
       "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
       "query": "Région Normandie aide installation jeunes agriculteurs 2026 transmission dispositif agriculture"
     },
-    { "id": "nor-safer", "kinds": ["LAND_BANK"], "query": "Safer de Normandie s’installer transmettre foncier agricole" }
+    {
+      "id": "nor-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer de Normandie s’installer transmettre foncier agricole"
+    }
   ],
   "leads": [
     {
@@ -80,8 +88,18 @@
       "reason": "La fiche de l’aide régionale au démarrage n’a pas été citée dans cette passe.",
       "checkedOn": "2026-09-20"
     },
-    { "expectedId": "fr-transmission-accompagnement", "status": "FOUND", "leadId": "nor-installer-transmettre", "checkedOn": "2026-09-20" },
-    { "expectedId": "fr-safer-foncier", "status": "FOUND", "leadId": "nor-safer-normandie", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "nor-installer-transmettre",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "nor-safer-normandie",
+      "checkedOn": "2026-09-20"
+    },
     {
       "expectedId": "fr-associations-installation",
       "status": "NOT_FOUND",
@@ -94,6 +112,11 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Première passe avec la liste de contrôle nationale : guichet régional installation-transmission et Safer de Normandie admis ; aides régionales à vérifier."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page conserve les secteurs départementaux et l’accès au conseiller foncier ; la citation signalée assemblait des libellés avec des séparateurs absents du texte. Je la remplace par des extraits littéraux suffisamment longs, sans modifier les autres sources ni les informations de la fiche ; les contrôles techniques n’ont pas été exécutés dans cette passe."
     }
   ]
 }

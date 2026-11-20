@@ -954,7 +954,7 @@ test("every record prioritises actionable feedback with its context and retains 
     }
   }
   assert.ok(checked > 100, `only ${checked} records asked the question; every record page should`);
-  assert.equal(byLanguage.size, 6, "the question was not checked in all six languages");
+  assert.equal(byLanguage.size, 7, "the question was not checked in all seven languages: Dutch records joined the six on 20 Nov 2026");
 });
 
 test("every page links its scoped licence notice and every evidence block warns about third-party rights", () => {

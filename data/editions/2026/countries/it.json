@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "IT",
   "officialName": "Italia",
-  "published": "2026-10-26",
+  "published": "2026-11-20",
   "summary": "Tre strumenti nazionali ISMEA sostengono l’accesso e lo sviluppo in agricoltura: la Banca nazionale delle Terre Agricole pubblica terreni in vendita, Generazione Terra finanzia l’acquisto di terreni e Più Impresa sostiene il subentro o l’ampliamento di aziende condotte da giovani o donne. La legge 36/2024 aggiunge un quadro nazionale per le imprese giovanili agricole, con un regime fiscale opzionale e un Fondo attuato tramite programmi regionali.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -87,6 +87,13 @@
         "model": "Codex",
         "promptVersion": "1.1.0",
         "processedAt": "2026-10-26"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -205,15 +212,23 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Inventario nazionale di terreni agricoli in vendita, con schede descrittive e valore a base d’asta, articolato in un lotto periodico e un lotto permanente.",
       "whoCanUseIt": "Persone fisiche e giuridiche interessate all’acquisto di terreni agricoli e in possesso dei requisiti previsti dalla normativa e dai criteri ISMEA, senza limitazioni legate alla qualifica professionale agricola.",
-      "howToAccess": "Consultare online le schede dei terreni e presentare un’offerta tramite la procedura telematica; il lotto periodico segue la finestra pubblicata, mentre il lotto permanente resta aperto.",
-      "accessUrl": "https://www.ismea.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/13581",
+      "howToAccess": "Consultare online le schede dei terreni e presentare un’offerta tramite la procedura telematica; la finestra del lotto periodico è terminata il 14 novembre 2026, mentre il lotto permanente resta aperto.",
+      "accessUrl": "https://www.ismea.it/banca-delle-terre",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "URP ISMEA",
+          "value": "urp@ismea.it",
+          "sourceUrl": "https://www.ismea.it/banca-delle-terre"
+        }
+      ],
       "calls": [
         {
           "name": "Lotto periodico 2026",
-          "state": "OPEN",
+          "state": "CLOSED",
           "opens": "2026-09-14",
           "closes": "2026-11-14",
-          "sourceUrl": "https://www.ismea.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/13581"
+          "sourceUrl": "https://www.ismea.it/banca-delle-terre"
         },
         {
           "name": "Lotto permanente",
@@ -222,7 +237,7 @@
         }
       ],
       "targetProfiles": ["YOUNG_FARMER", "LAND_SEEKER", "GENERAL"],
-      "lastEvidenceDate": "2026-07-21",
+      "lastEvidenceDate": "2026-11-14",
       "metrics": [
         {
           "measure": "LAND_LISTINGS",
@@ -284,10 +299,23 @@
             "L'edizione 2026 mette in vendita 253 terreni, per una superficie complessiva di 8.863 ettari e un valore a base d'asta di oltre 121 milioni di euro.",
             "A questi si aggiungono 266 terreni appartenenti al lotto permanente, pari a 5.271 ettari, portando così a oltre 14.000 ettari il patrimonio fondiario complessivamente disponibile attraverso la Banca nazionale delle Terre Agricole."
           ]
+        },
+        {
+          "url": "https://www.ismea.it/banca-delle-terre",
+          "title": "Banca delle Terre Agricole - ISMEA",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Tutorial Banca nazionale delle Terre Agricole",
+            "Cerca il tuo terreno con pochi click. Fai la tua \"prima offerta\". Eventualmente prenotati alla fase dei rilanci.",
+            "BTA: Per i terreni fino al III tentativo di vendita visionabili nella sezione \"Terreni in Vetrina\", le manifestazioni d'interesse potranno essere presentate, mediante offerte d'acquisto, a partire dalle ore 12.00 del giorno 14 settembre 2026, data di apertura del portale telematico, fino alle ore 12.00 del giorno 14 novembre 2026 con le modalità indicate nei criteri.",
+            "A partire dalle ore 12.00 del giorno 14 settembre 2026 verrà implementato il lotto permanente con i terreni che verranno debitamente segnalati in rosso nella sezione “Terreni in Vendita\".",
+            "URP: tel. 06.85568-319 - 06.85568-260 - email: urp@ismea.it - www.ismea.it",
+            "La \"Banca delle Terre Agricole\", istituita con la Legge 28 luglio 2016, n.154, Art.16 e amministrata dall'Ismea, può essere alimentata sia con i terreni derivanti dalle attività fondiarie gestite dall'Istituto, sia da quelli appartenenti a Regioni e Province Autonome o altri soggetti pubblici interessati a dismettere i propri terreni."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1",
-      "notes": "Per il lotto permanente sono ammesse offerte in ribasso fino al 35% del valore a base d’asta. I giovani imprenditori agricoli aggiudicatari possono chiedere la rateizzazione, subordinata ai criteri ISMEA, fino a un massimo di trenta anni."
+      "notes": "Per il lotto permanente sono ammesse offerte in ribasso fino al 35% del valore a base d’asta. I giovani imprenditori agricoli aggiudicatari possono chiedere la rateizzazione, subordinata ai criteri ISMEA, fino a un massimo di trenta anni.",
+      "generatorId": "chatgpt-2"
     },
     {
       "id": "it-generazione-terra",
