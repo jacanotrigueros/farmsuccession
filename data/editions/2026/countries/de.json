@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "DE",
   "officialName": "Deutschland",
-  "published": "2026-10-28",
+  "published": "2026-11-20",
   "summary": "Deutschland bündelt die GAP in einem nationalen Strategieplan, während konkrete Niederlassungs-, Beratungs- und Übergabeangebote überwiegend auf Ebene der Bundesländer umgesetzt werden. Bundesweit bietet die Rentenbank Förderkredite für Hofnachfolgerinnen und Existenzgründerinnen, die SVLFG Seminare und Coaching sowie BioBoden Flächen- und Hofsicherung für ökologische Bewirtschaftung an.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -21,8 +21,8 @@
     },
     "economy": {
       "year": 2024,
-      "sectorValueAdded": 35031.0,
-      "gdp": 4386940.0,
+      "sectorValueAdded": 35031,
+      "gdp": 4386940,
       "sectorSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a64?lang=en&time=2024&unit=CP_MEUR&nace_r2=A01&na_item=B1G&geo=DE",
       "gdpSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?lang=en&time=2024&unit=CP_MEUR&na_item=B1GQ&geo=DE",
       "flag": "PROVISIONAL"
@@ -86,6 +86,13 @@
         "model": "Codex",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-14"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -345,6 +352,37 @@
       ],
       "notes": "Die laufende Programmseite nennt keine gesonderte Antragsfrist. Sie weist LR-Premium für Hofnachfolgerinnen aus, veröffentlicht dort aber keine eigenständige Definition dieser Kategorie; die konkrete Einstufung und Kreditentscheidung bleiben beim Finanzierungspartner. Bis zu 100 Prozent der förderfähigen Kosten können finanziert werden, vorbehaltlich Kredit-, Beihilfe- und Bonitätsprüfung. Es handelt sich nicht um einen Zuschuss.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "de-blg-hofstellenboersen",
+      "name": "Hof(stellen)börsen / Landwirtschaftliche Immobilienbörsen",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Bundesverband der gemeinnützigen Landgesellschaften",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Verzeichnis mit Zugängen zu den Hof(stellen)börsen der Landgesellschaften und Erläuterungen zu deren Aufgaben bei Existenzgründung, Flächenaufstockung und Betriebsaufgabe. Organisation und Leistungsangebot unterscheiden sich nach regionalen Strukturen und Marktverhältnissen.",
+      "howToAccess": "Über die auf der Seite aufgeführten Landgesellschaften zur jeweiligen Börse wechseln. Als gemeinsamen Internetzugang nennt die Seite außerdem www.hofboersen.de.",
+      "accessUrl": "https://www.blg-berlin.de/die-gemeinnuetzigen-landgesellschaften/die-taetigkeiten-a-z/hofstellenboersen-landwirtschaftliche-immobilienboersen/",
+      "sources": [
+        {
+          "url": "https://www.blg-berlin.de/die-gemeinnuetzigen-landgesellschaften/die-taetigkeiten-a-z/hofstellenboersen-landwirtschaftliche-immobilienboersen/",
+          "title": "Hof(stellen)börsen / landwirtschaftliche Immobilienbörsen – Bundesverband der gemeinnützigen Landgesellschaften",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Die Organisation sowie das jeweilige Service- und Leistungsangebot der Hof(stellen)börsen ist den regionalen Strukturen und Marktverhältnissen angepasst.",
+            "jungen Landwirten bei der Entwicklung einer eigenen Existenz zu helfen",
+            "die Existenz bestehender Betriebe durch Flächenaufstockung zu sichern",
+            "aufgabewilligen Landwirten einen sozial verträglichen Ausstieg aus der aktiven Landwirtschaft zu ermöglichen",
+            "Die Hofbörsen / Hofstellenbörsen der Landgesellschaften sind über den BLG vernetzt und direkt über das Internetportal www.hofboersen.de zu erreichen.",
+            "Hof(stellen)börsen der Landgesellschaften BBV LS HLG-Hessische Hofbörse LGMV – Flächenbeschaffung/-Management – Immobilien Kauf – Betriebsverkäufe LGSA LGSH LSBW-Hofbörse NLG Hofbörse ThLG"
+          ]
+        }
+      ],
+      "notes": "Die Seite unterscheidet Hofbörsen von Hofstellenbörsen und erläutert, dass Existenzgründungen bei Letzteren keine nennenswerte Rolle spielen. Sie belegt keine einheitlichen Teilnahmebedingungen oder aktuell verfügbaren Vermittlungsangebote der einzelnen Landgesellschaften.",
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],
