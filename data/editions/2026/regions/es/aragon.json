@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "aragon",
   "officialName": "Aragón",
-  "published": "2026-10-09",
+  "published": "2026-11-20",
   "summary": "Aragón combina ayudas al establecimiento de jóvenes —con un tramo específico cuando integran explotaciones que cesan—, préstamos garantizados, adjudicación permanente de tierras del patrimonio agrario, formación de incorporación y servicios de asesoramiento. Zaragoza mantiene además un banco municipal de tierras para horticultura agroecológica.",
   "coverage": {
     "status": "PARTIAL",
@@ -87,6 +87,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -511,6 +518,35 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "aragon-portal-jovenes-agricultores",
+      "name": "Jóvenes agricultores",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Aragón",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Reúne información y acceso a los trámites de ayudas para la incorporación de jóvenes al sector agrario, la instalación y el establecimiento de jóvenes agricultores y la ayuda complementaria a la renta para jóvenes. El listado muestra también si las convocatorias están en plazo o fuera de plazo.",
+      "howToAccess": "Consultar el apartado Servicios y trámites y utilizar la búsqueda y los filtros de plazo, tipo y organismo para localizar el procedimiento.",
+      "accessUrl": "https://www.aragon.es/temas/agricultura-ganaderia-medio-rural/desarrollo-iniciativas-rurales/jovenes-agricultores",
+      "sources": [
+        {
+          "url": "https://www.aragon.es/temas/agricultura-ganaderia-medio-rural/desarrollo-iniciativas-rurales/jovenes-agricultores",
+          "title": "Jóvenes agricultores. Gobierno de Aragón",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Información sobre las subvenciones que convoca el Departamento de Agricultura, Ganadería y Alimentación dirigidas a favorecer la incorporación de jóvenes al sector agrario y la modernización de explotaciones agrarias, así como otras ayudas a población joven del medio rural.",
+            "Subvención para el establecimiento de jóvenes agricultores, en el marco PEPAC 2023-2027 Convocatoria 2025 Fuera de plazo Convocatoria 2026 Fuera de plazo",
+            "Subvención para la instalación de jóvenes agricultores",
+            "Ayuda complementaria a la renta para jóvenes agricultores (PAC) Fuera de plazo",
+            "Buscar trámite Buscar Plazos En plazo Fuera de plazo Tipo Registros y censos Ayudas y subvenciones Organismos Dirección General de Producción Agraria Dirección General de Desarrollo Rural"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
