@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "provincia-autonoma-trento",
   "officialName": "Provincia autonoma di Trento",
-  "published": "2026-09-28",
+  "published": "2026-11-20",
   "summary": "Il sostegno provinciale SRE01 al primo insediamento mantiene una scheda di servizio attiva, ma l'ultima finestra verificata per nuove domande è chiusa. La Banca della Terra ha un accesso comunale documentato a Trento; la disponibilità dell'inventario provinciale non è stata verificata. Sono disponibili la formazione BPIA della Fondazione Edmund Mach e servizi trentini di consulenza per l'avvio e il passaggio delle aziende agricole.",
   "coverage": {
     "status": "PARTIAL",
@@ -79,6 +79,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -169,11 +176,20 @@
       },
       "operator": "Comune di Trento",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Servizio comunale per iscrivere o ritirare terreni dall'inventario e chiedere informazioni sui terreni del comune offerti per la coltivazione.",
+      "whatItOffers": "Servizio comunale gratuito per iscrivere o ritirare terreni dall'inventario e chiedere informazioni sui terreni del comune offerti per la coltivazione.",
       "whoCanUseIt": "Proprietari e comproprietari che desiderano iscrivere terreni e persone interessate a coltivare i terreni del comune inseriti nella Banca della terra.",
-      "howToAccess": "I proprietari presentano il modulo al Comune di persona o per posta elettronica. Chi vuole coltivare un terreno consulta gli elenchi pubblicati e contatta l'ufficio comunale per ottenere i dati del proprietario e trattare direttamente.",
+      "howToAccess": "I proprietari compilano il modulo iscrizione (mod. 3912) o cancellazione (mod. 3913), sottoscritto dal proprietario o dai comproprietari, e lo presentano all'ufficio Società partecipate e politiche agricole, a Trento in via Alfieri 6, oppure lo trasmettono a servizio.sviluppoeconomico@pec.comune.trento.it. Per l'invio elettronico occorrono la scansione del modulo firmato e una copia del documento di identità del sottoscrittore. Chi vuole coltivare un terreno consulta gli elenchi pubblicati e contatta il servizio Sviluppo economico per ottenere i dati del proprietario e avviare un rapporto diretto.",
       "accessUrl": "https://www.comune.trento.it/Servizi/Banca-della-terra",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Comune di Trento — presentazione dei moduli della Banca della terra",
+          "value": "servizio.sviluppoeconomico@pec.comune.trento.it",
+          "sourceUrl": "https://spazicomuni.comune.trento.it/Aree-tematiche/Attivita-economiche/Agricoltura-e-allevamento/Banca-della-terra/Banca-della-terra-iscrizione-dei-terreni-cancellazione-e-richiesta-informazioni"
+        }
+      ],
       "assetTypes": ["PLOTS"],
+      "accessCostType": "FREE",
       "languages": ["it"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-04-20",
@@ -188,9 +204,25 @@
             "potranno contattare l'ufficio responsabile",
             "Ultimo aggiornamento: 20/04/2026 16:33"
           ]
+        },
+        {
+          "url": "https://spazicomuni.comune.trento.it/Aree-tematiche/Attivita-economiche/Agricoltura-e-allevamento/Banca-della-terra/Banca-della-terra-iscrizione-dei-terreni-cancellazione-e-richiesta-informazioni",
+          "title": "Banca della terra: iscrizione dei terreni, cancellazione e richiesta informazioni",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "La Banca della terra è un inventario di terreni pubblici e privati che i proprietari dichiarano disponibili per la temporanea assegnazione ai soggetti che ne fanno richiesta favorendo in tal modo l'incontro tra domanda e offerta.",
+            "Proprietari e comproprietari di:",
+            "Coloro che intendano coltivare i terreni del territorio del Comune di Trento inseriti nella Banca della terra, presa visione degli elenchi pubblicati, potranno contattare il servizio Sviluppo economico, al fine di ottenere i dati del proprietario delle particelle fondiarie interessate, per avviare un rapporto diretto tra le parti.",
+            "Non vi è nessun costo",
+            "Per richiedere l'iscrizione dei terreni nella Banca della terra compilare il modulo iscrizione (mod. 3912).",
+            "Per richiedere la cancellazione dei terreni dalla Banca della terra compilare il modulo cancellazione (mod. 3913).",
+            "Il modulo, sottoscritto da proprietario/comproprietari, va presentato all'ufficio Società partecipate e politiche agricole, a Trento in via Alfieri 6, o trasmesso tramite mail o PEC a servizio.sviluppoeconomico@pec.comune.trento.it",
+            "In caso di presentazione tramite posta elettronica occorre sottoscrivere il modulo ed inviare copia scansionata dello stesso unitamente a copia del documento di identità del sottoscrittore."
+          ]
         }
       ],
-      "notes": "La pagina comunale non ha permesso di confermare quanti terreni figurino attualmente negli elenchi. Si documenta la procedura comunale, senza dare per provata la disponibilità di un terreno specifico."
+      "notes": "La pagina comunale non ha permesso di confermare quanti terreni figurino attualmente negli elenchi. Si documenta la procedura comunale, senza dare per provata la disponibilità di un terreno specifico.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "trento-fem-brevetto-imprenditore-agricolo",
