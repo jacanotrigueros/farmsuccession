@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "galicia",
   "officialName": "Galicia",
-  "published": "2026-09-30",
+  "published": "2026-11-20",
   "summary": "Galicia combina un Banco de Tierras con acceso real a parcelas, un Banco de Explotaciones con procedimientos abiertos todo el año para cedentes y personas sucesoras, ayudas 2026 a la primera instalación de jóvenes, formación oficial y tutorización pública. La ayuda MR617D para quien cede una explotación tiene bases reguladoras, pero no se ha verificado una convocatoria operativa en 2026.",
   "coverage": {
     "status": "PARTIAL",
@@ -51,6 +51,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -65,14 +72,14 @@
       },
       "operator": "Agencia Gallega de Desarrollo Rural (AGADER)",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Instrumento público de intermediación de tierra. SITEGAL permite consultar parcelas y, desde 2026, solicitar durante todo el año el arrendamiento de parcelas disponibles sin concurrencia mediante MR711G; las parcelas en concurrencia usan ventanas específicas de MR711B.",
-      "whoCanUseIt": "Personas propietarias que quieren incorporar parcelas y cualquier persona que quiera arrendar tierras para fines agrícolas, ganaderos o forestales.",
-      "howToAccess": "Consultar SITEGAL. Para parcelas disponibles sin concurrencia, presentar MR711G durante todo el año. Para parcelas en concurrencia, usar MR711B; la próxima ventana publicada es del 2 al 20 de noviembre de 2026.",
-      "accessUrl": "https://agader.xunta.gal/es/banco-de-tierras/datos-principales",
+      "whatItOffers": "Instrumento público de intermediación de tierra. SITEGAL permite consultar parcelas y, desde 2026, solicitar durante todo el año el arrendamiento de parcelas disponibles sin concurrencia mediante MR711G; las parcelas en concurrencia usan ventanas específicas de MR711B. Permite registrar una demanda de parcelas para recibir avisos por correo electrónico cuando se oferten terrenos con las características indicadas; esa demanda no constituye una solicitud de arrendamiento.",
+      "whoCanUseIt": "Cualquier persona titular puede incorporar sus parcelas para su arrendamiento. Pueden buscar tierras las personas que las necesiten para usos agrícolas, ganaderos, forestales, de conservación de la naturaleza y patrimonio u otros usos de interés social.",
+      "howToAccess": "Consultar SITEGAL. Para parcelas disponibles sin concurrencia, presentar MR711G durante todo el año. Para parcelas en concurrencia, usar MR711B durante los períodos habilitados publicados en la sede electrónica. SITEGAL permite preparar la solicitud y presentarla mediante la sede electrónica, o imprimirla para su entrega presencial o por correo postal cuando no exista obligación de comunicación electrónica. Las personas no obligadas pueden recibir asistencia en las Oficinas Agrarias Comarcales de la Xunta de Galicia y en las oficinas de Agader en Santiago de Compostela.",
+      "accessUrl": "https://info-sitegal.xunta.gal/es/paxina/banco-de-terras/ferramenta-sitegal",
       "assetTypes": ["PLOTS"],
       "sectors": ["AGRICULTURE", "LIVESTOCK", "FORESTRY"],
       "languages": ["es", "gl"],
-      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT", "GENERAL"],
       "lastEvidenceDate": "2026-06-30",
       "calls": [
         {
@@ -133,9 +140,31 @@
             "Próxima apertura: 02/11/2026 00:00 - 20/11/2026 23:59",
             "cualquier persona que quiera arrendar tierras para fines agrícolas, ganaderos o forestales"
           ]
+        },
+        {
+          "url": "https://info-sitegal.xunta.gal/es/paxina/banco-de-terras/ferramenta-sitegal",
+          "title": "Herramienta web SITEGAL | SITEGAL",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "El Sistema de Información de Terras de Galicia (SITEGAL) es la herramienta web en la que se pueden consultar y solicitar las parcelas que están incorporadas al Banco de Terras de Galicia.",
+            "ponerlas la disposición de todas aquellas personas que necesiten tierra para usos agrícolas, ganaderos, forestales, de conservación de la naturaleza y patrimonio u otros usos de interés social.",
+            "cualquier persona titular puede incorporar libre y gratuitamente sus parcelas al Banco de Terras para que este las ceda en arrendamiento.",
+            "Una vez finalice de introducir la solicitud de incorporación podrá descargar un formulario que deberá remitir a Agader presentándolo en un registro de la Xunta de Galicia (incluida sede electrónica) o equivalente de otra administración.",
+            "Para presentar la solicitud a través de sitegal deberá identificarse con el certificado digital, llave365 o DNI electrónico.",
+            "Una vez cubierta la solicitud le permitirá imprimir el formulario en .pdf para que la firme y la entregue en un registro de forma presencial o por correo postal, o conectarse directamente con la sede electrónica de la Xunta de Galicia para entregarla por vía telemática.",
+            "Aquellas personas que estén obligadas a comunicarse por vía electrónica con la administración deberán usar esta última vía",
+            "En el caso de personas no obligadas a comunicarse electrónicamente, se puede tener asistencia para la creación de las solicitudes en las Oficinas Agrarias Comarcales de la Xunta de Galicia y en las oficinas de Agader en Santiago de Compostela, para ser asistido en la generación de solicitudes.",
+            "Si no encuentra ninguna parcela de su interés, sitegal le permite introducir una “demanda de parcelas” indicando la localización y características de las parcelas en las que estaría interesado.",
+            "En caso de que se oferte alguna parcela con las características indicadas sitegal enviará avisos al correo electrónico.",
+            "La demanda de parcelas no constituye una solicitud de arrendamiento, es una herramienta de ayuda para localizar parcelas",
+            "En la solicitud tendrá que identificar la parcela, ya sea en el mapa o bien con la identificación numérica del SIXPAC",
+            "establecer el precio a lo que quiere que se arrende la hinca",
+            "y aportar unos datos mínimos de contacto."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "notes": "La incorporación de parcelas por sus titulares es libre y gratuita; esto no significa que su arrendamiento sea gratuito. Para ofrecer una parcela hay que identificarla, fijar el precio de arrendamiento y aportar datos de contacto, y después remitir a Agader el formulario generado. Para solicitar arrendamientos mediante SITEGAL es necesario identificarse con certificado digital, llave365 o DNI electrónico.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "galicia-banco-explotaciones",
