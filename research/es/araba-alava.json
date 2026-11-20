@@ -6,7 +6,7 @@
     "region": "araba-alava"
   },
   "language": "es",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-11-20",
   "context": [
     "En Euskadi las ayudas del Plan Estratégico de la PAC las gestionan las Diputaciones Forales; el Gobierno Vasco coordina con ellas Gaztenek y programas de formación a través de HAZI.",
     "La página web.araba.eus y el listado de trámites de egoitza.araba.eus permiten comprobar la convocatoria foral 2026; el comprobador automático del repositorio puede comportarse de forma distinta con certificados de Izenpe, por lo que el gate exacto de fuentes debe repetirse desde un checkout normal.",
@@ -190,6 +190,15 @@
       "reason": "La convocatoria del Gobierno Vasco se aplica al conjunto de Euskadi y contempla espacios test y cesión de explotaciones. No es un recurso exclusivo de Álava; debe investigarse y, si procede, publicarse en la capa País Vasco.",
       "foundBy": "ala-relevo-2026",
       "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-banco-tierras-aiaraldea-normas",
+      "name": "Normas de funcionamiento del Banco de Tierras de Aiaraldea",
+      "url": "https://www.zabaia.eus/images/pdf/Normas-funcionamiento-Banco-de-Tierra-Aiaraldea.pdf",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "araba-alava-banco-tierras-aiaraldea",
+      "checkedOn": "2026-11-20"
     }
   ],
   "instrumentChecks": [
@@ -264,6 +273,11 @@
       "date": "2026-09-30",
       "by": "CLAUDE (Claude Code)",
       "summary": "Revisión de fuentes: el listado paginado de trámites de la sede que se citaba para la convocatoria 2026 redirige ahora a la página general de trámites y sus citas venían de datos internos de la página; se retira. La convocatoria se cita desde el BOTHA (publicación el 11 de marzo de 2026, 20 días hábiles desde el día siguiente); se elimina la fecha de cierre, que era un cálculo de días hábiles y no figura en ninguna fuente."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "Las normas de Zabaia documentan el mismo Banco de Tierras de Aiaraldea ya publicado. Se añade la fuente del operador y se precisa el acceso mediante los impresos de alta, la cesión o arrendamiento de parcelas y el límite de su intervención en los acuerdos entre particulares, conservando la fuente anterior."
     }
   ]
 }

@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "araba-alava",
   "officialName": "Araba / Álava",
-  "published": "2026-09-30",
+  "published": "2026-11-20",
   "summary": "En Álava la Diputación Foral gestiona la ayuda al establecimiento de personas jóvenes agricultoras. El acceso a tierra cuenta además con el Banco de Tierras de Aiaraldea y con las parcelas municipales BIOHAZI de Elburgo/Burgelu, orientadas al emprendimiento agroecológico. UAGA mantiene una página específica de participación y acompañamiento para jóvenes, aunque la vigencia operativa de ese servicio concreto no está fechada. La Oficina de Intermediación para el Relevo Generacional Agrario se representa en la capa común del País Vasco.",
   "coverage": {
     "status": "PARTIAL",
@@ -111,6 +111,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -178,15 +185,16 @@
         "level": "SUBREGIONAL",
         "area": "Aiaraldea"
       },
-      "operator": "ADR Zabaia",
+      "operator": "Asociación de Desarrollo Rural Zabaia",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Herramienta para poner en contacto a personas propietarias de parcelas aptas para explotación agropecuaria con personas interesadas en utilizarlas. Publica normas y formularios de alta y baja tanto para propietarios como para demandantes.",
+      "whatItOffers": "Herramienta para poner en contacto a personas propietarias de parcelas aptas para explotación agropecuaria con personas interesadas en utilizarlas mediante cesión o arrendamiento. Publica normas y formularios de alta y baja tanto para propietarios como para demandantes.",
       "whoCanUseIt": "Personas propietarias que quieran incorporar parcelas al banco y personas demandantes interesadas en acceder a tierra para uso agropecuario en Aiaraldea.",
-      "howToAccess": "Consultar las normas de funcionamiento y presentar el formulario de alta correspondiente como persona propietaria o demandante desde la página del Banco de Tierras.",
-      "accessUrl": "https://www.adrlautada.eus/es/banco-de-tierras-aiaraldea",
+      "howToAccess": "Solicitar la inscripción mediante el impreso normalizado de las normas: anexo 1 para personas propietarias y anexo 3 para demandantes. Las personas propietarias aportan sus datos y los de las parcelas; las demandantes indican sus datos y las características de la parcela que buscan. La sede del banco está en la Asociación de Desarrollo Rural Zabaia.",
+      "accessUrl": "https://www.zabaia.eus/images/pdf/Normas-funcionamiento-Banco-de-Tierra-Aiaraldea.pdf",
       "assetTypes": ["PLOTS"],
       "languages": ["es"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "YOUNG_FARMER"],
+      "notes": "La inscripción autoriza el intercambio de datos entre propietarios y demandantes. Zabaia facilita el contacto, pero se abstiene de intervenir, orientar o asesorar sobre los negocios que puedan acordar las partes.",
       "sources": [
         {
           "url": "https://www.adrlautada.eus/es/banco-de-tierras-aiaraldea",
@@ -197,9 +205,24 @@
             "facilitar el contacto entre personas propietarias de parcelas aptas para la explotación agropecuaria y las personas interesadas en su uso",
             "Solicitud de alta en el Banco de Tierras de Aiaraldea como demandante de parcela."
           ]
+        },
+        {
+          "url": "https://www.zabaia.eus/images/pdf/Normas-funcionamiento-Banco-de-Tierra-Aiaraldea.pdf",
+          "title": "NORMAS DE FUNCIONAMIENTO DEL BANCO DE TIERRAS DE AIARALDEA",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "aquellos terrenos aportados al banco de tierras se ofrecen en cesión o arrendamiento a las personas interesadas",
+            "El Banco de Tierras tendrá su sede en la Asociación de Desarrollo Rural Zabaia",
+            "Las personas inscritas en la base de datos deben ser propietarias de las parcelas, y así lo hacen constar a través de la firma del impreso normalizado que se adjunta (Anexo 1) a las presentes normas de funcionamiento.",
+            "Las personas interesadas en la explotación agropecuaria de una parcela de la comarca de Aiaraldea, podrán solicitar su inclusión en el registro de Banco de Tierras de Aiaraldea, según impreso normalizado que se adjunta (Anexo 3) a las presentes normas de funcionamiento.",
+            "En dicho impreso de solicitud se incluirán los datos personales del/la demandante y las características de la parcela de su preferencia.",
+            "la persona propietaria deberá cumplimentar sus datos personales e información sobre la/s parcela/s de su propiedad",
+            "Esta cesión de datos debidamente autorizada será bidireccional",
+            "La Asociación de Desarrollo Rural Zabaia se abstendrá de intervenir, orientar o asesorar acerca de los negocios que, en su caso, puedan llevar a cabo las personas interesadas que se hayan puesto en contacto para registrarse en el Banco de Tierras de Aiaraldea."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "araba-alava-elburgo-biohazi",
