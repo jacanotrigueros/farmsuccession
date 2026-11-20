@@ -66,7 +66,7 @@ test("the actual Pagefind fragments carry each record's language for live result
       `${fragment.url}: the result needs its record language; the search page's language describes its controls, not its multilingual results`,
     );
   }
-  assert.equal(checked.size, 6, "not every language bundle's delivered metadata was checked");
+  assert.equal(checked.size, 7, "not every language bundle's delivered metadata was checked (seven since Dutch records were published)");
 });
 
 test("the date that qualifies an application answer is a time element, not only formatted prose", () => {
