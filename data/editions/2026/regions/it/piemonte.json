@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "piemonte",
   "officialName": "Piemonte",
-  "published": "2026-10-26",
+  "published": "2026-11-20",
   "summary": "Il Piemonte documenta il bando SRE01 per il primo insediamento dei giovani agricoltori, un corso regionale di 150 ore e l'elenco ufficiale delle associazioni fondiarie che recuperano e gestiscono terreni frammentati, incolti o abbandonati. Il bando è scaduto il 2 ottobre 2026 e la pagina del corso non indica una nuova sessione successiva a gennaio 2026.",
   "coverage": {
     "status": "PARTIAL",
@@ -67,6 +67,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -193,6 +200,53 @@
       ],
       "notes": "L'elenco regionale non prova che ciascuna associazione disponga oggi di terreni liberi né pubblica per tutte un contatto, un canone o condizioni contrattuali. L'adesione dei proprietari è descritta come gratuita, ma i termini di un eventuale affitto restano da verificare con l'associazione interessata.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "piemonte-asfo-la-chiara",
+      "name": "Associazione Fondiaria La Chiara",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Usseglio"
+      },
+      "operator": "AsFo La Chiara",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Raggruppa e gestisce proprietà frammentate e terreni agricoli incolti o abbandonati. La pagina documenta l'affidamento di pascoli ad allevatori già presenti e di lotti da coltivare a giovani locali, oltre all'impegno per inserire nuove aziende.",
+      "whoCanUseIt": "Proprietari o aventi diritto, pubblici e privati, di terreni agricoli, boschivi o pastorali che accettano lo Statuto. L'associazione descrive inoltre attività di affidamento dei terreni e di inserimento di nuove aziende, senza precisare requisiti attuali per i nuovi conduttori.",
+      "howToAccess": "La pagina rinvia a «Procedura e Moduli di adesione» e ai documenti associativi per aderire; pubblica inoltre il recapito email dell'associazione.",
+      "accessUrl": "https://asfolachiara.it/associazione-fondiaria-la-chiara/",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "AsFo La Chiara",
+          "value": "asfolachiara@gmail.com",
+          "sourceUrl": "https://asfolachiara.it/associazione-fondiaria-la-chiara/"
+        }
+      ],
+      "assetTypes": ["PLOTS"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "notes": "Il racconto delle attività contiene riferimenti temporali passati e consistenze fondiarie differenti. Non conferma la disponibilità attuale di lotti né specifica canoni o una procedura di candidatura per nuovi conduttori.",
+      "sources": [
+        {
+          "url": "https://asfolachiara.it/associazione-fondiaria-la-chiara/",
+          "title": "Associazione Fondiaria La Chiara | Associazione Fondiaria La Chiara - Usseglio",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "per raccogliere e gestire le proprietà fondiarie frammentate e i terreni agricoli incolti o abbandonati",
+            "Fin dal primo anno, affida i terreni pascolivi ai margari già presenti sul territorio",
+            "Per la coltivazione dei terreni, si sono affidati i lotti un tempo condotti a seminativo, a giovani locali, per la produzione di ortaggi, patate, erbe officinali",
+            "L’Associazione si sta dunque adoperando da un lato per migliorare le metodologie di conduzione del pascolo da parte degli allevatori presenti, dall’altro per inserire nuove aziende.",
+            "i proprietari, o aventi diritto, pubblici e privati, dei terreni con destinazione agricola, boschiva o pastorale",
+            "L’Associazione Fondiaria è quindi costituita dai proprietari, o aventi diritto, che dichiarano di accettare lo Statuto e che si impegnano ad operare per il conseguimento degli scopi in esso contenuti.",
+            "Procedura e Moduli di adesione",
+            "oggi (2022) le superfici pascolate sono tutte oggetto di Piano Pastorale",
+            "AsFo La Chiara via Roma 2 – 10070 Usseglio (TO)",
+            "asfolachiara@gmail.com"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
