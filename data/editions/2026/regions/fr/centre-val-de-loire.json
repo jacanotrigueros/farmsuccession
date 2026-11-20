@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "centre-val-de-loire",
   "officialName": "Centre-Val de Loire",
-  "published": "2026-10-25",
+  "published": "2026-11-20",
   "summary": "En Centre-Val de Loire, la Safer du Centre fait de l’installation des jeunes agriculteurs une priorité : elle les accompagne, dispose d’un fonds d’aide à l’installation et propose un portage foncier qui diffère l’investissement sur la terre ; la Région pilote par ailleurs l’aide à l’installation dans son plan régional FEADER.",
   "coverage": {
     "status": "PARTIAL",
@@ -43,6 +43,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -57,9 +64,9 @@
       },
       "operator": "Safer du Centre",
       "operatorType": "MIXED",
-      "whatItOffers": "Accompagne les porteurs de projet dans leurs démarches foncières, verse un fonds d’aide à l’installation et propose, avec un partenaire bancaire, un portage foncier qui permet de différer l’investissement sur la terre et d’alléger l’endettement au moment de l’installation.",
-      "whoCanUseIt": "Futurs agriculteurs, jeunes agriculteurs qui s’installent à titre principal et exploitants qui cherchent des solutions de transmission.",
-      "howToAccess": "Prendre contact avec le conseiller foncier du secteur où se situe le bien et consulter les appels à candidature et les biens à la vente de la Safer.",
+      "whatItOffers": "Accompagne les porteurs de projet dans leurs démarches foncières, verse un fonds d’aide à l’installation et propose, avec un partenaire bancaire, un portage foncier qui permet de différer l’investissement sur la terre et d’alléger l’endettement au moment de l’installation. Pour la transmission, réalise une visite, un diagnostic et une évaluation des biens, organise la publicité et la recherche de repreneurs, puis accompagne les parties jusqu’à la signature de la vente ou de la location. Peut assurer une gestion temporaire des biens par convention de mise à disposition résiliable annuellement.",
+      "whoCanUseIt": "Futurs agriculteurs, jeunes agriculteurs qui s’installent à titre principal et exploitants qui cherchent des solutions de transmission, notamment pour vendre ou louer tout ou partie de leur exploitation.",
+      "howToAccess": "Prendre contact avec le conseiller foncier du secteur où se situe le bien afin d’étudier les solutions de transmission et consulter les appels à candidature et les biens à la vente de la Safer.",
       "accessUrl": "https://www.saferducentre.fr/agriculteurs/linstallation-de-jeunes-agriculteurs-notre-priorite",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
@@ -89,10 +96,24 @@
             "41 - Loir-et-Cher à partir de 10 ares",
             "45 - Loiret à partir de 50 ares"
           ]
+        },
+        {
+          "url": "https://www.saferducentre.fr/agriculteurs/je-veux-transmettre-mon-exploitation",
+          "title": "Je veux transmettre mon exploitation | safer",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous souhaitez vendre tout ou partie de votre exploitation ?",
+            "Après une visite et un diagnostic de l’exploitation, la Safer réalise une évaluation des biens avec la connaissance du marché et du prix des terres.",
+            "Elle met en publicité les biens en vente ou en location et recueille les candidatures.",
+            "La Safer accompagne le vendeur, l’acquéreur, le bailleur, le locataire jusqu’à la signature en assurant le lien avec tous les interlocuteurs (techniques, juridiques, financiers).",
+            "La Safer organise le transfert total ou partiel de votre exploitation (terres, bâtiments, matériel, cheptel, parts sociales), par vente ou location, en une ou plusieurs fois.",
+            "d'une gestion temporaire de vos biens, avec la convention de mise à disposition résiliable annuellement, dans l'attente de la mise en place d’une solution définitive (bail rural, vente, ou installation d’un membre de la famille...).",
+            "Prenez contact avec le conseiller foncier du secteur où se situe votre bien afin d'étudier les solutions de transmission qui peuvent vous correspondre."
+          ]
         }
       ],
-      "generatorId": "claude-1",
-      "notes": "La Safer du Centre couvre le Cher (18), l’Eure-et-Loir (28), l’Indre (36), l’Indre-et-Loire (37), le Loir-et-Cher (41) et le Loiret (45)."
+      "notes": "La Safer du Centre couvre le Cher (18), l’Eure-et-Loir (28), l’Indre (36), l’Indre-et-Loire (37), le Loir-et-Cher (41) et le Loiret (45).",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "centre-val-de-loire-feader-installation",
