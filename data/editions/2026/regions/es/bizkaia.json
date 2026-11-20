@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "bizkaia",
   "officialName": "Bizkaia",
-  "published": "2026-09-27",
+  "published": "2026-11-20",
   "summary": "Bizkaia cuenta con ayudas forales al establecimiento de personas jóvenes y con un Fondo de Suelo Agrario que publica lotes y facilita la solicitud de acceso a tierra. EHNE Bizkaia mantiene una página de acompañamiento a nuevas incorporaciones, aunque su vigencia operativa actual no ha podido fecharse. La Oficina de Intermediación para el Relevo Generacional, común a los tres territorios históricos, se representa en la capa del País Vasco.",
   "coverage": {
     "status": "PARTIAL",
@@ -131,6 +131,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -259,6 +266,56 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "bizkaia-haztegia-enkarterri",
+      "name": "Haztegia Enkarterri",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Enkarterri"
+      },
+      "operator": "Enkarterrialde",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Espacio test agrario para probar la viabilidad de proyectos empresariales de horticultura ecológica durante un máximo de dos años. Ofrece un espacio físico en una explotación de Artzentales, soporte legal a través de Lorra y soporte integral coordinado con un productor ecológico.",
+      "whoCanUseIt": "Nuevas personas que quieren incorporarse al sector agrario y probar la viabilidad de su proyecto.",
+      "accessUrl": "https://enkarterrialde.eus/Actualidad/enkarterrialde_presenta_el_espacio_test_agrario_haztegia_enkarterri_en_artzentales",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Enkarterrialde",
+          "value": "enkarterrialde@enkarterrialde.eus",
+          "sourceUrl": "https://enkarterrialde.eus/Actualidad/enkarterrialde_presenta_el_espacio_test_agrario_haztegia_enkarterri_en_artzentales"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Enkarterrialde",
+          "value": "94 610 95 90",
+          "sourceUrl": "https://enkarterrialde.eus/Actualidad/enkarterrialde_presenta_el_espacio_test_agrario_haztegia_enkarterri_en_artzentales"
+        }
+      ],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "notes": "La noticia describe una convocatoria ya resuelta y dos proyectos seleccionados. No publica una nueva vía de solicitud ni un plazo de incorporación vigente; los contactos corresponden a la entidad operadora.",
+      "sources": [
+        {
+          "url": "https://enkarterrialde.eus/Actualidad/enkarterrialde_presenta_el_espacio_test_agrario_haztegia_enkarterri_en_artzentales",
+          "title": "Enkarterrialde presenta el espacio test agrario Haztegia Enkarterri en Artzentales",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "09 Mayo 2025",
+            "La asociación de desarrollo rural Enkarterrialde, en colaboración con Diputación Foral de Bizkaia y Petronor, ha presentado hoy el proyecto Haztegia Enkarterri en el municipio de Artzentales.",
+            "Haztegia Enkarterri es un programa de espacios tests agrarios que tiene como objetivo facilitar la incorporación de nuevas personas a este sector para testar la viabilidad de proyectos empresariales relacionados con este ámbito durante un periodo máximo de dos años.",
+            "Ante la escasa presencia en Enkarterri de proyectos relacionados con la horticultura ecológica, la asociación de desarrollo rural ha querido facilitar la incorporación de nuevas personas a este sector ofreciendo así un espacio para probar la viabilidad de proyectos empresariales de esta índole.",
+            "Haztegia cuenta con un soporte físico ubicado en la explotación de Artzentales que estará a disposición de las personas emprendedoras por un periodo de dos años hasta que decidan seguir o no con su negocio; un soporte legal materializado a través de Lorra y un soporte integral que contará con la ayuda de Jon Bastante, productor ecológico que liderará los espacios tests en coordinación con las dos personas emprendedoras.",
+            "Tras una convocatoria a la que se presentaron cinco posibles “testers”, se seleccionaron los proyectos de Esti Trevilla, de Karrantza y Alex Rodríguez, de Otxaran-Zalla.",
+            "Teléfono: 94 610 95 90",
+            "Email: enkarterrialde@enkarterrialde.eus"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
