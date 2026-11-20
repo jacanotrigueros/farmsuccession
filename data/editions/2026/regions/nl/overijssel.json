@@ -5,12 +5,17 @@
   "country": "NL",
   "region": "overijssel",
   "officialName": "Overijssel",
-  "published": "2026-11-16",
+  "published": "2026-11-20",
   "summary": "Het overzicht voor Overijssel is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Overijssel gelden.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Nog niet onderzocht. De bronnen die voor Nederland zijn gevonden, staan klaar voor onderzoek; tot dat onderzoek klaar is, staan hier alleen de Europese bronnen die ook hier gelden.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/grondstrategie-uniformering-gebruiksverhoudingen-tankstations"
+      }
+    ]
   },
   "review": {
     "status": "DRAFT"
@@ -25,10 +30,48 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "overijssel-grond-en-gebouwen",
+      "name": "Grond en gebouwen",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Overijssel",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Toegang tot informatie over pachten van provinciale grond en tot overzichten van grond en gebouwen die de provincie verkoopt. De pagina meldt dat er momenteel geen landbouwgrond te koop is.",
+      "howToAccess": "Volg de verwijzing ‘Hoe werkt pachten van de provincie Overijssel?’ voor de pachtroute. Volgens de pagina kunt u zich ieder jaar van 1 juli tot en met 30 september via openbare inschrijving opgeven.",
+      "accessUrl": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/grondstrategie-uniformering-gebruiksverhoudingen-tankstations",
+      "sources": [
+        {
+          "url": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/grondstrategie-uniformering-gebruiksverhoudingen-tankstations",
+          "title": "Grond en gebouwen - Provincie Overijssel",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Team Grondzaken koopt, verkoopt en beheert gronden en gebouwen voor verschillende projecten of programma’s.",
+            "Ook is er de mogelijkheid om te pachten.",
+            "Hoe werkt pachten van de provincie Overijssel?",
+            "U kunt zich ieder jaar opgeven van 1 juli tot en met 30 september (openbare inschrijving).",
+            "Een overzicht van gronden en gebouwen die de provincie Overijssel verkoopt.",
+            "Openbare verkoop landbouwgrond Er is nu geen landbouwgrond te koop."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": []
 }
