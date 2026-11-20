@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "puglia",
   "officialName": "Puglia",
-  "published": "2026-10-30",
+  "published": "2026-11-20",
   "summary": "La Puglia ha approvato nel 2026 gli avvisi SRE01 per il primo insediamento e SRD01.06 per gli investimenti dei giovani già insediati con la precedente misura 6.1. Il portale regionale indica entrambi in prossima apertura. Un corso online di 150 ore per giovani agricoltori è documentato con le iscrizioni 2026 già chiuse.",
   "coverage": {
     "status": "PARTIAL",
@@ -51,6 +51,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -252,6 +259,43 @@
         }
       ],
       "notes": "La pagina pubblica ancora il corso ma la scadenza d'iscrizione è trascorsa; per questo la risorsa è storica e non presume una nuova edizione. Il riconoscimento riportato è quello dichiarato dall'organizzatore."
+    },
+    {
+      "id": "puglia-banca-della-terra",
+      "name": "Banca della Terra di Puglia",
+      "kind": "LAND_BANK",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Dipartimento Agricoltura della Regione Puglia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Elenco informatico previsto per pubblicizzare terreni pubblici e privati da recuperare all'uso agricolo mediante concessione o locazione. La deliberazione istitutiva approva un elenco provvisorio di terreni regionali e degli enti controllati; non documenta un inventario attualmente utilizzabile per presentare richieste.",
+      "whoCanUseIt": "Chiunque, in forma singola o associata, voglia esercitare attività agricola; le finalità comprendono il ricambio generazionale e l'imprenditorialità agricola giovanile.",
+      "accessUrl": "https://burp.regione.puglia.it/documents/20135/1377125/DEL_262_2020.pdf/45197cb6-519b-8028-69b0-a6518e5d113c?t=1623059500007",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["GENERAL", "YOUNG_FARMER"],
+      "lastEvidenceDate": "2020-03-27",
+      "notes": "La fonte è l'atto istitutivo con l'elenco provvisorio allegato, non una procedura corrente di assegnazione. L'istituzione giuridica non dimostra che il servizio sia oggi operativo.",
+      "sources": [
+        {
+          "url": "https://burp.regione.puglia.it/documents/20135/1377125/DEL_262_2020.pdf/45197cb6-519b-8028-69b0-a6518e5d113c?t=1623059500007",
+          "title": "DELIBERAZIONE DELLA GIUNTA REGIONALE 2 marzo 2020, n. 262",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Bollettino Ufficiale della Regione Puglia - n. 43 del 27-3-2020",
+            "istituire, presso il Dipartimento Agricoltura, la “Banca della Terra di Puglia”, ai sensi dell’art. 4 l.r. 15/2017, consistente in un elenco informatico accessibile al pubblico",
+            "approvare l’elenco provvisorio dei terreni agricoli di proprietà della Regione e degli Enti da essa controllati, idonei per l’affidamento in concessione o locazione",
+            "a) beni di proprietà pubblica;",
+            "b) beni di proprietà privata di cui sia stata acquisita la disponibilità all’assegnazione dai rispettivi proprietari o aventi titolo;",
+            "c) beni di proprietà privata censiti come incolti o abbandonati dai comuni.",
+            "a chiunque, in forma singola o associata, voglia esercitare attività agricola",
+            "a sostenere il recupero produttivo e il ricambio generazionale in agricoltura, nonché ad incoraggiare l’imprenditorialità agricola giovanile"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
