@@ -5,7 +5,7 @@
   "country": "PT",
   "region": "centro",
   "officialName": "Centro",
-  "published": "2026-10-30",
+  "published": "2026-11-20",
   "summary": "A Figueira da Foz e a COAPE oferecem vias locais para anunciar e procurar terrenos rurais. A COAPE mantém também um banco especializado em terrenos para pastorícia e presta apoio técnico à instalação agrícola. A disponibilidade atual de parcelas não pôde ser comprovada.",
   "coverage": {
     "status": "PARTIAL",
@@ -63,6 +63,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -201,6 +208,44 @@
       ],
       "notes": "A página conserva referências e valores de programas de apoio antigos; esses montantes não são apresentados nesta ficha. O recurso descreve apenas o serviço próprio de aconselhamento e a sua via de contacto atual.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "centro-mortagua-banco-terras",
+      "name": "Banco de Terras de Mortágua",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Mortágua"
+      },
+      "operator": "Município de Mortágua",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Acesso a prédios rústicos agrícolas ou florestais abandonados ou subvalorizados, mediante arrendamento dos proprietários ao município e posterior subarrendamento a interessados em investir no concelho.",
+      "whoCanUseIt": "Proprietários dispostos a arrendar os seus prédios rústicos ao município e empreendedores rurais que pretendam instalar-se no concelho ou ampliar os seus negócios nas áreas agrícola e florestal.",
+      "howToAccess": "Consultar na página municipal os avisos de abertura de candidaturas, a ficha de inscrição, a minuta do contrato de arrendamento e o regulamento municipal.",
+      "accessUrl": "https://www.cm-mortagua.pt/p/banco-de-terras",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "FORESTRY"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-11-04",
+      "sources": [
+        {
+          "url": "https://www.cm-mortagua.pt/p/banco-de-terras",
+          "title": "Banco de Terras de Mortágua | Câmara Municipal de Mortágua",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "O Banco de Terras é um instrumento, cujo principal objetivo é encontrar proprietários dispostos a ceder por arrendamento os seus prédios rústicos (agrícolas ou florestais), abandonados ou subvalorizados, ao Município de Mortágua, o qual irá subarrendar a potenciais interessados em investir no concelho, nas áreas agrícola e florestal.",
+            "Facilitar o acesso à terra a novos empreendedores rurais que pretendam instalar-se no concelho ou ampliar os seus negócios;",
+            "3º Aviso de Abertura para Candidaturas ao Banco de Terras de Mortágua",
+            "Ficha de Inscrição - Banco de Terras de Mortágua",
+            "Minuta do Contrato de Arrendamento",
+            "Regulamento Municipal do Banco de Terras de Mortágua",
+            "Conteúdo atualizado em4 de novembro de 2026às 15:13"
+          ]
+        }
+      ],
+      "notes": "A página disponibiliza ligações aos avisos e documentos de inscrição, mas o texto consultado não estabelece os prazos de candidatura nem a disponibilidade atual de terrenos.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
