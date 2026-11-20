@@ -5,12 +5,17 @@
   "country": "NL",
   "region": "noord-holland",
   "officialName": "Noord-Holland",
-  "published": "2026-11-16",
+  "published": "2026-11-20",
   "summary": "Het overzicht voor Noord-Holland is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Noord-Holland gelden.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Nog niet onderzocht. De bronnen die voor Nederland zijn gevonden, staan klaar voor onderzoek; tot dat onderzoek klaar is, staan hier alleen de Europese bronnen die ook hier gelden.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.noord-holland.nl/Loket/Vastgoed_en_grond/Verpachtingen"
+      }
+    ]
   },
   "review": {
     "status": "DRAFT"
@@ -25,10 +30,72 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "noord-holland-verpachtingen",
+      "name": "Verpachtingen",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "provincie Noord-Holland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Tijdelijke pacht van provinciale natuur- en landbouwgrond in afwachting van de eindbestemming. De pagina geeft toegang tot actuele verpachtingen, documenten over het pachtproces en de gebruiksvoorwaarden.",
+      "howToAccess": "De provincie geeft grond uit via openbare inschrijving, tenzij een uitzondering geldt. Inschrijvingen vinden jaarlijks plaats van mei tot en met november en worden op deze pagina en in lokale en agrarische media aangekondigd. Stel vragen over verpachtingen per e-mail en vermeld de regio waarop de vraag betrekking heeft.",
+      "accessUrl": "https://www.noord-holland.nl/Loket/Vastgoed_en_grond/Verpachtingen",
+      "assetTypes": ["PLOTS"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Vragen over provinciale verpachtingen",
+          "value": "verpachtingenPNH@noord-holland.nl",
+          "sourceUrl": "https://www.noord-holland.nl/Loket/Vastgoed_en_grond/Verpachtingen"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Pachtseizoen 2026-2027, fase 4: resterende percelen",
+          "state": "CLOSED",
+          "opens": "2026-11-10",
+          "closes": "2026-11-19",
+          "sourceUrl": "https://www.noord-holland.nl/Loket/Vastgoed_en_grond/Verpachtingen"
+        }
+      ],
+      "lastEvidenceDate": "2026-11-19",
+      "sources": [
+        {
+          "url": "https://www.noord-holland.nl/Loket/Vastgoed_en_grond/Verpachtingen",
+          "title": "Verpachtingen",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "De provincie Noord-Holland is eigenaar van circa 2.500 hectare natuur- en landbouwgrond.",
+            "In afwachting van de eindbestemming geeft de provincie haar gronden tijdelijk in pacht uit.",
+            "Lees meer informatie over het pachtproces in de diverse documenten op deze pagina.",
+            "De provincie geeft haar grond uit via een openbare inschrijving, tenzij er een uitzondering van toepassing is.",
+            "De inschrijving vindt jaarlijks plaats in de periode mei tot en met november.",
+            "De inschrijving wordt aangekondigd via advertenties in lokale en agrarische media. Ook op deze pagina wordt de start van de inschrijving aangekondigd.",
+            "Pachtseizoen 2026-2027",
+            "fase 4 resterende percelen inschrijving van 10 tot en met 19 november 2026, 14.00 uur",
+            "Indien u vragen heeft over de verpachtingen voor deze regio's kunt u een mail sturen naar verpachtingenPNH@noord-holland.nl. Vermeld hierbij de regio waarover u uw vraag stelt.",
+            "Actuele verpachtingen",
+            "Gebruiksvoorwaarden pacht"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": []
 }
