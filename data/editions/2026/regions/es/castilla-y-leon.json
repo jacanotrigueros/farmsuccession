@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "castilla-y-leon",
   "officialName": "Castilla y León",
-  "published": "2026-09-27",
+  "published": "2026-11-20",
   "summary": "Castilla y León combina la ayuda autonómica al establecimiento de jóvenes, una intervención específica de cooperación para la sucesión, cursos oficiales de incorporación, asesoramiento PEPAC y una red de asesoramiento de ASAJA. El Banco de Tierras del Bierzo añade acceso comarcal a parcelas, intermediación y acompañamiento; el Fondo de Tierras autonómico previsto por la ley no se ha verificado como un banco operativo unificado.",
   "coverage": {
     "status": "PARTIAL",
@@ -71,6 +71,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -226,7 +233,7 @@
       "operator": "Consejo Comarcal del Bierzo",
       "operatorType": "PUBLIC",
       "whatItOffers": "Centro público de intermediación para movilizar terrenos agrícolas, ganaderos o forestales mediante cesión o arrendamiento. Además del buscador de fincas, ofrece a demandantes asesoramiento técnico, jurídico y formativo, tutorización, apoyo a la comercialización, análisis de suelo y préstamo de maquinaria.",
-      "whoCanUseIt": "Personas propietarias que quieran incorporar voluntariamente fincas y personas que busquen tierra para desarrollar o ampliar una actividad agrícola, ganadera o forestal en El Bierzo.",
+      "whoCanUseIt": "Todas las personas interesadas, incluidas las personas propietarias que quieran incorporar voluntariamente fincas y quienes busquen tierra para desarrollar o ampliar una actividad agrícola, ganadera o forestal en El Bierzo.",
       "howToAccess": "Consultar las fincas disponibles en la web. Para inscribirse como demandante, acudir a las oficinas del Banco de Tierras o remitir por correo electrónico el modelo normalizado facilitado por el servicio.",
       "accessUrl": "https://www.bancodetierrasdelbierzo.es/",
       "contactPoints": [
@@ -240,7 +247,7 @@
       "accessCostType": "FREE",
       "assetTypes": ["PLOTS"],
       "languages": ["es"],
-      "targetProfiles": ["LAND_SEEKER", "LANDOWNER", "NEW_ENTRANT"],
+      "targetProfiles": ["GENERAL", "LAND_SEEKER", "LANDOWNER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-04-29",
       "metrics": [
         {
@@ -289,9 +296,24 @@
           "quotes": [
             "el Banco de Tierras, creado en marzo de 2013, gestiona actualmente 5.500 parcelas, de las cuales solo 489 permanecen libres."
           ]
+        },
+        {
+          "url": "https://www.bancodetierrasdelbierzo.es/funcionamiento/",
+          "title": "Funcionamiento - Banco de tierras",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "El Banco de Tierras proporciona un servicio de intermediación, gestión, asesoramiento técnico, jurídico y formativo a todas las personas interesadas.",
+            "Cesión de uso o arrendamiento de las fincas incorporadas al Banco.",
+            "Apoyo para la comercialización de sus productos.",
+            "Servicio de tutorización para autoempleo y creación de empresas en colaboración con el Servicio de Iniciativas Emprendedoras (SIE) del Consejo Comarcal de El Bierzo.",
+            "Análisis de suelo.",
+            "Préstamo de maquinaria agrícola.",
+            "Redacción del Contrato por personal técnico del Consejo Comarcal.",
+            "Gestión, Intermediación y seguimiento en todo el proceso."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "castilla-y-leon-cursos-incorporacion-empresa-agraria",
