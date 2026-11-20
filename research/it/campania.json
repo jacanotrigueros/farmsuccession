@@ -6,14 +6,15 @@
     "region": "campania"
   },
   "language": "it",
-  "updatedOn": "2026-09-28",
+  "updatedOn": "2026-11-20",
   "context": [
     "Il portale agricoltura.regione.campania.it pubblica una pagina per ogni intervento del complemento regionale, con scadenze, materiali e contatti.",
     "La Banca della Terra Campana è istituita da legge regionale e disciplinata da un regolamento del 2018; l’elenco dei terreni sulla pagina è fermo a dicembre 2019.",
     "Il bando di insediamento è stato prorogato dal 15 al 30 settembre 2026.",
     "SRE01 si rivolge ai giovani agricoltori; SRE02 è un intervento distinto per nuovi agricoltori. La graduatoria SRE02 del 2026 non riapre il bando chiuso nel 2024.",
     "Il bando SRH03 riguarda gli organismi formatori. Occorre verificare separatamente l'iscrizione dei partecipanti ai corsi di primo insediamento.",
-    "Il portale dei corsi collegato alla pagina regionale ha restituito un errore di accesso durante questa passata; non dedurre che le iscrizioni siano aperte o chiuse."
+    "Il portale dei corsi collegato alla pagina regionale ha restituito un errore di accesso durante questa passata; non dedurre che le iscrizioni siano aperte o chiuse.",
+    "L'indirizzo esaminato pubblica la legge regionale sui giovani imprenditori agricoli; non coincide con l'indirizzo della pista sulle associazioni fondiarie già presente nel brief."
   ],
   "portals": [
     {
@@ -159,6 +160,15 @@
       "reason": "La ricerca ha trovato il quadro normativo; resta da individuare e aprire la pagina di un'associazione operativa con inventario, contatti o procedura propria prima di ammettere un servizio locale.",
       "foundBy": "cam-locale",
       "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "cam-legge-17-2015",
+      "name": "Legge regionale 23 dicembre 2015, n. 17.",
+      "url": "https://www.regione.campania.it/normativa/item.php?b79f7d70f28fffc18af20b3afb0a87ac=d862ed65595ce3893afc73b122195695&id_doc_type=1&id_tema=23&pgCode=G19I231R1302&refresh=on",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "resourceId": "campania-legge-17-2015",
+      "checkedOn": "2026-11-20"
     }
   ],
   "instrumentChecks": [
@@ -197,6 +207,11 @@
       "date": "2026-09-28",
       "by": "CHATGPT (gpt-6)",
       "summary": "Passata 1.9.0: verificata la proroga SRE01; Banca della Terra corretta da ACTIVE a UNKNOWN; aggiunti SRE02 con bando chiuso e il corso di primo insediamento con disponibilità UNKNOWN. Esaminati SRH03, servizi CAA e piste locali; restano da verificare modulo corsi, assegnazioni fondiarie e servizi di associazioni fondiarie."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La pagina pubblica la legge regionale sugli interventi per i giovani imprenditori agricoli, non una legge sulle associazioni fondiarie come indicato nel registro. Propongo il quadro normativo per il primo insediamento e la priorità nell'affidamento dei beni pubblici rurali, senza attribuirgli un'operatività attuale non dimostrata dal testo."
     }
   ]
 }
