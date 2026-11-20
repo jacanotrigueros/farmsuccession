@@ -187,3 +187,14 @@ test("country context gives each observation its year and source after the resou
     assert.ok(block.includes(`<time datetime="${consultedOn}"`));
   }
 });
+
+test("Europe's page compares every country's ages with its farms and land, and the EU-27 stays in the footer", () => {
+  const html = htmlAt("eu");
+  const block = /<section\b[^>]*aria-labelledby="age-comparison"[^>]*>([\s\S]*?)<\/section>/u.exec(html)?.[1];
+  assert.ok(block, "/eu/: no age comparison");
+  assert.equal([...block.matchAll(/<th scope="col"/gu)].length, 5, "/eu/: country, two age shares, farms and land");
+  const countries = snapshots.filter(({ data }) => data.schemaId === "country-snapshot" && data.countryContext).length;
+  const body = /<tbody>([\s\S]*?)<\/tbody>/u.exec(block)?.[1] ?? "";
+  assert.equal([...body.matchAll(/<tr\b/gu)].length, countries, "/eu/: one sortable row per country");
+  assert.match(block, /<tfoot>[\s\S]*(UE-27|EU-27)/u, "/eu/: the EU-27 reference must not be sorted with the countries");
+});

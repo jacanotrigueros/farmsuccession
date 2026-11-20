@@ -9,12 +9,12 @@ Can national statistics help readers understand the scale of agriculture and the
 The first common release covers 2023 for farm structure and 2024 for national accounts. Spain had 23,458,590 hectares of utilised agricultural area. Of the 802,770 holdings in the age table, 319,050 had a manager aged 65 or older.
 
 - Agricultural area in use is reported in hectares from Eurostat's `ef_fsi_lus`.
-- Economic weight is the value added of crop and animal production (`nama_10_a64`, NACE A01) divided by GDP at market prices (`nama_10_gdp`), both in current prices and million euros for the same country and year. Forestry and fishing are left out: fishing belongs to another project, and A01 is published for every country one year later than the A aggregate, so the economic year is 2024.
+- Economic weight is the value added of crop and animal production (`nama_10_a64`, NACE A01, which also counts hunting and the services that support crop and animal production) divided by GDP at market prices (`nama_10_gdp`), both in current prices and million euros for the same country and year. Forestry and fishing are left out: fishing belongs to another project, and A01 is published for every country one year later than the A aggregate, so the economic year is 2024.
 - The farm structure survey (`ef_fsi_agesex`) supplies the shares of holdings managed by people aged 65 or over and under 40. The latter sums the three published age bands below 40. The denominator is all holdings in the same table and year. These are age shares, with no inference about expected transfers or available land.
 
 ## Decision
 
-Place three short statistical notes below the resources of a country page. Keep the exact table cells, filtered HTTPS queries and consultation date. National accounts can be refreshed annually. Land use and age come from the farm structure survey and change on its publication cycle. Use a common observation year for each indicator when comparing countries, retain the recorded vintage on the page and review for new data each year. A survey year can precede the year used for the national accounts.
+Place three short statistical notes below the resources of a country page. Read the two age shares against the EU-27's, as two figures after the way to the country's aid and as bars on one scale in the notes. Compare the countries in one table on Europe's page, with each country's number of holdings and agricultural area beside the age shares, which a reader can sort by any column. Keep the exact table cells, filtered HTTPS queries and consultation date. National accounts can be refreshed annually. Land use and age come from the farm structure survey and change on its publication cycle. Use a common observation year for each indicator when comparing countries, retain the recorded vintage on the page and review for new data each year. A survey year can precede the year used for the national accounts.
 
 ## Cost
 

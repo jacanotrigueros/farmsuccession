@@ -39,6 +39,7 @@ const rest = withRecords ? child.data.resources.filter((resource) => !isFirstEst
         {(aid.length > 0 ? text.moreRecords : text.showRecords)
           .replace("{where}", child.data.officialName)
           .replace("{n}", number.format(rest.length))}
+        {aid.length > 0 && <span class="sr-only"> · {child.data.officialName}</span>}
         <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
       </summary>
       <RecordLinks place={child} language={language} resources={rest} />

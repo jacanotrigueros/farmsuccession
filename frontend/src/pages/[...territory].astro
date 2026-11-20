@@ -63,6 +63,22 @@ const { layers, resources } = view(territory);
 const name = territory.data.officialName;
 const context = territory.data.schemaId === "country-snapshot" ? territory.data.countryContext : undefined;
 const headlinePercent = new Intl.NumberFormat(locale, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 });
+type AgeTable = { holdings: number; under25: number; from25To34: number; from35To39: number; atLeast65: number };
+const olderShare = (table: AgeTable) => table.atLeast65 / table.holdings;
+const youngerShare = (table: AgeTable) => (table.under25 + table.from25To34 + table.from35To39) / table.holdings;
+const keyFigures = context && {
+  title: text.countryContext.keyFigures.replace("{country}", name).replace("{year}", String(context.succession.year)),
+  figures: [
+    { share: olderShare, label: text.countryContext.olderShare },
+    { share: youngerShare, label: text.countryContext.youngerShare },
+  ].map(({ share, label }) => ({
+    value: headlinePercent.format(share(context.succession)),
+    label,
+    europe:
+      context.succession.europe &&
+      text.countryContext.europeAverage.replace("{value}", headlinePercent.format(share(context.succession.europe))),
+  })),
+};
 
 const country = territory.layer.level === "EU" ? "" : territory.layer.country;
 /** A country speaks of itself as a country: what it runs is national, not "its own layer". */
@@ -285,24 +301,6 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     lead={territory.data.summary}
     flag={territory.layer.level === "COUNTRY" ? flagOf(country) : territory.layer.level === "EU" ? flagOf("EU") : undefined}
   >
-    {/* The age of farm managers in one sentence, under the lead: the situation a reader is in, with the way to
-        compare it with the other countries (ChatGPT review, founder 19 Nov 2026). */}
-    {context && (
-      <p class="mt-3 max-w-5xl" data-headline>
-        {text.countryContext.headline
-          .replace("{year}", String(context.succession.year))
-          .replace("{older}", headlinePercent.format(context.succession.atLeast65 / context.succession.holdings))
-          .replace(
-            "{younger}",
-            headlinePercent.format(
-              (context.succession.under25 + context.succession.from25To34 + context.succession.from35To39) / context.succession.holdings,
-            ),
-          )}{" "}
-        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${EUROPE_PAGE}#age-comparison`}>
-          {text.countryContext.compare}
-        </a>
-      </p>
-    )}
     {showsInstall && (
       <a href="#territories" class="btn btn-primary mt-4">
         {text.installShortcut}
@@ -333,6 +331,32 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         </p>
       )}
     </div>
+    {/* Where the country stands on generational renewal, after the way to its aid and the search, which are
+        what readers come for (Search Console): two figures a reader can take in at once, each beside the
+        EU-27's, with the chart and the other countries a link away (ChatGPT review; founder 20 Nov 2026). */}
+    {keyFigures && (
+      <div class="mt-8 max-w-3xl" data-key-figures>
+        <p class="font-bold">{keyFigures.title}</p>
+        <p class="mt-1">{text.countryContext.ageOfManagers}</p>
+        <ul class="mt-2 grid gap-3 sm:grid-cols-2">
+          {keyFigures.figures.map(({ value, label, europe }) => (
+            <li class="card p-4">
+              <strong class="block text-3xl text-brand tabular-nums">{value}</strong>
+              <span class="mt-1 block">{label}</span>
+              {europe && <span class="mt-1 block text-muted">{europe}</span>}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-2 flex flex-wrap gap-x-6">
+          <a class="inline-flex min-h-(--spacing-target) items-center underline" href="#country-context">
+            {text.countryContext.seeChart}
+          </a>
+          <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${EUROPE_PAGE}#age-comparison`}>
+            {text.countryContext.compare}
+          </a>
+        </p>
+      </div>
+    )}
     {!isEurope && !isCountry && (
       <div class="mt-8 rounded-lg bg-page p-5">
         <ul class="grid gap-4 sm:grid-cols-2" aria-label={text.statsLabel}>

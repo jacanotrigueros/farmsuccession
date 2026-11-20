@@ -218,6 +218,32 @@
             "flag": {
               "description": "Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.",
               "enum": ["IMPUTED", "PROVISIONAL"]
+            },
+            "europe": {
+              "description": "The EU-27's utilised agricultural area for the same year, so the countries can be read against Europe's total.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["year", "hectares", "sourceUrl"],
+              "properties": {
+                "year": {
+                  "type": "integer",
+                  "minimum": 1900,
+                  "maximum": 9999,
+                  "description": "Reference year of the reported observation."
+                },
+                "hectares": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "Published utilised agricultural area of the EU-27 in hectares."
+                },
+                "sourceUrl": {
+                  "$ref": "#/$defs/httpsUrl"
+                },
+                "flag": {
+                  "description": "Eurostat's status flag on the observation, when it has one.",
+                  "enum": ["IMPUTED", "PROVISIONAL"]
+                }
+              }
             }
           },
           "description": "Utilised agricultural area from the farm structure survey."

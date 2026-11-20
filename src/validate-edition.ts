@@ -99,6 +99,9 @@ export function checkSemantics(file: string, data: EditionSnapshot, territories:
     if (succession.europe && succession.europe.year !== succession.year) {
       found.error("countryContext: the EU-27 reference is for another year than the country's age table");
     }
+    if (land.europe && land.europe.year !== land.year) {
+      found.error("countryContext: the EU-27 land reference is for another year than the country's land figure");
+    }
   }
 
   const ids = new Set<string>();

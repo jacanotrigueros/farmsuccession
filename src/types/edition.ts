@@ -499,6 +499,24 @@ export interface CountryContext {
      * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
      */
     flag?: "IMPUTED" | "PROVISIONAL";
+    /**
+     * The EU-27's utilised agricultural area for the same year, so the countries can be read against Europe's total.
+     */
+    europe?: {
+      /**
+       * Reference year of the reported observation.
+       */
+      year: number;
+      /**
+       * Published utilised agricultural area of the EU-27 in hectares.
+       */
+      hectares: number;
+      sourceUrl: HttpsUrl;
+      /**
+       * Eurostat's status flag on the observation, when it has one.
+       */
+      flag?: "IMPUTED" | "PROVISIONAL";
+    };
   };
   /**
    * Gross value added and gross domestic product from annual national accounts at current prices.
