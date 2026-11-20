@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "campania",
   "officialName": "Campania",
-  "published": "2026-10-08",
+  "published": "2026-11-20",
   "summary": "In Campania è aperto il bando SRE01 per il primo insediamento dei giovani agricoltori, prorogato al 30 settembre 2026. Il programma SRE02 per nuovi agricoltori ha una convocazione chiusa. La Banca della Terra Campana e il percorso regionale di formazione per il primo insediamento sono documentati, ma la loro disponibilità attuale non è stata confermata.",
   "coverage": {
     "status": "PARTIAL",
@@ -83,6 +83,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -168,9 +175,9 @@
       },
       "operator": "Regione Campania",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Inventario pubblico di terreni agricoli incolti o abbandonati e del patrimonio agricolo pubblico, pensato per eventuali concessioni ad agricoltori, in particolare giovani di recente insediamento.",
-      "whoCanUseIt": "Agricoltori interessati ai terreni eventualmente inseriti nell'inventario; la pagina menziona in particolare i giovani agricoltori neo insediati.",
-      "howToAccess": "Consultare l'elenco pubblicato e gli eventuali bandi o avvisi della Regione. La pagina non mostra un avviso attuale di assegnazione.",
+      "whatItOffers": "Inventario pubblico di terreni agricoli incolti o abbandonati e del patrimonio agricolo pubblico, finalizzato anche all'insediamento di nuove aziende agricole. Il regolamento prevede l'assegnazione di terreni e fabbricati rurali mediante contratti di affitto di durata compresa fra sei e venti anni, con canone determinato sulla base dei valori agricoli medi.",
+      "whoCanUseIt": "Imprenditori agricoli in forma singola o associata; categorie dell'agricoltura sociale riconosciute dall'articolo 3 della legge regionale 30 marzo 2012, n. 5; giovani che intendono insediarsi per la prima volta come titolari d'impresa agricola, con età inferiore a quaranta anni alla presentazione della domanda. Il limite di età riguarda questa ultima categoria, non tutti i destinatari.",
+      "howToAccess": "Consultare l'elenco pubblicato e gli eventuali bandi o avvisi della Regione. Il regolamento prevede procedure di evidenza pubblica: i bandi e gli avvisi predisposti dalla struttura regionale competente stabiliscono modalità e termini delle domande. La pagina dell'inventario non mostra un avviso attuale di assegnazione.",
       "accessUrl": "https://agricoltura.regione.campania.it/BTC/BTC.html",
       "assetTypes": ["PLOTS"],
       "languages": ["it"],
@@ -189,8 +196,27 @@
             "Elenco dei terreni - aggiornamento dicembre 2019",
             "ultimo aggiornamento 19 dicembre 2019"
           ]
+        },
+        {
+          "url": "https://www.regione.campania.it/normativa/item.php?b79f7d70f28fffc18af20b3afb0a87ac=c343e07f3bf4311cb6a486e4d3501c2f&id_doc_type=3&id_tema=23&pgCode=G19I238R1786&refresh=on",
+          "title": "Regolamento Regionale 28 agosto 2018, n. 6",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "promuovere l'insediamento di nuove aziende agricole;",
+            "L'elenco contiene terreni di proprietà regionale e di altri enti pubblici.",
+            "L'elenco della Banca della terra Campana è gestito dalla Regione Campania attraverso la struttura amministrativa competente in agricoltura",
+            "imprenditori, in forma singola o associata, che svolgono attività agricola ai sensi dell'articolo 2135 del codice civile;",
+            "le categorie riconosciute dall'articolo 3 della legge regionale 30 marzo 2012, n. 5",
+            "i giovani che intendono insediarsi per la prima volta come titolari d'impresa agricola, con età inferiore ai quaranta anni alla data di presentazione della domanda di assegnazione.",
+            "I bandi/avvisi sono predisposti dalla struttura amministrativa regionale competente e contengono le modalità ed i termini per la presentazione delle domande.",
+            "avviene attraverso procedure di evidenza pubblica nel rispetto della normativa vigente.",
+            "Per l'assegnazione dei terreni e dei fabbricati rurali",
+            "L'assegnazione avviene mediante la stipula di un contratto di affitto, di durata non inferiore a sei anni e non superiore a venti anni,",
+            "sulla base dei valori agricoli medi per ettaro e per tipo di coltura valevoli per l'anno corrente"
+          ]
         }
-      ]
+      ],
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "campania-sre02-nuovi-agricoltori",
