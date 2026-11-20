@@ -5,7 +5,7 @@
   "country": "PT",
   "region": "regiao-autonoma-da-madeira",
   "officialName": "Região Autónoma da Madeira",
-  "published": "2026-10-27",
+  "published": "2026-11-20",
   "summary": "A Madeira mantém aberto até 18 de dezembro de 2026 o prémio regional à primeira instalação, dispõe de três avisos de investimento associado e de uma carteira pública de consultores para apoiar candidaturas PEPAC. Não foi verificado um mecanismo regional de acesso à terra ou sucessão de explorações.",
   "coverage": {
     "status": "PARTIAL",
@@ -67,6 +67,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -310,6 +317,54 @@
       ],
       "notes": "A Autoridade de Gestão deixa claro que a lista é apenas informativa e não certifica nem recomenda os consultores; custos e condições dependem da contratação privada.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "madeira-capacitacao-empresario-agricola",
+      "name": "Capacitação em Empresário Agrícola",
+      "kind": "TRAINING",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Escola Agrícola da Madeira",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Curso de Capacitação em Empresário Agrícola, com conteúdos programáticos e formulário de inscrição disponíveis na página.",
+      "whoCanUseIt": "Preferencialmente jovens agricultores que pretendam assumir pela primeira vez a gestão de uma exploração agrícola; também outros ativos com atividades agropecuárias que pretendam atualizar e melhorar conhecimentos e quem pretenda iniciar-se na atividade agrícola.",
+      "howToAccess": "Utilizar o Formulário de Inscrição indicado na página ou contactar a Escola Agrícola da Madeira. Para obter o Certificado Profissional, a página exige Cartão do Cidadão ou Passaporte e Certificado de Habilitações.",
+      "accessUrl": "https://escolaagricola.madeira.gov.pt/formacoes/capacitacao-em-empresario-agricola.html",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Escola Agrícola da Madeira",
+          "value": "escolaagricola@madeira.gov.pt",
+          "sourceUrl": "https://escolaagricola.madeira.gov.pt/formacoes/capacitacao-em-empresario-agricola.html"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Escola Agrícola da Madeira",
+          "value": "291 145 455",
+          "sourceUrl": "https://escolaagricola.madeira.gov.pt/formacoes/capacitacao-em-empresario-agricola.html"
+        }
+      ],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://escolaagricola.madeira.gov.pt/formacoes/capacitacao-em-empresario-agricola.html",
+          "title": "Capacitação em Empresário Agrícola",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Conteúdos Programáticos e Duração:",
+            "Despacho n.º 86/2018 - Capacitação em empresário agrícola (220h)",
+            "Preferencialmente jovens agricultores que pretendam assumir pela primeira vez a gestão de uma exploração agrícola, contemplando igualmente outros ativos que desenvolvam atividades agropecuárias que pretendam atualizar e melhorar os conhecimentos nas suas áreas de intervenção, ou ainda quem pretenda iniciar-se na atividade agrícola.",
+            "Requisitos para obter o Certificado Profissional: Cartão do Cidadão ou Passaporte Certificado de Habilitações",
+            "Inscrição: Formulário de Inscrição",
+            "Contactos Escola Agrícola da Madeira",
+            "291 145 455",
+            "escolaagricola@madeira.gov.pt"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
