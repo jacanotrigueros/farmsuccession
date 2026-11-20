@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "guadeloupe",
   "officialName": "Guadeloupe",
-  "published": "2026-10-25",
+  "published": "2026-11-20",
   "summary": "En Guadeloupe, la Région gère une aide FEADER à l'installation des jeunes agriculteurs. La Safer accompagne l'accès au foncier et la transmission de biens, mais ne présente actuellement aucun appel à candidatures ouvert. Guadeloupe AgroCampus propose un stage de préinstallation de 21 heures.",
   "coverage": {
     "status": "PARTIAL",
@@ -71,6 +71,13 @@
         "tool": "CHATGPT",
         "model": "GPT-6",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -128,10 +135,24 @@
       },
       "operator": "Safer de Guadeloupe",
       "operatorType": "MIXED",
-      "whatItOffers": "Un accompagnement foncier pour rechercher, acheter, louer, vendre ou transmettre des parcelles et des biens ruraux, avec publication d'avis d'appel à candidatures.",
-      "whoCanUseIt": "Les porteurs de projets ruraux, les agriculteurs et les propriétaires concernés par une acquisition, une location ou une transmission.",
+      "whatItOffers": "Un accompagnement foncier pour rechercher, acheter, louer, vendre ou transmettre des parcelles et des biens ruraux, avec publication d'avis d'appel à candidatures. La Safer accompagne l'achat jusqu'à la signature de l'acte et propose aux propriétaires une gestion locative avec garantie de versement de la redevance annuelle et restitution du bien libre à l'issue de la période déterminée.",
+      "whoCanUseIt": "Pour acheter : agriculteurs, collectivités, opérateurs publics, porteurs de projet en milieu rural et investisseurs. Pour vendre : agriculteurs ou propriétaires d'un bien rural. Pour mettre en location : propriétaires de biens ruraux libres de toute occupation, notamment particuliers et collectivités.",
       "howToAccess": "Consulter les avis et les fiches de candidature sur le site de la Safer, ou contacter son équipe. Aucun appel n'est ouvert sur la page consultée le 29 septembre 2026.",
       "accessUrl": "https://saferguadeloupe.com/appel-a-projet-ou-candidature/",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Safer Guadeloupe",
+          "value": "0590 32 57 57",
+          "sourceUrl": "https://saferguadeloupe.com/informations-sur-le-processus/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Safer Guadeloupe",
+          "value": "safergpe@safer-guadeloupe.fr",
+          "sourceUrl": "https://saferguadeloupe.com/informations-sur-le-processus/"
+        }
+      ],
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "TRANSFEROR", "LANDOWNER"],
@@ -178,9 +199,26 @@
           "title": "Le marché des terres agricoles en 2024 - Groupe Safer",
           "consultedOn": "2026-10-25",
           "quotes": ["Département et région d’outre-mer de Guadeloupe (971)"]
+        },
+        {
+          "url": "https://saferguadeloupe.com/informations-sur-le-processus/",
+          "title": "informations sur le processus – Safer Guadeloupe",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous êtes un agriculteur, une collectivité ou un opérateur public, un porteur de projet en milieu rural ou un investisseur ?",
+            "La Safer Guadeloupe vous accompagne.",
+            "Pour être accompagné jusqu’à la signature de l’acte.",
+            "La Safer transmet des propriétés ou des parcelles.",
+            "Vous êtes un agriculteur ou un propriétaire souhaitant vendre un bien rural ?",
+            "Vous êtes propriétaires de biens ruraux libre de toute occupation ( particuliers, collectivités…) , vous souhaitez louer votre bien .",
+            "La Safer assure la gestion locative et garantie le versement de votre redevance annuelle",
+            "Pour être garanti de retrouver votre bien libre à l’issue de la période déterminée",
+            "0590 32 57 57",
+            "safergpe@safer-guadeloupe.fr"
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "guadeloupe-agrocampus-stage-21-heures",
