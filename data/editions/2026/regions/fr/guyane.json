@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "guyane",
   "officialName": "Guyane",
-  "published": "2026-11-05",
+  "published": "2026-11-20",
   "summary": "En Guyane, trois dotations FEADER visent des profils distincts de nouveaux agriculteurs. La Safer propose un accès au foncier et un accompagnement à la transmission. Une intervention de coopération pour la transmission est décrite, mais aucun appel ouvert n'a été vérifié.",
   "coverage": {
     "status": "PARTIAL",
@@ -59,6 +59,13 @@
         "tool": "CHATGPT",
         "model": "gpt-6",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -245,10 +252,24 @@
       },
       "operator": "Safer Guyane",
       "operatorType": "MIXED",
-      "whatItOffers": "Accès à des parcelles agricoles à acheter ou à louer et publication d'appels de candidatures.",
-      "whoCanUseIt": "Porteurs de projet agricole recherchant du foncier ; les demandes des jeunes agriculteurs bénéficient d'un traitement prioritaire annoncé par la Safer.",
-      "howToAccess": "Consulter les appels de candidatures de la Safer et les étapes pour acheter ou louer, puis contacter la Safer pour le bien concerné. La présence d'une annonce dans la liste ne prouve pas que son délai de candidature court encore.",
+      "whatItOffers": "Accès à des parcelles agricoles à acheter ou à louer et publication d'appels de candidatures. La Safer analyse le projet d’achat ou de location, propose des biens adaptés, met en relation avec les personnes ressources, gère les candidatures et accompagne la sécurisation du bien jusqu’au titrement foncier effectif.",
+      "whoCanUseIt": "Porteurs de projet agricole recherchant du foncier ; les demandes des jeunes agriculteurs bénéficient d'un traitement prioritaire annoncé par la Safer. L’accompagnement décrit s’adresse aussi aux personnes ayant un projet rural.",
+      "howToAccess": "Consulter les appels de candidatures de la Safer et les étapes pour acheter ou louer, puis contacter la Safer pour le bien concerné ou pour présenter son projet d’achat ou de location. La présence d'une annonce dans la liste ne prouve pas que son délai de candidature court encore.",
       "accessUrl": "https://safer-guyane.fr/sinstaller/projet-agricole/",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Safer Guyane",
+          "value": "0594 25 84 67",
+          "sourceUrl": "https://safer-guyane.fr/sinstaller/comment-sinstaller/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Safer Guyane",
+          "value": "direction@safer-guyane.fr",
+          "sourceUrl": "https://safer-guyane.fr/sinstaller/comment-sinstaller/"
+        }
+      ],
       "assetTypes": ["PLOTS"],
       "languages": ["fr"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "YOUNG_FARMER"],
@@ -267,10 +288,27 @@
           "title": "Appels de candidatures – Safer Guyane",
           "consultedOn": "2026-11-05",
           "quotes": ["Consultez ci-dessous la liste de nos appels de candidatures :", "Macouria Vente d'une parcelle agricole de 23 ha"]
+        },
+        {
+          "url": "https://safer-guyane.fr/sinstaller/comment-sinstaller/",
+          "title": "Comment s'installer ? - SAFER Guyane",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous cherchez à vous installer ou vous avez un projet rural, la Safer vous aidera à trouver un bien (foncier, avec ou sans bâti), vous accompagnera jusqu’au titrement foncier et favorisera le développement harmonieux de votre projet en l’intégrant dans le territoire agricole ou rural.",
+            "Véritables experts en foncier rural, la Safer Guyane interviendra à tous les stades de votre démarche en clarifiant et analysant votre projet d’achat ou location :",
+            "Proposition de biens en adéquation avec votre demande",
+            "Mise en relation avec les personnes ressources pour la concrétisation de votre projet (chambre d’agriculture, collectivités…)",
+            "Gestion des candidatures",
+            "Sécurisation (Valeur, conditions juridiques du titrement, plans, situation juridique du bien, autorisation d’exploiter, validation professionnelle du projet, accès et servitudes…)",
+            "Suivi jusqu’au titrement foncier effectif",
+            "Besoin d'un renseignement ? Nous contacter",
+            "0594 25 84 67",
+            "direction@safer-guyane.fr"
+          ]
         }
       ],
-      "generatorId": "claude-1",
-      "notes": "La Safer Guyane intervient sur le territoire de la Guyane."
+      "notes": "La Safer Guyane intervient sur le territoire de la Guyane.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "guyane-safer-transmission",
