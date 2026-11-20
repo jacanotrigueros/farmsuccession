@@ -5,7 +5,7 @@
   "country": "PT",
   "region": "regiao-autonoma-da-madeira",
   "officialName": "Região Autónoma da Madeira",
-  "published": "2026-10-27",
+  "published": "2026-11-20",
   "summary": "A Madeira mantém aberto até 18 de dezembro de 2026 o prémio regional à primeira instalação, dispõe de três avisos de investimento associado e de uma carteira pública de consultores para apoiar candidaturas PEPAC. Não foi verificado um mecanismo regional de acesso à terra ou sucessão de explorações.",
   "coverage": {
     "status": "PARTIAL",
@@ -67,6 +67,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -282,7 +289,7 @@
       },
       "operator": "Autoridade de Gestão PEPAC R.A. Madeira",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Diretório público de entidades que manifestaram disponibilidade para prestar serviços de consultoria no âmbito das intervenções PEPAC, usado também como rota recomendada nas candidaturas de investimento associado à instalação de jovens agricultores.",
+      "whatItOffers": "Diretório público de entidades que manifestaram disponibilidade para prestar serviços de consultoria no âmbito das intervenções PEPAC, usado também como rota recomendada nas candidaturas de investimento associado à instalação de jovens agricultores. A lista apresenta contactos e identifica as intervenções abrangidas pelos consultores, incluindo o investimento associado à instalação e o prémio à instalação de jovens agricultores.",
       "whoCanUseIt": "Potenciais beneficiários das intervenções PEPAC R.A. Madeira que pretendam contratar apoio especializado, incluindo jovens agricultores que preparem ou acompanhem candidaturas de instalação e investimento.",
       "howToAccess": "Consultar a Carteira de Consultores publicada pela Autoridade de Gestão e contactar diretamente uma das entidades listadas; a seleção e contratação são da responsabilidade do beneficiário.",
       "accessUrl": "https://pepac.madeira.gov.pt/index.php?Itemid=851&id=99&option=com_content&view=article",
@@ -306,10 +313,20 @@
           "quotes": [
             "A AG PEPAC R.A. Madeira recomenda o recurso a entidades especializadas para a elaboração e acompanhamento das candidaturas"
           ]
+        },
+        {
+          "url": "https://pepac.madeira.gov.pt/images/2026/merged_Lista_de_Consultores_04.11.2026.pdf",
+          "title": "Consultores",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Consultores Intervenção Contacto 1 Contacto 2 Email Morada",
+            "F.1.2 - Investimento associado à instalação de jovens agricultores",
+            "F.4.1 - Prémio à instalação de jovens agricultores"
+          ]
         }
       ],
       "notes": "A Autoridade de Gestão deixa claro que a lista é apenas informativa e não certifica nem recomenda os consultores; custos e condições dependem da contratação privada.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
