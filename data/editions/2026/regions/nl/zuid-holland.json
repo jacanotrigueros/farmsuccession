@@ -5,12 +5,17 @@
   "country": "NL",
   "region": "zuid-holland",
   "officialName": "Zuid-Holland",
-  "published": "2026-11-16",
+  "published": "2026-11-20",
   "summary": "Het overzicht voor Zuid-Holland is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Zuid-Holland gelden.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Nog niet onderzocht. De bronnen die voor Nederland zijn gevonden, staan klaar voor onderzoek; tot dat onderzoek klaar is, staan hier alleen de Europese bronnen die ook hier gelden.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.zuid-holland.nl/publish/pages/36143/spelregels_pacht_6_.pdf"
+      }
+    ]
   },
   "review": {
     "status": "DRAFT"
@@ -25,10 +30,60 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "zuid-holland-pachtuitgifte",
+      "name": "Spelregels pachtuitgifte",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Zuid-Holland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Tijdelijke uitgifte van provinciale agrarische gronden in geliberaliseerde pacht, via een belangstellingsregistratie en verdeling onder belangstellenden. Er kunnen beperkende voorwaarden gelden voor natuur, teelt en gewasbescherming.",
+      "whoCanUseIt": "Agrariërs met landbouw als hoofdberoep die voldoen aan de provinciale criteria. Zij moeten zich registreren, eerdere pachtverplichtingen zijn nagekomen en de toepasselijke teelt- en gebruiksvoorwaarden accepteren.",
+      "howToAccess": "Volgens de spelregels verloopt de belangstellingsregistratie via een e-formulier op de provinciale website, na aankondiging op die website en in regionale bladen. Inschrijven op een specifiek perceel is niet mogelijk. Het document bevestigt geen actuele inschrijvingsperiode.",
+      "accessUrl": "https://www.zuid-holland.nl/publish/pages/36143/spelregels_pacht_6_.pdf",
+      "assetTypes": ["PLOTS"],
+      "notes": "Bedrijven binnen vijf kilometer van het perceel krijgen voorrang, daarna bedrijven binnen twaalf kilometer. De provincie geeft in beginsel niet meer dan 50% van de huidige bedrijfsomvang aan dezelfde pachter uit; voor zelfrealisatoren gelden uitzonderingen. Eerder pachten geeft geen zekerheid op pacht in het volgende jaar.",
+      "sources": [
+        {
+          "url": "https://www.zuid-holland.nl/publish/pages/36143/spelregels_pacht_6_.pdf",
+          "title": "Spelregels pachtuitgifte",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Bijlage 3 bij de Uitvoeringsnota Grondbeleid Provincie Zuid-Holland",
+            "In de tussentijd worden deze agrarische gronden, voor zover niet al ingericht, in geliberaliseerde pacht uitgegeven.",
+            "Het level playing field (open speelveld) biedt in principe aan iedere agrariër met een hoofdberoep in de landbouw (conform artikel 7:311 en 7:312 BW) de gelegenheid om voor pacht in aanmerking te komen.",
+            "zich als belangstellende ingeschreven bij de provincie Zuid-Holland middels het e-formulier op de website van de provincie Zuid-Holland;",
+            "accepteert, indien van toepassing, het teeltplan voor bouwland opgesteld door de provincie;",
+            "De belangstellende komt niet in aanmerking voor pacht indien hij/zij verplichtingen uit voorgaande jaren, zoals opgenomen in de pachtovereenkomst, niet is nagekomen.",
+            "accepteert de beperkende maatregelen op het gebied van gewasbeschermingsmiddelen en bestrijdingsmiddelen;",
+            "accepteert, voor zover van toepassing, de beperkende (natuur)voorwaarden voor pacht;",
+            "Deze wordt bovendien in de regionale bladen aangekondigd.",
+            "er kan niet op een specifiek perceel worden ingeschreven",
+            "Daarom gaan bedrijven, waarvan de bedrijfsgebouwen binnen een straal van vijf kilometer van het te verpachten perceel zijn gelegen voor op andere bedrijven.",
+            "Vervolgens wordt een tweede cirkel toegepast waarbij bedrijven binnen een straal van twaalf kilometer voor gaan op andere bedrijven buiten deze straal.",
+            "Om dit toetsbaar te maken, geeft de provincie niet meer dan 50% van de huidige bedrijfsomvang in geliberaliseerde pacht uit aan dezelfde pachter.",
+            "Uitzondering zijn de afspraken met de zelfrealisatoren;",
+            "Voor belangstellenden die al meerdere jaren gronden hebben gepacht, mag het geen vanzelfsprekendheid zijn het volgende jaar weer te kunnen pachten."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": []
 }
