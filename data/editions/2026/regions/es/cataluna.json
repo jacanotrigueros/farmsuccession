@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "cataluna",
   "officialName": "Cataluña",
-  "published": "2026-10-30",
+  "published": "2026-11-20",
   "summary": "Cataluña combina ayudas de primera instalación y sucesión, la oficina virtual pública El Planter, itinerario formativo y mentoría públicos, asesoramiento especializado de JARC y una red diversa de instrumentos de acceso a tierra. Además del sistema de bancos de la provincia de Barcelona, se verifican servicios operativos en Priorat, Baix Camp, Garrigues, Ripollès, Riba-roja d'Ebre y el sistema Segarra-Garrigues, junto con espacios test agrarios.",
   "coverage": {
     "status": "PARTIAL",
@@ -87,6 +87,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -305,9 +312,9 @@
       },
       "operator": "Diputació de Barcelona",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Red de bancos de tierras de espacios y parques agrarios de la provincia de Barcelona. Permite buscar tierra, ofrecer parcelas y solicitar apoyo para el relevo de una explotación, con recursos y puntos territoriales de dinamización agraria.",
+      "whatItOffers": "Red de bancos de tierras de espacios y parques agrarios de la provincia de Barcelona. Permite buscar tierra, ofrecer parcelas y solicitar apoyo para el relevo de una explotación, con recursos y puntos territoriales de dinamización agraria. Ofrece intermediación entre propietarios y solicitantes, así como asesoramiento para redactar contratos agrarios y elaborar planes de empresa agraria.",
       "whoCanUseIt": "Personas que buscan tierra para iniciar o ampliar una actividad, propietarios que quieren ofrecerla y titulares que buscan relevo para su explotación.",
-      "howToAccess": "Registrarse o utilizar las rutas 'Vull sol·licitar terres', 'Vull oferir terres' o 'Vull relleu agrari' del portal Banc de Terres.",
+      "howToAccess": "Registrarse o utilizar las rutas 'Vull sol·licitar terres', 'Vull oferir terres' o 'Vull relleu agrari' del portal Banc de Terres. La plataforma también permite acceder a la información y a los centros gestores de los bancos de la red.",
       "accessUrl": "https://bancdeterres.cat/",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["ca"],
@@ -319,9 +326,20 @@
           "title": "Inici | Banc de Terres",
           "consultedOn": "2026-10-30",
           "quotes": ["Cerques terres?", "Vols oferir terres?", "T'agradaria trobar un relleu per la teva explotació?"]
+        },
+        {
+          "url": "https://bcnagraria.diba.cat/ca/actua/bancs-de-terres-de-la-diputacio-de-barcelona",
+          "title": "Bancs de Terres de la Diputació de Barcelona | BCN Agrària",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Els Bancs de Terres de la Diputació de Barcelona són una eina a disposició dels Ajuntaments, de la pagesia i dels propietaris de terres per ajudar a mobilitzar el mercat de terres agrícoles i facilitar-ne l'accés.",
+            "A més a més, ofereix una plataforma virtual des de la qual es pot accedir a la informació de tots els Bancs de terres de la xarxa, i també als centres gestors de cadascun d’ells.",
+            "Intermediació entre propietaris i sol·licitants.",
+            "Posada en marxa d'un servei d'assessorament per a la redacció de contractes agraris i també per a l'elaboració de plans d'empresa agrària per als sol·licitants."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "cataluna-banco-tierras-priorat",
