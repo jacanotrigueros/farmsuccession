@@ -5,12 +5,17 @@
   "country": "NL",
   "region": "zuid-holland",
   "officialName": "Zuid-Holland",
-  "published": "2026-11-16",
+  "published": "2026-11-20",
   "summary": "Het overzicht voor Zuid-Holland is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Zuid-Holland gelden.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Nog niet onderzocht. De bronnen die voor Nederland zijn gevonden, staan klaar voor onderzoek; tot dat onderzoek klaar is, staan hier alleen de Europese bronnen die ook hier gelden.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.zuid-holland.nl/onderwerpen/ruimte/grondzaken/"
+      }
+    ]
   },
   "review": {
     "status": "DRAFT"
@@ -25,10 +30,60 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "zuid-holland-pachten-van-grond",
+      "name": "Pachten van grond",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Zuid-Holland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Provinciale gronden die voor kortere of langere tijd worden verpacht. Bij meerdere belangstellenden wordt de pachtgrond toegewezen aan de belangstellende met het hoogste aantal punten volgens de scoretabel.",
+      "howToAccess": "Maak ieder jaar opnieuw je belangstelling kenbaar, ook als je al provinciale grond pacht of eerder hebt gepacht. Op dit moment is registratie niet mogelijk; de provincie meldt op deze pagina wanneer de belangstellingsregistratie weer opengaat. De pagina verwijst naar de spelregels pacht en de scoretabel.",
+      "accessUrl": "https://www.zuid-holland.nl/onderwerpen/ruimte/grondzaken/",
+      "assetTypes": ["PLOTS"],
+      "targetProfiles": ["LAND_SEEKER"],
+      "calls": [
+        {
+          "name": "Belangstellingsregistratie",
+          "state": "CLOSED",
+          "sourceUrl": "https://www.zuid-holland.nl/onderwerpen/ruimte/grondzaken/"
+        }
+      ],
+      "notes": "Naast de algemene spelregels gelden aanvullende voorwaarden voor gronden met een natuurdoelstelling, akkerbouwpercelen, graslandpercelen en specifieke gebieden met maatwerkafspraken.",
+      "sources": [
+        {
+          "url": "https://www.zuid-holland.nl/onderwerpen/ruimte/grondzaken/",
+          "title": "Grondzaken | Provincie Zuid-Holland",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "De provincie heeft een aantal gronden in eigendom die voor kortere of langere tijd worden verpacht.",
+            "Als er meerdere belangstellenden zijn voor de pachtgrond, wijzen wij de grond toe aan de belangstellende met het hoogste aantal punten.",
+            "Zowel de ‘spelregels pacht’ als de scoretabel vind je aan de rechterkant op deze pagina.",
+            "Heb je belangstelling voor het pachten van grond? Dan is het belangrijk dat je ieder jaar je interesse aan ons kenbaar maakt, ook als je nu grond van ons pacht of dit in het verleden hebt gedaan.",
+            "Let op: op dit moment is het niet mogelijk om je interesse kenbaar te maken voor het pachten van grond.",
+            "Zodra de belangstellingsregistratie weer open is, lees je dat op deze webpagina.",
+            "Let op: naast de ‘spelregels pacht’ zijn er aanvullende voorwaarden voor gronden met een natuurdoelstelling, bijvoorbeeld omdat ze deel uitmaken van het Natuurnetwerk Nederland (NNN) of vanwege de bescherming van weide- en akkervogels.",
+            "Dit geldt ook voor akkerbouwpercelen, graslandpercelen en specifieke gebieden waarvoor maatwerkafspraken zijn gemaakt."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": []
 }
