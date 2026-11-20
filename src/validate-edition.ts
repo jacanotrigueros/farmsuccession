@@ -85,6 +85,24 @@ export function checkSemantics(file: string, data: EditionSnapshot, territories:
   checkIdentity(file, data, territories, found);
   checkDates(data, today, found);
   checkCoverage(data, found);
+  if (data.schemaId === "country-snapshot" && data.countryContext) {
+    const { consultedOn, land, economy, succession } = data.countryContext;
+    if (consultedOn > today) found.error("countryContext: consultation date is in the future");
+    if ([land.year, economy.year, succession.year].some((year) => year > Number(consultedOn.slice(0, 4)))) {
+      found.error("countryContext: observation year is after the consultation year");
+    }
+    for (const table of [succession, ...(succession.europe ? [succession.europe] : [])]) {
+      if (table.under25 + table.from25To34 + table.from35To39 + table.atLeast65 > table.holdings) {
+        found.error("countryContext: age groups exceed the total number of holdings");
+      }
+    }
+    if (succession.europe && succession.europe.year !== succession.year) {
+      found.error("countryContext: the EU-27 reference is for another year than the country's age table");
+    }
+    if (land.europe && land.europe.year !== land.year) {
+      found.error("countryContext: the EU-27 land reference is for another year than the country's land figure");
+    }
+  }
 
   const ids = new Set<string>();
   for (const resource of data.resources) {

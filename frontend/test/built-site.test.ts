@@ -56,6 +56,7 @@ test("a page ships JavaScript only for what it actually carries", () => {
     if (html.includes('class="apply')) allowed.add("/apply.js");
     if (html.includes("data-filter")) allowed.add("/filter.js");
     if (html.includes("data-report")) allowed.add("/report.js");
+    if (html.includes("data-sortable")) allowed.add("/sort.js");
 
     for (const [, src] of html.matchAll(/<script[^>]*\ssrc="([^"]+)"/giu)) {
       assert.ok(
@@ -149,6 +150,9 @@ test("every link inside the site reaches a page the build produced", () => {
   }
 });
 
+/** Exclude editorial cross-references from Europe to the country's own records. */
+const withoutCounterparts = (html: string): string => html.replace(/<p\b[^>]*data-counterpart[^>]*>[\s\S]*?<\/p>/gu, "");
+
 /**
  * A country's page is the stable, indexable entrance to everything documented below it. Search pages can
  * narrow the same corpus, but they deliberately ask not to be indexed, so they cannot be the only place
@@ -171,9 +175,10 @@ test("a country page links every one of its records by name", () => {
       .replaceAll(/<[^>]*>/gu, " ")
       .replaceAll(/\s+/gu, " ")
       .trim();
-    const link = [...country.html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === address);
+    const listing = withoutCounterparts(country.html);
+    const link = [...listing.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === address);
     assert.ok(link, `${country.file} does not link ${address}`);
-    const copies = [...country.html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].filter(([, href]) => href === address);
+    const copies = [...listing.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].filter(([, href]) => href === address);
     assert.equal(copies.length, 1, `${country.file} repeats ${address} in competing lists`);
     const linkedName = (link[2] ?? "")
       .replaceAll(/<[^>]*>/gu, " ")
@@ -204,7 +209,7 @@ test("country entry pages expose the same unique record destinations as their co
     if (!country) continue;
     const search = pages.find(({ file }) => file === path.join(searchPath("/", iso).slice(1), "index.html"));
     assert.ok(search, `${iso}: missing complete national search fallback`);
-    const actual = listedRecords(country.html);
+    const actual = listedRecords(withoutCounterparts(country.html));
     assert.equal(actual.length, new Set(actual).size, `${iso}: a resource destination is repeated`);
     assert.deepEqual(actual, listedRecords(search.html), `${iso}: progressive disclosure lost or widened the country's records`);
   }
@@ -234,54 +239,52 @@ test("the complete, localized footer is shared by every built page", () => {
 });
 
 /**
- * The warning sits where the reader uses the data: every page about a territory or a record of a draft
- * file carries it. The home page no longer counts the drafts (founder, 14 Nov 2026); it would only
- * repeat what each of those pages says, and the warning disappears file by file as files are reviewed.
+ * Nobody signing a file off is said on each record, once, beside its evidence, as a fact rather than a
+ * warning across the top of every page (founder, 17 Nov 2026). Territory pages no longer say it: every card
+ * on them leads to a record that does.
  */
-test("every country page and record page of a draft file says it has not been reviewed", () => {
+test("a record of a draft file says it awaits review beside its evidence, and no territory page shouts it", () => {
   const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
     .toSorted()
     .toReversed();
   const edition = editions[0];
   assert.ok(edition, "no edition to render");
 
-  const files = (function walk(dir: string): { review: { status: string } }[] {
-    return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) return walk(full);
-      return entry.name.endsWith(".json") ? [JSON.parse(readFileSync(full, "utf8")) as { review: { status: string } }] : [];
-    });
-  })(path.join(REPOSITORY, "data", "editions", edition));
-  const drafts = files.filter(({ review }) => review.status === "DRAFT").length;
-
-  // Every file of this edition is still a draft, so every country page must warn in its own language.
-  if (drafts === files.length) {
-    const countryPages = pages.filter(({ file }) => /^[a-z]{2}[\\/]index\.html$/u.test(file));
-    assert.ok(countryPages.length >= 6, `only ${countryPages.length} country pages were found`);
-    for (const { file, html } of countryPages) {
-      const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
-      assert.ok(html.includes(words(language).draftNotice), `${file}: a country page of draft files does not warn its reader`);
-    }
+  const countryPages = pages.filter(({ file }) => /^[a-z]{2}[\\/]index\.html$/u.test(file));
+  assert.ok(countryPages.length >= 6, `only ${countryPages.length} country pages were found`);
+  for (const { file, html } of countryPages) {
+    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    assert.ok(!html.includes(words(language).draftNotice), `${file}: the draft banner is back on a territory page`);
   }
 
   const draft = pages.find(({ file }) => file === path.join("at", "angebote", "at-niederlassung-junglandwirte", "index.html"));
   assert.ok(draft, "no Austrian record page was built");
-  assert.ok(
-    draft.html.includes(words("de").draftNotice),
-    "a record page of a draft file does not carry the warning, which is the first thing its reader is owed",
+  const austria = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", edition, "countries", "at.json"), "utf8")) as {
+    review: { status: string };
+  };
+  assert.equal(
+    draft.html.includes('data-review="pending"'),
+    austria.review.status === "DRAFT",
+    "a record does not say whether a person reviewed it",
   );
-  // A European record carries the warning exactly when the European file is a draft, whichever it is today.
+  assert.ok(!draft.html.includes(words("de").draftNotice), "a record page still carries the banner");
+  if (austria.review.status === "DRAFT") {
+    const evidence = draft.html.indexOf('id="evidence"');
+    const pending = draft.html.indexOf(words("de").reviewPending);
+    assert.ok(evidence >= 0 && pending > evidence, "the review status is not said beside the evidence");
+  }
+  // A European record says it exactly when the European file is a draft, whichever it is today.
   const european = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", edition, "eu.json"), "utf8")) as {
     review: { status: string };
   };
   const record = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
   assert.ok(record, "no European record page was built");
   assert.equal(
-    record.html.includes(words("en").draftNotice),
+    record.html.includes('data-review="pending"'),
     european.review.status === "DRAFT",
     european.review.status === "DRAFT"
-      ? "a record of a draft file does not say nobody reviewed it"
-      : "a record of a file a person reviewed still says nobody reviewed it",
+      ? "a record of a draft file does not say it awaits review"
+      : "a record of a file a person reviewed still says it awaits review",
   );
 });
 
@@ -562,8 +565,11 @@ test("a territory page says in its title what the page is about", () => {
     const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const title = /<title>([^<]*)<\/title>/u.exec(html)?.[1] ?? "";
     // Europe's page has a search title of its own, which names the subject in full.
+    const isCountry = file.split(path.sep).length === 2;
     const about =
-      file === path.join("eu", "index.html") ? words(language).euMetaTitle : words(language).territoryTitle.replace("{where}", "").trim();
+      file === path.join("eu", "index.html")
+        ? words(language).euMetaTitle
+        : (isCountry ? words(language).countryMetaTitle : words(language).territoryTitle).replace("{where}", "").trim();
     assert.ok(
       title.includes(about),
       `${file} is titled "${title}", which is a name and not a subject. A reader meets this in a search result before they meet the page.`,
@@ -1000,8 +1006,9 @@ test("on-page navigation wraps onto more lines instead of scrolling sideways, an
 test("practical needs retain descriptive icons from the shared resource vocabulary", () => {
   const home = pages.find(({ file }) => file === "index.html")?.html ?? "";
   assert.ok(home, "Europe home page was not built");
-  for (const name of ["handshake", "land-plot", "hand-coins", "graduation-cap", "messages-square"]) {
-    assert.ok(home.includes(`data-icon="lucide:${name}"`), `the ${name} entry has no descriptive icon`);
+  // The project's own two-tone set (src/icons/farm), one drawing per concept.
+  for (const name of ["handover", "land", "funding", "training", "advice"]) {
+    assert.ok(home.includes(`data-icon="farm/${name}"`), `the ${name} entry has no descriptive icon`);
   }
   assert.doesNotMatch(home, /src="\/img\/needs\//u, "retired illustrations must not be fetched");
 });

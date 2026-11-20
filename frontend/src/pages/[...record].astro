@@ -22,7 +22,6 @@ import ApplyNow from "../components/ApplyNow.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CallWindows from "../components/CallWindows.astro";
 import CountryCards from "../components/CountryCards.astro";
-import DraftNotice from "../components/DraftNotice.astro";
 import Evidence from "../components/Evidence.astro";
 import FactList from "../components/FactList.astro";
 import KindTag from "../components/KindTag.astro";
@@ -401,11 +400,6 @@ const browseHere = searchUrl("/", {
         <p class="mt-2 max-w-5xl text-lg" data-pagefind-meta="summary">
           {resource.whatItOffers}
         </p>
-        {isDraft(territory) && (
-          <div class="mt-5" data-pagefind-ignore>
-            <DraftNotice language={language} />
-          </div>
-        )}
         <span hidden data-pagefind-meta={`area:${resource.scope.area ?? ""}`}></span>
         <p class="mt-8 flex flex-wrap gap-3" data-pagefind-ignore>
           <a href={resource.accessUrl} rel="noopener" class="btn btn-primary">
@@ -620,6 +614,14 @@ const browseHere = searchUrl("/", {
           <Icon name={ICON.evidence} aria-hidden="true" class="size-7 shrink-0 text-brand" />
           {text.evidenceTitle}
         </h2>
+        {/* Nobody has signed this file off yet. Said once, where the reader weighs the evidence, as a fact about
+            the record rather than a warning across its top (founder, 17 Nov 2026): every claim above already
+            carries its source, its date and the words that were on the page. */}
+        {isDraft(territory) && (
+          <p class="meta mt-2" data-pagefind-ignore data-review="pending">
+            {text.reviewPending}
+          </p>
+        )}
         <div class="mt-2">
           <Evidence sources={resource.sources} language={language} locale={locale} />
         </div>

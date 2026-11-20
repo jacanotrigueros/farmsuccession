@@ -88,3 +88,4 @@ on the way in, which is the only honest reason for a measurement to move.
 | [036](036-help-readers-choose-before-listing-everything.md)       | Help readers choose before listing everything                   |
 | [037](037-public-reports-use-explicit-form-delivery.md)           | Formspree delivery: shared forms and pending account activation |
 | [038](038-a-retired-edition-stays-readable.md)                    | A retired edition stays readable, as it was published           |
+| [039](039-country-context-uses-comparable-observations.md)        | Country context uses comparable observations                    |

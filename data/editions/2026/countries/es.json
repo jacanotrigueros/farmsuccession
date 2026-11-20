@@ -5,7 +5,55 @@
   "country": "ES",
   "officialName": "España",
   "published": "2026-10-30",
-  "summary": "En España las ayudas a la incorporación se convocan en cada comunidad autónoma. A escala estatal destacan las medidas PAC de relevo generacional, el programa de estancias formativas CULTIVA, el Observatorio de espacios test agrarios de RETA y la plataforma de tierras Tierra Joven, anunciada en 2026 y todavía no operativa.",
+  "summary": "Si quieres empezar en el campo, consulta las ayudas de primera instalación de tu comunidad autónoma. También puedes buscar tierra, formación y asesoramiento, o encontrar recursos para traspasar tu explotación.",
+  "metaDescription": "Consulta ayudas de primera instalación por comunidad autónoma, bancos de tierras y recursos para traspasar una explotación agraria en España.",
+  "euCounterparts": {
+    "eu-cap-strategic-plans": ["es-medidas-pac-relevo-generacional"],
+    "eu-cap-young-farmers": ["es-medidas-pac-relevo-generacional"]
+  },
+  "countryContext": {
+    "consultedOn": "2026-11-19",
+    "land": {
+      "year": 2023,
+      "hectares": 23458590,
+      "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_lus?lang=en&time=2023&so_eur=TOTAL&crops=UAA&unit=HA&geo=ES",
+      "flag": "IMPUTED",
+      "europe": {
+        "year": 2023,
+        "hectares": 156217050,
+        "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_lus?lang=en&time=2023&so_eur=TOTAL&crops=UAA&unit=HA&geo=EU27_2020",
+        "flag": "IMPUTED"
+      }
+    },
+    "economy": {
+      "year": 2024,
+      "sectorValueAdded": 39713.0,
+      "gdp": 1598588.0,
+      "sectorSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a64?lang=en&time=2024&unit=CP_MEUR&nace_r2=A01&na_item=B1G&geo=ES",
+      "gdpSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?lang=en&time=2024&unit=CP_MEUR&na_item=B1GQ&geo=ES",
+      "flag": "PROVISIONAL"
+    },
+    "succession": {
+      "year": 2023,
+      "holdings": 802770,
+      "under25": 4040,
+      "from25To34": 29210,
+      "from35To39": 29720,
+      "atLeast65": 319050,
+      "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_agesex?lang=en&time=2023&so_eur=TOTAL&sex=T&unit=HLD&age=TOTAL&age=Y_LT25&age=Y25-34&age=Y35-39&age=Y_GE65&geo=ES",
+      "flag": "IMPUTED",
+      "europe": {
+        "year": 2023,
+        "holdings": 8771680,
+        "under25": 49740,
+        "from25To34": 437990,
+        "from35To39": 446920,
+        "atLeast65": 3064730,
+        "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_agesex?lang=en&time=2023&so_eur=TOTAL&sex=T&unit=HLD&age=TOTAL&age=Y_LT25&age=Y25-34&age=Y35-39&age=Y_GE65&geo=EU27_2020",
+        "flag": "IMPUTED"
+      }
+    }
+  },
   "coverage": {
     "status": "PARTIAL",
     "note": "Revisión del portal de relevo generacional del Ministerio, sus líneas de financiación, sus notas de prensa de 2026, la plataforma de la Red TERRAE y el Observatorio de espacios test agrarios de RETA. No se ha revisado la fiscalidad de la transmisión. Corrección puntual de CULTIVA el 25 de septiembre: página del programa, resolución de prórroga y sede de la fase de jóvenes. No es una revisión integral del resto de instrumentos.",
@@ -67,7 +115,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Plataforma estatal anunciada para difundir la oferta y la demanda de tierras agrarias, con información sobre financiación, normativa de transmisión de explotaciones y fiscalidad, y para poner a disposición preferente de jóvenes, mujeres y nuevos profesionales fincas rústicas del Estado.",
+      "whatItOffers": "Plataforma estatal anunciada, todavía no operativa, para reunir la oferta y la demanda de tierras agrarias, informar sobre financiación, transmisión de explotaciones y fiscalidad, y poner fincas rústicas del Estado a disposición preferente de jóvenes, mujeres y nuevos profesionales.",
       "whoCanUseIt": "Según el anuncio, jóvenes, mujeres y nuevos profesionales del sector agrario.",
       "accessUrl": "https://www.mapa.gob.es/es/prensa/ultimas-noticias/detalle_noticias/pedro-s-nchez-anuncia-un-paquete-de-medidas-para-impulsar-el-relevo-generacional-en-la-agricultura/a2e88faf-65e3-44d7-ac4f-1d287c7771ab",
       "languages": ["es"],
@@ -150,7 +198,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Resume las intervenciones del Plan Estratégico de la PAC 2023-2027 para la incorporación de jóvenes: reserva nacional de derechos, ayuda complementaria a la renta para jóvenes y ayudas al establecimiento que gestionan las comunidades autónomas.",
+      "whatItOffers": "Resume lo que prevé el Plan Estratégico de la PAC 2023-2027 para incorporarse al campo: reserva nacional de derechos, ayuda complementaria a la renta para jóvenes y ayudas al establecimiento (primera instalación) que gestionan las comunidades autónomas.",
       "accessUrl": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/medidas-pac/",
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
@@ -263,7 +311,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Punto de entrada estatal con datos sobre juventud agraria, el programa CULTIVA, la guía de incorporación, acceso a la tierra y las medidas PAC de relevo generacional.",
+      "whatItOffers": "Portal del Ministerio que reúne la guía de incorporación al sector, el programa CULTIVA, información sobre acceso a la tierra, las medidas PAC de relevo generacional y datos sobre juventud agraria.",
       "accessUrl": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/",
       "accessCostType": "FREE",
       "languages": ["es"],
@@ -288,7 +336,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación, con ICO y SAECA",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Ayuda a la financiación de jóvenes con préstamos avalados por SAECA: bonificación del 15 % del principal, con un máximo de 15.000 euros por beneficiario, y pago de la comisión del aval y de la comisión de estudio.",
+      "whatItOffers": "Préstamos para jóvenes avalados por SAECA, con una bonificación del 15 % del principal (hasta 15.000 euros por beneficiario) y el pago de la comisión del aval y de la comisión de estudio.",
       "whoCanUseIt": "Titulares de explotaciones agrarias y otros beneficiarios de la línea que no tengan más de 40 años en el año de la solicitud.",
       "howToAccess": "Solicitar el préstamo en una entidad financiera colaboradora con aval de SAECA.",
       "accessUrl": "https://www.mapa.gob.es/es/ministerio/servicios/analisis-y-prospectiva/financiacion-fiscalidad-costes-energia/medidas-apoyo-subvenciones-financiacion/lineas-financiacion/linea-jovenes",
@@ -329,7 +377,7 @@
       },
       "operator": "Ministerio de Agricultura, Pesca y Alimentación, con SAECA y las comunidades autónomas participantes",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Garantía pública sobre préstamos de entidades financieras colaboradoras para intervenciones del Plan Estratégico de la PAC, entre ellas el establecimiento de jóvenes y de nuevos agricultores, en las comunidades autónomas que lo ofrecen.",
+      "whatItOffers": "Garantía pública sobre préstamos de entidades financieras colaboradoras para intervenciones del Plan Estratégico de la PAC, entre ellas la instalación de jóvenes y de nuevos agricultores, en las comunidades autónomas que ofrecen este instrumento.",
       "whoCanUseIt": "Beneficiarios de las intervenciones incluidas en el instrumento en diez comunidades autónomas, entre ellas Aragón, Castilla-La Mancha, Comunidad de Madrid y Galicia.",
       "howToAccess": "Convocatoria de la comunidad autónoma y préstamo en una entidad financiera adherida.",
       "accessUrl": "https://www.mapa.gob.es/es/pac/instrumentos-financieros/gestion-centralizada/ifgc",
@@ -438,8 +486,5 @@
       "generatorId": "chatgpt-1"
     }
   ],
-  "limitations": [
-    "Las ayudas a la incorporación de jóvenes y nuevos agricultores se convocan en cada comunidad autónoma y se recogen en sus propios ficheros.",
-    "No se ha revisado la fiscalidad de la transmisión de explotaciones."
-  ]
+  "limitations": ["El directorio aún no cubre la fiscalidad de la transmisión de explotaciones."]
 }

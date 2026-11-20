@@ -4,7 +4,7 @@ import { test } from "node:test";
 import { compileDefinition } from "../src/schema.ts";
 import type { Call, EditionSnapshot, Metric, NewsItem, Resource } from "../src/types/edition.ts";
 import { checkSemantics } from "../src/validate-edition.ts";
-import { FAKE_EDITION_FILE, fakeEdition, fakeResource, fakeSource, fakeTerritories } from "./fixtures.ts";
+import { FAKE_EDITION_FILE, fakeCountryEdition, fakeEdition, fakeResource, fakeSource, fakeTerritories } from "./fixtures.ts";
 
 const TODAY = "2026-10-02";
 const territories = fakeTerritories();
@@ -238,4 +238,24 @@ test("the news of an edition is the news of its year, up to the day it was publi
   assert.match(errorsOf(fakeEdition({ news: [{ ...item, date: "2025-05-04" }] })), /date 2025-05-04 is outside edition 2026/u);
   assert.match(errorsOf(fakeEdition({ news: [{ ...item, date: "2026-09-30" }] })), /date 2026-09-30 is after published 2026-09-27/u);
   assert.match(errorsOf(fakeEdition({ news: [item, item] })), /news "land-bank-opened": duplicate id/u);
+});
+
+test("country context observations keep their own date and consistent age denominators", () => {
+  const sourceUrl = "https://example.test/statistics";
+  const context = {
+    consultedOn: TODAY,
+    land: { year: 2023, hectares: 100, sourceUrl },
+    economy: { year: 2025, sectorValueAdded: 25, gdp: 1000, sectorSourceUrl: sourceUrl, gdpSourceUrl: sourceUrl },
+    succession: { year: 2023, holdings: 100, under25: 1, from25To34: 4, from35To39: 5, atLeast65: 40, sourceUrl },
+  };
+  const edition = fakeCountryEdition({ countryContext: context });
+  const file = "2026/countries/xa.json";
+  assert.deepEqual(compileDefinition("schema/edition.schema.json", "countrySnapshot").errors(edition), []);
+  assert.equal(errorsOf(edition, file), "");
+  assert.match(errorsOf({ ...edition, countryContext: { ...context, consultedOn: "2026-10-03" } }, file), /consultation date/u);
+  assert.match(errorsOf({ ...edition, countryContext: { ...context, land: { ...context.land, year: 2027 } } }, file), /observation year/u);
+  assert.match(
+    errorsOf({ ...edition, countryContext: { ...context, succession: { ...context.succession, atLeast65: 99 } } }, file),
+    /age groups exceed/u,
+  );
 });

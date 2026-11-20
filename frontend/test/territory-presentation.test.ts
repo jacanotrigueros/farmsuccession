@@ -29,11 +29,13 @@ const resourceUrl = (id: string, country?: string) =>
 const allRecords = new Set(
   snapshots.flatMap(({ data }) => data.resources.map((r) => resourceUrl(r.id, "country" in data ? data.country : undefined))),
 );
-const links = (html: string) => [...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].map((m) => m[1]!);
+// A European card may also lead to its national counterpart; that cross-reference is not one of the lists.
+const links = (html: string) =>
+  [...html.replace(/<p[^>]*data-counterpart[^>]*>[\s\S]*?<\/p>/gu, "").matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].map((m) => m[1]!);
 
 test("every regional and grouping page retains exactly its own and inherited resource destinations, including empty and large regions", () => {
   let checked = 0;
-  for (const { data, layer } of snapshots) {
+  for (const { layer } of snapshots) {
     if (layer.level !== "REGION" && layer.level !== "HUB") continue;
     const slug = layer.level === "REGION" ? layer.region : layer.hub;
     const route = `/${layer.country.toLowerCase()}/${regionSlug(layer.country)}/${slug}/`;
@@ -74,11 +76,14 @@ test("documentary groupings show their children and pin every local search to al
         `${route}: ${link} loses grouping scope`,
       );
     }
-    if (data.resources.length > 0) {
-      assert.ok(
-        htmlAt(`/${cc}/`).includes(`href="${route}#own"`),
-        `${route}: common-resource count must lead to the common records, not the full regional search`,
-      );
+    const country = htmlAt(cc);
+    const groupStart = country.indexOf(`href="${route}"`);
+    assert.ok(groupStart >= 0, `${route}: country page is missing the grouping link`);
+    const firstMember = Math.min(...members.map((member) => country.indexOf(`href="/${cc}/${regionSlug(layer.country)}/${member}/"`)));
+    assert.ok(firstMember > groupStart, `${route}: member links must follow the grouping title`);
+    for (const { id } of data.resources) {
+      const position = country.indexOf(`href="${resourceUrl(id, layer.country)}"`);
+      assert.ok(position > groupStart && position < firstMember, `${route}: shared record ${id} must appear above the members`);
     }
     const scopes = [...ancestorLayers(layer, catalogue), layer, ...leafLayers(layer, catalogue)].flatMap(
       (l) => byLayer.get(layerKey(l)) ?? [],
@@ -103,7 +108,7 @@ test("country pages expose each regional resource inside its territory rather th
     const cc = iso.toLowerCase();
     const html = htmlAt(cc);
     assert.doesNotMatch(html, /id="all-records"/u, `${cc}: a second regional index duplicates territory navigation`);
-    const regional = snapshots.filter(({ layer }) => layer.level === "REGION" && layer.country === iso);
+    const regional = snapshots.filter(({ layer }) => (layer.level === "REGION" || layer.level === "HUB") && layer.country === iso);
     const local = regional.flatMap(({ data }) => data.resources);
     if (local.length === 0) continue;
     assert.match(html, /class="regional-resources /u, `${cc}: no in-place regional resources`);
@@ -112,4 +117,84 @@ test("country pages expose each regional resource inside its territory rather th
       assert.equal(links(html).filter((value) => value === url).length, 1, `${cc}: ${resource.id} must have exactly one direct index link`);
     }
   }
+});
+
+test("Spain points to its documented grants, puts loans inside the disclosure, and explains inherited island resources", () => {
+  const html = htmlAt("es");
+  const form = html.indexOf('role="search"');
+  const shortcut = html.indexOf('href="#territories"');
+  assert.ok(shortcut >= 0 && shortcut < form, "the primary action must come before the search form");
+  assert.match(html, /<h2[^>]*id="territories"[^>]*>[\s\S]*?Ayudas y recursos por comunidad autónoma<\/h2>/u);
+  assert.doesNotMatch(html, /aria-label="El directorio en cifras"/u);
+  const aragon = html.slice(html.indexOf('href="/es/regiones/aragon/"'), html.indexOf('href="/es/regiones/cantabria/"'));
+  const disclosure = aragon.indexOf("<details");
+  assert.ok(disclosure > 0);
+  assert.match(aragon.slice(0, disclosure), /Subvención para el establecimiento de jóvenes agricultores/u);
+  assert.match(aragon.slice(disclosure), /Préstamos garantizados IFGC para jóvenes agricultores/u);
+  assert.match(html, /href="\/es\/regiones\/el-hierro\/"[^>]*>[\s\S]*?Recursos de Canarias y de otros ámbitos<\/span>\s*<\/a>/u);
+  assert.match(html, /href="\/es\/regiones\/formentera\/"[^>]*>[\s\S]*?Recursos de Illes Balears y de otros ámbitos<\/span>\s*<\/a>/u);
+  assert.match(html, /Convocatoria 2024<\/span> · Cerrada · [^<]*<time datetime="2026-10-13"/u);
+});
+
+test("country search titles omit the suffix and use the optional description from data", () => {
+  for (const { data } of snapshots) {
+    if (data.schemaId !== "country-snapshot") continue;
+    const html = htmlAt(data.country.toLowerCase());
+    const title = words(data.metadata.language).countryMetaTitle.replace("{where}", data.officialName);
+    assert.equal(/<title>([^<]+)<\/title>/u.exec(html)?.[1], title);
+    assert.equal(
+      decodeHTML(
+        /<meta name="description" content="([^"]+)">/u.exec(
+          readFileSync(path.join(DIST, data.country.toLowerCase(), "index.html"), "utf8"),
+        )?.[1] ?? "",
+      ),
+      data.metaDescription ?? data.summary,
+      `${data.country}: metadata must favour the short description when supplied`,
+    );
+  }
+});
+
+test("country context gives each observation its year and source after the resources", () => {
+  for (const { data, layer } of snapshots) {
+    if (layer.level === "EU") continue;
+    const slug = layer.level === "COUNTRY" ? "" : layer.level === "HUB" ? layer.hub : layer.region;
+    const route = slug ? `${layer.country.toLowerCase()}/${regionSlug(layer.country)}/${slug}` : layer.country.toLowerCase();
+    const html = htmlAt(route);
+    const block = /<section\b[^>]*aria-labelledby="country-context"[^>]*>([\s\S]*?)<\/section>/u.exec(html)?.[1];
+    if (data.schemaId !== "country-snapshot" || !data.countryContext) {
+      assert.equal(block, undefined, `${route}: only countries with observations show context`);
+      continue;
+    }
+    const { land, economy, succession, consultedOn } = data.countryContext;
+    assert.ok(block, `${route}: missing context`);
+    assert.ok(html.indexOf('id="country-context"') > html.indexOf('id="inherited"'), `${route}: context precedes resources`);
+    assert.deepEqual(
+      [...block.matchAll(/data-year="(\d{4})"/gu)].map((match) => Number(match[1])).toSorted(),
+      [land.year, economy.year, succession.year].toSorted(),
+      `${route}: every figure states its year`,
+    );
+    // The API query is kept for audit; the reader's link opens the same table in Eurostat's data browser.
+    for (const source of [land.sourceUrl, economy.sectorSourceUrl, economy.gdpSourceUrl, succession.sourceUrl]) {
+      assert.ok(block.includes(source), `${route}: missing source ${source}`);
+      const table = new URL(source).pathname.split("/").pop();
+      assert.match(
+        block,
+        new RegExp(`href="https://ec\\.europa\\.eu/eurostat/databrowser/view/${table}/`, "u"),
+        `${route}: no readable table for ${table}`,
+      );
+    }
+    if (succession.europe) assert.match(block, /UE-27|EU-27/u, `${route}: the age bars have no EU-27 reference`);
+    assert.ok(block.includes(`<time datetime="${consultedOn}"`));
+  }
+});
+
+test("Europe's page compares every country's ages with its farms and land, and the EU-27 stays in the footer", () => {
+  const html = htmlAt("eu");
+  const block = /<section\b[^>]*aria-labelledby="age-comparison"[^>]*>([\s\S]*?)<\/section>/u.exec(html)?.[1];
+  assert.ok(block, "/eu/: no age comparison");
+  assert.equal([...block.matchAll(/<th scope="col"/gu)].length, 5, "/eu/: country, two age shares, farms and land");
+  const countries = snapshots.filter(({ data }) => data.schemaId === "country-snapshot" && data.countryContext).length;
+  const body = /<tbody>([\s\S]*?)<\/tbody>/u.exec(block)?.[1] ?? "";
+  assert.equal([...body.matchAll(/<tr\b/gu)].length, countries, "/eu/: one sortable row per country");
+  assert.match(block, /<tfoot>[\s\S]*(UE-27|EU-27)/u, "/eu/: the EU-27 reference must not be sorted with the countries");
 });

@@ -6,6 +6,46 @@
   "officialName": "Nederland",
   "published": "2026-11-16",
   "summary": "Het overzicht voor Nederland is in opbouw. De landelijke regelingen voor jonge boeren, bedrijfsopvolging, grond en pacht worden nog onderzocht; tot dan staan hier de Europese bronnen die ook in Nederland gelden.",
+  "countryContext": {
+    "consultedOn": "2026-11-19",
+    "land": {
+      "year": 2023,
+      "hectares": 1806130,
+      "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_lus?lang=en&time=2023&so_eur=TOTAL&crops=UAA&unit=HA&geo=NL",
+      "europe": {
+        "year": 2023,
+        "hectares": 156217050,
+        "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_lus?lang=en&time=2023&so_eur=TOTAL&crops=UAA&unit=HA&geo=EU27_2020",
+        "flag": "IMPUTED"
+      }
+    },
+    "economy": {
+      "year": 2024,
+      "sectorValueAdded": 19029.0,
+      "gdp": 1115252.0,
+      "sectorSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a64?lang=en&time=2024&unit=CP_MEUR&nace_r2=A01&na_item=B1G&geo=NL",
+      "gdpSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?lang=en&time=2024&unit=CP_MEUR&na_item=B1GQ&geo=NL"
+    },
+    "succession": {
+      "year": 2023,
+      "holdings": 50560,
+      "under25": 200,
+      "from25To34": 2380,
+      "from35To39": 2580,
+      "atLeast65": 12060,
+      "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_agesex?lang=en&time=2023&so_eur=TOTAL&sex=T&unit=HLD&age=TOTAL&age=Y_LT25&age=Y25-34&age=Y35-39&age=Y_GE65&geo=NL",
+      "europe": {
+        "year": 2023,
+        "holdings": 8771680,
+        "under25": 49740,
+        "from25To34": 437990,
+        "from35To39": 446920,
+        "atLeast65": 3064730,
+        "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_agesex?lang=en&time=2023&so_eur=TOTAL&sex=T&unit=HLD&age=TOTAL&age=Y_LT25&age=Y25-34&age=Y35-39&age=Y_GE65&geo=EU27_2020",
+        "flag": "IMPUTED"
+      }
+    }
+  },
   "coverage": {
     "status": "NOT_STARTED",
     "note": "Nog niet onderzocht. De bronnen die voor Nederland zijn gevonden, staan klaar voor onderzoek; tot dat onderzoek klaar is, staan hier alleen de Europese bronnen die ook hier gelden.",
