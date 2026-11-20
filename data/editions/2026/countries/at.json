@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "AT",
   "officialName": "Österreich",
-  "published": "2026-11-06",
+  "published": "2026-11-20",
   "summary": "Diese Übersicht beschreibt die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte: die einmalige Niederlassungsprämie, die jährliche Zahlung und den Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs. Dazu kommen Informationen der Sozialversicherung zu den Meldepflichten bei der Hofübergabe.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -89,6 +89,13 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-06"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -280,6 +287,36 @@
       ],
       "notes": "Die Seite informiert über Pflichten in der Sozialversicherung; eine individuelle Beratung zur Hofübergabe ersetzt sie nicht.",
       "generatorId": "claude-1"
+    },
+    {
+      "id": "at-agrarfachschulen",
+      "name": "Land- und forstwirtschaftliche Fachschulen",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Bundesministerium für Land- und Forstwirtschaft, Klima- und Umweltschutz, Regionen und Wasserwirtschaft",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Informationen zu Ausbildungszielen, Fachrichtungen und Abschlüssen land- und forstwirtschaftlicher Fachschulen sowie weiterführende Links zu den Angeboten der Länder. Die Seite beschreibt auch Fachschulen im zweiten Bildungsweg, die nach einer außerlandwirtschaftlichen Berufsausbildung eine landwirtschaftliche Qualifikation vermitteln. Zu den gesetzlichen Ausbildungszielen gehört die selbstständige Führung eines Betriebs.",
+      "howToAccess": "Folgen Sie unter „Weiterführende Informationen“ den Verweisen zu den Fachschulen im jeweiligen Bundesland. Für das sich weiterentwickelnde Angebot empfiehlt die Seite eine Anfrage bei den zuständigen Behörden.",
+      "accessUrl": "https://www.bmluk.gv.at/im-fokus/bildung/aktuelles/land-forstwirtschaftliches-schulwesen/agrarfachschulen.html",
+      "sources": [
+        {
+          "url": "https://www.bmluk.gv.at/im-fokus/bildung/aktuelles/land-forstwirtschaftliches-schulwesen/agrarfachschulen.html",
+          "title": "Land- und forstwirtschaftliche Fachschulen",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Selbstständige Führung eines land- und forstwirtschaftlichen Betriebes oder Haushaltes",
+            "Diese Schulen bieten nach einer außerlandwirtschaftlichen Berufsausbildung eine landwirtschaftliche Qualifikation an.",
+            "Sie setzen häufig eine abgeschlossene Berufsausbildung als Aufnahmebedingung voraus.",
+            "Das Angebot wird ständig weiterentwickelt, eine Anfrage bei den zuständigen Behörden ist daher empfehlenswert.",
+            "Weiterführende Informationen LFS im Burgenland LFS in Kärnten LFS in Niederösterreich LFS in Oberösterreich LFS in Salzburg LFS in der Steiermark LFS in Tirol LFS in Vorarlberg"
+          ]
+        }
+      ],
+      "notes": "Fachschulen im zweiten Bildungsweg setzen laut Seite häufig eine abgeschlossene Berufsausbildung voraus.",
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],
