@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "brandenburg",
   "officialName": "Brandenburg",
-  "published": "2026-09-30",
+  "published": "2026-11-20",
   "summary": "Brandenburg bietet eine laufend beantragbare Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte, Flächenvermittlung und öffentliche Pachtangebote. Für Gründung und Hofübernahme gibt es zudem Projektbegleitung sowie geförderte Beratung, die auch die Betriebsabgabe umfasst.",
   "coverage": {
     "status": "PARTIAL",
@@ -74,6 +74,13 @@
         "model": "gpt-6",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-29"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -150,10 +157,23 @@
             "Angebote 5",
             "Bündnis Junge Landwirtschaft e.V."
           ]
+        },
+        {
+          "url": "https://flaechenplattform.de/nachhaltige-landwirtschaft/landwirtschaftliche-flaechen-pachten",
+          "title": "Landwirtschaftliche Flächen Pachten: Flächenplattform Brandenburg",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "FLÄCHENPLATTFORM NACHHALTIGE LANDWIRTSCHAFT BRANDENBURG",
+            "Agrarimmobilien umsonst inserieren, suchen, pachten, kaufen und verkaufen",
+            "Jetzt anmelden und inserieren",
+            "Anzeigen in der Datenbank Gesuche 31 | Angebote 4",
+            "Onlineportale wie die Flächenplattform.de helfen Suchenden und Verpachtenden Agrarimmobilien zu finden oder anzubieten.",
+            "Erfolg! Wieder wird eine Fläche über die Flächenplattform Brandenburg an Junglandwirt:innen vermittelt."
+          ]
         }
       ],
       "notes": "Die Betreiberangabe der bisherigen Edition wurde berichtigt: Die Plattform nennt das Bündnis Junge Landwirtschaft e.V.; FÖL erscheint im Umfeld des Projekts, aber nicht als hier benannter Plattformbetreiber.",
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "brandenburg-klimaresiliente-landwirtschaft-gruendungsberatung",
