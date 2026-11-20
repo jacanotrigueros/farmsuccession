@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "gran-canaria",
   "officialName": "Gran Canaria",
-  "published": "2026-09-30",
+  "published": "2026-11-20",
   "summary": "Gran Canaria añade a las ayudas y formación comunes de Canarias un Banco de Tierras insular activo, formación presencial de incorporación en la Escuela de Capacitación Agraria de Arucas y una ayuda del Cabildo específicamente destinada al relevo e incorporación a la actividad ganadera.",
   "coverage": {
     "status": "PARTIAL",
@@ -63,6 +63,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -216,6 +223,44 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "gran-canaria-banco-tierras-las-palmas",
+      "name": "Banco de Tierras",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Las Palmas de Gran Canaria"
+      },
+      "operator": "Ayuntamiento de Las Palmas de Gran Canaria",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro de terrenos para cesión, aparcería o alquiler que facilita el contacto entre titulares y personas que buscan tierras para iniciar o ampliar una actividad agraria. La entidad gestora facilita los acuerdos y prevé reuniones informativas sobre los tipos de contratos.",
+      "whoCanUseIt": "Titulares que desean inscribir terrenos y personas interesadas en ampliar las tierras que trabajan o iniciar una nueva actividad agraria.",
+      "howToAccess": "Rellenar en la página el formulario de inscripción de tierras o el de demanda de tierras. La entidad indica que contactará con el solicitante tras recibir la solicitud y organizará reuniones informativas sobre contratos.",
+      "accessUrl": "https://lpgcsostenible.laspalmasgc.es/banco-de-tierras/",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "notes": "La página publica los formularios, pero no aporta una fecha reciente de actividad que permita confirmar la operación actual del servicio.",
+      "sources": [
+        {
+          "url": "https://lpgcsostenible.laspalmasgc.es/banco-de-tierras/",
+          "title": "Banco de Tierras - Medio Ambiente Las Palmas",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Portal oficial de medio ambiente del Ayuntamiento de Las Palmas de Gran Canaria.",
+            "Un Banco de Tierras consiste en un registro de terrenos que sus titulares están dispuestos a hacer un contrato de cesión, aparceria o alquiler.",
+            "Las personas interesadas en ampliar la cantidad de tierras que trabajan o al iniciar una nueva actividad agraria, pueden consultar este registro y contactar con los propietarios para ver y llegar a un acuerdo.",
+            "La entidad gestora se encarga de gestionar los contactos y facilitar los acuerdos.",
+            "Para inscribir o demandar tierras, se ha intentado que el proceso sea muy sencillo: con un sólo clic sobre el botón que quieras INSCRIPCIÓN DE TIERRAS o DEMANDA DE TIERRAS y rellenar el formulario.",
+            "Una vez recibida la solicitud nos pondremos en contacto con el solicitante y haremos reuniones informativas con todos los interesados sobre los tipos de contratos.",
+            "Si eres una persona inquieta y quieres colaborar con la dinamización agraria en Las Palmas de Gran Canaria, puedes apuntarte en QUIERO COLABORAR CON EL BANCO DE TIERRAS.",
+            "Demanda de consulta del parcelario"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
