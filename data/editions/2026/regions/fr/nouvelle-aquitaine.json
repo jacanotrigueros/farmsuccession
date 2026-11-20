@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "nouvelle-aquitaine",
   "officialName": "Nouvelle-Aquitaine",
-  "published": "2026-10-30",
+  "published": "2026-11-20",
   "summary": "La DNJA et un prêt d'honneur soutiennent l'installation agricole. La Région finance aussi des études et suivis individuels, tandis que l'AITA finance les organismes qui animent l'installation et la transmission. La Safer et des associations territoriales proposent des parcours d'accès au foncier et de transmission.",
   "coverage": {
     "status": "PARTIAL",
@@ -96,6 +96,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -557,6 +564,44 @@
         }
       ],
       "notes": "Service de l'association territoriale, et non simple renvoi vers le réseau national."
+    },
+    {
+      "id": "nouvelle-aquitaine-perigord-limousin-clit",
+      "name": "Comité local installation-transmission (CLIT) du Périgord-Limousin",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Communauté de Communes Périgord-Limousin"
+      },
+      "operator": "Communauté de Communes Périgord-Limousin, Chambre d’agriculture de Dordogne et CrDA PérigordVert",
+      "operatorType": "MIXED",
+      "whatItOffers": "Accompagnement à la création d'une entreprise agricole et à la transmission d'une exploitation : entretien personnalisé, plan d'accompagnement, identification des fermes viables à reprendre et valorisation des exploitations auprès de porteurs de projet.",
+      "whoCanUseIt": "Personnes ayant un projet d'installation agricole sur le territoire et agriculteurs souhaitant vendre leur exploitation.",
+      "howToAccess": "Prendre contact avec la Chambre d'agriculture de Dordogne ou la Communauté de Communes Périgord-Limousin par les interlocuteurs indiqués sur la page pour demander un accompagnement individualisé.",
+      "accessUrl": "https://www.perigord-limousin.fr/vos-demarches-au-quotidien/agriculture/transmission-reprise-exploitations-agricoles-en-perigord-limousin/",
+      "assetTypes": ["WHOLE_HOLDINGS"],
+      "targetProfiles": ["NEW_ENTRANT", "TRANSFEROR"],
+      "sources": [
+        {
+          "url": "https://www.perigord-limousin.fr/vos-demarches-au-quotidien/agriculture/transmission-reprise-exploitations-agricoles-en-perigord-limousin/",
+          "title": "Transmission - Reprise d'exploitations agricoles en Périgord-Limousin - Communauté de Communes Périgord-Limousin",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous avez un projet d’installation en agriculture, des offres d’exploitations vous sont proposées sur la Communauté de communes du Périgord Limousin.",
+            "Notre collectivité a signé un partenariat avec la Chambre d’agriculture et le CrDA Périgord vert vous permettant de bénéficier d’un accompagnement tout le long de la création de votre d’entreprise via le CLIT",
+            "Vous êtes agriculteur(trice), et vous souhaitez vendre votre exploitation agricole? Contactez nous afin de bénéficier d’un accompagnement individualisé",
+            "la Communauté de Communes du Périgord Limousin, la Chambre d’agriculture de Dordogne et le CrDA PérigordVert ont souhaité conjuguer leurs forces à travers la mise en place d’un comité local installation-transmission (CLIT).",
+            "entretien personnalisé, mise en place de plan d’accompagnement, valorisation de leur exploitation auprès de porteur de projet",
+            "Concrètement, un salarié de la Chambre d’Agriculture sera chargé d’identifier les fermes agricoles viables pour être reprises, sur les 22 communes de la Communauté de Communes.",
+            "Cette convention signée le 15 Novembre dernier jusqu’à fin 2020 fera l’objet de bilan régulier sur l’avancée des différents dispositifs et s’adaptera aux enjeux locaux.",
+            "Contact Chambre d’Agriculture Dordogne",
+            "Communauté de Communes Périgord-Limousin"
+          ]
+        }
+      ],
+      "notes": "La convention décrite sur la page allait jusqu'à fin 2020. La disponibilité actuelle de cet accompagnement reste à confirmer auprès des organismes partenaires.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
