@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "hauts-de-france",
   "officialName": "Hauts-de-France",
-  "published": "2026-10-25",
+  "published": "2026-11-20",
   "summary": "En Hauts-de-France, la Safer offre un accès au foncier et un portage pour l'installation. Plusieurs associations accompagnent les nouveaux agriculteurs et les cédants, et deux espaces-test permettent d'essayer une activité agricole. Pévèle Carembault maintient un appel permanent pour une aide à l'immobilier afin de créer ou de reprendre une exploitation. La validité actuelle des deux fiches d'aide régionale incluses auparavant n'a pas pu être vérifiée.",
   "coverage": {
     "status": "PARTIAL",
@@ -59,6 +59,13 @@
         "tool": "CHATGPT",
         "model": "gpt-6",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -111,10 +118,19 @@
       },
       "operator": "Initiatives Paysannes",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Accompagnement individuel pour construire un projet d'installation agricole, entretiens, outils de préparation, mise en relation avec des acteurs locaux et ateliers liés à l'installation.",
-      "whoCanUseIt": "Personnes préparant une installation agricole individuelle ou collective.",
-      "howToAccess": "Consulter la page d'accompagnement de l'association et écrire à son adresse générale publiée.",
+      "whatItOffers": "Accompagnement individuel gratuit pour construire un projet d'installation agricole, entretiens, outils de préparation, mise en relation avec des acteurs locaux et ateliers liés à l'installation. Le parcours couvre l’émergence, la formalisation du projet et le suivi jusqu’à trois ans après l’installation, avec un appui au prévisionnel économique, aux statuts, aux démarches administratives et au dépôt du dossier d’aide à l’installation.",
+      "whoCanUseIt": "Personnes préparant une installation agricole individuelle ou collective en Hauts-de-France, dès l’idée de projet, et personnes installées depuis trois ans au plus.",
+      "howToAccess": "Consulter la page d'accompagnement de l'association et écrire à son adresse générale ou au contact installation. Au stade de l’idée, s’inscrire à un café de l’émergence auprès du Point Accueil Installation Transmission (PAIT) ou d’Initiatives Paysannes. Pour demander les aides nationales ou régionales, la page indique qu’une rencontre du PAIT du département d’installation est obligatoire.",
       "accessUrl": "https://www.agriculturepaysanne.org/L-accompagnement",
+      "accessCostType": "FREE",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Installation — Initiatives Paysannes",
+          "value": "installation@initiatives-paysannes.fr",
+          "sourceUrl": "https://www.agriculturepaysanne.org/S-installer-341"
+        }
+      ],
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
       "sources": [
@@ -127,9 +143,24 @@
             "Nous accompagnons les porteur.ses de projet qui souhaitent s’installer en individuel ou en collectif.",
             "contact@initiatives-paysannes.fr"
           ]
+        },
+        {
+          "url": "https://www.agriculturepaysanne.org/S-installer-341",
+          "title": "Installation",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "L’objectif est de permettre des installations à taille humaine nombreuses et pérennes sur les territoires des Hauts-de-France.",
+            "Nous vous accompagnons de l’émergence de projet jusqu’à la post installation.",
+            "Notre accompagnement est totalement gratuit et prit en charge par la Région Hauts de France.",
+            "Nous vous accompagnons jusqu’à 3 ans après votre installation.",
+            "Vous pouvez vous inscrire auprès du Point Accueil Installation Transmission PAIT ou d’Initiatives Paysannes : installation@initiatives-paysannes.fr",
+            "C’est le stade de structuration et de concrétisation du projet : il faut maintenant construire un prévisionnel économique, définir les statuts (juridique, social, fiscal), les différentes démarches administratives (liées à l’accès au foncier notamment) et sécuriser les financements (subventions, banques…).",
+            "Si vous comptez demander les aides (nationales ou régionales) il faut obligatoirement que vous participiez à une rencontre du PAIT (inscription auprès du PAIT de votre département d’installation en consultant les dates directement sur le site).",
+            "Les conseiller.e.s d’Initiatives Paysannes peuvent vous accompagner lors de votre PPP mais également pour toutes les étapes de la formalisation (dont dépôt de dossier d’aide à l’installation)."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "hauts-de-france-initiatives-paysannes-transmission",
