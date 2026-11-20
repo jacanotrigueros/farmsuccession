@@ -1,12 +1,17 @@
 {
   "schemaVersion": "1.0.0",
-  "territory": { "level": "REGION", "country": "IT", "region": "liguria" },
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "liguria"
+  },
   "language": "it",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-11-20",
   "context": [
     "Il portale agricolo regionale agriligurianet.it descrive la banca regionale della terra e ospita la documentazione dei bandi del complemento regionale.",
     "I comunicati della giunta regionale sono la fonte leggibile più diretta sugli importi dei bandi agricoli.",
-    "La banca regionale della terra è stata attivata con una deliberazione della giunta regionale del 2014."
+    "La banca regionale della terra è stata attivata con una deliberazione della giunta regionale del 2014.",
+    "La procedura regionale di segnalazione dei terreni richiede Spid, Cie o CNS; resta da verificare la modalità di consultazione e richiesta dei terreni da parte degli interessati."
   ],
   "portals": [
     {
@@ -27,7 +32,11 @@
       "kinds": ["FINANCIAL_SUPPORT"],
       "query": "Regione Liguria bando SRE01 insediamento giovani agricoltori 2026 agriligurianet"
     },
-    { "id": "lig-terra", "kinds": ["LAND_BANK"], "query": "Liguria banca della terra terreni agricoli incolti regione assegnazione" }
+    {
+      "id": "lig-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Liguria banca della terra terreni agricoli incolti regione assegnazione"
+    }
   ],
   "leads": [
     {
@@ -61,11 +70,30 @@
       "reason": "Procedura amministrativa collegata alla banca della terra; utile per documentare il funzionamento del servizio.",
       "foundBy": "lig-terra",
       "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "lig-brt-disponibilita-terreni",
+      "name": "Banca regionale della terra - segnalazione disponibilità di terreni",
+      "url": "https://www.regione.liguria.it/homepage-agricoltura/come-fare-per/brt-disponibilita-terreni.html",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "liguria-banca-regionale-terra",
+      "checkedOn": "2026-11-20"
     }
   ],
   "instrumentChecks": [
-    { "expectedId": "it-sre01-bando-regionale", "status": "FOUND", "leadId": "lig-bando-insediamento", "checkedOn": "2026-09-20" },
-    { "expectedId": "it-banca-terra-regionale", "status": "FOUND", "leadId": "lig-banca-terra", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "lig-bando-insediamento",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "FOUND",
+      "leadId": "lig-banca-terra",
+      "checkedOn": "2026-09-20"
+    },
     {
       "expectedId": "it-formazione-insediamento",
       "status": "NOT_FOUND",
@@ -84,6 +112,11 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Prima passata con la lista di controllo nazionale: ammessi il bando di insediamento e la banca regionale della terra."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La pagina regionale documenta la procedura per segnalare terreni alla Banca regionale della terra, già censita come liguria-banca-regionale-terra, e richiede l’autenticazione con Spid, Cie o CNS. Propongo di aggiungerla alle fonti della risorsa esistente e di integrare le modalità di accesso, senza creare un nuovo strumento."
     }
   ]
 }
