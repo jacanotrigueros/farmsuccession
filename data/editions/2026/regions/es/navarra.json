@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "navarra",
   "officialName": "Comunidad Foral de Navarra",
-  "published": "2026-10-09",
+  "published": "2026-11-20",
   "summary": "Navarra combina tres líneas de establecimiento para jóvenes profesionales, jóvenes a tiempo parcial y nuevos agricultores, una ayuda específica a la cooperación para la sucesión, un servicio activo de intermediación de relevo dentro de Lurberri, formación de incorporación de INTIA y servicios de asesoramiento de INTIA y UAGN. El banco de tierras e infraestructuras anunciado dentro de Lurberri no se ha verificado como servicio independiente y operativo.",
   "coverage": {
     "status": "PARTIAL",
@@ -63,6 +63,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -249,10 +256,10 @@
       },
       "operator": "INTIA / Gobierno de Navarra",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Intermediación confidencial entre titulares que quieren abandonar o ceder una explotación y personas interesadas en incorporarse, con entrevistas, búsqueda de compatibilidades, acompañamiento personalizado y encuentros territoriales Café Relevo.",
-      "whoCanUseIt": "Personas titulares próximas al cese y personas jóvenes o nuevas interesadas en acceder al sector primario mediante el relevo de una explotación existente.",
+      "whatItOffers": "Servicio gratuito de intermediación y tutorización entre titulares que quieren abandonar o ceder una explotación y personas interesadas en incorporarse, con entrevistas, búsqueda de compatibilidades, acompañamiento personalizado y encuentros territoriales Café Relevo. Incluye búsqueda de sucesor, tasación, análisis de gestión económica y posibles ayudas, definición conjunta de condiciones jurídicas y financieras, estudio de la situación de la PAC y del acceso a la tierra, y preparación de la transición.",
+      "whoCanUseIt": "Personas titulares próximas al cese o jubiladas y personas que quieren emprender en el sector primario mediante el relevo de una explotación en Navarra. Son prioritarias las explotaciones económicamente rentables cuyos titulares están jubilados o próximos a la jubilación y carecen de relevo identificado.",
       "howToAccess": "Contactar con el equipo de Emprendimiento y Relevo Generacional de INTIA por teléfono o correo electrónico. El servicio realiza una entrevista confidencial para recoger necesidades y buscar compatibilidades.",
-      "accessUrl": "https://www.intiasa.es/es/noticias/ultima-edicion-de-los-cafe-relevo-en-2026-dirigidos-personas-jovenes-que-desean",
+      "accessUrl": "https://www.intiasa.es/es/asesoramiento/jovenes/relevo-generacional",
       "contactPoints": [
         {
           "channel": "PHONE",
@@ -267,6 +274,7 @@
           "sourceUrl": "https://www.intiasa.es/es/noticias/desarrollo-rural-ofrece-mediacion-apoyo-y-acompanamiento-jovenes-con-interes-en-tomar-el"
         }
       ],
+      "assetTypes": ["WHOLE_HOLDINGS"],
       "accessCostType": "FREE",
       "languages": ["es"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "YOUNG_FARMER", "NEW_ENTRANT"],
@@ -290,9 +298,30 @@
             "servicio gratuito de intermediación de INTIA",
             "llamando al 948 013 040 o por email a intiaemprendimiento@intiasa.es"
           ]
+        },
+        {
+          "url": "https://www.intiasa.es/es/asesoramiento/jovenes/relevo-generacional",
+          "title": "Relevo generacional | Intia",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Servicio de intermediación y tutorización",
+            "El Departamento de Desarrollo Rural y Medio Ambiente del Gobierno de Navarra pone en marcha un servicio de intermediación gratuito para conectar a las personas que quieren emprender en el sector primario con explotaciones que buscan relevo, con el objetivo de garantizar la continuidad del sector.",
+            "En Navarra existen explotaciones con dimensión económica rentable cuyos titulares están jubilados o próximos a la jubilación y carecen de un relevo identificado, lo que pone en riesgo su continuidad a corto y medio plazo.",
+            "Estas explotaciones constituyen el eje prioritario de actuación.",
+            "Contacta: intiaemprendimiento@intiasa.es 948 013 040",
+            "Encontramos a la persona sucesora (si no está ya identificada).",
+            "Valoramos la explotación (tasación).",
+            "Analizamos los datos de gestión económica de la explotación.",
+            "Estudiamos si se puede acoger a ayudas de primera instalación, de inversiones u otras.",
+            "Definimos conjuntamente las condiciones jurídicas y financieras de la transmisión (alquiler, venta, arreglos familiares, etc.)",
+            "Analizamos la situación de la PAC.",
+            "Estudiamos el acceso a la tierra.",
+            "Preparamos la transición.",
+            "El servicio de intermediación ofrece un acompañamiento personalizado e imparcial que conjuga las necesidades, objetivos y expectativas de ambas partes."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "navarra-intia-curso-incorporacion-sector-agrario",
