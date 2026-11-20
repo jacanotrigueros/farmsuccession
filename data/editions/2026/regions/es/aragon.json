@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "aragon",
   "officialName": "Aragón",
-  "published": "2026-10-09",
+  "published": "2026-11-20",
   "summary": "Aragón combina ayudas al establecimiento de jóvenes —con un tramo específico cuando integran explotaciones que cesan—, préstamos garantizados, adjudicación permanente de tierras del patrimonio agrario, formación de incorporación y servicios de asesoramiento. Zaragoza mantiene además un banco municipal de tierras para horticultura agroecológica.",
   "coverage": {
     "status": "PARTIAL",
@@ -87,6 +87,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -511,6 +518,46 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "aragon-portal-jovenes-agricultores",
+      "name": "Jóvenes agricultores",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Aragón",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Reúne enlaces a la subvención para el establecimiento de jóvenes agricultores, al Instrumento Financiero de Gestión Centralizada (IFGC), al asesoramiento agrario y a otras ayudas para jóvenes del medio rural, además de la subvención de modernización de explotaciones.",
+      "howToAccess": "Consultar los apartados del portal y acceder al trámite o a la información de cada ayuda. Para más información, la página remite al Servicio de Modernización de Explotaciones y a las Oficinas Comarcales Agrarias y Alimentarias.",
+      "accessUrl": "https://www.aragon.es/-/modernizacion-de-explotaciones-agrarias-e-instalacion-de-jovenes-agricultores",
+      "lastEvidenceDate": "2026-10-07",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Servicio de Modernización de Explotaciones",
+          "value": "agricultura@aragon.es",
+          "sourceUrl": "https://www.aragon.es/-/modernizacion-de-explotaciones-agrarias-e-instalacion-de-jovenes-agricultores"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.aragon.es/-/modernizacion-de-explotaciones-agrarias-e-instalacion-de-jovenes-agricultores",
+          "title": "Jóvenes agricultores. Gobierno de Aragón",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Información sobre las subvenciones que convoca el Departamento de Agricultura, Ganadería y Alimentación dirigidas a favorecer la incorporación de jóvenes al sector agrario y la modernización de explotaciones agrarias, así como otras ayudas a población joven del medio rural.",
+            "Última actualización: 07/10/2026",
+            "Subvención para el establecimiento de jóvenes agricultores, en el marco PEPAC 2023 -2027",
+            "Instrumento Financiero de Gestión Centralizada (IFGC)",
+            "Ayudas para solicitar asesoramiento de las empresas agrarias",
+            "Subvención en materia de modernización de las explotaciones agrarias y sus complementos (PEPAC 2023-2027)",
+            "Servicio de Modernización de Explotaciones agricultura@aragon.es Oficinas Comarcales Agrarias y Alimentarias"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
