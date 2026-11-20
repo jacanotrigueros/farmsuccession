@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "brandenburg",
   "officialName": "Brandenburg",
-  "published": "2026-09-30",
+  "published": "2026-11-20",
   "summary": "Brandenburg bietet eine laufend beantragbare Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte, Flächenvermittlung und öffentliche Pachtangebote. Für Gründung und Hofübernahme gibt es zudem Projektbegleitung sowie geförderte Beratung, die auch die Betriebsabgabe umfasst.",
   "coverage": {
     "status": "PARTIAL",
@@ -74,6 +74,13 @@
         "model": "gpt-6",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-29"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -131,8 +138,8 @@
       },
       "operator": "Bündnis Junge Landwirtschaft e.V.",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Eine Plattform mit aktuellen Angeboten und Gesuchen für landwirtschaftliche Flächen und Agrarimmobilien, die Flächeneigentümerinnen und Flächeneigentümer mit insbesondere jungen Betrieben vernetzt.",
-      "whoCanUseIt": "Flächeneigentümerinnen und Flächeneigentümer sowie Menschen und Betriebe auf der Suche nach landwirtschaftlichen Flächen.",
+      "whatItOffers": "Eine Plattform mit aktuellen Angeboten und Gesuchen für landwirtschaftliche Flächen und Agrarimmobilien, die Flächeneigentümerinnen und Flächeneigentümer mit insbesondere jungen Betrieben vernetzt. Der Schwerpunkt liegt auf nachhaltiger Landwirtschaft.",
+      "whoCanUseIt": "Flächeneigentümerinnen und Flächeneigentümer sowie Menschen und Betriebe auf der Suche nach landwirtschaftlichen Flächen, insbesondere Junglandwirtinnen und Junglandwirte sowie Existenzgründende.",
       "howToAccess": "Angebote und Gesuche auf der Plattform ansehen; nach Anmeldung ein eigenes Profil kostenlos inserieren.",
       "accessUrl": "https://flaechenplattform.de/",
       "assetTypes": ["PLOTS"],
@@ -150,10 +157,23 @@
             "Angebote 5",
             "Bündnis Junge Landwirtschaft e.V."
           ]
+        },
+        {
+          "url": "https://flaechenplattform.de/nachhaltige-landwirtschaft/junglandwirte",
+          "title": "Junglandwirte in der Nachhaltigen Landwirtschaft: Flächenplattform Brandenburg",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Agrarimmobilien umsonst inserieren, suchen, pachten, kaufen und verkaufen",
+            "Jetzt anmelden und inserieren",
+            "Angebote wie beispielsweise auf flaechenplattform.de, hof-gesucht-gefunden.de, oder hofsuchtbauer.de helfen jungen Landwirtinnen und Landwirten kostenlos bei ihrer Suche und vermitteln zwischen Landbesitzern und Suchenden.",
+            "Junglandwirt:innen und Existenzgründerinnen und Existenzgründer in der Landwirtschaft stehen oft vor der Herausforderung, Landwirtschaftsflächen zu finden.",
+            "Die Flächenplattform setzt dabei einen Fokus auf die nachhaltige Landwirtschaft.",
+            "Angebot Hofstelle mit 8,2 ha im Biosphärenreservat Elbe sucht Bewirtschafter – Lenzen (Elbe), Prignitz"
+          ]
         }
       ],
       "notes": "Die Betreiberangabe der bisherigen Edition wurde berichtigt: Die Plattform nennt das Bündnis Junge Landwirtschaft e.V.; FÖL erscheint im Umfeld des Projekts, aber nicht als hier benannter Plattformbetreiber.",
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "brandenburg-klimaresiliente-landwirtschaft-gruendungsberatung",
