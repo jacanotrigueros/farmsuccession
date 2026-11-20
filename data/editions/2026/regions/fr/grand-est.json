@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "grand-est",
   "officialName": "Grand Est",
-  "published": "2026-10-25",
+  "published": "2026-11-20",
   "summary": "Le Grand Est complète les aides nationales par une aide régionale à l'installation des nouveaux agriculteurs de plus de quarante ans, et les Chambres d'agriculture y animent un guichet gratuit et des aides du programme AITA pour préparer la transmission des exploitations.",
   "coverage": {
     "status": "PARTIAL",
@@ -47,6 +47,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -146,9 +153,9 @@
       },
       "operator": "Safer Grand Est",
       "operatorType": "MIXED",
-      "whatItOffers": "Accès aux annonces foncières de la Safer Grand Est, avec l’AINA et le Point Info Transmission parmi les autres ressources régionales documentées ici.",
-      "whoCanUseIt": "Porteurs de projet qui cherchent des terres, des bois ou des vignes, exploitants qui veulent transmettre, pérenniser, vendre ou louer, investisseurs et collectivités.",
-      "howToAccess": "Consulter les annonces légales et le guide pour candidater à une vente ou une location de foncier, et contacter la Safer pour un projet d’installation ou de transmission.",
+      "whatItOffers": "Accès aux annonces foncières de la Safer Grand Est et accompagnement de la transmission : estimation du bien, recherche de repreneurs, examen des candidatures et suivi jusqu’à la signature des actes. Le conseiller étudie des solutions de vente ou de location, partielles ou totales, en une ou plusieurs fois.",
+      "whoCanUseIt": "Porteurs de projet qui cherchent des terres, des bois ou des vignes, exploitants qui veulent transmettre, pérenniser, vendre ou louer, investisseurs et collectivités. L’accompagnement à la transmission s’adresse notamment aux exploitants qui cessent leur activité ou prennent leur retraite.",
+      "howToAccess": "Consulter les annonces légales et le guide pour candidater à une vente ou une location de foncier. Pour transmettre une exploitation, contacter le conseiller foncier de son département et définir avec lui la valeur du bien et les conditions de la transmission en fonction de ses besoins.",
       "accessUrl": "https://www.safer-grand-est.fr/",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
@@ -178,10 +185,24 @@
           "title": "Programme pluriannuel d’activité de la Safer Grand Est 2022-2028",
           "consultedOn": "2026-10-25",
           "quotes": ["fusion des trois Safer Alsace,  Champagne-Ardenne et Lorraine en 2017"]
+        },
+        {
+          "url": "https://www.safer-grand-est.fr/votre-projet/transmettre-mon-exploitation",
+          "title": "Mon projet : Transmettre mon exploitation - Safer Grand Est",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous cessez votre activité ou prenez votre retraite et vous voulez transmettre votre exploitation : Contactez le conseiller foncier de votre département.",
+            "Définissez avec lui la valeur de votre bien et les conditions de la transmission en fonction de vos besoins.",
+            "Le conseiller Safer expertise votre bien à sa juste valeur, grâce à sa connaissance du terrain et du marché.",
+            "Il étudie avec vous des solutions sur mesure de transmission (vente ou location, partielle ou totale, en une ou plusieurs fois).",
+            "Il recherche des candidats sérieux à la reprise de votre exploitation et vous décharge de l’arbitrage entre candidatures concurrentes.",
+            "Elle organise des commissions d’acteurs locaux (professionnels agricoles, élus,…) qui examinent tous les projets des candidats et identifient le(s) candidat(s) dont le projet répond le mieux à la reprise de votre exploitation.",
+            "Il vous accompagne dans toutes vos démarches, jusqu’à la signature des actes de cession, en vous apportant la sécurité juridique."
+          ]
         }
       ],
-      "generatorId": "claude-1",
-      "notes": "La Safer Grand Est intervient dans les Ardennes (08), l’Aube (10), la Marne (51), la Haute-Marne (52), la Meurthe-et-Moselle (54), la Meuse (55), la Moselle (57), le Bas-Rhin (67), le Haut-Rhin (68) et les Vosges (88). Elle est issue de la fusion en 2017 des Safer Alsace, Champagne-Ardenne et Lorraine."
+      "notes": "La Safer Grand Est intervient dans les Ardennes (08), l’Aube (10), la Marne (51), la Haute-Marne (52), la Meurthe-et-Moselle (54), la Meuse (55), la Moselle (57), le Bas-Rhin (67), le Haut-Rhin (68) et les Vosges (88). Elle est issue de la fusion en 2017 des Safer Alsace, Champagne-Ardenne et Lorraine.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
