@@ -1,13 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "territory": { "level": "REGION", "country": "ES", "region": "la-gomera" },
+  "territory": {
+    "level": "REGION",
+    "country": "ES",
+    "region": "la-gomera"
+  },
   "language": "es",
-  "updatedOn": "2026-09-28",
+  "updatedOn": "2026-11-20",
   "context": [
     "La ayuda a jóvenes agricultores y la formación común en línea de las Escuelas de Capacitación Agraria se heredan desde la capa Canarias.",
     "La Gomera mantiene un Banco Insular de Tierras propio; en agosto de 2026 el Cabildo anunció un convenio con Red TERRAE que garantiza dos años de continuidad y dinamización.",
     "AIDER La Gomera ejecuta Emprende Rural La Gomera 2025–2026, con tutelaje y asesoramiento a ideas de negocio rural y objetivo explícito de relevo generacional en el sector primario.",
-    "Las Agencias de Extensión Agraria de San Sebastián y Vallehermoso prestan asesoramiento técnico general e in situ y tramitan ayudas, pero no se consideran por sí mismas un servicio específico de relevo."
+    "Las Agencias de Extensión Agraria de San Sebastián y Vallehermoso prestan asesoramiento técnico general e in situ y tramitan ayudas, pero no se consideran por sí mismas un servicio específico de relevo.",
+    "El listado de noticias es mutable: las citas de agosto han salido de la página, sin que ello indique el cierre del banco; conviene localizar las noticias individuales para conservar evidencia estable."
   ],
   "portals": [
     {
@@ -23,7 +28,11 @@
   ],
   "openData": [],
   "queries": [
-    { "id": "gom-tierras-2026", "kinds": ["LAND_BANK"], "query": "La Gomera banco de tierras parcelas 2026 Red TERRAE" },
+    {
+      "id": "gom-tierras-2026",
+      "kinds": ["LAND_BANK"],
+      "query": "La Gomera banco de tierras parcelas 2026 Red TERRAE"
+    },
     {
       "id": "gom-incorporacion-2026",
       "kinds": ["FINANCIAL_SUPPORT", "ADVICE"],
@@ -34,7 +43,11 @@
       "kinds": ["SUCCESSION_SERVICE", "ADVICE"],
       "query": "La Gomera relevo generacional agricultura Cabildo AIDER 2026"
     },
-    { "id": "gom-formacion-2026", "kinds": ["TRAINING"], "query": "La Gomera formación incorporación empresa agraria 2026" },
+    {
+      "id": "gom-formacion-2026",
+      "kinds": ["TRAINING"],
+      "query": "La Gomera formación incorporación empresa agraria 2026"
+    },
     {
       "id": "gom-organizaciones-2026",
       "kinds": ["ADVICE"],
@@ -108,16 +121,36 @@
     }
   ],
   "instrumentChecks": [
-    { "expectedId": "es-incorporacion-jovenes", "status": "FOUND", "leadId": "gom-canarias-jovenes", "checkedOn": "2026-09-28" },
+    {
+      "expectedId": "es-incorporacion-jovenes",
+      "status": "FOUND",
+      "leadId": "gom-canarias-jovenes",
+      "checkedOn": "2026-09-28"
+    },
     {
       "expectedId": "es-sucesion-cese",
       "status": "NOT_FOUND",
       "reason": "Emprende Rural fomenta el relevo mediante nuevos proyectos y el banco facilita tierra, pero no se verificó un servicio específico para cesión/transmisión de explotaciones completas o apoyo a titulares que cesan.",
       "checkedOn": "2026-09-28"
     },
-    { "expectedId": "es-banco-tierras", "status": "FOUND", "leadId": "gom-banco-tierras", "checkedOn": "2026-09-28" },
-    { "expectedId": "es-formacion-incorporacion", "status": "FOUND", "leadId": "gom-eca-cursos", "checkedOn": "2026-09-28" },
-    { "expectedId": "es-organizaciones-asesoramiento", "status": "FOUND", "leadId": "gom-emprende-rural", "checkedOn": "2026-09-28" }
+    {
+      "expectedId": "es-banco-tierras",
+      "status": "FOUND",
+      "leadId": "gom-banco-tierras",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-formacion-incorporacion",
+      "status": "FOUND",
+      "leadId": "gom-eca-cursos",
+      "checkedOn": "2026-09-28"
+    },
+    {
+      "expectedId": "es-organizaciones-asesoramiento",
+      "status": "FOUND",
+      "leadId": "gom-emprende-rural",
+      "checkedOn": "2026-09-28"
+    }
   ],
   "log": [
     {
@@ -139,6 +172,11 @@
       "date": "2026-09-28",
       "by": "CHATGPT (GPT-5.6 Sol)",
       "summary": "Pasada 1.9.0: Banco Insular de Tierras revalidado con continuidad 2026–2028; admitido Emprende Rural La Gomera 2025–2026 como asesoramiento/tutelaje para nuevos proyectos y relevo del sector primario; extensión agraria general y fincas piloto rechazadas como recursos separados."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "El listado ya no contiene las citas de agosto, pero la noticia del 5 de noviembre confirma que el Banco Insular de Tierras sigue prestando un servicio público y gratuito y publica un teléfono de asesoramiento. Sustituyo las citas desaparecidas, actualizo la fecha de evidencia y añado ese contacto; retiro la nota sobre el convenio y las nuevas parcelas porque esta página ya no la respalda."
     }
   ]
 }
