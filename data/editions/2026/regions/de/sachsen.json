@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "sachsen",
   "officialName": "Sachsen",
-  "published": "2026-09-20",
+  "published": "2026-11-20",
   "summary": "Sachsen führt beide Wege des Generationswechsels zusammen: Das Förderportal des Freistaats beschreibt eine eigene Beihilfe für Existenzgründungen und Hofnachfolgen, und der Beratungsdienst des Landesamtes begleitet Übergebende wie Übernehmende vertraulich und kostenfrei.",
   "coverage": {
     "status": "PARTIAL",
@@ -37,6 +37,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -86,8 +93,8 @@
       },
       "operator": "Sächsisches Landesamt für Umwelt, Landwirtschaft und Geologie",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Vertrauliche und kostenfreie Begleitung der Hofübergabe und der Betriebsgründung: Der Beratungsdienst steht Übergebenden und Übernehmenden zur Seite und stellt Hinweise sowie Faltblätter zum Generationswechsel bereit.",
-      "whoCanUseIt": "Betriebsinhaberinnen und Betriebsinhaber in Sachsen, die einen Hof übergeben, übernehmen oder neu gründen wollen.",
+      "whatItOffers": "Vertrauliche und kostenfreie Begleitung der Hofübergabe und der Betriebsgründung: Der Beratungsdienst steht Übergebenden und Übernehmenden zur Seite und stellt Hinweise sowie Faltblätter zum Generationswechsel bereit. Zur Übergabe unterstützt er bei der langfristigen Vorbereitung, persönlichen Vorstellungen, wirtschaftlichen und familiären Voraussetzungen, der Wahl des Zeitpunktes und der Kontaktaufnahme zu Steuerberatung, Rechtsberatung und Sozialversicherung.",
+      "whoCanUseIt": "Betriebsinhaberinnen und Betriebsinhaber in Sachsen, die einen Hof übergeben, übernehmen oder neu gründen wollen. Das Beratungsangebot zum Generationswechsel richtet sich an landwirtschaftliche und gartenbauliche Betriebe; als Hofnachfolger kommen eigene Kinder oder außerfamiliäre Interessenten infrage.",
       "howToAccess": "Kontakt zum Beratungsdienst des Landesamtes aufnehmen und rechtzeitig mit der Vorbereitung beginnen.",
       "accessUrl": "https://www.lfulg.sachsen.de/beratungsdienst-7490.html",
       "languages": ["de"],
@@ -104,9 +111,26 @@
             "Die Beratung zur Hofübergabe können Sie kostenfrei in Anspruch nehmen.",
             "Sie möchten einen landwirtschaftlichen Betrieb gründen oder übernehmen? Die Hinweise zur landwirtschaftlichen Betriebsgründung helfen Ihnen, die formalen Anforderungen im Blick zu behalten."
           ]
+        },
+        {
+          "url": "https://slub.qucosa.de/api/qucosa%3A93025/attachment/ATT-0/",
+          "title": "Hofübergabe Generationenwechsel gestalten",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Das Beratungsangebot des Sächsischen Landesamtes für Um- welt, Landwirtschaft und Geologie (LfULG) richtet sich an land- wirtschaftliche und gartenbauliche Betriebe, bei denen der Generationswechsel ansteht.",
+            "bei der langfristigen Vorbereitung, Planung und Kommuni- kation",
+            "bei der Ergründung persönlicher Wünsche und Vorstellungen",
+            "bei der Überprüfung der wirtschaftlichen Voraussetzungen",
+            "beim Wählen des richtigen Zeitpunktes",
+            "bei der Klärung der familiären Voraussetzungen",
+            "bei der Kontaktaufnahme zum Steuerberater, zum Rechts- anwalt, zur Sozialversicherung für Landwirtschaft, Forsten und Gartenbau (SVLFG) u.a.",
+            "Die Beratung durch den Beratungsdienst des LfULG erfolgt ver- traulich und ist für Betriebe in Sachsen kostenfrei.",
+            "Hofnachfolger können die eigenen Kinder oder außerfamiliäre Interessenten sein.",
+            "Beginnen Sie rechtzeitig mit der Planung der Hofnachfolge."
+          ]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],
