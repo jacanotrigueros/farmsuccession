@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "auvergne-rhone-alpes",
   "officialName": "Auvergne-Rhône-Alpes",
-  "published": "2026-11-05",
+  "published": "2026-11-20",
   "summary": "Auvergne-Rhône-Alpes dispose d'une Safer active pour l'accès au foncier et la transmission et d'un accompagnement territorial de Terre de Liens en Rhône-Alpes. La Dotation Jeunes Agriculteurs régionale et le programme AITA restent à revérifier faute de source consultable.",
   "coverage": {
     "status": "PARTIAL",
@@ -59,6 +59,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -143,6 +150,51 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "auvergne-rhone-alpes-ajis",
+      "name": "Aide en faveur des Jeunes Installés par la Safer (AJIS)",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer Auvergne-Rhône-Alpes",
+      "operatorType": "MIXED",
+      "whatItOffers": "Prise en charge partielle des frais d'acte notarié lors de l'achat de tout ou partie de l'exploitation via la Safer Auvergne-Rhône-Alpes à l'installation. L'aide est remise par chèque ; son montant est communiqué par les équipes après vérification de l'éligibilité.",
+      "whoCanUseIt": "Exploitants agricoles à titre principal, y compris en cas de pluriactivité, âgés de moins de 45 ans, s'installant pour la première fois en agriculture avec ou sans la DJA et dont le siège d'exploitation est en Auvergne-Rhône-Alpes. Les biens doivent avoir été achetés via la Safer AuRA en nom propre ou par une société dont le demandeur détient au moins la moitié des parts et/ou assure la gérance.",
+      "howToAccess": "Remplir le formulaire AJIS accessible depuis cette page dès l'achat et avant le 31 décembre de l'année d'acquisition. Déposer les justificatifs au plus tard dans les 12 mois suivant l'achat : attestation MSA pour une installation non aidée ou certificat de conformité pour une installation avec DJA, attestation notariale de signature de l'acte d'achat et carte d'identité. Pour une installation via une société, ajouter l'extrait Kbis, les statuts et, si l'achat est réalisé par une SCI ou un GFA, le bail signé entre la société et le demandeur.",
+      "accessUrl": "https://safer-aura.fr/solliciter-aide-ajis/",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT", "LAND_ACQUISITION"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://safer-aura.fr/solliciter-aide-ajis/",
+          "title": "Solliciter l’aide AJIS",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Aide en faveur des Jeunes Installés par la Safer",
+            "Si vous remplissez les conditions requises, ce dispositif offre une prise en charge partielle des frais d'acte notarié.",
+            "Il s'applique uniquement si vous avez acheté tout ou partie de votre exploitation via la Safer Auvergne-Rhône-Alpes lors de votre installation.",
+            "Vous êtes installé en qualité d'exploitant agricole à titre principal (y compris en cas de pluriactivité)",
+            "Vous avez acheté des biens via la Safer AuRA, en nom propre ou par le biais d'une société dont vous détenez au moins la moitié des parts et/ou vous avez la gérance.",
+            "Vous vous installez pour la première fois en agriculture avec ou sans la DJA.",
+            "Vous êtes âgé de moins de 45 ans.",
+            "Votre siège d'exploitation se situe en région Auvergne-Rhône-Alpes.",
+            "Vous pouvez postuler pour l'aide AJIS dès votre achat et avant le 31 décembre de l'année lors de laquelle l'acquisition a été réalisée.",
+            "les pièces sont à déposer au plus tard dans les 12 mois suivant votre achat",
+            "votre attestation MSA en cas d'installation non aidée ou votre certificat de conformité en cas d'installation aidée (obtention de la DJA)",
+            "votre attestation de la signature de l'acte d'achat délivrée par votre notaire",
+            "votre carte d'identité",
+            "Bail signé entre la société et vous, si l'achat a été réalisé par une SCI ou un GFA",
+            "Extrait Kbis Statuts de la société",
+            "Accéder au formulaire AJIS",
+            "Enfin, si vous êtes éligible, vous serez contacté par nos équipes. Elles vous indiqueront ensuite le montant de l'aide AJIS octroyée ainsi que les conditions de la remise du chèque."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
