@@ -1,12 +1,17 @@
 {
   "schemaVersion": "1.0.0",
-  "territory": { "level": "REGION", "country": "FR", "region": "la-reunion" },
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "la-reunion"
+  },
   "language": "fr",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-11-20",
   "context": [
     "L’aide à l’installation réunionnaise est cofinancée par le fonds européen agricole et le Département ; ses pages officielles n’étaient pas lisibles lors de cette passe.",
     "daaf.reunion.agriculture.gouv.fr a expiré, departement974.fr renvoie un accès refusé (403) et agribio.reunion.chambagri.fr présente un certificat non vérifiable.",
-    "La Safer Réunion applique des frais de candidature par dossier, avec des exceptions indiquées dans l’avis."
+    "La Safer Réunion applique des frais de candidature par dossier, avec des exceptions indiquées dans l’avis.",
+    "La page de transmission de la SAFER Réunion décrit un accompagnement des cédants, distinct de la procédure d’appel à candidature pour acheter ou louer."
   ],
   "portals": [
     {
@@ -22,7 +27,11 @@
       "kinds": ["FINANCIAL_SUPPORT"],
       "query": "Région Réunion aide installation jeunes agriculteurs FEADER DJA 2026 dispositif"
     },
-    { "id": "re-safer", "kinds": ["LAND_BANK"], "query": "Safer Réunion installation foncier agricole appels à candidatures site officiel" }
+    {
+      "id": "re-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Réunion installation foncier agricole appels à candidatures site officiel"
+    }
   ],
   "leads": [
     {
@@ -55,6 +64,15 @@
       "reason": "Connexion expirée lors de cette passe ; réessayer à la prochaine mise à jour.",
       "foundBy": "re-installation",
       "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "re-safer-transmission",
+      "name": "Evaluer, Vendre et Transmettre",
+      "url": "https://www.safer-reunion.fr/vendre-et-transmettre",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "la-reunion-safer-transmission",
+      "checkedOn": "2026-11-20"
     }
   ],
   "instrumentChecks": [
@@ -70,7 +88,12 @@
       "reason": "Aucun dispositif d’accompagnement à la transmission propre au territoire n’a été vérifié.",
       "checkedOn": "2026-09-20"
     },
-    { "expectedId": "fr-safer-foncier", "status": "FOUND", "leadId": "re-safer-candidature", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "re-safer-candidature",
+      "checkedOn": "2026-09-20"
+    },
     {
       "expectedId": "fr-associations-installation",
       "status": "NOT_FOUND",
@@ -83,6 +106,11 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Première passe avec la liste de contrôle nationale : Safer Réunion admise ; aide à l’installation inaccessible sur les sites officiels."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page de la SAFER Réunion décrit un accompagnement des propriétaires pour évaluer et transmettre leur bien, rechercher des repreneurs et sécuriser les démarches. Je propose un service de transmission distinct des appels à candidature déjà publiés, avec accès par le formulaire de la page."
     }
   ]
 }
