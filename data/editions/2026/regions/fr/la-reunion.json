@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "la-reunion",
   "officialName": "La Réunion",
-  "published": "2026-09-20",
+  "published": "2026-11-20",
   "summary": "À La Réunion, la Safer publie des avis d’appel à candidature pour rétrocéder des terres agricoles, des exploitations et des propriétés rurales, et accompagne les candidats jusqu’à la signature de l’acte ; l’aide à l’installation des jeunes agriculteurs n’a pas pu être citée sur une source lisible.",
   "coverage": {
     "status": "PARTIAL",
@@ -37,6 +37,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -74,6 +81,36 @@
         }
       ],
       "generatorId": "claude-1"
+    },
+    {
+      "id": "la-reunion-terres-incultes",
+      "name": "Procédure « Terres Incultes »",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "SAFER Réunion, pour le compte du Département",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Recensement et inventaire des terres en friche pour leur reconquête agricole, notamment afin de répondre aux besoins d’installation des nouveaux agriculteurs et d’agrandissement des actifs. La page permet de signaler une parcelle en friche.",
+      "howToAccess": "Remplir le formulaire « Terrain en friche » sur la page pour informer la SAFER d’une parcelle en friche.",
+      "accessUrl": "https://www.safer-reunion.fr/terres-en-friche",
+      "assetTypes": ["PLOTS"],
+      "sources": [
+        {
+          "url": "https://www.safer-reunion.fr/terres-en-friche",
+          "title": "TERRES EN FRICHE | SAFER Réunion",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "La SAFER mène pour le compte du Département la procédure dite des « Terres Incultes ».",
+            "besoins en installation des nouveaux agriculteurs, besoins en agrandissement des actifs, protection du foncier agricole par la reconquête de terres agricoles en friche",
+            "Les recensements s’opèrent sur la base d’inventaires réalisés par la cellule Terres Incultes.",
+            "Vous souhaitez nous informer d'une parcelle en friche",
+            "Terrain en friche Pour nous informer, veuillez prendre le temps de remplir les informations ci-dessous."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],
