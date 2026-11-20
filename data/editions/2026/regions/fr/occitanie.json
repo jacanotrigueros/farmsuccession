@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "occitanie",
   "officialName": "Occitanie",
-  "published": "2026-10-25",
+  "published": "2026-11-20",
   "summary": "L'Occitanie propose deux dotations d'installation, un stage de reprise, un portage foncier et des accompagnements à l'installation et à la transmission. La Safer et des associations disposent également de services territoriaux.",
   "coverage": {
     "status": "PARTIAL",
@@ -88,6 +88,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -464,6 +471,54 @@
         }
       ],
       "notes": "L'ADEAR du Lot fournit ici un accès départemental propre ; les liens vers les annonces nationales de partenaires ne sont pas dupliqués comme ressources locales."
+    },
+    {
+      "id": "occitanie-ardear-installer",
+      "name": "S’installer",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "ARDEAR Occitanie et ADEAR-Terres Vivantes (TV) d’Occitanie",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Orientation vers les associations départementales et accompagnement technique, humain et opérationnel pour préparer une installation en agriculture paysanne.",
+      "whoCanUseIt": "Personnes portant un projet d’installation en agriculture paysanne en Occitanie.",
+      "howToAccess": "Retrouver les coordonnées des associations départementales dans la rubrique contact du site pour joindre les animatrices et animateurs des ADEAR-Terres Vivantes.",
+      "accessUrl": "https://www.agriculturepaysanne.org/S-installer-607",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ARDEAR Occitanie",
+          "value": "ardear.occitanie@jeminstallepaysan.org",
+          "sourceUrl": "https://www.agriculturepaysanne.org/S-installer-607"
+        },
+        {
+          "channel": "PHONE",
+          "label": "ARDEAR Occitanie",
+          "value": "04 67 06 23 67",
+          "sourceUrl": "https://www.agriculturepaysanne.org/S-installer-607"
+        }
+      ],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.agriculturepaysanne.org/S-installer-607",
+          "title": "S’installer",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "ARDEAR Occitanie",
+            "Pour se former et s’informer : les associations départementales",
+            "Pour s’installer en agriculture paysanne en Occitanie, il est nécessaire de se former, de s’informer et de se faire accompagner par des professionnels qui sauront répondre à vos interrogations et vous orienteront au mieux.",
+            "Les animatrices et animateurs des ADEAR-Terres Vivantes (TV) d’Occitanie sont là pour vous aider.",
+            "Vous pouvez retrouver toutes leurs coordonnées dans la rubrique contact de notre site.",
+            "Un accompagnement technique, humain et opérationnel de qualité dans les ADEAR-TV",
+            "ardear.occitanie@jeminstallepaysan.org",
+            "04 67 06 23 67"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
