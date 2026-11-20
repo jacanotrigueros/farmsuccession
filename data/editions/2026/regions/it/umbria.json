@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "umbria",
   "officialName": "Umbria",
-  "published": "2026-09-28",
+  "published": "2026-11-20",
   "summary": "L'Umbria ha pubblicato nel 2026 un bando SRE01 da 9 milioni di euro per il primo insediamento dei giovani agricoltori, con domande chiuse il 2 settembre. Il Banco della Terra regionale è documentato, ma la disponibilità attuale dei suoi beni non è confermata.",
   "coverage": {
     "status": "PARTIAL",
@@ -79,6 +79,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -183,14 +190,14 @@
       },
       "operator": "Agenzia Forestale Regionale dell'Umbria",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Strumento regionale per l'assegnazione in concessione di terreni del patrimonio agroforestale pubblico mediante avvisi.",
-      "whoCanUseIt": "Chi possiede i requisiti dell'avviso relativo ai beni offerti; il programma regionale dichiara l'obiettivo di favorire l'accesso dei giovani alla terra.",
-      "howToAccess": "Verificare gli avvisi di AFOR e seguire la procedura del singolo bando. Il quarto avviso del Banco della Terra, pubblicato nel 2022, è archiviato; non è stata confermata una nuova finestra del Banco.",
+      "whatItOffers": "Elenco regionale di terreni agricoli, a vocazione agricola e agroforestali e di aziende agricole, di proprietà pubblica o privata, disponibili per la locazione o la concessione. Gli avvisi AFOR documentati riguardano l'assegnazione in concessione di terreni del patrimonio agroforestale pubblico.",
+      "whoCanUseIt": "Chi possiede i requisiti dell'avviso relativo ai beni offerti; il programma regionale dichiara l'obiettivo di favorire l'accesso dei giovani alla terra. I proprietari privati possono chiedere l'iscrizione dei propri beni secondo l'avviso previsto dal regolamento e previa convenzione con l'Agenzia forestale regionale.",
+      "howToAccess": "Verificare gli avvisi di AFOR e seguire la procedura del singolo bando. Per l'assegnazione il regolamento richiede una domanda corredata da un progetto di impiego, con scheda tecnico-economica delle attività e bilancio di previsione. Per iscrivere beni privati, il regolamento prevede un avviso annuale dell'Agenzia forestale regionale e una richiesta del proprietario entro trenta giorni dalla pubblicazione. Il quarto avviso del Banco della Terra, pubblicato nel 2022, è archiviato; non è stata confermata una nuova finestra del Banco.",
       "accessUrl": "https://afor.umbria.it/bandieavvisi/4-avviso-banco-della-terra-assegnazione-in-concessione-beni-appartenenti-al-patrimonio-agro-forestale-regionale-indisponibile/",
-      "assetTypes": ["PLOTS"],
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "sectors": ["AGRICULTURE", "FORESTRY"],
       "languages": ["it"],
-      "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER"],
+      "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER", "LANDOWNER"],
       "sources": [
         {
           "url": "https://afor.umbria.it/bandieavvisi/4-avviso-banco-della-terra-assegnazione-in-concessione-beni-appartenenti-al-patrimonio-agro-forestale-regionale-indisponibile/",
@@ -217,9 +224,25 @@
           "title": "Programma delle attività 2026 - Agenzia Forestale Regionale dell'Umbria",
           "consultedOn": "2026-09-28",
           "quotes": ["come accaduto per il IV Avviso del “Banco della Terra”.", "Si ritiene che tale strumento debba essere ottimizzato"]
+        },
+        {
+          "url": "https://leggi.alumbria.it/mostra_atto_stampabile.php?file=reg2015-010.xml",
+          "title": "REGOLAMENTO REGIONALE n.10 del 4 maggio 2015",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Il Banco della Terra consiste in un elenco dei terreni agricoli ed a vocazione agricola, dei terreni agro-forestali [ ... ] [3] e delle aziende agricole[4] , di proprietà pubblica o privata, idonei e disponibili ad essere concessi in locazione o in concessione.",
+            "è gestito dall'Agenzia forestale regionale",
+            "L'Agenzia forestale regionale, entro il 30 novembre di ogni anno, pubblica nel proprio sito internet istituzionale un avviso ai fini dell'iscrizione dei beni di proprietà privata nel Banco della Terra.",
+            "I proprietari possono, entro trenta giorni dalla data dell'avviso di cui al medesimo comma 4",
+            "I beni di proprietà di soggetti privati sono iscritti nel Banco della Terra previa stipulazione di apposita convenzione tra tali soggetti e [ ... ] [21] l'Agenzia forestale regionale[22] .",
+            "devono presentare domanda di assegnazione corredata anche [ ... ] [36] da un progetto di impiego",
+            "una scheda tecnico-economica relativa alle attività previste",
+            "il bilancio di previsione"
+          ]
         }
       ],
-      "notes": "Il programma AFOR per il 2026 riferisce che il quarto avviso è andato deserto e propone migliorare lo strumento. AFOR ha pubblicato altre concessioni di terreni nel 2026, ma le pagine esaminate non le identificano come nuovi avvisi del Banco della Terra. La loro esistenza non basta a cambiarne lo stato in «Attivo»."
+      "notes": "Il programma AFOR per il 2026 riferisce che il quarto avviso è andato deserto e propone migliorare lo strumento. AFOR ha pubblicato altre concessioni di terreni nel 2026, ma le pagine esaminate non le identificano come nuovi avvisi del Banco della Terra. La loro esistenza non basta a cambiarne lo stato in «Attivo».",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
