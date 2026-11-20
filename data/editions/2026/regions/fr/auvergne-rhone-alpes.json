@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "auvergne-rhone-alpes",
   "officialName": "Auvergne-Rhône-Alpes",
-  "published": "2026-11-05",
+  "published": "2026-11-20",
   "summary": "Auvergne-Rhône-Alpes dispose d'une Safer active pour l'accès au foncier et la transmission et d'un accompagnement territorial de Terre de Liens en Rhône-Alpes. La Dotation Jeunes Agriculteurs régionale et le programme AITA restent à revérifier faute de source consultable.",
   "coverage": {
     "status": "PARTIAL",
@@ -59,6 +59,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -73,10 +80,18 @@
       },
       "operator": "Safer Auvergne-Rhône-Alpes",
       "operatorType": "MIXED",
-      "whatItOffers": "Accompagne les futurs agriculteurs dans leurs recherches et démarches d'installation, les cédants dans la transmission de leur exploitation et publie les biens agricoles disponibles à la vente ou à la location via des appels à candidatures.",
+      "whatItOffers": "Accompagne les futurs agriculteurs dans leurs recherches et démarches d'installation, les cédants dans la transmission de leur exploitation et publie les biens agricoles disponibles à la vente ou à la location via des appels à candidatures. Pour la transmission, propose l'expertise des biens, la définition des conditions de vente ou de location, la publicité de l'exploitation, le recueil et l'examen des candidatures et la sécurisation des étapes jusqu'à la signature chez le notaire.",
       "whoCanUseIt": "Porteurs de projet agricole, futurs agriculteurs, exploitants qui souhaitent transmettre, vendre ou louer, et propriétaires fonciers.",
       "howToAccess": "Consulter les appels à candidatures, déposer un dossier dans le délai affiché pour un bien ou contacter un conseiller Safer pour un projet d'installation ou de transmission.",
       "accessUrl": "https://safer-aura.fr/",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Safer Auvergne-Rhône-Alpes",
+          "value": "04 72 77 71 50",
+          "sourceUrl": "https://safer-aura.fr/porteurs-de-projet/je-souhaite-transmettre-mon-entreprise-agricole/"
+        }
+      ],
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "TRANSFEROR", "LANDOWNER"],
@@ -108,10 +123,25 @@
             "Ain (01) Allier (03) Ardèche (07) Cantal (15) Drôme (26) Isère (38)",
             "Loire (42) Haute-Loire (43) Puy-de-Dôme (63) Rhône & Métropole de Lyon (69) Savoie (73) Haute-Savoie (74)"
           ]
+        },
+        {
+          "url": "https://safer-aura.fr/porteurs-de-projet/je-souhaite-transmettre-mon-entreprise-agricole/",
+          "title": "Je souhaite transmettre mon exploitation agricole",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Nous suivons la transmission de vos biens jusqu'à la signature de l'acte de vente et/ou de location.",
+            "Vous souhaitez vendre tout ou partie de votre exploitation ?",
+            "Expertiser vos biens et fixer avec vous les conditions de la vente et/ou de la location de votre entreprise agricole",
+            "Mettre en publicité votre exploitation et recueillir les candidatures",
+            "Organiser des réunions de concertation pour examiner chaque projet",
+            "Sécuriser chaque étape jusqu'à la signature de l'acte chez le notaire",
+            "Contactez un conseiller",
+            "04 72 77 71 50"
+          ]
         }
       ],
-      "generatorId": "chatgpt-1",
-      "notes": "La Safer Auvergne-Rhône-Alpes intervient dans l’Ain (01), l’Allier (03), l’Ardèche (07), le Cantal (15), la Drôme (26), l’Isère (38), la Loire (42), la Haute-Loire (43), le Puy-de-Dôme (63), le Rhône et la Métropole de Lyon (69), la Savoie (73) et la Haute-Savoie (74)."
+      "notes": "La Safer Auvergne-Rhône-Alpes intervient dans l’Ain (01), l’Allier (03), l’Ardèche (07), le Cantal (15), la Drôme (26), l’Isère (38), la Loire (42), la Haute-Loire (43), le Puy-de-Dôme (63), le Rhône et la Métropole de Lyon (69), la Savoie (73) et la Haute-Savoie (74).",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "auvergne-rhone-alpes-terre-de-liens-rhone-alpes",
