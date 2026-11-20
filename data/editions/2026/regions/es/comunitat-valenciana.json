@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "comunitat-valenciana",
   "officialName": "Comunitat Valenciana",
-  "published": "2026-11-05",
+  "published": "2026-11-20",
   "summary": "La Comunitat Valenciana combina ayudas al establecimiento de personas jóvenes y nuevos agricultores, bancos de tierras municipales operativos en las tres provincias y asesoramiento específico de organizaciones agrarias. Pedreguer y Callosa de Segura amplían las rutas públicas verificadas con formularios municipales para ofrecer y solicitar parcelas. No se ha verificado una ayuda o servicio operativo específico de sucesión/cese.",
   "coverage": {
     "status": "PARTIAL",
@@ -79,6 +79,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -489,6 +496,41 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "comunitat-valenciana-banco-tierras-vinaros",
+      "name": "Banco de Tierras Agrícolas de Vinaròs",
+      "kind": "LAND_BANK",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Vinaròs"
+      },
+      "operator": "Ajuntament de Vinaròs",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro administrativo previsto para informar y facilitar el contacto entre propietarios de parcelas aptas para la explotación agrícola situadas en el término municipal y personas interesadas en cultivarlas, con el objetivo de recuperar tierras abandonadas o en previsión de abandono.",
+      "whoCanUseIt": "Propietarios de parcelas aptas para la explotación agrícola situadas en el término municipal y personas interesadas en su cultivo.",
+      "accessUrl": "https://www.vinaros.es/sites/default/files/2019-11/03237-2016.pdf",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER"],
+      "lastEvidenceDate": "2016-06-18",
+      "sources": [
+        {
+          "url": "https://www.vinaros.es/sites/default/files/2019-11/03237-2016.pdf",
+          "title": "Anunci aprovació definitiva modificació Ordenança Municipal de creació de dades de caràcter personal",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Crear del fichero de datos de carácter personal Banco de Tierras Agrícolas de Vinaròs",
+            "de l’Ajuntament de Vinaròs",
+            "el cual tiene por objeto informar y facilitar el contacto entre los propietarios de parcelas aptas para la explotación agrícola situadas en el término municipal y las personas interesadas en su cultivo.",
+            "Puesta en valor de las tierras agrícolas abandonadas o en previsión de abandono.",
+            "BOP 74 - 18 de junio de 2016"
+          ]
+        }
+      ],
+      "notes": "La fuente acredita la creación del fichero administrativo, pero no demuestra el funcionamiento actual del banco ni proporciona una vía de solicitud de parcelas. La oficina citada en el documento atiende derechos de protección de datos, no se identifica como punto de acceso al banco.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
