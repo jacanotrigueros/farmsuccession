@@ -5,12 +5,17 @@
   "country": "NL",
   "region": "zeeland",
   "officialName": "Zeeland",
-  "published": "2026-11-16",
+  "published": "2026-11-20",
   "summary": "Het overzicht voor Zeeland is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Zeeland gelden.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Nog niet onderzocht. De bronnen die voor Nederland zijn gevonden, staan klaar voor onderzoek; tot dat onderzoek klaar is, staan hier alleen de Europese bronnen die ook hier gelden.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.zeeland.nl/onderwerpen/ruimte/landbouwloket/grond-pachtuitgifte"
+      }
+    ]
   },
   "review": {
     "status": "DRAFT"
@@ -25,10 +30,48 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "zeeland-grond-pachtuitgifte",
+      "name": "Grond / Pachtuitgifte",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Zeeland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Toegang tot informatie over de jaarlijkse verpachting van agrarische percelen met indicatieve kaarten van beschikbare grond, ontwikkelingsbank- en experimenteergronden voor duurzame landbouwmethoden en vrijwillige kavelruil.",
+      "howToAccess": "Volg op de pagina de verwijzingen naar Verpachting agrarische percelen, Ontwikkelingsbank en Experimenteergronden of Kavelruilbureau Zeeland.",
+      "accessUrl": "https://www.zeeland.nl/onderwerpen/ruimte/landbouwloket/grond-pachtuitgifte",
+      "sources": [
+        {
+          "url": "https://www.zeeland.nl/onderwerpen/ruimte/landbouwloket/grond-pachtuitgifte",
+          "title": "Grond / Pachtuitgifte | Provincie Zeeland",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "De Provincie Zeeland geeft jaarlijks agrarische percelen in pacht voor landbouwgebruik, met indicatieve kaarten van de beschikbare grond.",
+            "Als pilotproject biedt de provincie experimenteergronden en ontwikkelingsbankgronden aan om innovatieve en duurzame landbouwmethoden te verkennen",
+            "Het Kavelruilbureau Zeeland ondersteunt vrijwillige kavelruil om de agrarische structuur te verbeteren en maatschappelijke doelen zoals waterberging en verkeersveiligheid te realiseren, in samenwerking met lokale partners.",
+            "Verpachting agrarische percelen",
+            "Ontwikkelingsbank en Experimenteergronden",
+            "Kavelruilbureau Zeeland"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": []
 }
