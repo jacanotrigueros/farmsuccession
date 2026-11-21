@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "provence-alpes-cote-d-azur",
   "officialName": "Provence-Alpes-Côte d’Azur",
-  "published": "2026-10-30",
+  "published": "2026-11-21",
   "summary": "En Provence-Alpes-Côte d'Azur, la Région publie la Dotation Jeunes Agriculteurs et un prêt d'honneur agricole est proposé par Initiative Sud. Le programme AITA finance aussi des étapes de l'installation et de la transmission. La Safer donne accès à ses appels fonciers, tandis que les Points Accueil Installation, Terre de Liens et les ADEAR proposent des accompagnements. Des services plus locaux complètent cet ensemble.",
   "coverage": {
     "status": "PARTIAL",
@@ -92,6 +92,13 @@
         "model": "gpt-6",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-29"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -539,6 +546,40 @@
       ],
       "generatorId": "chatgpt-1",
       "notes": "La page publique ne donne ni montant, ni critères détaillés, ni période de demande ; ces éléments sont donc omis et doivent être confirmés auprès de l'opérateur. Aucun contact personnel publié sur la page n'est reproduit."
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-aide-installation-agro-ecologique-bouches-du-rhone",
+      "name": "Aide à l’installation agro-écologique",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Bouches-du-Rhône"
+      },
+      "operator": "Département des Bouches-du-Rhône",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Une aide à la trésorerie lors de la phase d’installation : 10 000 € pour une installation à titre principal et 5 000 € pour une installation à titre secondaire.",
+      "whoCanUseIt": "Agriculteurs et agricultrices bénéficiaires d’une Dotation Jeune Agriculteur portant un projet d’installation agro-écologique dans les Bouches-du-Rhône.",
+      "howToAccess": "Télécharger sur la page du Département le dispositif et le formulaire de demande de subvention pour l’année 2026.",
+      "accessUrl": "https://departement13.fr/en-actions/agriculture-peche/aide-linstallation-agro-ecologique",
+      "instrumentType": "GRANT",
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://departement13.fr/en-actions/agriculture-peche/aide-linstallation-agro-ecologique",
+          "title": "Aide à l’installation agro-écologique | Département des Bouches-du-Rhône",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Aide à l’installation agro-écologique | Département des Bouches-du-Rhône",
+            "Vous êtes agriculteur ou agricultrice bénéficiaire d’une Dotation Jeune Agriculteur et vous portez un projet d’installation agro-écologique dans les Bouches-du-Rhône.",
+            "Vous pouvez bénéficier d’une aide à la trésorerie, lors de votre phase d’installation.",
+            "Le montant de cette aide est de 10 000 € pour une installation à titre principal et de 5 000 € pour une installation à titre secondaire.",
+            "Dispositif d'aide à la trésorerie pour l'installation de jeunes agriculteurs porteurs de projets agroécologiques 2026",
+            "Formulaire de demande de subvention pour l'aide à la trésorerie pour l'installation des jeunes agriculteurs porteurs de projets agroécologiques 2026"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
