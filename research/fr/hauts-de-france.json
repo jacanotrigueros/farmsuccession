@@ -6,7 +6,7 @@
     "region": "hauts-de-france"
   },
   "language": "fr",
-  "updatedOn": "2026-11-20",
+  "updatedOn": "2026-11-21",
   "context": [
     "Le guide des aides de la Région (guide-aides.hautsdefrance.fr) publie une fiche par dispositif, lisible automatiquement, avec objectifs, bénéficiaires et critères.",
     "Le Point Accueil Installation Transmission (PAIT) est le passage obligé avant une demande d'aide régionale à l'installation.",
@@ -18,7 +18,8 @@
     "Pévèle Carembault distingue son aide immobilière à candidature permanente du complément local à l'ARSI, dont seule une présentation datée de 2025 a été lue.",
     "La page Installation d’Initiatives Paysannes confirme la gratuité de son accompagnement financé par la Région via ACTIV ; elle ne remplace pas la vérification de la fiche régionale du dispositif.",
     "L’espace-test de Sources et Vallées à Pontoise-les-Noyon est distinct de celui de Sains-du-Nord, malgré l’intervention d’A Petits Pas dans les deux parcours.",
-    "Vérifier l’ouverture effective et le document d’appel à candidature : la page annonce novembre 2025 tout en décrivant encore des travaux d’aménagement."
+    "Vérifier l’ouverture effective et le document d’appel à candidature : la page annonce novembre 2025 tout en décrivant encore des travaux d’aménagement.",
+    "La fiche ARSI est désormais lisible ; cette lecture ne résout pas le blocage de la fiche distincte ACTiv ni celui du portail du PAIT."
   ],
   "portals": [
     {
@@ -83,13 +84,14 @@
   "leads": [
     {
       "id": "hdf-arsi",
-      "name": "Aide régionale spécifique à l'installation (ARSI)",
+      "name": "Aide régionale Spécifique à l'Installation ARSI",
       "url": "https://guide-aides.hautsdefrance.fr/dispositif833",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "TO_CHECK",
+      "status": "ADMITTED",
       "reason": "La fiche de la Région a renvoyé 403. La page de la collectivité cofinanceuse Pévèle Carembault décrit l'ARSI en 2025, mais ne vérifie pas la fiche ni la disponibilité régionale en 2026. L'identifiant hauts-de-france-arsi a été retiré du brouillon de cette édition en attendant une page officielle lisible.",
       "foundBy": "hdf-installation",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-11-21",
+      "resourceId": "hauts-de-france-arsi"
     },
     {
       "id": "hdf-activ-ton-installation",
@@ -284,6 +286,11 @@
       "date": "2026-11-20",
       "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
       "summary": "La page de l’opérateur établit un espace-test distinct à Pontoise-les-Noyon, avec mise à disposition de terrain et de matériel, hébergement juridique et accompagnement à l’installation. Je propose une nouvelle fiche comme dispositif annoncé : la page le décrit encore en cours d’aménagement et son ouverture effective n’est pas confirmée."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La fiche de la Région établit l’ARSI, ses bénéficiaires hors DJA, sa dotation et le passage obligatoire par le PAIT avant dépôt du dossier. Je propose de rétablir la ressource sous l’identifiant conservé dans le brief, sans affirmer de période de candidature."
     }
   ]
 }
