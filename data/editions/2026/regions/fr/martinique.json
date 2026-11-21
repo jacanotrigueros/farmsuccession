@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "martinique",
   "officialName": "Martinique",
-  "published": "2026-09-20",
+  "published": "2026-11-21",
   "summary": "En Martinique, la Collectivité territoriale gère les aides non surfaciques du fonds européen agricole, dont l’aide au démarrage pour les jeunes agriculteurs et pour les nouveaux agriculteurs, ainsi que le conseil et la formation ; aucun opérateur foncier local n’a pu être cité dans cette passe.",
   "coverage": {
     "status": "PARTIAL",
@@ -37,6 +37,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -73,6 +80,52 @@
         }
       ],
       "generatorId": "claude-1"
+    },
+    {
+      "id": "martinique-suivi-nouvel-exploitant",
+      "name": "Suivi du Nouvel Exploitant",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DAAF Martinique",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Suivi global de l’exploitation pour accompagner le bon déroulement du projet initial, ou conseil technico-économique spécialisé lié au projet d’installation. La participation de l’État est plafonnée à 80 % de la dépense hors taxes et à 1 500 €, versés directement au prestataire à l’issue de l’année de suivi.",
+      "whoCanUseIt": "Nouveaux exploitants ayant un projet d’installation à suivre.",
+      "howToAccess": "Contacter la DAAF pour toute demande ou information. La page répertorie trois prestataires agréés en Martinique : la Chambre d’Agriculture de Martinique, le Conseil Gestion Suivi en milieu Rural (CGSR) et l’association des Jeunes Agriculteurs (JA).",
+      "accessUrl": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "DAAF Martinique — accompagnement à l’installation et à la transmission",
+          "value": "aita.daaf.daaf972@agriculture.gouv.fr",
+          "sourceUrl": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html"
+        }
+      ],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "lastEvidenceDate": "2024-01-23",
+      "notes": "Les prestations relevant du fonctionnement normal de l’exploitation ou d’obligations légales sont exclues du suivi.",
+      "sources": [
+        {
+          "url": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html",
+          "title": "Suivi du Nouvel Exploitant | DAAF Martinique",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Suivi du Nouvel Exploitant",
+            "Publié le 23/01/2024",
+            "Ce dispositif peut se décliner sous la forme d’un suivi global de l’exploitation permettant d’assurer le bon déroulement du projet initial ou d’un conseil technico-économique sur un domaine particulier, en lien avec le projet d’installation et nécessitant un conseil plus spécialisé.",
+            "Sont exclues du suivi les prestations de services, qui relèvent du fonctionnement normal de l’exploitation (tenue de comptabilité, inscription au contrôle laitier, aide au montage des dossiers PAC, bilan économique, etc.) et celles qui relèvent d’obligations légales (frais d’actes, rédaction d’actes, etc.).",
+            "Le montant de la participation de l’État est plafonné à 80% de la dépense engagée (HT), ne peut excéder 1 500 € et est directement versée au prestataire à l’issue de l’année de suivi.",
+            "En Martinique, plusieurs prestataires ont obtenu l’agrément pour effectuer ce suivi.",
+            "La Chambre d’Agriculture de Martinique",
+            "Le Conseil Gestion Suivi en milieu Rural (CGSR)",
+            "L’association des Jeunes Agriculteurs (JA)",
+            "Pour toute demande ou information, vous pouvez nous contacter à l’adresse suivante : aita.daaf.daaf972@agriculture.gouv.fr"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],
