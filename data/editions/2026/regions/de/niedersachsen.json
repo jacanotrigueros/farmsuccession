@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "niedersachsen",
   "officialName": "Niedersachsen",
-  "published": "2026-10-30",
+  "published": "2026-11-21",
   "summary": "Niedersachsen fördert Existenzgründungen und Hofübernahmen junger Landwirtinnen und Landwirte mit 100.000 Euro bei außerfamiliärer Gründung und 70.000 Euro bei innerfamiliärer Übernahme. Eine neue Antragsphase ist vom 1. Januar bis 15. März 2027 angekündigt. Die Landwirtschaftskammer bietet außerdem niedersachsenweites Gründungs-Coaching für Neugründungen und Betriebsübernahmen an.",
   "coverage": {
     "status": "PARTIAL",
@@ -51,6 +51,13 @@
         "tool": "CHATGPT",
         "model": "GPT-6.1 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -148,6 +155,66 @@
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "niedersachsen-lwk-hofuebergabe-hofuebernahme",
+      "name": "Hofübergabe und Hofübernahme",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Landwirtschaftskammer Niedersachsen",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Beratung und Begleitung zur Vorbereitung und Durchführung der Hofübergabe oder Hofübernahme. Themen sind die wirtschaftliche Situation, Wünsche der Beteiligten, erbrechtliche Hintergründe, Regelungsmöglichkeiten, sozialrechtliche Folgen, außerfamiliäre Hofübergabe und Moderation von Generationskonflikten. Ergänzend stellt die Kammer Formulare rund um den Agrarantrag bei Hofübergabe oder Betriebsneugründung bereit und bietet gebührenpflichtige Hilfe beim Ausfüllen an.",
+      "whoCanUseIt": "Personen, die einen landwirtschaftlichen Betrieb übergeben oder übernehmen möchten.",
+      "howToAccess": "Auf der Angebotsseite sind unter „Kontakte“ Beratungspersonen für ganz Niedersachsen und einzelne Bezirksstellen mit direkten Kontaktmöglichkeiten aufgeführt. Die ergänzende Formularseite bietet Downloads und nennt Beratungspersonen für den Heidekreis und die Landkreise Celle, Lüchow-Dannenberg, Harburg, Lüneburg und Uelzen.",
+      "accessUrl": "https://www.lwk-niedersachsen.de/lwk/kaba/965_Hofuebergabe_und_Hofuebernahme",
+      "accessCostType": "FEE_REQUIRED",
+      "targetProfiles": ["SUCCESSOR", "TRANSFEROR"],
+      "notes": "Die Beratung kostet 88 € je Beratungsstunde zuzüglich Mehrwertsteuer und Fahrtkosten.",
+      "sources": [
+        {
+          "url": "https://www.lwk-niedersachsen.de/lwk/kaba/965_Hofuebergabe_und_Hofuebernahme",
+          "title": "Hofübergabe und Hofübernahme : Landwirtschaftskammer Niedersachsen",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Sie möchten einen landwirtschaftlichen Betrieb übergeben oder übernehmen.",
+            "Sie möchten alle Bereiche dieses Prozesses gut vorbereiten und durchführen. Dafür wünschen Sie sich fachkundige Beratung und Begleitung.",
+            "Beratung rund um die Hofübergabe / Hofübernahme mit den Facetten: Wirtschaftliche Situation, Wünsche der einzelnen Beteiligten, Erbrechtlichen Hintergründe, Regelungsmöglichkeiten, sozialrechtliche Folgen, Außerfamiliäre Hofübergabe, Moderation von Generationskonflikten.",
+            "88 € je Beratungsstunde zzgl. MwSt. und Fahrtkosten",
+            "Kontakte Niedersachsenweit",
+            "Bezirksstelle Bremervörde",
+            "Hofübergabe und Hofübernahme : Landwirtschaftskammer Niedersachsen"
+          ]
+        },
+        {
+          "url": "https://www.lwk-niedersachsen.de/lwk/news/16962_Soziooekonomische_Beratung",
+          "title": "Sozioökonomische Beratung : Landwirtschaftskammer Niedersachsen",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Wir bieten Ihnen Beratung zur Einkommens- und Vermögenssicherung.",
+            "der Planung und Durchführung einer Hofübergabe",
+            "Generations- und Hofnachfolgekonflikten"
+          ]
+        },
+        {
+          "url": "https://www.lwk-niedersachsen.de/lwk/news/35994_Hofuebergabe_zum_17_oder_Neugruendung_eines_Betriebes_-_Hier_finden_Sie_alle_Formulare",
+          "title": "Hofübergabe zum 1.7. oder Neugründung eines Betriebes - Hier finden Sie alle Formulare : Landwirtschaftskammer Niedersachsen",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Bei einer Hofübergabe oder einer Neugründung eines Betriebes sind jede Menge Formulare rund um den Agrarantrag notwendig.",
+            "Wir haben für Sie alle Formulare zusammengestellt, außerdem finden Sie hier die passenden Ansprechpartner*innen.",
+            "Benötigen Sie Hilfe beim Ausfüllen des Antrages, sind wir für Sie da (gebührenpflichtige Beratung).",
+            "Ihr Ansprechpartner im Heidekreis und im Landkreis Celle: Sonja Kornblum",
+            "Ihre Ansprechpartnerin im Landkreis Lüchow-Dannenberg: Sandra Wiegrefe",
+            "Ihre Ansprechpartnerin für die LandkreiseHarburg und Lüneburg: Anneken Kruse",
+            "Ihre Ansprechpertnerin für den Landkreis Uelzen: Alix Mensching-Buhr",
+            "Checkliste für Betriebsgründer (pdf)"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [

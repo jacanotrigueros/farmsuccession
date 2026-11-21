@@ -5,7 +5,7 @@
     "country": "FR"
   },
   "language": "fr",
-  "updatedOn": "2026-11-20",
+  "updatedOn": "2026-11-21",
   "context": [
     "Les Régions gèrent une part structurante des aides FEADER, tandis que les chambres départementales assurent des services d'installation et de transmission.",
     "Rechercher les dispositifs aux niveaux région, département, EPCI et commune, ainsi que les opérateurs fonctionnels comme les Chambres d'agriculture et les Safer.",
@@ -15,7 +15,9 @@
     "FEVE propose en France métropolitaine un portage du foncier d’une ferme déjà identifiée : acquisition par une foncière, bail rural avec option d’achat et accès par test d’éligibilité puis dépôt de dossier.",
     "La seconde phase de l’INAF est opérationnelle : les prêts garantis sont instruits par Arkéa, BPCE, Crédit Agricole et Crédit Mutuel-CIC pour des exploitations, des candidats à l’installation et d’autres structures agricoles éligibles.",
     "Objectif Terres est une plateforme nationale distincte des services territoriaux : les annonces foncières se consultent gratuitement et un compte gratuit permet de publier, répondre ou solliciter un accompagnement qui est ensuite traité par l’association Terre de Liens du territoire.",
-    "La notice BO-agri de l’instruction AITA pour 2026 établit le cadre en vigueur ; le PDF reste à lire pour documenter les modalités concrètes sans les déduire de son résumé."
+    "La notice BO-agri de l’instruction AITA pour 2026 établit le cadre en vigueur ; le PDF reste à lire pour documenter les modalités concrètes sans les déduire de son résumé.",
+    "Aides Agri est un portail national d’orientation ; les dispositifs relayés conservent leur portée territoriale et doivent être vérifiés sur la page de leur opérateur avant toute admission séparée.",
+    "La fiche Service Public est documentée comme porte d’entrée officielle ; cette lecture ne résout pas la vérification du parcours externe du RDI des Chambres d’agriculture."
   ],
   "portals": [
     {
@@ -197,6 +199,42 @@
       "status": "ADMITTED",
       "resourceId": "fr-objectif-terres",
       "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "fr-aides-agri-catalogue",
+      "name": "Catalogue de dispositifs — Aides Agri",
+      "url": "https://www.aides-agri.beta.gouv.fr/aides",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "fr-aides-agri",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "fr-transmettre-elevage-caprin",
+      "name": "Transmettre en élevage caprin",
+      "url": "https://anicap.org/app/uploads/2025/04/TRANSMETTRE-EN-ELEVAGE-CAPRIN.pdf",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "fr-transmettre-elevage-caprin",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "fr-service-public-annonce-cession-rdi",
+      "name": "Déposer une annonce de cession d’une entreprise agricole ou rurale dans le Répertoire Départ Installation (RDI)",
+      "url": "https://entreprendre.service-public.gouv.fr/vosdroits/R18247",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "fr-service-public-annonce-cession-rdi",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "fr-la-transmission-des-fermes-outils-methodes",
+      "name": "La transmission des fermes - outils et méthodes pour une transmission réussie",
+      "url": "https://ressources.terredeliens.org/les-ressources/la-transmission-des-fermes-outils-et-methodes-pour-une-transmission-reussie",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "fr-la-transmission-des-fermes-outils-methodes",
+      "checkedOn": "2026-11-21"
     }
   ],
   "expectedInstruments": [
@@ -280,6 +318,26 @@
       "date": "2026-11-20",
       "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
       "summary": "La page présente le parcours de transmission d’Objectif Terres, déjà documenté dans la fiche fr-objectif-terres : dépôt d’annonce et demande d’accompagnement territorial. J’ajoute cette source à la fiche existante et précise l’accès gratuit aux guides méthodologiques et aux exemples de transmissions, sans créer de doublon."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "Le catalogue Aides Agri constitue un portail officiel national donnant accès à des dispositifs d’installation et de transmission, avec des filtres géographiques et des renvois vers les fiches et sites officiels. Je propose une fiche pour ce portail, sans transformer les dispositifs qu’il relaie en nouvelles aides nationales ni reprendre leurs échéances."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "Le document constitue un guide pratique de l’Institut de l’Elevage consacré à la préparation d’une transmission en élevage caprin, distinct des dispositifs qu’il présente comme relais. Je propose une fiche de conseil documentaire, sans présenter les services et aides décrits dans cette publication de janvier 2020 comme actuellement opérationnels."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La fiche Service Public donne accès à la démarche de dépôt d’une annonce de cession au RDI et décrit la mise en relation des cédants avec les candidats à l’installation. Je propose cette porte d’entrée officielle nationale, sans la confondre avec le service des Chambres d’agriculture ni affirmer avoir vérifié son parcours externe."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page donne accès à un guide consacré aux outils et méthodes de préparation d’une transmission de ferme, avec des exemples français et européens. Je propose cette ressource documentaire distincte d’Objectif Terres, sans présenter sa publication ancienne comme la preuve d’un service actuellement opérationnel."
     }
   ]
 }

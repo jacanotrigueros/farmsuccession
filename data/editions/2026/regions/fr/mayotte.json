@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "mayotte",
   "officialName": "Mayotte",
-  "published": "2026-10-26",
+  "published": "2026-11-21",
   "summary": "Mayotte publie deux aides FEADER ouvertes à la première installation : l’intervention 75.01 pour les jeunes agriculteurs et l’intervention 75.05 pour les nouveaux agriculteurs de 40 ans révolus qui n’ont pas atteint 62 ans. Les deux dossiers peuvent être déposés directement sur SAFRAN pendant la programmation 2023-2027.",
   "coverage": {
     "status": "PARTIAL",
@@ -41,6 +41,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -156,6 +163,70 @@
       ],
       "notes": "La fiche exige notamment de ne pas être affilié à la MSA comme agriculteur principal ou secondaire, ou de ne pas l’être depuis plus de cinq ans, ainsi qu’un plan d’entreprise de cinq ans. Les conditions complètes restent celles de la fiche officielle.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "mayotte-feader-investissements-jeunes-agriculteurs",
+      "name": "73.17 - Investissements bonifiés en faveur des jeunes agriculteurs de Mayotte",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direction de l’alimentation, de l’agriculture et de la forêt de Mayotte",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Soutien aux investissements dans les bâtiments, les équipements et les infrastructures des exploitations ou des groupements d’agriculteurs pour améliorer leur performance économique et garantir leur viabilité.",
+      "whoCanUseIt": "Dispositif uniquement disponible pour les Jeunes Agriculteurs (JA).",
+      "howToAccess": "Déposer la demande de financement FEADER directement sur Safran pendant toute la programmation 2023-2027. Consulter au préalable le guide du bénéficiaire, la notice transversale et la fiche d’intervention accessibles depuis la page. Les demandes de paiement se font également sur SAFRAN dans l’espace du dossier d’aide.",
+      "accessUrl": "https://daaf.mayotte.agriculture.gouv.fr/73-17-investissements-bonifies-en-faveur-des-jeunes-agriculteurs-de-mayotte-a627.html",
+      "purposes": ["INVESTMENT"],
+      "targetProfiles": ["YOUNG_FARMER"],
+      "lastEvidenceDate": "2026-03-26",
+      "sources": [
+        {
+          "url": "https://daaf.mayotte.agriculture.gouv.fr/73-17-investissements-bonifies-en-faveur-des-jeunes-agriculteurs-de-mayotte-a627.html",
+          "title": "73.17 - Investissements bonifiés en faveur des jeunes agriculteurs de Mayotte (OUVERT) | DAAF Mayotte",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Direction de l’alimentation, de l’agriculture et de la forêt de Mayotte",
+            "73.17 - Investissements bonifiés en faveur des jeunes agriculteurs de Mayotte (OUVERT)",
+            "Publié le 13/03/2024 | Mis à jour le 26/03/2026",
+            "L’intervention 73.17 \"Investissements bonifiés en faveur des jeunes agriculteurs de Mayotte\" vise à soutenir les investissements dans les bâtiments, les équipements et les infrastructures pour aider les exploitations ou les groupements d’agriculteurs afin d’améliorer leur performance économique et garantir leur viabilité.",
+            "Ce dispositif est uniquement disponible pour les Jeunes Agriculteurs (JA).",
+            "Avant de déposer votre demande de financement FEADER sur Safran, nous vous invitons à consulter le guide du bénéficiaire ainsi que la notice transversale que vous trouverez ici.",
+            "Il est possible de déposer un dossier tout le long de la programmation 2023-2027 sur l’intervention 73.17 directement sur Safran, le site de gestion des aides FEADER que vous trouverez à ce lien.",
+            "Vous trouverez la fiche intervention de ce dispositif que nous vous invitons à consulter ainsi que la feuille de synthèse des dépenses",
+            "Les demandes de paiement se font également via SAFRAN dans l’espace dédié au dossier d’aide."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "mayotte-portail-interventions-psn",
+      "name": "Interventions du Plan Stratégique National",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direction de l’alimentation, de l’agriculture et de la forêt de Mayotte",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Répertoire officiel des interventions du Plan Stratégique National à Mayotte, organisé en rubriques dont l’installation, les investissements, la coopération, la formation et le conseil.",
+      "howToAccess": "Choisir la rubrique « 75 - Installation » pour accéder aux interventions relatives à l’installation.",
+      "accessUrl": "https://daaf.mayotte.agriculture.gouv.fr/interventions-du-plan-strategique-national-r182.html",
+      "sources": [
+        {
+          "url": "https://daaf.mayotte.agriculture.gouv.fr/interventions-du-plan-strategique-national-r182.html",
+          "title": "Interventions du Plan Stratégique National | DAAF Mayotte",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Direction de l’alimentation, de l’agriculture et de la forêt de Mayotte",
+            "Interventions du Plan Stratégique National",
+            "70 - Environnement et climat 73 - Investissements 75 - Installation 77 - Coopération 78 - Formation et conseil"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],

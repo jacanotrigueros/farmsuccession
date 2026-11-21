@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "occitanie",
   "officialName": "Occitanie",
-  "published": "2026-11-20",
+  "published": "2026-11-21",
   "summary": "L'Occitanie propose deux dotations d'installation, un stage de reprise, un portage foncier et des accompagnements à l'installation et à la transmission. La Safer et des associations disposent également de services territoriaux.",
   "coverage": {
     "status": "PARTIAL",
@@ -366,8 +366,7 @@
     },
     {
       "id": "occitanie-cefi",
-      "generatorId": "chatgpt-1",
-      "name": "Contrat Emploi Formation Installation",
+      "name": "CEFI – Contrat Emploi Formation Installation",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -375,12 +374,21 @@
       },
       "operator": "Région Occitanie et structures labellisées",
       "operatorType": "MIXED",
-      "whatItOffers": "Stage dans une exploitation à reprendre ou à rejoindre pour tester une première installation hors cadre familial avec un accompagnement pédagogique.",
-      "whoCanUseIt": "Porteurs de projet de première installation agricole hors cadre familial préparant une reprise ou une association.",
-      "howToAccess": "Consulter la présentation agricole de la Région et demander à une structure d'accompagnement labellisée les modalités du stage.",
-      "accessUrl": "https://www.laregion.fr/Agriculture-Viticulture-Alimentation",
+      "whatItOffers": "Stage de 3 à 12 mois dans une exploitation à reprendre ou à rejoindre pour tester une première installation hors cadre familial par reprise ou association. Le stage est rémunéré par France Travail et/ou la Région et comprend un accompagnement par un conseiller référent tout au long du stage, un diagnostic et des plans d’actions en amont, des visites intermédiaires et un bilan.",
+      "whoCanUseIt": "Porteurs de projet de première installation agricole hors cadre familial préparant une reprise ou une association, ayant le statut de demandeur d’emploi, âgés de moins de 55 ans et remplissant les conditions requises de formation. L’agriculteur accueillant doit être affilié comme chef d’exploitation en Occitanie et avoir un projet de transmission ou d’association.",
+      "howToAccess": "Consulter la présentation agricole de la Région et demander à une structure d’accompagnement labellisée les modalités du stage. La Chambre d’agriculture de la Haute-Garonne propose un formulaire « Vous êtes intéressé ? » sur sa fiche de prestation pour solliciter des informations. La prestation est proposée toute l’année.",
+      "accessUrl": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Chambre d’agriculture de la Haute-Garonne — demande d’informations CEFI",
+          "value": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation",
+          "sourceUrl": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation"
+        }
+      ],
       "trainingFormats": ["IN_PERSON"],
-      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR"],
+      "lastEvidenceDate": "2026-02-06",
       "sources": [
         {
           "url": "https://www.laregion.fr/Agriculture-Viticulture-Alimentation",
@@ -396,9 +404,30 @@
           "title": "La Région réaffirme son soutien à l'installation agricole",
           "consultedOn": "2026-09-29",
           "quotes": ["ce dispositif vient d’être renouvelé", "Article publié le 6 février 2026."]
+        },
+        {
+          "url": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation",
+          "title": "CEFI – Contrat Emploi Formation Installation - Chambre d'agriculture - Haute-Garonne",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "CEFI – Contrat Emploi Formation Installation",
+            "Dernière mise à jour le 09 janvier 2026",
+            "Réaliser un stage chez un agriculteur afin de tester son installation hors du cadre familial par reprise ou association sur l’exploitation d’accueil.",
+            "Porteurs de projet à l’installation ayant le statut de demandeur d’emploi et remplissant les conditions requises (niveau de formation, moins de 55 ans, hors cadre familial)",
+            "L’agriculteur accueillant doit être affilié comme chef d’exploitation en Occitanie et avoir un projet de transmission ou d’association.",
+            "Réalisation d’un stage de 3 à 12 mois destiné à « tester grandeur nature » son projet de reprise ou d’association avec l’agriculteur en place ayant la volonté de transmettre ses compétences techniques et de gestion de l’entreprise (signature d’une convention de stage)",
+            "Stage rémunéré par France Travail et/ou la Région",
+            "Accompagnement par le conseiller référent tout au long du stage sur la bonne mise en place du CEFI et sur l’avancée du projet d’installation.",
+            "Diagnostic et plans d’actions en amont du CEFI",
+            "Compte-rendu des visites intermédiaires",
+            "Bilan du CEFI.",
+            "Période de réalisation Toute l'année.",
+            "Besoin de plus d'informations ? Nous contacter Vous êtes intéressé ?"
+          ]
         }
       ],
-      "notes": "La fiche détaillée de formation liée par la Région n'a pas pu être ouverte. La présentation officielle établit le stage et son renouvellement, mais le parcours de candidature individuel doit encore être confirmé."
+      "notes": "La fiche de la Chambre précise qu’un niveau de formation est requis sans en donner le détail. Son formulaire permet de demander des informations sur la prestation ; il n’est pas présenté comme un dépôt de candidature au stage.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "occitanie-terre-de-liens-languedoc-roussillon",
@@ -584,6 +613,96 @@
             "Jeunes Agriculteurs - point accueil installation : 04 68 51 90 80 (lundi et le jeudi)",
             "Chambre d'agriculture - service entreprises : 04.68.35.74.00",
             "DDTM - service nature agriculture forêt : 04.68.38.10.27"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "occitanie-adear-ariege-accompagnement-individuel",
+      "name": "L’accompagnement individuel",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Ariège"
+      },
+      "operator": "ADEAR de l’Ariège",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Accompagnement individuel à l’installation : procédures administratives, étude technico-économique, articulation entre vie privée et professionnelle, recherche de foncier, aspects sociaux, juridiques et fiscaux et stratégie d’installation. Aide au montage des dossiers d’aides régionales, ainsi qu’à la mise en place et au suivi des Contrats Emploi Formation Installation (CEFI).",
+      "whoCanUseIt": "Personnes préparant un projet d’installation agricole, accompagnées en fonction de l’état d’avancement de leur projet.",
+      "howToAccess": "Contacter l’ADEAR de l’Ariège. Pour déposer les dossiers d’aides avec l’association, participer préalablement à la formation « Chiffrer son projet agricole », organisée trois fois dans l’année ; les dates sont publiées sur le site. L’accompagnement individuel pour les demandes de DJA est payant.",
+      "accessUrl": "https://www.agriculturepaysanne.org/L-accompagnement-indivduel",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ADEAR de l’Ariège",
+          "value": "adear.09@orange.fr",
+          "sourceUrl": "https://www.agriculturepaysanne.org/L-accompagnement-indivduel"
+        }
+      ],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.agriculturepaysanne.org/L-accompagnement-indivduel",
+          "title": "L’accompagnement individuel",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "ADEAR de l’Ariège",
+            "En fonction de l’état d’avancement de votre projet, nous pouvons vous rencontrer individuellement afin de vous accompagner au mieux dans vos questionnements.",
+            "procédures administratives, étude technico-économique, articulation vie privée/vie professionnelle, recherche de foncier, aspects sociaux, juridiques et fiscaux, stratégie d’installation, etc.",
+            "Nous pouvons vous orienter et vous aider à monter les dossiers pour les demandes d’aides régionales.",
+            "Il est nécéssaire de participer à la formation \"Chiffrer son projet agricole\" que nous organisons 3 fois dans l’année afin de pouvoir déposer vos dossiers d’aides avec nous.",
+            "Les dates des formations sont sur le site.",
+            "Les demandes de DJA peuvent être déposés avec l’ADEAR09, l’accompagnement se fait individuellement et est payant.",
+            "Nous sommes aussi habilités pour accompagner la mise en place et le suivi des Contrats Emploi Formation Installation (CEFI).",
+            "Contact adear.09@orange.fr"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "occitanie-aude-point-accueil-transmission",
+      "name": "Point Accueil Transmission (PAT)",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Aude"
+      },
+      "operator": "Chambre d’agriculture de l’Aude",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Accueil, information, orientation et accompagnement pour préparer la transmission d’une exploitation. Un rendez-vous individuel avec un conseiller transmission permet d’aborder les étapes, les démarches et les offres d’accompagnement, avec la possibilité d’établir un plan d’action.",
+      "whoCanUseIt": "Agriculteurs en fin d’activité ou en projet de reconversion souhaitant préparer la transmission de leur exploitation.",
+      "howToAccess": "Demander un rendez-vous individuel auprès des conseillers Transmission de la Chambre d’agriculture de l’Aude, par téléphone ou par courriel.",
+      "accessUrl": "https://aude.chambres-agriculture.fr/fileadmin/user_upload/278_chambre_dagriculture_-_aude/Documents/Entreprises/Installation/A4_3Volets_PAT-V3.pdf",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Conseillers Transmission",
+          "value": "04 68 11 79 32",
+          "sourceUrl": "https://aude.chambres-agriculture.fr/fileadmin/user_upload/278_chambre_dagriculture_-_aude/Documents/Entreprises/Installation/A4_3Volets_PAT-V3.pdf"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Conseillers Transmission",
+          "value": "transmission@aude.chambagri.fr",
+          "sourceUrl": "https://aude.chambres-agriculture.fr/fileadmin/user_upload/278_chambre_dagriculture_-_aude/Documents/Entreprises/Installation/A4_3Volets_PAT-V3.pdf"
+        }
+      ],
+      "targetProfiles": ["TRANSFEROR"],
+      "sources": [
+        {
+          "url": "https://aude.chambres-agriculture.fr/fileadmin/user_upload/278_chambre_dagriculture_-_aude/Documents/Entreprises/Installation/A4_3Volets_PAT-V3.pdf",
+          "title": "LE PAT POINT ACCUEIL TRANSMISSION",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "POINT ACCUEIL TRANSMISSION (PAT)",
+            "Le Point Accueil Transmission de la Chambre d’agriculture de l’Aude accueille, informe, oriente et accompagne les agriculteurs en fin d’activité ou en projet de reconversion, afin qu’ils préparent la transmission de leur exploitation.",
+            "Véritable porte d’entrée de votre projet transmission, vous pouvez demander un rendez-vous individuel avec un conseiller transmission qui abordera avec vous les points essentiels à votre cessation d’activité.",
+            "Les étapes de la transmission Les démarches à accomplir Les offres d’accompagnement Possibilité d’établir un plan d’action",
+            "Pour tout renseignement, contactez les conseillers Transmission de votre Chambre d’Agriculture de l’Aude Tél : 04 68 11 79 32 transmission@aude.chambagri.fr"
           ]
         }
       ],
