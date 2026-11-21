@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "ile-de-france",
   "officialName": "Île-de-France",
-  "published": "2026-10-25",
+  "published": "2026-11-21",
   "summary": "En Île-de-France, l’accès à la terre passe par deux opérateurs vérifiables : Île-de-France Nature, qui loue ses terres agricoles et porte du foncier pour installer des agriculteurs en zone périurbaine avec la Safer, et la Safer de l’Île-de-France, qui accompagne les cédants dans la transmission de leur exploitation.",
   "coverage": {
     "status": "PARTIAL",
@@ -37,6 +37,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -122,6 +129,37 @@
         }
       ],
       "generatorId": "claude-1"
+    },
+    {
+      "id": "ile-de-france-gab-idf-transmettre-sa-ferme",
+      "name": "Transmettre sa ferme",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "GAB IdF",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Accompagnement individuel des cédants : rédaction et diffusion d’annonces, mise en lien avec des porteurs de projet, réflexion sur la transmission, diagnostic de la ferme et médiation entre cédant et repreneur. Pour les candidats à l’installation : étude de faisabilité, appui au dossier d’aide à l’investissement, prévisionnel économique, prix, débouchés et communication, diagnostic agronomique et analyse de sol, accompagnement de la diversification.",
+      "whoCanUseIt": "Cédants, candidats à la reprise et candidats à l’installation.",
+      "howToAccess": "Solliciter le GAB IdF par le contact indiqué sur la page « Transmettre sa ferme ».",
+      "accessUrl": "https://www.bioiledefrance.fr/transmettre-sa-ferme",
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.bioiledefrance.fr/transmettre-sa-ferme",
+          "title": "Transmettre sa ferme - le GAB IDF",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Le GAB IdF accompagne les cédants et les candidats à la reprise dans cette étape clé et sensible de la vie d’une ferme.",
+            "1/5 ferme bio est à reprendre en Ile de France dans les années qui viennent.",
+            "Aux cédant, le GAB IdF propose un accompagnement individuel: Aide à la rédaction et diffusion d’annonces, Mise en lien avec des porteurs de projet, Aide à la réflexion sur le projet de transmission, Aide au diagnostic de la ferme, Médiation cédant repreneur.",
+            "Aux candidats à l'installation, le GAB IdF propose un accompagnement individuel Etude de faisabilité du projet, Appui au montage du dossier d’aide à l’investissement, Construction du prévisionnel économique, Calcul des prix, débouchés, communication, Diagnostic agronomique et analyse de sol, Accompagnement des projets de diversification.",
+            "Mon contact Tanneguy PICHON Chargé de développement agricole et partenarial et référent Aides et réglementation BIO"
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],
