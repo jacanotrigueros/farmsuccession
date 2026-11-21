@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "nordrhein-westfalen",
   "officialName": "Nordrhein-Westfalen",
-  "published": "2026-09-15",
+  "published": "2026-11-21",
   "summary": "Nordrhein-Westfalen bietet eine aktive, vertrauliche Vermittlung für außerfamiliäre Hofnachfolge und eine öffentliche Gründungsberatung der Landwirtschaftskammer.",
   "coverage": {
     "status": "PARTIAL",
@@ -47,6 +47,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -137,6 +144,53 @@
       ],
       "notes": "Die Fachseite veröffentlicht nur namentlich zugeordnete Direktkontakte. Sie werden hier nicht als Kontakt aufgeführt; der regionale Zugang erfolgt über die verlinkten Kreisstellen.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "nordrhein-westfalen-einkommensstuetzung-junglandwirte",
+      "name": "Einkommensstützung für Junglandwirte",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Landwirtschaftskammer Nordrhein-Westfalen",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Flächenbezogene Einkommensstützung im Rahmen der Direktzahlungen für maximal 120 Hektar, laut Seite voraussichtlich etwa 134 Euro je Hektar. Der Bezug ist auf fünf aufeinanderfolgende Jahre ab der erstmaligen Antragstellung begrenzt und kann ab Betriebsneugründung oder endgültiger Hofübernahme erfolgen.",
+      "whoCanUseIt": "Junglandwirte mit beihilfefähiger Fläche und Antrag auf Einkommensgrundstützung für Nachhaltigkeit. Natürliche Personen dürfen im gesamten ersten Antragsjahr nicht 41 Jahre alt werden und müssen sich erstmals im Antragsjahr oder innerhalb der fünf vorhergehenden Kalenderjahre als Betriebsleiter niedergelassen haben; die Niederlassung muss vor der erstmaligen Antragstellung liegen. Auch juristische Personen und Personengesellschaften sind unter den veröffentlichten Bedingungen zur wirksamen und langfristigen Betriebskontrolle durch einen maßgeblichen Junglandwirt zugelassen. Bei erstmaliger Beantragung ist eine anerkannte landwirtschaftliche Ausbildung oder ein entsprechender Studienabschluss, eine anerkannte agrarische Bildungsmaßnahme von mindestens 300 Stunden oder eine mindestens zweijährige Tätigkeit unter den auf der Seite genannten Beschäftigungs- beziehungsweise Gesellschaftsbedingungen mit mindestens 15 Wochenstunden nachzuweisen.",
+      "howToAccess": "Gemeinsam mit der Einkommensgrundstützung für Nachhaltigkeit über das ELAN-Antragsverfahren beantragen und dafür Anlage D des Sammelantrags verwenden. Die Berechtigung und die Voraussetzungen müssen bei Antragstellung durch geeignete Belege nachgewiesen werden.",
+      "accessUrl": "https://www.landwirtschaftskammer.de/foerderung/direktzahlungen/junglandwirte.htm",
+      "targetProfiles": ["YOUNG_FARMER"],
+      "lastEvidenceDate": "2026-02-20",
+      "sources": [
+        {
+          "url": "https://www.landwirtschaftskammer.de/foerderung/direktzahlungen/junglandwirte.htm",
+          "title": "Einkommensstützung für Junglandwirte - Landwirtschaftskammer Nordrhein-Westfalen",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Für Junglandwirte ist es möglich, eine gesonderte Förderung im Rahmen der Direktzahlungen zu beantragen.",
+            "Diese Einkommensstützung für Junglandwirte wird für maximal 120 Hektar gewährt und beträgt voraussichtlich ca. 134 Euro je Hektar.",
+            "Die Einkommensstützung für Junglandwirte muss gemeinsam mit der Einkommensgrundstützung für Nachhaltigkeit über das ELAN-Antragsverfahren beantragt werden.",
+            "Der Bezug dieser Förderung ist auf fünf aufeinanderfolgende Jahre ab der erstmaligen Antragstellung der Junglandwirteförderung begrenzt.",
+            "Die Förderung kann ab dem Zeitpunkt der Betriebsneugründung oder einer endgültigen Hofübernahme gewährt werden.",
+            "Um die Einkommensstützung für Junglandwirte zu erhalten, muss bei der Antragstellung beihilfefähige Fläche zur Verfügung stehen, sowie ein Antrag auf Erhalt der Einkommensgrundstützung für Nachhaltigkeit gestellt werden.",
+            "Beantragt wird diese Förderung mittels der Anlage D des Sammelantrags.",
+            "Wenn eine natürliche Person die Zahlung für Junglandwirte beantragt, darf der Junglandwirt im gesamten ersten Jahr der Antragstellung für die Einkommensstützung für Junglandwirte noch nicht 41 Jahre alt werden.",
+            "Der Junglandwirt muss sich im Jahr der erstmaligen Antragstellung auf Zahlung der Einkommensstützung für Junglandwirte bis zum Antragsfristende oder innerhalb der fünf Kalenderjahre vor dem Jahr der erstmaligen Beantragung der Junglandwirte-Einkommensstützung erstmals als Betriebsleiter in einem landwirtschaftlichen Betrieb in einem EU-Mitgliedstaat niedergelassen haben.",
+            "Wichtig bei der Antragstellung ist, dass das Niederlassungsdatum, also das Datum der Übernahme der Betriebskontrolle, vor dem Datum der erstmaligen Antragstellung liegen muss.",
+            "Auch Gesellschaften oder juristische Personen, bei denen der Junglandwirt die Kontrolle über den landwirtschaftlichen Betrieb hat, können die Einkommensstützung für Junglandwirte erhalten.",
+            "Ein Junglandwirt ist Betriebsleiter, wenn er die Vereinigung von natürlichen oder juristischen Personen vor dem Tag der erstmaligen Antragstellung auf Einkommensstützung für Junglandwirte wirksam und langfristig in Bezug auf die Entscheidungen zur Betriebsführung, Gewinnen und finanziellen Risiken kontrolliert.",
+            "Seit dem Jahr 2023 ist bei der erstmaligen Beantragung der Junglandwirte-Einkommensstützung zusätzlich zu den bisherigen Anforderungen eine berufliche Qualifikation des Junglandwirts nachzuweisen.",
+            "Eine bestandene Abschlussprüfung in einem staatlich anerkannten Ausbildungsberuf des Ausbildungsbereichs Landwirtschaft („Grüne Berufe“) oder ein Studienabschluss im Bereich der Agrarwirtschaft",
+            "Die erfolgreiche Teilnahme an einer anerkannten Bildungsmaßnahme im Agrarbereich, die Kenntnisse und Fähigkeiten zur Führung eines landwirtschaftlichen Betriebs vermittelt und mindestens 300 Stunden umfasst",
+            "eine über mindestens zwei Jahre erfolgte Tätigkeit in einem oder mehreren landwirtschaftlichen Betrieben mit einer in einem Arbeitsvertrag vereinbarten regelmäßigen wöchentlichen Arbeitszeit von mindestens 15 Stunden",
+            "als Gesellschafter eines landwirtschaftlichen Betriebsinhabers mit einer im Rahmen des Gesellschaftervertrags vereinbarten regelmäßigen wöchentlichen Leistung von Diensten im Umfang von mindestens 15 Stunden.",
+            "Die Erfüllung dieser Voraussetzungen zum Antragszeitpunkt ist durch die Vorlage geeigneter Belege, wie zum Beispiel von Abschlusszeugnissen, Teilnahmebescheinigungen, Gesellschaftsverträgen, Belegen über sozialversicherungspflichtige Beschäftigungsverhältnisse im familiären Betrieb oder Arbeitsverträge, nachzuweisen.",
+            "Stand: 20.02.2026"
+          ]
+        }
+      ],
+      "notes": "Für bereits vor 2023 bezogene Junglandwirteprämien beschreibt die Seite Übergangsregelungen ohne neuen Qualifikationsnachweis. Die Zahlung ist auf den Betrieb der erstmaligen Niederlassung beschränkt; bei Gesellschaften gelten zusätzliche Nachweise und Anforderungen an die kontinuierliche Betriebskontrolle.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
