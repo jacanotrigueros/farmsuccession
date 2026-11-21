@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "pays-de-la-loire",
   "officialName": "Pays de la Loire",
-  "published": "2026-10-28",
+  "published": "2026-11-21",
   "summary": "En Pays de la Loire, la Région gère la dotation aux jeunes agriculteurs et soutient des territoires pilotes qui expérimentent des actions locales de transmission. L’État finance, par l’AITA, un diagnostic et un suivi après l’installation. La Safer accompagne les cédants, Passeurs de terres facilite l’accès à des fermes biologiques et la CIAP propose une formation certifiante d’un an.",
   "coverage": {
     "status": "PARTIAL",
@@ -59,6 +59,13 @@
         "tool": "CHATGPT",
         "model": "gpt-6.1-sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -280,7 +287,7 @@
       "operatorType": "MIXED",
       "whatItOffers": "Facilite la transmission des exploitations sur leurs volets foncier et immobilier, avec diagnostic d’exploitation, évaluation des biens, transfert total ou partiel et recherche d’investisseurs ou de bailleurs pour faciliter l’installation d’un jeune.",
       "whoCanUseIt": "Cédants de tous types d’exploitations qui veulent réussir leur transmission et contribuer à l’installation d’un jeune agriculteur.",
-      "howToAccess": "Contacter un conseiller Safer, qui accompagne le projet de vente, les démarches administratives et le passage chez le notaire.",
+      "howToAccess": "Contacter directement la Safer Pays de la Loire en expliquant le projet de vente, puis rencontrer le conseiller foncier de secteur qui visite et évalue le bien. Les conditions de vente sont convenues librement avec la Safer, qui recherche des candidats à l’achat et accompagne les démarches administratives jusqu’à la signature chez le notaire.",
       "accessUrl": "https://www.safer-pays-de-loire.fr/agriculteurs/transmettre-installation-maintien/",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
@@ -308,10 +315,24 @@
             "Sarthe Service départemental",
             "Vendée Service départemental"
           ]
+        },
+        {
+          "url": "https://www.safer-pays-de-loire.fr/agriculteurs/vendre/",
+          "title": "Vendre | SAFER Pays de la Loire",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "La Safer transmet du parcellaire ainsi que des exploitations entières.",
+            "Contactez directement la Safer Pays de la Loire en expliquant votre projet de vente.",
+            "Rencontrez votre conseiller foncier de secteur qui visite et évalue votre bien.",
+            "Vous consentez librement à vendre votre bien à la Safer et convenez avec elle des conditions de la vente (délai, prix, modalités de paiement).",
+            "Pendant ce délai, nous recherchons des candidats à l’achat, intéressés par votre propriété, nous communiquons sur le bien à la vente sur notre site, dans un journal local et à la mairie de votre commune.",
+            "Nous vous assurons un accompagnement jusqu’à la signature de la vente chez le notaire.",
+            "Il vous accompagne dans toutes les démarches administratives, et notamment chez le notaire en vous apportant la sécurité juridique."
+          ]
         }
       ],
-      "generatorId": "claude-1",
-      "notes": "La Safer Pays de la Loire intervient en Loire-Atlantique, Maine-et-Loire, Mayenne, Sarthe et Vendée."
+      "notes": "La Safer Pays de la Loire intervient en Loire-Atlantique, Maine-et-Loire, Mayenne, Sarthe et Vendée.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
