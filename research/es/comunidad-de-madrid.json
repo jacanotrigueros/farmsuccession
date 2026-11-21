@@ -6,14 +6,15 @@
     "region": "comunidad-de-madrid"
   },
   "language": "es",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-11-21",
   "context": [
     "Comunidad uniprovincial: por debajo del nivel regional hay ayuntamientos, mancomunidades y grupos LEADER, por lo que la búsqueda de acceso a tierra debe bajar al nivel local.",
     "Las fichas de la sede electrónica de la Comunidad de Madrid son la mejor fuente para cuantías, requisitos, fechas y estado de las ayudas. En 2026 muestran convocatorias de jóvenes y nuevos agricultores y la resolución de la ayuda de sucesión de 2025.",
     "El Portal del Suelo Agrario y el registro de jóvenes agricultores preferentes continúan citados en el Plan de Dinamización, pero no se ha localizado una página operativa de inventario, inscripción o consulta; no deben confundirse con servicios existentes.",
     "El Ayuntamiento de Madrid sí mantiene un instrumento local real de acceso a tierra: Barrios Productores publica una Convocatoria Abierta Permanente del Vivero de Emprendimiento Agrícola para solicitar parcelas municipales disponibles.",
     "La Comunidad de Madrid no publica en la ficha de ayudas un catálogo único de cursos de incorporación, pero sí establece expresamente que un curso de incorporación a la empresa agraria de al menos 150 horas acredita formación lectiva. INALOCAL publica en 2026 una oferta de 150 horas que declara homologada conforme a la Orden 1696/2024; debe confirmarse la homologación vigente antes de matricularse.",
-    "UPA Madrid publica un servicio técnico para afiliados que incluye tramitación y seguimiento de ayudas a la primera instalación de jóvenes agricultores, además de modernización y otros servicios de explotación."
+    "UPA Madrid publica un servicio técnico para afiliados que incluye tramitación y seguimiento de ayudas a la primera instalación de jóvenes agricultores, además de modernización y otros servicios de explotación.",
+    "La convocatoria 2026 de sucesión tiene una ficha propia con el sufijo -0; la ficha sin sufijo conserva la convocatoria 2025."
   ],
   "portals": [
     {
@@ -341,6 +342,15 @@
       "reason": "Programa de asesoramiento publicado por ASAJA Madrid en enero de 2026 y relevante para incorporación y relevo, pero la página remite a ASAJA general y no demuestra que la prestación tenga un ámbito exclusivamente madrileño. Se evita duplicarlo en la región hasta resolver su capa correcta; UPA Madrid sí aporta un servicio territorial inequívoco.",
       "checkedOn": "2026-09-28",
       "foundBy": "madrid-organizaciones-2026"
+    },
+    {
+      "id": "madrid-ayudas-sucesion-explotaciones-2026",
+      "name": "Ayudas de cooperación para la sucesión de explotaciones agrícolas (2026)",
+      "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas-0",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "madrid-ayudas-sucesion-explotaciones",
+      "checkedOn": "2026-11-21"
     }
   ],
   "instrumentChecks": [
@@ -410,6 +420,11 @@
       "date": "2026-09-30",
       "by": "CLAUDE (Claude Code)",
       "summary": "Verificación manual documentada de las dos páginas de Barrios Productores, que rechazan las peticiones automatizadas. La pista y el método de cobertura remiten ahora a la nueva web, https://upa.es/madrid/."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La ficha oficial documenta la convocatoria 2026 de la ayuda de sucesión ya registrada, con solicitudes cerradas el 5 de noviembre y tramitación en curso. Actualizo el mismo recurso con esta convocatoria, sus condiciones de acceso y el contacto institucional, conservando la fuente y la convocatoria anteriores."
     }
   ]
 }
