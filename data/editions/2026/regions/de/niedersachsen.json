@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "niedersachsen",
   "officialName": "Niedersachsen",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "Niedersachsen fördert Existenzgründungen und Hofübernahmen junger Landwirtinnen und Landwirte mit 100.000 Euro bei außerfamiliärer Gründung und 70.000 Euro bei innerfamiliärer Übernahme. Eine neue Antragsphase ist vom 1. Januar bis 15. März 2027 angekündigt. Die Landwirtschaftskammer bietet außerdem niedersachsenweites Gründungs-Coaching für Neugründungen und Betriebsübernahmen an.",
   "coverage": {
     "status": "PARTIAL",
@@ -33,9 +33,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -58,6 +55,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-21"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -103,7 +107,11 @@
             "Bereits mit dem Antrag auf Förderung ist der Nachweis einer sozioökonomischen Beratung einzureichen.",
             "Förderanträge sind bis spätestens zum 23. November bei der LWK einzureichen.",
             "15.10.2025"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.ml.niedersachsen.de/presse/pressemitteilungen/mit-100-000-euro-in-die-landwirtschaftliche-selbststandigkeit-ministerin-besucht-brothof-waake-254712.html",
@@ -116,7 +124,11 @@
             "Die erstmalige Niederlassung der jungen Betriebsleiterinnen und-leiter muss dabei bis zum 1. Januar 2027 vollzogen worden sein.",
             "Förderanträge für den neuen Antragszeitraum sind bis spätestens 15. März 2027 bei der LWK einzureichen.",
             "22.10.2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "lastEvidenceDate": "2026-10-22",
@@ -151,7 +163,11 @@
             "132 € je Beratungsstunde zzgl. MwSt. und Fahrtkosten",
             "Mitgliedsrabatt für Kammerbeitragszahler/innen und Arbeitnehmer/innen im Agrarbereich (10 %) möglich",
             "Niedersachsenweit"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -186,7 +202,11 @@
             "Kontakte Niedersachsenweit",
             "Bezirksstelle Bremervörde",
             "Hofübergabe und Hofübernahme : Landwirtschaftskammer Niedersachsen"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.lwk-niedersachsen.de/lwk/news/16962_Soziooekonomische_Beratung",
@@ -196,7 +216,11 @@
             "Wir bieten Ihnen Beratung zur Einkommens- und Vermögenssicherung.",
             "der Planung und Durchführung einer Hofübergabe",
             "Generations- und Hofnachfolgekonflikten"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.lwk-niedersachsen.de/lwk/news/35994_Hofuebergabe_zum_17_oder_Neugruendung_eines_Betriebes_-_Hier_finden_Sie_alle_Formulare",
@@ -211,10 +235,45 @@
             "Ihre Ansprechpartnerin für die LandkreiseHarburg und Lüneburg: Anneken Kruse",
             "Ihre Ansprechpertnerin für den Landkreis Uelzen: Alix Mensching-Buhr",
             "Checkliste für Betriebsgründer (pdf)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
+    },
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://www.lwk-niedersachsen.de/lwk/news/42684_Die_Junglandwirte-Einkommensstuetzung_kurz_erklaert",
+      "id": "niedersachsen-junglandwirte-einkommensstuetzung-andi",
+      "name": "Junglandwirte-Einkommensstützung – Antrag über ANDI",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "operator": "Landwirtschaftskammer Niedersachsen",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Die Landwirtschaftskammer erklärt den niedersächsischen Antragsweg für die ergänzende Einkommensstützung für Junglandwirte.",
+      "howToAccess": "Den Antrag über ANDI stellen. Qualifikationsnachweise können direkt in ANDI digital hochgeladen werden.",
+      "sources": [
+        {
+          "url": "https://www.lwk-niedersachsen.de/lwk/news/42684_Die_Junglandwirte-Einkommensstuetzung_kurz_erklaert",
+          "title": "Die Junglandwirte-Einkommensstützung kurz erklärt : Landwirtschaftskammer Niedersachsen",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Junglandwirte, die an der GAP teilnehmen können im Rahmen der Direktzahlungen eine zusätzliche Prämie, die Junglandwirte-Einkommensstützung erhalten.",
+            "Antrag auf Agrarförderung (ANDI)",
+            "direkt digital in ANDI hochgeladen werden."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [
@@ -234,7 +293,11 @@
             "neue Antragsphase startet im Januar 2027",
             "voraussichtlich 3,35 Millionen Euro",
             "Förderanträge für den neuen Antragszeitraum sind bis spätestens 15. März 2027 bei der LWK einzureichen."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"

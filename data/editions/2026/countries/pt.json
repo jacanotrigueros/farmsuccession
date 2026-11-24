@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "PT",
   "officialName": "Portugal",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "No continente existem apoios à primeira instalação e acompanhamento técnico de jovens agricultores. A antiga Bolsa Nacional de Terras foi revogada; a operação do novo Banco e Bolsa continua por verificar. Uma ajuda a novos produtores pecuários esgotou a dotação.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -80,9 +80,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "pt",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -100,6 +97,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -128,7 +132,11 @@
             "A entidade gestora da bolsa de terras é o Ministério da Agricultura, através da Direção-Geral de Agricultura e Desenvolvimento Rural (DGADR).",
             "a bolsa de terras permite uma fácil disponibilização de terras para arrendamento, venda ou para outros tipos de cedência",
             "Texto atualizado em: 02 Junho 2021 16:36"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "A página consultada descreve a gestão histórica sob DGADR. Legislação posterior revogou esse regime e criou uma estrutura distinta. Não foi verificada operacionalidade do novo sistema de Banco e Bolsa de Terras.",
@@ -145,7 +153,7 @@
       "operator": "PEPAC no Continente",
       "operatorType": "PUBLIC",
       "whatItOffers": "Prémio não reembolsável à primeira instalação de 25.000€, com acréscimos de 25.000€ pela instalação em regime de exclusividade e de 5.000€ pela localização em zona vulnerável definida na regulamentação. Articula-se com a intervenção C.2.2.2 — Investimento produtivo Jovens Agricultores; o incentivo combinado não pode exceder 120% do investimento elegível aprovado nessa intervenção.",
-      "whoCanUseIt": "Jovens dos 18 aos 40 anos, inclusive, que se instalem pela primeira vez como responsáveis pela exploração. Inclui sociedades por quotas com atividade agrícola no objeto social, desde que os sócios-gerentes jovens agricultores detenham a maioria do capital e, individualmente, mais de 25%. Exige formação agrícola adequada ou compromisso de a iniciar no prazo máximo de 12 meses após a submissão eletrónica e autenticação do termo de aceitação, e plano de negócios de cinco anos. Aplica-se ao PEPAC no Continente, não às ajudas próprias dos Açores e da Madeira.",
+      "whoCanUseIt": "Jovens dos 18 aos 40 anos, inclusive, que se instalem pela primeira vez como responsáveis pela exploração. Inclui sociedades por quotas com atividade agrícola no objeto social, desde que os sócios-gerentes jovens agricultores detenham a maioria do capital e, individualmente, mais de 25%. Exige formação agrícola adequada ou compromisso de a iniciar no prazo máximo de 12 meses após a submissão eletrónica e autenticação do termo de aceitação, e plano de negócios de cinco anos. Aplica-se ao PEPAC no Continente, não às ajudas próprias dos Açores e da Madeira. O PEPAC manteve na orientação do quarto período, de 5 de setembro de 2025, a exigência de que todos os sócios-gerentes sejam jovens agricultores, detenham em conjunto a maioria do capital e tenham individualmente mais de 25%.",
       "accessUrl": "https://pepacc.pt/concursos/premio-instalacao-jovens-agricultores-1o-concurso-4o-periodo/",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
@@ -159,7 +167,11 @@
           "quotes": [
             "Prémio instalação jovens agricultores",
             "O candidato singular ou coletivo cumpre este critério desde que não tenha registo de início de atividade com CAE agrícola"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://pepacc.pt/wp-content/uploads/2024/11/Ficha-de-intervencao-C.2.2.1-Premio-instalacao-Jovens-Agricultores-1.pdf",
@@ -177,11 +189,73 @@
             "Não estarem inscritos na autoridade tributária com atividade agrícola, exceto nos dois anos anteriores ao ano de apresentação da candidatura;",
             "Não terem recebido quaisquer ajudas aos investimentos no setor agrícola, nem terem recebido prémio à primeira instalação;",
             "Inscrição no Organismo Pagador enquanto beneficiário; Detenção da titularidade da exploração; Inscrição na autoridade tributária com atividade agrícola."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2024/11/OT_13_C.2.2.1_28.11.2024-002-1.pdf",
+          "title": "Orientação técnica C.2.2.1 — Prémio instalação Jovens Agricultores, 28.11.2024",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "desde que todos os sócios-gerentes sejam jovens agricultores",
+            "detenham a maioria do capital social e uma participação individual superior a 25 %.",
+            "Previamente à submissão da candidatura, os candidatos devem efetuar o registo no Organismo Pagador",
+            "28.11.2024"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2025/09/OT_221_-Investimento_05092025_4periodo.pdf",
+          "title": "Orientação técnica C.2.2.1 — quarto período, 05.09.2025",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "desde que todos os sócios-gerentes sejam jovens agricultores",
+            "detenham a maioria do capital social e uma participação individual superior a 25 %.",
+            "Previamente à submissão da candidatura, os candidatos devem efetuar o registo no Organismo Pagador",
+            "05.09.2025"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2025/06/OT_222_-Investimento_04junho2025_pesquisavel.pdf",
+          "title": "Orientação técnica C.2.2.2 — Investimento Produtivo Jovens Agricultores, 04.06.2025",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "A VGO final para efeitos de hierarquização será a média resultante das pontuações obtidas na",
+            "tipologias C.2.2.1 e C.2.2.2, são indeferidas em ambas as componentes.",
+            "A presente Orientação Técnica entra em vigor no dia 04 de junho de 2025."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2025/09/OT_222_-Investimento_05092025_4periodo.pdf",
+          "title": "Orientação técnica C.2.2.2 — quarto período, 05.09.2025",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "A VGO final para efeitos de hierarquização será a média resultante das pontuações obtidas na",
+            "tipologias C.2.2.1 e C.2.2.2, são indeferidas em ambas as componentes."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "A página de concurso anteriormente consultada documenta a medida e os critérios, mas não mostra um período aberto na data da consulta. A primeira instalação exige inscrição no Organismo Pagador, titularidade da exploração e inscrição fiscal com atividade agrícola. A ficha exclui ajudas anteriores ao investimento agrícola ou prémio de primeira instalação e admite ajudas do pedido único e inscrição fiscal agrícola apenas nos dois anos anteriores ao ano da candidatura.",
-      "generatorId": "chatgpt-2"
+      "notes": "A página de concurso anteriormente consultada documenta a medida e os critérios, mas não mostra um período aberto na data da consulta. A primeira instalação exige inscrição no Organismo Pagador, titularidade da exploração e inscrição fiscal com atividade agrícola. A ficha exclui ajudas anteriores ao investimento agrícola ou prémio de primeira instalação e admite ajudas do pedido único e inscrição fiscal agrícola apenas nos dois anos anteriores ao ano da candidatura. As orientações de 4 de junho e 5 de setembro de 2025 indicam que, quando as duas componentes eram pedidas em conjunto, obter menos de dez pontos numa delas implicava o indeferimento do prémio de instalação e do investimento.",
+      "howToAccess": "A orientação do quarto período, de 5 de setembro de 2025, indica que os candidatos devem registar-se no organismo pagador, IFAP, antes de submeter a candidatura.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "pt-acompanhamento-tecnico-jovens",
@@ -193,9 +267,9 @@
       },
       "operator": "PEPAC no Continente e entidades prestadoras aprovadas",
       "operatorType": "MIXED",
-      "whatItOffers": "Acompanhamento técnico especializado durante três anos aos jovens agricultores com projeto de instalação nas intervenções C.2.2.1 e C.2.2.2 do PEPAC no Continente.",
+      "whatItOffers": "Acompanhamento técnico especializado durante três anos aos jovens agricultores com projeto de instalação nas intervenções C.2.2.1 e C.2.2.2 do PEPAC no Continente. A orientação do terceiro período de 4 de junho de 2025 descreve acompanhamento por entidades reconhecidas, com visitas anuais, apoio aos pedidos de pagamento e duração máxima de três anos, sem custo para o jovem agricultor.",
       "whoCanUseIt": "Jovens agricultores com projeto aprovado nas intervenções de instalação do PEPAC no Continente, sujeitos à condição de acompanhamento técnico.",
-      "howToAccess": "Escolher uma entidade da lista oficial de prestadores e formalizar contrato de acompanhamento antes do primeiro pedido de pagamento.",
+      "howToAccess": "Escolher uma entidade da lista oficial de prestadores e formalizar contrato de acompanhamento antes do primeiro pedido de pagamento. As orientações de 4 de junho e 5 de setembro de 2025 indicam que, para contar a adesão na candidatura de investimento, o promotor a deve assinalar no formulário e apresentar o comprovativo no primeiro pedido de pagamento.",
       "accessUrl": "https://pepacc.pt/acompanhamento-tecnico-especializado-para-jovens-agricultores/",
       "languages": ["pt"],
       "targetProfiles": ["YOUNG_FARMER"],
@@ -209,17 +283,61 @@
             "é obrigatória a celebração de um Contrato de Acompanhamento Técnico Especializado com uma das entidades prestadoras deste serviço",
             "O acompanhamento técnico especializado tem de ocorrer por um período de três anos",
             "três visitas por ano"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://pepacc.pt/wp-content/uploads/2026/01/Entidades-prestadoras-de-Servicos-de-Acompanhamento-Tecnico-Especializado.pdf",
           "title": "Lista de entidades prestadoras de serviços de acompanhamento técnico especializado",
           "consultedOn": "2026-09-28",
-          "quotes": ["Apoio à Instalação do Jovem Agricultor,", "associado às tipologias C.2.2.1 e C.2.2.2 do PEPAC"]
+          "quotes": ["Apoio à Instalação do Jovem Agricultor,", "associado às tipologias C.2.2.1 e C.2.2.2 do PEPAC"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2025/06/OT_222_-Investimento_04junho2025_pesquisavel.pdf",
+          "title": "Orientação técnica C.2.2.2 — Investimento Produtivo Jovens Agricultores, 04.06.2025",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "assinalar no formulário que aderiu ou pretende aderir ao respetivo acompanhamento",
+            "Em sede de primeiro pedido de pagamento o candidato deverá apresentar o",
+            "comprovativo de adesão.",
+            "Este acompanhamento inclui a realização de visitas anuais à exploração",
+            "implica quaisquer custos para o jovem agricultor",
+            "limitado a um período máximo de três anos.",
+            "A presente Orientação Técnica entra em vigor no dia 04 de junho de 2025."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2025/09/OT_222_-Investimento_05092025_4periodo.pdf",
+          "title": "Orientação técnica C.2.2.2 — quarto período, 05.09.2025",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "assinalar no formulário que aderiu ou pretende aderir ao respetivo acompanhamento",
+            "Em sede de primeiro pedido de pagamento o candidato deverá apresentar o",
+            "comprovativo de adesão.",
+            "Este acompanhamento inclui a realização de visitas anuais à exploração",
+            "implica quaisquer custos para o jovem agricultor",
+            "limitado a um período máximo de três anos.",
+            "A presente Orientação Técnica produz efeitos a 05 de setembro de 2025."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "A candidatura de acompanhamento financia entidades prestadoras; o jovem adere mediante contrato. Aplica-se ao PEPAC no Continente, não aos programas regionais dos Açores e da Madeira.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "pt-novos-produtores-pecuarios-2026",
@@ -259,7 +377,11 @@
             "assumam formalmente a titularidade e a gestão direta de uma exploração pecuária de bovinos, ovinos ou caprinos, pela primeira vez",
             "e que se instalem nas freguesias previstas no anexo II da citada portaria.",
             "Prémio à instalação no valor global de 30 000 €"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.ifap.pt/portal/temprss/-/asset_publisher/8NqcGH0YvyEu/content/id/58933030",
@@ -267,7 +389,11 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "as dotações financeiras destinadas aos apoios para a instalação de novos produtores pecuários encontram-se, à data, totalmente esgotadas."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Programa de 2026 com elegibilidade territorial restrita às freguesias da norma; dotação esgotada. A inclusão na camada Portugal não significa elegibilidade em todo o país ou nas regiões autónomas.",
@@ -301,7 +427,11 @@
             "Nesta página poderá consultar todas as versões originais dos diplomas, e as respetivas versões consolidadas em vigor.",
             "O histórico de alterações dos diplomas está disponível em Diário da República Eletrónico.",
             "Última atualização: 4 de agosto, 2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-2"
@@ -336,11 +466,43 @@
             "Consulte a Ficha de Intervenção que preparámos, e saiba mais sobre estes apoios.",
             "Ficha de intervenção C.2.2.2 – Investimento Produtivo Jovens Agricultores (4 MB)",
             "Última atualização: 29 de outubro, 2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2025/06/OT_222_-Investimento_04junho2025_pesquisavel.pdf",
+          "title": "Orientação técnica C.2.2.2 — Investimento Produtivo Jovens Agricultores, 04.06.2025",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "pontuação mínima de dez pontos, em cada uma das",
+            "tipologias C.2.2.1 e C.2.2.2, são indeferidas em ambas as componentes.",
+            "A presente Orientação Técnica entra em vigor no dia 04 de junho de 2025."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2025/09/OT_222_-Investimento_05092025_4periodo.pdf",
+          "title": "Orientação técnica C.2.2.2 — quarto período, 05.09.2025",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "pontuação mínima de dez pontos, em cada uma das",
+            "tipologias C.2.2.1 e C.2.2.2, são indeferidas em ambas as componentes.",
+            "A presente Orientação Técnica produz efeitos a 05 de setembro de 2025."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "A página apresenta os objetivos e os investimentos abrangidos, mas não permite confirmar a disponibilidade atual de candidaturas, os montantes ou as condições detalhadas de acesso.",
-      "generatorId": "chatgpt-2"
+      "notes": "A página apresenta os objetivos e os investimentos abrangidos, mas não permite confirmar a disponibilidade atual de candidaturas, os montantes ou as condições detalhadas de acesso. Nas orientações do terceiro e quarto períodos, de 4 de junho e 5 de setembro de 2025, obter menos de dez pontos numa candidatura conjunta às tipologias C.2.2.1 e C.2.2.2 implicava o indeferimento de ambas as componentes.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "pt-e-formar-jovens-agricultores",
@@ -369,7 +531,11 @@
             "Produzir e-manuais que permitam apoiar a formação em e-learning, de modo a contribuir para melhorar a qualidade e eficácia da formação.",
             "Encontram-se concluídas todas atividades previstas no plano de ação do projeto.",
             "Publicações: Manual de Formação - Agricultura Sustentável Manual de Formação - Aplicação de produtos Fitofarmaceuticos Manual de Formação - Gestão da Empresa Agrícola"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "A página documenta a conclusão do projeto e os seus materiais; não comprova inscrições em cursos nem reconhecimento destes materiais para cumprir requisitos de acesso a ajudas à instalação.",
@@ -399,7 +565,11 @@
             "Estudamos e analisamos as propostas com vista a obter a máxima viabilidade das explorações.",
             "Conceção de projetos | Primeira Instalação | Investimento;",
             "Conte connosco para o ajudar a realizar a submissão da sua candidatura."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-2"

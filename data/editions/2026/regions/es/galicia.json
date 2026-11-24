@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "galicia",
   "officialName": "Galicia",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "Galicia combina un Banco de Tierras con acceso real a parcelas, un Banco de Explotaciones con procedimientos abiertos todo el año para cedentes y personas sucesoras, ayudas 2026 a la primera instalación de jóvenes, formación oficial y tutorización pública. La ayuda MR617D para quien cede una explotación tiene bases reguladoras, pero no se ha verificado una convocatoria operativa en 2026.",
   "coverage": {
     "status": "PARTIAL",
@@ -33,9 +33,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -58,6 +55,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -72,8 +76,8 @@
       },
       "operator": "Agencia Gallega de Desarrollo Rural (AGADER)",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Instrumento público de intermediación de tierra. SITEGAL permite consultar parcelas y, desde 2026, solicitar durante todo el año el arrendamiento de parcelas disponibles sin concurrencia mediante MR711G; las parcelas en concurrencia usan ventanas específicas de MR711B. Permite registrar una demanda de parcelas para recibir avisos por correo electrónico cuando se oferten terrenos con las características indicadas; esa demanda no constituye una solicitud de arrendamiento.",
-      "whoCanUseIt": "Cualquier persona titular puede incorporar sus parcelas para su arrendamiento. Pueden buscar tierras las personas que las necesiten para usos agrícolas, ganaderos, forestales, de conservación de la naturaleza y patrimonio u otros usos de interés social.",
+      "whatItOffers": "Instrumento público de intermediación de tierra. SITEGAL permite consultar parcelas y, desde 2026, solicitar durante todo el año el arrendamiento de parcelas disponibles sin concurrencia mediante MR711G; las parcelas en concurrencia usan ventanas específicas de MR711B. Permite registrar una demanda de parcelas para recibir avisos por correo electrónico cuando se oferten terrenos con las características indicadas; esa demanda no constituye una solicitud de arrendamiento. La Ley 11/2021 recoge una deducción del 100 % en el ITP y AJD en transmisiones, arrendamientos y cesiones temporales en que intervenga el Banco.",
+      "whoCanUseIt": "Cualquier persona titular puede incorporar sus parcelas para su arrendamiento. Pueden buscar tierras las personas que las necesiten para usos agrícolas, ganaderos, forestales, de conservación de la naturaleza y patrimonio u otros usos de interés social. La deducción es incompatible con otros beneficios aplicables a la adjudicación o mediación y exige mantener el destino agrario durante al menos cinco años, con las excepciones que prevé la ley.",
       "howToAccess": "Consultar SITEGAL. Para parcelas disponibles sin concurrencia, presentar MR711G durante todo el año. Para parcelas en concurrencia, usar MR711B durante los períodos habilitados publicados en la sede electrónica. SITEGAL permite preparar la solicitud y presentarla mediante la sede electrónica, o imprimirla para su entrega presencial o por correo postal cuando no exista obligación de comunicación electrónica. Las personas no obligadas pueden recibir asistencia en las Oficinas Agrarias Comarcales de la Xunta de Galicia y en las oficinas de Agader en Santiago de Compostela.",
       "accessUrl": "https://info-sitegal.xunta.gal/es/paxina/banco-de-terras/ferramenta-sitegal",
       "assetTypes": ["PLOTS"],
@@ -90,8 +94,8 @@
         {
           "name": "MR711B - próxima ventana de parcelas en concurrencia",
           "state": "UPCOMING",
-          "opens": "2026-11-02",
-          "closes": "2026-11-20",
+          "opens": "2027-05-03",
+          "closes": "2027-05-21",
           "sourceUrl": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR711B"
         }
       ],
@@ -121,7 +125,11 @@
           "quotes": [
             "datos del total de parcelas, titularidad y precios medios de arrendamiento del Banco de Tierras, actualizados a 30 de junio de 2026",
             "Galicia 20.405 7.271,84 0,36"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://sede.xunta.gal/detalle-procedemento?ano=2026&c=entidades-locais&codtram=MR711G&lang=es&numpub=1",
@@ -130,16 +138,24 @@
           "quotes": [
             "Convocatoria 2026 - Aberto todo o ano",
             "calquera persoa que queira arrendar terras para fins agrícolas, gandeiros ou forestais"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR711B",
-          "title": "MR711B - Alquiler en concurrencia",
-          "consultedOn": "2026-09-28",
+          "title": "MR711B - Alquiler de parcela rústica incorporada al Banco de Tierras de Galicia en el estado de disponible en concurrencia. - Sede electrónica - Xunta de Galicia",
+          "consultedOn": "2026-11-24",
           "quotes": [
-            "Próxima apertura: 02/11/2026 00:00 - 20/11/2026 23:59",
+            "Próxima apertura: 03/05/2027 00:00 - 21/05/2027 23:59",
             "cualquier persona que quiera arrendar tierras para fines agrícolas, ganaderos o forestales"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://info-sitegal.xunta.gal/es/paxina/banco-de-terras/ferramenta-sitegal",
@@ -160,11 +176,30 @@
             "En la solicitud tendrá que identificar la parcela, ya sea en el mapa o bien con la identificación numérica del SIXPAC",
             "establecer el precio a lo que quiere que se arrende la hinca",
             "y aportar unos datos mínimos de contacto."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://boe.es/eli/es-ga/l/2021/05/14/11/con",
+          "title": "BOE-A-2021-10669 Ley 11/2021, de 14 de mayo, de recuperación de la tierra agraria de Galicia.",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Las transmisiones en propiedad, el arrendamiento o la cesión temporal de terrenos en que intervenga el Banco de Tierras de Galicia",
+            "deducción en la cuota tributaria del 100 %",
+            "Este beneficio fiscal será incompatible con cualquier otro",
+            "durante un período mínimo de cinco años, del destino agrario del terreno"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La incorporación de parcelas por sus titulares es libre y gratuita; esto no significa que su arrendamiento sea gratuito. Para ofrecer una parcela hay que identificarla, fijar el precio de arrendamiento y aportar datos de contacto, y después remitir a Agader el formulario generado. Para solicitar arrendamientos mediante SITEGAL es necesario identificarse con certificado digital, llave365 o DNI electrónico.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "galicia-banco-explotaciones",
@@ -178,7 +213,7 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Instrumento público de intermediación que facilita el contacto entre titulares de explotaciones agroforestales que abandonan la actividad y personas interesadas en incorporarse. Dispone de visor público y procedimientos separados para incorporar una explotación y solicitar intermediación de acceso.",
       "whoCanUseIt": "Titulares de explotaciones que quieren transmitirlas y personas interesadas en arrendar, permutar, adquirir o formalizar otra cesión de uso o transmisión de una explotación incluida.",
-      "howToAccess": "Los titulares usan MR617B y las personas interesadas usan MR617C; ambos procedimientos están abiertos todo el año. Para MR617C se utiliza el formulario normalizado del anexo II, disponible en la sede electrónica. El apartado de documentación permite también la presentación presencial a las personas no obligadas a la presentación electrónica. Las oficinas rurales informan y asesoran sobre ambas solicitudes, las reciben y las tramitan hasta la propuesta de resolución.",
+      "howToAccess": "Los titulares usan MR617B y las personas interesadas usan MR617C; ambos procedimientos están abiertos todo el año. Para MR617C se utiliza el formulario normalizado del anexo II, disponible en la sede electrónica. El apartado de documentación permite también la presentación presencial a las personas no obligadas a la presentación electrónica. Las oficinas rurales informan y asesoran sobre ambas solicitudes, las reciben y las tramitan hasta la propuesta de resolución. La Ley 11/2021 indica que se solicita la intermediación a la Agencia Gallega de Desarrollo Rural. Se puede proponer un precio de compra, arrendamiento o aprovechamiento, de forma voluntaria.",
       "accessUrl": "https://mediorural.xunta.gal/es/temas/explotaciones/banco-de-explotaciones",
       "assetTypes": ["WHOLE_HOLDINGS"],
       "languages": ["gl", "es"],
@@ -203,7 +238,11 @@
           "quotes": [
             "actúa como un instrumento público de intermediación",
             "dispón dun visor de acceso público para localizar as explotacións dispoñibles para a súa transmisión en Galicia"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://sede.xunta.gal/es/detalle-procedemento?ano=2025&c=884&codtram=MR617B&lang=es&numpub=1",
@@ -212,13 +251,21 @@
           "quotes": [
             "Abierto todo el año",
             "Personas titulares de explotación que deseen incorporar al Banco de Explotaciones su explotación"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR617C",
           "title": "MR617C - Intermediación para el acceso",
           "consultedOn": "2026-09-28",
-          "quotes": ["Abierto todo el año", "desde las oficinas rurales se informará y se asesorará a las personas interesadas"]
+          "quotes": ["Abierto todo el año", "desde las oficinas rurales se informará y se asesorará a las personas interesadas"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://sede.xunta.gal/detalle-procedemento?codtram=MR617C",
@@ -235,11 +282,29 @@
             "a) DNI/NIE da persoa solicitante.",
             "b) Acreditación da persoa representante legal (se é o caso).",
             "a) Consulta do DNI/NIE da persoa solicitante."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://boe.es/eli/es-ga/l/2021/05/14/11/con",
+          "title": "BOE-A-2021-10669 Ley 11/2021, de 14 de mayo, de recuperación de la tierra agraria de Galicia.",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "presentarán su solicitud ante la Agencia Gallega de Desarrollo Rural",
+            "podrán ofrecer un precio de compra, arrendamiento, permuta o cualquier otro negocio jurídico de cesión o aprovechamiento",
+            "sin que esto último sea un requisito obligatorio."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Para MR617C se prevén el DNI/NIE de la persona solicitante y, en su caso, la acreditación de la representación legal. La Administración puede consultar automáticamente el DNI/NIE. Aunque las instrucciones generales de tramitación indican la presentación por internet, el apartado de documentación contempla expresamente la alternativa presencial para quienes no estén obligados a la presentación electrónica.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "galicia-cooperacion-sucesion-explotaciones",
@@ -274,7 +339,11 @@
           "url": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR617D",
           "title": "MR617D - Cooperación para la sucesión de explotaciones agrarias",
           "consultedOn": "2026-09-28",
-          "quotes": ["Plazo de presentación: CERRADO", "Se abrirá el plazo cuándo salga la convocatoria publicada en el DOG"]
+          "quotes": ["Plazo de presentación: CERRADO", "Se abrirá el plazo cuándo salga la convocatoria publicada en el DOG"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://mediorural.xunta.gal/gl/recursos/novas/xunta-mobilizara-mais-de-21-meu-no-periodo-2025-2027-co-plan-de-conservacion-dos",
@@ -282,13 +351,21 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "a Consellería do Medio Rural publicará este ano a convocatoria de axudas para o fomento da sucesión de explotacións agrarias"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.xunta.gal/dog/Publicados/2025/20251222/AnuncioG0426-111225-0005_gl.html",
           "title": "Diario Oficial de Galicia — bases da axuda á cooperación para a sucesión de explotacións",
           "consultedOn": "2026-09-29",
-          "quotes": ["a axuda poderá acadar no total de todas as anualidades a contía de 30.000 €"]
+          "quotes": ["a axuda poderá acadar no total de todas as anualidades a contía de 30.000 €"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Las bases reguladoras existen desde diciembre de 2025, pero no demuestran por sí solas una convocatoria operativa.",
@@ -347,7 +424,11 @@
           "quotes": [
             "Convocatoria 2026 - Prazo pechado: 10/03/2026 00:00 - 09/04/2026 23:59",
             "Participar no programa de titorización a persoas agricultoras mozas que presta a Consellería do Medio Rural"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.xunta.gal/dog/Publicados/2026/20260309/AnuncioG0426-260226-0004_es.html",
@@ -357,7 +438,11 @@
             "El importe de la ayuda será de 30.000 euros",
             "podrá incrementarse hasta los 70.000 euros",
             "explotación localizada en zonas con limitaciones naturales de montaña o en la Red Natura 2000"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -397,7 +482,11 @@
             "Convocatoria 2024 - Prazo pechado: 23/01/2024 00:00 - 22/04/2024 23:59",
             "Ter entre 41 e 55 anos de idade, ambos incluídos",
             "Plan estratéxico da política agraria común de España 2023-2027"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "No se ha verificado una convocatoria posterior a 2024; por eso la operatividad actual queda como «Estado no confirmado».",
@@ -427,7 +516,11 @@
           "quotes": [
             "Setembro 2026 Relación de Cursos semipresenciais AEA - Edicións 127, 128, 129, 130 e 131",
             "poderán formular, en calquera momento, a súa petición"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -456,7 +549,11 @@
           "quotes": [
             "Participar no programa de titorización a persoas agricultoras mozas que presta a Consellería do Medio Rural",
             "deberá ser tutelado polo persoal técnico agrario das oficinas rurais"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -494,13 +591,21 @@
           "quotes": [
             "ofrecerlles un acompañamento que facilite a chegada de persoas emprendedoras",
             "permitirá conectar ás persoas agricultoras e gandeiras"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://norural.gal/quenes-somos/",
           "title": "Quenes somos | Nó Rural",
           "consultedOn": "2026-09-28",
-          "quotes": ["Os seis GDR que constituen este proxecto e que polo tanto definen o ámbito de actuación do mesmo son"]
+          "quotes": ["Os seis GDR que constituen este proxecto e que polo tanto definen o ámbito de actuación do mesmo son"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://norural.gal/",
@@ -508,7 +613,11 @@
           "consultedOn": "2026-09-29",
           "quotes": [
             "Nó Rural lanza unha enquisa para identificar a agricultores e gandeiros próximos á xubilación que desexen buscar a remuda ó fronte da explotación"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://norural.gal/recuperacion-da-terra-agraria/",
@@ -520,7 +629,11 @@
             "PERMUTAS DE ESPECIAL INTERESE AGRARIO",
             "ALDEAS MODELO",
             "Se queres facernos calquera pregunta ou consulta, escríbenos podes escribirnos ao noso correo: info@norural.gal e responderémosche canto antes, grazas!"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "La investigación no demuestra todavía un mercado estable de explotaciones con matching automático; el servicio actual es identificación y acompañamiento territorial.",
@@ -548,7 +661,11 @@
           "url": "https://mediorural.xunta.gal/gl/recursos/novas/medio-rural-presenta-hoxe-nova-escola-de-pastores-impulsada-en-colaboracion-coa",
           "title": "Presentación de la Escola de Pastores",
           "consultedOn": "2026-09-28",
-          "quotes": ["impartirá no período de marzo a xullo e de setembro a outubro"]
+          "quotes": ["impartirá no período de marzo a xullo e de setembro a outubro"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://mediorural.xunta.gal/gl/recursos/novas/maria-jose-gomez-enxalza-escola-de-pastores-como-exemplo-da-aposta-pola-formacion-da",
@@ -559,11 +676,109 @@
             "250 horas de formación teórica",
             "320 horas de formación práctica",
             "Esta primeira edición conta con 25 alumnos e alumnas, seleccionados entre 44 persoas interesadas"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "La cohorte 2026 sigue en ejecución, pero no se ha localizado una inscripción abierta para una segunda edición.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "galicia-espacios-agrarios-experimentacion",
+      "name": "Espacios agrarios de experimentación de Galicia",
+      "kind": "POLICY",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Agencia Gallega de Desarrollo Rural",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Los artículos 122 a 125 de la Ley 11/2021 prevén espacios de formación y ensayo de modelos de negocio agrario. El Consejo Rector de la Agencia puede declarar espacios y la Agencia elabora un plan de actuaciones para ponerlos en marcha.",
+      "accessUrl": "https://boe.es/eli/es-ga/l/2021/05/14/11/con",
+      "sources": [
+        {
+          "url": "https://boe.es/eli/es-ga/l/2021/05/14/11/con",
+          "title": "BOE-A-2021-10669 Ley 11/2021, de 14 de mayo, de recuperación de la tierra agraria de Galicia.",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "las personas jóvenes o emprendedoras puedan recibir formación y probar su modelo de negocio",
+            "La Agencia Gallega de Desarrollo Rural podrá declarar, mediante acuerdo de su Consejo Rector",
+            "redactará un plan de actuaciones para la puesta en marcha de las actividades del espacio agrario de experimentación",
+            "Artículo 122. Espacios agrarios de experimentación.",
+            "Artículo 125. Funcionamiento de los espacios agrarios de experimentación."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personas jóvenes o emprendedoras que desean incorporarse progresivamente a la agricultura.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "galicia-deduccion-cesiones-proyectos-recuperacion",
+      "name": "Deducción por cesión temporal de fincas a proyectos de recuperación agraria",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Xunta de Galicia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "La Ley 11/2021 establece una deducción del 100 % en transmisiones patrimoniales onerosas para arrendamientos o cesiones temporales de fincas rústicas que se incorporen a polígonos agroforestales, aldeas modelo o agrupaciones de gestión conjunta.",
+      "accessUrl": "https://boe.es/eli/es-ga/l/2021/05/14/11/con",
+      "sources": [
+        {
+          "url": "https://boe.es/eli/es-ga/l/2021/05/14/11/con",
+          "title": "BOE-A-2021-10669 Ley 11/2021, de 14 de mayo, de recuperación de la tierra agraria de Galicia.",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "una deducción en la cuota del 100 %, en la modalidad de transmisiones patrimoniales onerosas",
+            "para los arrendamientos o cesiones temporales de fincas rústicas",
+            "para su incorporación a polígonos agroforestales, proyectos de aldeas modelo o agrupaciones de gestión conjunta"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "galicia-deduccion-transmision-explotacion-agraria",
+      "name": "Deducción por transmisión inter vivos de elementos de una explotación agraria",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Xunta de Galicia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "La Ley 11/2021 contempla una deducción del 100 % de la cuota en transmisiones del pleno dominio o usufructo de elementos afectos a una explotación, de forma individual o al transmitir la explotación completa.",
+      "accessUrl": "https://boe.es/eli/es-ga/l/2021/05/14/11/con",
+      "sources": [
+        {
+          "url": "https://boe.es/eli/es-ga/l/2021/05/14/11/con",
+          "title": "BOE-A-2021-10669 Ley 11/2021, de 14 de mayo, de recuperación de la tierra agraria de Galicia.",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Se aplicará una deducción del 100 % de la cuota del impuesto",
+            "del pleno dominio o del usufructo de elementos afectos a una explotación agraria",
+            "Que los elementos adquiridos se mantengan afectos a la explotación agraria durante un plazo de cinco años desde su adquisición"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Las condiciones incluyen el mantenimiento de los elementos afectos durante cinco años, con las excepciones y requisitos que recoge la modalidad aplicable.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [
@@ -579,7 +794,11 @@
           "url": "https://sede.xunta.gal/detalle-procedemento?ano=2026&codtram=MR404A&lang=es&numPubAno=1",
           "title": "MR404A 2026",
           "consultedOn": "2026-09-28",
-          "quotes": ["Convocatoria 2026 - Prazo pechado: 10/03/2026 00:00 - 09/04/2026 23:59"]
+          "quotes": ["Convocatoria 2026 - Prazo pechado: 10/03/2026 00:00 - 09/04/2026 23:59"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -596,7 +815,11 @@
           "url": "https://norural.gal/no-rural-lanza-unha-enquisa-para-identificar-a-agricultores-e-gandeiros-proximos-a-xubilacion-que-desexen-buscar-a-remuda-o-fronte-da-explotacion/",
           "title": "Encuesta de relevo de Nó Rural",
           "consultedOn": "2026-09-28",
-          "quotes": ["Ferrol, 9 de xullo de 2026"]
+          "quotes": ["Ferrol, 9 de xullo de 2026"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "generatorId": "chatgpt-1"

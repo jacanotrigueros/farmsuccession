@@ -6,7 +6,7 @@
     "region": "comunitat-valenciana"
   },
   "language": "es",
-  "updatedOn": "2026-11-20",
+  "updatedOn": "2026-11-24",
   "context": [
     "La Generalitat mantiene el procedimiento 571 como ruta de tramitación de la primera instalación. A 28/09/2026 la sede todavía muestra sobre todo la convocatoria 2025 y sus fases de modificación/justificación, pero la BDNS oficial ya ha registrado una nueva convocatoria con solicitud del 05/10/2026 al 04/12/2026.",
     "La Orden 9/2025 fija una prima base de 30.000 euros y máximo de 80.000 euros para jóvenes agricultores, y 20.000/70.000 euros para nuevos agricultores. La ventana de modificación del plan empresarial de beneficiarios 2025 no debe confundirse con una nueva convocatoria.",
@@ -157,13 +157,14 @@
     },
     {
       "id": "cv-xarxa-terres",
-      "name": "Xarxa de Terres (Ley 5/2019)",
-      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2019-4086",
-      "kind": "LAND_BANK",
-      "status": "TO_CHECK",
+      "name": "BOE-A-2019-4086 Ley 5/2019, de 28 de febrero, de estructuras agrarias de la Comunitat Valenciana.",
+      "url": "https://boe.es/buscar/act.php?id=BOE-A-2019-4086",
+      "kind": "OTHER",
+      "status": "ADMITTED",
       "reason": "La Ley 5/2019 crea el marco de la Xarxa de Terres y oficinas de gestión, pero la pasada 2026 no localizó una plataforma autonómica única con inventario, inscripción de parcelas o solicitud de tierras. No se infiere operación regional a partir de la ley.",
       "foundBy": "cv-xarxa-terres",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-11-24",
+      "resourceId": "comunitat-valenciana-bonificacion-transmision-arrendamiento-red-tierras"
     },
     {
       "id": "cv-curso-incorporacion-inalocal",
@@ -266,6 +267,24 @@
       "status": "ADMITTED",
       "resourceId": "comunitat-valenciana-banco-tierras-vinaros",
       "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "comunitat-valenciana-establecimiento-jovenes-nuevos-agricultores",
+      "name": "Ayudas al establecimiento de personas jóvenes agricultoras y nuevos agricultores de la Comunitat Valenciana",
+      "url": "https://sede.gva.es/es/detall-tramit?id_caso=que_es&id_proc=G571",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "comunitat-valenciana-establecimiento-jovenes-nuevos-agricultores",
+      "checkedOn": "2026-11-24"
+    },
+    {
+      "name": "Red de Tierras de la Comunitat Valenciana",
+      "url": "https://boe.es/buscar/act.php?id=BOE-A-2019-4086",
+      "kind": "POLICY",
+      "id": "comunitat-valenciana-red-tierras",
+      "status": "ADMITTED",
+      "resourceId": "comunitat-valenciana-red-tierras",
+      "checkedOn": "2026-11-24"
     }
   ],
   "instrumentChecks": [
@@ -355,6 +374,21 @@
       "date": "2026-11-20",
       "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
       "summary": "El anuncio municipal publicado en el boletín provincial crea el fichero del Banco de Tierras Agrícolas de Vinaròs y define su función de contacto entre propietarios y personas interesadas en cultivar parcelas del municipio. Se propone un recurso local cuya existencia está documentada en la ordenanza, sin presentar como operativa una disponibilidad que este texto no acredita."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La pestaña de requisitos del procedimiento 571 distingue los dos tramos de edad según el año de solicitud. Se añaden a comunitat-valenciana-establecimiento-jovenes-nuevos-agricultores y se conserva la advertencia sobre la fecha de cierre."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La Ley 5/2019 regula la Red de Tierras y una bonificación fiscal vinculada a determinadas operaciones intermediadas por sus oficinas."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La Ley 5/2019 regula la Red de Tierras y una bonificación fiscal vinculada a determinadas operaciones intermediadas por sus oficinas."
     }
   ]
 }

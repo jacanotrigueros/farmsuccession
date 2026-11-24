@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "guadeloupe",
   "officialName": "Guadeloupe",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "En Guadeloupe, la Région gère une aide FEADER à l'installation des jeunes agriculteurs. La Safer accompagne l'accès au foncier et la transmission de biens, mais ne présente actuellement aucun appel à candidatures ouvert. Guadeloupe AgroCampus propose un stage de préinstallation de 21 heures.",
   "coverage": {
     "status": "PARTIAL",
@@ -53,9 +53,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -78,6 +75,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -111,7 +115,11 @@
             "Limite d’âge maximale fixée à 40 ans",
             "Un montant plafond de 100 000 €",
             "Dépôt des demandes de financement en continu"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.europe-guadeloupe.fr/jai-un-projet/faire-une-demande-daide/",
@@ -120,7 +128,11 @@
           "quotes": [
             "Je dépose mon projet et ma demande de subvention sur le portail dédié Euro-PAC",
             "Ce portail est le seul moyen de déposer une demande"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "claude-1"
@@ -186,31 +198,54 @@
             "Il n’y a pas d’appel à candidature ouvert pour le moment.",
             "La Safer Guadeloupe s’engage pour le développement agricole en proposant des biens fonciers à la vente et à la location.",
             "TELECHARGEZ LES FICHES DE CANDIDATURE"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://saferguadeloupe.com/acheter/",
           "title": "Acheter — Safer Guadeloupe",
           "consultedOn": "2026-09-29",
-          "quotes": ["La Safer transmet des propriétés ou des parcelles."]
+          "quotes": ["La Safer transmet des propriétés ou des parcelles."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://saferguadeloupe.com/vendre-transmettre/",
           "title": "Vendre / Transmettre — Safer Guadeloupe",
           "consultedOn": "2026-09-29",
-          "quotes": ["Safer recherche des acheteurs potentiels pour votre propriété"]
+          "quotes": ["Safer recherche des acheteurs potentiels pour votre propriété"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://saferguadeloupe.com/wp-content/uploads/2026/09/Avis-dAppel-candidature-du-7-09-2026.pdf",
           "title": "Avis d'appel à candidatures — Safer de Guadeloupe",
           "consultedOn": "2026-09-29",
-          "quotes": ["Les candidatures doivent être déposées au plus tard le lundi 21 septembre 2026.", "Pour les biens fonciers agricoles"]
+          "quotes": [
+            "Les candidatures doivent être déposées au plus tard le lundi 21 septembre 2026.",
+            "Pour les biens fonciers agricoles"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer.fr/app/uploads/2025/10/TGA.pdf",
           "title": "Le marché des terres agricoles en 2024 - Groupe Safer",
           "consultedOn": "2026-10-25",
-          "quotes": ["Département et région d’outre-mer de Guadeloupe (971)"]
+          "quotes": ["Département et région d’outre-mer de Guadeloupe (971)"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://saferguadeloupe.com/informations-sur-le-processus/",
@@ -227,7 +262,11 @@
             "Pour être garanti de retrouver votre bien libre à l’issue de la période déterminée",
             "0590 32 57 57",
             "safergpe@safer-guadeloupe.fr"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://saferguadeloupe.com/louer-la-cmd/",
@@ -247,7 +286,11 @@
             "Contactez la SAFER",
             "0590 32 57 57",
             "safergpe@safer-guadeloupe.fr"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -278,7 +321,11 @@
             "un programme de formation de pré-installation",
             "Cette formation est régulièrement renouvelée dans l'année.",
             "Pré-inscription à la formation"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -308,7 +355,11 @@
             "Maintenir et promouvoir l’exploitation des parcelles agricoles",
             "Le Département, fort de l’importance de son patrimoine foncier agricole, s’est donné pour mission de favoriser une agriculture pérenne en favorisant l’installation des agriculteurs.",
             "Aujourd’hui ce sont près de 500 exploitants agricoles accompagnés par la Collectivité qui sont détenteurs d’un bail rural ou d’une convention d’occupation."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -361,7 +412,11 @@
             "Direction instruction FEADER-FEAMPA",
             "projets-feader-feamp@regionguadeloupe.fr",
             "Le Plan stratégique d’intervention régional Guadeloupe FEADER 2023-2027 (version avril 2026)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -413,10 +468,46 @@
             "Direction instruction FEADER-FEAMPA",
             "projets-feader-feamp@regionguadeloupe.fr",
             "Le Plan stratégique d’intervention régional Guadeloupe FEADER 2023-2027 (version avril 2026)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
+    },
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://guadeloupe.chambres-agriculture.fr/je-suis-future-agriculteur-trice",
+      "id": "guadeloupe-chambre-agriculture-point-accueil-installation",
+      "name": "Point Accueil Installation — Chambre d’agriculture de la Guadeloupe",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "operator": "Chambre d’agriculture de la Guadeloupe",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "La Chambre propose un parcours de conseil avant et après l’installation agricole.",
+      "whoCanUseIt": "Personnes qui préparent leur installation en agriculture en Guadeloupe.",
+      "howToAccess": "S’informer d’abord auprès du Point Accueil Installation, puis contacter un conseiller de la Chambre d’agriculture.",
+      "sources": [
+        {
+          "url": "https://guadeloupe.chambres-agriculture.fr/je-suis-future-agriculteur-trice",
+          "title": "Je suis futur(e) agriculteur/trice - Chambre d'agriculture de la Guadeloupe",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "La Chambre d'Agriculture de la Guadeloupe vous accompagne en amont et après votre installation.",
+            "ETAPE 1 : S'INFORMER AUPRÈS DU PAI",
+            "ETAPE 2 : CONTACTER VOTRE CONSEILLER À LA CHAMBRE D'AGRICULTURE"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

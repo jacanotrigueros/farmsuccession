@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "ile-de-france",
   "officialName": "Île-de-France",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "En Île-de-France, l’accès à la terre passe par deux opérateurs vérifiables : Île-de-France Nature, qui loue ses terres agricoles et porte du foncier pour installer des agriculteurs en zone périurbaine avec la Safer, et la Safer de l’Île-de-France, qui accompagne les cédants dans la transmission de leur exploitation.",
   "coverage": {
     "status": "PARTIAL",
@@ -25,9 +25,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -44,6 +41,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-21"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -75,24 +79,36 @@
             "Elle sécurise et facilite la transmission par sa garantie de vendeur professionnel.",
             "Rencontrez le/la conseiller(e) foncier(e) en charge de votre secteur",
             "contribuer à l’installation d’un(e) jeune agriculteur(rice)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.saferidf.fr/contact/",
           "title": "Contact - Safer de l’Île-de-France",
-          "consultedOn": "2026-10-25",
+          "consultedOn": "2026-11-24",
           "quotes": [
             "Secteurs Nord Seine et Marne, Seine-Saint-Denis",
-            "Secteurs Essonne/Val-de-Marne",
             "Secteur Yvelines",
-            "Secteur Val-d’Oise"
-          ]
+            "Secteur Val-d’Oise",
+            "Secteur Essonne/Val-de-Marne"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.saferidf.fr/",
           "title": "La Safer de l’Île-de-France",
           "consultedOn": "2026-10-25",
-          "quotes": ["sur toute la Région Ile-de-France"]
+          "quotes": ["sur toute la Région Ile-de-France"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/devenir-agriculteur/",
@@ -110,7 +126,11 @@
             "Un(e) conseiller(e) foncier(e) vous accompagne dans votre projet de candidature jusqu’à la signature de l’acte.",
             "Dans le cadre de votre création d’activité agricole ou bien de reprise d’une exploitation, il vous aide à trouver le bien qui correspond à votre projet, à sa juste valeur en connaissant parfaitement le prix du marché.",
             "Enfin, elle sécurise votre acquisition sur les plans techniques, juridiques et fiscaux"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Les secteurs publiés pour les conseillers fonciers couvrent la Seine-et-Marne, la Seine-Saint-Denis, l’Essonne, le Val-de-Marne, les Yvelines et le Val-d’Oise. Le site de l’opérateur indique par ailleurs qu’il intervient sur toute la région Île-de-France.",
@@ -143,7 +163,11 @@
             "en louant ses terres agricoles à des porteurs de projets agricoles, notamment à travers des baux ruraux",
             "en assurant, si nécessaire, le portage du foncier",
             "dans le cadre du dispositif « Île-de-France, terre d’installation agricole » mené en partenariat avec la SAFER de l’Île-de-France"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.iledefrance-nature.fr/terres-agricoles/",
@@ -155,7 +179,11 @@
             "Favoriser l’installation d’agriculteurs, dont les activités sont compatibles avec les enjeux du territoire et économiquement viables",
             "Île-de-France Nature est le nom d’usage de l’Agence des espaces verts de la région d’Île-de-France, établissement public à caractère administratif",
             "Nos actions au quotidien"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-2"
@@ -186,7 +214,11 @@
             "Aux cédant, le GAB IdF propose un accompagnement individuel: Aide à la rédaction et diffusion d’annonces, Mise en lien avec des porteurs de projet, Aide à la réflexion sur le projet de transmission, Aide au diagnostic de la ferme, Médiation cédant repreneur.",
             "Aux candidats à l'installation, le GAB IdF propose un accompagnement individuel Etude de faisabilité du projet, Appui au montage du dossier d’aide à l’investissement, Construction du prévisionnel économique, Calcul des prix, débouchés, communication, Diagnostic agronomique et analyse de sol, Accompagnement des projets de diversification.",
             "Mon contact Tanneguy PICHON Chargé de développement agricole et partenarial et référent Aides et réglementation BIO"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-2"
@@ -233,7 +265,11 @@
             "Pour bénéficier de cette aide, vous devez déposer un dossier sur la plateforme en ligne mesdemarches.iledefrance.fr (dispositif « FEADER - Aide à l'installation du jeune agriculteur »).",
             "Le document à télécharger lors du dépôt de dossier reprend l'ensemble des critères à remplir et le contenu du dossier de demande d'aide.",
             "Pour toute demande liée au dispositif, vous pouvez contacter le service pré-instructeur de la Chambre d’agriculture d’Île-de-France : installation-transmission@idf.chambagri.fr"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-2"
@@ -248,7 +284,7 @@
       },
       "operator": "DRIAAF Île-de-France",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Rubrique donnant accès aux pages sur le parcours à l’installation, le dispositif d’accompagnement à l’installation en Île-de-France, le Comité régional installation transmission, le programme AITA et l’agrément des structures de conseil et d’accompagnement France services agriculture.",
+      "whatItOffers": "Rubrique donnant accès aux pages sur le parcours à l’installation, le dispositif d’accompagnement à l’installation en Île-de-France, le Comité régional installation transmission, le programme AITA et l’agrément des structures de conseil et d’accompagnement France services agriculture. Une fiche DRIAAF du 10 octobre 2017 présente le PAI comme point d’entrée, le CEPPP comme centre d’élaboration du plan de professionnalisation et le stage collectif de 21 heures comme composante de ce plan.",
       "howToAccess": "Choisir dans la rubrique la page consacrée au parcours à l’installation ou au dispositif d’accompagnement recherché.",
       "accessUrl": "https://driaaf.ile-de-france.agriculture.gouv.fr/renouvellement-des-generations-r101.html",
       "sources": [
@@ -263,10 +299,30 @@
             "Programme d’Accompagnement à l’installation et la transmission en agriculture (AITA)",
             "France services agriculture : agrément des structures de conseil et d’accompagnement des porteurs de projet",
             "Site officiel de la direction régionale et interdépartementale de l'Alimentation, de l'Agriculture et de la Forêt (DRIAAF) du ministère en charge de l'agriculture."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://driaaf.ile-de-france.agriculture.gouv.fr/les-structures-d-accompagnement-a-l-installation-pai-ceppp-stage-collectif-21-a1305.html",
+          "title": "Les structures d’accompagnement à l’installation : PAI, CEPPP, Stage collectif 21 heures | DRIAAF Île-de-France",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Cette structure est une « porte d’entrée unique » chargée d’accueillir et de coordonner l’accompagnement de proximité",
+            "Ce centre, animé par des conseillers, est chargé de l’élaboration des plans de professionnalisation (PPP)",
+            "Le stage collectif de 21 heures est un stage de formation ouvert à tous les porteurs de projet d’une installation en agriculture.",
+            "Le stage collectif de 21 heures est une composante du plan de professionnalisation personnalisé (PPP).",
+            "Publié le 10/10/2017"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

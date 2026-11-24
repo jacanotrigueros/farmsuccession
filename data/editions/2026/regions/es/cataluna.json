@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "cataluna",
   "officialName": "Cataluña",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "Cataluña combina ayudas de primera instalación y sucesión, la oficina virtual pública El Planter, itinerario formativo y mentoría públicos, asesoramiento especializado de JARC y una red diversa de instrumentos de acceso a tierra. Además del sistema de bancos de la provincia de Barcelona, se verifican servicios operativos en Priorat, Baix Camp, Garrigues, Ripollès, Riba-roja d'Ebre y el sistema Segarra-Garrigues, junto con espacios test agrarios.",
   "coverage": {
     "status": "PARTIAL",
@@ -69,9 +69,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -94,6 +91,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -154,7 +158,11 @@
             "Termini ampliat fins al 15 de maig de 2026.",
             "Aquest tràmit només es pot fer per internet.",
             "Persones de 18 anys complerts a data de sol·licitud i que no compleixin els 41 l’any de presentació de la sol·licitud"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://agricultura.gencat.cat/web/.content/09-desenvolupament-rural/pla-estrategic-pac-2023-2027/documents/fitxers-binaris/551_PDR2327_installacio-joves.pdf",
@@ -164,7 +172,11 @@
             "Prima base: 30.000 €",
             "En funció dels increments es podrà arriba fins a 100.000 €",
             "Quan la instal·lació sigui en persona física i es faci gràcies a un traspàs extrafamiliar d'una empresa existent: 10.000€"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La ficha estática histórica del programa todavía mostraba una prima base anterior; para la edición 2026 se usan las cuantías actualizadas del documento PEPAC de 28/04/2026. El incremento por traspaso extrafamiliar puede alcanzar 10.000 euros.",
@@ -217,13 +229,21 @@
             "El termini és del 19 de maig al 20 de juliol de 2026, ambdós inclosos.",
             "agricultor/ra amb una edat màxima de 45 anys donat d’alta com a titular d’explotació",
             "Llei 1/2025, de 8 de gener, del Fons Agrari i Ramader"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://agricultura.gencat.cat/ca/detalls/Noticia/comunicat_5_coop_cge_2026",
           "title": "Comunicat 5 COOP 2026: convocatòria dels ajuts de successió",
           "consultedOn": "2026-09-28",
-          "quotes": ["L’import total d’ajuts previst és de 10.000.000 euros"]
+          "quotes": ["L’import total d’ajuts previst és de 10.000.000 euros"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/24587-ajut-cooperacio-successio-explotacions-agraries?moda=2",
@@ -242,7 +262,11 @@
             "Les persones sol·licitants han d’enviar la documentació demanada utilitzant el formulari d’aportació de documentació, en el qual cal fer constar obligatòriament el número d’expedient.",
             "Aquest tràmit només es pot fer per internet.",
             "Cal que us identifiqueu quan envieu el formulari amb l’idCATMòbil o un certificat digital de persona física."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://ruralcat.gencat.cat/el_planter/ajuts-successions",
@@ -254,7 +278,11 @@
             "Conjuntament, hem d’elaborar un projecte de cooperació per tal de fer seguiment d’aquelles tasques que es duran a terme a l’explotació durant el procés de formació (document a sota).",
             "No és un ajut a la jubilació, és un ajut destinat a promoure una cooperació entre determinades persones cedents i determinades persones cessionàries que volen dedicar-se a l’activitat agrària.",
             "Tràmit de l’ajut a GenCat"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La Llei 1/2025 del Fons Agrari i Ramader financia políticas agrarias y ganaderas; no es un banco de tierras y no se representa como recurso de acceso a tierra. La convocatoria 2026 dispone de 10.000.000 euros en conjunto para sucesión y transmisión de conocimientos; no es un importe por beneficiario.",
@@ -272,7 +300,7 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Itinerario formativo personalizado para la persona joven que se incorpora sin la formación necesaria. Un tutor o tutora asignado por el Servei de Formació Agroalimentària diseña y sigue la ruta, que combina gestión empresarial, formación tecnológica y otras actividades adaptadas al proyecto.",
       "whoCanUseIt": "Personas jóvenes que se incorporan a la empresa agraria y necesitan completar la capacitación requerida en su proceso de instalación.",
-      "howToAccess": "La ruta se define con la persona tutora de incorporación y se realiza principalmente mediante las escuelas agrarias y otras actividades reconocidas. La finalización del itinerario es un requisito de certificación de la ayuda de primera instalación cuando corresponda.",
+      "howToAccess": "La ruta se define con la persona tutora de incorporación y se realiza principalmente mediante las escuelas agrarias y otras actividades reconocidas. La finalización del itinerario es un requisito de certificación de la ayuda de primera instalación cuando corresponda. Las personas jóvenes con al menos dos años de experiencia laboral agraria pueden pedir el reconocimiento de competencias tecnológicas y demostrar en su explotación que dominan las tareas básicas. En las prácticas en empresas, el tutor pone en contacto a la persona joven con la empresa y hace el seguimiento.",
       "accessUrl": "https://agricultura.gencat.cat/ca/ambits/formacio-innovacio/formacio-agraria/incorporacio-empresa-agraria/",
       "qualifiesForEstablishmentAid": true,
       "languages": ["ca"],
@@ -282,16 +310,38 @@
           "url": "https://agricultura.gencat.cat/ca/ambits/formacio-innovacio/formacio-agraria/incorporacio-empresa-agraria/",
           "title": "Incorporació a l'empresa agrària — Departament d'Agricultura",
           "consultedOn": "2026-09-28",
-          "quotes": ["L’itinerari formatiu consta d’una part obligatòria, d’una durada màxima de 400 hores"]
+          "quotes": ["L’itinerari formatiu consta d’una part obligatòria, d’una durada màxima de 400 hores"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/2228-Ajuts-per-a-la-primera-installacio-de-joves-agricultors-i-agricultores?moda=3",
           "title": "Justificació de la primera instal·lació — Tràmits Gencat",
           "consultedOn": "2026-09-28",
-          "quotes": ["L’assoliment de la totalitat de l’itinerari formatiu."]
+          "quotes": ["L’assoliment de la totalitat de l’itinerari formatiu."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://ruralcat.gencat.cat/formacio-escoles-agraries/itinerari-formatiu",
+          "title": "Itinerari formatiu - Ruralcat",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Els joves que disposen d’una experiència laboral de 2 anys o més en el sector agrari, poden sol·licitar el reconeixement o la validació",
+            "Es tracta de demostrar de manera pràctica, a la seva explotació, que pot desenvolupar correctament les tasques bàsiques pròpies de l’activitat.",
+            "El/la tutor/a d’incorporació posa en contacte els joves i l’empresa i fa el seguiment de les pràctiques."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "cataluna-mentoria-jovenes-agricultores",
@@ -303,7 +353,7 @@
       },
       "operator": "Generalitat de Catalunya, Servei de Formació Agrària (escoles agràries)",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Mentoría práctica y personalizada que vincula a la persona mentorada con un profesional experimentado y una tutoría de la escuela agraria. Existe una modalidad específica para jóvenes de primera instalación y una Mentoria Oberta para otras personas adultas con un proyecto viable en el sector primario. El propio Departament sitúa el proyecto dentro de la «Estratègia de relleu generacional de Catalunya 2023-2027».",
+      "whatItOffers": "Mentoría práctica y personalizada que vincula a la persona mentorada con un profesional experimentado y una tutoría de la escuela agraria. Existe una modalidad específica para jóvenes de primera instalación y una Mentoria Oberta para otras personas adultas con un proyecto viable en el sector primario. El propio Departament sitúa el proyecto dentro de la «Estratègia de relleu generacional de Catalunya 2023-2027». RuralCat describe una modalidad de mentoría entre mujeres en la que una profesional experimentada del sector agrario o ganadero comparte conocimientos y orienta a una mentorizada que empieza su actividad.",
       "whoCanUseIt": "Jóvenes que han solicitado la ayuda de primera instalación y, mediante la Mentoria Oberta, personas de 18 a 65 años con un proyecto viable en el sector primario.",
       "howToAccess": "Para la Mentoria Oberta se presenta una solicitud a la dirección de la escuela agraria más cercana al territorio donde se quiere desarrollar la actividad; la escuela asigna tutoría y mentoría adecuadas al proyecto.",
       "accessUrl": "https://agricultura.gencat.cat/ca/ambits/formacio-innovacio/formacio-agraria/mentoria/",
@@ -315,22 +365,47 @@
           "url": "https://agricultura.gencat.cat/ca/ambits/formacio-innovacio/formacio-agraria/mentoria/",
           "title": "Mentoria — Departament d'Agricultura",
           "consultedOn": "2026-09-28",
-          "quotes": ["qualsevol persona, d’edats compreses entre 18 a 65 anys, pugui cursar una mentoria"]
+          "quotes": ["qualsevol persona, d’edats compreses entre 18 a 65 anys, pugui cursar una mentoria"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://agricultura.gencat.cat/ca/detalls/Noticia/Incorporacio-de-joves-Mentoria",
           "title": "Les Escoles Agràries inicien un programa pioner de Mentoria Oberta",
           "consultedOn": "2026-09-28",
-          "quotes": ["El programa ofereix un acompanyament pràctic i personalitzat mitjançant un procés de mentoria"]
+          "quotes": ["El programa ofereix un acompanyament pràctic i personalitzat mitjançant un procés de mentoria"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://agricultura.gencat.cat/ca/dar_butlletins/butlleti-escoles-agraries/escoles-agraries-0005/",
           "title": "Mentoria Oberta — Butlletí de les Escoles Agràries",
           "consultedOn": "2026-10-25",
-          "quotes": ["Aquest projecte s’emmarca dins de l’Estratègia de relleu generacional de Catalunya 2023-2027"]
+          "quotes": ["Aquest projecte s’emmarca dins de l’Estratègia de relleu generacional de Catalunya 2023-2027"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://ruralcat.gencat.cat/formacio-escoles-agraries/itinerari-formatiu",
+          "title": "Itinerari formatiu - Ruralcat",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "una formació basada en la col·laboració entre dones",
+            "ofereix consell, informació i guia a la jove mentorada que està iniciant l’activitat professional."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "cataluna-bancos-tierras-diputacion-barcelona",
@@ -356,7 +431,11 @@
           "url": "https://bancdeterres.cat/",
           "title": "Inici | Banc de Terres",
           "consultedOn": "2026-10-30",
-          "quotes": ["Cerques terres?", "Vols oferir terres?", "T'agradaria trobar un relleu per la teva explotació?"]
+          "quotes": ["Cerques terres?", "Vols oferir terres?", "T'agradaria trobar un relleu per la teva explotació?"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://bcnagraria.diba.cat/ca/actua/bancs-de-terres-de-la-diputacio-de-barcelona",
@@ -367,7 +446,11 @@
             "A més a més, ofereix una plataforma virtual des de la qual es pot accedir a la informació de tots els Bancs de terres de la xarxa, i també als centres gestors de cadascun d’ells.",
             "Intermediació entre propietaris i sol·licitants.",
             "Posada en marxa d'un servei d'assessorament per a la redacció de contractes agraris i també per a l'elaboració de plans d'empresa agrària per als sol·licitants."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -398,7 +481,11 @@
           "quotes": [
             "Servei de mediació i accés a la terra.",
             "El cost d’aquest assessorament és assumit pel Consell Comarcal del Priorat."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -426,7 +513,11 @@
           "url": "https://www.baixcamp.cat/serveis-al-municipis/servei-de-promocio-economica/",
           "title": "Servei de promoció econòmica — Consell Comarcal del Baix Camp",
           "consultedOn": "2026-09-28",
-          "quotes": ["és un servei comarcal de mediació entre persones propietàries i pageses creat per promoure el relleu agrari"]
+          "quotes": ["és un servei comarcal de mediació entre persones propietàries i pageses creat per promoure el relleu agrari"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.seu-e.cat/documents/27867/6446484/Reglament%2Bi%2Bcompromisos%2Bdel%2BBanc%2Bde%2BTerres%2Bdel%2BBaix%2BCamp/1737ac26-f6d0-42a3-be77-4433fcd4e422",
@@ -458,7 +549,11 @@
             "En cas de que alguna de les parts, o ambdues, es faci enrere quan l’esborrany del contracte està redactat haurà d’assumir el cost derivat dels serveis jurídics contractats per redactar aquell contracte.",
             "En la resta de casos la redacció del contracte és gratuït per l’usuari, com tota la resta del servei.",
             "Si les persones usuàries es posen en contacte i formalitzen un contracte sense intermediació del Banc de Terres, el contracte no està subjecte als serveis de seguiment i mediació en cas de conflicte que ofereix el Consell Comarcal del Baix Camp."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "El servicio es gratuito, incluida la redacción del contrato, salvo que alguna parte se retire cuando el borrador ya esté redactado: deberá asumir el coste jurídico de su redacción. Los contratos formalizados sin intermediación del banco no cuentan con sus servicios de seguimiento y mediación.",
@@ -491,7 +586,11 @@
           "quotes": [
             "esdevenir un servei d’intermediació públic i gratuït dels acords entre propietaris i demandants de terra",
             "acompanyar i/o derivar als usuaris en els projectes d’emprenedoria, de recuperació i de reconversió de finques en el sector primari"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -522,7 +621,11 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "és un servei públic que facilita el contacte entre persones que disposen de finques agràries o ramaderes i persones que busquen terres"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -548,9 +651,13 @@
       "sources": [
         {
           "url": "https://www.aiguessegarragarrigues.cat/",
-          "title": "Banc de terres — Aigües del Segarra Garrigues",
-          "consultedOn": "2026-09-28",
-          "quotes": ["Un servei gratuït per a l’oferta i demanda de finques situades en l’àmbit del Sistema-Garrigues"]
+          "title": "Home - Aigües del Segarra Garrigues",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Un servei gratuït per a l’oferta i la demanda de finques situades en l’àmbit del Sistema Segarra-Garrigues."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -589,13 +696,21 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "cobertura legal pel desenvolupament de l’activitat, l’accés a una finca pasturable, eines i materials, un ramat i acompanyament tècnic i empresarial"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://ruralcat.gencat.cat/web/guest/noticia/-/asset_publisher/0uQeyOT3Xt80/content/ampliat-fins-al-4-de-novembre-el-termini-per-participar-a-l-espai-test-agrari-de-gandesa/20181?_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_0uQeyOT3Xt80_assetEntryId=18733490&redirect=%2Fcampus-empresarial%2Fnoticies",
           "title": "Ampliat fins al 4 de novembre el termini per participar a l’Espai Test Agrari de Gandesa — Ruralcat",
           "consultedOn": "2026-09-28",
-          "quotes": ["16/10/2025", "fins al 4 de novembre de 2025"]
+          "quotes": ["16/10/2025", "fins al 4 de novembre de 2025"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Ruralcat demuestra que la segunda convocatoria terminó el 4/11/2025. La página del operador sigue mostrando el aviso 'TERMINI OBERT' sin actualizar el año, por lo que no se interpreta como una convocatoria 2026. El recurso se mantiene como «Activo» por la continuidad del espacio como dispositivo, no por tener plazas abiertas.",
@@ -636,13 +751,21 @@
           "quotes": [
             "facilitarà a la/les persona/es seleccionada/es cobertura legal pel desenvolupament de l’activitat, l’accés a una finca pasturable, eines i materials",
             "Acreditar una formació mínima de 100 hores en ramaderia o bé una experiència acreditada d’almenys 6 mesos en el mateix àmbit."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://ruralcat.gencat.cat/web/guest/noticia/-/asset_publisher/0uQeyOT3Xt80/content/un-espai-test-agroramader-a-sant-mart%C3%AD-de-riucorb-facilitar%C3%A0-l-acc%C3%A9s-de-nous-professionals-al-sector/20181",
           "title": "Un espai test agroramader a Sant Martí de Riucorb facilitarà l'accés de nous professionals al sector — Ruralcat",
           "consultedOn": "2026-09-28",
-          "quotes": ["La convocatòria per seleccionar la persona “tester” està oberta fins al 30 de juny"]
+          "quotes": ["La convocatòria per seleccionar la persona “tester” està oberta fins al 30 de juny"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Ruralcat anunció que el test comenzaría en septiembre de 2026, pero no se ha localizado una publicación posterior que confirme la incorporación efectiva de la persona seleccionada; por eso la disponibilidad actual se marca como «Estado no confirmado».",
@@ -681,19 +804,31 @@
           "quotes": [
             "Estem especialitzats en l’assessorament i acompanyament de tot el procés d’incorporació de joves al sector agrari.",
             "El 2025, vam acompanyar i assessorar el 24% de tots els projectes de joves de Catalunya."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://jarc.cat/contacta/",
           "title": "Contacta — JARC",
           "consultedOn": "2026-09-28",
-          "quotes": ["També pots omplir aquest formulari."]
+          "quotes": ["També pots omplir aquest formulari."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://jarc.cat/nou-ajut-per-successio-agraria-fes-el-relleu-amb-suport-economic/",
           "title": "Nou ajut de successió agrària — JARC",
           "consultedOn": "2026-09-28",
-          "quotes": ["Contacta amb la teva oficina JARC i t’acompanyarem en tot el procés."]
+          "quotes": ["Contacta amb la teva oficina JARC i t’acompanyarem en tot el procés."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "JARC indica que en 2025 acompañó y asesoró el 24 % de los proyectos de jóvenes de Cataluña. No se registra ese porcentaje como métrica porque el esquema no dispone de unidad porcentual.",
@@ -710,7 +845,7 @@
       "operator": "Generalitat de Catalunya, Departament d'Agricultura, Ramaderia, Pesca i Alimentació",
       "operatorType": "PUBLIC",
       "whatItOffers": "Oficina virtual que reúne información sobre incorporación agraria, ayudas, formación, plan de empresa, apoyo y asesoramiento. Da acceso al acompañamiento de referentes de las oficinas comarcales y dinamizadores territoriales de jóvenes.",
-      "whoCanUseIt": "Personas jóvenes que buscan incorporarse a la actividad agraria en Cataluña, con atención especial a quienes no tienen experiencia previa en el sector.",
+      "whoCanUseIt": "Personas jóvenes que buscan incorporarse a la actividad agraria en Cataluña.",
       "howToAccess": "Entrar en El Planter y usar sus apartados de instalación, plan de empresa, apoyo o contacto. Para acompañamiento, elegir en el directorio el referente de la oficina comarcal o el dinamizador del territorio.",
       "accessUrl": "https://ruralcat.gencat.cat/el_planter",
       "languages": ["ca"],
@@ -721,17 +856,11 @@
           "url": "https://ruralcat.gencat.cat/el_planter",
           "title": "El Planter — Ruralcat",
           "consultedOn": "2026-10-30",
-          "quotes": ["Necessites ajuda? Contacta amb persona tècnica referent de la teva Oficina Comarcal CATIFA VERMELLA"]
-        },
-        {
-          "url": "https://jovecat.gencat.cat/ca/temes/treball/cercar-feina/el-planter/",
-          "title": "El Planter — Jovecat",
-          "consultedOn": "2026-10-30",
-          "quotes": [
-            "Des de 2020 el Planter és un punt de trobada i d’informació per a totes les persones joves que cerquen recursos per a la incorporació agrària a Catalunya, amb una atenció especial als qui no tenen experiència prèvia en el sector.",
-            "En aquest espai pots trobar tota la informació que et cal, des d’ajuts i formació fins a experiències compartides, suport i assessorament.",
-            "A la web hi ha una bústia on es responen de manera regular qüestions relatives a la incorporació agrària a Catalunya."
-          ]
+          "quotes": ["Necessites ajuda? Contacta amb persona tècnica referent de la teva Oficina Comarcal CATIFA VERMELLA"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://ruralcat.gencat.cat/el_planter/dinamitzacio",
@@ -740,7 +869,11 @@
           "quotes": [
             "Si et vols incorporar com a jove a agricultor/a o has iniciat aquest procés i necessites assessorament i/o acompanyament en aquests primers passos contacta amb el/la dinamitzador/a de joves del teu territori:",
             "Identificació d’oportunitats de relleu i dinamitzar les incorporacions."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://ruralcat.gencat.cat/el_planter/oficines-comarcals",
@@ -749,7 +882,11 @@
           "quotes": [
             "La teva persona del DARPA referent i del teu projecte.",
             "T'acompanyarà durant el període de definició, desenvolupament i consolidació del teu projecte, de forma coordinada amb l’entitat col·laboradora / assessora."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Los directorios publican contactos institucionales de personas concretas; la ficha enlaza al directorio vigente en vez de copiar datos susceptibles de cambiar.",
@@ -788,7 +925,11 @@
             "La sol·licitud d’aquest ajut associat s’ha de fer a través de la DUN.",
             "La DUN es podrà tramitar mitjançant les entitats col·laboradores del Departament d’Agricultura, Ramaderia, Pesca i Alimentació.",
             "Data d'actualització: 10/04/2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -820,10 +961,192 @@
             "Financiación más accesible y nuevas herramientas de crédito adaptadas a los jóvenes.",
             "Acceso preferente a tierras en desuso y recuperación de espacios agrarios.",
             "El Departamento de Agricultura activa 10 millones de euros para garantizar el relevo generacional agrario en Cataluña"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
+    },
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://tramits.gencat.cat/ca/tramits/tramits-temes/24401-arrendament-parcelles-inscrites-registre-parcelles-agricoles-ramaderes-desus",
+      "id": "cataluna-arrendamiento-parcelas-desuso",
+      "name": "Arrendamiento de parcelas agrícolas y ganaderas en desuso",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "operator": "Departament d’Agricultura, Ramaderia, Pesca i Alimentació",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "La Generalitat publica las bases y el catálogo para solicitar el arrendamiento de parcelas inscritas en el registro de parcelas agrícolas y ganaderas en desuso.",
+      "howToAccess": "Acceder a la opción de presentar la solicitud de arrendamiento en el portal de trámites de la Generalitat.",
+      "sources": [
+        {
+          "url": "https://agricultura.gencat.cat/ca/serveis/registres-oficials/agricultura-sanitat-vegetal-mon-agrari/registre-parcelles-agricoles-ramaderes-desus/convocatoria-parcelles-desus/index.html",
+          "title": "Convocatòria de parcel·les en desús. Departament d'Agricultura, Ramaderia, Pesca i Alimentació",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Catàleg de parcel·les en desús",
+            "per a l'accés a l'arrendament de parcel·les inscrites en el Registre de parcel·les agrícoles i ramaderes en desús."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/24401-arrendament-parcelles-inscrites-registre-parcelles-agricoles-ramaderes-desus",
+          "title": "Arrendament de parcel·les inscrites al Registre — Tràmits Gencat",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Presentar la sol·licitud d’arrendament"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://escoladepastorsdecatalunya.cat/formacio/",
+      "id": "cataluna-escola-pastors-formacion",
+      "name": "Escola de Pastors i Pastores de Catalunya",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "operator": "Escola de Pastors i Pastores de Catalunya",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "La edición de 2027 incluye 388,5 horas de formación teórico-práctica y cuatro meses de prácticas en explotaciones ganaderas y pastos de verano.",
+      "howToAccess": "Consultar el calendario y las instrucciones de inscripción de la edición de 2027 en la página de la escuela. El plazo de inscripción cierra el 27 de noviembre de 2026.",
+      "whoCanUseIt": "Personas que quieren incorporarse a la ganadería extensiva, con un proyecto propio o trabajando por cuenta ajena.",
+      "sources": [
+        {
+          "url": "https://escoladepastorsdecatalunya.cat/formacio/",
+          "title": "Formació – Escola de Pastors i Pastores de Catalunya",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "388,5 hores de formació teoricopràctica",
+            "4 mesos de pràctiques en explotacions ramaderes i estives",
+            "Tancament d’inscripcions: 27 de novembre de 2026",
+            "Obertura d’inscripcions: 30 d’octubre de 2026",
+            "adreçada a persones amb vocació d’incorporar-se a la ramaderia extensiva, ja sigui desenvolupant un projecte propi o treballant per a tercers."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "calls": [
+        {
+          "name": "Edició 2027",
+          "state": "OPEN",
+          "opens": "2026-10-30",
+          "closes": "2026-11-27",
+          "sourceUrl": "https://escoladepastorsdecatalunya.cat/formacio/"
+        }
+      ],
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "cataluna-escola-pastors-asesoramiento-instalacion",
+      "name": "Escola de Pastors — asesoramiento técnico para la instalación",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Escola de Pastors i Pastores de Catalunya",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Asesoramiento sobre documentación, trámites, gestión de la finca y compra de ganado por el equipo de la escuela y profesionales de la ganadería extensiva.",
+      "accessUrl": "https://escoladepastorsdecatalunya.cat/acompanyament/",
+      "sources": [
+        {
+          "url": "https://escoladepastorsdecatalunya.cat/acompanyament/",
+          "title": "Acompanyament – Escola de Pastors i Pastores de Catalunya",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Per aquelles persones que són en el procés d’instal·lar-se",
+            "documentació necessària, tràmits, gestió de la finca, compra de bestiar",
+            "Aquest acompanyament es fa a través de les tècniques de l’escola i de professionals de la ramaderia extensiva."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personas en proceso de instalación agraria.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "cataluna-taula-relleu-agrari-pirineu",
+      "name": "Taula de Treball pel Relleu Agrari al Pirineu",
+      "kind": "NETWORK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Alt Pirineu y Aran"
+      },
+      "operator": "Escola de Pastors i Pastores de Catalunya",
+      "operatorType": "MIXED",
+      "whatItOffers": "Red de entidades y administraciones que impulsa sensibilización, asesoramiento y acompañamiento para el relevo agrario en el Alt Pirineu y Aran.",
+      "accessUrl": "https://escoladepastorsdecatalunya.cat/acompanyament/",
+      "sources": [
+        {
+          "url": "https://escoladepastorsdecatalunya.cat/acompanyament/",
+          "title": "Acompanyament – Escola de Pastors i Pastores de Catalunya",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "un espai de col·laboració entre entitats i administracions del territori",
+            "facilitar el relleu generacional i les transmissions d’explotacions agràries a l’Alt Pirineu i Aran.",
+            "La Taula impulsa accions de sensibilització, assessorament i acompanyament a les persones que volen cedir la seva explotació i a les que busquen iniciar un projecte agrari."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personas que quieren ceder su explotación y personas que buscan poner en marcha un proyecto agrario.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "cataluna-escola-pastors-guia-traspaso",
+      "name": "Guía de la Xarxa pel Relleu Agrari al Pirineu para preparar un traspaso",
+      "kind": "OTHER",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Xarxa pel Relleu Agrari al Pirineu",
+      "operatorType": "MIXED",
+      "whatItOffers": "Preguntas prácticas sobre fiscalidad, derecho, valoración de la explotación y cesión de derechos, con respuestas revisadas en diciembre de 2024.",
+      "accessUrl": "https://escoladepastorsdecatalunya.cat/acompanyament/",
+      "sources": [
+        {
+          "url": "https://escoladepastorsdecatalunya.cat/acompanyament/",
+          "title": "Acompanyament – Escola de Pastors i Pastores de Catalunya",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Aquí trobareu algunes preguntes bàsiques referent als aspectes jurídics-fiscals, la cessió de drets i el valor de l’explotació",
+            "poden servir perquè el cedent es faci una idea dels aspectes que haurà de tenir en compte.",
+            "el desembre del 2024. Tanmateix, serà imprescindible que les persones cedents consultin i s’assessorin amb experts en cada temàtica."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personas que preparan la cesión de una explotación agraria.",
+      "howToAccess": "Consultar el apartado de preguntas básicas y contrastar los aspectos específicos con la asesoría correspondiente.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [
@@ -839,7 +1162,11 @@
           "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/2228-Ajuts-per-a-la-primera-installacio-de-joves-agricultors-i-agricultores?moda=1",
           "title": "Ajuts per a la primera instal·lació de joves agricultors i agricultores — Tràmits Gencat",
           "consultedOn": "2026-09-28",
-          "quotes": ["Termini ampliat fins al 15 de maig de 2026."]
+          "quotes": ["Termini ampliat fins al 15 de maig de 2026."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -856,7 +1183,11 @@
           "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/24587-ajut-cooperacio-successio-explotacions-agraries?moda=1",
           "title": "Ajut a la successió agrària i transmissió de coneixements — Tràmits Gencat",
           "consultedOn": "2026-09-30",
-          "quotes": ["El termini és del 19 de maig al 20 de juliol de 2026, ambdós inclosos."]
+          "quotes": ["El termini és del 19 de maig al 20 de juliol de 2026, ambdós inclosos."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"

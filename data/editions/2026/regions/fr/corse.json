@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "corse",
   "officialName": "Corse",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "L'ODARC publie un accompagnement régional des candidats à l'installation et des jeunes agriculteurs. La page restant datée de 2021, son fonctionnement actuel est laissé explicitement inconnu.",
   "coverage": {
     "status": "PARTIAL",
@@ -29,9 +29,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -54,6 +51,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-21"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -85,13 +89,21 @@
             "Cette cellule dispose de 5 personnes pour vous accompagner au mieux, de l'idée à sa réalisation.",
             "des conseillers basés territorialement accompagnent les candidats à l’installation ainsi que les JA au cours de leurs premières années d'installation",
             "Le soutien se veut humain et technique en plus de financier."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.odarc.corsica/Vous-voulez-vous-installer-Premiers-contacts_a159.html",
           "title": "Vous voulez vous installer ? Premiers contacts",
           "consultedOn": "2026-09-14",
-          "quotes": ["Point accueil Installation", "Cellule JA de l'ODARC"]
+          "quotes": ["Point accueil Installation", "Cellule JA de l'ODARC"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.odarc.corsica/L-installation_r22.html",
@@ -102,7 +114,11 @@
             "Cette cellule dispose de 5 personnes pour vous accompagner au mieux, de l'idée à sa réalisation.",
             "Dans le cadre de la réorganisation des services et du nouvel organigramme, l’année 2021 a vu la création au sein de l'ODARC de la Cellule Jeunes Agriculteurs.",
             "Vous voulez vous installer ? Premiers contacts"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La page officielle est toujours accessible, mais elle est datée de décembre 2021 ; la disponibilité 2026 doit être confirmée avant de passer le statut à « Actif ».",
@@ -138,11 +154,25 @@
             "FAP DJA V5 PSN .pdf",
             "Date de clôture du dispositif 31/12/2027",
             "modifié le Mardi 12 Décembre 2023"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": ["S’installer pour la première fois comme chef d’exploitation, individuel ou en société."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "notes": "La fiche indique une clôture du dispositif au 31 décembre 2027, mais sa date de modification affichée reste en décembre 2023. L’ouverture actuelle des demandes et les conditions détaillées doivent être confirmées dans les documents et décisions associés.",
-      "generatorId": "chatgpt-3"
+      "notes": "La fiche indique une clôture du dispositif au 31 décembre 2027, mais sa date de modification affichée reste en décembre 2023. L’ouverture actuelle des demandes et les conditions détaillées doivent être confirmées dans les documents et décisions associés. Le guide du précédent PDRC présentait déjà la DJA comme une aide au premier établissement comme chef d’exploitation, à titre individuel ou en société. Les conditions de la fiche actuelle s’appliquent au dispositif en vigueur.",
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "corse-draaf-installation-agriculture",
@@ -154,7 +184,7 @@
       },
       "operator": "Direction régionale de l’alimentation, de l’agriculture et de la forêt de Corse",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Rubrique officielle donnant accès à des pages sur la Dotation Jeune agriculteur (DJA), France Services Agriculture, le programme d’accompagnement à l’installation et à la transmission en agriculture (AITA) et les points accueils installations. Elle référence également les journées régionales de l’installation et le comité régional Installation Transmission.",
+      "whatItOffers": "Rubrique officielle donnant accès à des pages sur la Dotation Jeune agriculteur (DJA), France Services Agriculture, le programme d’accompagnement à l’installation et à la transmission en agriculture (AITA) et les points accueils installations. Elle référence également les journées régionales de l’installation et le comité régional Installation Transmission. Le guide régional décrit les étapes de l’installation et le rôle des points d’accueil départementaux, qui renseignent et orientent les candidats, avec ou sans aides.",
       "howToAccess": "Choisir dans la rubrique le lien vers le dispositif ou les points accueils installations.",
       "accessUrl": "https://draaf.corse.agriculture.gouv.fr/installation-en-agriculture-r205.html",
       "sources": [
@@ -169,10 +199,401 @@
             "Le comité régional Installation Transmission (CRIT)",
             "Le programme d’accompagnement à l’installation et à la transmission en agriculture (AITA)",
             "Les points accueils installations"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "C’est un lieu ressource où un conseiller accueille, informe et oriente tous les candidats à l’installation.",
+            "qu’ils soient demandeurs ou non des aides de l’Etat ou des collectivités."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-repertoire-departemental-installation",
+      "name": "Répertoire Départemental à l’Installation — Corse",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "ODARC",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide régional décrit un répertoire pour trouver une exploitation à louer ou à vendre, un repreneur ou un associé.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Banque de données géré par l’ODARC",
+            "Il peut s’agir d’exploitations à louer ou à vendre.",
+            "Le conseiller RDI accompagne le candidat à l’installation en recherche d’exploitation",
+            "recense les exploitations inscrites au RDI."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Candidats à l’installation, cédants et exploitations recherchant un associé.",
+      "howToAccess": "Le conseiller RDI aide à préciser la recherche. Les offres inscrites sont consultables dans le répertoire national indiqué dans le guide.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-points-accueil-transmission",
+      "name": "Points Accueil Transmission — Corse",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Chambres d’agriculture de Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Les conseillers du guide régional aident à examiner les formalités et les étapes clés d’une transmission.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Les conseillers PAT permettent d’étudier les formalités et les étapes clefs de la transmission",
+            "accompagnent tous les agriculteurs sans ou avec successeur qui souhaitent transmettre leur exploitation."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Agriculteurs désireux de transmettre leur exploitation, avec ou sans successeur.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-aita-diagnostic-ceder",
+      "name": "AITA Corse — diagnostic de l’exploitation à céder",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide du précédent PDRC décrit la prise en charge du diagnostic du potentiel de la ferme à céder, à hauteur de 80 % de la dépense engagée.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "PRISE EN CHARGE DU DIAGNOSTIC D’EXPLOITATION À CÉDER",
+            "évaluation du potentiel de l’exploitation.",
+            "80% de la dépense engagée à hauteur de 1500€."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Futurs cédants qui font diagnostiquer leur exploitation.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-aita-aide-parrainage",
+      "name": "AITA Corse — aide au parrainage",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide du précédent PDRC décrit la rémunération du stagiaire pour une période passée sur une exploitation ou un espace test.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "AIDE AU PARRAINAGE – RÉMUNÉRATION DU STAGIAIRE",
+            "Période passée sur une exploitation agricole ou sur un espace test",
+            "une installation sociétaire, en tant qu’associé supplémentaire"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Candidats qui s’installent pour remplacer un exploitant ou un associé, ou qui rejoignent une société dans le cadre d’une transformation sociétaire.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-aita-conseil-amont-transmission",
+      "name": "AITA Corse — conseil en amont de la transmission",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide du précédent PDRC décrit une prestation de conseil pour faire l’état des lieux de l’exploitation et préparer les étapes et investissements de la transmission à moyen terme.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "PRISE EN CHARGE DU CONSEIL D’ACCOMPAGNEMENT EN AMONT À LA TRANSMISSION",
+            "les étapes à conduire et les investissements à réaliser"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Exploitants qui préparent une transmission.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-aita-incitation-inscription-rdi",
+      "name": "AITA Corse — incitation à l’inscription au RDI",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide du précédent PDRC décrit une aide forfaitaire de 4 000 € liée à l’inscription du cédant au répertoire avant une cession hors cadre familial.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Son montant forfaitaire est de 4000€ d’aides publiques",
+            "une inscription du cédant au répertoire 1 an minimum avant la transmission",
+            "s’effectue à la faveur d’un candidat âgé de moins de 40 ans.",
+            "Le plafond de cette aide est de 4 000 €"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Le guide décrit une cession pour un candidat de moins de 40 ans et une inscription du cédant au répertoire au moins un an avant la transmission, sous réserve d’une dérogation prévue.",
+      "howToAccess": "Inscrire l’exploitation au RDI en amont de la cession.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-aita-transmission-globale-foncier",
+      "name": "AITA Corse — transmission globale du foncier",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide du précédent PDRC présente une aide à la transmission hors cadre familial pour encourager un bail à ferme ou à long terme et préserver l’intégrité foncière de la ferme.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "AIDE À LA TRANSMISSION GLOBALE DU FONCIER",
+            "dans le cadre d’une cession hors cadre familial",
+            "Encourage la conclusion d’un bail à ferme ou à long terme au profit d’un candidat à l’installation."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Cédants impliqués auprès des propriétaires pour transmettre l’exploitation à une personne qui s’installe hors cadre familial.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-aita-aide-proprietaires-bailleurs",
+      "name": "AITA Corse — aide aux propriétaires bailleurs",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide du précédent PDRC décrit une aide à l’hectare pour inciter les propriétaires à conclure des baux avec de jeunes agriculteurs.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Cette aide vise à inciter les propriétaires fonciers à conclure des baux avec des JA.",
+            "Le montant de l’aide est définie à l’hectare avec un seuil minimum."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Propriétaires concluant un bail avec un jeune agriculteur.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-aita-bourse-stage-application",
+      "name": "AITA Corse — bourse de stage d’application en exploitation",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Bourse pour un stage agricole d’un à six mois présentée dans le guide du précédent PDRC.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "BOURSE DE STAGE D’APPLICATION EN EXPLOITATION AGRICOLE",
+            "Stage d’une durée de 1 à 6 mois.",
+            "Convention tripartite entre le stagiaire, le maitre de stage et le CEPPP."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Stagiaires effectuant un stage en exploitation agricole dans ce cadre.",
+      "howToAccess": "Établir une convention entre le stagiaire, le maître de stage et le CEPPP, selon les termes du guide.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-aita-conseil-technico-economique",
+      "name": "AITA Corse — conseil technico-économique au nouvel installé",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide du précédent PDRC décrit un suivi ou un conseil unitaire sur les aspects juridiques, fiscaux ou organisationnels après l’installation.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "CONSEIL TECHNICO-ÉCONOMIQUE (juridique, fiscal ou organisationnel)",
+            "Sous forme de suivi formalisé ou de conseil unitaire.",
+            "Ne concerne uniquement que le nouvel installé ayant perçu des aides à l’installation."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Nouveaux installés ayant perçu des aides à l’installation.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-aita-location-habitation-batiments",
+      "name": "AITA Corse — incitation à la location d’habitation ou de bâtiments",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Collectivité territoriale de Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide du précédent PDRC décrit une incitation par cédant pour encourager la location du logement ou de bâtiments agricoles lors de la transmission des terres.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "INCITATION À LA LOCATION DE LA MAISON D’HABITATION ET/OU DE BÂTIMENTS",
+            "en transmettant ses terres à un jeune",
+            "Ne concerne que la collectivité territoriale pour un montant de 5000 € par cédant."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Agriculteurs qui cessent leur activité, transmettent leurs terres à un jeune et lui louent aussi le logement ou les bâtiments agricoles.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "corse-aita-contrat-generation",
+      "name": "Contrat de génération pour céder une exploitation — ancien guide corse",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "HISTORICAL",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Corse",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide du précédent PDRC décrit un dispositif historique d’embauche d’un salarié ou d’accueil d’un stagiaire en vue de lui céder l’exploitation.",
+      "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "sources": [
+        {
+          "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+          "title": "Guide régional de l’installation et de la transmission en agriculture en Corse",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "LE DISPOSITIF RELATIF AU CONTRAT DE GÉNÉRATION",
+            "embauche d’un salarié ou d’un stagiaire en vue de lui céder son exploitation.",
+            "Stagiaire ou salarié de moins de 30 ans, en CDI ou avec convention de stage."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Le guide visait des salariés ou stagiaires de moins de 30 ans avec un CDI ou une convention de stage.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

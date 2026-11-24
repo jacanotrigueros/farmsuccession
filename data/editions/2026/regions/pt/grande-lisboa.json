@@ -5,7 +5,7 @@
   "country": "PT",
   "region": "grande-lisboa",
   "officialName": "Grande Lisboa",
-  "published": "2026-09-28",
+  "published": "2026-11-24",
   "summary": "Os municípios de Sintra e Cascais documentam mecanismos próprios de disponibilização e intermediação de terrenos. A oferta atual e o funcionamento completo das plataformas não foram confirmados.",
   "coverage": {
     "status": "PARTIAL",
@@ -33,9 +33,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "pt",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -51,6 +48,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -83,7 +87,11 @@
             "O Programa tem duas vertentes: a cedência de terrenos propriedade do Município, através de concurso, e a divulgação de informação sobre terrenos de particulares",
             "O Município apenas facilita o contacto entre os interessados",
             "As propostas deverão ser entregues de dia 15 de dezembro de 2021 a dia 15 de janeiro de 2022"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "A última chamada identificada na página é de 2021/2022. A plataforma SIG está ligada, mas não foram confirmadas fichas de terrenos ou candidaturas atuais.",
@@ -113,7 +121,11 @@
           "url": "https://ambiente.cascais.pt/pt/terrasdecascais/banco-terras",
           "title": "Banco de Terras | Cascais Ambiente",
           "consultedOn": "2026-09-28",
-          "quotes": ["se procura terra para cultivar, então este projeto é para si."]
+          "quotes": ["se procura terra para cultivar, então este projeto é para si."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.cascais.pt/node/28159",
@@ -122,11 +134,49 @@
           "quotes": [
             "Uma iniciativa da Empresa Municipal de Ambiente de Cascais que faz a ponte entre o proprietário e o agricultor",
             "Para participar neste projeto basta registar- se na Plataforma MyCascais"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "A via municipal de registo está descrita, mas não foi comprovado o inventário atual nem concluído o fluxo de inscrição.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "scope": {
+        "level": "LOCAL",
+        "area": "Mafra"
+      },
+      "accessUrl": "https://www.cm-mafra.pt/cmmafra/uploads/writer_file/document/793/normasdefuncionamentodabolsadeterras.pdf",
+      "id": "pt-mafra-bolsa-terras",
+      "name": "Bolsa de Terras do Concelho de Mafra",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "operator": "Associação de Agricultores do Concelho de Mafra",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "O regulamento municipal prevê a disponibilização de prédios rústicos e apoio à celebração dos respetivos contratos de arrendamento.",
+      "whoCanUseIt": "Interessados em arrendar ou comprar parcelas disponibilizadas na bolsa.",
+      "howToAccess": "Consultar na Câmara Municipal de Mafra a informação sobre o funcionamento da bolsa e os anúncios de prédios rústicos.",
+      "sources": [
+        {
+          "url": "https://www.cm-mafra.pt/cmmafra/uploads/writer_file/document/793/normasdefuncionamentodabolsadeterras.pdf",
+          "title": "Normas de funcionamento da Bolsa de Terras do concelho de Mafra",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "regulando o seu funcionamento, condições de adesão e os deveres e direitos",
+            "a listagem de parcelas disponíveis aos interessados em arrendar/comprar;",
+            "Conceder apoio à celebração de contratos de arrendamento",
+            "os anúncios públicos referentes a prédios rústicos/parcelas de terreno"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

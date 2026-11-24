@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "lombardia",
   "officialName": "Lombardia",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "La Lombardia ha pubblicato nel 2026 un premio SRE01 per il primo insediamento dei giovani agricoltori, la cui finestra di domande è chiusa, e un fondo distinto per investimenti delle aziende già beneficiarie di SRE01, aperto fino al 3 novembre dopo una proroga. La Banca della Terra Lombarda pubblica elenchi di terreni disponibili per la rimessa a coltura.",
   "coverage": {
     "status": "PARTIAL",
@@ -45,9 +45,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -70,6 +67,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -122,17 +126,25 @@
             "Domande dal: 16/02/2026 , ore 10:00",
             "Scade il: 30/04/2026 , ore 16:00",
             "€ 50.000,00 in Aree svantaggiate di montagna; - € 40.000,00 in Altre aree"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
-          "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa2919c4a1cda019c4ba6cfae0001?fileName=Decreto+4+febbraio+2026+-+n.+1334+-+disposizioni+attuative+presentazione+domande+-+anno+2026.pdf",
-          "title": "Decreto n. 1334/2026 e disposizioni attuative SRE01 – Regione Lombardia",
-          "consultedOn": "2026-09-28",
+          "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa2959c49dafb019c4ba6cfc50004?fileName=Decreto%204%20febbraio%202026%20-%20n.%201334%20-%20disposizioni%20attuative%20presentazione%20domande%20-%20anno%202026.pdf",
+          "title": "Decreto 4 febbraio 2026 - n. 1334 - disposizioni attuative presentazione domande - anno 2026",
+          "consultedOn": "2026-11-24",
           "quotes": [
             "almeno il 50 % della superficie agricola utilizzata (SAU) aziendale.",
             "essere giovani agricoltori di età maggiore ai 18 anni e inferiore a 41 anni non compiuti;",
             "possedere un’adeguata conoscenza e competenza professionale"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://psr.regione.lombardia.it/pc2127/psr-2023-2027/interventi/sre-giovani",
@@ -143,7 +155,11 @@
             "Giovani imprenditori agricoli che si insediano per la prima volta in un’azienda agricola in qualità di capo dell’azienda e presentano domanda entro 24 mesi dalla data di insediamento.",
             "Il giovane imprenditore deve presentare un piano aziendale per lo sviluppo dell’attività agricola.",
             "Sono ammissibili all’aiuto i giovani agricoltori che, al momento della proposizione della domanda di sostegno, hanno un’età maggiore ai 18 anni e inferiore a 41 anni non compiuti, e che possiedono un'adeguata formazione o competenza professionale."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -182,7 +198,7 @@
           "value": 36000,
           "unit": "EUR",
           "asOf": "2026-06-10",
-          "sourceUrl": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa2919eaebab7019eb0bf4d4c000d?fileName=Decreto+3+giugno+2026+-+n.+7232+bando+attuazione+fondo+per+il+primo+insediamento+giovani+in+agricoltura.pdf"
+          "sourceUrl": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa2959eae78d5019eb0bf4d75000e?fileName=Decreto%203%20giugno%202026%20-%20n.%207232%20bando%20attuazione%20fondo%20per%20il%20primo%20insediamento%20giovani%20in%20agricoltura.pdf"
         }
       ],
       "notes": "È una misura distinta dal premio SRE01: richiede che l'azienda ne sia già beneficiaria e finanzia investimenti ulteriori. Il decreto n. 14196 del 26 ottobre ha prorogato la chiusura dal 27 ottobre al 3 novembre 2026; la scheda dell'operatore mostra il nuovo termine, mentre il testo della sezione «Come partecipare» e le FAQ conservano ancora quello precedente. Le FAQ precisano che non si possono imputare al nuovo fondo le spese collegate agli obiettivi SRE01.",
@@ -197,33 +213,49 @@
             "Domande dal 13 ottobre al 3 novembre 2026 (dopo proroga).",
             "Possono presentare domanda le aziende beneficiarie dell’Intervento SRE01",
             "Possono partecipare i beneficiari dell’Intervento SRE01 della PAC 2023-2027 di Regione Lombardia che non hanno compiuto il 41° anno di età."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
-          "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa371a175a87f01a1785e4728001c?fileName=Decreto+26+ottobre+2026+-+n.+14196+-+proroga+termini+presentazione+domande.pdf",
-          "title": "Decreto n. 14196/2026 – proroga dei termini del Fondo – Regione Lombardia",
-          "consultedOn": "2026-10-27",
+          "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa436a17563b901a1785e47350013?fileName=Decreto%2026%20ottobre%202026%20-%20n.%2014196%20-%20proroga%20termini%20presentazione%20domande.pdf",
+          "title": "Decreto 26 ottobre 2026 - n. 14196 - proroga termini presentazione domande",
+          "consultedOn": "2026-11-24",
           "quotes": [
             "DECRETO N. 14196 Del 26/10/2026",
             "posticipando la data di chiusura per la presentazione delle domande di aiuto dalle ore 12,00 del 27 ottobre 2026 alle ore 12,00 del 3 novembre 2026;"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
-          "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa2919eaebab7019eb0bf4d4c000d?fileName=Decreto+3+giugno+2026+-+n.+7232+bando+attuazione+fondo+per+il+primo+insediamento+giovani+in+agricoltura.pdf",
-          "title": "Decreto n. 7232/2026 e bando del Fondo – Regione Lombardia",
-          "consultedOn": "2026-09-28",
+          "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa2959eae78d5019eb0bf4d75000e?fileName=Decreto%203%20giugno%202026%20-%20n.%207232%20bando%20attuazione%20fondo%20per%20il%20primo%20insediamento%20giovani%20in%20agricoltura.pdf",
+          "title": "Decreto 3 giugno 2026 - n. 7232 - bando attuazione fondo per il primo insediamento giovani in agricoltura",
+          "consultedOn": "2026-11-24",
           "quotes": [
             "L’agevolazione si configura come \"Contributo a fondo perduto\"",
             "36.000,00 euro.",
             "La spesa minima ammissibile, per domanda di contributo, è pari a 3.000,00 euro",
             "a favore dei giovani agricoltori un contributo pubblico fino al 90% della spesa ammessa compresa tra un minimo di 3.000,00 euro e un massimo di 40.000,00 euro"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
-          "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa371a07919f601a07d1b8e390033?fileName=FAQ+_Fondo+Giovani+2026.pdf",
-          "title": "FAQ – Fondo per l'insediamento dei giovani in agricoltura 2026",
-          "consultedOn": "2026-09-28",
-          "quotes": ["No. Possono presentare domanda solamente i beneficiari", "La domanda si potrà presentare dalle ore 10,00 del 13"]
+          "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/bandi/download/8a5aa436a078d53001a07d1b8e4e0022?fileName=FAQ%20_Fondo%20Giovani%202026.pdf",
+          "title": "FAQ — Fondo Giovani 2026",
+          "consultedOn": "2026-11-24",
+          "quotes": ["No. Possono presentare domanda solamente i beneficiari", "La domanda si potrà presentare dalle ore 10,00 del 13"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://ue.regione.lombardia.it/bando/RLM12026053832",
@@ -243,7 +275,11 @@
             "Le domande saranno valutate in ordine di arrivo.",
             "La domanda di partecipazione deve essere presentata, esclusivamente online sulla piattaforma informativa Bandi e Servizi",
             "Decreto 26 ottobre 2026 - n. 14196 - proroga termini presentazione domande"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -278,9 +314,77 @@
             "Avvisi pubblici per la valorizzazione dei terreni incolti: nessuno.",
             "Terreni attualmente disponibili alla rimessa a coltura",
             "Ultimo aggiornamento: 17 Marzo 2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
+    },
+    {
+      "id": "lombardia-sportello-associazioni-fondiarie",
+      "name": "Sportello Associazioni Fondiarie",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Lombardia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Informazioni e assistenza sulla costituzione e sulla gestione tecnico-amministrativa delle associazioni fondiarie, con linee guida e video.",
+      "accessUrl": "https://www.regione.lombardia.it/agricoltura/boschi-e-foreste/gestione-del-bosco-associazionismo/associazioni-fondiarie,-di-cosa-si-tratta",
+      "sources": [
+        {
+          "url": "https://www.regione.lombardia.it/agricoltura/boschi-e-foreste/gestione-del-bosco-associazionismo/associazioni-fondiarie,-di-cosa-si-tratta",
+          "title": "Associazioni Fondiarie, di cosa si tratta - Regione Lombardia",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Regione Lombardia ha attivato lo",
+            "un servizio informativo e di assistenza dedicato a coloro che vogliono avviare un’associazione fondiaria",
+            "approfondire tematiche afferenti la gestione tecnico-amministrativa delle stesse.",
+            "Lo Sportello delle Associazioni Fondiarie"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Cittadini e associazioni fondiarie che intendono avviare un’associazione o approfondirne la gestione.",
+      "howToAccess": "Aprire il collegamento allo Sportello dalla pagina della Regione.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "lombardia-associazioni-fondiarie",
+      "name": "Quadro regionale delle associazioni fondiarie",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Lombardia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Quadro per riunire terreni agricoli e boschi in unità di gestione produttive, con l’obiettivo di favorire anche la costituzione e il consolidamento di imprese agricole.",
+      "accessUrl": "https://www.regione.lombardia.it/agricoltura/boschi-e-foreste/gestione-del-bosco-associazionismo/associazioni-fondiarie,-di-cosa-si-tratta",
+      "sources": [
+        {
+          "url": "https://www.regione.lombardia.it/agricoltura/boschi-e-foreste/gestione-del-bosco-associazionismo/associazioni-fondiarie,-di-cosa-si-tratta",
+          "title": "Associazioni Fondiarie, di cosa si tratta - Regione Lombardia",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "associazioni tra proprietari/aventi titolo di terreni pubblici/privati",
+            "raggruppare terreni agricoli e boschi, in attualità di gestione, incolti o abbandonati",
+            "la costituzione e il consolidamento di nuove imprese agricole"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Proprietari o aventi titolo su terreni pubblici o privati.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

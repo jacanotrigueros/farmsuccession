@@ -102,7 +102,6 @@ const EN = {
   europe: "Europe",
   euName: "European Union",
   skip: "Skip to content",
-  draftNotice: "Automatic draft: no person has reviewed this record. Check the official source before applying or making a decision.",
   publishedOn: "Published",
   edition: "{year} edition",
   chooseCountry: "Find farming resources by country",
@@ -146,7 +145,7 @@ const EN = {
   sourcesLead:
     "Every resource links to its official sources and shows when they were consulted. Before applying, check the deadline in the official call.",
   notCoveredYet: "Not covered yet",
-  reviewPending: "Editorial review pending",
+  sourceCheckedOn: "checked on",
   originalName: "Original name: {name}",
   record: ["resource", "resources"],
   territory: ["territory", "territories"],
@@ -169,7 +168,7 @@ const EN = {
     "FarmSuccession is a documentary inventory of public resources for farm succession and access to farming. It helps people find land, funding, training, advice and transfer services; it is not a marketplace, an advisory service or an application portal.",
   methodTitle: "Method and coverage",
   methodLead:
-    "The directory is not exhaustive. Content remains in its original language; searching does not translate the words you enter. Automated checks are separate from human review. A resource marked active does not necessarily have an open application period: each record says whether you can apply now.",
+    "The directory is not exhaustive. Content remains in its original language; searching does not translate the words you enter. Each source shows the date its quotes were last found on the official page. A resource marked active does not necessarily have an open application period: each record says whether you can apply now.",
   criteriaIntro:
     "A resource is included when it can be documented from a public source published by an administration or by the organisation providing it.",
   criteriaItems: [
@@ -183,7 +182,7 @@ const EN = {
     ["Documented with quotes", "Quoted passages let you compare the summary with its sources."],
     [
       "Automated structure and consistency checks",
-      "Automated checks cover data structure and consistency. They do not replace human review or confirm current availability.",
+      "Automated checks cover data structure and consistency. They do not confirm current availability: that is what each source's check date and the official call are for.",
     ],
     ["Dated", "Sources show when they were consulted; circumstances may have changed."],
   ],
@@ -513,8 +512,6 @@ const ES = {
   europe: "Europa",
   euName: "Unión Europea",
   skip: "Saltar al contenido",
-  draftNotice:
-    "Borrador automático: esta ficha no ha sido revisada por una persona. Comprueba la fuente oficial antes de solicitar la ayuda o tomar una decisión.",
   publishedOn: "Publicado",
   edition: "Edición {year}",
   chooseCountry: "Elige tu país",
@@ -559,7 +556,7 @@ const ES = {
   sourcesLead:
     "Cada ficha enlaza a sus fuentes oficiales y muestra cuándo se consultaron. Antes de solicitar una ayuda, comprueba el plazo en la convocatoria oficial.",
   notCoveredYet: "Todavía no cubierto",
-  reviewPending: "Revisión editorial pendiente",
+  sourceCheckedOn: "comprobada el",
   originalName: "Nombre original: {name}",
   record: ["recurso", "recursos"],
   territory: ["territorio", "territorios"],
@@ -582,7 +579,7 @@ const ES = {
     "FarmSuccession es un inventario documental de recursos públicos para el relevo generacional y el acceso a la actividad agraria. Ayuda a localizar tierras, ayudas, formación, asesoramiento y servicios de transmisión; no es un mercado, un servicio de consultoría ni un portal de solicitudes.",
   methodTitle: "Método y cobertura",
   methodLead:
-    "El directorio no es exhaustivo. Los contenidos conservan su idioma original; la búsqueda no traduce las palabras que escribes. Las comprobaciones automáticas son distintas de la revisión humana. Un recurso activo no implica que tenga abierto el plazo de solicitud: cada ficha indica si se puede solicitar ahora.",
+    "El directorio no es exhaustivo. Los contenidos conservan su idioma original; la búsqueda no traduce las palabras que escribes. Cada fuente indica la fecha en que sus citas se encontraron por última vez en la página oficial. Un recurso activo no implica que tenga abierto el plazo de solicitud: cada ficha indica si se puede solicitar ahora.",
   criteriaIntro:
     "Un recurso se incorpora cuando puede documentarse mediante una fuente pública publicada por una administración o por la entidad que lo ofrece.",
   criteriaItems: [
@@ -596,7 +593,7 @@ const ES = {
     ["Documentamos con citas", "Los extractos permiten contrastar el resumen con sus fuentes."],
     [
       "Comprobaciones automáticas de estructura y coherencia",
-      "Las comprobaciones automáticas revisan la estructura y coherencia de los datos. No sustituyen la revisión humana ni confirman la disponibilidad actual.",
+      "Las comprobaciones automáticas revisan la estructura y coherencia de los datos. No confirman la disponibilidad actual: para eso están la fecha de comprobación de cada fuente y la convocatoria oficial.",
     ],
     ["Indicamos las fechas", "Cada fuente muestra cuándo se consultó; la situación puede haber cambiado."],
   ],
@@ -930,8 +927,6 @@ const DE = {
   europe: "Europa",
   euName: "Europäische Union",
   skip: "Zum Inhalt springen",
-  draftNotice:
-    "Automatischer Entwurf: Niemand hat diesen Eintrag geprüft. Prüfen Sie die offizielle Quelle, bevor Sie einen Antrag stellen oder entscheiden.",
   publishedOn: "Veröffentlicht",
   edition: "Ausgabe {year}",
   chooseCountry: "Wählen Sie Ihr Land",
@@ -977,7 +972,7 @@ const DE = {
   sourcesLead:
     "Jedes Angebot verlinkt seine amtlichen Quellen und zeigt, wann sie abgerufen wurden. Prüfen Sie vor einem Antrag die Frist im amtlichen Aufruf.",
   notCoveredYet: "Noch nicht abgedeckt",
-  reviewPending: "Redaktionelle Prüfung ausstehend",
+  sourceCheckedOn: "geprüft am",
   originalName: "Originalname: {name}",
   record: ["Angebot", "Angebote"],
   territory: ["Gebiet", "Gebiete"],
@@ -1000,7 +995,7 @@ const DE = {
     "FarmSuccession ist ein dokumentarisches Verzeichnis öffentlicher Angebote zur Hofnachfolge und zum Einstieg in die Landwirtschaft. Es hilft dabei, Flächen, Förderungen, Bildung, Beratung und Übergabedienste zu finden; es ist weder Marktplatz noch Beratungsstelle oder Antragsportal.",
   methodTitle: "Methode und Abdeckung",
   methodLead:
-    "Das Verzeichnis ist nicht vollständig. Inhalte bleiben in ihrer Originalsprache; die Suche übersetzt die eingegebenen Wörter nicht. Automatische Prüfungen unterscheiden sich von menschlicher Prüfung. Ein aktives Angebot bedeutet nicht, dass Anträge offen sind: Jeder Eintrag zeigt, ob Sie jetzt einen Antrag stellen können.",
+    "Das Verzeichnis ist nicht vollständig. Inhalte bleiben in ihrer Originalsprache; die Suche übersetzt die eingegebenen Wörter nicht. Jede Quelle nennt das Datum, an dem ihre Zitate zuletzt auf der offiziellen Seite gefunden wurden. Ein aktives Angebot bedeutet nicht, dass Anträge offen sind: Jeder Eintrag zeigt, ob Sie jetzt einen Antrag stellen können.",
   criteriaIntro:
     "Ein Angebot wird aufgenommen, wenn es durch eine öffentliche Quelle einer Verwaltung oder der anbietenden Organisation dokumentiert werden kann.",
   criteriaItems: [
@@ -1014,7 +1009,7 @@ const DE = {
     ["Mit Zitaten dokumentieren", "Auszüge ermöglichen den Vergleich der Zusammenfassung mit ihren Quellen."],
     [
       "Automatische Struktur- und Konsistenzprüfungen",
-      "Automatische Prüfungen kontrollieren Struktur und Konsistenz der Daten. Sie ersetzen keine menschliche Prüfung und bestätigen keine aktuelle Verfügbarkeit.",
+      "Automatische Prüfungen kontrollieren Struktur und Konsistenz der Daten. Sie bestätigen keine aktuelle Verfügbarkeit: Dafür stehen das Prüfdatum jeder Quelle und der offizielle Aufruf.",
     ],
     ["Datum angeben", "Jede Quelle nennt ihr Abrufdatum; die Situation kann sich geändert haben."],
   ],
@@ -1352,8 +1347,6 @@ const FR = {
   europe: "Europe",
   euName: "Union européenne",
   skip: "Aller au contenu",
-  draftNotice:
-    "Brouillon automatique : aucune personne n’a relu cette fiche. Vérifiez la source officielle avant de candidater ou de prendre une décision.",
   publishedOn: "Publié",
   edition: "Édition {year}",
   chooseCountry: "Choisissez votre pays",
@@ -1402,7 +1395,7 @@ const FR = {
   sourcesLead:
     "Chaque ressource renvoie à ses sources officielles et indique quand elles ont été consultées. Avant de déposer une demande, vérifiez la date limite dans l’appel officiel.",
   notCoveredYet: "Pas encore couvert",
-  reviewPending: "Relecture éditoriale en attente",
+  sourceCheckedOn: "vérifiée le",
   originalName: "Nom d’origine : {name}",
   record: ["ressource", "ressources"],
   territory: ["territoire", "territoires"],
@@ -1425,7 +1418,7 @@ const FR = {
     "FarmSuccession est un inventaire documentaire de ressources publiques consacrées à la transmission agricole et à l’accès au métier. Il aide à trouver des terres, des aides, des formations, des conseils et des services de transmission ; ce n’est ni une place de marché, ni un service de conseil, ni un portail de candidature.",
   methodTitle: "Méthode et couverture",
   methodLead:
-    "L’annuaire n’est pas exhaustif. Les contenus restent dans leur langue d’origine\u202f; la recherche ne traduit pas les mots que vous saisissez. Les contrôles automatiques sont distincts de la relecture humaine. Une ressource active n’a pas nécessairement de période de candidature ouverte\u00a0: chaque fiche indique si l’on peut candidater maintenant.",
+    "L’annuaire n’est pas exhaustif. Les contenus restent dans leur langue d’origine\u202f; la recherche ne traduit pas les mots que vous saisissez. Chaque source indique la date à laquelle ses citations ont été retrouvées pour la dernière fois sur la page officielle. Une ressource active n’a pas nécessairement de période de candidature ouverte\u00a0: chaque fiche indique si l’on peut candidater maintenant.",
   criteriaIntro:
     "Une ressource est incluse lorsqu’elle peut être documentée par une source publique publiée par une administration ou par l’organisme qui la propose.",
   criteriaItems: [
@@ -1439,7 +1432,7 @@ const FR = {
     ["Documenter avec des citations", "Les extraits permettent de comparer le résumé avec ses sources."],
     [
       "Contrôles automatiques de structure et de cohérence",
-      "Les contrôles automatiques vérifient la structure et la cohérence des données. Ils ne remplacent pas une relecture humaine et ne confirment pas la disponibilité actuelle.",
+      "Les contrôles automatiques vérifient la structure et la cohérence des données. Ils ne confirment pas la disponibilité actuelle\u202f: c’est le rôle de la date de vérification de chaque source et de l’appel officiel.",
     ],
     ["Indiquer les dates", "Chaque source indique sa date de consultation ; la situation peut avoir changé."],
   ],
@@ -1780,8 +1773,6 @@ const IT = {
   europe: "Europa",
   euName: "Unione europea",
   skip: "Vai al contenuto",
-  draftNotice:
-    "Bozza automatica: nessuna persona ha rivisto questa scheda. Verifica la fonte ufficiale prima di presentare domanda o prendere una decisione.",
   publishedOn: "Pubblicato",
   edition: "Edizione {year}",
   chooseCountry: "Scegli il tuo paese",
@@ -1829,7 +1820,7 @@ const IT = {
   sourcesLead:
     "Ogni risorsa rimanda alle sue fonti ufficiali e indica quando sono state consultate. Prima di presentare domanda, verifica la scadenza nel bando ufficiale.",
   notCoveredYet: "Non ancora coperto",
-  reviewPending: "Revisione redazionale in sospeso",
+  sourceCheckedOn: "verificata il",
   originalName: "Nome originale: {name}",
   record: ["risorsa", "risorse"],
   territory: ["territorio", "territori"],
@@ -1852,7 +1843,7 @@ const IT = {
     "FarmSuccession è un inventario documentale di risorse pubbliche per il ricambio generazionale e l’accesso all’agricoltura. Aiuta a trovare terreni, sostegni, formazione, consulenza e servizi di trasferimento; non è un mercato, un servizio di consulenza né un portale per presentare domande.",
   methodTitle: "Metodo e copertura",
   methodLead:
-    "L’elenco non è esaustivo. I contenuti mantengono la lingua originale; la ricerca non traduce le parole che scrivi. I controlli automatici sono distinti dalla revisione umana. Una risorsa attiva non implica un bando aperto: ogni scheda indica se è possibile presentare domanda adesso.",
+    "L’elenco non è esaustivo. I contenuti mantengono la lingua originale; la ricerca non traduce le parole che scrivi. Ogni fonte indica la data in cui le sue citazioni sono state ritrovate l’ultima volta sulla pagina ufficiale. Una risorsa attiva non implica un bando aperto: ogni scheda indica se è possibile presentare domanda adesso.",
   criteriaIntro:
     "Una risorsa viene inclusa quando può essere documentata tramite una fonte pubblica pubblicata da un’amministrazione o dall’organizzazione che la offre.",
   criteriaItems: [
@@ -1866,7 +1857,7 @@ const IT = {
     ["Documentare con citazioni", "Gli estratti permettono di confrontare il riepilogo con le fonti."],
     [
       "Controlli automatici di struttura e coerenza",
-      "I controlli automatici verificano struttura e coerenza dei dati. Non sostituiscono la revisione umana né confermano la disponibilità attuale.",
+      "I controlli automatici verificano struttura e coerenza dei dati. Non confermano la disponibilità attuale: a questo servono la data di verifica di ogni fonte e il bando ufficiale.",
     ],
     ["Indicare le date", "Ogni fonte riporta la data di consultazione; la situazione può essere cambiata."],
   ],
@@ -2202,8 +2193,6 @@ const PT = {
   europe: "Europa",
   euName: "União Europeia",
   skip: "Saltar para o conteúdo",
-  draftNotice:
-    "Rascunho automático: esta ficha não foi revista por uma pessoa. Confirme na fonte oficial antes de se candidatar ou tomar uma decisão.",
   publishedOn: "Publicado",
   edition: "Edição {year}",
   chooseCountry: "Escolha o seu país",
@@ -2251,7 +2240,7 @@ const PT = {
   sourcesLead:
     "Cada recurso remete para as suas fontes oficiais e indica quando foram consultadas. Antes de se candidatar, confirme o prazo no aviso oficial.",
   notCoveredYet: "Ainda não abrangido",
-  reviewPending: "Revisão editorial pendente",
+  sourceCheckedOn: "verificada em",
   originalName: "Nome original: {name}",
   record: ["recurso", "recursos"],
   territory: ["território", "territórios"],
@@ -2274,7 +2263,7 @@ const PT = {
     "FarmSuccession é um inventário documental de recursos públicos para a sucessão agrícola e o acesso à atividade. Ajuda a encontrar terras, apoios, formação, aconselhamento e serviços de transmissão; não é um mercado, um serviço de consultoria nem um portal de candidaturas.",
   methodTitle: "Método e cobertura",
   methodLead:
-    "O diretório não é exaustivo. Os conteúdos mantêm o idioma original; a pesquisa não traduz as palavras que escreve. As verificações automáticas são distintas da revisão humana. Um recurso ativo não implica candidaturas abertas: cada ficha indica se é possível candidatar-se agora.",
+    "O diretório não é exaustivo. Os conteúdos mantêm o idioma original; a pesquisa não traduz as palavras que escreve. Cada fonte indica a data em que as suas citações foram encontradas pela última vez na página oficial. Um recurso ativo não implica candidaturas abertas: cada ficha indica se é possível candidatar-se agora.",
   criteriaIntro:
     "Um recurso é incluído quando pode ser documentado através de uma fonte pública publicada por uma administração ou pela entidade que o disponibiliza.",
   criteriaItems: [
@@ -2288,7 +2277,7 @@ const PT = {
     ["Documentar com citações", "Os excertos permitem comparar o resumo com as fontes."],
     [
       "Verificações automáticas de estrutura e coerência",
-      "As verificações automáticas analisam a estrutura e coerência dos dados. Não substituem a revisão humana nem confirmam a disponibilidade atual.",
+      "As verificações automáticas analisam a estrutura e coerência dos dados. Não confirmam a disponibilidade atual: para isso servem a data de verificação de cada fonte e o aviso oficial.",
     ],
     ["Indicar as datas", "Cada fonte indica quando foi consultada; a situação pode ter mudado."],
   ],
@@ -2626,8 +2615,6 @@ const NL = {
   europe: "Europa",
   euName: "Europese Unie",
   skip: "Naar de inhoud",
-  draftNotice:
-    "Automatisch opgesteld concept: niemand heeft deze vermelding nagekeken. Controleer de officiële bron voordat u een aanvraag doet of een besluit neemt.",
   publishedOn: "Gepubliceerd",
   edition: "Editie {year}",
   chooseCountry: "Kies uw land",
@@ -2673,7 +2660,7 @@ const NL = {
   sourcesLead:
     "Elke vermelding linkt naar de officiële bronnen en toont wanneer die zijn geraadpleegd. Controleer vóór een aanvraag de termijn in de officiële openstelling.",
   notCoveredYet: "Nog niet behandeld",
-  reviewPending: "Redactionele controle nog niet gedaan",
+  sourceCheckedOn: "gecontroleerd op",
   originalName: "Oorspronkelijke naam: {name}",
   record: ["vermelding", "vermeldingen"],
   territory: ["gebied", "gebieden"],
@@ -2696,7 +2683,7 @@ const NL = {
     "FarmSuccession is een gids met informatie uit openbare bronnen over bedrijfsopvolging en starten in de landbouw. U vindt er informatie over grond, financiering, opleiding, advies en hulp bij bedrijfsoverdracht. Het is geen marktplaats, adviesdienst of website waar u aanvragen kunt indienen.",
   methodTitle: "Werkwijze en reikwijdte",
   methodLead:
-    "De gids is niet volledig. De teksten blijven in hun oorspronkelijke taal. De zoekfunctie vertaalt uw zoekwoorden niet. Automatische controles staan los van controle door een persoon. Een regeling of dienst met de status actief heeft niet altijd een open aanvraagperiode. Elke vermelding toont wat de geraadpleegde bronnen over de aanvraagperiode zeggen.",
+    "De gids is niet volledig. De teksten blijven in hun oorspronkelijke taal. De zoekfunctie vertaalt uw zoekwoorden niet. Bij elke bron staat de datum waarop de citaten voor het laatst op de officiële pagina zijn teruggevonden. Een regeling of dienst met de status actief heeft niet altijd een open aanvraagperiode. Elke vermelding toont wat de geraadpleegde bronnen over de aanvraagperiode zeggen.",
   criteriaIntro:
     "Een regeling, dienst of andere vorm van hulp komt in de gids als deze kan worden beschreven op basis van een openbare bron van een overheid of de verantwoordelijke organisatie.",
   criteriaItems: [
@@ -2710,7 +2697,7 @@ const NL = {
     ["Gedocumenteerd met citaten", "Met de geciteerde passages kunt u de samenvatting met de bronnen vergelijken."],
     [
       "Automatische controles op structuur en samenhang",
-      "Automatische controles kijken naar de opbouw en samenhang van de gegevens. Ze vervangen geen controle door een persoon en bevestigen niet of u nu van een regeling of dienst gebruik kunt maken.",
+      "Automatische controles kijken naar de opbouw en samenhang van de gegevens. Ze bevestigen niet of u nu van een regeling of dienst gebruik kunt maken: daarvoor zijn de controledatum van elke bron en de officiële openstelling.",
     ],
     ["Gedateerd", "Bronnen tonen wanneer ze zijn geraadpleegd; de omstandigheden kunnen sindsdien zijn veranderd."],
   ],

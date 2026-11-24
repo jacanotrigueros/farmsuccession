@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "guyane",
   "officialName": "Guyane",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "En Guyane, trois dotations FEADER visent des profils distincts de nouveaux agriculteurs. La Safer propose un accès au foncier et un accompagnement à la transmission. Une intervention de coopération pour la transmission est décrite, mais aucun appel ouvert n'a été vérifié.",
   "coverage": {
     "status": "PARTIAL",
@@ -41,9 +41,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -66,6 +63,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -100,7 +104,11 @@
             "Je dépose mon dossier",
             "75.01 Aide à l’installation en agriculture (DJA)",
             "la limite d’âge maximale afin d’être reconnu jeune agriculteur est fixée à 40 ans"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "claude-1"
@@ -134,7 +142,11 @@
             "Dispositif non cumulable avec DJA ou DNA",
             "En continu",
             "75.02 Aide à la petite exploitation agricole (DPA)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -168,7 +180,11 @@
             "Être âgé de 41 ans ou plus",
             "Dispositif non cumulable avec DJA ou DPA",
             "75.05 Dotation Nouvel Installé (DNA)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -203,7 +219,11 @@
             "Je dépose mon dossier",
             "73.17 Investissements Jeunes agriculteurs (JA)",
             "la limite d’âge maximale afin d’être reconnu jeune agriculteur est fixée à 40 ans"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -237,7 +257,11 @@
             "Ingénierie/conseil",
             "Par appel à projet",
             "77.04 Renouvellement des générations en agriculture"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -281,13 +305,21 @@
           "quotes": [
             "Traiter prioritairement les demandes de foncier émanant des jeunes",
             "Les étapes pour acheter ou louer un bien à la Safer"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://safer-guyane.fr/biens-disponibles/appels-de-candidatures/",
           "title": "Appels de candidatures – Safer Guyane",
           "consultedOn": "2026-11-05",
-          "quotes": ["Consultez ci-dessous la liste de nos appels de candidatures :", "Macouria Vente d'une parcelle agricole de 23 ha"]
+          "quotes": ["Consultez ci-dessous la liste de nos appels de candidatures :", "Macouria Vente d'une parcelle agricole de 23 ha"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://safer-guyane.fr/sinstaller/comment-sinstaller/",
@@ -304,7 +336,11 @@
             "Besoin d'un renseignement ? Nous contacter",
             "0594 25 84 67",
             "direction@safer-guyane.fr"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La Safer Guyane intervient sur le territoire de la Guyane.",
@@ -338,7 +374,11 @@
             "5 novembre 2025",
             "Vous êtes agriculteur et vous souhaitez cesser votre activité et transmettre votre exploitation.",
             "Une transmission se prépare, n’hésitez pas à nous contacter !"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -355,9 +395,9 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Présentation des procédures permettant aux agriculteurs de bénéficier de baux et de concessions sur le foncier agricole de l’État en Guyane, avec un schéma d’instruction et des rubriques consacrées aux formulaires de demande, aux bilans des attributions et aux procès-verbaux des commissions.",
       "whoCanUseIt": "Agriculteurs en Guyane.",
-      "howToAccess": "Consulter le schéma de procédure et la rubrique « Formulaires de demande agricole » depuis cette page.",
+      "howToAccess": "Consulter le schéma de procédure et la rubrique « Formulaires de demande agricole » depuis cette page. L’EPFAG demande aux porteurs de projet de localiser la parcelle au moyen des cartes de l’OFAG et de déposer les formulaires auprès de la Mission Foncier.",
       "accessUrl": "https://www.guyane.gouv.fr/Actions-de-l-Etat/Acces-au-foncier-de-l-Etat/Les-agriculteurs",
-      "notes": "La page présente le cadre d’accès et les rubriques utiles, sans établir la disponibilité actuelle de foncier ou une période de dépôt des demandes.",
+      "notes": "La page présente le cadre d’accès et les rubriques utiles, sans établir la disponibilité actuelle de foncier ou une période de dépôt des demandes. L’EPFAG indique que le transfert progressif de compétences agricoles vers la Safer Guyane a commencé après la convention signée en novembre 2024.",
       "lastEvidenceDate": "2023-08-07",
       "sources": [
         {
@@ -372,10 +412,28 @@
             "Formulaires de demande agricole",
             "Bilan des attributions de foncier agricole",
             "PV des commissions d'attribution agricole"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.epfag.fr/nos-commercialisations/agriculteurs/acces-au-foncier-agricole/",
+          "title": "🌱Accès au Foncier Agricole - EPFA Guyane",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Les formulaires sont à remplir et à déposer auprès de la Mission Foncier",
+            "Chaque porteur de projet doit localiser précisément la parcelle sollicitée à l’aide de cartes réalisées via l’OFAG.",
+            "Depuis la signature de la convention EPFAG–SAFER en novembre 2024, un transfert progressif des compétences agricoles est engagé vers la SAFER Guyane."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "guyane-cacl-foncier-agricole-amenage",
@@ -408,7 +466,11 @@
             "Ce terrain, identifié par la SAFER, fait actuellement l’objet d’une proposition soumise à l’approbation de l’Assemblée Plénière.",
             "Les terrains concernés seront aménagés en amont (bornage, accès, études agronomiques) afin de permettre une installation rapide, sécurisée et encadrée des futurs exploitants.",
             "Cette première acquisition marque le lancement d’une dynamique intercommunale, appelée à s’étendre progressivement à d’autres communes du territoire, notamment Montsinéry-Tonnégrande, Matoury et Roura, avec l’objectif de constituer un réseau structuré et cohérent de foncier agricole aménagé."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
