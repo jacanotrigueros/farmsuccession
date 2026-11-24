@@ -156,6 +156,12 @@
           "type": "string",
           "pattern": "^[A-Z]{2}$"
         },
+        "metaTitle": {
+          "description": "Optional search title of the country page, in its language. The site's localised country title is used when this is absent.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60
+        },
         "metaDescription": {
           "description": "Optional short search description of the country page, in its language. The public summary is used when this is absent.",
           "type": "string",

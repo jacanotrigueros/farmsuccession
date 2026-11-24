@@ -136,12 +136,13 @@ test("Spain points to its documented grants, puts loans inside the disclosure, a
   assert.match(html, /Convocatoria 2024<\/span> · Cerrada · [^<]*<time datetime="2026-10-13"/u);
 });
 
-test("country search titles omit the suffix and use the optional description from data", () => {
+test("country search metadata uses the optional title and description from data", () => {
   for (const { data } of snapshots) {
     if (data.schemaId !== "country-snapshot") continue;
     const html = htmlAt(data.country.toLowerCase());
-    const title = words(data.metadata.language).countryMetaTitle.replace("{where}", data.officialName);
+    const title = data.metaTitle ?? words(data.metadata.language).countryMetaTitle.replace("{where}", data.officialName);
     assert.equal(/<title>([^<]+)<\/title>/u.exec(html)?.[1], title);
+    assert.ok(title.includes(data.officialName), `${data.country}: a search title must name the country it is about`);
     assert.equal(
       decodeHTML(
         /<meta name="description" content="([^"]+)">/u.exec(
@@ -152,6 +153,13 @@ test("country search titles omit the suffix and use the optional description fro
       `${data.country}: metadata must favour the short description when supplied`,
     );
   }
+});
+
+test("Austria, whose first-establishment aid is national, points to it before the search", () => {
+  const html = htmlAt("at");
+  const shortcut = html.indexOf('href="#own"');
+  assert.ok(shortcut >= 0 && shortcut < html.indexOf("<form"), "the way to the national aid must come before the search");
+  assert.match(html, /<a href="#own"[^>]*>\s*Niederlassungsförderung ansehen\s*<\/a>/u);
 });
 
 test("country context gives each observation its year and source after the resources", () => {

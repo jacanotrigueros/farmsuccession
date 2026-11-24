@@ -513,6 +513,10 @@ export interface CountryIdentity {
    */
   country: string;
   /**
+   * Optional search title of the country page, in its language. The site's localised country title is used when this is absent.
+   */
+  metaTitle?: string;
+  /**
    * Optional short search description of the country page, in its language. The public summary is used when this is absent.
    */
   metaDescription?: string;

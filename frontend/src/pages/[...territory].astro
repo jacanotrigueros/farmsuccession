@@ -127,6 +127,8 @@ const under = [
  */
 const showsInstall =
   isCountry && [...children, ...groupings].filter((place) => place.data.resources.some(isFirstEstablishmentAid)).length >= 2;
+// A country whose first-establishment aid is national, not regional, points to it the same way (Austria).
+const showsNationalInstall = isCountry && !showsInstall && territory.data.resources.some(isFirstEstablishmentAid);
 
 /** What this territory recorded itself, and what reaches it from a wider layer, closest layer first. */
 const settled = (status: string): number =>
@@ -158,7 +160,11 @@ const pageTitle = isEurope ? text.euTitle : (isCountry ? text.countryTitle : tex
  * Europe's page is found by people searching for EU policy and CAP support for young farmers, so its
  * search title and snippet say that; its long introduction stays on the page, where it is read.
  */
-const metaTitle = isEurope ? text.euMetaTitle : isCountry ? text.countryMetaTitle.replace("{where}", name) : pageTitle;
+const metaTitle = isEurope
+  ? text.euMetaTitle
+  : territory.data.schemaId === "country-snapshot"
+    ? (territory.data.metaTitle ?? text.countryMetaTitle.replace("{where}", name))
+    : pageTitle;
 const metaDescription = isEurope
   ? text.euMetaDescription
   : territory.data.schemaId === "country-snapshot"
@@ -304,6 +310,11 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     {showsInstall && (
       <a href="#territories" class="btn btn-primary mt-4">
         {text.installShortcut}
+      </a>
+    )}
+    {showsNationalInstall && (
+      <a href="#own" class="btn btn-primary mt-4">
+        {text.installNationalShortcut}
       </a>
     )}
     <div class="mt-8">
