@@ -92,7 +92,6 @@ export function fakeEdition(overrides: Partial<RegionalSnapshot> = {}): Regional
       note: "The official portal was searched; municipal pages were not.",
       methods: [{ method: "OFFICIAL_PORTAL", detail: "https://example.test/portal, section on land and succession" }],
     },
-    review: { status: "DRAFT" },
     metadata: { language: "en", sourcePolicy: "PUBLIC_SOURCES_ONLY", generatedBy: [{ id: "person-1", tool: "PERSON" }] },
     resources: [fakeResource()],
     news: [],
