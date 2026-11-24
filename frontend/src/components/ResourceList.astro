@@ -1,5 +1,9 @@
 ---
-/** Territorial records occupy the available width; no clipped descriptions or cramped columns. */
+/**
+ * Territorial records, each with its full description. On a wide screen they flow down two columns, so
+ * ten national records are five rows to scan rather than ten lines of text a page wide; below that width
+ * a column would be cramped, and they take the full width.
+ */
 import ResourceCard from "./ResourceCard.astro";
 import type { Resource, Territory } from "../lib/corpus.ts";
 
@@ -13,7 +17,7 @@ type Props = {
 const { items, language, level = "h3", country } = Astro.props;
 ---
 
-<ul data-records class="territory-records grid items-start gap-3">
+<ul data-records class="territory-records gap-3 lg:columns-2 [&>li]:mb-3 [&>li]:break-inside-avoid">
   {items.map(({ resource, recordedIn }) => (
     <ResourceCard resource={resource} recordedIn={recordedIn} language={language} level={level} country={country} compact showFullSummary />
   ))}

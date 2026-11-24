@@ -90,7 +90,7 @@ const others = [
     <h3 class="text-lg font-bold text-muted">{text.kindsTitle}</h3>
     <ul class="mt-3 grid gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
       {others.map(({ kind, count }) => (
-        <li class="relative flex items-start gap-2 border-t border-line py-3" data-kind={kind}>
+        <li class="group relative -mx-2 flex items-start gap-2 rounded-md border-t border-line px-2 py-3 hover:bg-card" data-kind={kind}>
           <Icon name={kindIcon(kind)} aria-hidden="true" class="mt-1 size-5 shrink-0 text-muted" />
           <div class="min-w-0 flex-1">
             <p class="flex flex-wrap items-baseline justify-between gap-x-2">
@@ -101,6 +101,11 @@ const others = [
             </p>
             {!compact && <p class="meta mt-1">{kindBlurb(kind, language)}</p>}
           </div>
+          <Icon
+            name={ICON.chevron}
+            aria-hidden="true"
+            class="mt-1 size-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+          />
         </li>
       ))}
     </ul>
