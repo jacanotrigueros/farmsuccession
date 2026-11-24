@@ -177,10 +177,26 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://agricultura.gencat.cat/ca/detalls/Noticia/comunicat_CGE_01_2026",
+          "title": "Comunicat 01 CGE 2026 - Resolució segon grup d'expedients de l'ajut a la primera instal·lació de persones joves agricultores 2025. Departament d'Agricultura, Ramaderia, Pesca i Alimentació",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Per qualsevol dubte relacionat directament amb aquests ajuts o amb aquest comunicat, podeu adreçar-vos a la bústia de correu: cge.agricultura@gencat.cat"
+          ]
         }
       ],
       "notes": "La ficha estática histórica del programa todavía mostraba una prima base anterior; para la edición 2026 se usan las cuantías actualizadas del documento PEPAC de 28/04/2026. El incremento por traspaso extrafamiliar puede alcanzar 10.000 euros.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Contracte Global d’Explotació, Generalitat de Catalunya",
+          "value": "cge.agricultura@gencat.cat",
+          "sourceUrl": "https://agricultura.gencat.cat/ca/detalls/Noticia/comunicat_CGE_01_2026"
+        }
+      ]
     },
     {
       "id": "cataluna-cooperacion-sucesion-transmision-conocimientos",
@@ -283,10 +299,24 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://agricultura.gencat.cat/ca/ambits/desenvolupament-rural/comunicat_4_coop_cge_2026",
+          "title": "Comunicat 4 COOP 2026: Novetats Ajuts cooperació per a la successió a les explotacions agràries. Departament d'Agricultura, Ramaderia, Pesca i Alimentació",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Tanmateix si us urgeix resoldre algun dubte, podeu fer-ho com sempre a la bústia de GE: cge.agricultura@gencat.cat"]
         }
       ],
       "notes": "La Llei 1/2025 del Fons Agrari i Ramader financia políticas agrarias y ganaderas; no es un banco de tierras y no se representa como recurso de acceso a tierra. La convocatoria 2026 dispone de 10.000.000 euros en conjunto para sucesión y transmisión de conocimientos; no es un importe por beneficiario.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Contracte Global d’Explotació, Generalitat de Catalunya",
+          "value": "cge.agricultura@gencat.cat",
+          "sourceUrl": "https://agricultura.gencat.cat/ca/ambits/desenvolupament-rural/comunicat_4_coop_cge_2026"
+        }
+      ]
     },
     {
       "id": "cataluna-itinerario-formativo-incorporacion",
@@ -333,15 +363,26 @@
           "quotes": [
             "Els joves que disposen d’una experiència laboral de 2 anys o més en el sector agrari, poden sol·licitar el reconeixement o la validació",
             "Es tracta de demostrar de manera pràctica, a la seva explotació, que pot desenvolupar correctament les tasques bàsiques pròpies de l’activitat.",
-            "El/la tutor/a d’incorporació posa en contacte els joves i l’empresa i fa el seguiment de les pràctiques."
+            "El/la tutor/a d’incorporació posa en contacte els joves i l’empresa i fa el seguiment de les pràctiques.",
+            "Les activitats de formació contínua s’ofereixen en diferents modalitats: presencial, semipresencial i a distància."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=924410",
+          "title": "Diari Oficial de la Generalitat de Catalunya. Diari Oficial de la Generalitat de Catalunya",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "2.8 Dret d'inscripció a cursos específics per a la realització de l'itinerari formatiu de l'ajut de primera instal·lació de joves agricultors i agricultores, dins el marc del Programa de desenvolupament rural: preus assimilats als de l'apartat 2.1, en funció de les hores de durada del curs."
+          ]
         }
       ],
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "trainingFormats": ["IN_PERSON", "HYBRID", "ONLINE"],
+      "accessCostType": "FEE_REQUIRED"
     },
     {
       "id": "cataluna-mentoria-jovenes-agricultores",
@@ -431,7 +472,12 @@
           "url": "https://bancdeterres.cat/",
           "title": "Inici | Banc de Terres",
           "consultedOn": "2026-10-30",
-          "quotes": ["Cerques terres?", "Vols oferir terres?", "T'agradaria trobar un relleu per la teva explotació?"],
+          "quotes": [
+            "Cerques terres?",
+            "Vols oferir terres?",
+            "T'agradaria trobar un relleu per la teva explotació?",
+            "bancdeterres@diba.cat"
+          ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
@@ -453,7 +499,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Banc de Terres, Diputació de Barcelona",
+          "value": "bancdeterres@diba.cat",
+          "sourceUrl": "https://bancdeterres.cat/"
+        }
+      ]
     },
     {
       "id": "cataluna-banco-tierras-priorat",
@@ -480,7 +534,8 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "Servei de mediació i accés a la terra.",
-            "El cost d’aquest assessorament és assumit pel Consell Comarcal del Priorat."
+            "El cost d’aquest assessorament és assumit pel Consell Comarcal del Priorat.",
+            "A/e: bancdeterres@priorat.cat"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -488,7 +543,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Banc de Terres del Priorat",
+          "value": "bancdeterres@priorat.cat",
+          "sourceUrl": "https://www.priorat.cat/que-es-el-consell-comarcal-del-priorat/banc-de-terres-del-priorat"
+        }
+      ]
     },
     {
       "id": "cataluna-banco-tierras-baix-camp",
@@ -554,10 +617,24 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://bancdeterres.cat/ca/node/67",
+          "title": "Banc de Terres del Baix Camp | Banc de Terres",
+          "consultedOn": "2026-11-24",
+          "quotes": ["bancdeterres@baixcamp.cat"]
         }
       ],
       "notes": "El servicio es gratuito, incluida la redacción del contrato, salvo que alguna parte se retire cuando el borrador ya esté redactado: deberá asumir el coste jurídico de su redacción. Los contratos formalizados sin intermediación del banco no cuentan con sus servicios de seguimiento y mediación.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Banc de Terres del Baix Camp",
+          "value": "bancdeterres@baixcamp.cat",
+          "sourceUrl": "https://bancdeterres.cat/ca/node/67"
+        }
+      ]
     },
     {
       "id": "cataluna-banco-tierras-garrigues",
@@ -585,7 +662,8 @@
           "consultedOn": "2026-10-25",
           "quotes": [
             "esdevenir un servei d’intermediació públic i gratuït dels acords entre propietaris i demandants de terra",
-            "acompanyar i/o derivar als usuaris en els projectes d’emprenedoria, de recuperació i de reconversió de finques en el sector primari"
+            "acompanyar i/o derivar als usuaris en els projectes d’emprenedoria, de recuperació i de reconversió de finques en el sector primari",
+            "info@garriguesaltes.cat"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -593,7 +671,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Oficina ARRELA, Comunitat de Municipis de les Garrigues Altes",
+          "value": "info@garriguesaltes.cat",
+          "sourceUrl": "https://www.garriguesaltes.cat/banc-de-terres"
+        }
+      ]
     },
     {
       "id": "cataluna-banco-tierras-ripolles",
