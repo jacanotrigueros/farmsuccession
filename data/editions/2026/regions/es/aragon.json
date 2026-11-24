@@ -156,7 +156,11 @@
           "url": "https://www.aragon.es/tramitador/-/tramite/subvencion-para-el-establecimiento-de-jovenes-agricultores-en-el-marco-pepac-2023-2027/convocatoria-2026",
           "title": "Convocatoria 2026 - Establecimiento de jóvenes agricultores - Gobierno de Aragón",
           "consultedOn": "2026-09-14",
-          "quotes": ["Fuera de plazo - Del 29/01/2026 al 09/04/2026", "El plazo de presentación terminó el 09 abril 2026"],
+          "quotes": [
+            "Fuera de plazo - Del 29/01/2026 al 09/04/2026",
+            "El plazo de presentación terminó el 09 abril 2026",
+            "Correo electrónico. agricultura@aragon.es"
+          ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
@@ -167,7 +171,8 @@
           "title": "Orden AGA/157/2024, bases de establecimiento de jóvenes agricultores",
           "consultedOn": "2026-09-27",
           "quotes": [
-            "persona física mayor de edad que no haya cumplido 41 años en el año natural de la primera solicitud subvencionable de esta ayuda"
+            "persona física mayor de edad que no haya cumplido 41 años en el año natural de la primera solicitud subvencionable de esta ayuda",
+            "el cálculo de la cuantía de la subvención responderá a un pago mínimo de 30.000 euros."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -181,7 +186,8 @@
           "quotes": [
             "Estos tramos adicionales de subvención no podrán aplicarse hasta que se haya aprobado la modificación del PEPAC 2023-2027 por Decisión de la Comisión Europea.",
             "Por integrar en la nueva explotación una o varias explotaciones que cesan en la actividad agraria: hasta 30.000€.",
-            "Este pago mínimo podrá incrementarse por las características sociales y agronómicas de la explotación de instalación y por las características personales del beneficiario hasta un máximo de 85.000 euros"
+            "Este pago mínimo podrá incrementarse por las características sociales y agronómicas de la explotación de instalación y por las características personales del beneficiario hasta un máximo de 85.000 euros",
+            "por las características personales del beneficiario hasta un máximo de 85.000 euros"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -189,7 +195,33 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "Pago mínimo por establecimiento",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2026-01-28",
+          "sourceUrl": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1317697620404"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Ayuda máxima por establecimiento",
+          "value": 85000,
+          "unit": "EUR",
+          "asOf": "2026-01-28",
+          "sourceUrl": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1432649890303"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Contacto de la convocatoria de establecimiento de jóvenes agricultores",
+          "value": "agricultura@aragon.es",
+          "sourceUrl": "https://www.aragon.es/tramitador/-/tramite/subvencion-para-el-establecimiento-de-jovenes-agricultores-en-el-marco-pepac-2023-2027/convocatoria-2026"
+        }
+      ]
     },
     {
       "id": "aragon-ifgc-prestamos-jovenes",
@@ -296,6 +328,12 @@
       "languages": ["es"],
       "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER"],
       "notes": "No se ha verificado una página de servicio propia de ese banco ni un registro de oferta y demanda. Esto no significa que el Patrimonio Agrario esté inactivo: existe un procedimiento distinto y permanente para solicitar la adjudicación de tierras públicas, registrado como recurso separado.",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2023-7735"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2023-7735",
@@ -303,7 +341,9 @@
           "consultedOn": "2026-09-27",
           "quotes": [
             "Configurar un banco de tierras que permita concentrar, en favor del modelo social y familiar, el Patrimonio Agrario de la Comunidad Autónoma",
-            "Favorecer el relevo generacional y la incorporación de la mujer al sector agrario, en el marco del modelo familiar."
+            "Favorecer el relevo generacional y la incorporación de la mujer al sector agrario, en el marco del modelo familiar.",
+            "Las personas físicas o jurídicas que cumplan los requisitos especificados en el artículo 6 tendrán preferencia",
+            "Las concesiones para el aprovechamiento y explotación de los inmuebles serán adjudicadas por el departamento competente en materia de agricultura mediante licitación basada en un procedimiento de concurrencia competitiva pública"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -311,7 +351,9 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "whoCanUseIt": "La adjudicación da preferencia a las personas físicas o jurídicas que cumplan los requisitos del modelo de agricultura social y familiar del artículo 6.",
+      "howToAccess": "Para acceder al aprovechamiento de inmuebles del Patrimonio Agrario, concurrir a las licitaciones públicas del departamento competente en agricultura, conforme a las bases de cada licitación."
     },
     {
       "id": "zaragoza-banco-tierras-huertas-km0",
@@ -436,6 +478,12 @@
           "sourceUrl": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/formacion-en-agricultura-ganaderia-y-alimentacion"
         }
       ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/formacion-en-agricultura-ganaderia-y-alimentacion"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.aragon.es/formacion-e-innovacion-sector-agrario/formacion-en-agricultura-ganaderia-y-alimentacion",
@@ -528,9 +576,16 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.escueladepastoreo.com/wp-content/uploads/2026/01/info_estiva26-contenidos.pdf",
+          "title": "La Estiva 2026: contenidos",
+          "consultedOn": "2026-11-24",
+          "quotes": ["El precio de la matrícula es de 1.185€."]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "accessCostType": "FEE_REQUIRED"
     },
     {
       "id": "aragon-asesoramiento-agrario-pepac",
@@ -595,9 +650,16 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1245303623939&type=pdf",
+          "title": "Boletín Oficial de Aragón",
+          "consultedOn": "2026-11-24",
+          "quotes": ["la obligatoriedad de la persona destinataria de abonar el 20 % del precio unitario del servicio de asesoramiento"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "accessCostType": "FEE_REQUIRED"
     },
     {
       "id": "aragon-asaja-huesca-incorporacion",

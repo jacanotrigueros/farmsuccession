@@ -184,9 +184,35 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.araba.eus/botha/Boletines/2026/015/2026_015_00253_C.pdf",
+          "title": "BOTHA n.º 15 de 2026",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "La ayuda se concederá en forma de subvención a tanto alzado siendo el importe máximo de 70.000 euros por cada persona beneficiaria."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "Importe mínimo de subvención, convocatoria 2026",
+          "value": 10000,
+          "unit": "EUR",
+          "asOf": "2026-03-11",
+          "sourceUrl": "https://www.araba.eus/BOTHA/Boletines/2026/030/2026_030_00629_C.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Importe máximo total por persona beneficiaria",
+          "value": 70000,
+          "unit": "EUR",
+          "asOf": "2026-02-04",
+          "sourceUrl": "https://www.araba.eus/botha/Boletines/2026/015/2026_015_00253_C.pdf"
+        }
+      ]
     },
     {
       "id": "araba-alava-banco-tierras-aiaraldea",
@@ -226,9 +252,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.zabaia.eus/es/",
+          "title": "ZABAIA DESARROLLO RURAL",
+          "consultedOn": "2026-11-24",
+          "quotes": ["info@zabaia.eus"]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Asociación de Desarrollo Rural Zabaia",
+          "value": "info@zabaia.eus",
+          "sourceUrl": "https://www.zabaia.eus/es/"
+        }
+      ]
     },
     {
       "id": "araba-alava-elburgo-biohazi",
@@ -290,9 +330,23 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://elburgo-burgelu.eus/contacto/",
+          "title": "Contacto – Ayuntamiento de Elburgo – Burgeluko Udala",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Teléfono ayuntamiento : 945 420 713"]
         }
       ],
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Ayuntamiento de Elburgo",
+          "value": "945 420 713",
+          "sourceUrl": "https://elburgo-burgelu.eus/contacto/"
+        }
+      ]
     },
     {
       "id": "araba-alava-uaga-incorporacion-jovenes",
@@ -379,6 +433,12 @@
       "accessUrl": "https://e-s.araba.eus/BOTHA/Boletines/2026/012/2026_012_00165_C.pdf",
       "targetProfiles": ["TRANSFEROR", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-01-28",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://e-s.araba.eus/BOTHA/Boletines/2026/012/2026_012_00165_C.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://e-s.araba.eus/BOTHA/Boletines/2026/012/2026_012_00165_C.pdf",
@@ -411,9 +471,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://nombres.euskadi.eus/oficinas-de-intermediacion-para-el-relevo-generacional-en-el-primer-sector/web01-a2nekabe/es/",
+          "title": "Oficinas de intermediación para el relevo generacional en el primer sector - Agricultura, Ganadería y Forestal - Euskadi.eus",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Tfno. 2: 945181836"]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Servicio de Desarrollo Agrario — Oficina de Intermediación de Álava",
+          "value": "945181836",
+          "sourceUrl": "https://nombres.euskadi.eus/oficinas-de-intermediacion-para-el-relevo-generacional-en-el-primer-sector/web01-a2nekabe/es/"
+        }
+      ]
     }
   ],
   "news": [],
