@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "AT",
   "officialName": "Österreich",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "Diese Übersicht beschreibt die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte: die einmalige Niederlassungsprämie, die jährliche Zahlung und den Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs. Dazu kommen Informationen der Sozialversicherung zu den Meldepflichten bei der Hofübergabe.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -76,9 +76,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -96,6 +93,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -112,7 +116,7 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Eine einmalige Prämie für die erste Niederlassung auf einem landwirtschaftlichen Betrieb. Die Basisprämie beträgt 3.500 Euro. Dazu nennt die Quelle einen Eigentumsbonus für die Übernahme des ganzen Betriebs ins Eigentum (2.500 Euro), einen Meisterbonus (5.000 Euro) und einen Bonus für gesamtbetriebliche Aufzeichnungen (4.000 Euro).",
       "whoCanUseIt": "Die Förderung richtet sich an Junglandwirtinnen und Junglandwirte, die im Jahr der Aufnahme der landwirtschaftlichen Tätigkeit höchstens 40 Jahre alt sind. Grundsätzlich sind ab Antragstellung mindestens 3 ha landwirtschaftliche Fläche zu bewirtschaften. Bei kleineren Flächen ist ein eigener Einheitswert oder Einheitswertzuschlag für arbeitsintensive Kulturen beziehungsweise Betriebsformen erforderlich, bei denen ein höherer Deckungsbeitrag auch auf kleineren Flächen zu erwarten ist; ein Einheitswert für Ackerflächen oder Grünland allein reicht nicht aus. Erforderlich ist außerdem eine Facharbeiterprüfung oder eine höherwertige land- und forstwirtschaftliche Fachausbildung. Der Ausbildungsnachweis kann bis spätestens zwei Jahre nach der ersten Niederlassung nachgereicht werden. Außerdem nennt die Quelle die langfristige und wirksame Kontrolle über die Betriebsführung durch eine oder mehrere dieser Personen.",
-      "howToAccess": "Reichen Sie den Förderantrag innerhalb eines Jahres nach der ersten Niederlassung elektronisch über die Digitale Förderplattform der AMA ein. Legen Sie auch ein Betriebskonzept vor. Wer den erforderlichen eigenen Einheitswert beziehungsweise Einheitswertzuschlag noch nicht vorlegen kann, muss bei Antragstellung zumindest eine entsprechende Meldung bei der Finanzverwaltung vorlegen. Für den Einheitswertnachweis kann eine Nachfrist gesetzt werden: spätestens vier Jahre nach der ersten Niederlassung, jedoch spätestens bis 30.6.2029. Für die Mindestbewirtschaftungsfläche von 3 ha gibt es keine Nachfrist; Betriebe ohne Sonderkulturen müssen diese bereits bei Antragstellung bewirtschaften.",
+      "howToAccess": "Reichen Sie den Förderantrag innerhalb eines Jahres nach der ersten Niederlassung elektronisch über die Digitale Förderplattform der AMA ein. Legen Sie auch ein Betriebskonzept vor. Wer den erforderlichen eigenen Einheitswert beziehungsweise Einheitswertzuschlag noch nicht vorlegen kann, muss bei Antragstellung zumindest eine entsprechende Meldung bei der Finanzverwaltung vorlegen. Für den Einheitswertnachweis kann eine Nachfrist gesetzt werden: spätestens vier Jahre nach der ersten Niederlassung, jedoch spätestens bis 30.6.2029. Für die Mindestbewirtschaftungsfläche von 3 ha gibt es keine Nachfrist; Betriebe ohne Sonderkulturen müssen diese bereits bei Antragstellung bewirtschaften. Im AMA-Kalender das jeweilige Bundesland auswählen. Anträge können laufend eingereicht werden; die Länder verwenden unterschiedliche Stichtage für ihre Bearbeitungsblöcke.",
       "accessUrl": "https://dfp.ama.at/foerderungen-fristen/75-01-bml/das-wichtigste-im-ueberblick",
       "contactPoints": [
         {
@@ -154,7 +158,11 @@
             "dfp@ama.gv.at",
             "Beim Eigentumsübergang hat die Übernahme durch die Junglandwirtin oder den Junglandwirten grundsätzlich den gesamten Betrieb zu umfassen",
             "können die Basisprämie sowie die möglichen Zuschläge nur einmalig ausgelöst werden."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.ama.at/getattachment/8edc9a00-7baf-4480-9948-c890c1ba70e6/2025_01_Merkblatt_75-01_V4.pdf",
@@ -169,11 +177,32 @@
             "Der Nachweis ist spätestens vier Jahre nach der ersten Niederlassung, jedoch spätestens bis 30.6.2029, in der Digitalen Förderplattform hoch zu laden.",
             "Für den Nachweis von drei ha Mindestbewirtschaftungsfläche kann keine Nachfrist gesetzt werden.",
             "Das heißt, von Betrieben ohne Sonderkulturen müssen jedenfalls bei Antragstellung mind. 3 ha landwirtschaftliche Fläche (LF) bewirtschaftet werden."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://dfp.ama.at/foerderungen-fristen/75-01-bml/aufrufe-und-fristen",
+          "title": "DFP-Förderung 75-01: Aufrufe und Fristen",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Alle Bundesländer",
+            "Aktueller Stichtag",
+            "Laufende Antragsstellung möglich!",
+            "30.11.2026",
+            "15.01.2027",
+            "Förderantrag stellen"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "Laut Quelle können die Basisprämie und die möglichen Zuschläge nur einmal ausgelöst werden.",
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "at-zahlung-junglandwirte",
@@ -205,7 +234,11 @@
             "Als fachliche Mindestqualifikation ist eine geeignete Facharbeiterprüfung gemäß Land- und forstwirtschaftlichem Berufsausbildungsgesetz, eine einschlägige höhere Ausbildung oder ein einschlägiger Hochschulabschluss vorzuweisen.",
             "Beantragt werden können rund 66 Euro pro Hektar für maximal 40 Hektar förderfähige Fläche und maximal 5 aufeinander folgende Jahre.",
             "Die Antragstellung erfolgt jährlich im Rahmen des Mehrfachantrags und muss spätestens für das der erstmaligen Aufnahme der landwirtschaftlichen Tätigkeit folgende Antragsjahr gestellt werden"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Die Zahlung ist jährlich im Mehrfachantrag zu beantragen.",
@@ -238,7 +271,11 @@
           "quotes": [
             "Diese Sonderrichtlinie ist die Rechtsgrundlage für eine rein national finanzierte einzelbetriebliche Förderungsmaßnahme des BMLUK",
             "soll die Übernahme eines verschuldeten Betriebes erleichtern und stellt eine wichtige komplementäre Maßnahme zur Unterstützung von Junglandwirtinnen und Junglandwirten dar."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.bmluk.gv.at/dam/jcr:b141fe95-b636-4a66-99e1-e81f2b278163/SRL_Konsolidierung_JLW_2._%C3%84nderung.pdf",
@@ -255,13 +292,21 @@
             "Diese Sonderrichtlinie tritt am Tag nach der Publikation gemäß Punkt 14.3 in Kraft und am 30. Juni 2030 außer Kraft.",
             "Genehmigung des Zinsenzuschusses Die Förderungsabwicklungsstelle hat die förderwerbende Person",
             "Der Betrieb muss unter Berücksichtigung der zulässigen Förderung sanierbar sein."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.bmluk.gv.at/dam/jcr%3Ab141fe95-b636-4a66-99e1-e81f2b278163/SRL_Konsolidierung_JLW_2._%C3%84nderung.pdf",
           "title": "Sonderrichtlinie Konsolidierung",
           "consultedOn": "2026-11-21",
-          "quotes": ["Die förderwerbende Person hat ein Betriebskonzept vorzulegen."]
+          "quotes": ["Die förderwerbende Person hat ein Betriebskonzept vorzulegen."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Die Sonderrichtlinie gilt bis 30. Juni 2030. Der Betrieb muss unter Berücksichtigung der Förderung sanierbar sein.",
@@ -303,7 +348,11 @@
             "Als Betriebsführer haben Sie innerhalb eines Monats nach Eintritt der Pflichtversicherung für sich und für hauptberuflich mittätige Angehörige (Kinder, Ehepartner, Hofübergeber) die Anmeldung zu erstatten.",
             "Tel. 050 808 808",
             "Änderungsmeldung für Bauern"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Die Seite informiert über Pflichten in der Sozialversicherung; eine individuelle Beratung zur Hofübergabe ersetzt sie nicht.",
@@ -333,7 +382,11 @@
             "Sie setzen häufig eine abgeschlossene Berufsausbildung als Aufnahmebedingung voraus.",
             "Das Angebot wird ständig weiterentwickelt, eine Anfrage bei den zuständigen Behörden ist daher empfehlenswert.",
             "Weiterführende Informationen LFS im Burgenland LFS in Kärnten LFS in Niederösterreich LFS in Oberösterreich LFS in Salzburg LFS in der Steiermark LFS in Tirol LFS in Vorarlberg"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Fachschulen im zweiten Bildungsweg setzen laut Seite häufig eine abgeschlossene Berufsausbildung voraus.",
@@ -366,7 +419,11 @@
             "Dabei werden sämtliche Aspekte des Übergabeprozesses behandelt – aus menschlicher, rechtlicher und steuerlicher Sicht.",
             "Landjugend-Broschüren entdecken!",
             "Für die Ausbildung zuständige Behörden sind die land- und forstwirtschaftlichen Lehrlings- und Fachausbildungsstellen an den jeweiligen Landeslandwirtschaftskammern."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-2"
@@ -414,7 +471,11 @@
             "Dadurch schaffen wir einen geschützten Rahmen, in dem sich nur Mitglieder mit eigenem Steckbrief anschreiben können.",
             "Die Mitgliedschaft beträgt 70 € regulär / 120 € fördernd für ein ganzes Jahr und bietet folgende Vorteile:",
             "Es gibt für Sie keinen Unterschied zwischen fördernder und regulärer Mitgliedschaft, alle Mitglieder haben dieselben Vorteile."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.perspektive-landwirtschaft.at/perspektiven-suche/",
@@ -432,7 +493,11 @@
             "Als Mitglied können Sie mit Ihrem Steckbrief die Perspektiven-Suche nutzen.",
             "info@perspektive-landwirtschaft.at",
             "+43 (0) 660 113 32 11"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-2"
@@ -471,7 +536,11 @@
             "Ist man den Weg ein Stück weit gemeinsam gegangen, festigt sich im besten Fall die Entscheidung für oder gegen eine Hofübergabe in der Phase fünf.",
             "Wird aber die Übergabe konkreter und fällt die gemeinsame Entscheidung für eine Hofübergabe bzw. Hofübernahme, dann wird auch rechtliche Beratung wichtig sein, um die erarbeiteten Lösungen in eine juristische Form zu gießen.",
             "mehr erfahren"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.perspektive-landwirtschaft.at/uebersicht-prozess/rahmenbedingungen/",
@@ -485,7 +554,11 @@
             "Übergang in die Pensionszeit",
             "Die Übergabe als vorweggenommene Erbfolge",
             "Eine Hofübergabe ist auch eine vorweggenommene Erbfolge, weshalb die Ansprüche der weichenden Erb*innen der Übergebenden rechtzeitig geregelt werden müssen."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.perspektive-landwirtschaft.at/uebersicht-prozess/ressourcen/",
@@ -496,10 +569,78 @@
             "Das Grundverkehrsgesetz liegt im Einflussbereich der Bundesländer und wird jeweils unterschiedlich gehandhabt.",
             "Eine mehrjährige landwirtschaftliche Praxis wird bei der Gründung eines Betriebes dringend empfohlen!",
             "Es ist hilfreich, verschiedene Höfe kennenzulernen, um das für sich passende Betätigungsfeld zu finden."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-2"
+    },
+    {
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "accessUrl": "https://www.bmf.gv.at/themen/steuern/immobilien-grundstuecke/grunderwerbsteuer/steuersatz.html",
+      "id": "at-grunderwerbsteuer-landwirtschaft-familienverband",
+      "name": "Grunderwerbsteuer bei land- und forstwirtschaftlicher Übergabe im Familienverband",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "operator": "Bundesministerium für Finanzen",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Für die Übertragung land- und forstwirtschaftlicher Grundstücke im Familienverband weist das Ministerium einen Grunderwerbsteuersatz von 2 % des Einheitswertes aus.",
+      "whoCanUseIt": "Der begünstigte Familienverband umfasst unter anderem Verwandte und Verschwägerte in gerader Linie sowie Geschwister, Nichten und Neffen. Die vollständige Definition steht auf der Ministeriumsseite.",
+      "sources": [
+        {
+          "url": "https://www.bmf.gv.at/themen/steuern/immobilien-grundstuecke/grunderwerbsteuer/steuersatz.html",
+          "title": "Steuersatz – Bundesministerium für Finanzen",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Land- und Forstwirtschaft",
+            "2% vom Einheitswert",
+            "Zum Familienverband zählen:",
+            "Verwandte und Verschwägerte in gerader Linie",
+            "Geschwister, Nichten und Neffen"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "accessUrl": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001969",
+      "id": "at-anerbengesetz",
+      "name": "Anerbengesetz – gesetzliche Erbteilung bei Erbhöfen",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "operator": "Bundesministerium für Justiz",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Bei Vorliegen der gesetzlichen Voraussetzungen kann bei mehreren Miterben nur der Anerbe Eigentümer des Erbhofs werden.",
+      "whoCanUseIt": "Die Vorschriften betreffen die Erbteilung bei einem Erbhof. Das Bundesgesetz gilt außerhalb Kärntens und Tirols.",
+      "sources": [
+        {
+          "url": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001969",
+          "title": "Anerbengesetz – Bundesrecht konsolidiert",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Sind bei der gesetzlichen Erbfolge nach dem Alleineigentümer eines Erbhofs mehrere Miterben berufen, so kann nur einer von ihnen, der Anerbe, Eigentümer des Erbhofs werden.",
+            "Dieses Bundesgesetz gilt nicht in den Ländern Kärnten und Tirol.",
+            "Mit der Vollziehung dieses Bundesgesetzes ist das Bundesministerium für Justiz im Einvernehmen mit dem Bundesministerium für Land- und Forstwirtschaft betraut."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

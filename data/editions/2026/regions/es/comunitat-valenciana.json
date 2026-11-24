@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "comunitat-valenciana",
   "officialName": "Comunitat Valenciana",
-  "published": "2026-11-20",
+  "published": "2026-11-24",
   "summary": "La Comunitat Valenciana combina ayudas al establecimiento de personas jóvenes y nuevos agricultores, bancos de tierras municipales operativos en las tres provincias y asesoramiento específico de organizaciones agrarias. Pedreguer y Callosa de Segura amplían las rutas públicas verificadas con formularios municipales para ofrecer y solicitar parcelas. No se ha verificado una ayuda o servicio operativo específico de sucesión/cese.",
   "coverage": {
     "status": "PARTIAL",
@@ -61,9 +61,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -86,6 +83,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -101,7 +105,7 @@
       "operator": "Agencia Valenciana de Fomento y Garantía Agraria / Generalitat Valenciana",
       "operatorType": "PUBLIC",
       "whatItOffers": "Prima de primera instalación para personas jóvenes agricultoras y nuevos agricultores. La ayuda base es de 30.000 euros para jóvenes y 20.000 euros para nuevos agricultores, con máximos de 80.000 y 70.000 euros respectivamente según los incrementos aplicables al plan empresarial.",
-      "whoCanUseIt": "Personas que se establecen por primera vez como titulares de una explotación agraria en la Comunitat Valenciana y cumplen la definición y requisitos de persona joven agricultora o nuevo agricultor de la Orden 9/2025.",
+      "whoCanUseIt": "Personas que se establecen por primera vez como titulares de una explotación agraria en la Comunitat Valenciana y cumplen la definición y requisitos de persona joven agricultora o nuevo agricultor de la Orden 9/2025. En el año en que se presenta la solicitud, las personas jóvenes agricultoras deben tener entre 18 y 40 años inclusive, y los nuevos agricultores, entre 41 y 56 años inclusive.",
       "howToAccess": "Solicitud electrónica mediante el procedimiento 571 de la Generalitat durante cada convocatoria. La convocatoria 2026 se abre el 5 de octubre de 2026; comprobar la fecha de cierre en la convocatoria antes de presentar la solicitud.",
       "accessUrl": "https://sede.gva.es/es/detall-tramit?id_proc=G571",
       "instrumentType": "GRANT",
@@ -154,13 +158,21 @@
             "Para aquellos casos en que ya se disponga de la capacitación adecuada regulada en el artículo 4.9 de la Orden 9/2025",
             "Código GVA: 571",
             "Plazo de solicitud desde 05-10-2026 hasta 07-12-2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/931561",
           "title": "BDNS 931561 — Ayudas al establecimiento de personas jóvenes agricultoras y nuevos agricultores",
           "consultedOn": "2026-09-28",
-          "quotes": ["05/10/2026", "04/12/2026"]
+          "quotes": ["05/10/2026", "04/12/2026"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://dogv.gva.es/datos/2025/07/07/pdf/2025_25507_es.pdf",
@@ -170,11 +182,38 @@
             "La prima básica para el establecimiento de personas jóvenes agricultoras será de 30.000 euros.",
             "incrementarse hasta un máximo de 80.000 euros",
             "La prima básica para el establecimiento de nuevos agricultores será de 20.000 euros. Esta prima podrá incrementarse hasta un máximo de 70.000 euros"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://sede.gva.es/es/detall-tramit?id_caso=que_es&id_proc=G571",
+          "title": "Ayudas al establecimiento de personas jóvenes agricultoras y nuevos agricultores de la Comunitat Valenciana",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Plazo de solicitud desde 05-10-2026 hasta 07-12-2026", "Código GVA: 571"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://sede.gva.es/es/detall-tramit?id_caso=a_quien&id_proc=G571",
+          "title": "Ayudas al establecimiento — requisitos de las personas solicitantes",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Tener entre 18 y 40 años, inclusive, en el año de presentación de la solicitud.",
+            "Tener entre 41 y 56 años, inclusive, en el año de presentación de la solicitud."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La sede electrónica de la Generalitat y la Base de Datos Nacional de Subvenciones publican fechas de cierre distintas para esta convocatoria. Aquí se recoge la de la sede, que es donde se presentan las solicitudes y la que se ha vuelto a leer; conviene comprobarla antes de presentar.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "comunitat-valenciana-banco-tierras-valencia",
@@ -214,7 +253,11 @@
             "Las personas interesadas en el cultivo de parcelas (Solicitud de consulta).",
             "Durante todo el año.",
             "consellagrari@valencia.es"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://sede.valencia.es/sede/descarga/doc/DOCUMENT_1_ORD0198_C",
@@ -225,7 +268,11 @@
             "Favorecer el acceso al recurso tierra a personas profesionales y jóvenes que se quieran incorporar a la actividad agraria.",
             "La consulta de las datos del registro de Banco de Tierras Agrícolas de València podrá ser solicitada por aquellas personas, preferentemente, profesionales, cooperativas agrarias, sociedades agrarias de transformación o cualquier otra entidad de asociacionismo agrario o vecinal interesadas en el cultivo de parcelas",
             "deberán presentar en el Registro de Entrada del Ayuntamiento de València una solicitud de consulta mediante el impreso normalizado que figura como anexo II a esta ordenanza"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -266,7 +313,11 @@
             "Quiero tierras para cultivar",
             "emprender una nueva actividad agrícola",
             "+34 966 97 02 50"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -307,7 +358,11 @@
             "se facilita la recuperación de parcelas y se fomenta de la actividad agrícola",
             "la Ley 5/2019, de 28 de febrero, de la Generalitat, de estructuras agrarias de la Comunidad Valenciana",
             "e-mail: agricultura@nules.es"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://nules.org/es/nules-pone-en-marcha-un-prograna-de-limpieza-de-parcelas-rusticas/",
@@ -316,7 +371,11 @@
           "quotes": [
             "facilitar el contacto con terceras personas interesadas en la cesión de la propiedad en régimen de alquiler por su explotación agrícola",
             "hay más demanda que oferta de parcelas"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -349,7 +408,11 @@
             "Un Banco de Tierras consiste en un registro de campos que sus propietarios están dispuestos a hacer un contrato de cesión, aparceria o alquiler.",
             "La entidad gestora se encarga de gestionar los contactos y facilitar los acuerdos.",
             "Para inscribir o demandar tierras es muy sencillo haz clic sobre el botón que quieras INSCRIPCIÓN DE TIERRAS o DEMANDA DE TIERRAS y llena el formulario."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -381,7 +444,11 @@
             "A continuación se expone la documentación del Banco de Tierras del Ayuntamiento de Pedreguer.",
             "Solicitud de alta de parcelas",
             "Solicitud de consulta de parcelas"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://pedreguer.es/d/1811158047632332342",
@@ -391,7 +458,11 @@
             "El Banc de Terres afavorirà la difusió d’ofertes i demandes de terres de conreu, i el contacte entre propietaris que oferisquen terrenys per a llogar i llauradors que vulguen llogar-les per a posar-les en cultiu.",
             "L’Ajuntament de Pedreguer crearà un registre en què s’inscriuran les ofertes i demandes d’arrendament de terres",
             "Qualsevol persona interessada podrà consultar el llistat de parcel·les donades d’alta al Banc de Terres de Pedreguer."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -432,7 +503,11 @@
             "El objetivo de este curso de 150 horas es capacitar a jóvenes agricultores para su incorporación profesional al sector agrario.",
             "Curso también aceptado por la Consellería de Agricultura de la Comunitat Valenciana",
             "necesitan acreditar capacitación y competencia profesional según la Orden 7/2015"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://sede.gva.es/es/detall-tramit?id_proc=G571",
@@ -440,7 +515,11 @@
           "consultedOn": "2026-10-09",
           "quotes": [
             "diplomas, títulos o certificados del responsable del centro correspondiente, en el que consten especificadas las materias impartidas, la duración de la formación y el receptor de esta"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La oferta formativa es actual y accionable, pero la página del proveedor sigue citando como referencia principal la Orden 7/2015. La convocatoria de ayudas vigente se rige por bases posteriores, por lo que la aceptación concreta del certificado bajo la normativa actual no se ha verificado de forma independiente en una lista oficial de cursos; por prudencia el estado es «Estado no confirmado».",
@@ -456,10 +535,10 @@
       },
       "operator": "LA UNIÓ Llauradora i Ramadera",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Información y asesoramiento específico para personas jóvenes y nuevos agricultores que quieren incorporarse al campo, incluida ayuda para tramitar la primera instalación y orientación sobre requisitos, cuantías y plan empresarial.",
-      "whoCanUseIt": "Personas menores de 41 años y personas de 41 a 56 años que quieren iniciar una explotación agraria en la Comunitat Valenciana.",
-      "howToAccess": "Solicitar asesoramiento gratuito mediante la web específica de LA UNIÓ o contactar con la organización por teléfono o correo electrónico.",
-      "accessUrl": "https://www.ayudasjovenesagricultores.es/",
+      "whatItOffers": "Información y asesoramiento sobre las ayudas de primera instalación para jóvenes y nuevos agricultores y ganaderos de la Comunitat Valenciana.",
+      "whoCanUseIt": "Jóvenes y nuevos agricultores y ganaderos que quieran incorporarse a la actividad agraria en la Comunitat Valenciana.",
+      "howToAccess": "Contactar con LA UNIÓ por teléfono o correo electrónico para solicitar información sobre el asesoramiento de primera instalación.",
+      "accessUrl": "https://launio.org/post/la-unio-lanza-una-web-para-asesorar-a-los-agricultores-y-ganaderos-jovenes-que-d-490604",
       "contactPoints": [
         {
           "channel": "PHONE",
@@ -474,27 +553,33 @@
           "sourceUrl": "https://launio.org/"
         }
       ],
-      "accessCostType": "FREE",
+      "accessCostType": "UNKNOWN",
       "languages": ["es", "ca"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-09-15",
       "sources": [
         {
-          "url": "https://www.ayudasjovenesagricultores.es/",
-          "title": "Ayudas Joven Agricultor — LA UNIÓ te acompaña",
-          "consultedOn": "2026-09-28",
+          "url": "https://launio.org/post/la-unio-lanza-una-web-para-asesorar-a-los-agricultores-y-ganaderos-jovenes-que-d-490604",
+          "title": "LA UNIÓ lanza una web para asesorar a los agricultores y ganaderos jóvenes que desean incorporarse a la actividad agraria",
+          "consultedOn": "2026-11-24",
           "quotes": [
-            "En LA UNIÓ te ayudamos a conseguir las ayudas para la primera instalación de jóvenes agricultores.",
-            "SOLICITA ASESORAMIENTO GRATUITO",
-            "¿Tienes menos de 41 años y te quieres dedicar a la agricultura y/o la ganadería?",
-            "¿Tienes entre 41 y 56 años y quieres emprender en el sector agrario?"
-          ]
+            "para informar y asesorar a aquellos agricultores y ganaderos jóvenes de la Comunitat Valenciana",
+            "así como para los nuevos agricultores y ganaderos"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://launio.org/",
           "title": "LA UNIÓ",
           "consultedOn": "2026-09-28",
-          "quotes": ["Tramitar tus ayudas", "Redactar tus proyectos, informes y recursos", "Tlf: 963530036 Email: launio@launio.org"]
+          "quotes": ["Tramitar tus ayudas", "Redactar tus proyectos, informes y recursos", "Tlf: 963530036 Email: launio@launio.org"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://launio.org/post/la-unio-alerta-de-que-solo-el-5825-de-los-perceptores-de-la-pac-en-la-comunitat--522318?l=ES",
@@ -503,7 +588,11 @@
           "quotes": [
             "mayor apoyo a la primera instalación",
             "medidas que faciliten el acceso a la tierra y la transmisión de explotaciones"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -547,7 +636,11 @@
             "SOLICITUD DE ALTA O BAJA DE PARCELAS",
             "SOLICITUD DE ALTA O BAJA DE PERSONA INTERESADAS EN CULTIVAR PARCELAS",
             "Número 65 - 28 de mayo de 2024"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La publicación acredita la aprobación definitiva de la ordenanza y describe el procedimiento previsto, pero no demuestra que el registro esté actualmente operativo ni que haya parcelas disponibles. Los acuerdos entre las partes serán libres y voluntarios y la cesión deberá destinarse a uso agrícola.",
@@ -576,16 +669,21 @@
         {
           "url": "https://www.fvmp.es/pdf/ordenances-medi-ambient/banc-terres/aprobacion-definitiva-reglamento-regulador-banc-de-terres.pdf",
           "title": "Aprobación definitiva Reglamento regulador del Banc de Terres",
-          "consultedOn": "2026-11-20",
+          "consultedOn": "2026-11-24",
           "quotes": [
             "El Banc de Terres es un registro administrativo de carácter público creado por el Ayuntamiento de Chilches/Xilxes y formado por parcelas aptas para su explotación agrícola cuyos propietarios han solicitado voluntariamente su inclusión en el mismo.",
             "Este registro funcionará como un instrumento de puesta en contacto entre la oferta de parcelas aptas para la explotación agrícola y la demanda de dichas parcelas por personas interesadas en su cultivo.",
             "El Ayuntamiento se abstendrá de intervenir, orientar o asesorar acerca de los negocios jurídicos que, en su caso, puedan llegar a",
-            "Las personas propietarias de parcelas agrícolas ubicadas en el término municipal que deseen su inclusión en el Banc de Terres podrán solicitar el alta en el registro de entrada del Ayuntamiento, mediante el impreso normalizado que se adjunta (Anexo I)",
             "Cualquier persona interesada en el cultivo o explotación agrícola de parcelas podrá consultar, en primer lugar, el listado de parcelas que hayan sido dadas de alta en el registro administrativo del Banc de Terres.",
-            "deberán presentar en el Registro de Entrada del Ayuntamiento una solicitud de consulta mediante el impreso normalizado que se adjunta a las presentes bases en el Anexo II",
-            "BOP 35 - 22 de marzo de 2018"
-          ]
+            "BOP 35 - 22 de marzo de 2018",
+            "podrán solicitar el alta en el registro de entrada del Ayuntamiento, mediante el impreso normalizado que se adjunta (Anexo I)",
+            "deberán presentar en el Registro de Entrada del Ayuntamiento una solicitud de consulta",
+            "que se adjunta a las presentes bases en el Anexo II"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "La fuente es el reglamento municipal publicado en el boletín provincial. No acredita que actualmente existan parcelas disponibles ni que el servicio continúe atendiendo solicitudes.",
@@ -620,11 +718,83 @@
             "el cual tiene por objeto informar y facilitar el contacto entre los propietarios de parcelas aptas para la explotación agrícola situadas en el término municipal y las personas interesadas en su cultivo.",
             "Puesta en valor de las tierras agrícolas abandonadas o en previsión de abandono.",
             "BOP 74 - 18 de junio de 2016"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La fuente acredita la creación del fichero administrativo, pero no demuestra el funcionamiento actual del banco ni proporciona una vía de solicitud de parcelas. La oficina citada en el documento atiende derechos de protección de datos, no se identifica como punto de acceso al banco.",
       "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "comunitat-valenciana-red-tierras",
+      "name": "Red de Tierras de la Comunitat Valenciana",
+      "kind": "POLICY",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Generalitat Valenciana — conselleria competente en agricultura",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "La Ley 5/2019 configura una red de oficinas públicas para centralizar las ofertas y demandas de parcelas agrarias, facilitar la intermediación y mantener un registro público en internet.",
+      "accessUrl": "https://boe.es/buscar/act.php?id=BOE-A-2019-4086",
+      "sources": [
+        {
+          "url": "https://boe.es/buscar/act.php?id=BOE-A-2019-4086",
+          "title": "BOE-A-2019-4086 Ley 5/2019, de 28 de febrero, de estructuras agrarias de la Comunitat Valenciana.",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "actúa como fondo de tierras, centralizando los datos relativos a la oferta y la demanda de parcelas con vocación agraria",
+            "por cualquier persona física, jurídica, pública o privada.",
+            "El tratamiento preferente en el acceso a la tierra",
+            "Mantener un registro permanentemente actualizado y público, accesible a través de internet",
+            "realizan funciones de intermediación y asesoramiento para facilitar el uso y aprovechamiento de parcelas"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personas físicas o jurídicas, públicas o privadas. La ley prevé una atención preferente a profesionales agrarios, jóvenes y mujeres.",
+      "howToAccess": "La intermediación corresponde a las oficinas gestoras de la Red de Tierras previstas en la ley.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "comunitat-valenciana-bonificacion-transmision-arrendamiento-red-tierras",
+      "name": "Bonificación de transmisiones y arrendamientos agrarios mediante la Red de Tierras",
+      "kind": "POLICY",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Generalitat Valenciana",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "El artículo 32 de la Ley 5/2019 prevé una bonificación de la cuota del 99 % en el ITP y AJD para transmisiones y cesiones de uso de parcelas agrarias que cumplan sus condiciones.",
+      "accessUrl": "https://boe.es/buscar/act.php?id=BOE-A-2019-4086",
+      "sources": [
+        {
+          "url": "https://boe.es/buscar/act.php?id=BOE-A-2019-4086",
+          "title": "BOE-A-2019-4086 Ley 5/2019, de 28 de febrero, de estructuras agrarias de la Comunitat Valenciana.",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Disfrutarán de una bonificación de la cuota tributaria del 99 % en el impuesto de transmisiones patrimoniales y actos jurídicos documentados",
+            "Las transmisiones de parcelas con vocación agraria.",
+            "los mecanismos previstos en esta ley.",
+            "Que las transmisiones o cesiones se realicen por mediación de oficinas gestoras de la Red de Tierras",
+            "Artículo 32. Bonificaciones fiscales de las transmisiones y arrendamientos."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personas que realizan una transmisión o cesión de parcelas agrarias mediante las oficinas gestoras y reúnen los demás requisitos del artículo 32.",
+      "howToAccess": "La operación debe tramitarse mediante una oficina gestora de la Red y los mecanismos de la ley.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

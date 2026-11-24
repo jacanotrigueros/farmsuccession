@@ -5,7 +5,7 @@
   "country": "NL",
   "region": "overijssel",
   "officialName": "Overijssel",
-  "published": "2026-11-20",
+  "published": "2026-11-24",
   "summary": "Het overzicht voor Overijssel is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Overijssel gelden.",
   "coverage": {
     "status": "PARTIAL",
@@ -20,9 +20,6 @@
         "detail": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/hoe-werkt-pachten-van-de-provincie-overijssel"
       }
     ]
-  },
-  "review": {
-    "status": "DRAFT"
   },
   "metadata": {
     "language": "nl",
@@ -41,6 +38,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -70,7 +74,11 @@
             "U kunt zich ieder jaar opgeven van 1 juli tot en met 30 september (openbare inschrijving).",
             "Een overzicht van gronden en gebouwen die de provincie Overijssel verkoopt.",
             "Openbare verkoop landbouwgrond Er is nu geen landbouwgrond te koop."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-2"
@@ -104,7 +112,7 @@
           "sourceUrl": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/hoe-werkt-pachten-van-de-provincie-overijssel"
         }
       ],
-      "notes": "Op provinciale landbouwgronden geldt een algeheel bemestingsverbod tot 1 maart 2028. Andere gebruiksbeperkingen kunnen in het pachtcontract worden vastgelegd. De pachtprijzen voor 2027 moeten nog worden vastgesteld.",
+      "notes": "Op provinciale landbouwgronden geldt een algeheel bemestingsverbod tot 1 maart 2028. Andere gebruiksbeperkingen kunnen in het pachtcontract worden vastgelegd. De pachtprijzen voor 2027 moeten nog worden vastgesteld. Volgens het uitvoeringskader 2026 kan dezelfde gegadigde in beginsel maximaal drie keer een contract voor één jaar aangeboden krijgen. Het kader voorziet in uitzonderingen.",
       "sources": [
         {
           "url": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/hoe-werkt-pachten-van-de-provincie-overijssel",
@@ -125,10 +133,71 @@
             "Telefoon: 085 006 99 54",
             "E-mail: info@pachtloket.net",
             "Percelen met evenwichtsbemesting in Overijssel"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.overijssel.nl/media/2ogfdjsv/uitvoeringskader-tijdelijk-beheer-provinciale-gronden-2026.pdf",
+          "title": "Uitvoeringskader tijdelijk beheer provinciale gronden 2026",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Alleen gegadigden met een hoofdberoep in de landbouw komen in aanmerking",
+            "maximaal 3 keer voor 1 jaar aan dezelfde gegadigde worden aangeboden.",
+            "Er doen zich soms situaties voor, dat voor een 4e jaar op rij (of nog langer) gronden aan dezelfde"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "whoCanUseIt": "Het uitvoeringskader 2026 stelt als hoofdregel dat de gegadigde zijn hoofdberoep in de landbouw moet hebben.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://www.najk.nl/provincies/oajk/bedrijfsovername/",
+      "id": "overijssel-oajk-bedrijfsovername",
+      "name": "OAJK — bemiddeling bij bedrijfsovername",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "operator": "Overijssels Agrarisch Jongeren Kontakt (OAJK)",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "OAJK zet zijn netwerk in om agrarische bedrijfsoverdragers en mensen die een bedrijf willen voortzetten met elkaar in contact te brengen.",
+      "whoCanUseIt": "Agrarische bedrijfsoverdragers en mensen die een toekomstig bedrijf zoeken in Overijssel.",
+      "howToAccess": "Meld u bij OAJK en geef aan waar u naar op zoek bent.",
+      "sources": [
+        {
+          "url": "https://www.najk.nl/provincies/oajk/bedrijfsovername/",
+          "title": "Bedrijfsovername – NAJK",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Meld je dan aan bij het OAJK en laat weten waar je precies naar op zoek bent.",
+            "ons netwerk voor jou in te zetten op zoek naar jouw toekomstige bedrijf.",
+            "Als u bedrijfsoverdrager bent, mag u zich uiteraard ook melden!"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.najk.nl/provincies/oajk/over-oajk/",
+          "title": "Over OAJK – NAJK",
+          "consultedOn": "2026-11-24",
+          "quotes": ["OAJK is de vereniging van, voor en door jonge agrariërs in Overijssel"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

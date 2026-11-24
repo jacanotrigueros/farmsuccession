@@ -5,7 +5,7 @@
   "country": "AT",
   "region": "steiermark",
   "officialName": "Steiermark",
-  "published": "2026-11-06",
+  "published": "2026-11-24",
   "summary": "Die Übersicht für die Steiermark enthält auch die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte sowie den Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs. Ein eigenes Angebot des Landes ist in dieser Fassung noch nicht dokumentiert.",
   "coverage": {
     "status": "PARTIAL",
@@ -17,9 +17,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -30,10 +27,49 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-06"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrStmk&Gesetzesnummer=20000924",
+      "id": "steiermark-grundverkehr-interessentenregelung",
+      "name": "Steiermärkisches Grundverkehrsgesetz – Interessentenregelung",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "operator": "Steiermärkische Grundverkehrsbehörde",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Regelt die Benachrichtigung der Bezirkskammer für Land- und Forstwirtschaft und das Verfahren, in dem Interessenten den Eintritt in ein landwirtschaftliches Grundstücksgeschäft erklären können.",
+      "howToAccess": "Wer die gesetzlichen Voraussetzungen erfüllt und eintreten will, gibt die Erklärung bei der Grundverkehrsbehörde zu Protokoll.",
+      "sources": [
+        {
+          "url": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrStmk&Gesetzesnummer=20000924",
+          "title": "Steiermärkisches Grundverkehrsgesetz",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Die Bekanntmachungsfrist beträgt drei Wochen.",
+            "der zuständigen Bezirkskammer (Abs. 1 Z 3) eine Kopie der Kundmachung zu übermitteln.",
+            "vor der Grundverkehrsbehörde niederschriftlich erklären, in das Rechtsgeschäft eintreten zu wollen"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": [
     "Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in der Steiermark sind in dieser Fassung noch nicht dokumentiert.",

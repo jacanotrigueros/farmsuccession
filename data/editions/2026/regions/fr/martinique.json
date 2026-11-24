@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "martinique",
   "officialName": "Martinique",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "En Martinique, la Collectivité territoriale gère les aides non surfaciques du fonds européen agricole, dont l’aide au démarrage pour les jeunes agriculteurs et pour les nouveaux agriculteurs, ainsi que le conseil et la formation ; aucun opérateur foncier local n’a pu être cité dans cette passe.",
   "coverage": {
     "status": "PARTIAL",
@@ -25,9 +25,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -44,6 +41,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-21"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -76,7 +80,11 @@
             "Le conseil, le transfert de connaissances et la formation.",
             "En Martinique, la Collectivité Territoriale de Martinique (CTM) agit en tant qu’autorité de gestion régionale pour les mesures non surfaciques",
             "Fiches d’interventions: elles présentent les financement éligibles"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "claude-1"
@@ -91,7 +99,7 @@
       },
       "operator": "DAAF Martinique",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Suivi global de l’exploitation pour accompagner le bon déroulement du projet initial, ou conseil technico-économique spécialisé lié au projet d’installation. La participation de l’État est plafonnée à 80 % de la dépense hors taxes et à 1 500 €, versés directement au prestataire à l’issue de l’année de suivi.",
+      "whatItOffers": "Suivi global de l’exploitation pour accompagner le bon déroulement du projet initial, ou conseil technico-économique spécialisé lié au projet d’installation. La participation de l’État est plafonnée à 80 % de la dépense hors taxes et à 1 500 €, versés directement au prestataire à l’issue de l’année de suivi. La DAAF présente le volet 4 de l’AITA comme un suivi post-installation financé chaque année durant quatre ans pour les nouveaux exploitants qui ont bénéficié de la DJA.",
       "whoCanUseIt": "Nouveaux exploitants ayant un projet d’installation à suivre.",
       "howToAccess": "Contacter la DAAF pour toute demande ou information. La page répertorie trois prestataires agréés en Martinique : la Chambre d’Agriculture de Martinique, le Conseil Gestion Suivi en milieu Rural (CGSR) et l’association des Jeunes Agriculteurs (JA).",
       "accessUrl": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html",
@@ -122,10 +130,71 @@
             "Le Conseil Gestion Suivi en milieu Rural (CGSR)",
             "L’association des Jeunes Agriculteurs (JA)",
             "Pour toute demande ou information, vous pouvez nous contacter à l’adresse suivante : aita.daaf.daaf972@agriculture.gouv.fr"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://daaf.martinique.agriculture.gouv.fr/l-accompagnement-a-l-installation-transmission-en-agriculture-aita-r358.html",
+          "title": "L’Accompagnement à l’Installation-Transmission en Agriculture (AITA) | DAAF Martinique",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "suivi post-installation des nouveaux exploitants qui ont bénéficié des aides à l’installation",
+            "Cet accompagnement est financé chaque année durant 4 ans."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "martinique-point-accueil-installation-transmission",
+      "name": "Point d’Accueil Installation Transmission de Martinique",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Chambre d’agriculture de la Martinique",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Point d’entrée pour les porteurs de projet agricole, auquel renvoie la DAAF.",
+      "accessUrl": "https://daaf.martinique.agriculture.gouv.fr/l-accompagnement-a-l-installation-transmission-en-agriculture-aita-r358.html",
+      "sources": [
+        {
+          "url": "https://daaf.martinique.agriculture.gouv.fr/l-accompagnement-a-l-installation-transmission-en-agriculture-aita-r358.html",
+          "title": "L’Accompagnement à l’Installation-Transmission en Agriculture (AITA) | DAAF Martinique",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Le Point d’Accueil Installation Transmission (PAIT)",
+            "Vous avez pour projet de créer ou reprendre une exploitation agricole ?"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://daaf.martinique.agriculture.gouv.fr/le-point-d-accueil-installation-transmission-pait-a863.html",
+          "title": "Le Point d'Accueil Installation Transmission (PAIT) | DAAF Martinique",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Le PAIT (point d’accueil installation transmission) est la porte d’entrée de tout porteur de projet.",
+            "Immeuble Chambre d’Agriculture"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personnes souhaitant créer ou reprendre une exploitation agricole en Martinique.",
+      "howToAccess": "Suivre la fiche PAIT depuis la rubrique AITA de la DAAF pour les coordonnées de la Chambre.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

@@ -5,7 +5,7 @@
   "country": "AT",
   "region": "vorarlberg",
   "officialName": "Vorarlberg",
-  "published": "2026-11-06",
+  "published": "2026-11-24",
   "summary": "Die Übersicht für Vorarlberg enthält auch die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte sowie den Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs. Ein eigenes Angebot des Landes ist in dieser Fassung noch nicht dokumentiert.",
   "coverage": {
     "status": "PARTIAL",
@@ -17,9 +17,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -30,10 +27,49 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-06"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrVbg&Gesetzesnummer=20000597",
+      "id": "vorarlberg-grundverkehrsgesetz",
+      "name": "Vorarlberger Grundverkehrsgesetz – landwirtschaftlicher Grundverkehr",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "operator": "Grundverkehrs-Landeskommission Vorarlberg",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Regelt den Erwerb landwirtschaftlicher Betriebe und Grundstücke, darunter die Bekanntmachung bei einem Erwerb durch Nicht-Landwirte. Die Grundverkehrs-Landeskommission ist zuständig, soweit das Gesetz keine Ausnahme vorsieht.",
+      "whoCanUseIt": "Als Landwirt kann auch gelten, wer nach dem Erwerb landwirtschaftlich tätig werden will und die dafür erforderlichen Fähigkeiten besitzt.",
+      "sources": [
+        {
+          "url": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrVbg&Gesetzesnummer=20000597",
+          "title": "Vorarlberger Grundverkehrsgesetz",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "wer nach Erwerb eines landwirtschaftlichen Betriebes oder von landwirtschaftlichen Grundstücken im Sinne der lit. a tätig sein will und die dazu erforderlichen Fähigkeiten besitzt.",
+            "Erwerb durch Nicht-Landwirte, Bekanntmachung",
+            "Von den Fällen des Abs. 3 und 5 abgesehen, ist die Grundverkehrs-Landeskommission zuständig."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": [
     "Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Vorarlberg sind in dieser Fassung noch nicht dokumentiert.",

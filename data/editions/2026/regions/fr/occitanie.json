@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "occitanie",
   "officialName": "Occitanie",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "L'Occitanie propose deux dotations d'installation, un stage de reprise, un portage foncier et des accompagnements à l'installation et à la transmission. La Safer et des associations disposent également de services territoriaux.",
   "coverage": {
     "status": "PARTIAL",
@@ -69,9 +69,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -95,6 +92,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -121,7 +125,11 @@
           "url": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide",
           "title": "Agriculture : aide au renouvellement des générations",
           "consultedOn": "2026-09-29",
-          "quotes": ["conseil à la création agricole et d’un suivi post-installation", "Article publié le 16 juillet 2026."]
+          "quotes": ["conseil à la création agricole et d’un suivi post-installation", "Article publié le 16 juillet 2026."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La page officielle régionale annonce le financement de conseils en 2026. Aucun guichet stable destiné directement aux candidats n'a pu être établi pour l'ensemble de cette prestation ; les voies d'accès des structures labellisées restent à détailler."
@@ -148,7 +156,11 @@
           "url": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide",
           "title": "Agriculture : aide au renouvellement des générations",
           "consultedOn": "2026-09-29",
-          "quotes": ["cédants n’ayant pas encore de repreneur", "diagnostic et d’un suivi pré-transmission"]
+          "quotes": ["cédants n’ayant pas encore de repreneur", "diagnostic et d’un suivi pré-transmission"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La Région décrit deux prestations distinctes, financées en 2026. La page de sélection des opérateurs comporte une ancienne échéance de candidature des structures : elle ne constitue pas une échéance pour les cédants."
@@ -174,13 +186,16 @@
           "url": "https://www.europe-en-occitanie.eu/Euro-pac",
           "title": "Le portail Euro-pac",
           "consultedOn": "2026-09-29",
-          "quotes": ["Toutes vos demandes relatives au FEADER Occitanie se font sur le site d'Euro-pac."]
+          "quotes": ["Toutes vos demandes relatives au FEADER Occitanie se font sur le site d'Euro-pac."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
     {
       "id": "occitanie-dja",
-      "generatorId": "chatgpt-1",
       "name": "Dotation Jeune Agriculteur",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
@@ -190,8 +205,8 @@
       "operator": "Région Occitanie",
       "operatorType": "PUBLIC",
       "whatItOffers": "Aide de trésorerie pour le démarrage de l'activité agricole des jeunes agriculteurs.",
-      "whoCanUseIt": "Jeunes agriculteurs remplissant les critères de l'appel régional 2026.",
-      "howToAccess": "Consulter l'appel à projets et ses pièces sur la fiche régionale, puis déposer le dossier sur Euro-pac.",
+      "whoCanUseIt": "Jeunes agriculteurs remplissant les critères de l'appel régional 2026. Pour la compétence professionnelle au titre de la DJA, la DRAAF indique un diplôme agricole de niveau 4 minimum, ou un autre diplôme de niveau 4 minimum complété par 24 mois au moins de travail dans la production agricole dans les trois années qui précèdent la demande.",
+      "howToAccess": "Consulter l'appel à projets et ses pièces sur la fiche régionale, puis déposer le dossier sur Euro-pac. La DRAAF indique que les services du Conseil régional instruisent les demandes depuis le 1er janvier 2024.",
       "accessUrl": "https://www.europe-en-occitanie.eu/Dotation-Jeune-Agriculteur-FEADER-23-27",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
@@ -218,13 +233,28 @@
           "title": "Périodes de dépôt et enveloppes DJA 2026",
           "consultedOn": "2026-09-29",
           "quotes": ["Dépôt en continu des dossiers"]
+        },
+        {
+          "url": "https://draaf.occitanie.agriculture.gouv.fr/1-dja-dna-quelles-competences-requises-a8794.html",
+          "title": "1 - DJA / DNA : quelles compétences requises ? | DRAAF Occitanie",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Etre titulaire d’un diplôme agricole de niveau 4 minimum",
+            "d’au minimum 24 mois au cours des 3 années précédant le dépôt de la demande.",
+            "Depuis le 1er janvier 2024, les demandes de dotation (DJA ou DNA)",
+            "sont instruites par les services du Conseil Régional."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "Le document de périodes distingue la date de début d'éligibilité de la colonne « Périodes de dépôt 2026 ». Il prévoit un dépôt continu et une sélection à chaque comité ; aucune date précise d'ouverture ou de clôture des dépôts n'est reportée dans les champs de l'appel."
+      "notes": "Le document de périodes distingue la date de début d'éligibilité de la colonne « Périodes de dépôt 2026 ». Il prévoit un dépôt continu et une sélection à chaque comité ; aucune date précise d'ouverture ou de clôture des dépôts n'est reportée dans les champs de l'appel.",
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "occitanie-dna",
-      "generatorId": "chatgpt-1",
       "name": "Dotation Nouvel Agriculteur",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
@@ -234,8 +264,8 @@
       "operator": "Région Occitanie",
       "operatorType": "PUBLIC",
       "whatItOffers": "Aide de trésorerie au démarrage de l'activité des nouveaux agriculteurs, notamment ceux de plus de 40 ans.",
-      "whoCanUseIt": "Nouveaux installés de plus de 40 ans ; certains candidats plus jeunes peuvent être admissibles selon les conditions de l'appel.",
-      "howToAccess": "Consulter l'appel régional 2026 et déposer la demande sur Euro-pac.",
+      "whoCanUseIt": "Nouveaux installés de plus de 40 ans ; certains candidats plus jeunes peuvent être admissibles selon les conditions de l'appel. Pour la compétence professionnelle au titre de la DNA, la DRAAF indique un diplôme agricole de niveau 4 minimum, ou un diplôme agricole de niveau 3 ou un autre diplôme de niveau 4 minimum avec les points requis dans la grille diplôme-expérience.",
+      "howToAccess": "Consulter l'appel régional 2026 et déposer la demande sur Euro-pac. La DRAAF indique que les services du Conseil régional instruisent les demandes depuis le 1er janvier 2024.",
       "accessUrl": "https://www.europe-en-occitanie.eu/Dotation-Nouvel-Agriculteur-FEADER-23-27",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
@@ -261,10 +291,30 @@
           "url": "https://www.europe-en-occitanie.eu/IMG/pdf/b/4/3/dna_periodes_enveloppes_2026_cpdec25.pdf",
           "title": "Périodes de dépôt et enveloppes DNA 2026",
           "consultedOn": "2026-09-29",
-          "quotes": ["Dépôt en continu des dossiers"]
+          "quotes": ["Dépôt en continu des dossiers"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://draaf.occitanie.agriculture.gouv.fr/1-dja-dna-quelles-competences-requises-a8794.html",
+          "title": "1 - DJA / DNA : quelles compétences requises ? | DRAAF Occitanie",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Etre titulaire d’un diplôme agricole de niveau 4 minimum",
+            "Etre titulaire d’un diplôme de niveau 3 agricole ou d’un diplôme de niveau 4 minimum quelque soit la spécialité et justifier de points dans la grille d’évaluation croisée diplôme / expérience",
+            "sont instruites par les services du Conseil Régional.",
+            "Depuis le 1er janvier 2024, les demandes de dotation (DJA ou DNA)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "Le tableau 2026 annonce un dépôt continu. Sa date de début d'éligibilité n'est pas présentée comme date d'ouverture des dossiers."
+      "notes": "Le tableau 2026 annonce un dépôt continu. Sa date de début d'éligibilité n'est pas présentée comme date d'ouverture des dossiers.",
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "occitanie-safer-foncier",
@@ -290,13 +340,21 @@
           "quotes": [
             "La Safer vous aide à trouver un bien foncier (avec ou sans bâti)",
             "Proposition de biens en adéquation avec votre demande"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer-occitanie.com/fr/appels-a-candidature.php",
           "title": "Appels à candidatures — Safer Occitanie",
           "consultedOn": "2026-09-29",
-          "quotes": ["rétrocéder, échanger, substituer ou louer des biens fonciers en Occitanie"]
+          "quotes": ["rétrocéder, échanger, substituer ou louer des biens fonciers en Occitanie"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer-occitanie.com/fr/page/carte-interactive-des-departements.php",
@@ -304,7 +362,11 @@
           "consultedOn": "2026-10-25",
           "quotes": [
             "Ariège (09) Aude (11) Aveyron (12) Gard (30) Haute-Garonne (31) Gers (32) Hérault (34) Lot (46) Lozère (48) Hautes-Pyrénées (65) Pyrénées-Orientales (66) Tarn (81) Tarn-et-Garonne (82)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer-occitanie.com/fr/page/la-safer-occitanie.php",
@@ -312,7 +374,11 @@
           "consultedOn": "2026-10-25",
           "quotes": [
             "fusion de la Safer Gascogne Haut Languedoc, la Safer Aveyron, lot, Tarn, Tarn et Garonne et de la Safer Languedoc-Roussillon."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer-occitanie.com/fr/page/transmettre.php",
@@ -327,7 +393,11 @@
             "D’un partenaire privilégié pour sécuriser vos projets fonciers sur les plans techniques, juridiques et fiscaux",
             "D’un conseil et d’un accompagnement, avec un interlocuteur unique, jusqu’à la signature de l’acte",
             "Contact Services départementaux Contact Services régionaux"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La Safer propose également une prestation de transmission ; les deux parcours relèvent ici du même opérateur régional. Les échéances appartiennent à chaque bien publié, et aucune n'est généralisée à ce service. La Safer Occitanie intervient dans l’Ariège (09), l’Aude (11), l’Aveyron (12), le Gard (30), la Haute-Garonne (31), le Gers (32), l’Hérault (34), le Lot (46), la Lozère (48), les Hautes-Pyrénées (65), les Pyrénées-Orientales (66), le Tarn (81) et le Tarn-et-Garonne (82). Elle est issue de la fusion de la Safer Gascogne Haut Languedoc, de la Safer Aveyron, Lot, Tarn, Tarn-et-Garonne et de la Safer Languedoc-Roussillon.",
@@ -359,7 +429,11 @@
             "Acquérir tout ou partie du foncier du projet",
             "Le dépôt d’un dossier de demande de portage du foncier",
             "étant âgé.e de moins de 45 ans"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La Foncière porte le foncier d'un projet identifié ; elle ne constitue pas un inventaire libre de parcelles. Son parcours est distinct de l'attribution foncière de la Safer."
@@ -397,13 +471,21 @@
           "quotes": [
             "Tester l’activité sur une période et un espace approprié au projet",
             "Construire une relation et un lien de confiance avec le cédant"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.laregion.fr/La-Region-Occitanie-reaffirme-son-soutien-a-l-installation-agricole-et-au",
           "title": "La Région réaffirme son soutien à l'installation agricole",
           "consultedOn": "2026-09-29",
-          "quotes": ["ce dispositif vient d’être renouvelé", "Article publié le 6 février 2026."]
+          "quotes": ["ce dispositif vient d’être renouvelé", "Article publié le 6 février 2026."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation",
@@ -423,7 +505,11 @@
             "Bilan du CEFI.",
             "Période de réalisation Toute l'année.",
             "Besoin de plus d'informations ? Nous contacter Vous êtes intéressé ?"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La fiche de la Chambre précise qu’un niveau de formation est requis sans en donner le détail. Son formulaire permet de demander des informations sur la prestation ; il n’est pas présenté comme un dépôt de candidature au stage.",
@@ -453,7 +539,11 @@
           "quotes": [
             "Accompagner sur le volet foncier des projets d’installation ou des projets de transmission",
             "accueil des porteurs de projets, conseils, orientation"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Le service est assuré dans le territoire de cette association et ne représente pas l'ensemble de l'Occitanie."
@@ -480,7 +570,11 @@
           "url": "https://www.agriculturepaysanne.org/Transmettre-139",
           "title": "Transmettre — ADDEARG",
           "consultedOn": "2026-09-29",
-          "quotes": ["Un accompagnement individuel pour se préparer", "un accompagnement cédant-repreneur pour se tester"]
+          "quotes": ["Un accompagnement individuel pour se préparer", "un accompagnement cédant-repreneur pour se tester"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La prestation départementale et son accès associatif sont propres à l'ADDEARG, même si elle peut intervenir comme structure labellisée du programme régional."
@@ -511,7 +605,11 @@
           "quotes": [
             "Carte interactive des fermes inscrites dans une démarche de transmission",
             "en rachetant ou louant une propriété agricole ou en vous associant"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "L'ADEAR du Lot fournit ici un accès départemental propre ; les liens vers les annonces nationales de partenaires ne sont pas dupliqués comme ressources locales."
@@ -559,7 +657,11 @@
             "Un accompagnement technique, humain et opérationnel de qualité dans les ADEAR-TV",
             "ardear.occitanie@jeminstallepaysan.org",
             "04 67 06 23 67"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -613,7 +715,11 @@
             "Jeunes Agriculteurs - point accueil installation : 04 68 51 90 80 (lundi et le jeudi)",
             "Chambre d'agriculture - service entreprises : 04.68.35.74.00",
             "DDTM - service nature agriculture forêt : 04.68.38.10.27"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -657,7 +763,11 @@
             "Les demandes de DJA peuvent être déposés avec l’ADEAR09, l’accompagnement se fait individuellement et est payant.",
             "Nous sommes aussi habilités pour accompagner la mise en place et le suivi des Contrats Emploi Formation Installation (CEFI).",
             "Contact adear.09@orange.fr"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -703,10 +813,47 @@
             "Véritable porte d’entrée de votre projet transmission, vous pouvez demander un rendez-vous individuel avec un conseiller transmission qui abordera avec vous les points essentiels à votre cessation d’activité.",
             "Les étapes de la transmission Les démarches à accomplir Les offres d’accompagnement Possibilité d’établir un plan d’action",
             "Pour tout renseignement, contactez les conseillers Transmission de votre Chambre d’Agriculture de l’Aude Tél : 04 68 11 79 32 transmission@aude.chambagri.fr"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
+    },
+    {
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Midi-Pyrénées"
+      },
+      "accessUrl": "https://terredeliens.org/midi-pyrenees/",
+      "id": "occitanie-terre-de-liens-midi-pyrenees",
+      "name": "Terre de Liens Midi-Pyrénées — accueil et accompagnement foncier",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "operator": "Terre de Liens Midi-Pyrénées",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Accueil des personnes qui préparent une installation agricole ou une transmission et accompagnement des projets d’acquisition.",
+      "whoCanUseIt": "Porteurs de projet agricole et cédants dans le périmètre de Terre de Liens Midi-Pyrénées.",
+      "howToAccess": "Utiliser le lien « Nous contacter » sur la page de l’antenne Midi-Pyrénées.",
+      "sources": [
+        {
+          "url": "https://terredeliens.org/midi-pyrenees/",
+          "title": "Midi-Pyrénées — Terre de Liens",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "200 candidats à l'installation et cédants accueillis",
+            "Accueil des porteurs de projets et des cédants, accompagnement des projets d’acquisition, suivi des fermes",
+            "Nous contacter"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [
@@ -723,7 +870,11 @@
           "url": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide",
           "title": "Agriculture : aide au renouvellement des générations",
           "consultedOn": "2026-09-29",
-          "quotes": ["une nouvelle aide de 1,3 M€"]
+          "quotes": ["une nouvelle aide de 1,3 M€"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -740,7 +891,11 @@
           "url": "https://www.laregion.fr/La-Region-Occitanie-reaffirme-son-soutien-a-l-installation-agricole-et-au",
           "title": "La Région réaffirme son soutien à l'installation agricole",
           "consultedOn": "2026-09-29",
-          "quotes": ["ce dispositif vient d’être renouvelé", "Article publié le 6 février 2026."]
+          "quotes": ["ce dispositif vient d’être renouvelé", "Article publié le 6 février 2026."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     }

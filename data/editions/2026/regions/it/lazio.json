@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "lazio",
   "officialName": "Lazio",
-  "published": "2026-11-21",
+  "published": "2026-11-24",
   "summary": "La Banca della Terra regionale comprende terreni agricoli destinati a future procedure di vendita, ma non è stata verificata un'asta attualmente accessibile. Roma Capitale assegna terreni agricoli comunali con bandi distinti; l'ultimo bando verificato è chiuso. Nel Lazio sono stati inoltre attivati corsi di 150 ore per giovani imprenditori agricoli, con iscrizioni già chiuse nelle edizioni esaminate. Non è stato verificato un bando regionale SRE01.",
   "coverage": {
     "status": "PARTIAL",
@@ -49,9 +49,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -74,6 +71,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-21"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -89,7 +93,7 @@
       "operator": "Regione Lazio",
       "operatorType": "PUBLIC",
       "whatItOffers": "Elenco di terreni agricoli del patrimonio regionale individuati per successive procedure di dismissione e vendita; è prevista una prelazione a favore dei giovani agricoltori per una parte degli appezzamenti.",
-      "whoCanUseIt": "I terreni sono destinati a procedure di vendita; la notizia regionale prevede una prelazione all'acquisto per giovani agricoltori sul 50% degli appezzamenti.",
+      "whoCanUseIt": "I terreni sono destinati a procedure di vendita; la notizia regionale prevede una prelazione all'acquisto per giovani agricoltori sul 50% degli appezzamenti. Il regolamento riserva almeno il 55% dei terreni interessati che non sono oggetto di rinnovo ai giovani tra 18 e 40 anni che intendono avviare un’impresa agricola. Occorrono una posizione fiscale e previdenziale propria e le competenze previste, oppure l’impegno ad acquisirle entro il termine previsto.",
       "howToAccess": "Seguire le eventuali procedure regionali di vendita. La notizia sull'aggiornamento dell'elenco non contiene una procedura di domanda o un'asta attualmente verificata.",
       "accessUrl": "https://regione.lazio.it/notizie/banca-terra-elenco-terreni-agricoli",
       "assetTypes": ["PLOTS"],
@@ -105,7 +109,11 @@
             "La delibera aggiorna la Banca della Terra, l’elenco che contiene le aree del patrimonio regionale destinate all’agricoltura.",
             "09/12/2024",
             "con la previsione, per il 50% degli appezzamenti, di un diritto di prelazione all’acquisto al prezzo di aggiudicazione dell’asta"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.lazio.it/amministrazione-trasparente/atti-procedure-affidamento/3481",
@@ -114,9 +122,29 @@
           "quotes": [
             "servizio di redazione perizie di stima valore di mercato n. 364 terreni agricoli appartenenti alla c.d. \"banca della terra\"",
             "Determinazione n. G11938 del 18/09/2025"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://regione.lazio.it/regolamenti-regionali-testo-coordinato/regolamento-regionale-11-aprile-2017-n11/14052021",
+          "title": "Regione Lazio | Regolamento regionale 11 Aprile 2017 n.11",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "una quota minima del 55 per cento dei terreni non oggetto di rinnovo",
+            "in favore di giovani tra i 18 e i 40 anni di età",
+            "in possesso di una propria posizione fiscale e previdenziale",
+            "ad acquisirle entro trentasei mesi dalla sottoscrizione del contratto di affitto"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
-      ]
+      ],
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "lazio-roma-terre-pubbliche-agricole",
@@ -149,19 +177,31 @@
           "url": "https://www.comune.roma.it/web/it/bando-concorso.page?contentId=BEC1220040",
           "title": "Bando pubblico per l'assegnazione di terre agricole di proprietà di Roma Capitale",
           "consultedOn": "2026-09-28",
-          "quotes": ["Bando pubblico per l'assegnazione di terre agricole di proprietà di Roma Capitale", "27 giu 2024"]
+          "quotes": ["Bando pubblico per l'assegnazione di terre agricole di proprietà di Roma Capitale", "27 giu 2024"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.comune.roma.it/web/it/notizia/agricoltura-tre-proposte-il-bando-terre-pubbliche.page",
           "title": "Agricoltura, tre proposte per nuovo bando terre pubbliche",
           "consultedOn": "2026-09-28",
-          "quotes": ["Alla scadenza dei termini per la presentazione delle proposte imprenditoriali", "1 ottobre 2024"]
+          "quotes": ["Alla scadenza dei termini per la presentazione delle proposte imprenditoriali", "1 ottobre 2024"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.comune.roma.it/web/it/notizia/agricoltura-per-superare-disuguaglianze-ambientali-e-sociali.page",
           "title": "L'agricoltura per superare disuguaglianze ambientali e sociali",
           "consultedOn": "2026-09-28",
-          "quotes": ["6 marzo 2026", "Roma Capitale sta mettendo a bando le terre agricole pubbliche per giovani agricoltori."]
+          "quotes": ["6 marzo 2026", "Roma Capitale sta mettendo a bando le terre agricole pubbliche per giovani agricoltori."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -200,7 +240,11 @@
             "Durata del corso: 150 ore",
             "Aperte fino al 11/07/2026 (ore 12.00) le iscrizioni",
             "tutti i titolari di imprese agricole localizzate nella Regione Lazio con meno di 41 anni"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -255,7 +299,11 @@
             "Le lezioni in presenza saranno a Roma, presso la sede nazionale ENUIP, in Via Angelo Bargoni 78 (zona Trastevere). Saranno inoltre previste 2 visite presso aziende agricole di successo a livello regionale.",
             "In allegato è disponibile la Scheda di iscrizione al corso.",
             "Per informazioni e iscrizioni: formazione@enuip.it 06.58333803"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
@@ -304,10 +352,114 @@
             "email unione.lazio@unicoop.it",
             "Telefono 06.44250205",
             "Associazione Nazionale di promozione, assistenza, tutela e revisione del movimento cooperativo"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3"
+    },
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://regione.lazio.it/regolamenti-regionali-testo-coordinato/regolamento-regionale-20-maggio-2009-n-7/14052021",
+      "id": "lazio-arsial-subentro-eredi",
+      "name": "Subentro degli eredi nella concessione del podere ARSIAL",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "operator": "Agenzia Regionale per lo Sviluppo e l’Innovazione dell’Agricoltura del Lazio (ARSIAL)",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Il fondo torna nella disponibilità di ARSIAL se l’assegnatario muore prima di aver pagato la quindicesima annualità e nessuno subentra nell’assegnazione. In questo caso gli eredi che soddisfano i requisiti possono diventare concessionari ai sensi degli articoli 16 e 21, comma 1.",
+      "whoCanUseIt": "Eredi dell’assegnatario residenti nel podere e in possesso della qualifica prevista dall’articolo 3 del regolamento.",
+      "sources": [
+        {
+          "url": "https://regione.lazio.it/regolamenti-regionali-testo-coordinato/regolamento-regionale-20-maggio-2009-n-7/14052021",
+          "title": "Regione Lazio | Regolamento regionale 20 maggio 2009, n. 7",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "l'assegnatario sia deceduto senza aver pagato la quindicesima annualità del prezzo di assegnazione e non sia avvenuto un subentro nella assegnazione",
+            "il fondo ritorna nella disponibilità dell'ARSIAL.",
+            "Gli eredi dell'assegnatario, residenti nel podere ed in possesso della qualifica di cui all'articolo 3, possono divenire concessionari del fondo",
+            "degli articoli 16 e 21, comma 1, del presente regolamento."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "lazio-diritto-opzione-acquisto-fondo-affitto",
+      "name": "Diritto di opzione all’acquisto del fondo agricolo in affitto",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Lazio",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "L’articolo 5 del regolamento offre un’alternativa al rinnovo del contratto per i terreni della Banca della terra individuati dalla Giunta come alienabili.",
+      "accessUrl": "https://regione.lazio.it/regolamenti-regionali-testo-coordinato/regolamento-regionale-11-aprile-2017-n11/14052021",
+      "sources": [
+        {
+          "url": "https://regione.lazio.it/regolamenti-regionali-testo-coordinato/regolamento-regionale-11-aprile-2017-n11/14052021",
+          "title": "Regione Lazio | Regolamento regionale 11 Aprile 2017 n.11",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "ai conduttori titolari di regolare contratto di affitto, ancorché scaduto e non ancora rinnovato",
+            "è riconosciuto il diritto di opzione all’acquisto del fondo stesso, da esercitare tramite apposita istanza",
+            "entro il termine di novanta giorni, decorrenti dalla data del ricevimento dell’offerta di vendita",
+            "da inviare alla Regione a mezzo di raccomandata con ricevuta di ritorno o via pec.",
+            "che possono essere oggetto di alienazione."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Conduttori titolari di un regolare contratto di affitto, compresi i contratti scaduti e non ancora rinnovati.",
+      "howToAccess": "Presentare l’istanza prevista dal regolamento. Se la Regione formula l’offerta di vendita, accettarla entro il termine previsto inviando l’accettazione via PEC o raccomandata con ricevuta di ritorno.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "lazio-insediamento-giovani-agricoltori-sre01",
+      "name": "SRE01 — Insediamento giovani agricoltori nel Lazio",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Lazio",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Il CSR del Lazio di luglio 2023 prevede un premio per il primo insediamento in agricoltura.",
+      "accessUrl": "https://regione.lazio.it/sites/default/files/documentazione/Allegato-2-CSR-10-07-23.pdf",
+      "sources": [
+        {
+          "url": "https://regione.lazio.it/sites/default/files/documentazione/Allegato-2-CSR-10-07-23.pdf",
+          "title": "Complemento per lo sviluppo rurale (CSR) della regione Lazio — luglio 2023",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "SRE01 - insediamento giovani agricoltori",
+            "di età fino a quarantuno anni non compiuti",
+            "in qualità di capo dell’azienda, dietro presentazione di un piano aziendale per lo sviluppo dell’attività agricola.",
+            "Complemento per lo sviluppo rurale (CSR) della regione Lazio per il periodo 2023-2027",
+            "hanno un’età maggiore ai 18 anni e inferiore a 41 anni non compiuti"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Nella scheda del 2023, giovani sotto i 41 anni che si insediano per la prima volta come capo di un’azienda agricola.",
+      "howToAccess": "La scheda richiede la presentazione di un piano aziendale per lo sviluppo dell’attività agricola.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],
