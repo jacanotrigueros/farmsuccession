@@ -90,3 +90,4 @@ on the way in, which is the only honest reason for a measurement to move.
 | [038](038-a-retired-edition-stays-readable.md)                    | A retired edition stays readable, as it was published             |
 | [039](039-country-context-uses-comparable-observations.md)        | Country context uses comparable observations                      |
 | [040](040-a-plan-code-is-quoted-never-inferred.md)                | A plan code, an act and an office area are quoted, never inferred |
+| [041](041-a-measure-links-the-records-that-apply-it.md)           | A measure links the records that apply it, as their sources say   |

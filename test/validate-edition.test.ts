@@ -196,6 +196,22 @@ test("an office's areas, an intervention code and an act are quoted from the sou
   );
 });
 
+test("a record applies a higher measure only where its source names it", () => {
+  const page = "https://example.test/land-bank";
+  const said = fakeSource({ quotes: ["Installation aid under intervention SRE01 of the national CAP plan."] });
+  const link = { resourceId: "terra-nostra-establishment-aid", named: "SRE01", sourceUrl: page } as const;
+  assert.equal(errorsOf(withResource({ sources: [said], implements: [link] })), "");
+  assert.match(
+    errorsOf(withResource({ sources: [said], implements: [{ ...link, named: "PEPAC" }] })),
+    /implements "terra-nostra-establishment-aid": "PEPAC" is not present in the cited source quotes/u,
+    "a link to a measure is never inferred from a resemblance",
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [said], implements: [{ ...link, sourceUrl: "https://example.test/elsewhere" }] })),
+    /implements "terra-nostra-establishment-aid" cites https:\/\/example.test\/elsewhere, which is not one of its sources/u,
+  );
+});
+
 test("a record describes itself with its own evidence, not with the file's", () => {
   assert.match(
     errorsOf(withResource({ whoCanUseIt: "Applicants may apply for the 25.000 euro payment." })),

@@ -278,6 +278,32 @@ test("a record shows its plan code and the act it rests on, labelled in the page
   assert.ok(basedHtml.includes(based.record.legalBasis![0]!.title), `${based.record.id}: the act it rests on is not on its page`);
 });
 
+test("a measure and the records that apply it link to each other, so neither page stands alone", () => {
+  const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
+    .toSorted()
+    .toReversed();
+  const links = readdirSync(path.join(REPOSITORY, "data", "editions", editions[0]!), { recursive: true, encoding: "utf8" })
+    .filter((file) => file.endsWith(".json"))
+    .flatMap((file) => {
+      const data = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", editions[0]!, file), "utf8")) as {
+        resources: Array<{ id: string; implements?: Array<{ resourceId: string }> }>;
+      };
+      return data.resources.flatMap(({ id, implements: applied }) => (applied ?? []).map(({ resourceId }) => ({ id, resourceId })));
+    });
+  assert.ok(links.length > 0, "no record applies a higher measure, so nothing shows that the pages render the link");
+  const pageOf = (id: string): string => {
+    const page = pages.find(({ file }) => file.split(path.sep).includes(id));
+    assert.ok(page, `no page was built for ${id}`);
+    return page.html;
+  };
+  for (const { id, resourceId } of links) {
+    assert.match(pageOf(id), new RegExp(`href="[^"]*/${resourceId}/"`, "u"), `${id} does not link the measure it applies, ${resourceId}`);
+    const applied = pageOf(resourceId).split('id="applied"')[1];
+    assert.ok(applied, `${resourceId} has no list of the records that apply it`);
+    assert.match(applied, new RegExp(`href="[^"]*/${id}/"`, "u"), `${resourceId} does not list ${id}, which applies it`);
+  }
+});
+
 test("a record says when each source was verified, and never that it awaits review", () => {
   const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
     .toSorted()

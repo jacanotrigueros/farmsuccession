@@ -168,21 +168,6 @@
           "minLength": 1,
           "maxLength": 155
         },
-        "euCounterparts": {
-          "description": "Optional cross-references from European resource IDs to national resource IDs in this snapshot that explain their implementation.",
-          "type": "object",
-          "propertyNames": {
-            "$ref": "#/$defs/slug"
-          },
-          "additionalProperties": {
-            "type": "array",
-            "minItems": 1,
-            "uniqueItems": true,
-            "items": {
-              "$ref": "#/$defs/slug"
-            }
-          }
-        },
         "countryContext": {
           "$ref": "#/$defs/countryContext"
         }
@@ -937,6 +922,14 @@
             "$ref": "#/$defs/legalAct"
           }
         },
+        "implements": {
+          "description": "The higher-layer resources — European, or national for a regional record — that this resource applies in its territory, where its own source names that measure, its plan or its code in that plan. A regional first-establishment aid run under a country's CAP plan implements the country's record of that plan, or the European record when the country has none. Mentioning a measure is not applying it: an advice service that helps with CAP applications implements nothing. Omit rather than infer one.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/implementation"
+          }
+        },
         "calls": {
           "description": "Every application period documented for this resource, past and future. Keeping them here is what stops a closed call from making the programme itself look gone.",
           "type": "array",
@@ -1148,6 +1141,29 @@
         },
         "actUrl": {
           "description": "The act's official text, when the cited source is a guide or a consolidated mirror rather than the act. It is also one of the resource's sources, so the source check re-reads it.",
+          "$ref": "#/$defs/httpsUrl"
+        }
+      }
+    },
+    "implementation": {
+      "title": "Implementation",
+      "description": "One higher-layer resource this resource applies, with the words its source uses for it.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resourceId", "named", "sourceUrl"],
+      "properties": {
+        "resourceId": {
+          "description": "The id of the resource applied. It belongs to a file this one inherits: the European file, or the country's file for a region.",
+          "$ref": "#/$defs/slug"
+        },
+        "named": {
+          "description": "How the cited source names the measure, its plan or its code in that plan, exactly as written, for example \"PEPAC\", \"SRE01\" or \"AITA\". It appears in a quote of the cited source.",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "sourceUrl": {
+          "description": "The one source of this resource whose quotes name the measure.",
           "$ref": "#/$defs/httpsUrl"
         }
       }

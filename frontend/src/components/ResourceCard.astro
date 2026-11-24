@@ -47,11 +47,15 @@ const text = words(language);
 const translated = recordedIn.layer.level === "EU" ? euCardIn(resource.id, resource.whatItOffers, language) : undefined;
 const cardLanguage = translated ? language : recordLanguage;
 
-/** National records linked editorially from this European card. */
+/**
+ * On a country's page, a European card names the country's own record of the measure: the national records
+ * whose sources say they apply it (`implements`). Regional applications are listed on the record itself,
+ * where there is room for them; on a card they would bury the European measure under its regions.
+ */
 const home = countryTerritories().find(({ data }) => data.schemaId === "country-snapshot" && data.country === country);
 const counterparts =
-  recordedIn.layer.level === "EU" && home?.data.schemaId === "country-snapshot"
-    ? (home.data.euCounterparts?.[resource.id] ?? []).flatMap((id) => home.data.resources.filter((candidate) => candidate.id === id))
+  recordedIn.layer.level === "EU" && home
+    ? home.data.resources.filter((candidate) => candidate.implements?.some(({ resourceId }) => resourceId === resource.id))
     : [];
 
 const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), resource.scope.area, text.reachRow, text.labelSeparator);

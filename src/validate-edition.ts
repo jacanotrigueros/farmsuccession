@@ -293,6 +293,16 @@ function checkResource(data: EditionSnapshot, resource: Resource, today: string,
     }
   }
 
+  // Applying a higher measure is claimed the same way: the cited source names that measure, its plan or
+  // its code. Which record it points at is checked across the edition, where the higher files are.
+  for (const { resourceId, named, sourceUrl } of resource.implements ?? []) {
+    const label = `${at}: implements "${resourceId}"`;
+    const source = sourceAt(sourceUrl);
+    if (resourceId === resource.id) found.error(`${label}: a resource cannot implement itself`);
+    if (!source) found.error(`${label} cites ${sourceUrl}, which is not one of its sources`);
+    else if (!quoted(source, named)) found.error(`${label}: "${named}" is not present in the cited source quotes`);
+  }
+
   checkCalls(at, resource, found);
   checkEvidenceDate(at, data, resource, today, found);
 
@@ -410,6 +420,8 @@ const LAYER_ORDER = { "eu-snapshot": 0, "country-snapshot": 1, "hub-snapshot": 2
  * - a figure in the file's own voice — its summary, its limitations, its news — is supported by the
  *   evidence of that same view, because a lower layer never repeats what it inherits;
  * - reader-facing text names no resource id, territory slug or repository path;
+ * - a resource implements only a resource of a file it inherits, so the measure it applies is always one
+ *   its reader sees above it, never a sibling region's or another country's;
  * - a resource whose access page already belongs to a resource in a higher layer, or in a sibling file
  *   of the same country at the same level, is listed for review.
  */
@@ -458,6 +470,15 @@ export function checkEdition(snapshots: readonly LoadedSnapshot[], territories: 
       const sibling = siblingPages.get(key);
       if (!sibling) siblingPages.set(key, { file, id: resource.id });
       else if (sibling.file !== file) reviews.push({ file, message: sharedPage(resource.id, resource.accessUrl, sibling) });
+    }
+
+    const inheritedIds = new Set(higher.flatMap(({ data: upper }) => upper.resources.map(({ id }) => id)));
+    for (const resource of data.resources) {
+      for (const { resourceId } of resource.implements ?? []) {
+        if (!inheritedIds.has(resourceId)) {
+          errors.push({ file, message: `${resource.id} implements "${resourceId}", which is not a resource of a file it inherits` });
+        }
+      }
     }
 
     const visible = new Set([...data.resources, ...higher.flatMap(({ data: above }) => above.resources)].map((resource) => resource.id));

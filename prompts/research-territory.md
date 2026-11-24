@@ -194,6 +194,13 @@ itself establishes an instrument of the families above.
      the resource only mentions (a procedure law, a definition of zones). When
      the quoted source is a guide, the act's official text may go in `actUrl`,
      which must also be one of the record's sources.
+   - `implements`: the higher-layer record this resource applies in its
+     territory — the European record, or the country's record for a regional
+     resource — with the words its own source uses for that measure, its plan
+     or its code in that plan ("PEPAC", "SRE01", "AITA"), quoted. Point at the
+     country's record when there is one, otherwise at the European record.
+     Mentioning a measure is not applying it: an advice service that helps
+     with CAP applications, or a portal that lists every call, gets none.
    - Fill the closed decision facets only when the source states them:
      `assetTypes` distinguishes plots from whole holdings; `sectors` records
      agriculture, livestock or forestry without inference; financial support

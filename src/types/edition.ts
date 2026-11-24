@@ -242,6 +242,12 @@ export interface Resource {
    */
   legalBasis?: [LegalAct, ...LegalAct[]];
   /**
+   * The higher-layer resources — European, or national for a regional record — that this resource applies in its territory, where its own source names that measure, its plan or its code in that plan. A regional first-establishment aid run under a country's CAP plan implements the country's record of that plan, or the European record when the country has none. Mentioning a measure is not applying it: an advice service that helps with CAP applications implements nothing. Omit rather than infer one.
+   *
+   * @minItems 1
+   */
+  implements?: [Implementation, ...Implementation[]];
+  /**
    * Every application period documented for this resource, past and future. Keeping them here is what stops a closed call from making the programme itself look gone.
    */
   calls?: Call[];
@@ -360,6 +366,23 @@ export interface LegalAct {
    * The act's official text, when the cited source is a guide or a consolidated mirror rather than the act. It is also one of the resource's sources, so the source check re-reads it.
    */
   actUrl?: string;
+}
+/**
+ * One higher-layer resource this resource applies, with the words its source uses for it.
+ */
+export interface Implementation {
+  /**
+   * The id of the resource applied. It belongs to a file this one inherits: the European file, or the country's file for a region.
+   */
+  resourceId: string;
+  /**
+   * How the cited source names the measure, its plan or its code in that plan, exactly as written, for example "PEPAC", "SRE01" or "AITA". It appears in a quote of the cited source.
+   */
+  named: string;
+  /**
+   * The one source of this resource whose quotes name the measure.
+   */
+  sourceUrl: string;
 }
 /**
  * One application period. The programme stays a single resource and its calls are listed here, so a closed call never makes the programme itself look gone.
@@ -520,15 +543,6 @@ export interface CountryIdentity {
    * Optional short search description of the country page, in its language. The public summary is used when this is absent.
    */
   metaDescription?: string;
-  /**
-   * Optional cross-references from European resource IDs to national resource IDs in this snapshot that explain their implementation.
-   */
-  euCounterparts?: {
-    /**
-     * @minItems 1
-     */
-    [k: string]: [Slug, ...Slug[]];
-  };
   countryContext?: CountryContext;
 }
 /**

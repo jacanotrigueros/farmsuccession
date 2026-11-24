@@ -18,6 +18,11 @@ after the version was closed and is not a part of it.
 - A record shows the code of its CAP plan intervention (38 records) and the act it rests on (3),
   each quoted from its source; contact points may name the areas they serve
   ([decision 040](decisions/040-a-plan-code-is-quoted-never-inferred.md)).
+- A record that applies a European or national measure links to it, and the measure's page lists the
+  records that apply it, by country and region (44 records, each named so by its own source). The
+  country file's `euCounterparts` is removed. **Breaking** for anyone validating the open data with the
+  earlier `edition.schema.json`; `schemaVersion` stays `1.0.0`
+  ([decision 041](decisions/041-a-measure-links-the-records-that-apply-it.md)).
 
 ## 1.9.0 — 2026-11-08
 
