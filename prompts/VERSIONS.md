@@ -182,4 +182,6 @@ told.
 ### 1.14.0 — verified sources
 
 Current version. Each source records when its quotes were last found on the live page and how it was
-read. The per-file review state is removed.
+read. The per-file review state is removed. A record may give its plan's
+intervention codes, the acts it rests on and the areas each channel serves, each
+quoted (FS-025).

@@ -177,7 +177,23 @@ itself establishes an instrument of the families above.
      role-based channels that help a reader use the resource. Copy the email,
      telephone, form URL or office address from a cited source and quote it.
      Never record a named person's direct details. Omit contact points when the
-     page only publishes personal contact data.
+     page only publishes personal contact data. When the page ties a channel to
+     the areas it serves (a département, a comarca, a Bundesland), record them
+     in `areas` and quote the row or block that gives the channel and its
+     areas together; areas from another row never go on this channel.
+   - `interventionCodes`: the code under which the managing authority runs this
+     resource in its CAP plan, exactly as the source writes it ("SRE01",
+     "75.01", "C.2.2.1", "6961.1"), quoted. Only the resource's own
+     intervention: a code the page lists for something else, or a course or
+     fund that only requires another intervention, gets none. One application
+     under several interventions lists every code. Never map a code to an EU
+     type or to another country's code.
+   - `legalBasis`: the act that creates or governs the resource, with its title
+     as the source writes it and, when given, the articles in `provisions`;
+     both quoted. Not for a record that is the act itself, and not for a law
+     the resource only mentions (a procedure law, a definition of zones). When
+     the quoted source is a guide, the act's official text may go in `actUrl`,
+     which must also be one of the record's sources.
    - Fill the closed decision facets only when the source states them:
      `assetTypes` distinguishes plots from whole holdings; `sectors` records
      agriculture, livestock or forestry without inference; financial support

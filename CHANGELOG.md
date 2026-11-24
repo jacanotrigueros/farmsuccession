@@ -15,8 +15,9 @@ after the version was closed and is not a part of it.
 - Each source shows the date its quotes were last found on the official page.
 - Edition files no longer carry a `review` state. **Breaking** for anyone validating the open data
   with the earlier `edition.schema.json`; `schemaVersion` stays `1.0.0`.
-- Records may give the intervention codes of their CAP plan, the acts they rest on, and the areas
-  each contact point serves. Optional; no record uses them yet.
+- A record shows the code of its CAP plan intervention (38 records) and the act it rests on (3),
+  each quoted from its source; contact points may name the areas they serve
+  ([decision 040](decisions/040-a-plan-code-is-quoted-never-inferred.md)).
 
 ## 1.9.0 — 2026-11-08
 
