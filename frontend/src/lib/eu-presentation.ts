@@ -155,6 +155,40 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
         "Korte praktijkvoorbeelden van bedrijfs- en instapmodellen die nieuwe boeren in Europese landen gebruiken. Met de zoeker kunt u praktische oplossingen voor drempels bij de start verkennen.",
     },
   },
+  "eu-newbie-toolkits": {
+    translates:
+      "Online toolkits with practical guides, lessons and tips for entering farming and succession, based on network discussions and practical experiences.",
+    es: {
+      name: "Guías prácticas de NEWBIE",
+      offers:
+        "Guías en línea con pautas prácticas, lecciones y consejos para incorporarse a la agricultura y para el relevo, basados en debates entre redes y en experiencias reales.",
+    },
+    de: {
+      name: "NEWBIE-Praxisleitfäden",
+      offers:
+        "Online-Leitfäden mit praktischen Anleitungen, Lektionen und Tipps für den Einstieg in die Landwirtschaft und die Hofnachfolge, entstanden aus Diskussionen in Netzwerken und praktischen Erfahrungen.",
+    },
+    fr: {
+      name: "Boîtes à outils NEWBIE",
+      offers:
+        "Boîtes à outils en ligne avec des guides pratiques, des leçons et des conseils pour s’installer en agriculture et pour la transmission, issus d’échanges entre réseaux et d’expériences de terrain.",
+    },
+    it: {
+      name: "Strumenti pratici NEWBIE",
+      offers:
+        "Strumenti online con guide pratiche, lezioni e consigli per entrare in agricoltura e per il ricambio generazionale, nati dal confronto tra reti e da esperienze concrete.",
+    },
+    pt: {
+      name: "Guias práticos NEWBIE",
+      offers:
+        "Guias em linha com orientações práticas, lições e conselhos para entrar na agricultura e para a sucessão, baseados em debates entre redes e em experiências práticas.",
+    },
+    nl: {
+      name: "NEWBIE-toolkits",
+      offers:
+        "Online toolkits met praktische handleidingen, lessen en tips om in de landbouw te starten en voor bedrijfsopvolging, gebaseerd op discussies in netwerken en praktijkervaringen.",
+    },
+  },
   "eu-fi-compass-young-farmer-business-plans": {
     translates:
       "Toolkit for young and new farmers preparing a business plan to apply for a bank loan or other external financing: what banks look for, the most common reasons for rejection and how to prepare a finance-ready plan, for example by considering good and bad years and possible delays in grants or payments.",
