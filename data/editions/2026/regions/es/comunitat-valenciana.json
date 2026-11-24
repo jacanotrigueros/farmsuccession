@@ -713,6 +713,12 @@
       "sectors": ["AGRICULTURE"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER"],
       "lastEvidenceDate": "2016-06-18",
+      "notPublished": [
+        {
+          "question": "HOW_TO_ACCESS",
+          "sourceUrl": "https://www.vinaros.es/sites/default/files/2019-11/03237-2016.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.vinaros.es/sites/default/files/2019-11/03237-2016.pdf",
@@ -729,10 +735,24 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://agricultura.vinaros.es/",
+          "title": "Agricultura | Ajuntament de Vinaròs",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Llamando al 964407700"]
         }
       ],
       "notes": "La fuente acredita la creación del fichero administrativo, pero no demuestra el funcionamiento actual del banco ni proporciona una vía de solicitud de parcelas. La oficina citada en el documento atiende derechos de protección de datos, no se identifica como punto de acceso al banco.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Ajuntament de Vinaròs",
+          "value": "964407700",
+          "sourceUrl": "https://agricultura.vinaros.es/"
+        }
+      ]
     },
     {
       "id": "comunitat-valenciana-red-tierras",

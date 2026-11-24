@@ -223,15 +223,62 @@
           "quotes": [
             "Instrumento Financiero de Gestión Centralizada",
             "es un mecanismo de financiación en condiciones favorables incluido en el Plan Estratégico de la Política Agraria Común (PEPAC) y cofinanciado con recursos FEADER, que garantiza, mediante avales públicos, los prestamos",
-            "Promover un acceso más fácil al crédito a jóvenes"
+            "Promover un acceso más fácil al crédito a jóvenes",
+            "El IFGC-G cubrirá una garantía de la operación de préstamo formalizado en concepto de capital circulante, por un importe mínimo de 15.000 euros y máximo de 60.000 euros por explotación.",
+            "Servicio de Modernización de Explotaciones ifgcg_sme@aragon.es"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.aragon.es/tramitador/-/tramite/ayudas-a-traves-del-instrumento-financiero-de-gestion-centralizada/establecimiento-de-jovenes-agricultores",
+          "title": "Ayudas a través del Instrumento Financiero de Gestión Centralizada - Establecimiento de jóvenes agricultores . 10270. Gobierno de Aragón",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Solicitar ayuda al establecimiento de Joven agricultor en PEPAC 2023-2027, en la Comunidad Autónoma de Aragón y cumplir sus requisitos. El expediente de instalación de Joven, no debe de haber llegado a la fase de certificación final.",
+            "En plazo - Del 10/12/2024 al 31/12/2027"
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "whoCanUseIt": "Personas que soliciten en Aragón la ayuda al establecimiento de joven agricultor del PEPAC 2023-2027 y cumplan sus requisitos, cuyo expediente de instalación aún no haya llegado a la certificación final.",
+      "metrics": [
+        {
+          "measure": "LOAN_PER_BENEFICIARY_MAX",
+          "label": "Préstamo garantizado para capital circulante: máximo por explotación",
+          "value": 60000,
+          "unit": "EUR",
+          "asOf": "2026-11-20",
+          "sourceUrl": "https://www.aragon.es/-/instrumento-financiero-de-gestion-centralizada"
+        },
+        {
+          "measure": "LOAN_PER_BENEFICIARY_MIN",
+          "label": "Préstamo garantizado para capital circulante: mínimo por explotación",
+          "value": 15000,
+          "unit": "EUR",
+          "asOf": "2026-11-20",
+          "sourceUrl": "https://www.aragon.es/-/instrumento-financiero-de-gestion-centralizada"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Establecimiento de jóvenes agricultores",
+          "state": "OPEN",
+          "opens": "2024-12-10",
+          "closes": "2027-12-31",
+          "sourceUrl": "https://www.aragon.es/tramitador/-/tramite/ayudas-a-traves-del-instrumento-financiero-de-gestion-centralizada/establecimiento-de-jovenes-agricultores"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Servicio de Modernización de Explotaciones",
+          "value": "ifgcg_sme@aragon.es",
+          "sourceUrl": "https://www.aragon.es/-/instrumento-financiero-de-gestion-centralizada"
+        }
+      ]
     },
     {
       "id": "aragon-banco-tierras-ley-6-2023",

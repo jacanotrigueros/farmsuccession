@@ -909,6 +909,12 @@
       "instrumentType": "GRANT",
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-04-10",
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://agricultura.gencat.cat/web/.content/09-desenvolupament-rural/pla-estrategic-pac-2023-2027/documents/fitxers-binaris/113_PEPAC-Complement-joves.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://agricultura.gencat.cat/web/.content/09-desenvolupament-rural/pla-estrategic-pac-2023-2027/documents/fitxers-binaris/113_PEPAC-Complement-joves.pdf",
@@ -930,9 +936,40 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.accio.gencat.cat/ca/serveis/convocatories-dajuts/llistat-ajuts/tramits/6497_Declaracio-unica-Agraria-DUN?category=7280fc48-a82c-11e3-a972-000c29052e2c",
+          "title": "DUN - Declaració agrària . ACCIÓ - Agència per al creixement de les empreses",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "En el cas dels ajuts directes o del contracte global d’explotacions, les declaracions s’han de presentar de l’1 de febrer al 15 de maig de 2026"
+          ]
+        },
+        {
+          "url": "https://agricultura.gencat.cat/ca/ambits/desenvolupament-rural/comunicat_DUN_02_2026-00001",
+          "title": "Inici campanya DUN 2026. Departament d'Agricultura, Ramaderia, Pesca i Alimentació",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Consultes relatives als ajuts directes i drets d’ABRS: ajutsdirectesdun.agricultura@gencat.cat"]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "DUN - Declaració agrària",
+          "state": "CLOSED",
+          "opens": "2026-02-01",
+          "closes": "2026-05-15",
+          "sourceUrl": "https://www.accio.gencat.cat/ca/serveis/convocatories-dajuts/llistat-ajuts/tramits/6497_Declaracio-unica-Agraria-DUN?category=7280fc48-a82c-11e3-a972-000c29052e2c"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Consultes relatives als ajuts directes i drets d’ABRS",
+          "value": "ajutsdirectesdun.agricultura@gencat.cat",
+          "sourceUrl": "https://agricultura.gencat.cat/ca/ambits/desenvolupament-rural/comunicat_DUN_02_2026-00001"
+        }
+      ]
     },
     {
       "id": "cataluna-programa-alfombra-roja",

@@ -452,6 +452,16 @@
       "accessUrl": "https://www.mapa.gob.es/es/pac/instrumentos-financieros/gestion-centralizada/ifgc",
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.mapa.gob.es/es/pac/instrumentos-financieros/gestion-centralizada/ifgc"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.mapa.gob.es/es/pac/instrumentos-financieros/gestion-centralizada/ifgc"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.mapa.gob.es/es/pac/instrumentos-financieros/gestion-centralizada/ifgc",
@@ -468,7 +478,14 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "calls": [
+        {
+          "name": "Convocatoria nacional",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.mapa.gob.es/es/pac/instrumentos-financieros/gestion-centralizada/ifgc"
+        }
+      ]
     },
     {
       "id": "es-reta-observatorio-espacios-test-agrarios",

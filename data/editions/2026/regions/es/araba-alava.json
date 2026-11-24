@@ -311,6 +311,12 @@
       "languages": ["es", "eu"],
       "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
       "notes": "La página de jóvenes continúa publicada y contiene una llamada explícita a participar, pero gran parte de la descripción remite a actividades anteriores y no muestra una fecha de actualización. UAGA sí mantiene actividad y servicios actuales en 2026; se conserva como «Estado no confirmado» hasta demostrar la vigencia operativa del acompañamiento específico.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.uaga.eus/servicios/desarrollo-rural/jovenes/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.uaga.eus/servicios/desarrollo-rural/jovenes/",
@@ -339,9 +345,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.uaga.eus/contacto/",
+          "title": "Contacto - UAGA",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Unión Agroganadera de Álava Plaza Simón Bolivar, 14 bajo 01003 Vitoria-Gasteiz 945 260 533"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Unión Agroganadera de Álava",
+          "value": "945 260 533",
+          "sourceUrl": "https://www.uaga.eus/contacto/"
+        }
+      ]
     },
     {
       "id": "araba-alava-registro-relevo-generacional",
