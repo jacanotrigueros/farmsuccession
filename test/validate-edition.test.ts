@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 import { compileDefinition } from "../src/schema.ts";
-import type { Call, EditionSnapshot, Metric, NewsItem, Resource } from "../src/types/edition.ts";
+import type { NotPublished, Call, EditionSnapshot, Metric, NewsItem, Resource } from "../src/types/edition.ts";
 import { checkSemantics } from "../src/validate-edition.ts";
 import { FAKE_EDITION_FILE, fakeCountryEdition, fakeEdition, fakeResource, fakeSource, fakeTerritories } from "./fixtures.ts";
 
@@ -210,6 +210,24 @@ test("a record applies a higher measure only where its source names it", () => {
     errorsOf(withResource({ sources: [said], implements: [{ ...link, sourceUrl: "https://example.test/elsewhere" }] })),
     /implements "terra-nostra-establishment-aid" cites https:\/\/example.test\/elsewhere, which is not one of its sources/u,
   );
+});
+
+test("from 2027 a record goes out only when it answers its reader's questions or says the source is silent", () => {
+  const page = "https://example.test/land-bank";
+  const open = fakeResource({ kind: "OFFICIAL_PORTAL" });
+  const in2026 = fakeEdition({ resources: [open] });
+  assert.doesNotMatch(errorsOf(in2026), /leaves HOW_TO_ACCESS open/u, "the 2026 edition is completed in place, not blocked");
+  const in2027 = { ...in2026, edition: "2027" };
+  assert.match(
+    errorsOf(in2027),
+    /leaves HOW_TO_ACCESS open/u,
+    "a 2027 record that answers nothing is a link the reader still has to research",
+  );
+  const declared = {
+    ...in2027,
+    resources: [{ ...open, notPublished: [{ question: "HOW_TO_ACCESS", sourceUrl: page }] as [NotPublished] }],
+  };
+  assert.doesNotMatch(errorsOf(declared), /leaves HOW_TO_ACCESS open/u);
 });
 
 test("a record says a source is silent only about what it does not answer", () => {

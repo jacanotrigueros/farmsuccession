@@ -10,6 +10,7 @@ import { errorMessage } from "./errors.ts";
 import { unsupportedFileFigures, unsupportedResourceFigures } from "./figures.ts";
 import { ancestorLayers, layerKey, snapshotLayer } from "./layers.ts";
 import { internalReferencesInText, schemaCodesInText } from "./reader-text.ts";
+import { questionsOf } from "./reader-questions.ts";
 import { jurisdiction } from "./territories.ts";
 import { textProblems } from "./text-hygiene.ts";
 import type { EditionSnapshot, Metric, Resource, Source } from "./types/edition.ts";
@@ -84,6 +85,9 @@ function sourcesOf(data: EditionSnapshot): Array<{ at: string; source: Source }>
  *
  * `today` is a parameter rather than the clock, so a test is not tied to the day it runs.
  */
+/** The first edition whose records must answer every reader question of their kind (FS-027 in the core). */
+export const FIRST_EDITION_WITH_ANSWERS = "2027";
+
 export function checkSemantics(file: string, data: EditionSnapshot, territories: Territories, today: string): Report {
   const found = collect();
   checkIdentity(file, data, territories, found);
@@ -321,6 +325,16 @@ function checkResource(data: EditionSnapshot, resource: Resource, today: string,
     silent.add(question);
     if (!sourceAt(sourceUrl)) found.error(`${label} cites ${sourceUrl}, which is not one of its sources`);
     if (answered[question]) found.error(`${label}, yet the record answers it`);
+  }
+
+  // From the 2027 edition on, a record goes out only when it answers every question a reader of its kind
+  // brings, or says the source is silent: an empty answer is a record the reader still has to research.
+  // The 2026 edition predates the rule and is being completed in place.
+  if (data.edition >= FIRST_EDITION_WITH_ANSWERS) {
+    const { open } = questionsOf(resource);
+    if (open.length > 0) {
+      found.error(`${at}: leaves ${open.join(", ")} open; answer each from a source or record it in notPublished`);
+    }
   }
 
   checkCalls(at, resource, found);
