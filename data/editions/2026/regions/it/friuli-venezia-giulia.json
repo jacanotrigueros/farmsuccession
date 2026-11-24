@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "friuli-venezia-giulia",
   "officialName": "Friuli-Venezia Giulia",
-  "published": "2026-10-27",
+  "published": "2026-11-24",
   "summary": "Nel 2026 è aperto un nuovo bando SRE01 per il primo insediamento dei giovani agricoltori. Il Fondo di rotazione regionale offre inoltre prestiti agevolati per l'acquisto di terreni da parte di giovani agricoltori; CIA FVG offre un primo consulto sul bando.",
   "coverage": {
     "status": "PARTIAL",
@@ -33,9 +33,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -51,6 +48,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -114,7 +118,11 @@
             "hanno un’età maggiore di 18 anni e inferiore a 41 anni non compiuti;",
             "Il sostegno è concesso in forma di premio pari a euro 70.000,00",
             "a far data dal 6 agosto 2026 ed entro le ore 12.00 del 29 ottobre 2026."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -146,7 +154,11 @@
             "Modulo domanda acquisto terreni",
             "Modulo dichiarazione giovane agricoltore da allegare alla domanda acquisto terreni",
             "03 agosto 2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.fvg.it/rafvg/comunicati/comunicato.act?dir=/rafvg/cms/RAFVG/notiziedallagiunta/&nm=20260808094801003",
@@ -156,7 +168,11 @@
             "08.08.2026 09:48",
             "la Regione ha deciso di concedere prestiti a tasso agevolato a sostegno dell'acquisto di terreni in Friuli Venezia Giulia, da parte di giovani agricoltori, destinati alla produzione di prodotti agricoli.",
             "La selezione dei destinatari finali, intestatari dei prestiti, avverrà secondo le modalità previste dallo strumento finanziario, attraverso procedure a sportello disposte dal Fondo, previa verifica dell'affidabilità creditizia da parte delle banche convenzionate."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -186,9 +202,125 @@
             "Gli uffici di CIA Agricoltori Italiani FVG sono disponibili per un primo consulto, per verificare i requisiti e il punteggio raggiungibile e per accompagnare i giovani",
             "Numero unico: 0432 520561",
             "Mail: agrifriuli@cia.it"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
+    },
+    {
+      "id": "friuli-venezia-giulia-regolamento-recupero-terreni-incolti",
+      "name": "Regolamento recante criteri e modalità per l'attuazione degli interventi in favore dei terreni incolti o abbandonati",
+      "kind": "POLICY",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione – Ispettorato regionale dell’agricoltura; comuni attuatori",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Disciplina l'affido ai comuni e l'attribuzione in cura a soggetti operatori di terreni incolti o abbandonati nei territori montani, con contributi comunali per gli interventi di risanamento e recupero. Il testo stabilisce le procedure, ma non documenta un inventario consultabile o assegnazioni attualmente disponibili.",
+      "whoCanUseIt": "I soggetti operatori possono essere titolari di diritti sui terreni oppure altri soggetti non titolari di diritti; in mancanza di un altro operatore, possono intervenire direttamente i comuni attuatori.",
+      "howToAccess": "L'attribuzione del terreno al soggetto operatore e la concessione dei contributi competono al comune attuatore. La domanda di recupero all'Ispettorato è una procedura comunale, non una finestra di candidatura diretta per chi cerca un terreno.",
+      "accessUrl": "https://decreti.regione.fvg.it/Storage/2024_173/Allegato1%20al%20DPReg%200173-2024.pdf",
+      "notes": "Dopo il recupero è previsto il mantenimento della destinazione agricola per almeno cinque annate agrarie. Il titolare conserva i diritti sul bene e può sostituirsi all'operatore rimborsando i costi di recupero al netto dei contributi pubblici.",
+      "sources": [
+        {
+          "url": "https://decreti.regione.fvg.it/Storage/2024_173/Allegato1%20al%20DPReg%200173-2024.pdf",
+          "title": "Regolamento recante criteri e modalità per l’attuazione degli interventi in favore dei terreni incolti o abbandonati — allegato al DPReg 0173/2024",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Regolamento recante criteri e modalità per l'attuazione degli interventi in favore dei terreni incolti o abbandonati",
+            "PROCEDURE PER L’ASSEGNAZIONE AI COMUNI RICADENTI NEI TERRITORI MONTANI DI RISORSE PER GLI INTERVENTI DI RISANAMENTO E RECUPERO",
+            "Il comune attribuisce, ai sensi dell'articolo 4, comma 2, della legge, il terreno incolto o abbandonato in cura ad un soggetto operatore.",
+            "intendano provvedere direttamente agli interventi di recupero e risanamento nel caso in cui non sia stato individuato altro soggetto operatore.",
+            "il comune concede ai soggetti operatori cui ha attribuito il terreno incolto o abbandonato i contributi per il concorso alle spese per gli interventi",
+            "Il comune non può presentare una domanda se non ha affidato gli interventi di recupero relativi a domande precedentemente ammesse al finanziamento a valere sulla legge.",
+            "Ispettorato regionale dell’agricoltura",
+            "per un periodo di almeno cinque annate agrarie",
+            "il soggetto titolare non perde la titolarità dei diritti sul bene.",
+            "Il soggetto titolare può, in qualunque momento, sostituirsi al soggetto operatore o al comune attuatore, rimborsando i costi sostenuti per le operazioni di risanamento e recupero, al netto di eventuali contributi pubblici concessi.",
+            "i titolari di diritti sui terreni oggetto della concessione in affido;",
+            "altri soggetti non titolari di diritti sui terreni oggetto della concessione in affido;"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "friuli-venezia-giulia-dismissione-terreni-agricoli",
+      "name": "Dismissione di terreni agricoli e a vocazione agricola",
+      "kind": "POLICY",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Amministrazione regionale o suoi organismi strumentali",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Disciplina la locazione o la vendita di terreni agricoli e a vocazione agricola di proprietà regionale o di organismi strumentali, non utilizzabili per altre finalità istituzionali. Riconosce ai giovani imprenditori agricoli il diritto di prelazione nelle procedure di vendita e locazione.",
+      "whoCanUseIt": "Il diritto di prelazione è riconosciuto ai giovani imprenditori agricoli definiti dal decreto legislativo 21 aprile 2000, n. 185.",
+      "accessUrl": "https://lexview-int.regione.fvg.it/FontiNormative/xml/xmlLex.aspx?anno=2025&fx=&id=art156&legge=7&lista=0",
+      "lastEvidenceDate": "2026-10-30",
+      "notes": "La norma consente la procedura negoziata senza pubblicazione del bando per immobili di valore inferiore a 100.000 euro. I terreni venduti o locati non possono ricevere una destinazione urbanistica diversa da quella agricola prima di venti anni dalla trascrizione dei contratti. Il testo documenta la previsione normativa, non l'apertura di una procedura di assegnazione.",
+      "sources": [
+        {
+          "url": "https://lexview-int.regione.fvg.it/FontiNormative/xml/xmlLex.aspx?anno=2025&fx=&id=art156&legge=7&lista=0",
+          "title": "Lexview - Dettaglio Legge regionale 3 giugno 2025, n. 7",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "TESTO VIGENTE dal 30/10/2026",
+            "(Dismissione di terreni agricoli e a vocazione agricola)",
+            "I terreni agricoli e a vocazione agricola, non utilizzabili per altre finalità istituzionali, di proprietà dell'Amministrazione regionale o di suoi organismi strumentali possono essere locati o alienati mediante procedura negoziata senza pubblicazione del bando per gli immobili di valore inferiore a 100.000 euro.",
+            "al fine di favorire lo sviluppo dell'imprenditorialità agricola giovanile è riconosciuto il diritto di prelazione ai giovani imprenditori agricoli, così come definiti ai sensi del decreto legislativo 21 aprile 2000, n. 185",
+            "Ai terreni alienati o locati ai sensi del presente articolo non può essere attribuita una destinazione urbanistica diversa da quella agricola prima del decorso di venti anni dalla trascrizione dei relativi contratti nei pubblici registri immobiliari."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "friuli-venezia-giulia-portale-agricoltura",
+      "name": "Agricoltura",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Autonoma Friuli Venezia Giulia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Indice delle procedure e dei contributi regionali per l'agricoltura. Dà accesso ai contributi ai giovani residenti in territorio montano per rafforzare il tessuto imprenditoriale agricolo e forestale, agli interventi di recupero dei terreni incolti o abbandonati e alle pagine del Fondo di rotazione in agricoltura.",
+      "howToAccess": "Selezionare la procedura nell'indice tematico; i contributi ai giovani e il recupero dei terreni sono elencati nella sezione Montagna e agricoltura.",
+      "accessUrl": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/",
+      "sources": [
+        {
+          "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/",
+          "title": "Regione Autonoma Friuli Venezia Giulia - Agricoltura",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Regione Autonoma Friuli Venezia Giulia - Agricoltura",
+            "Contributi ai giovani residenti in territorio montano",
+            "Contributi per rafforzare il tessuto imprenditoriale agricolo e forestale dei territori montani",
+            "Montagna e agricoltura",
+            "Interventi di promozione per la cura e la conservazione finalizzata al risanamento e al recupero dei terreni incolti e/o abbandonati nei territori montani e il successivo mantenimento pluriennale",
+            "Fondo di rotazione in agricoltura",
+            "Programma valore agricoltura Bandi 2026 Bandi 2025"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
@@ -208,7 +340,11 @@
             "Al presente bando sono assegnate risorse finanziarie pari a euro 3.080.000, di cui quota FEASR pari ad euro 1.253.560,00.",
             "Il sostegno è concesso in forma di premio pari a euro 70.000,00",
             "a far data dal 6 agosto 2026 ed entro le ore 12.00 del 29 ottobre 2026."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"

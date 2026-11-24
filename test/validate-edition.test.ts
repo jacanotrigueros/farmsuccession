@@ -84,13 +84,13 @@ test("nothing may be dated after the day the file was written, or the day it was
   assert.match(errorsOf(early), /consultedOn 2025-12-31 is before edition 2026/u);
 });
 
-const reviewed = (reviewedOn: string): EditionSnapshot =>
-  fakeEdition({ review: { status: "REVIEWED", reviewedBy: "A reviewer", reviewedOn } });
+const verified = (checkedOn: string): EditionSnapshot =>
+  withResource({ sources: [fakeSource({ consultedOn: "2026-09-20", verification: { checkedOn, method: "FETCH" } })] });
 
-test("a review covers the whole file or it is not a review", () => {
-  assert.equal(errorsOf(reviewed("2026-09-25")), "", "a review signed after the last consultation covers it");
-  assert.match(errorsOf(reviewed("2026-09-19")), /is before the last consultation \(2026-09-20\)/u);
-  assert.match(errorsOf(reviewed("2026-09-28")), /is after published 2026-09-27/u);
+test("a page is verified after it was read and before the file was published", () => {
+  assert.equal(errorsOf(verified("2026-09-25")), "", "a verification between reading and publication holds");
+  assert.match(errorsOf(verified("2026-09-19")), /verification.checkedOn 2026-09-19 is before consultedOn 2026-09-20/u);
+  assert.match(errorsOf(verified("2026-09-28")), /verification.checkedOn 2026-09-28 is after published 2026-09-27/u);
 });
 
 test("what the file says it searched has to match what it carries", () => {
@@ -142,6 +142,58 @@ test("a contact detail is published by the source that is cited for it", () => {
     ],
   });
   assert.equal(errorsOf(form), "", "a form is published by being the page itself, so no quote can show it");
+});
+
+test("an office's areas, an intervention code and an act are quoted from the source cited for them", () => {
+  const page = "https://example.test/land-bank";
+  const said = fakeSource({
+    quotes: ["The North Coast office handles requests under measure SRE01 of Land Act 4/2020, article 12."],
+  });
+  const office = { channel: "PHONE", label: "Land office", value: "+34 900 000 000", sourceUrl: page } as const;
+  const withPhone = fakeSource({
+    quotes: [...said.quotes, "North Coast and Islands: call the land office on +34 900 000 000.", "South Valley: +34 900 111 111."],
+  });
+
+  assert.equal(
+    errorsOf(withResource({ sources: [withPhone], contactPoints: [{ ...office, areas: ["North Coast", "Islands"] }] })),
+    "",
+    "areas the source gives with this office make it an answer to where a reader lives",
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [withPhone], contactPoints: [{ ...office, areas: ["South Valley"] }] })),
+    /area "South Valley" is not in a quote of the cited source that also gives its value/u,
+    "an area the page gives to another office's row would send the reader to the wrong office",
+  );
+
+  const code = { code: "SRE01", sourceUrl: page } as const;
+  assert.equal(errorsOf(withResource({ sources: [said], interventionCodes: [code] })), "");
+  assert.match(
+    errorsOf(withResource({ sources: [said], interventionCodes: [{ ...code, code: "SRE02" }] })),
+    /intervention code "SRE02" is not present/u,
+    "a code is never inferred from a resemblance",
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [said], interventionCodes: [{ ...code, sourceUrl: "https://example.test/elsewhere" }] })),
+    /intervention code "SRE01" cites https:\/\/example.test\/elsewhere, which is not one of its sources/u,
+  );
+
+  const act = { title: "Land Act 4/2020", provisions: ["article 12"] as [string, ...string[]], sourceUrl: page };
+  assert.equal(errorsOf(withResource({ sources: [said], legalBasis: [act] })), "");
+  assert.match(
+    errorsOf(
+      withResource({ sources: [said], legalBasis: [{ ...act, provisions: ["article 12", "article 13"] as [string, ...string[]] }] }),
+    ),
+    /provision "article 13" is not present/u,
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [said], legalBasis: [{ ...act, actUrl: "https://example.test/official-journal" }] })),
+    /links its official text https:\/\/example.test\/official-journal, which is not one of its sources/u,
+    "an official text nobody re-reads is a link that can rot unnoticed",
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [said], legalBasis: [{ ...act, title: "Land Act 5/2021" }] })),
+    /legal act "Land Act 5\/2021" is not named in the cited source quotes/u,
+  );
 });
 
 test("a record describes itself with its own evidence, not with the file's", () => {

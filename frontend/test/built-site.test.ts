@@ -239,53 +239,33 @@ test("the complete, localized footer is shared by every built page", () => {
 });
 
 /**
- * Nobody signing a file off is said on each record, once, beside its evidence, as a fact rather than a
- * warning across the top of every page (founder, 17 Nov 2026). Territory pages no longer say it: every card
- * on them leads to a record that does.
+ * A record never tells a reader it awaits a person's review: that reads as an unfinished product and says
+ * nothing about the evidence (founder, 24 Nov 2026). What it says instead, on each source, is the last day
+ * every quote was found again on the official page.
  */
-test("a record of a draft file says it awaits review beside its evidence, and no territory page shouts it", () => {
+test("a record says when each source was verified, and never that it awaits review", () => {
   const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
     .toSorted()
     .toReversed();
   const edition = editions[0];
   assert.ok(edition, "no edition to render");
-
-  const countryPages = pages.filter(({ file }) => /^[a-z]{2}[\\/]index\.html$/u.test(file));
-  assert.ok(countryPages.length >= 6, `only ${countryPages.length} country pages were found`);
-  for (const { file, html } of countryPages) {
-    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
-    assert.ok(!html.includes(words(language).draftNotice), `${file}: the draft banner is back on a territory page`);
+  for (const { file, html } of pages) {
+    assert.ok(!html.includes('data-review="pending"'), `${file}: a page still says a review is pending`);
   }
 
-  const draft = pages.find(({ file }) => file === path.join("at", "angebote", "at-niederlassung-junglandwirte", "index.html"));
-  assert.ok(draft, "no Austrian record page was built");
   const austria = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", edition, "countries", "at.json"), "utf8")) as {
-    review: { status: string };
+    resources: Array<{ id: string; sources: Array<{ verification?: { checkedOn: string; method: string } }> }>;
   };
-  assert.equal(
-    draft.html.includes('data-review="pending"'),
-    austria.review.status === "DRAFT",
-    "a record does not say whether a person reviewed it",
+  const record = austria.resources.find(({ sources }) => sources.some(({ verification }) => verification));
+  assert.ok(record, "no Austrian record has a verified source to render");
+  const page = pages.find(({ file }) => file === path.join("at", "angebote", record.id, "index.html"));
+  assert.ok(page, `no page was built for ${record.id}`);
+  const checked = record.sources.find(({ verification }) => verification)!.verification!;
+  assert.ok(
+    page.html.includes(`<time datetime="${checked.checkedOn}" data-verified="${checked.method}"`),
+    "a verified source does not show the day its quotes were found again",
   );
-  assert.ok(!draft.html.includes(words("de").draftNotice), "a record page still carries the banner");
-  if (austria.review.status === "DRAFT") {
-    const evidence = draft.html.indexOf('id="evidence"');
-    const pending = draft.html.indexOf(words("de").reviewPending);
-    assert.ok(evidence >= 0 && pending > evidence, "the review status is not said beside the evidence");
-  }
-  // A European record says it exactly when the European file is a draft, whichever it is today.
-  const european = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", edition, "eu.json"), "utf8")) as {
-    review: { status: string };
-  };
-  const record = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
-  assert.ok(record, "no European record page was built");
-  assert.equal(
-    record.html.includes('data-review="pending"'),
-    european.review.status === "DRAFT",
-    european.review.status === "DRAFT"
-      ? "a record of a draft file does not say it awaits review"
-      : "a record of a file a person reviewed still says it awaits review",
-  );
+  assert.ok(page.html.includes(words("de").sourceCheckedOn), "the verification date is not labelled as a check");
 });
 
 /**

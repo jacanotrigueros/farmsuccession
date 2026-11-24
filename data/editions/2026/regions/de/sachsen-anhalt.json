@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "sachsen-anhalt",
   "officialName": "Sachsen-Anhalt",
-  "published": "2026-10-29",
+  "published": "2026-11-24",
   "summary": "Sachsen-Anhalt verbindet die Niederlassungsbeihilfe und die Hofvermittlung der Landgesellschaft mit dem Netzwerk Junglandwirte. Das Netzwerk bündelt Kontakte, Orientierung und Austausch und hilft jungen Menschen, passende Ansprechpersonen, Unternehmen und andere Menschen in ähnlichen Situationen zu finden.",
   "coverage": {
     "status": "PARTIAL",
@@ -29,9 +29,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -47,6 +44,13 @@
         "tool": "CHATGPT",
         "model": "gpt-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -61,9 +65,9 @@
       },
       "operator": "Land Sachsen-Anhalt, Ämter für Landwirtschaft, Flurneuordnung und Forsten",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Zuschuss, der Nachwuchslandwirtinnen und Nachwuchslandwirten die erstmalige Aufnahme einer selbstständigen landwirtschaftlichen Tätigkeit erleichtern soll und den Aufbau des Unternehmens mit bis zu 100.000 Euro unterstützt.",
-      "whoCanUseIt": "Junglandwirtinnen und Junglandwirte in Sachsen-Anhalt, die sich erstmals selbstständig machen und Leistungen für ökologische Nachhaltigkeit und Ressourceneffizienz erbringen.",
-      "howToAccess": "Antrag innerhalb von 24 Monaten nach der Betriebsgründung über den elektronischen Agrarantrag des Landes stellen; das zuständige Amt für Landwirtschaft, Flurneuordnung und Forsten berät dazu.",
+      "whatItOffers": "Zuschuss zur erstmaligen Aufnahme einer selbstständigen landwirtschaftlichen Tätigkeit und zum Aufbau des Unternehmens von bis zu 100.000 Euro innerhalb von fünf Jahren, ausgezahlt in drei Raten.",
+      "whoCanUseIt": "Personen, die bei Antragstellung höchstens 40 Jahre alt sind, erstmals einen landwirtschaftlichen Betrieb selbstständig und eigenverantwortlich leiten und Hauptwohnsitz sowie Unternehmenssitz in Sachsen-Anhalt haben. Der Antrag muss innerhalb von 24 Monaten nach der ersten Niederlassung gestellt werden. Erforderlich sind ein Geschäftsplan und Leistungen für ökologische Nachhaltigkeit und Ressourceneffizienz. Grundsätzlich sind ein erfolgreicher Abschluss in einem anerkannten Agrarberuf und eine mindestens einjährige landwirtschaftliche Fachschule nachzuweisen; fehlt dieser Nachweis bei der Bewilligung, kann er innerhalb von 36 Monaten nachgeholt werden.",
+      "howToAccess": "Antrag innerhalb von 24 Monaten nach der Betriebsgründung über den elektronischen Agrarantrag des Landes stellen. Für Beratung, Antragstellung und Bearbeitung ist das Amt für Landwirtschaft, Flurneuordnung und Forsten zuständig, in dessen Dienstbezirk der Betrieb oder das Vorhaben liegt. Die Ministeriumsseite verlinkt die Unterlagen zum Förderprogramm 8501 und die Übersicht der zuständigen Ämter.",
       "accessUrl": "https://alff.sachsen-anhalt.de/alff-sued/landwirtschaft/niederlassungsbeihilfe-fuer-junglandwirte",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
@@ -79,10 +83,38 @@
             "Mit dem Förderprogramm „Niederlassungsbeihilfe Junglandwirte“ soll Nachwuchslandwirtinnen und Nachwuchslandwirten die erstmalige Aufnahme einer selbstständigen, eigenverantwortlichen landwirtschaftlichen Tätigkeit erleichtert werden.",
             "Dabei werden Junglandwirtinnen und Junglandwirte beim Aufbau ihres Unternehmens mit bis zu 100.000 Euro unterstützt.",
             "Innerhalb von 24 Monaten nach der Betriebsgründung kann ein Antrag auf Niederlassungsbeihilfe gestellt werden, wenn Leistungen für ökologische Nachhaltigkeit und Ressourceneffizienz erbracht werden."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://mwl.sachsen-anhalt.de/foerderung/landwirtschaftliche-foerderung/page/niederlassungsbeihilfe",
+          "title": "Niederlassungsbeihilfe",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Die Niederlassungsbeihilfe unterstützt junge Menschen beim Einstieg in die selbstständige Leitung eines landwirtschaftlichen Betriebs.",
+            "Antragsberechtigt sind Personen, die bei der Antragstellung höchstens 40 Jahre alt sind, erstmals einen landwirtschaftlichen Betrieb selbstständig und eigenverantwortlich leiten, Hauptwohnsitz und Unternehmenssitz in Sachsen-Anhalt haben und innerhalb von 24 Monaten nach der ersten Niederlassung den Antrag stellen.",
+            "Einzureichen ist ein Geschäftsplan, der die Ausgangssituation des landwirtschaftlichen Betriebs sowie Zwischen- und Endziele für die Entwicklung des Unternehmens enthält.",
+            "Grundsätzlich ist ein erfolgreicher Abschluss in einem anerkannten Agrarberuf und eine mindestens einjährige landwirtschaftliche Fachschule nachzuweisen.",
+            "Fehlt dieser Nachweis bei der Bewilligung, kann er innerhalb von 36 Monaten nachgeholt werden.",
+            "Die Niederlassungsbeihilfe beträgt bis zu 100.000 Euro innerhalb von fünf Jahren und wird in drei Raten ausgezahlt.",
+            "Maßgeblich sind die gültige Richtlinie und die aktuellen Unterlagen für das Förderprogramm 8501.",
+            "Niederlassungsbeihilfe Junglandwirte - FP 8501",
+            "Für Beratung, Antragstellung und Bearbeitung ist das Amt für Landwirtschaft, Flurneuordnung und Forsten zuständig, in dessen Dienstbezirk der Betrieb oder das Vorhaben liegt.",
+            "Die aktuellen Kontaktdaten finden Sie über die verlinkte Übersicht der Ämter.",
+            "Betriebsübernahme oder Neugründung",
+            "Einhaltung von Unter- und Obergrenzen bei Standardoutput, Prosperität und Tierbestand"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "generatorId": "claude-1"
+      "notes": "Vor der Antragstellung sind insbesondere der Zeitpunkt der erstmaligen Niederlassung, die berufliche Qualifikation sowie Unter- und Obergrenzen bei Standardoutput, Prosperität und Tierbestand zu klären. Maßgeblich sind die gültige Richtlinie und die aktuellen Programmunterlagen.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "sachsen-anhalt-netzwerk-junglandwirte",
@@ -110,7 +142,11 @@
             "Manchmal wird ein Rat benötigt, für einen Neuanfang der passende Betrieb gesucht oder ein Hof sucht eine Nachfolgerin oder einen Nachfolger.",
             "Das Netzwerk kann diese täglichen Herausforderungen nicht lösen. Es kann jedoch dabei helfen, die richtigen Ansprechpersonen, ein passendes Unternehmen oder andere Menschen zu finden, die vor ähnlichen Herausforderungen stehen.",
             "Die Partner im Netzwerk Junglandwirte bieten unterschiedliche Angebote und Anlaufstellen. Hier finden Sie die jeweiligen Einrichtungen und Organisationen nach Themen geordnet."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "Die Leistungen der aufgeführten Partner bleiben deren eigene Angebote; der Netzwerkeintrag beschreibt Orientierung und Vernetzung.",
@@ -142,7 +178,11 @@
             "Sie sind Junglandwirt und möchten sich mit einem eigenen Betrieb selbstständig machen? In diesem Fall klären wir gemeinsam mit Ihnen Ihre individuellen Interessen und Möglichkeiten",
             "Beratung für abgabewillige Landwirte Sie haben jahrelang einen Betrieb geführt und möchten diesen jetzt in verlässliche Hände abgeben? Kein leichter Schritt, vor allem, wenn die Hofnachfolge nicht durch einen Angehörigen abgesichert ist.",
             "Hofbörse Angebote Hofbörse Gesuche"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "claude-1"

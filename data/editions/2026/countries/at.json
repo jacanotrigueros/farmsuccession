@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "AT",
   "officialName": "Österreich",
-  "published": "2026-11-20",
+  "published": "2026-11-24",
   "summary": "Diese Übersicht beschreibt die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte: die einmalige Niederlassungsprämie, die jährliche Zahlung und den Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs. Dazu kommen Informationen der Sozialversicherung zu den Meldepflichten bei der Hofübergabe.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -76,9 +76,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -96,6 +93,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -111,8 +115,8 @@
       "operator": "Agrarmarkt Austria",
       "operatorType": "PUBLIC",
       "whatItOffers": "Eine einmalige Prämie für die erste Niederlassung auf einem landwirtschaftlichen Betrieb. Die Basisprämie beträgt 3.500 Euro. Dazu nennt die Quelle einen Eigentumsbonus für die Übernahme des ganzen Betriebs ins Eigentum (2.500 Euro), einen Meisterbonus (5.000 Euro) und einen Bonus für gesamtbetriebliche Aufzeichnungen (4.000 Euro).",
-      "whoCanUseIt": "Die Förderung richtet sich an Junglandwirtinnen und Junglandwirte, die im Jahr der Aufnahme der landwirtschaftlichen Tätigkeit höchstens 40 Jahre alt sind. Die Quelle nennt als Voraussetzungen mindestens 3 ha bewirtschaftete landwirtschaftliche Fläche ab Antragstellung sowie eine Facharbeiterprüfung oder eine höherwertige land- und forstwirtschaftliche Fachausbildung. Der Ausbildungsnachweis kann bis spätestens zwei Jahre nach der ersten Niederlassung nachgereicht werden. Außerdem nennt die Quelle die langfristige und wirksame Kontrolle über die Betriebsführung durch eine oder mehrere dieser Personen.",
-      "howToAccess": "Reichen Sie den Förderantrag innerhalb eines Jahres nach der ersten Niederlassung elektronisch über die Digitale Förderplattform der AMA ein. Legen Sie auch ein Betriebskonzept vor.",
+      "whoCanUseIt": "Die Förderung richtet sich an Junglandwirtinnen und Junglandwirte, die im Jahr der Aufnahme der landwirtschaftlichen Tätigkeit höchstens 40 Jahre alt sind. Grundsätzlich sind ab Antragstellung mindestens 3 ha landwirtschaftliche Fläche zu bewirtschaften. Bei kleineren Flächen ist ein eigener Einheitswert oder Einheitswertzuschlag für arbeitsintensive Kulturen beziehungsweise Betriebsformen erforderlich, bei denen ein höherer Deckungsbeitrag auch auf kleineren Flächen zu erwarten ist; ein Einheitswert für Ackerflächen oder Grünland allein reicht nicht aus. Erforderlich ist außerdem eine Facharbeiterprüfung oder eine höherwertige land- und forstwirtschaftliche Fachausbildung. Der Ausbildungsnachweis kann bis spätestens zwei Jahre nach der ersten Niederlassung nachgereicht werden. Außerdem nennt die Quelle die langfristige und wirksame Kontrolle über die Betriebsführung durch eine oder mehrere dieser Personen.",
+      "howToAccess": "Reichen Sie den Förderantrag innerhalb eines Jahres nach der ersten Niederlassung elektronisch über die Digitale Förderplattform der AMA ein. Legen Sie auch ein Betriebskonzept vor. Wer den erforderlichen eigenen Einheitswert beziehungsweise Einheitswertzuschlag noch nicht vorlegen kann, muss bei Antragstellung zumindest eine entsprechende Meldung bei der Finanzverwaltung vorlegen. Für den Einheitswertnachweis kann eine Nachfrist gesetzt werden: spätestens vier Jahre nach der ersten Niederlassung, jedoch spätestens bis 30.6.2029. Für die Mindestbewirtschaftungsfläche von 3 ha gibt es keine Nachfrist; Betriebe ohne Sonderkulturen müssen diese bereits bei Antragstellung bewirtschaften. Im AMA-Kalender das jeweilige Bundesland auswählen. Anträge können laufend eingereicht werden; die Länder verwenden unterschiedliche Stichtage für ihre Bearbeitungsblöcke.",
       "accessUrl": "https://dfp.ama.at/foerderungen-fristen/75-01-bml/das-wichtigste-im-ueberblick",
       "contactPoints": [
         {
@@ -154,11 +158,51 @@
             "dfp@ama.gv.at",
             "Beim Eigentumsübergang hat die Übernahme durch die Junglandwirtin oder den Junglandwirten grundsätzlich den gesamten Betrieb zu umfassen",
             "können die Basisprämie sowie die möglichen Zuschläge nur einmalig ausgelöst werden."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.ama.at/getattachment/8edc9a00-7baf-4480-9948-c890c1ba70e6/2025_01_Merkblatt_75-01_V4.pdf",
+          "title": "Merkblatt Fördermaßnahme „Förderung der Niederlassung von Junglandwirtinnen und Junglandwirten (75-01)“",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Betriebe, die diese Voraussetzungen nicht erfüllen, müssen über einen eigenen Ein- heitswert oder einen Zuschlag zum landwirtschaftlichen Einheitswert verfügen.",
+            "Zu beachten ist, dass bei Unterschreitung der Untergrenze von 3 ha ein Einheitswert für Ackerflächen oder Grünland nicht ausreichend ist.",
+            "Erforderlich ist ein eigener Einheitswert oder Einheitswertzuschlag für arbeitsintensive Kulturen bzw. Betriebsformen, bei denen ein höherer Deckungsbeitrag auch auf kleineren Flächen zu erwarten ist.",
+            "Betriebe, die keinen eigenen Einheitswert bzw. keinen Zuschlag zum landwirtschaftlichen Einheitswert vorlegen können, müssen zum Zeitpunkt der Antragstellung zumindest eine dahingehende Meldung bei der Finanzverwaltung vorlegen.",
+            "Für den Nachweis eines eige- nen Einheitswerts kann eine Nachfrist gesetzt werden.",
+            "Der Nachweis ist spätestens vier Jahre nach der ersten Niederlassung, jedoch spätestens bis 30.6.2029, in der Digitalen Förderplattform hoch zu laden.",
+            "Für den Nachweis von drei ha Mindestbewirtschaftungsfläche kann keine Nachfrist gesetzt werden.",
+            "Das heißt, von Betrieben ohne Sonderkulturen müssen jedenfalls bei Antragstellung mind. 3 ha landwirtschaftliche Fläche (LF) bewirtschaftet werden."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://dfp.ama.at/foerderungen-fristen/75-01-bml/aufrufe-und-fristen",
+          "title": "DFP-Förderung 75-01: Aufrufe und Fristen",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Alle Bundesländer",
+            "Aktueller Stichtag",
+            "Laufende Antragsstellung möglich!",
+            "30.11.2026",
+            "15.01.2027",
+            "Förderantrag stellen"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "Laut Quelle können die Basisprämie und die möglichen Zuschläge nur einmal ausgelöst werden.",
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "at-zahlung-junglandwirte",
@@ -190,7 +234,11 @@
             "Als fachliche Mindestqualifikation ist eine geeignete Facharbeiterprüfung gemäß Land- und forstwirtschaftlichem Berufsausbildungsgesetz, eine einschlägige höhere Ausbildung oder ein einschlägiger Hochschulabschluss vorzuweisen.",
             "Beantragt werden können rund 66 Euro pro Hektar für maximal 40 Hektar förderfähige Fläche und maximal 5 aufeinander folgende Jahre.",
             "Die Antragstellung erfolgt jährlich im Rahmen des Mehrfachantrags und muss spätestens für das der erstmaligen Aufnahme der landwirtschaftlichen Tätigkeit folgende Antragsjahr gestellt werden"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Die Zahlung ist jährlich im Mehrfachantrag zu beantragen.",
@@ -208,7 +256,7 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Die Richtlinie sieht einen Zinsenzuschuss zu einem Kredit vor, um die Übernahme eines ganzen verschuldeten Betriebs zu erleichtern. Der Zuschuss beträgt 50 Prozent des verrechenbaren Bruttozinssatzes auf den noch offenen Kreditbetrag. Vorgesehen sind Kredite von 50.000 bis 150.000 Euro mit einer Laufzeit von 10 bis 20 Jahren.",
       "whoCanUseIt": "Die Förderung richtet sich an Junglandwirtinnen und Junglandwirte, die im Jahr der Aufnahme der landwirtschaftlichen Tätigkeit höchstens 40 Jahre alt sind und einen ganzen verschuldeten land- und forstwirtschaftlichen Betrieb ins Eigentum übernehmen. Reine Forstbetriebe werden nicht gefördert.",
-      "howToAccess": "Reichen Sie den Antrag innerhalb eines Jahres nach dem Erwerb des Eigentums am Betrieb bei der zuständigen Stelle für die Förderabwicklung ein. Diese Stelle entscheidet über die Genehmigung des Zinsenzuschusses.",
+      "howToAccess": "Reichen Sie den Antrag innerhalb eines Jahres nach dem Erwerb des Eigentums am Betrieb bei der zuständigen Stelle für die Förderabwicklung ein. Legen Sie ein Betriebskonzept vor. Die zuständige Stelle entscheidet über die Genehmigung des Zinsenzuschusses.",
       "accessUrl": "https://www.bmluk.gv.at/themen/landwirtschaft/gemeinsame-agrarpolitik-foerderungen/nationaler-strategieplan/foerderinfo/sonderrichtlinien-2023-2027/sonderrichtlinie-konsolidierung.html",
       "instrumentType": "INTEREST_SUBSIDY",
       "purposes": ["TRANSFER"],
@@ -223,7 +271,11 @@
           "quotes": [
             "Diese Sonderrichtlinie ist die Rechtsgrundlage für eine rein national finanzierte einzelbetriebliche Förderungsmaßnahme des BMLUK",
             "soll die Übernahme eines verschuldeten Betriebes erleichtern und stellt eine wichtige komplementäre Maßnahme zur Unterstützung von Junglandwirtinnen und Junglandwirten dar."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.bmluk.gv.at/dam/jcr:b141fe95-b636-4a66-99e1-e81f2b278163/SRL_Konsolidierung_JLW_2._%C3%84nderung.pdf",
@@ -240,11 +292,25 @@
             "Diese Sonderrichtlinie tritt am Tag nach der Publikation gemäß Punkt 14.3 in Kraft und am 30. Juni 2030 außer Kraft.",
             "Genehmigung des Zinsenzuschusses Die Förderungsabwicklungsstelle hat die förderwerbende Person",
             "Der Betrieb muss unter Berücksichtigung der zulässigen Förderung sanierbar sein."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.bmluk.gv.at/dam/jcr%3Ab141fe95-b636-4a66-99e1-e81f2b278163/SRL_Konsolidierung_JLW_2._%C3%84nderung.pdf",
+          "title": "Sonderrichtlinie Konsolidierung",
+          "consultedOn": "2026-11-21",
+          "quotes": ["Die förderwerbende Person hat ein Betriebskonzept vorzulegen."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Die Sonderrichtlinie gilt bis 30. Juni 2030. Der Betrieb muss unter Berücksichtigung der Förderung sanierbar sein.",
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-2"
     },
     {
       "id": "at-svs-hofuebergabe",
@@ -282,7 +348,11 @@
             "Als Betriebsführer haben Sie innerhalb eines Monats nach Eintritt der Pflichtversicherung für sich und für hauptberuflich mittätige Angehörige (Kinder, Ehepartner, Hofübergeber) die Anmeldung zu erstatten.",
             "Tel. 050 808 808",
             "Änderungsmeldung für Bauern"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Die Seite informiert über Pflichten in der Sozialversicherung; eine individuelle Beratung zur Hofübergabe ersetzt sie nicht.",
@@ -312,11 +382,265 @@
             "Sie setzen häufig eine abgeschlossene Berufsausbildung als Aufnahmebedingung voraus.",
             "Das Angebot wird ständig weiterentwickelt, eine Anfrage bei den zuständigen Behörden ist daher empfehlenswert.",
             "Weiterführende Informationen LFS im Burgenland LFS in Kärnten LFS in Niederösterreich LFS in Oberösterreich LFS in Salzburg LFS in der Steiermark LFS in Tirol LFS in Vorarlberg"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Fachschulen im zweiten Bildungsweg setzen laut Seite häufig eine abgeschlossene Berufsausbildung voraus.",
       "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "at-hofuebernahme-im-fokus",
+      "name": "Hofübernahme im Fokus",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Bundesministerium für Land- und Forstwirtschaft, Klima- und Umweltschutz, Regionen und Wasserwirtschaft",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Die Themenseite bündelt Informationen zu Unterstützungsmaßnahmen bei der Hofübernahme und zu landwirtschaftlichen Ausbildungswegen, einschließlich des zweiten Bildungswegs. Sie verweist auf die Vermittlung außerfamiliärer Hofnachfolge durch Perspektive Landwirtschaft und auf zwei Broschüren der Landjugend zu menschlichen, rechtlichen und steuerlichen Fragen der Übergabe.",
+      "howToAccess": "Über die Themenseite die Hofübernahme-Broschüren aufrufen und die Hinweise zu Ausbildungsstellen nutzen. Für Fragen zur Facharbeiter- und Meisterausbildung nennt die Seite die land- und forstwirtschaftlichen Lehrlings- und Fachausbildungsstellen an den jeweiligen Landeslandwirtschaftskammern.",
+      "accessUrl": "https://www.landwirtschaft.at/hofuebernahme/",
+      "sources": [
+        {
+          "url": "https://www.landwirtschaft.at/hofuebernahme/",
+          "title": "Österreichs Land- & Forstwirtschaft - Hofübernahme im Fokus",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Bundesministeriums für Land- und Forstwirtschaft, Klima- und Umweltschutz, Regionen und Wasserwirtschaft",
+            "Wir gehen diesen Fragen nach, stellen maßgeschneiderte Unterstützungsmaßnahmen vor und schauen uns an, wie eine erfolgreiche Hofübernahme gelingt.",
+            "So können künftige Hofübernehmerinnen und -übernehmer sowie Quereinsteigerinnen und Quereinsteiger mit einer abgeschlossenen außerlandwirtschaftlichen Ausbildung auch eine Ausbildung zur Facharbeiterin beziehungsweise zum Facharbeiter in der Landwirtschaft absolvieren.",
+            "Genau hier setzt Perspektive Landwirtschaft an: Über Gebote und Gesuche vernetzen sie Bäuerinnen und Bauern, die ihren Betrieb außerfamiliär übergeben möchten, mit potentiellen Hofübernehmerinnen und Hofübernehmern.",
+            "Die Landjugend hat in zwei Broschüren viele Tipps und Tricks für eine gelungene Hofübernahme zusammengefasst.",
+            "Dabei werden sämtliche Aspekte des Übergabeprozesses behandelt – aus menschlicher, rechtlicher und steuerlicher Sicht.",
+            "Landjugend-Broschüren entdecken!",
+            "Für die Ausbildung zuständige Behörden sind die land- und forstwirtschaftlichen Lehrlings- und Fachausbildungsstellen an den jeweiligen Landeslandwirtschaftskammern."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "at-perspektive-landwirtschaft",
+      "name": "Perspektive Landwirtschaft — Perspektiven-Suche",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Perspektive Landwirtschaft",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Vermittlungsplattform mit Steckbriefen zur außerfamiliären Hofnachfolge, zu Betriebskooperationen und zur Pacht oder Nutzung landwirtschaftlicher Flächen und Betriebe. Die Kurzansichten der Steckbriefe sind für alle sichtbar; Mitglieder mit eigenem veröffentlichtem Steckbrief können einander anschreiben. Der Verein unterstützt beim Erstellen des Steckbriefs und bietet Gespräche oder Hofbesuche nach Terminvereinbarung an.",
+      "whoCanUseIt": "Das Angebot unterstützt Betriebsleiterinnen und Betriebsleiter ohne Nachfolge, Kooperationen und zukünftige Landwirtinnen und Landwirte beim Einstieg in die Landwirtschaft in Österreich.",
+      "howToAccess": "Die Kurzansichten sind ohne Einschränkung zugänglich. Für die Vollansicht ist eine Mitgliedschaft erforderlich, für die Kontaktaufnahme zusätzlich ein eigener veröffentlichter Steckbrief. Nach der Registrierung den Steckbrief vollständig ausfüllen und den Mitgliedsbeitrag einzahlen; das Team prüft ihn vor der Freischaltung. Die Mitgliedschaft kostet für ein Jahr regulär 70 € oder fördernd 120 €; beide Formen bieten dieselben Vorteile. Personen ohne Internet können Kontakt mit dem Verein aufnehmen, sich in die Kartei aufnehmen lassen und Anfragen per Post erhalten.",
+      "accessUrl": "https://www.perspektive-landwirtschaft.at/faqs/",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Perspektive Landwirtschaft",
+          "value": "info@perspektive-landwirtschaft.at",
+          "sourceUrl": "https://www.perspektive-landwirtschaft.at/perspektiven-suche/"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Perspektive Landwirtschaft",
+          "value": "+43 (0) 660 113 32 11",
+          "sourceUrl": "https://www.perspektive-landwirtschaft.at/perspektiven-suche/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.perspektive-landwirtschaft.at/faqs/",
+          "title": "Häufige Fragen (FAQs)",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Perspektive Landwirtschaft ist ein nicht auf Gewinn ausgerichteter Verein – mit unserer Informations- und Vermittlungsarbeit fördern wir die außerfamiliäre Hofübergabe und den Einstieg in die Landwirtschaft in Österreich",
+            "Wir unterstützen mit unserer Perspektiven-Suche und unserem Bildungsangebot Betriebsleiter*innen ohne Nachfolge, Kooperationen und zukünftige Landwirt*innen beim Einstieg in die Landwirtschaft",
+            "Je nachdem, ob eine außerfamiliäre Hofnachfolge, eine Betriebskooperation, Hofgemeinschaft, Pacht von Flächen/Betrieb, Praktikumsplatz oder Arbeitsstelle angestrebt werden, sollte das eigene Vorhaben gut durchdacht und entsprechende Informationen eingeholt werden.",
+            "Die Kurzansicht der Steckbriefe ist uneingeschränkt für alle auf der Perspektiven-Suche sichtbar.",
+            "Für den Zugang zur Vollansicht und den Details ist eine Mitgliedschaft und für die Kontaktaufnahme ein eigener veröffentlichter Steckbrief Voraussetzung.",
+            "Nach der Registrierung können Sie Ihren Steckbrief erstellen – sobald dieser vollständig ausgefüllt und der Mitgliedsbeitrag einbezahlt wurde, wird der Steckbrief nach Durchsicht des Perspektive Landwirtschaft Teams freigeschaltet.",
+            "Dadurch schaffen wir einen geschützten Rahmen, in dem sich nur Mitglieder mit eigenem Steckbrief anschreiben können.",
+            "Die Mitgliedschaft beträgt 70 € regulär / 120 € fördernd für ein ganzes Jahr und bietet folgende Vorteile:",
+            "Es gibt für Sie keinen Unterschied zwischen fördernder und regulärer Mitgliedschaft, alle Mitglieder haben dieselben Vorteile."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.perspektive-landwirtschaft.at/perspektiven-suche/",
+          "title": "Perspektiven-Suche - Perspektive Landwirtschaft",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Ein wichtiger Schritt ist die Suche nach der passenden Nachfolge.",
+            "Weiters ist die Plattform behilflich bei der Suche nach Pächter*in, Betriebsleiter*in, Mitarbeiter*in oder Kooperationspartner*in.",
+            "Auf der Perspektiven-Suche können Sie in Kontakt mit Landwirt*innen treten, die vielleicht genau nach Ihnen suchen.",
+            "Willkommen auf der Perspektiven-Suche Das wird geboten oder gesucht – Aktuelle Steckbriefe",
+            "Für ein Gespräch oder einen Hofbesuch, vereinbaren Sie einen Termin.",
+            "Gestalten Sie Ihren Steckbrief, gerne unterstützen wir Sie dabei.",
+            "Auch wenn Sie nicht über Internet verfügen, nehmen wir Sie gern in unsere Kartei auf und senden Ihnen Anfragen per Post zu.",
+            "Nehmen Sie einfach Kontakt mit uns auf.",
+            "Als Mitglied können Sie mit Ihrem Steckbrief die Perspektiven-Suche nutzen.",
+            "info@perspektive-landwirtschaft.at",
+            "+43 (0) 660 113 32 11"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "at-perspektive-landwirtschaft-prozess",
+      "name": "Übersicht Prozess",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Perspektive Landwirtschaft",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Ein Online-Leitfaden zur außerfamiliären Hofnachfolge mit fünf Phasen: Orientierung, Ressourcen, Rahmenbedingungen, Suche sowie Entscheidung und Übergabe. Er behandelt Wohnmöglichkeiten, Ausbildung und Erfahrung, finanzielle und zeitliche Ressourcen, rechtliche Rahmenbedingungen, das gegenseitige Kennenlernen und die vertragliche Gestaltung. Das Kapitel zu den Rahmenbedingungen erläutert Rechtsformen für die gemeinsame Bewirtschaftung, die Unterscheidung von Eigentum und Bewirtschaftung, den Übergang in die Pensionszeit sowie die Übergabe als vorweggenommene Erbfolge. Das Kapitel zu den Ressourcen beschreibt die Bedeutung von Ausbildung und Berufspraxis für die Hofübernahme, erläutert Unterschiede beim Grundverkehr zwischen den Bundesländern und empfiehlt praktische Erfahrungen auf verschiedenen Höfen.",
+      "whoCanUseIt": "Für Landwirtinnen und Landwirte ohne Nachfolge sowie Hofsuchende, die einen außerfamiliären Einstieg in die Landwirtschaft erwägen.",
+      "howToAccess": "Die Prozessübersicht aufrufen und die einzelnen Phasen lesen. Zu den Phasen bietet die Seite Verweise „mehr erfahren“.",
+      "accessUrl": "https://www.perspektive-landwirtschaft.at/uebersicht-prozess/",
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.perspektive-landwirtschaft.at/uebersicht-prozess/",
+          "title": "Übersicht Prozess - Perspektive Landwirtschaft",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Übersicht Prozess",
+            "Phase eins beginnt bei Landwirt*innen ohne Nachfolge mit Überlegungen, ob ein außerfamiliärer Generationswechsel infrage kommt.",
+            "Zugleich fragen sich Hofsuchende: Passt eine außerfamiliäre Hofübernahme zu meinem Wunsch, in die Landwirtschaft einzusteigen?",
+            "Wird eine außerfamiliäre Hofnachfolge in Betracht gezogen, kann es in Phase zwei hilfreich sein zu schauen, was bereits vorhanden ist.",
+            "Als Hofübergebende/r kann ich überlegen, wieviel Platz zum Wohnen der Betrieb bietet, ob getrennte Wohnmöglichkeiten machbar sind.",
+            "Was bringe ich an Ausbildung und Erfahrung mit für die Führung eines landwirtschaftlichen Betriebes?",
+            "Welche finanziellen und zeitlichen Ressourcen kann ich für Suche und Übernahme aufwenden?",
+            "In Phase drei gilt es die sozialen, rechtlichen und finanziellen Rahmenbedingungen kennenzulernen und die eigenen Pläne danach auszurichten.",
+            "Sind Rahmen und Ressourcen geklärt, kann mit Phase vier die Suche nach geeigneten Übernehmenden bzw. nach einem potentiellen Hof und passenden Hofübergebenden beginnen.",
+            "In einer Probezeit können Übergebende und Übernehmende einander besser kennenlernen und abschätzen, ob eine gemeinsame Zukunft, leben und arbeiten am Hof möglich ist.",
+            "Ist man den Weg ein Stück weit gemeinsam gegangen, festigt sich im besten Fall die Entscheidung für oder gegen eine Hofübergabe in der Phase fünf.",
+            "Wird aber die Übergabe konkreter und fällt die gemeinsame Entscheidung für eine Hofübergabe bzw. Hofübernahme, dann wird auch rechtliche Beratung wichtig sein, um die erarbeiteten Lösungen in eine juristische Form zu gießen.",
+            "mehr erfahren"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.perspektive-landwirtschaft.at/uebersicht-prozess/rahmenbedingungen/",
+          "title": "Rahmenbedingungen - Perspektive Landwirtschaft",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Phase 3 – Rahmenbedingungen",
+            "Unternehmensform für die gemeinsame Bewirtschaftung",
+            "Eigentum und Bewirtschaftung sind zu unterscheiden.",
+            "Im Folgenden stellen wir Unternehmensformen vor, die für die Organisation eines landwirtschaftlichen Betriebes in Frage kommen.",
+            "Übergang in die Pensionszeit",
+            "Die Übergabe als vorweggenommene Erbfolge",
+            "Eine Hofübergabe ist auch eine vorweggenommene Erbfolge, weshalb die Ansprüche der weichenden Erb*innen der Übergebenden rechtzeitig geregelt werden müssen."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.perspektive-landwirtschaft.at/uebersicht-prozess/ressourcen/",
+          "title": "Ressourcen",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Neben den familiären und persönlichen Voraussetzungen sind eine gute landwirtschaftliche Ausbildung und Berufspraxis die Grundlage für eine erfolgreiche Hofübernahme.",
+            "Das Grundverkehrsgesetz liegt im Einflussbereich der Bundesländer und wird jeweils unterschiedlich gehandhabt.",
+            "Eine mehrjährige landwirtschaftliche Praxis wird bei der Gründung eines Betriebes dringend empfohlen!",
+            "Es ist hilfreich, verschiedene Höfe kennenzulernen, um das für sich passende Betätigungsfeld zu finden."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "accessUrl": "https://www.bmf.gv.at/themen/steuern/immobilien-grundstuecke/grunderwerbsteuer/steuersatz.html",
+      "id": "at-grunderwerbsteuer-landwirtschaft-familienverband",
+      "name": "Grunderwerbsteuer bei land- und forstwirtschaftlicher Übergabe im Familienverband",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "operator": "Bundesministerium für Finanzen",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Für die Übertragung land- und forstwirtschaftlicher Grundstücke im Familienverband weist das Ministerium einen Grunderwerbsteuersatz von 2 % des Einheitswertes aus.",
+      "whoCanUseIt": "Der begünstigte Familienverband umfasst unter anderem Verwandte und Verschwägerte in gerader Linie sowie Geschwister, Nichten und Neffen. Die vollständige Definition steht auf der Ministeriumsseite.",
+      "sources": [
+        {
+          "url": "https://www.bmf.gv.at/themen/steuern/immobilien-grundstuecke/grunderwerbsteuer/steuersatz.html",
+          "title": "Steuersatz – Bundesministerium für Finanzen",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Land- und Forstwirtschaft",
+            "2% vom Einheitswert",
+            "Zum Familienverband zählen:",
+            "Verwandte und Verschwägerte in gerader Linie",
+            "Geschwister, Nichten und Neffen"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "accessUrl": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001969",
+      "id": "at-anerbengesetz",
+      "name": "Anerbengesetz – gesetzliche Erbteilung bei Erbhöfen",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "operator": "Bundesministerium für Justiz",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Bei Vorliegen der gesetzlichen Voraussetzungen kann bei mehreren Miterben nur der Anerbe Eigentümer des Erbhofs werden.",
+      "whoCanUseIt": "Die Vorschriften betreffen die Erbteilung bei einem Erbhof. Das Bundesgesetz gilt außerhalb Kärntens und Tirols.",
+      "sources": [
+        {
+          "url": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001969",
+          "title": "Anerbengesetz – Bundesrecht konsolidiert",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Sind bei der gesetzlichen Erbfolge nach dem Alleineigentümer eines Erbhofs mehrere Miterben berufen, so kann nur einer von ihnen, der Anerbe, Eigentümer des Erbhofs werden.",
+            "Dieses Bundesgesetz gilt nicht in den Ländern Kärnten und Tirol.",
+            "Mit der Vollziehung dieses Bundesgesetzes ist das Bundesministerium für Justiz im Einvernehmen mit dem Bundesministerium für Land- und Forstwirtschaft betraut."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

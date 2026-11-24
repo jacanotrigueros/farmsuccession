@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "extremadura",
   "officialName": "Extremadura",
-  "published": "2026-09-28",
+  "published": "2026-11-24",
   "summary": "Extremadura mantiene abierta hasta final de 2026 la ayuda al establecimiento de jóvenes, combina BOTREX con un banco municipal operativo en Pinofranqueado y ofrece tramitación especializada para la incorporación; APAG publica además un curso de incorporación sin fechas 2026 ni homologación concreta verificadas. El presupuesto autonómico de 2026 anuncia una medida de relevo mediante acuerdos con titulares próximos a jubilarse, todavía sin una vía pública de acceso verificada.",
   "coverage": {
     "status": "PARTIAL",
@@ -61,9 +61,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -79,6 +76,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -146,7 +150,11 @@
             "Desde: 22/01/2025 Hasta: 31/12/2026",
             "La cuantía de la prima básica se establece en 20.000 €.",
             "resultando un máximo de 70.000 € de ayuda"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -175,7 +183,11 @@
           "url": "https://bolsatierrasregadio.juntaex.es/",
           "title": "Inicio - Bolsa de Tierras de Regadío de Extremadura",
           "consultedOn": "2026-09-28",
-          "quotes": ["creada para facilitar el encuentro entre quienes deseen ofrecer sus tierras en arrendamiento o venta"]
+          "quotes": ["creada para facilitar el encuentro entre quienes deseen ofrecer sus tierras en arrendamiento o venta"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://bolsatierrasregadio.juntaex.es/funcionamiento",
@@ -184,7 +196,11 @@
           "quotes": [
             "Se ofrece gratuitamente asesoramiento jurídico por la Bolsa de Tierras de Regadío",
             "Tanto los/las ofertantes como los/las demandantes, para ver sus ofertas y demandas publicadas, deberán inscribirse en la BOTREX."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -225,13 +241,21 @@
           "quotes": [
             "conectar a propietarios que no pueden atender sus parcelas con personas, familias o emprendedores",
             "proyectoalquerias@pinofranqueado.es"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://proyectoalquerias.es/",
           "title": "Proyecto Alquerías",
           "consultedOn": "2026-09-28",
-          "quotes": ["estrategia municipal de innovación territorial impulsada por el Ayuntamiento de Pinofranqueado"]
+          "quotes": ["estrategia municipal de innovación territorial impulsada por el Ayuntamiento de Pinofranqueado"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -270,7 +294,11 @@
           "quotes": [
             "partida de 7 millones de euros para el apoyo al relevo generacional",
             "mediante acuerdos de colaboración con titulares de explotaciones que se van a jubilar"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.juntaex.es/es/w/20260609-manzano-recrimina-al-psoe-que-su-enmienda-es-una-confirmacion-a-la-totalidad-del-presupuesto-de-2026",
@@ -279,7 +307,11 @@
           "quotes": [
             "incluida en el Presupuesto de 2026 con 7 millones de euros",
             "titulares de explotaciones que estén en fase de jubilación"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -309,19 +341,31 @@
           "quotes": [
             "Nuestro Plan de Formación incluye cursos y jornadas.",
             "Curso de Incorporación de jóvenes agricultores en la empresa agraria"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.juntaex.es/w/5582",
           "title": "Homologación de cursos de incorporación a la empresa agraria - Juntaex.es",
           "consultedOn": "2026-09-28",
-          "quotes": ["Solicitar la homologación de los cursos de incorporación a la empresa agraria.", "Durante todo el año"]
+          "quotes": ["Solicitar la homologación de los cursos de incorporación a la empresa agraria.", "Durante todo el año"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.juntaex.es/w/3632",
           "title": "Ayudas al establecimiento de jóvenes agricultores/as - Juntaex.es",
           "consultedOn": "2026-09-28",
-          "quotes": ["copia auténtica del certificado de aprovechamiento del curso de incorporación a la empresa agraria"]
+          "quotes": ["copia auténtica del certificado de aprovechamiento del curso de incorporación a la empresa agraria"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -348,10 +392,60 @@
           "url": "https://www.apagextremaduraasaja.es/tramitacion-ayudas-agricolas-extremadura.html",
           "title": "Tramitación Ayudas - APAG Extremadura ASAJA",
           "consultedOn": "2026-09-28",
-          "quotes": ["Gestionamos la tramitación de las ayudas a las explotaciones agrarias.", "Instalación de Jóvenes Agricultores"]
+          "quotes": ["Gestionamos la tramitación de las ayudas a las explotaciones agrarias.", "Instalación de Jóvenes Agricultores"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "extremadura-escuela-pastores-cooprado",
+      "name": "Escuela de Pastores — Pastores del Siglo XXI",
+      "kind": "TRAINING",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Tajo-Salor-Almonte"
+      },
+      "operator": "FUNDACIÓN COOPRADO",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Programa de formación para el pastoreo extensivo orientado al relevo generacional, de aproximadamente 5 meses y 615 horas teórico-prácticas. Incluye prácticas en explotaciones con ganaderos tutores y las acreditaciones para incorporación a la empresa agraria, bienestar animal para transportistas y ganaderos, biocidas de uso ganadero básico y plaguicidas de uso agrícola de nivel básico y cualificado.",
+      "howToAccess": "Consultar con Fundación Cooprado mediante el correo institucional publicado para obtener información sobre la Escuela.",
+      "accessUrl": "https://fundacion.cooprado.es/proyectos/escuela_pastores/",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Fundación Cooprado",
+          "value": "fundacion.cooprado@gmail.com",
+          "sourceUrl": "https://fundacion.cooprado.es/proyectos/escuela_pastores/"
+        }
+      ],
+      "sectors": ["LIVESTOCK"],
+      "trainingFormats": ["IN_PERSON"],
+      "sources": [
+        {
+          "url": "https://fundacion.cooprado.es/proyectos/escuela_pastores/",
+          "title": "ESCUELA DE PASTORES -",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Pastores del Siglo XXI:",
+            "El objetivo general es la creación de un programa formativo eminentemente práctico que permite la puesta en valor de esta profesión y la transferencia de conocimientos para el pastoreo extensivo orientado al relevo generacional.",
+            "FUNDACIÓN COOPRADO busca con esta iniciativa favorecer la innovación y profesionalización de esta actividad",
+            "Se trata de un programa formativo que se desarrolla a lo largo de 5 meses aproximadamente, con 615 horas de formación teórica-práctica y en el que se incluye las acreditaciones necesarias para obtener los títulos y carnés siguientes:",
+            "– Incorporación a la empresa agraria. – Carné de Bienestar animal transportistas y ganaderos. – Carné de Biocidas de uso ganadero básico. – Carné de Plaguicidas de uso agrícola (nivel básico y cualificado).",
+            "Quizá uno de los grandes valores que presenta esta Escuela, es su formación práctica, desarrollada por los Ganaderos-tutores del territorio de Tajo-Salor-Almonte, quienes acogen a los alumnos/as en sus explotaciones para realizar la formación práctica de la Escuela.",
+            "CONTACTA CON NOSOTROS 686 460 565 927 29 11 84 fundacion.cooprado@gmail.com"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
@@ -370,7 +464,11 @@
           "quotes": [
             "partida de 7 millones de euros para el apoyo al relevo generacional",
             "mediante acuerdos de colaboración con titulares de explotaciones que se van a jubilar"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -390,7 +488,11 @@
           "quotes": [
             "anunciar la activación del Banco de Tierras de Pinofranqueado",
             "identificar y registrar tierras agrícolas y forestales sin uso o abandonadas"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"

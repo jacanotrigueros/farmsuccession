@@ -47,11 +47,10 @@ test("standalone news remains news and reaches its own territory with its full e
         assert.ok(text.includes(claim), `${item.id}: standalone news lost its headline, summary or dated event`);
       }
       for (const source of item.sources) {
-        for (const evidence of [source.url, source.title, dateIn(source.consultedOn, snapshot.metadata.language), ...source.quotes]) {
-          assert.ok(
-            text.includes(evidence),
-            `${item.id}: news must carry its source, consultation date and unabridged quotes: ${evidence}`,
-          );
+        // A verified source shows the day its quotes were last found; one never verified, the day it was read.
+        const shown = source.verification?.checkedOn ?? source.consultedOn;
+        for (const evidence of [source.url, source.title, dateIn(shown, snapshot.metadata.language), ...source.quotes]) {
+          assert.ok(text.includes(evidence), `${item.id}: news must carry its source, its date and unabridged quotes: ${evidence}`);
         }
       }
       assert.doesNotMatch(article, /<details\b|\shidden(?=[\s>])/u, `${item.id}: evidence must be visible without opening a control`);

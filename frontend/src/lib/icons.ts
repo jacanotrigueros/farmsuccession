@@ -50,7 +50,6 @@ export const ICON = {
   evidence: "lucide:quote",
   date: "lucide:calendar-check",
   limits: "lucide:circle-alert",
-  draft: "lucide:triangle-alert",
   profile: "lucide:user-round",
   scope: "lucide:layers",
   status: "lucide:activity",

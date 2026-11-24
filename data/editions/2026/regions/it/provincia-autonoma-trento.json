@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "provincia-autonoma-trento",
   "officialName": "Provincia autonoma di Trento",
-  "published": "2026-09-28",
+  "published": "2026-11-24",
   "summary": "Il sostegno provinciale SRE01 al primo insediamento mantiene una scheda di servizio attiva, ma l'ultima finestra verificata per nuove domande è chiusa. La Banca della Terra ha un accesso comunale documentato a Trento; la disponibilità dell'inventario provinciale non è stata verificata. Sono disponibili la formazione BPIA della Fondazione Edmund Mach e servizi trentini di consulenza per l'avvio e il passaggio delle aziende agricole.",
   "coverage": {
     "status": "PARTIAL",
@@ -61,9 +61,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -79,6 +76,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -122,7 +126,11 @@
             "sistema informativo agricolo provinciale SRTrento",
             "hanno un’età maggiore di 18 anni e inferiore a 41 anni (non compiuti)",
             "Deliberazione della Giunta Provinciale n. 1109 del 17/07/2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La pagina indica «Attivo» per il servizio, ma segnala che il servizio online non è disponibile e mostra il bando chiuso. La fase di pagamento e le modifiche dei requisiti non sono una nuova finestra di domanda. La pagina rimanda a una deliberazione del 17 luglio 2026, il cui testo integrale non è stato verificato in questa passata."
@@ -135,12 +143,12 @@
       "scope": {
         "level": "REGIONAL"
       },
-      "operator": "Provincia autonoma di Trento, con los municipios y APPAG",
+      "operator": "Provincia autonoma di Trento, con i comuni e APPAG",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Quadro provinciale per inventariare i terreni dichiarati disponibili e mettere in contatto chi desidera coltivarli con i proprietari.",
+      "whatItOffers": "Quadro provinciale per inventariare i terreni pubblici e privati dichiarati disponibili per affitto, concessione o altro contratto agrario e mettere in contatto chi desidera coltivarli con i proprietari. I criteri prevedono la pubblicazione dei dati sul sito della Provincia.",
       "whoCanUseIt": "Proprietari che dichiarano terreni disponibili e persone interessate a coltivarli, compresi i nuovi imprenditori agricoli.",
-      "howToAccess": "La documentazione provinciale rimanda ai comuni per consultare i terreni e contattarne i proprietari. In questa passata non è stato verificato un inventario provinciale attuale consultabile.",
-      "accessUrl": "https://www.ufficiostampa.provincia.tn.it/Comunicati/I-terreni-agricoli-incolti-Tutti-nella-Banca-della-Terra",
+      "howToAccess": "I proprietari presentano la dichiarazione di disponibilità al comune competente per territorio. Chi intende coltivare i terreni, dopo aver consultato gli elenchi pubblicati, contatta direttamente il comune per ottenere i dati del proprietario e trattare con lui. Il proprietario comunica al comune l'eventuale contratto concluso. Non è stato verificato un inventario provinciale attuale consultabile.",
+      "accessUrl": "https://www.ufficiostampa.provincia.tn.it/content/download/47123/746084/file/Banca_della_Terra_criteri.pdf",
       "assetTypes": ["PLOTS"],
       "languages": ["it"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
@@ -153,10 +161,32 @@
             "l'inventario dei terreni pubblici e privati incolti",
             "contatta direttamente il comune territorialmente competente",
             "Giovedì, 23 Febbraio 2017"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.ufficiostampa.provincia.tn.it/content/download/47123/746084/file/Banca_della_Terra_criteri.pdf",
+          "title": "CRITERI E LE MODALITÀ PER LA COSTITUZIONE, IL FUNZIONAMENTO E LA GESTIONE DELLA BANCA DELLA TERRA ISTITUITA AI SENSI DELL’ARTICOLO 116 DELLA LEGGE PROVINCIALE 4 AGOSTO 2015, N. 15 (LEGGE PROVINCIALE PER IL GOVERNO DEL TERRITORIO 2015)",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Possono essere inseriti nella Banca della Terra i terreni di proprietà pubblica e proprietà privata",
+            "i terreni agricoli dichiarati disponibili dai proprietari per le operazione di affitto o concessione, o altro tipo di contratto agrario",
+            "La raccolta delle dichiarazioni di disponibilità da parte dei proprietari dei terreni pubblici e privati è effettuata dal Comune competente per territorio.",
+            "Il servizio provinciale competente in materia di sviluppo rurale provvede alla pubblicazione dei dati presenti nella Banca della Terra.",
+            "Coloro che intendono coltivare i terreni inseriti nella Banca della Terra, presa visione degli elenchi pubblicati, contattano direttamente il comune territorialmente competente al fine di avere i dati anagrafici del proprietario delle particelle fondiarie interessate, per un rapporto diretto fra le parti.",
+            "Qualora venga perfezionato un contratto, il proprietario è tenuto a darne immediata comunicazione al comune dove sono ubicati i terreni, che la trasmette ad APPAG al fine dell’aggiornamento del fascicolo aziendale della Banca della Terra."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La fonte provinciale è un comunicato del 2017 sulla costituzione dello strumento. Il servizio attivo del Comune di Trento è documentato a parte perché offre un proprio canale di accesso per il territorio comunale."
+      "notes": "La precedente fonte provinciale è un comunicato del 2017 sulla costituzione dello strumento; i criteri ne documentano le procedure, ma non dimostrano la disponibilità attuale di terreni. Il servizio attivo del Comune di Trento è documentato a parte perché offre un proprio canale di accesso per il territorio comunale.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "trento-comune-banca-della-terra",
@@ -169,11 +199,20 @@
       },
       "operator": "Comune di Trento",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Servizio comunale per iscrivere o ritirare terreni dall'inventario e chiedere informazioni sui terreni del comune offerti per la coltivazione.",
+      "whatItOffers": "Servizio comunale gratuito per iscrivere o ritirare terreni dall'inventario e chiedere informazioni sui terreni del comune offerti per la coltivazione.",
       "whoCanUseIt": "Proprietari e comproprietari che desiderano iscrivere terreni e persone interessate a coltivare i terreni del comune inseriti nella Banca della terra.",
-      "howToAccess": "I proprietari presentano il modulo al Comune di persona o per posta elettronica. Chi vuole coltivare un terreno consulta gli elenchi pubblicati e contatta l'ufficio comunale per ottenere i dati del proprietario e trattare direttamente.",
+      "howToAccess": "I proprietari compilano il modulo iscrizione (mod. 3912) o cancellazione (mod. 3913), sottoscritto dal proprietario o dai comproprietari, e lo presentano all'ufficio Società partecipate e politiche agricole, a Trento in via Alfieri 6, oppure lo trasmettono a servizio.sviluppoeconomico@pec.comune.trento.it. Per l'invio elettronico occorrono la scansione del modulo firmato e una copia del documento di identità del sottoscrittore. Chi vuole coltivare un terreno consulta gli elenchi pubblicati e contatta il servizio Sviluppo economico per ottenere i dati del proprietario e avviare un rapporto diretto.",
       "accessUrl": "https://www.comune.trento.it/Servizi/Banca-della-terra",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Comune di Trento — presentazione dei moduli della Banca della terra",
+          "value": "servizio.sviluppoeconomico@pec.comune.trento.it",
+          "sourceUrl": "https://spazicomuni.comune.trento.it/Aree-tematiche/Attivita-economiche/Agricoltura-e-allevamento/Banca-della-terra/Banca-della-terra-iscrizione-dei-terreni-cancellazione-e-richiesta-informazioni"
+        }
+      ],
       "assetTypes": ["PLOTS"],
+      "accessCostType": "FREE",
       "languages": ["it"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-04-20",
@@ -187,10 +226,34 @@
             "favorendo l'incontro tra domanda e offerta",
             "potranno contattare l'ufficio responsabile",
             "Ultimo aggiornamento: 20/04/2026 16:33"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://spazicomuni.comune.trento.it/Aree-tematiche/Attivita-economiche/Agricoltura-e-allevamento/Banca-della-terra/Banca-della-terra-iscrizione-dei-terreni-cancellazione-e-richiesta-informazioni",
+          "title": "Banca della terra: iscrizione dei terreni, cancellazione e richiesta informazioni",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "La Banca della terra è un inventario di terreni pubblici e privati che i proprietari dichiarano disponibili per la temporanea assegnazione ai soggetti che ne fanno richiesta favorendo in tal modo l'incontro tra domanda e offerta.",
+            "Proprietari e comproprietari di:",
+            "Coloro che intendano coltivare i terreni del territorio del Comune di Trento inseriti nella Banca della terra, presa visione degli elenchi pubblicati, potranno contattare il servizio Sviluppo economico, al fine di ottenere i dati del proprietario delle particelle fondiarie interessate, per avviare un rapporto diretto tra le parti.",
+            "Non vi è nessun costo",
+            "Per richiedere l'iscrizione dei terreni nella Banca della terra compilare il modulo iscrizione (mod. 3912).",
+            "Per richiedere la cancellazione dei terreni dalla Banca della terra compilare il modulo cancellazione (mod. 3913).",
+            "Il modulo, sottoscritto da proprietario/comproprietari, va presentato all'ufficio Società partecipate e politiche agricole, a Trento in via Alfieri 6, o trasmesso tramite mail o PEC a servizio.sviluppoeconomico@pec.comune.trento.it",
+            "In caso di presentazione tramite posta elettronica occorre sottoscrivere il modulo ed inviare copia scansionata dello stesso unitamente a copia del documento di identità del sottoscrittore."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La pagina comunale non ha permesso di confermare quanti terreni figurino attualmente negli elenchi. Si documenta la procedura comunale, senza dare per provata la disponibilità di un terreno specifico."
+      "notes": "La pagina comunale non ha permesso di confermare quanti terreni figurino attualmente negli elenchi. Si documenta la procedura comunale, senza dare per provata la disponibilità di un terreno specifico.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "trento-fem-brevetto-imprenditore-agricolo",
@@ -219,13 +282,21 @@
             "Edizione BPIA 2026-28",
             "250,00 Euro",
             "Il corso, della durata di massimo 600 ore, è impostato in otto moduli formativi"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://fmach.it/Comunicazione/Comunicati-stampa/Al-via-le-iscrizioni-del-corso-per-imprenditori-agricoli-60-posti-disponibili",
           "title": "Al via le iscrizioni del corso per imprenditori agricoli",
           "consultedOn": "2026-09-28",
-          "quotes": ["Data: Giovedì, 24 Settembre 2026", "Sono aperte le iscrizioni", "entro mercoledì 14 ottobre"]
+          "quotes": ["Data: Giovedì, 24 Settembre 2026", "Sono aperte le iscrizioni", "entro mercoledì 14 ottobre"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -250,7 +321,11 @@
           "url": "https://www.cia.tn.it/imprese/",
           "title": "Imprese — CIA Agricoltori Italiani del Trentino",
           "consultedOn": "2026-09-28",
-          "quotes": ["consulenza nell’apertura e formazione di un’azienda agricola", "caa.trento@cia.tn.it"]
+          "quotes": ["consulenza nell’apertura e formazione di un’azienda agricola", "caa.trento@cia.tn.it"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La pagina non indica il prezzo né se sia necessaria l'associazione per questo servizio; non si presume la gratuità."
@@ -276,10 +351,54 @@
           "url": "https://www.cia.tn.it/imprese/",
           "title": "Imprese — CIA Agricoltori Italiani del Trentino",
           "consultedOn": "2026-09-28",
-          "quotes": ["CONTRATTI E SUCCESSIONI", "successioni", "Cessioni; – Subentri; – Disdette", "Trento: 0461 1730454"]
+          "quotes": ["CONTRATTI E SUCCESSIONI", "successioni", "Cessioni; – Subentri; – Disdette", "Trento: 0461 1730454"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La tariffa e i requisiti di associazione non sono stati verificati."
+    },
+    {
+      "id": "trento-calendario-bandi-feasr",
+      "name": "Calendario degli avvisi e degli inviti a partecipare - Bandi FEASR",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincia autonoma di Trento, Servizio politiche sviluppo rurale",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Calendario dei bandi del Complemento di Sviluppo rurale provinciale, con requisiti dei beneficiari, obiettivi, importi totali dei bandi e date previste di apertura e chiusura. Permette di cercare anche i bandi per giovani agricoltori.",
+      "howToAccess": "Consultare la tabella e utilizzare i filtri per parola chiave, stato del bando o tipo di intervento del PSP; la pagina offre anche il download in formato CSV.",
+      "accessUrl": "https://www.provincia.tn.it/Dati-e-statistiche/Dataset/Calendario-degli-avvisi-e-degli-inviti-a-partecipare-Bandi-FEASR",
+      "lastEvidenceDate": "2026-08-14",
+      "sources": [
+        {
+          "url": "https://www.provincia.tn.it/Dati-e-statistiche/Dataset/Calendario-degli-avvisi-e-degli-inviti-a-partecipare-Bandi-FEASR",
+          "title": "Calendario degli avvisi e degli inviti a partecipare - Bandi FEASR",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Il calendario è rappresentato dal cronoprogramma dei bandi del Complemento di Sviluppo rurale (CSR) 2023-2027 della PAT",
+            "Nel cronoprogramma del calendario sono anticipati i requisiti relativi ai beneficiari, agli obiettivi specifici, all'importo totale e le date previste di apertura e chiusura dei bandi",
+            "La tabella riporta tutti i bandi riferiti alla programmazione FEASR 2023-2027",
+            "parola chiave (esempio \"giovani agricoltori\", \"imprese\", \"investimenti\", ecc..)",
+            "stato del bando (in programma, aperto, in attuazione, scaduto)",
+            "tipo di intervento del PSP (SRB01, SRD04, ecc...)",
+            "Risorse Download CSV",
+            "Ultimo aggiornamento: 14/08/2026 11:39",
+            "Copertura geografica Provincia autonoma di Trento",
+            "Editore Servizio politiche sviluppo rurale Titolare Provincia autonoma di Trento"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "notes": "Le date del calendario sono previsioni: non dimostrano da sole l'apertura delle domande per un singolo intervento.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

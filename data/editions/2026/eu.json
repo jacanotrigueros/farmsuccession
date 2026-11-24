@@ -3,7 +3,7 @@
   "schemaVersion": "1.0.0",
   "edition": "2026",
   "officialName": "European Union",
-  "published": "2026-11-20",
+  "published": "2026-11-24",
   "summary": "The EU sets the common framework for generational renewal in farming: the CAP interventions for young farmers, the Strategy for Generational Renewal in Agriculture and the EU CAP Network's knowledge on the topic. Aid is implemented nationally and regionally.",
   "coverage": {
     "status": "PARTIAL",
@@ -31,9 +31,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "en",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -54,6 +51,13 @@
       },
       {
         "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
+      },
+      {
+        "id": "chatgpt-4",
         "tool": "CHATGPT",
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
@@ -90,7 +94,11 @@
             "Investment in rural infrastructure and services such as childcare, healthcare, transport and broadband.",
             "A Starter Pack for Young Farmers will offer a single-entry point at national level, bringing together funding, training and advisory services.",
             "By 2040, Europe aims to double the share of young and new farmers, ensuring that agriculture remains innovative, competitive and resilient."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "The Starter Pack and the European Land Observatory are measures the Strategy announces, not services operating today; the Observatory is documented separately as announced.",
@@ -128,7 +136,11 @@
             "a young farmer must have appropriate training and/or skills",
             "Young farmers in the EU can apply for CAP support to the managing authorities, which are listed in their country’s national CAP Strategic Plan.",
             "Most EU countries support generational renewal through CISYF under direct payments and via rural development funds call for application."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "claude-2"
@@ -158,7 +170,11 @@
             "the CAP Strategic Plan approved by the European Commission for each EU country;",
             "their approval process;",
             "the annual performance reports."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "claude-2"
@@ -186,7 +202,11 @@
           "quotes": [
             "This toolkit is intended for young and new farmers who are preparing a business plan to apply for a bank loan or other forms of external financing.",
             "how to prepare a credible, finance-ready business plan."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.fi-compass.eu/f/developing-business-plans-loan-applications/what-banks-look-for-in-your-business-plan.html",
@@ -196,13 +216,21 @@
             "When banks assess young farmer loan applications, they evaluate the lending risk",
             "consider different scenarios (e.g. good year vs bad year)",
             "plan for possible delays in grants or payments"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.fi-compass.eu/about-fi-compass",
           "title": "About | fi-compass",
           "consultedOn": "2026-11-17",
-          "quotes": ["fi-compass is provided by the European Commission in partnership with the European Investment Bank."]
+          "quotes": ["fi-compass is provided by the European Commission in partnership with the European Investment Bank."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "claude-2"
@@ -232,7 +260,11 @@
             "support young farmers and new entrants in setting up a successful agri-business",
             "All Generational Renewal publications",
             "All Generational Renewal good practice"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "claude-2"
@@ -259,11 +291,47 @@
             "a European Land Observatory to improve transparency, monitor market developments and support informed policymaking",
             "In 2026, a call to set up a new expert group on Farmland was launched",
             "This group will serve as an essential precursor to the European Observatory on Farmland"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Not operating yet: the Commission describes it as a future observatory prepared by an expert group and a pilot project.",
       "generatorId": "claude-1"
+    },
+    {
+      "scope": {
+        "level": "EU"
+      },
+      "accessUrl": "https://www.newbie-academy.eu/practice-abstracts/",
+      "id": "eu-newbie-practice-abstracts",
+      "name": "NEWBIE Practice Abstracts Browser",
+      "kind": "OTHER",
+      "status": "ACTIVE",
+      "operator": "NEWBIE — New Entrant netWork",
+      "operatorType": "MIXED",
+      "whatItOffers": "Short case studies on business and entry models used by new farm entrants in European countries. The browser lets readers explore practical approaches to barriers to entry.",
+      "whoCanUseIt": "People exploring ways to enter farming can use the case studies to compare approaches.",
+      "sources": [
+        {
+          "url": "https://www.newbie-academy.eu/practice-abstracts/",
+          "title": "Practice abstracts - Newbie",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "short but informative descriptions of good practices of new entrant business and entry models in European countries.",
+            "practical information on “newbies” innovative approaches which address different identified hurdles.",
+            "Newbie hurdles and solutions – Practice abstracts browser",
+            "New Entrant netWork: Business models for Innovation"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "eu-newbie-toolkits",
@@ -292,10 +360,14 @@
             "You will find all our toolkits by clicking the buttons below.",
             "Toolkits Umbrella toolkit Hurdles and solutions",
             "This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 772835"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

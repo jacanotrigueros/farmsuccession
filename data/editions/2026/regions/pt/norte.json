@@ -5,7 +5,7 @@
   "country": "PT",
   "region": "norte",
   "officialName": "Norte",
-  "published": "2026-09-28",
+  "published": "2026-11-24",
   "summary": "No Norte, os apoios à instalação e o acompanhamento técnico PEPAC são de âmbito nacional. A nível local, Caminha mantém uma bolsa municipal de terras e Braga disponibiliza um gabinete municipal de apoio com aconselhamento individualizado e promoção do empreendedorismo de jovens agricultores.",
   "coverage": {
     "status": "PARTIAL",
@@ -41,9 +41,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "pt",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -59,6 +56,20 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -74,14 +85,16 @@
       },
       "operator": "Câmara Municipal de Caminha",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Bolsa municipal que liga proprietários de terrenos agrícolas sem uso a munícipes que os querem cultivar, com protocolo de cedência e apoio jurídico da Câmara Municipal.",
-      "whoCanUseIt": "Proprietários de terrenos no concelho de Caminha disponíveis para produção agrícola e munícipes interessados em cultivar terrenos cedidos.",
-      "howToAccess": "Pedido de adesão na Câmara Municipal de Caminha ou nas Juntas de Freguesia.",
+      "whatItOffers": "Bolsa municipal que liga proprietários de terrenos agrícolas sem uso a interessados em cultivá-los, com protocolo de cedência e apoio jurídico da Câmara Municipal.",
+      "whoCanUseIt": "Podem aderir gratuitamente todos os proprietários que pretendam ceder prédios rústicos com aptidão agrícola no concelho de Caminha, exclusivamente para produção agrícola, e todos os interessados em desenvolver atividade agrícola nos terrenos cedidos.",
+      "howToAccess": "Obter o requerimento próprio nos anexos do regulamento, no Balcão de Atendimento da Câmara Municipal de Caminha, na Junta de Freguesia da área de residência ou no sítio municipal. O regulamento determina a entrega na Câmara Municipal, com os documentos de identificação e identificação fiscal e os elementos de identificação do prédio aplicáveis.",
       "accessUrl": "https://www.cm-caminha.pt/pages/1169",
       "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
       "languages": ["pt"],
       "targetProfiles": ["LAND_SEEKER", "LANDOWNER"],
-      "notes": "A página municipal continua acessível e publica requerimentos e candidatos, mas não apresenta data de atualização da bolsa; por prudência, o estado atual fica como desconhecido.",
+      "accessCostType": "FREE",
+      "notes": "A página municipal continua acessível e publica requerimentos e candidatos, mas não apresenta data de atualização da bolsa; o regulamento também não comprova operação atual. A gratuitidade refere-se à adesão, não às condições de cedência dos terrenos.",
       "sources": [
         {
           "url": "https://www.cm-caminha.pt/pages/1169",
@@ -92,10 +105,33 @@
             "Podem aderir à Bolsa de Terras os proprietários de terrenos localizados no concelho de Caminha e disponíveis para o desenvolvimento da produção agrícola",
             "cujo apoio jurídico para a definição dos termos do mesmo é assegurado pela Câmara Municipal",
             "O pedido de adesão pode ser feito na Câmara Municipal de Caminha ou nas Juntas de Freguesia."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.cm-caminha.pt/cmcaminha/uploads/document/file/2730/regulamento_bolsa_de_terras.pdf",
+          "title": "REGULAMENTO MUNICIPAL DA BOLSA DE TERRAS DE CAMINHA",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Podem aderir à BTC, de forma gratuita, todos os proprietários que pretendam ceder os seus prédios rústicos com aptidão agrícola localizados no concelho de Caminha, unicamente para o desenvolvimento da produção agrícola.",
+            "Podem aderir à BTC, de forma gratuita todos os interessados em desenvolver a atividade agrícola nos terrenos cedidos.",
+            "O pedido de adesão é formulado através de requerimento próprio, conforme anexos ao presente regulamento, disponibilizados em suporte papel no Balcão de Atendimento da Câmara Municipal de Caminha ou na Junta de Freguesia da área de residência, ou em suporte digital através do site www.cm- caminha.pt.",
+            "Os respetivos requerimentos devem ser entregues na Câmara Municipal de Caminha e ser instruídos com os seguintes documentos:",
+            "fotocópia de Bilhete de Identidade ou Cartão de Cidadão;",
+            "fotocópia do documento de identificação fiscal (NIF);",
+            "numero da inscrição do Registo da Conservatória ou número da descrição da matriz;",
+            "A relação entre proprietário e produtor deverá ser estabelecida através de assinatura de protocolo de cedência, cujo apoio jurídico para a definição dos termos do mesmo deverá ser assegurado pela Câmara Municipal."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "norte-gabinete-apoio-agricultor-braga",
@@ -124,11 +160,167 @@
             "promover o empreendedorismo de jovens agricultores",
             "Os serviços do Gabinete de Apoio ao Agricultor funcionam nas instalações da Quinta Pedagógica de Braga",
             "Os beneficiários devem marcar previamente a visita"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "Serviço municipal distinto do acompanhamento nacional: presta aconselhamento local mais amplo e explicita apoio ao empreendedorismo de jovens agricultores.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "norte-guimaraes-bolsa-terras",
+      "name": "Bolsa de Terras de Guimarães",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Guimarães"
+      },
+      "operator": "Município de Guimarães — Incubadora de Base Rural",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "O regulamento publicado em 4 de julho de 2017 descreve uma bolsa municipal para disponibilizar, em arrendamento, terrenos de proprietários que os queiram ceder.",
+      "accessUrl": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/writer_file/document/8580/regulamento_da_bolsa_e_banco_de_terras.pdf",
+      "sources": [
+        {
+          "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/writer_file/document/8580/regulamento_da_bolsa_e_banco_de_terras.pdf",
+          "title": "Regulamento da Bolsa e do Banco de Terras de Guimarães — Diário da República, 4 de julho de 2017",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "A Bolsa é composta por terrenos de proprietários",
+            "em regime de arrendamento",
+            "os proprietários interessados em colocar terrenos na Bolsa de Terras",
+            "preencher as Fichas de Inscrição de Prédios Rústicos",
+            "preenchimento da ficha de inscrição do empreendedor",
+            "N.º 127 — 4 de julho de 2017"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Proprietários que pretendam disponibilizar terrenos e empreendedores interessados em explorar parcelas para uma atividade agrícola.",
+      "howToAccess": "Os proprietários preenchem a ficha de inscrição dos prédios rústicos. Os candidatos à exploração seguem o aviso municipal e a ficha de inscrição do empreendedor.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "norte-guimaraes-banco-terras",
+      "name": "Banco de Terras de Guimarães",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Guimarães"
+      },
+      "operator": "Município de Guimarães — Incubadora de Base Rural",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "O regulamento publicado em 4 de julho de 2017 prevê que o município disponibilize terrenos rústicos por arrendamento ou subarrendamento para projetos rurais.",
+      "accessUrl": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/writer_file/document/8580/regulamento_da_bolsa_e_banco_de_terras.pdf",
+      "sources": [
+        {
+          "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/writer_file/document/8580/regulamento_da_bolsa_e_banco_de_terras.pdf",
+          "title": "Regulamento da Bolsa e do Banco de Terras de Guimarães — Diário da República, 4 de julho de 2017",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "disponibiliza terrenos rústicos do município para arrendamento e",
+            "pessoas individuais (maiores de 18 anos)",
+            "desenvolver um negócio agrícola nas terras disponibilizadas pelo Banco de Terras.",
+            "a ficha de inscrição do empreendedor (Anexo 8) e a demais documentação.",
+            "N.º 127 — 4 de julho de 2017"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Pessoas singulares maiores de 18 anos ou pessoas coletivas interessadas em criar um negócio agrícola nos terrenos do banco.",
+      "howToAccess": "Depois da publicação do aviso municipal, pedir a ficha do empreendedor e a restante documentação pelo canal indicado no aviso.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "norte-guimaraes-incubadora-base-rural",
+      "name": "Incubadora de Base Rural de Guimarães",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Guimarães"
+      },
+      "operator": "Município de Guimarães",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Programa de qualificação que apoia a elaboração, consolidação e implementação de um plano de negócios de base rural.",
+      "accessUrl": "https://www.cm-guimaraes.pt/municipio/camara-municipal/servicos/ambiente/incubadora-base-rural-guimaraes",
+      "sources": [
+        {
+          "url": "https://www.cm-guimaraes.pt/municipio/camara-municipal/servicos/ambiente/incubadora-base-rural-guimaraes",
+          "title": "Incubadora Base Rural Guimarães | Câmara Municipal de Guimarães",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "capacitar os incubados para a elaboração, consolidação e implementação do plano de negócios.",
+            "Destina-se preferencialmente a jovens agricultores e empreendedores, residentes do concelho, desempregados e agricultores que se dediquem ao modo de produção biológico.",
+            "Regulamento da Incubadora de Base Rural de Guimarães"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Empreendedores com uma ideia ou plano para Guimarães, com preferência por jovens agricultores, residentes, desempregados e agricultores em produção biológica.",
+      "howToAccess": "Consultar o regulamento da Incubadora ligado na página municipal.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "norte-guimaraes-oficina-empreendedor",
+      "name": "Oficina do Empreendedor — Guimarães",
+      "kind": "ADVICE",
+      "status": "HISTORICAL",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Guimarães"
+      },
+      "operator": "Município de Guimarães",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Na edição de 2024, a primeira fase do quinto Programa de Incubação oferecia formação intensiva teórico-prática para formular e implementar um plano de negócios de base rural.",
+      "accessUrl": "https://www.cm-guimaraes.pt/municipio/camara-municipal/servicos/ambiente/incubadora-base-rural-guimaraes",
+      "sources": [
+        {
+          "url": "https://www.cm-guimaraes.pt/municipio/camara-municipal/servicos/ambiente/incubadora-base-rural-guimaraes",
+          "title": "Incubadora Base Rural Guimarães | Câmara Municipal de Guimarães",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "CANDIDATURAS ABERTAS ATÉ DIA 23 DE FEVEREIRO DE 2024",
+            "Aviso de Abertura de Candidaturas para a Oficina do Empreendedor - Republicação N.º 2",
+            "Formulário de Candidatura - Oficina do Empreendedor"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.cm-guimaraes.pt/cmguimaraes/uploads/writer_file/document/10076/aviso_oe_republicacao_2.pdf",
+          "title": "Aviso n.º 12 — Oficina do Empreendedor, republicação n.º 2",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "primeira constituinte do 5º Programa de Incubação",
+            "O presente Aviso é dirigido a promotores que pretendam desenvolver uma iniciativa empresarial,",
+            "programa de formação intensiva teórico-prática",
+            "à formulação e implementação de um plano de"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "whoCanUseIt": "Promotores de uma iniciativa empresarial de base rural.",
+      "howToAccess": "Consultar o aviso republicado e o formulário conservados na página municipal.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

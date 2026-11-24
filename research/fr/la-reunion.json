@@ -1,12 +1,19 @@
 {
   "schemaVersion": "1.0.0",
-  "territory": { "level": "REGION", "country": "FR", "region": "la-reunion" },
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "la-reunion"
+  },
   "language": "fr",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-11-24",
   "context": [
     "L’aide à l’installation réunionnaise est cofinancée par le fonds européen agricole et le Département ; ses pages officielles n’étaient pas lisibles lors de cette passe.",
     "daaf.reunion.agriculture.gouv.fr a expiré, departement974.fr renvoie un accès refusé (403) et agribio.reunion.chambagri.fr présente un certificat non vérifiable.",
-    "La Safer Réunion applique des frais de candidature par dossier, avec des exceptions indiquées dans l’avis."
+    "La Safer Réunion applique des frais de candidature par dossier, avec des exceptions indiquées dans l’avis.",
+    "La page « Terres en friche » décrit un inventaire et un signalement de parcelles, pas une candidature pour obtenir du foncier.",
+    "Les primes friches figurent dans le titre mais leurs conditions et leur accès restent à vérifier.",
+    "La page de transmission de la SAFER Réunion décrit un accompagnement des cédants, distinct de la procédure d’appel à candidature pour acheter ou louer."
   ],
   "portals": [
     {
@@ -22,7 +29,11 @@
       "kinds": ["FINANCIAL_SUPPORT"],
       "query": "Région Réunion aide installation jeunes agriculteurs FEADER DJA 2026 dispositif"
     },
-    { "id": "re-safer", "kinds": ["LAND_BANK"], "query": "Safer Réunion installation foncier agricole appels à candidatures site officiel" }
+    {
+      "id": "re-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Réunion installation foncier agricole appels à candidatures site officiel"
+    }
   ],
   "leads": [
     {
@@ -55,6 +66,69 @@
       "reason": "Connexion expirée lors de cette passe ; réessayer à la prochaine mise à jour.",
       "foundBy": "re-installation",
       "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "re-safer-terres-incultes",
+      "name": "Procédure « Terres Incultes »",
+      "url": "https://www.safer-reunion.fr/terres-en-friche",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "la-reunion-terres-incultes",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "re-safer-transmission",
+      "name": "Evaluer, Vendre et Transmettre",
+      "url": "https://www.safer-reunion.fr/vendre-et-transmettre",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "la-reunion-safer-transmission",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "la-reunion-repertoire-depart-installation-source",
+      "name": "Guide à l’installation en agriculture — Chambre d’agriculture de La Réunion, 2023",
+      "url": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+      "kind": "OTHER",
+      "status": "ADMITTED",
+      "resourceId": "la-reunion-terres-incultes",
+      "checkedOn": "2026-11-24"
+    },
+    {
+      "id": "la-reunion-dotation-jeune-agriculteur-source",
+      "name": "Aides FEADER liées au Plan stratégique national 2023–2027 — Département de La Réunion",
+      "url": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf",
+      "kind": "OTHER",
+      "status": "ADMITTED",
+      "resourceId": "la-reunion-feader-travaux-amenagement-foncier",
+      "checkedOn": "2026-11-24"
+    },
+    {
+      "name": "Répertoire Départ Installation de La Réunion",
+      "url": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+      "kind": "SUCCESSION_SERVICE",
+      "id": "la-reunion-repertoire-depart-installation",
+      "status": "ADMITTED",
+      "resourceId": "la-reunion-repertoire-depart-installation",
+      "checkedOn": "2026-11-24"
+    },
+    {
+      "name": "Point Accueil Installation de La Réunion",
+      "url": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+      "kind": "ADVICE",
+      "id": "la-reunion-point-accueil-installation",
+      "status": "ADMITTED",
+      "resourceId": "la-reunion-point-accueil-installation",
+      "checkedOn": "2026-11-24"
+    },
+    {
+      "name": "Dotation Jeune Agriculteur de La Réunion",
+      "url": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf",
+      "kind": "FINANCIAL_SUPPORT",
+      "id": "la-reunion-dotation-jeune-agriculteur",
+      "status": "ADMITTED",
+      "resourceId": "la-reunion-dotation-jeune-agriculteur",
+      "checkedOn": "2026-11-24"
     }
   ],
   "instrumentChecks": [
@@ -70,7 +144,12 @@
       "reason": "Aucun dispositif d’accompagnement à la transmission propre au territoire n’a été vérifié.",
       "checkedOn": "2026-09-20"
     },
-    { "expectedId": "fr-safer-foncier", "status": "FOUND", "leadId": "re-safer-candidature", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "re-safer-candidature",
+      "checkedOn": "2026-09-20"
+    },
     {
       "expectedId": "fr-associations-installation",
       "status": "NOT_FOUND",
@@ -83,6 +162,46 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Première passe avec la liste de contrôle nationale : Safer Réunion admise ; aide à l’installation inaccessible sur les sites officiels."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page décrit la procédure « Terres Incultes » menée par la SAFER pour le Département, avec des inventaires de friches et un formulaire de signalement, explicitement liée à l’installation de nouveaux agriculteurs. Je propose une ressource distincte des appels à candidature fonciers déjà recensés ; les primes friches ne sont que mentionnées dans le titre, sans dispositif décrit."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page de la SAFER Réunion décrit un accompagnement des propriétaires pour évaluer et transmettre leur bien, rechercher des repreneurs et sécuriser les démarches. Je propose un service de transmission distinct des appels à candidature déjà publiés, avec accès par le formulaire de la page."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "Le guide 2023 décrit les premières démarches, le répertoire, la DJA et les voies d’accès au foncier."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "Le guide 2023 décrit les premières démarches, le répertoire, la DJA et les voies d’accès au foncier."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "Le guide départemental donne le barème de la DJA et celui des travaux d’aménagement foncier au titre du programme 2023–2027."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "Le guide 2023 décrit les premières démarches, le répertoire, la DJA et les voies d’accès au foncier."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "Le guide 2023 décrit les premières démarches, le répertoire, la DJA et les voies d’accès au foncier."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "Le guide départemental donne le barème de la DJA et celui des travaux d’aménagement foncier au titre du programme 2023–2027."
     }
   ]
 }

@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "gran-canaria",
   "officialName": "Gran Canaria",
-  "published": "2026-09-30",
+  "published": "2026-11-24",
   "summary": "Gran Canaria añade a las ayudas y formación comunes de Canarias un Banco de Tierras insular activo, formación presencial de incorporación en la Escuela de Capacitación Agraria de Arucas y una ayuda del Cabildo específicamente destinada al relevo e incorporación a la actividad ganadera.",
   "coverage": {
     "status": "PARTIAL",
@@ -45,9 +45,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -63,6 +60,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -95,7 +99,11 @@
             "El objetivo de estos Cursos es formar a personas que se quieran incorporar a la empresa agraria en las mejores condiciones técnico-prácticas y de capacidad empresarial",
             "Podrás solicitar los cursos a partir del 7 de enero de 2026",
             "Modalidad: Presencial"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -148,7 +156,11 @@
             "Para mostrar interés por una finca deberá crear previamente su perfil en la plataforma.",
             "928 660 738",
             "aidergc@aidergc.com"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.aidergc.com/dia-mundial-de-la-agricultura/",
@@ -157,7 +169,11 @@
           "quotes": [
             "09/09/2026",
             "Actualmente hay 275 hectáreas inscritas en el Banco de Tierras, de las que más de 85 ya se han recuperado, y 325 personas demandantes buscan terrenos para emprender o consolidar proyectos."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -199,7 +215,11 @@
           "quotes": [
             "CONVOCATORIA DE SUBVENCIONES PARA EL AÑO 2026 PARA EL FOMENTO DEL SECTOR GANADERO DE GRAN CANARIA",
             "Plazo de presentación de solicitudes: VEINTE (20) DÍAS HÁBILES"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.infosubvenciones.es/bdnstrans/api/convocatorias/documentos?idDocumento=1435060",
@@ -212,10 +232,88 @@
             "El porcentaje de subvención que se aplicará sobre el presupuesto aprobado será de un 60%",
             "necesariamente de forma telemática a través de la sede electrónica del Cabildo de Gran Canaria"
           ],
-          "consultedOn": "2026-09-30"
+          "consultedOn": "2026-09-30",
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "gran-canaria-banco-tierras-las-palmas",
+      "name": "Banco de Tierras",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Las Palmas de Gran Canaria"
+      },
+      "operator": "Ayuntamiento de Las Palmas de Gran Canaria",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro de terrenos para cesión, aparcería o alquiler que facilita el contacto entre titulares y personas que buscan tierras para iniciar o ampliar una actividad agraria. La entidad gestora facilita los acuerdos y prevé reuniones informativas sobre los tipos de contratos.",
+      "whoCanUseIt": "Titulares que desean inscribir terrenos y personas interesadas en ampliar las tierras que trabajan o iniciar una nueva actividad agraria.",
+      "howToAccess": "Rellenar en la página el formulario de inscripción de tierras o el de demanda de tierras. La entidad indica que contactará con el solicitante tras recibir la solicitud y organizará reuniones informativas sobre contratos.",
+      "accessUrl": "https://lpgcsostenible.laspalmasgc.es/banco-de-tierras/",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "notes": "La página publica los formularios, pero no aporta una fecha reciente de actividad que permita confirmar la operación actual del servicio.",
+      "sources": [
+        {
+          "url": "https://lpgcsostenible.laspalmasgc.es/banco-de-tierras/",
+          "title": "Banco de Tierras - Medio Ambiente Las Palmas",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Portal oficial de medio ambiente del Ayuntamiento de Las Palmas de Gran Canaria.",
+            "Un Banco de Tierras consiste en un registro de terrenos que sus titulares están dispuestos a hacer un contrato de cesión, aparceria o alquiler.",
+            "Las personas interesadas en ampliar la cantidad de tierras que trabajan o al iniciar una nueva actividad agraria, pueden consultar este registro y contactar con los propietarios para ver y llegar a un acuerdo.",
+            "La entidad gestora se encarga de gestionar los contactos y facilitar los acuerdos.",
+            "Para inscribir o demandar tierras, se ha intentado que el proceso sea muy sencillo: con un sólo clic sobre el botón que quieras INSCRIPCIÓN DE TIERRAS o DEMANDA DE TIERRAS y rellenar el formulario.",
+            "Una vez recibida la solicitud nos pondremos en contacto con el solicitante y haremos reuniones informativas con todos los interesados sobre los tipos de contratos.",
+            "Si eres una persona inquieta y quieres colaborar con la dinamización agraria en Las Palmas de Gran Canaria, puedes apuntarte en QUIERO COLABORAR CON EL BANCO DE TIERRAS.",
+            "Demanda de consulta del parcelario"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "gran-canaria-portal-agricultura-ganaderia-pesca",
+      "name": "Agricultura, Ganadería y Pesca",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Cabildo de Gran Canaria",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Página del área de Agricultura, Ganadería y Pesca con accesos al Banco de Tierras, procedimientos y convocatorias abiertas, seguimiento de convocatorias, plan formativo, publicaciones y cita previa en las Agencias de Extensión Agraria.",
+      "accessUrl": "https://cabildo.grancanaria.com/area-tematica/agricultura-ganaderia-y-pesca",
+      "sources": [
+        {
+          "url": "https://cabildo.grancanaria.com/area-tematica/agricultura-ganaderia-y-pesca",
+          "title": "Agricultura, Ganadería y Pesca - Portal Institucional - Cabildo de Gran Canaria - Cabildo de Gran Canaria",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Cabildo de Gran Canaria Áreas temáticas Agricultura, Ganadería y Pesca",
+            "Procedimientos y convocatorias abiertas Seguimiento de convocatorias",
+            "Plan Formativo del Sector Primario del Cabildo de Gran Canaria.",
+            "Cita previa en las Agencias de Extensión Agraria",
+            "Publicaciones Enlaces de interés Banco de Tierras Preguntas frecuentes"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

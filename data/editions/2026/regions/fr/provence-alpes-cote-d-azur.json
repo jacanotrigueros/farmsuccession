@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "provence-alpes-cote-d-azur",
   "officialName": "Provence-Alpes-Côte d’Azur",
-  "published": "2026-10-30",
+  "published": "2026-11-24",
   "summary": "En Provence-Alpes-Côte d'Azur, la Région publie la Dotation Jeunes Agriculteurs et un prêt d'honneur agricole est proposé par Initiative Sud. Le programme AITA finance aussi des étapes de l'installation et de la transmission. La Safer donne accès à ses appels fonciers, tandis que les Points Accueil Installation, Terre de Liens et les ADEAR proposent des accompagnements. Des services plus locaux complètent cet ensemble.",
   "coverage": {
     "status": "PARTIAL",
@@ -73,9 +73,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -92,6 +89,20 @@
         "model": "gpt-6",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-29"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -106,7 +117,7 @@
       },
       "operator": "Région Provence-Alpes-Côte d'Azur",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Une aide à la première installation agricole, cofinancée par le FEADER et la Région, avec un montant de base variable selon la zone et des modulations liées au projet.",
+      "whatItOffers": "Une aide à la première installation agricole, cofinancée par le FEADER et la Région, avec un montant de base variable selon la zone et des modulations liées au projet. La Région précise que la DJA est versée en une seule fois, à l’installation.",
       "whoCanUseIt": "Les candidats âgés de 18 à 40 ans qui remplissent notamment les conditions de capacité professionnelle et présentent une première installation viable.",
       "howToAccess": "Préparer le plan d'entreprise et le dossier avec la chambre départementale, puis déposer la demande sur la plateforme indiquée par la Région. Vérifier auprès du service instructeur la date limite applicable avant le dépôt.",
       "accessUrl": "https://www.maregionsud.fr/vos-aides/detail/dotation-jeunes-agriculteurs",
@@ -126,7 +137,11 @@
           "url": "https://www.maregionsud.fr/vos-aides/detail/dotation-jeunes-agriculteurs",
           "title": "Dotation Jeunes Agriculteurs | Région Sud",
           "consultedOn": "2026-09-29",
-          "quotes": ["Je fais ma demande", "de 18 ans minimum et de 40 ans maximum", "Zone de montagne : 30 000 €", "31/12/2027"]
+          "quotes": ["Je fais ma demande", "de 18 ans minimum et de 40 ans maximum", "Zone de montagne : 30 000 €", "31/12/2027"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://europe.maregionsud.fr/aides-et-appels-a-projets/projets/detail/aide-a-linstallation-en-agriculture",
@@ -137,11 +152,27 @@
             "Région Provence-Alpes-Côte d'Azur",
             "Le dépôt des dossiers de demande d'aide",
             "31/12/2028"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.maregionsud.fr/vos-aides/detail/aide-a-linstallation-en-agriculture",
+          "title": "Aide à l’installation en agriculture — Région Sud",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "La Dotation jeunes agriculteurs (DJA) est une aide au démarrage versée en une fois, à l’installation du porteur de projet."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "claude-1",
-      "notes": "La page « Dotation Jeunes Agriculteurs » de la Région indique le 31/12/2027, tandis que le portail Europe en Région Sud indique le 31/12/2028 pour l'aide à l'installation. Aucune modification officielle résolvant l'écart n'a été établie dans cette passe ; la clôture est donc omise."
+      "notes": "La page « Dotation Jeunes Agriculteurs » de la Région indique le 31/12/2027, tandis que le portail Europe en Région Sud indique le 31/12/2028 pour l'aide à l'installation. Aucune modification officielle résolvant l'écart n'a été établie dans cette passe ; la clôture est donc omise.",
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "provence-alpes-cote-d-azur-safer-appels-candidatures",
@@ -154,7 +185,7 @@
       "operator": "Safer Provence-Alpes-Côte d'Azur",
       "operatorType": "MIXED",
       "whatItOffers": "Accès aux appels fonciers de la Safer PACA, avec la DJA, Terre de Liens, les ADEAR, Ecopaysans et le prêt d’honneur documentés dans la région.",
-      "howToAccess": "Consulter l'appel correspondant au département et au bien recherché, puis suivre ses modalités et sa date limite propres.",
+      "howToAccess": "Consulter l'appel correspondant au département et au bien recherché, puis suivre ses modalités et sa date limite propres. La Safer PACA recommande de choisir d’abord un territoire et une production, de consulter les publicités des biens, puis de contacter le conseiller foncier du territoire retenu.",
       "accessUrl": "https://www.safer-paca.com/appels-a-candidatures/",
       "assetTypes": ["PLOTS"],
       "languages": ["fr"],
@@ -164,7 +195,11 @@
           "url": "https://www.safer-paca.com/appels-a-candidatures/",
           "title": "Appels à candidatures | Safer PACA",
           "consultedOn": "2026-09-29",
-          "quotes": ["à la vente et à la location, par département", "Appels à candidatures SAFER", "test d'activité agricole"]
+          "quotes": ["à la vente et à la location, par département", "Appels à candidatures SAFER", "test d'activité agricole"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer-paca.com/contactez-nous/",
@@ -177,11 +212,28 @@
             "Bouches-du-Rhône",
             "Var La Gueiranne Route du Vieux Cannet",
             "Vaucluse Maison de l'Agriculture"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.safer-paca.com/espace-porteurs-de-projets/",
+          "title": "PORTEURS DE PROJETS – SAFER PACA",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Le choix du territoire et de la production envisagés constituent une étape indispensable",
+            "les porteurs de projet sont invités à contacter le conseiller foncier du territoire qui les intéresse."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "claude-1",
-      "notes": "La liste principale est chargée dans une fenêtre intégrée. Les échéances des annonces individuelles n'ont pas été reprises comme une période de candidature unique. La Safer Provence-Alpes-Côte d’Azur intervient dans les Alpes-de-Haute-Provence, les Hautes-Alpes, les Alpes-Maritimes, les Bouches-du-Rhône, le Var et le Vaucluse."
+      "notes": "La liste principale est chargée dans une fenêtre intégrée. Les échéances des annonces individuelles n'ont pas été reprises comme une période de candidature unique. La Safer Provence-Alpes-Côte d’Azur intervient dans les Alpes-de-Haute-Provence, les Hautes-Alpes, les Alpes-Maritimes, les Bouches-du-Rhône, le Var et le Vaucluse.",
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "provence-alpes-cote-d-azur-terre-de-liens-accompagnement",
@@ -209,7 +261,11 @@
             "En accompagnant les porteurs de projets",
             "En accompagnant les propriétaires-cédant·es",
             "Nous contacter"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1",
@@ -241,7 +297,11 @@
             "mise en lien avec des personnes",
             "rendez-vous individuels, formations en groupe",
             "Contactez l’ADEAR de votre département"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -267,7 +327,11 @@
           "url": "https://www.agriculturepaysanne.org/Les-inscriptions-pour-l-automne-sur-Ecopaysan-sont-toujours-possibles",
           "title": "Les inscriptions pour l'automne sur Ecopaysan sont toujours possibles | ARDEAR PACA",
           "consultedOn": "2026-09-29",
-          "quotes": ["parcours collectif de formation", "à l’installation agricole de 4 mois", "contact@ecopaysans.fr"]
+          "quotes": ["parcours collectif de formation", "à l’installation agricole de 4 mois", "contact@ecopaysans.fr"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1",
@@ -296,13 +360,21 @@
           "url": "https://www.initiative-sud.com/pret-dhonneur-agricole-feader.html",
           "title": "Prêt d'honneur agricole FEADER | Initiative Sud",
           "consultedOn": "2026-09-29",
-          "quotes": ["prêt d'honneur agricole régional", "à taux zéro", "contacter l'association locale Initiative"]
+          "quotes": ["prêt d'honneur agricole régional", "à taux zéro", "contacter l'association locale Initiative"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.maregionsud.fr/actualites/detail/un-pack-daides-pour-les-jeunes-agriculteurs",
           "title": "Un pack d'aides pour les jeunes agriculteurs | Région Sud",
           "consultedOn": "2026-09-29",
-          "quotes": ["le prêt d’honneur FEADER", "renforcer les fonds"]
+          "quotes": ["le prêt d’honneur FEADER", "renforcer les fonds"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1",
@@ -336,7 +408,11 @@
             "Modalité d'enseignement",
             "présentiel",
             "Accéder au formulaire de pré-inscription"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1",
@@ -367,13 +443,21 @@
           "quotes": [
             "des six Points Accueil Installation des départements de la région",
             "La labellisation a été prolongée jusqu’au 31/12/2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.terredeprovence-agglo.com/page/sinstaller-developper-son-exploitation",
           "title": "S'installer & développer son exploitation — Terre de Provence Agglomération",
           "consultedOn": "2026-10-30",
-          "quotes": ["Point Accueil Installation – Chambre d’Agriculture 13 : Conseils, orientation, construction de projet."]
+          "quotes": ["Point Accueil Installation – Chambre d’Agriculture 13 : Conseils, orientation, construction de projet."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1",
@@ -410,7 +494,11 @@
             "Suivi du nouvel exploitant",
             "Prise en charge du diagnostic d’exploitation à céder",
             "Incitation à la transmission de l’exploitation préalablement inscrite au répertoire départ installation (RDI)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://draaf.paca.agriculture.gouv.fr/aita-formulaires-de-demande-d-aide-et-de-paiement-pour-les-porteurs-de-projet-a935.html",
@@ -418,7 +506,11 @@
           "consultedOn": "2026-10-30",
           "quotes": [
             "Les demandes d’aide et de paiement des porteurs de projet dans le cadre des dispositifs de l’AITA financés par l’Etat sont à déposer auprès des DDT/DDTM"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1",
@@ -454,7 +546,11 @@
             "Le test peut durer de 1 à 3 ans.",
             "accompagnement au projet par l'Adear",
             "accompagnement compta / gestion d'activité par la couveuse Mosaïque"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.agriculturepaysanne.org/S-installer-306",
@@ -463,7 +559,11 @@
           "quotes": [
             "L’Adear coordonne l’Espace Test Agricole des Alpes de Haute-Provence",
             "Plusieurs lieux tests sont régulièrement ouverts aux porteur·ses de projets pour tout type de productions"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1",
@@ -502,7 +602,11 @@
             "Terre de Provence Agglomération met à disposition des exploitants et futurs exploitants un ensemble de dispositifs, de permanences et de partenaires spécialisés",
             "ADEAR 13 : Accompagnement à l’installation et suivi post-installation",
             "contact@adear13.org"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1",
@@ -534,11 +638,180 @@
           "quotes": [
             "Aide TPA : Frais de notaire et d’arpentage - Prise en charge partielle lors de l’acquisition d’un terrain agricole.",
             "Contact : SAFER"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1",
       "notes": "La page publique ne donne ni montant, ni critères détaillés, ni période de demande ; ces éléments sont donc omis et doivent être confirmés auprès de l'opérateur. Aucun contact personnel publié sur la page n'est reproduit."
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-aide-installation-agro-ecologique-bouches-du-rhone",
+      "name": "Aide à l’installation agro-écologique",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Bouches-du-Rhône"
+      },
+      "operator": "Département des Bouches-du-Rhône",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Une aide à la trésorerie lors de la phase d’installation : 10 000 € pour une installation à titre principal et 5 000 € pour une installation à titre secondaire.",
+      "whoCanUseIt": "Agriculteurs et agricultrices bénéficiaires d’une Dotation Jeune Agriculteur portant un projet d’installation agro-écologique dans les Bouches-du-Rhône.",
+      "howToAccess": "Télécharger sur la page du Département le dispositif et le formulaire de demande de subvention pour l’année 2026.",
+      "accessUrl": "https://departement13.fr/en-actions/agriculture-peche/aide-linstallation-agro-ecologique",
+      "instrumentType": "GRANT",
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://departement13.fr/en-actions/agriculture-peche/aide-linstallation-agro-ecologique",
+          "title": "Aide à l’installation agro-écologique | Département des Bouches-du-Rhône",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Aide à l’installation agro-écologique | Département des Bouches-du-Rhône",
+            "Vous êtes agriculteur ou agricultrice bénéficiaire d’une Dotation Jeune Agriculteur et vous portez un projet d’installation agro-écologique dans les Bouches-du-Rhône.",
+            "Vous pouvez bénéficier d’une aide à la trésorerie, lors de votre phase d’installation.",
+            "Le montant de cette aide est de 10 000 € pour une installation à titre principal et de 5 000 € pour une installation à titre secondaire.",
+            "Dispositif d'aide à la trésorerie pour l'installation de jeunes agriculteurs porteurs de projets agroécologiques 2026",
+            "Formulaire de demande de subvention pour l'aide à la trésorerie pour l'installation des jeunes agriculteurs porteurs de projets agroécologiques 2026"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-alpes-maritimes-agribio-installation",
+      "name": "AGRIBIO 06 — accompagnement à l’installation en bio",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Alpes-Maritimes"
+      },
+      "operator": "AGRIBIO 06",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Appui réglementaire, administratif et technique dans les Alpes-Maritimes, en lien avec les autres partenaires de l’installation.",
+      "accessUrl": "https://www.bio-provence.org/Accompagnement-a-l-installation-en-Bio-Dispositif-AITA",
+      "sources": [
+        {
+          "url": "https://www.bio-provence.org/Accompagnement-a-l-installation-en-Bio-Dispositif-AITA",
+          "title": "Accompagnement à l’installation en Bio & Dispositif AITA - Les agriculteurs Bio de PACA",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "AGRIBIO 06 accompagne les porteurs de projet souhaitant s’installer en Bio ou se questionnant sur une éventuelle labellisation",
+            "Appui au candidat sur les aspects réglementaires, administratifs, techniques en lien avec les autres partenaires de l’installation"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet qui envisagent de s’installer en bio ou s’interrogent sur la labellisation.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-alpes-maritimes-agribio-suivi-installation",
+      "name": "AGRIBIO 06 — Suivi Nouvel Installé",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Alpes-Maritimes"
+      },
+      "operator": "AGRIBIO 06",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Suivi personnalisé réalisé dans le cadre de l’agrément AITA. La page rattache au dispositif régional décrit depuis 2023 un rendez-vous annuel pendant quatre ans pour les jeunes installés concernés par la DJA.",
+      "accessUrl": "https://www.bio-provence.org/Accompagnement-a-l-installation-en-Bio-Dispositif-AITA",
+      "sources": [
+        {
+          "url": "https://www.bio-provence.org/Accompagnement-a-l-installation-en-Bio-Dispositif-AITA",
+          "title": "Accompagnement à l’installation en Bio & Dispositif AITA - Les agriculteurs Bio de PACA",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "AGRIBIO 06 dispose de l’agrément pour la réalisation du SUIVI NOUVEL INSTALLE",
+            "un rendez-vous annuel pendant 4 ans avec un.e conseillè.re.",
+            "Si vous êtes intéressé(e) par un suivi personnalisé, contactez notre animatrice conseillère maraichage",
+            "Depuis le 1er janvier 2023, le conseil régional de la région PACA est l’autorité de gestion"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Jeunes installés dans les Alpes-Maritimes, notamment au titre du parcours DJA décrit.",
+      "howToAccess": "Contacter la conseillère maraîchage via la rubrique du suivi personnalisé.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-safer-convention-mise-disposition",
+      "name": "Safer PACA — convention de mise à disposition",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer PACA",
+      "operatorType": "MIXED",
+      "whatItOffers": "Gestion locative de terres pour une durée d’un à six ans, renouvelable une fois. La Safer garantit le paiement du loyer et la restitution du bien en fin de contrat.",
+      "accessUrl": "https://www.safer-paca.com/espace-porteurs-de-projets/",
+      "sources": [
+        {
+          "url": "https://www.safer-paca.com/espace-porteurs-de-projets/",
+          "title": "PORTEURS DE PROJETS – SAFER PACA",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "La Convention de Mise à Disposition (CMD) permet à un propriétaire de confier à la SAFER PACA la gestion locative de ses terres agricoles",
+            "de 1 à 6 ans, renouvelable une fois",
+            "le paiement d’un loyer",
+            "la libération du bien en fin de contrat"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Propriétaires de terres agricoles qui attendent une vente ou un bail à ferme.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "provence-alpes-cote-d-azur-safer-reserve-installation",
+      "name": "Safer PACA — réserve de biens pour l’installation",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer PACA",
+      "operatorType": "MIXED",
+      "whatItOffers": "Constitution d’un stock de biens pour faciliter l’accès au foncier des jeunes agriculteurs et préparer les transmissions.",
+      "accessUrl": "https://www.safer-paca.com/espace-porteurs-de-projets/",
+      "sources": [
+        {
+          "url": "https://www.safer-paca.com/espace-porteurs-de-projets/",
+          "title": "PORTEURS DE PROJETS – SAFER PACA",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "constitution d’un stock de biens, pour permettre un accès facilité au foncier des jeunes.",
+            "la SAFER PACA est un des interlocuteurs privilégiés des cédants dans le respect des prix du marché."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Jeunes agriculteurs et cédants.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

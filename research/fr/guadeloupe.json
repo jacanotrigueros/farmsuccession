@@ -6,7 +6,7 @@
     "region": "guadeloupe"
   },
   "language": "fr",
-  "updatedOn": "2026-09-29",
+  "updatedOn": "2026-11-24",
   "context": [
     "Depuis 2023, la dotation jeunes agriculteurs est gérée par la Région Guadeloupe dans son intervention stratégique FEADER 75.01.",
     "Le portail Europe Guadeloupe décrit les aides régionales du FEADER et sert de source lisible quand le site de la Région ne l'est pas.",
@@ -14,7 +14,10 @@
     "La page du financement FEADER indique un dépôt en continu, tandis que la page distincte de dépôt précise qu'Euro-PAC est le seul moyen de transmettre une demande FEADER.",
     "La Safer conserve en ligne un avis de septembre 2026 dont le délai est passé. La page des appels indique qu'aucun appel n'est actuellement ouvert : ne pas confondre avis consultable et candidature ouverte.",
     "Un document régional mentionne une aide à l'installation des agriculteurs de plus de 40 ans, mais une mention dans une délibération ne démontre pas son fonctionnement actuel.",
-    "Les recherches sur les espaces-tests doivent distinguer Vieux-Habitants en Guadeloupe et Le Lamentin en Martinique ; pour la commune guadeloupéenne, vérifier l'opérateur et l'adresse exacte."
+    "Les recherches sur les espaces-tests doivent distinguer Vieux-Habitants en Guadeloupe et Le Lamentin en Martinique ; pour la commune guadeloupéenne, vérifier l'opérateur et l'adresse exacte.",
+    "La CMD de la Safer offre une location temporaire notamment pendant la préparation d'une retraite ou l'attente d'une reprise familiale ; ne pas confondre cette offre avec l'ouverture d'un appel à candidatures foncières.",
+    "La gestion du patrimoine agricole départemental par baux et conventions est documentée indépendamment du projet d’appel à projets encore à vérifier ; cette page ne donne pas de procédure de candidature.",
+    "L’intervention FEADER 78.01 finance les structures de conseil ; son volet jeunes agriculteurs couvre la préparation du PDE-JA et son suivi, distinctement de la dotation FEADER 75.01."
   ],
   "portals": [
     {
@@ -123,13 +126,14 @@
     },
     {
       "id": "gp-pait-chambre",
-      "name": "Point Accueil Installation et accompagnement de la Chambre d'agriculture",
+      "name": "Point Accueil Installation — Chambre d’agriculture de la Guadeloupe",
       "url": "https://guadeloupe.chambres-agriculture.fr/je-suis-future-agriculteur-trice",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
+      "status": "ADMITTED",
       "reason": "La page apparaît dans les résultats, mais son ouverture n'a pas fourni de texte lisible. Vérifier directement l'offre actuelle, le parcours d'accès et un éventuel service propre aux cédants.",
       "foundBy": "gp-transmission-2026",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-11-24",
+      "resourceId": "guadeloupe-chambre-agriculture-point-accueil-installation"
     },
     {
       "id": "gp-installation-plus-40",
@@ -190,6 +194,52 @@
       "reason": "La page n'a pas pu être ouverte et le résultat disponible décrit une aide générale à l'investissement productif ; la présence d'un critère de majoration pour jeunes ne démontre pas une aide dédiée à l'entrée, à la reprise ou à la transmission.",
       "foundBy": "gp-installation",
       "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "gp-safer-processus",
+      "name": "Informations sur le processus — Safer Guadeloupe",
+      "url": "https://saferguadeloupe.com/informations-sur-le-processus/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "guadeloupe-safer-guadeloupe",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "gp-safer-cmd",
+      "name": "La CMD — Safer Guadeloupe",
+      "url": "https://saferguadeloupe.com/louer-la-cmd/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "guadeloupe-safer-guadeloupe",
+      "checkedOn": "2026-11-20",
+      "reason": "La page propre de l'opérateur précise la location temporaire par CMD, son intérêt pour les propriétaires préparant une retraite ou une reprise familiale et ses modalités pour le preneur. Elle enrichit la ressource Safer existante."
+    },
+    {
+      "id": "gp-departement-parcelles-agricoles",
+      "name": "Maintenir et promouvoir l’exploitation des parcelles agricoles",
+      "url": "https://www.cg971.fr/amenagement-cadre-de-vie/agriculture-peche/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "guadeloupe-departement-parcelles-agricoles",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "gp-feader-conseils-echanges-connaissances",
+      "name": "Conseils / Echanges de connaissances — FEADER 78.01",
+      "url": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_conseils-echanges-de-connaissance/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "guadeloupe-feader-conseils-echanges-connaissances",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "gp-feader-investissements-exploitations-agricoles",
+      "name": "Investissements exploitations agricoles — FEADER 73.01",
+      "url": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_investissements-exploitations-agricoles/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "guadeloupe-feader-investissements-exploitations-agricoles",
+      "checkedOn": "2026-11-21"
     }
   ],
   "instrumentChecks": [
@@ -228,6 +278,36 @@
       "date": "2026-09-29",
       "by": "CHATGPT (GPT-6)",
       "summary": "Passe 1.9.0 : DJA FEADER relue avec dépôt continu sur Euro-PAC ; Safer confirmée, dernier avis clos le 21 septembre et aucun appel ouvert ; stage de 21 heures du CFPPA ajouté. Aide aux plus de 40 ans, Chambre, deux espaces-tests et foncier départemental restent à vérifier. APECA et aide générale ARIAAG non admises. Recherche élargie aux associations, aux communes et aux appels."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page décrit l'accompagnement à l'achat, à la vente et à la location déjà publié dans la ressource Safer de Guadeloupe. Je l'ajoute comme source, avec les coordonnées institutionnelles et les précisions sur les publics et la gestion locative, sans modifier les appels documentés antérieurement."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page de la Safer Guadeloupe décrit la Convention de mise à disposition (CMD), notamment pour préparer une retraite sans vente ou attendre une reprise familiale. J'enrichis la ressource Safer existante avec cette location temporaire, ses garanties et les coordonnées institutionnelles, sans modifier les sources ni les appels déjà documentés."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page du Département établit une mise à disposition de son patrimoine foncier agricole pour favoriser l’installation, par bail rural ou convention d’occupation, distincte du service de la Safer. J’ajoute cette ressource sans en déduire une ouverture de candidatures ni une procédure de demande."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La fiche régionale établit l’intervention FEADER 78.01, qui finance notamment les structures accompagnant l’installation des jeunes agriculteurs, de l’étude de faisabilité au suivi du plan d’entreprise. J’ajoute ce dispositif distinct de la dotation d’installation, sans présumer de l’ouverture actuelle d’un appel à projets."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La fiche régionale établit l’intervention FEADER 73.01 et lui donne explicitement pour objectif de faciliter la transmission et l’installation de nouveaux agriculteurs. J’ajoute ce financement des investissements, distinct de la dotation d’installation et du financement du conseil, sans présumer de l’ouverture d’un appel à projets."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La Chambre d’agriculture de la Guadeloupe présente son parcours d’accompagnement et identifie le PAI comme premier point d’orientation."
     }
   ]
 }

@@ -1,6 +1,6 @@
 # FarmSuccession — research one territory
 
-Prompt version: 1.13.0
+Prompt version: 1.14.0
 
 You are researching **{{territoryName}}** ({{territoryLabel}}) for the **{{edition}}**
 edition of FarmSuccession. Today is {{today}}. The result is two JSON files that
@@ -225,7 +225,10 @@ itself establishes an instrument of the families above.
      `SEARCHED` means only that the documented plan and its expansion pass were
      completed. It never means that the territory is exhaustively covered. Use
      `PARTIAL` whenever a portal, family, lower level or unresolved lead remains.
-   - `review.status` is `DRAFT`; a person marks it `REVIEWED`.
+   - A source whose every quote you have just found again on the live page
+     carries `verification` with today's `checkedOn` and the `method` used
+     (`FETCH` when the source check read it, `BROWSER` when you read it in a
+     real browser). Leave it out for anything you did not verify that way.
 5. **Update the research brief**: set every lead you evaluated to ADMITTED (with
    its `resourceId`) or REJECTED (with the reason), with `checkedOn`; every
    resource of this territory's edition file needs its ADMITTED lead, including
@@ -254,7 +257,7 @@ itself establishes an instrument of the families above.
      checks. Passing means only that this technical check ended without a
      blocking failure: it does not prove exhaustive coverage, that an
      instrument still operates (a quote found on an old page proves only that
-     the page still says it) or a human review. A source that stays UNCHECKED
+     the page still says it). A source that stays UNCHECKED
      supports a published resource only with a **documented manual check**:
      you opened the original page through a connection whose certificate chain
      validated (never with certificate checks disabled, never with a trust
@@ -264,8 +267,8 @@ itself establishes an instrument of the families above.
      confirmed, the claims they back, the tool and how the chain validated,
      who checked (the tool and model, or the person's name) and why the
      automatic check cannot read the page. The automatic result stays
-     UNCHECKED; a manual check by an assistant is not a human review, and the
-     file stays `DRAFT`. Without that record, keep the source as a TO_CHECK
+     UNCHECKED; the source carries `verification` with `method` `BROWSER`
+     and the date you read it. Without that record, keep the source as a TO_CHECK
      lead whose `reason` says what blocked it and the next action. Name every
      UNCHECKED source in your plain-text list either way. A resource listed **for
      review** shares its access page with a resource of a higher layer or a
@@ -338,8 +341,8 @@ breaks one is refused as a whole.
   `consultedOn` — write today's date. Every `consultedOn` falls in {{edition}};
   news dates fall in {{edition}} and not after `published`. `lastEvidenceDate`
   belongs to the resource, is a date the page shows and never equals a
-  consultation or publication date. A `review.reviewedOn` earlier than the last
-  `consultedOn` is refused: it would cover less than it claims.
+  consultation or publication date. A source's `verification.checkedOn` falls
+  between its `consultedOn` and `published`.
 - **Scope and links.** `LOCAL` and `SUBREGIONAL` resources name their `area`
   as the source names it. `accessUrl` and every contact, call or metric
   `sourceUrl` are among the resource's `sources`, and a URL is listed once per

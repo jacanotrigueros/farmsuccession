@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "marche",
   "officialName": "Marche",
-  "published": "2026-09-30",
+  "published": "2026-11-24",
   "summary": "L'intervento regionale SRE01 sostiene il primo insediamento dei giovani agricoltori e può essere abbinato a investimenti aziendali. La più recente finestra di presentazione verificata, relativa al bando 2025, è chiusa.",
   "coverage": {
     "status": "PARTIAL",
@@ -45,9 +45,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -63,6 +60,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -101,7 +105,11 @@
           "url": "https://www.regione.marche.it/Entra-in-Regione/Psr-Marche/Bandi/Avanzamento-band%C3%AC-chiusi/id_17890/15142",
           "title": "Regione Marche — bando SRE01, annualità 2025",
           "consultedOn": "2026-09-30",
-          "quotes": ["Bando annualità 2025 DDD n. 78 del 20/02/2025 Modifica e pubblicazione testo coordinato.", "Scadenza: 30/05/2025"]
+          "quotes": ["Bando annualità 2025 DDD n. 78 del 20/02/2025 Modifica e pubblicazione testo coordinato.", "Scadenza: 30/05/2025"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.marche.it/News-ed-Eventi/Post/110764/Bando-Insediamento-giovani-agricoltori-annualit%C3%A0-2025",
@@ -111,7 +119,11 @@
             "SRE01 - insediamento giovani agricoltori (obbligatoria);",
             "Le domande possono essere presentate su SIAR a partire dal 27 febbraio 2025",
             "Giovani Agricoltori, di età non superiore a 40 anni al momento della presentazione della domanda di sostegno"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://bandi.regione.marche.it/Allegati/15142/DDD_ASR_2025_0185_A.pdf",
@@ -121,21 +133,70 @@
             "L’intervento si applica su tutto il territorio regionale.",
             "L’utente può caricare personalmente nel sistema la domanda o rivolgersi a Strutture già abilitate all’accesso",
             "attestato di frequenza ad almeno un corso di formazione di almeno 150 ore, con superamento dell’esame finale"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://bandi.regione.marche.it/Allegati/15142/DDD_ASR_2025_0239.pdf",
           "title": "Regione Marche — proroga dei termini, DDD 239/ASR",
           "consultedOn": "2026-09-28",
-          "quotes": ["di prorogare al 30/05/2025 ore 13.00 termine perentorio"]
+          "quotes": ["di prorogare al 30/05/2025 ore 13.00 termine perentorio"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.marche.it/News-ed-Eventi/Post/112540/INTERVENTO-SRE01-Insediamento-giovani-agricoltori",
           "title": "Regione Marche — Intervento SRE01",
           "consultedOn": "2026-09-28",
-          "quotes": ["giovedì 18 settembre 2025", "si insediano per la prima volta in un’azienda agricola in qualità di capo azienda"]
+          "quotes": ["giovedì 18 settembre 2025", "si insediano per la prima volta in un’azienda agricola in qualità di capo azienda"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
+    },
+    {
+      "id": "marche-amap-crescere-in-agricoltura",
+      "name": "Crescere in Agricoltura: Strumenti e Competenze per lo sviluppo delle Imprese",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "AMAP",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Corso gratuito finalizzato al primo insediamento dei giovani agricoltori, della durata di 150 ore più 2 ore di esame. Le attività sono previste tra gennaio e giugno 2027, con lezioni online, lezioni in presenza e visite aziendali.",
+      "whoCanUseIt": "Il corso è finalizzato al primo insediamento dei giovani agricoltori e mira ad ampliare le competenze degli addetti operanti a vario titolo nel settore agricolo, forestale e nei territori rurali.",
+      "howToAccess": "Consultare la voce del corso nella pagina «Corsi» di AMAP. L'aggiornamento del 18 novembre 2026 proroga la scadenza delle iscrizioni al 15 dicembre 2026.",
+      "accessUrl": "https://amap.marche.it/corsi",
+      "trainingFormats": ["HYBRID"],
+      "accessCostType": "FREE",
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://amap.marche.it/corsi",
+          "title": "Corsi",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Agenzia per l'Innovazione nel Settore Agroalimentare e della Pesca \"Marche Agricoltura Pesca\" - Regione Marche",
+            "Crescere in Agricoltura: Strumenti e Competenze per lo sviluppo delle Imprese",
+            "Aggiornamento del 18/11/2026: proroga scadenza iscrizioni al 15/12/2026",
+            "L’AMAP presenta il Corso di Formazione “Crescere in Agricoltura: Strumenti e Competenze per lo sviluppo delle Imprese (150 ore + 2 ore esame) finalizzato al primo insediamento di giovani agricoltori” con l’obiettivo di ampliare le competenze e capacità professionali degli addetti operanti a vario titolo nel settore agricolo, forestale e nei territori rurali.",
+            "L’attività formativa interamente gratuita, si svolgerà nel periodo compreso tra gennaio 2027 e giugno 2027 e sarà strutturata in lezioni online (postazione fissa e telecamera accesa), in presenza e visite aziendali."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

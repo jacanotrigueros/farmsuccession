@@ -5,15 +5,21 @@
   "country": "NL",
   "region": "overijssel",
   "officialName": "Overijssel",
-  "published": "2026-11-16",
+  "published": "2026-11-24",
   "summary": "Het overzicht voor Overijssel is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Overijssel gelden.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Nog niet onderzocht. De bronnen die voor Nederland zijn gevonden, staan klaar voor onderzoek; tot dat onderzoek klaar is, staan hier alleen de Europese bronnen die ook hier gelden.",
-    "methods": []
-  },
-  "review": {
-    "status": "DRAFT"
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/grondstrategie-uniformering-gebruiksverhoudingen-tankstations"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/hoe-werkt-pachten-van-de-provincie-overijssel"
+      }
+    ]
   },
   "metadata": {
     "language": "nl",
@@ -25,10 +31,175 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "overijssel-grond-en-gebouwen",
+      "name": "Grond en gebouwen",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Overijssel",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Toegang tot informatie over pachten van provinciale grond en tot overzichten van grond en gebouwen die de provincie verkoopt. De pagina meldt dat er momenteel geen landbouwgrond te koop is.",
+      "howToAccess": "Volg de verwijzing ‘Hoe werkt pachten van de provincie Overijssel?’ voor de pachtroute. Volgens de pagina kunt u zich ieder jaar van 1 juli tot en met 30 september via openbare inschrijving opgeven.",
+      "accessUrl": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/grondstrategie-uniformering-gebruiksverhoudingen-tankstations",
+      "sources": [
+        {
+          "url": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/grondstrategie-uniformering-gebruiksverhoudingen-tankstations",
+          "title": "Grond en gebouwen - Provincie Overijssel",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Team Grondzaken koopt, verkoopt en beheert gronden en gebouwen voor verschillende projecten of programma’s.",
+            "Ook is er de mogelijkheid om te pachten.",
+            "Hoe werkt pachten van de provincie Overijssel?",
+            "U kunt zich ieder jaar opgeven van 1 juli tot en met 30 september (openbare inschrijving).",
+            "Een overzicht van gronden en gebouwen die de provincie Overijssel verkoopt.",
+            "Openbare verkoop landbouwgrond Er is nu geen landbouwgrond te koop."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "overijssel-pachten-provinciale-gronden",
+      "name": "Hoe werkt pachten van de provincie Overijssel?",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Overijssel",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Tijdelijke pacht van provinciale landbouwgronden. De provincie bepaalt jaarlijks welke gronden kunnen worden verpacht; Van Ameyde Waarderingen verzorgt de uitvoering. Voor 2027 worden alleen eenjarige pachtcontracten afgesloten.",
+      "howToAccess": "Geef ieder jaar van 1 juli tot en met 30 september uw interesse door via pachtloket.net, ook als u al pachter bent of eerder bent geweest. De aanmelding betreft een contract vanaf 1 januari van het komende jaar en garandeert geen aanbod. Neem bij vragen contact op met Van Ameyde Waarderingen.",
+      "accessUrl": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/hoe-werkt-pachten-van-de-provincie-overijssel",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Van Ameyde Waarderingen",
+          "value": "info@pachtloket.net",
+          "sourceUrl": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/hoe-werkt-pachten-van-de-provincie-overijssel"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Van Ameyde Waarderingen",
+          "value": "085 006 99 54",
+          "sourceUrl": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/hoe-werkt-pachten-van-de-provincie-overijssel"
+        }
+      ],
+      "notes": "Op provinciale landbouwgronden geldt een algeheel bemestingsverbod tot 1 maart 2028. Andere gebruiksbeperkingen kunnen in het pachtcontract worden vastgelegd. De pachtprijzen voor 2027 moeten nog worden vastgesteld. Volgens het uitvoeringskader 2026 kan dezelfde gegadigde in beginsel maximaal drie keer een contract voor één jaar aangeboden krijgen. Het kader voorziet in uitzonderingen.",
+      "sources": [
+        {
+          "url": "https://www.overijssel.nl/onderwerpen/grond-en-gebouwen/hoe-werkt-pachten-van-de-provincie-overijssel",
+          "title": "Hoe werkt pachten van de provincie Overijssel? - Provincie Overijssel",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Elk jaar bepaalt de provincie welke gronden kunnen worden verpacht.",
+            "Dit is Van Ameyde Waarderingen, die onder meer de verpachting van gronden in provinciaal eigendom regelt.",
+            "Dit geldt ook als u nu pachter bent of in het verleden al eens bent geweest.",
+            "U kunt ieder jaar uw interesse doorgeven van 1 juli tot en met 30 september via pachtloket.net",
+            "U meldt uw interesse voor een pachtcontract dat ingaat op 1 januari van het komende jaar.",
+            "Uw aanmelding betekent niet dat u automatisch ook een aanbod zult ontvangen.",
+            "Vragen over pacht? Neem contact op met Van Ameyde Waarderingen.",
+            "Voor 2027 worden daarom, in het kader van tijdelijk beheer, alleen 1-jarige pachtcontracten afgesloten.",
+            "Gedeputeerde Staten heeft besloten om opnieuw een algeheel bemestingsverbod in te stellen op de landbouwgronden in provinciaal eigendom tot 1 maart 2028.",
+            "Dit kan onderdeel zijn van het eventuele pachtaanbod en leggen we vast in het pachtcontract.",
+            "(De pachtprijzen voor 2027 moeten nog worden vastgesteld.)",
+            "Telefoon: 085 006 99 54",
+            "E-mail: info@pachtloket.net",
+            "Percelen met evenwichtsbemesting in Overijssel"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.overijssel.nl/media/2ogfdjsv/uitvoeringskader-tijdelijk-beheer-provinciale-gronden-2026.pdf",
+          "title": "Uitvoeringskader tijdelijk beheer provinciale gronden 2026",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Alleen gegadigden met een hoofdberoep in de landbouw komen in aanmerking",
+            "maximaal 3 keer voor 1 jaar aan dezelfde gegadigde worden aangeboden.",
+            "Er doen zich soms situaties voor, dat voor een 4e jaar op rij (of nog langer) gronden aan dezelfde"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Het uitvoeringskader 2026 stelt als hoofdregel dat de gegadigde zijn hoofdberoep in de landbouw moet hebben.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://www.najk.nl/provincies/oajk/bedrijfsovername/",
+      "id": "overijssel-oajk-bedrijfsovername",
+      "name": "OAJK — bemiddeling bij bedrijfsovername",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "operator": "Overijssels Agrarisch Jongeren Kontakt (OAJK)",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "OAJK zet zijn netwerk in om agrarische bedrijfsoverdragers en mensen die een bedrijf willen voortzetten met elkaar in contact te brengen.",
+      "whoCanUseIt": "Agrarische bedrijfsoverdragers en mensen die een toekomstig bedrijf zoeken in Overijssel.",
+      "howToAccess": "Meld u bij OAJK en geef aan waar u naar op zoek bent.",
+      "sources": [
+        {
+          "url": "https://www.najk.nl/provincies/oajk/bedrijfsovername/",
+          "title": "Bedrijfsovername – NAJK",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Meld je dan aan bij het OAJK en laat weten waar je precies naar op zoek bent.",
+            "ons netwerk voor jou in te zetten op zoek naar jouw toekomstige bedrijf.",
+            "Als u bedrijfsoverdrager bent, mag u zich uiteraard ook melden!"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.najk.nl/provincies/oajk/over-oajk/",
+          "title": "Over OAJK – NAJK",
+          "consultedOn": "2026-11-24",
+          "quotes": ["OAJK is de vereniging van, voor en door jonge agrariërs in Overijssel"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    }
+  ],
   "news": [],
   "limitations": []
 }

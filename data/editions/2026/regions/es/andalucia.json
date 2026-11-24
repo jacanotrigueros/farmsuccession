@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "andalucia",
   "officialName": "Andalucía",
-  "published": "2026-10-18",
+  "published": "2026-11-24",
   "summary": "Andalucía reúne ayudas al establecimiento, acceso a tierras públicas, formación IFAPA, una escuela de pastores y servicios de acompañamiento para la incorporación y el relevo. Las convocatorias y la atención de los prestadores tienen requisitos y disponibilidad distintos.",
   "coverage": {
     "status": "PARTIAL",
@@ -81,9 +81,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -99,6 +96,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -147,7 +151,11 @@
             "Convocatoria 2024. Intervención 6961.1. Establecimiento Jóvenes Agricultores.",
             "Publicación de la Resolución definitiva de la concesión de la ayuda (01/06/26).",
             "Consultas: ayudajovenes.sscc.capadr@juntadeandalucia.es"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -182,7 +190,26 @@
             "Almería y Huelva: próxima apertura de plazo",
             "Listado de bienes vacantes [última versión: 17-04-2026]",
             "patrimonio-agrario.capadr@juntadeandalucia.es"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.juntadeandalucia.es/boja/2021/24/3",
+          "title": "Decreto 78/2021, de 2 de febrero, por el que se establece el procedimiento para la enajenación de tierras vacantes procedentes del extinto Instituto Andaluz de Reforma Agraria.",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Si se hubiesen presentado varias solicitudes sobre una misma parcela o finca, se ordenarán conforme a los siguientes criterios de valoración, de conformidad con el Plan de Explotación presentado:",
+            "Si la solicitud la realiza una persona joven agricultora o ganadera y el proyecto recogido en su Plan de Explotación vertebra el medio rural y es generador de empleo:",
+            "Si no tiene la calificación de explotación prioritaria: 5 puntos.",
+            "Si tiene la calificación de explotación prioritaria: 10 puntos."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "contactPoints": [
@@ -194,7 +221,8 @@
         }
       ],
       "lastEvidenceDate": "2026-04-17",
-      "generatorId": "chatgpt-1"
+      "notes": "Cuando concurren varias solicitudes sobre una misma parcela o finca, el decreto establece criterios de valoración según el Plan de Explotación. Para una persona joven agricultora o ganadera cuyo proyecto vertebra el medio rural y genera empleo, prevé 5 puntos si no tiene la calificación de explotación prioritaria y 10 puntos si la tiene. Estas puntuaciones forman parte del baremo, no garantizan la adjudicación.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "andalucia-ifapa-incorporacion-empresa-agraria",
@@ -224,7 +252,11 @@
             "Procedimiento de solicitud.",
             "90% de las horas lectivas",
             "240 o 270 horas"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "whoCanUseIt": "Personas que solicitan ayudas de primera instalación, la calificación de explotación prioritaria u otros procedimientos que exigen capacitación agraria.",
@@ -282,7 +314,11 @@
             "finaliza el día que se publique la resolución de la convocatoria de 3 de octubre de 2024",
             "Intervención 6961.1 establecimiento de jóvenes agricultores",
             "código de procedimiento 25550"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "howToAccess": "La solicitud de subvención corresponde a la entidad, por vía electrónica en el procedimiento 25550. La persona joven debe acudir a una entidad prestadora; no solicita directamente esta subvención. No se ha verificado una relación de entidades beneficiarias con servicio actualmente disponible.",
@@ -323,7 +359,11 @@
           "quotes": [
             "El servicio de asesoramiento para la incorporación de jóvenes al sector agrario",
             "trabajando de forma especializada y personalizada"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://coagalmeria.com/coag-almeria/",
@@ -332,13 +372,21 @@
           "quotes": [
             "prestar a sus afiliados servicios de carácter técnico y asesoramiento especializado",
             "agricultores y ganaderos de Almería"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://coagalmeria.com/contacto/",
           "title": "Contacto — COAG Almería",
           "consultedOn": "2026-09-27",
-          "quotes": ["Sedes Provinciales de COAG Almería", "almeria@coagalmeria.com"]
+          "quotes": ["Sedes Provinciales de COAG Almería", "almeria@coagalmeria.com"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -379,7 +427,11 @@
             "Tramitación de expedientes",
             "disposición de los afiliados",
             "upacordoba@upa.es"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -414,13 +466,21 @@
           "url": "https://upagranada.com/",
           "title": "Servicios de UPA Granada",
           "consultedOn": "2026-09-27",
-          "quotes": ["Solicitud primera instalación jóvenes", "Gestionamos las ayudas de primera instalación", "en Granada"]
+          "quotes": ["Solicitud primera instalación jóvenes", "Gestionamos las ayudas de primera instalación", "en Granada"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://upagranada.com/contacto/",
           "title": "Contacto — UPA Granada",
           "consultedOn": "2026-09-27",
-          "quotes": ["Oficina en Granada", "upagranada@hotmail.com"]
+          "quotes": ["Oficina en Granada", "upagranada@hotmail.com"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -468,7 +528,11 @@
           "consultedOn": "2026-09-27",
           "quotes": [
             "Los interesados en cursar esta formación pueden inscribirse hasta el próximo 15 de diciembre mediante correo electrónico a escueladepastores.ifapa@juntadeandalucia.es"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.juntadeandalucia.es/agriculturaypesca/ifapa/web/index.php/noticias/la-junta-de-andalucia-presenta-en-cortegana-huelva-la-nueva-edicion-de-la-escuela-de",
@@ -476,7 +540,11 @@
           "consultedOn": "2026-09-27",
           "quotes": [
             "la inscripción está abierta a aquellas personas interesadas en formar parte del sector de la ganadería extensiva con un proyecto laboral vinculado al mismo"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.juntadeandalucia.es/agriculturaypesca/ifapa/web/noticias/la-junta-clausura-en-cortegana-huelva-la-xiii-escuela-de-pastores-de-andalucia-para-apoyar",
@@ -484,10 +552,87 @@
           "consultedOn": "2026-09-27",
           "quotes": [
             "esta formación ofrece la oportunidad a los alumnos para que puedan solicitar las ayudas de incorporación a la actividad agraria"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "andalucia-bollullos-par-del-condado-banco-tierras",
+      "name": "Banco de Tierras Agrícolas de Bollullos Par del Condado",
+      "kind": "LAND_BANK",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Bollullos Par del Condado"
+      },
+      "operator": "Ayuntamiento de Bollullos Par del Condado",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro municipal previsto para poner en contacto a propietarios de parcelas agrícolas con personas interesadas en cultivarlas, incluidas futuras incorporaciones a la actividad agraria. Los acuerdos entre propietario y cultivador tienen carácter privado.",
+      "whoCanUseIt": "Propietarios de parcelas agrícolas del término municipal que deseen inscribirlas y personas interesadas en su cultivo. Cualquier persona interesada podrá consultar el listado de parcelas.",
+      "howToAccess": "La ordenanza prevé solicitar el alta de parcelas mediante el modelo establecido. Para contactar con sus titulares, prevé presentar una solicitud de consulta en el Registro General del Ayuntamiento mediante el modelo correspondiente; los datos personales se consultan en la sede del registro, sin obtener copias.",
+      "accessUrl": "https://www.bollullospardelcondado.es/storage/app/media/ORDENANZAS/ORDENANZAS%20URBAN%C3%8DSTICAS%20Y%20DEL%20USO%20DEL%20SUELO/Ord%20Reguladora%20Banco%20de%20Tierras%20junio%202021.pdf",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "notes": "El documento regula el instrumento, pero no acredita su funcionamiento actual. La entrada en vigor queda condicionada a la publicación íntegra en el Boletín Oficial de la Provincia de Huelva y al transcurso del plazo legal.",
+      "sources": [
+        {
+          "url": "https://www.bollullospardelcondado.es/storage/app/media/ORDENANZAS/ORDENANZAS%20URBAN%C3%8DSTICAS%20Y%20DEL%20USO%20DEL%20SUELO/Ord%20Reguladora%20Banco%20de%20Tierras%20junio%202021.pdf",
+          "title": "ORDENANZA REGULADORA DEL BANCO DE TIERRAS AGRÍCOLAS DEL TÉRMINO MUNICIPAL DE BOLLULLOS PAR DEL CONDADO",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "El objeto de la Ordenanza municipal es la creación y regulación del Banco de Tierras Agrícolas de Bollullos Par del Condado",
+            "se pretende informar y facilitar el contacto entre propietarios de parcelas ubicadas en Bollullos Par del Condado y futuros agricultores.",
+            "El contrato entre ambos tendrá carácter privado.",
+            "Cualquier persona interesada podrá consultar el listado de parcelas que hayan sido dadas de alta en el Banco de Tierras Agrícolas de Bollullos Par del Condado.",
+            "podrán solicitar el alta en el registro mediante modelo establecido al efecto",
+            "en el Registro General del Ayuntamiento, en el modelo establecido al efecto, solicitud de consulta en la que constará, en todo caso:",
+            "sino únicamente a su consulta en la sede del mismo.",
+            "La presente Ordenanza entrará en vigor una vez que se haya publicado su texto íntegro en el Boletín Oficial de la Provincia de Huelva"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "andalucia-ifapa-formacion-transferencia",
+      "name": "Formación y Transferencia",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Instituto de Investigación y Formación Agraria y Pesquera (IFAPA)",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Acceso al catálogo de cursos y jornadas del IFAPA y a la solicitud en línea de actividades formativas en Andalucía. Incluye entradas específicas de Incorporación de Jóvenes a la Empresa Agraria y Escuela de Pastores.",
+      "howToAccess": "Acceder al Portal de Actividades de Formación y Transferencia para consultar el catálogo y tramitar la solicitud en línea, o elegir la entrada del programa formativo de interés.",
+      "accessUrl": "https://www.juntadeandalucia.es/agriculturaypesca/ifapa/web/formacion-y-transferencia",
+      "sources": [
+        {
+          "url": "https://www.juntadeandalucia.es/agriculturaypesca/ifapa/web/formacion-y-transferencia",
+          "title": "Formación y Transferencia | Instituto de Investigación y Formación Agraria y Pesquera (IFAPA)",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "El Portal de Actividades de Formación y Transferencia permite conocer nuestro catálogo de Cursos y Jornadas, además de tramitar tu solicitud on line.",
+            "El programa formativo del IFAPA resulta una herramienta fundamental para el apoyo al sector primario en Andalucía.",
+            "Incorporación de Jóvenes a la Empresa Agraria",
+            "Escuela de Pastores"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
@@ -505,7 +650,11 @@
           "consultedOn": "2026-09-27",
           "quotes": [
             "se han concedido subvenciones por 129,95 millones de euros que facilitan la incorporación de 2.455 profesionales de hasta 40 años"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"

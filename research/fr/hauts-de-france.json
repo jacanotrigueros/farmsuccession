@@ -6,7 +6,7 @@
     "region": "hauts-de-france"
   },
   "language": "fr",
-  "updatedOn": "2026-09-29",
+  "updatedOn": "2026-11-24",
   "context": [
     "Le guide des aides de la Région (guide-aides.hautsdefrance.fr) publie une fiche par dispositif, lisible automatiquement, avec objectifs, bénéficiaires et critères.",
     "Le Point Accueil Installation Transmission (PAIT) est le passage obligé avant une demande d'aide régionale à l'installation.",
@@ -15,7 +15,11 @@
     "La page propre de la Safer Hauts-de-France décrit les candidatures foncières, le portage et son accompagnement à l'installation.",
     "Initiatives Paysannes documente séparément son accompagnement des candidats à l'installation et celui des cédants. Terre de Liens Hauts-de-France décrit un accompagnement foncier territorial.",
     "Le Germoir d'Ambricourt et À Petits PAS à Sains-du-Nord décrivent deux espaces-test distincts ; les annonces de places trouvées ne démontrent pas une disponibilité actuelle.",
-    "Pévèle Carembault distingue son aide immobilière à candidature permanente du complément local à l'ARSI, dont seule une présentation datée de 2025 a été lue."
+    "Pévèle Carembault distingue son aide immobilière à candidature permanente du complément local à l'ARSI, dont seule une présentation datée de 2025 a été lue.",
+    "La page Installation d’Initiatives Paysannes confirme la gratuité de son accompagnement financé par la Région via ACTIV ; elle ne remplace pas la vérification de la fiche régionale du dispositif.",
+    "L’espace-test de Sources et Vallées à Pontoise-les-Noyon est distinct de celui de Sains-du-Nord, malgré l’intervention d’A Petits Pas dans les deux parcours.",
+    "Vérifier l’ouverture effective et le document d’appel à candidature : la page annonce novembre 2025 tout en décrivant encore des travaux d’aménagement.",
+    "La fiche ARSI est désormais lisible ; cette lecture ne résout pas le blocage de la fiche distincte ACTiv ni celui du portail du PAIT."
   ],
   "portals": [
     {
@@ -80,13 +84,14 @@
   "leads": [
     {
       "id": "hdf-arsi",
-      "name": "Aide régionale spécifique à l'installation (ARSI)",
+      "name": "Aide régionale Spécifique à l'Installation ARSI",
       "url": "https://guide-aides.hautsdefrance.fr/dispositif833",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "TO_CHECK",
+      "status": "ADMITTED",
       "reason": "La fiche de la Région a renvoyé 403. La page de la collectivité cofinanceuse Pévèle Carembault décrit l'ARSI en 2025, mais ne vérifie pas la fiche ni la disponibilité régionale en 2026. L'identifiant hauts-de-france-arsi a été retiré du brouillon de cette édition en attendant une page officielle lisible.",
       "foundBy": "hdf-installation",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-11-21",
+      "resourceId": "hauts-de-france-arsi"
     },
     {
       "id": "hdf-activ-ton-installation",
@@ -215,6 +220,42 @@
       "reason": "La page régionale réaffiche des annonces du portail national, dont plusieurs situées hors des Hauts-de-France ; ce portail partagé n'est pas un inventaire propre à l'association régionale.",
       "foundBy": "hdf-associations",
       "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "hdf-initiatives-installation-parcours",
+      "name": "Installation — Initiatives Paysannes",
+      "url": "https://www.agriculturepaysanne.org/S-installer-341",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-initiatives-paysannes-installation",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "hdf-sources-et-vallees-espace-test",
+      "name": "Espace test de Sources et Vallées",
+      "url": "https://www.sourcesetvallees.fr/rubrique-Espace-test-de-Sources-et-Vallees-40.html",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-sources-et-vallees-espace-test",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "hdf-a-petits-pas-espace-test-page",
+      "name": "L’espace test agricole",
+      "url": "https://apetitspas.net/lespace-test-agricole/",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-a-petits-pas-espace-test",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "hauts-de-france-a-petits-pas-espace-test-source",
+      "name": "Espaces-test agricoles Hauts-de-France - De l'envie au projet",
+      "url": "https://envieauprojet.fr/espace-test-agricole",
+      "kind": "OTHER",
+      "status": "ADMITTED",
+      "resourceId": "hauts-de-france-picardie-espace-test-douchy",
+      "checkedOn": "2026-11-24"
     }
   ],
   "instrumentChecks": [
@@ -253,6 +294,46 @@
       "date": "2026-09-29",
       "by": "CHATGPT (gpt-6)",
       "summary": "Safer vérifiée ; services propres d'Initiatives Paysannes et Terre de Liens, deux espaces-test et deux aides de Pévèle Carembault documentés. Fiches régionales ARSI et Activ' ton installation retirées provisoirement de l'édition après blocage 403, identifiants conservés comme pistes TO_CHECK. PAIT et détails des appels restent à vérifier."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page décrit l’accompagnement à l’installation d’Initiatives Paysannes en Hauts-de-France, déjà publié, et non un service caribéen comme le suggère le libellé du registre. Elle enrichit la fiche existante avec la gratuité, les étapes du parcours, le suivi jusqu’à trois ans après l’installation et le contact dédié, sans créer de doublon."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page de l’opérateur établit un espace-test distinct à Pontoise-les-Noyon, avec mise à disposition de terrain et de matériel, hébergement juridique et accompagnement à l’installation. Je propose une nouvelle fiche comme dispositif annoncé : la page le décrit encore en cours d’aménagement et son ouverture effective n’est pas confirmée."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La fiche de la Région établit l’ARSI, ses bénéficiaires hors DJA, sa dotation et le passage obligatoire par le PAIT avant dépôt du dossier. Je propose de rétablir la ressource sous l’identifiant conservé dans le brief, sans affirmer de période de candidature."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page décrit l’espace-test de Sains-du-Nord déjà publié ; je conserve son identifiant et sa source antérieure, et ajoute cette adresse comme source. Elle précise le loyer, la durée du test sous contrat CAPE, l’accompagnement et les coordonnées institutionnelles, sans établir de calendrier de candidature."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La page décrit les activités et équipements de quatre sites d’essai agricole en Hauts-de-France. Les sites au seul stade de projet restent hors des propositions."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La page décrit les activités et équipements de quatre sites d’essai agricole en Hauts-de-France. Les sites au seul stade de projet restent hors des propositions."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La page décrit les activités et équipements de quatre sites d’essai agricole en Hauts-de-France. Les sites au seul stade de projet restent hors des propositions."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La page décrit les activités et équipements de quatre sites d’essai agricole en Hauts-de-France. Les sites au seul stade de projet restent hors des propositions."
     }
   ]
 }

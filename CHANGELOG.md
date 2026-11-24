@@ -10,6 +10,14 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## Unreleased
+
+- Each source shows the date its quotes were last found on the official page.
+- Edition files no longer carry a `review` state. **Breaking** for anyone validating the open data
+  with the earlier `edition.schema.json`; `schemaVersion` stays `1.0.0`.
+- Records may give the intervention codes of their CAP plan, the acts they rest on, and the areas
+  each contact point serves. Optional; no record uses them yet.
+
 ## 1.9.0 — 2026-11-08
 
 A reader now chooses before being shown everything, and can send a report without
