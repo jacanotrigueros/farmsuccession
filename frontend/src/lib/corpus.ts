@@ -165,9 +165,6 @@ export const localeOf = (territory: Territory): string =>
     ? languageOf(territory)
     : (territories.jurisdictions[territory.layer.country]?.locale ?? languageOf(territory));
 
-/** A review nobody has signed is the one thing a reader has to be told before anything else. */
-export const isDraft = (territory: Territory): boolean => territory.data.review.status === "DRAFT";
-
 /** A record and the territory whose file holds it, which is the one place on the site it has a page. */
 export type RecordedResource = { resource: Resource; territory: Territory };
 
@@ -215,7 +212,7 @@ export function corpusStats(edition = currentEdition): {
   sources: number;
   quotes: number;
   news: number;
-  drafts: number;
+  verified: number;
   files: number;
 } {
   const here = territoriesOf(edition);
@@ -228,7 +225,7 @@ export function corpusStats(edition = currentEdition): {
     sources: new Set(sources.map(({ url }) => url)).size,
     quotes: sources.reduce((total, { quotes }) => total + quotes.length, 0),
     news: here.reduce((total, { data }) => total + data.news.length, 0),
-    drafts: here.filter((territory) => isDraft(territory)).length,
+    verified: sources.filter(({ verification }) => verification !== undefined).length,
     files: here.length,
   };
 }

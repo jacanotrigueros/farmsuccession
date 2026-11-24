@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "sardegna",
   "officialName": "Sardegna",
-  "published": "2026-11-05",
+  "published": "2026-11-24",
   "summary": "Dopo la proroga del 28 ottobre, la Sardegna mantiene aperto fino al 30 novembre 2026 il bando SRE01 per il primo insediamento. Laore ha selezionato partecipanti per un corso di 150 ore rivolto anche ai beneficiari SRE01, ma le iscrizioni sono chiuse. Non è stata verificata una banca della terra regionale operativa.",
   "coverage": {
     "status": "PARTIAL",
@@ -33,9 +33,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -51,6 +48,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -107,7 +111,11 @@
             "29/10/2026 10:12",
             "Determinazione n. 1344/24345 del 28/10/2026 - Proroga del termine di presentazione delle domande di sostegno",
             "Determinazione n. 1106/20492 dell'11/09/2026 - Differimento dei termini di apertura del bando"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://files.regione.sardegna.it/squidex/api/assets/redazionaleras/f004192c-233f-4bdd-899a-1147abb91481/bando-insediamento-giovani-agricoltori.pdf",
@@ -119,13 +127,21 @@
             "Centro Autorizzato di Assistenza Agricola (CAA)",
             "sistema informativo dell'organismo pagatore Argea",
             "La presentazione delle domande potrà avvenire nel periodo compreso tra il 15 Settembre 2026 e il 15 Ottobre 2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.sardegna.it/notizie/pubblicato-il-bando-per-il-primo-insediamento-dei-giovani-in-agricoltura-l",
           "title": "Pubblicato il bando per il primo insediamento - Regione Sardegna",
           "consultedOn": "2026-09-28",
-          "quotes": ["giovani tra i 18 e i 40 anni che si insediano per la prima volta"]
+          "quotes": ["giovani tra i 18 e i 40 anni che si insediano per la prima volta"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -166,13 +182,21 @@
             "150 ore di formazione",
             "27 aprile 2026",
             "sono beneficiari della Misura 6 del PSR 2014–2022 – sottomisura 6.1 “Aiuti all’avviamento di imprese per i giovani agricoltori”"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.sardegnaagricoltura.it/index.php?c=96020&idatto=116049&s=65&v=9&xsl=2965",
           "title": "Avviso pubblico ed esiti del corso Conduttore di impresa agricola - Laore",
           "consultedOn": "2026-09-30",
-          "quotes": ["ESITO PUBBLICATO", "Data esito", "18 giugno 2026"]
+          "quotes": ["ESITO PUBBLICATO", "Data esito", "18 giugno 2026"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -202,15 +226,58 @@
             "Premio di primo insediamento giovani agricoltori",
             "Le sedi provinciali di Confagricoltura Sardegna",
             "Gli uffici dell’Unione"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.confagricoltura.sardegna.it/sedi-provinciali/cagliari/",
           "title": "Sede provinciale di Cagliari - Confagricoltura Sardegna",
           "consultedOn": "2026-09-28",
-          "quotes": ["E-mail: cagliari@confagricoltura.it"]
+          "quotes": ["E-mail: cagliari@confagricoltura.it"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
+    },
+    {
+      "scope": {
+        "level": "LOCAL",
+        "area": "Sorso"
+      },
+      "accessUrl": "https://lnx.comune.sorso.ss.it/sorso2020/novita/comunicati-stampa/2784-progetto-sibater-avviso-pubblico-per-iscrizione-dei-terreni-privati-nella-banca-delle-terre",
+      "id": "sardegna-sorso-banca-terre-sibater",
+      "name": "Banca delle Terre di Sorso — SIBaTer",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "operator": "Comune di Sorso",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "L’avviso documenta una prima fase di iscrizione di terreni privati e una fase successiva, prevista dal Comune, per raccogliere le manifestazioni d’interesse di giovani e mettere in contatto le parti.",
+      "whoCanUseIt": "L’avviso si rivolge ai proprietari di terreni abbandonati o incolti.",
+      "howToAccess": "L’avviso rimanda all’allegato A per il modello di domanda dei proprietari. Per presentare oggi una domanda occorre verificare se il Comune ha riaperto la procedura.",
+      "notes": "L’avviso comunale risale al 30 dicembre 2021.",
+      "sources": [
+        {
+          "url": "https://lnx.comune.sorso.ss.it/sorso2020/novita/comunicati-stampa/2784-progetto-sibater-avviso-pubblico-per-iscrizione-dei-terreni-privati-nella-banca-delle-terre",
+          "title": "Comune di Sorso (SS) - Progetto SIBaTer: avviso pubblico per iscrizione dei terreni privati nella Banca delle Terre.",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "L’avviso pubblico si rivolge ai proprietari di terreni abbandonati e incolti",
+            "l’Amministrazione Comunale acquisirà le manifestazioni di interesse da parte di giovani con progetti di valorizzazione del territorio e procederà mettendo in contatto le parti interessate.",
+            "Allegato A: Modello istanza di iscrizione terreni privati",
+            "30 dicembre 2021"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
@@ -226,7 +293,11 @@
           "url": "https://files.regione.sardegna.it/squidex/api/assets/redazionaleras/5724e40a-1a62-4814-ab2d-fbc7b31e6e57/determinazione-1106-20492-11092026.pdf",
           "title": "Determinazione 1106/20492 dell'11 settembre 2026",
           "consultedOn": "2026-09-28",
-          "quotes": ["posticipata al 1° ottobre 2026 e si concluderà il 31 ottobre 2026"]
+          "quotes": ["posticipata al 1° ottobre 2026 e si concluderà il 31 ottobre 2026"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     }

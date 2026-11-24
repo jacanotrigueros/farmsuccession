@@ -29,7 +29,7 @@ export function liveSummary(runs: readonly LedgerRun[], cited: readonly Territor
     `All cited pages have been checked at least once for ${fullyRead} of ${series.length} territories that cite evidence; ` +
     `${cited.filter((territory) => territory.urls.length === 0).length} territories cite none. ` +
     `Checked includes UNCHECKED outcomes and does not mean a page was successfully read. ` +
-    `These verdicts follow decision 025; they do not establish current availability or a human review.`
+    `These verdicts follow decision 025; they do not establish current availability.`
   );
 }
 

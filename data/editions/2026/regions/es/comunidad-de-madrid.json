@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "comunidad-de-madrid",
   "officialName": "Comunidad de Madrid",
-  "published": "2026-09-30",
+  "published": "2026-11-24",
   "summary": "La Comunidad de Madrid combina ayudas al establecimiento de jóvenes y nuevos agricultores, una ayuda específica para la sucesión de explotaciones, formación de incorporación reconocida para acreditar capacitación y servicios de organizaciones agrarias. En la ciudad de Madrid, Barrios Productores mantiene además una convocatoria permanente de parcelas municipales para emprendimiento agrícola urbano.",
   "coverage": {
     "status": "PARTIAL",
@@ -53,9 +53,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -71,6 +68,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -85,10 +89,18 @@
       },
       "operator": "Consejería de Medio Ambiente, Agricultura e Interior de la Comunidad de Madrid",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Ayuda a titulares que se jubilan y transmiten su explotación agraria a otra persona. La subvención se determina a tanto alzado según los ingresos agrarios de los tres últimos ejercicios y la pensión de jubilación, con el objetivo de favorecer el relevo generacional.",
-      "whoCanUseIt": "Personas agricultoras de la Comunidad de Madrid en situación de jubilación que cumplen los requisitos de edad, actividad y antigüedad registral de la convocatoria.",
-      "howToAccess": "Solicitar electrónicamente durante la convocatoria. La convocatoria 2025 cerró el 3 de diciembre de 2025 y fue resuelta el 8 de junio de 2026; consultar la sede para una nueva convocatoria.",
-      "accessUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas",
+      "whatItOffers": "Ayuda a titulares que se jubilan y transmiten su explotación agraria a otra persona. La subvención consiste en una cantidad fija a tanto alzado determinada según los ingresos agrarios de los tres últimos ejercicios contables y la pensión de jubilación, para favorecer el relevo generacional.",
+      "whoCanUseIt": "Personas físicas agricultoras de la Comunidad de Madrid menores de 70 años en 2026, agricultoras activas al finalizar el plazo de solicitud y titulares inscritas en REA o REGA durante los cinco años anteriores. Se exige también antigüedad de cinco años en la Seguridad Social agraria; si ya perciben pensión, se refiere a los cinco años anteriores a esta. Deben estar jubiladas o tener reconocida incapacidad laboral permanente, o alcanzar la situación correspondiente en un máximo de seis meses desde la notificación de concesión. Deben presentar un proyecto de cooperación, cumplir los requisitos de obligaciones tributarias, Seguridad Social y subvenciones y no haber recibido antes ayudas de sucesión o cese anticipado. La explotación debe cederse a una persona física o jurídica: la persona cesionaria debe ser mayor de 18 años, no cumplir más de 50 en 2026, no ser familiar de primer grado ni pareja del cedente y cotizar por actividad agraria o comprometerse a hacerlo antes de justificar el proyecto. En personas jurídicas, todos los socios deben cumplir estos requisitos.",
+      "howToAccess": "Solicitud exclusivamente electrónica en la sede de la Comunidad de Madrid, con un sistema de firma electrónica reconocido y la documentación exigida. La convocatoria 2026 estuvo abierta del 6 de octubre al 5 de noviembre y está en tramitación, sin admitir nuevas solicitudes. El seguimiento y la aportación de documentación se realizan desde Mis Gestiones de la Cuenta Digital. La convocatoria 2025 cerró el 3 de diciembre de 2025 y fue resuelta el 8 de junio de 2026.",
+      "accessUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas-0",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ayudas FEADER no SIGC II",
+          "value": "ayudas_agrarias@madrid.org",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas-0"
+        }
+      ],
       "instrumentType": "GRANT",
       "purposes": ["RETIREMENT_SUCCESSION", "TRANSFER"],
       "calls": [
@@ -98,12 +110,19 @@
           "opens": "2025-11-20",
           "closes": "2025-12-03",
           "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas"
+        },
+        {
+          "name": "Convocatoria 2026",
+          "state": "CLOSED",
+          "opens": "2026-10-06",
+          "closes": "2026-11-05",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas-0"
         }
       ],
       "accessCostType": "FREE",
       "languages": ["es"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
-      "lastEvidenceDate": "2026-06-08",
+      "lastEvidenceDate": "2026-11-06",
       "sources": [
         {
           "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas",
@@ -113,10 +132,58 @@
             "Ayudas para la transmisión de explotaciones agrarias a otra persona cuando se jubila el titular de la explotación.",
             "Fecha de inicio: 20/11/2025 Fecha de fin: 03/12/2025",
             "08/06/2026 Resolución de la convocatoria"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas-0",
+          "title": "Ayudas sucesión explotaciones agrícolas | Comunidad de Madrid",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Ayudas de cooperación para la sucesión de explotaciones agrícolas (2026) En tramitación",
+            "Ayudas para la transmisión de explotaciones agrarias a otra persona cuando se jubila el titular de la explotación.",
+            "La subvención consiste en una cantidad fija a tanto alzado determinada en función de los ingresos agrarios de los 3 últimos ejercicios contables y la pensión de jubilación.",
+            "El objetivo de estas ayudas es fomentar la creación de empleo en zonas rurales, contribuir al relevo generacional y combatir el despoblamiento de las zonas rurales.",
+            "Personas agricultoras de la Comunidad de Madrid en situación de jubilación.",
+            "Ser persona física menor de 70 años en el año 2026.",
+            "Ser agricultor activo a fecha de finalización de plazo de la presentación de solicitudes.",
+            "Haber estado dada de alta como titular de la explotación agraria en el Registro de Explotaciones Agrarias (REA) o en el Registro de Explotaciones Ganaderas (REGA) de la Comunidad de Madrid durante los 5 años anteriores a la fecha de finalización de plazo de la presentación de solicitudes.",
+            "Haber estado dada de alta en la Seguridad Social en el epígrafe correspondiente a una actividad agraria durante los 5 años anteriores a la fecha de finalización de plazo de la presentación de solicitudes.",
+            "En el caso de ser beneficiaria de una pensión de jubilación debe haber estado dada de alta en los 5 años anteriores a la misma.",
+            "Ser beneficiaria de una pensión de jubilación de la Seguridad Social.",
+            "Estar en situación de jubilarse en un plazo máximo de 6 meses a contar desde la notificación de la concesión de la ayuda.",
+            "Tener reconocida una situación de incapacidad laboral permanente a fecha de fin de plazo de presentación de solicitudes.",
+            "Estar en situación de que se le reconozca la situación de incapacidad laboral en el plazo máximo de 6 meses desde la notificación de la concesión de la ayuda.",
+            "Presentar un proyecto de cooperación.",
+            "Estar al corriente de las obligaciones con la Seguridad Social.",
+            "No tener deudas de carácter tributario con otras Administraciones Públicas.",
+            "No encontrarse en las circunstancias que impiden recibir subvenciones, según la normativa de subvenciones.",
+            "No constar como beneficiaria de ayuda de sucesión de explotaciones o cese anticipado en ninguna convocatoria anterior, incluso en períodos de programación precedentes o en otros organismos públicos.",
+            "Ceder la explotación a una persona física o jurídica que cumple los siguientes requisitos:",
+            "Ser mayor de 18 años y no cumplir más de 50 años en el año 2026.",
+            "No ser familiar de primer grado de consanguinidad o afinidad (incluidas personas vinculadas por análoga relación de afectividad) del cedente.",
+            "Cotizar a la Seguridad Social por su actividad agraria o comprometerse a ello con anterioridad al momento de la justificación de la ejecución del proyecto de cooperación.",
+            "En el caso de ser una persona jurídica, todos los socios deben cumplir estos requisitos.",
+            "La tramitación de la solicitud se realiza sólo por medios electrónicos.",
+            "Para ello, necesitas uno de los sistemas de firma electrónica reconocidos por la Comunidad de Madrid.",
+            "El plazo para presentar esta solicitud ha finalizado.",
+            "Una vez enviada la solicitud, en Mis Gestiones de tu Cuenta Digital puedes: Consultar el estado de la solicitud. Consultar los documentos enviados. Aportar documentación a la solicitud.",
+            "Fecha de inicio: 06/10/2026 Fecha de fin: 05/11/2026",
+            "No requiere el pago de tasas",
+            "Contacto Ayudas FEADER no SIGC II Calle Alcalá 16. 28014 Madrid ayudas_agrarias@madrid.org",
+            "Órgano responsable Consejería de Medio Ambiente, Agricultura e Interior",
+            "Última actualización: 06/11/2026"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "madrid-incorporacion-jovenes-agricultores",
@@ -186,7 +253,11 @@
             "ayudas_agrarias@madrid.org",
             "Última actualización: 29/05/2026",
             "Haber cumplido 18 años y no cumplir más de 40 años en 2026."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -259,7 +330,11 @@
             "ayudas_agrarias@madrid.org",
             "Última actualización: 05/05/2026",
             "Haber cumplido los 40 años y no cumplir más de 60 años en 2026."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -299,7 +374,11 @@
             "Portal del Suelo Agrario",
             "asciende a 148.335.372€",
             "Última actualización: 10 febrero 2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "El plan enumera medidas, pero no se ha verificado una página operativa del Portal del Suelo Agrario ni del registro de jóvenes agricultores preferentes. No se confunden esas medidas con el servicio municipal Barrios Productores del Ayuntamiento de Madrid.",
@@ -316,42 +395,52 @@
       },
       "operator": "Ayuntamiento de Madrid",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Convocatoria permanente para acceder a parcelas municipales y a servicios de un vivero de emprendimiento en agricultura urbana. La oficina técnica presta asesoramiento a los proyectos interesados y el portal publica el mapa y las características de las parcelas incorporadas al programa.",
+      "whatItOffers": "Convocatoria permanente para acceder a parcelas municipales y a servicios de un vivero de emprendimiento en agricultura urbana. La Oficina Técnica ofrece formación, asesoramiento y acompañamiento a las iniciativas emprendedoras.",
       "whoCanUseIt": "Proyectos de emprendimiento vinculados a la agricultura urbana productiva que quieran solicitar alguna de las parcelas disponibles y acceder a los servicios del vivero.",
-      "howToAccess": "Presentar la solicitud mediante la Sede Electrónica del Ayuntamiento de Madrid desde la página de convocatoria de parcelas; se puede pedir asesoramiento previo a la Oficina Técnica de Barrios Productores.",
-      "accessUrl": "https://barriosproductores.madrid.es/convocatoria-de-parcelas/",
+      "howToAccess": "Presentar la solicitud mediante la Sede Electrónica del Ayuntamiento de Madrid. La ficha enlaza la tramitación en línea y el formulario para la presentación presencial.",
+      "accessUrl": "https://sede.madrid.es/portal/site/tramites/menuitem.62876cb64654a55e2dbd7003a8a409a0/?vgnextchannel=183737c190180210VgnVCM100000c90da8c0RCRD&vgnextfmt=d&vgnextoid=d0c561fc8e977810VgnVCM2000001f4a900aRCRD",
       "assetTypes": ["PLOTS"],
       "sectors": ["AGRICULTURE"],
       "calls": [
         {
           "name": "Convocatoria Abierta Permanente del Vivero de Emprendimiento Agrícola",
           "state": "OPEN",
-          "sourceUrl": "https://barriosproductores.madrid.es/convocatoria-de-parcelas/"
+          "sourceUrl": "https://sede.madrid.es/portal/site/tramites/menuitem.62876cb64654a55e2dbd7003a8a409a0/?vgnextchannel=183737c190180210VgnVCM100000c90da8c0RCRD&vgnextfmt=d&vgnextoid=d0c561fc8e977810VgnVCM2000001f4a900aRCRD"
         }
       ],
       "languages": ["es"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "GENERAL"],
       "sources": [
         {
-          "url": "https://barriosproductores.madrid.es/convocatoria-de-parcelas/",
-          "title": "Convocatoria de parcelas — Barrios Productores",
-          "consultedOn": "2026-09-28",
+          "url": "https://sede.madrid.es/portal/site/tramites/menuitem.62876cb64654a55e2dbd7003a8a409a0/?vgnextchannel=183737c190180210VgnVCM100000c90da8c0RCRD&vgnextfmt=d&vgnextoid=d0c561fc8e977810VgnVCM2000001f4a900aRCRD",
+          "title": "Convocatoria de acceso a los servicios del Vivero de iniciativas para el emprendimiento en agricultura urbana - SEDE ELECTRÓNICA",
+          "consultedOn": "2026-11-24",
           "quotes": [
-            "Convocatoria Abierta Permanente del Vivero de Emprendimiento Agrícola de Barrios Productores",
-            "los proyectos de emprendimiento interesados podrán hacer solicitudes a las parcelas disponibles.",
-            "visita la Sede Electrónica del Ayuntamiento de Madrid."
-          ]
+            "Tramitar en línea",
+            "servicios de apoyo al emprendimiento en parcelas de titularidad municipal",
+            "convocatoria permanente para el acceso a los servicios del Vivero de iniciativas para el emprendimiento en agricultura urbana"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
-          "url": "https://barriosproductores.madrid.es/vivero-de-emprendimiento/",
-          "title": "Vivero de emprendimiento — Barrios Productores",
-          "consultedOn": "2026-09-28",
+          "url": "https://www.madrid.es/portales/munimadrid/es/Inicio/Vivienda-urbanismo-y-obras/Urbanismo/Se-abre-la-oficina-tecnica-de-atencion-al-publico-del-proyecto-Barrios-Productores-y-del-Vivero-de-Emprendimiento-en-Agricultura-Urbana/?vgnextchannel=2af331d3b28fe410VgnVCM1000000b205a0aRCRD&vgnextoid=ab35edb90b1b3810VgnVCM1000001d4a900aRCRD",
+          "title": "Se abre la oficina técnica de atención al público del proyecto “Barrios Productores” y del Vivero de Emprendimiento en Agricultura Urbana - Ayuntamiento de Madrid",
+          "consultedOn": "2026-11-24",
           "quotes": [
-            "facilita programas formativos y de acompañamiento, vinculados a la puesta a disposición de los emprendedores de parcelas de terreno y recursos materiales"
-          ]
+            "formación técnica en agroecología y emprendimiento",
+            "asesoramiento personalizado para la elaboración de proyectos para la explotación agrícola de las parcelas",
+            "acompañamiento en el desarrollo y puesta en ejecución de las explotaciones"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "notes": "El portal enumera nueve parcelas del inventario municipal, pero no se interpreta que todas estén libres simultáneamente: la propia convocatoria habla de solicitudes a las parcelas disponibles.",
+      "notes": "La convocatoria también prevé una Bolsa de Proyectos en Espera. La disponibilidad de parcelas depende de las adjudicaciones.",
       "generatorId": "chatgpt-1"
     },
     {
@@ -383,7 +472,11 @@
             "Cuenta con 150 horas de formación Según Articulo 4 de La Orden 1696/2024 20 mayo",
             "Próxima convocatoria 24 octubre – 6 enero",
             "Este curso está homologado por la Comunidad de Madrid"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2",
@@ -391,11 +484,49 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "Certificado de asistencia y aprovechamiento a un curso de incorporación a la empresa agraria con una duración mínima de 150 horas."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La Comunidad de Madrid no publica en la ficha de ayuda un catálogo único de proveedores. La validez concreta del curso se apoya en la acreditación declarada por el propio proveedor y se contrasta con el requisito oficial de 150 horas; conviene confirmar la homologación vigente antes de matricularse.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "comunidad-de-madrid-portal-ayudas-sector-agrario",
+      "name": "Ayudas y subvenciones al sector agrario y agroalimentario",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Comunidad de Madrid",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Índice de ayudas agrarias y agroalimentarias con acceso a bases reguladoras, modificaciones y últimas convocatorias. Incluye las ayudas de incorporación de jóvenes agricultores y ganaderos, las de incorporación de nuevos agricultores y ganaderos y sus inversiones, y las de cooperación para la sucesión de explotaciones agrícolas.",
+      "howToAccess": "Consultar la línea de ayuda de interés y acceder a sus bases reguladoras y última convocatoria.",
+      "accessUrl": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/ayudas-subvenciones-sector-agrario-agroalimentario",
+      "lastEvidenceDate": "2026-10-27",
+      "sources": [
+        {
+          "url": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/ayudas-subvenciones-sector-agrario-agroalimentario",
+          "title": "Ayudas y subvenciones al sector agrario y agroalimentario | Comunidad de Madrid",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Consulta las ayudas y subvenciones relacionadas con este sector.",
+            "Última actualización: 27 octubre 2026",
+            "Ayudas a la incorporación de nuevos agricultores y ganaderos y sus inversiones en explotaciones agrarias Bases reguladoras Última convocatoria (2026)",
+            "Ayudas para incorporación de jóvenes agricultores y ganaderos Bases reguladoras + Modificación Última convocatoria (2026)",
+            "Ayudas de cooperación para la sucesión de explotaciones agrícolas Bases reguladoras Última convocatoria (2026)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
@@ -411,7 +542,11 @@
           "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0",
           "title": "Ayudas para la incorporación de nuevos agricultores (2026)",
           "consultedOn": "2026-09-28",
-          "quotes": ["Fecha de inicio: 02/04/2026 Fecha de fin: 04/05/2026"]
+          "quotes": ["Fecha de inicio: 02/04/2026 Fecha de fin: 04/05/2026"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -428,7 +563,11 @@
           "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2",
           "title": "Ayudas para la incorporación de jóvenes agricultores (2026)",
           "consultedOn": "2026-09-28",
-          "quotes": ["Fecha de inicio: 08/04/2026 Fecha de fin: 07/05/2026"]
+          "quotes": ["Fecha de inicio: 08/04/2026 Fecha de fin: 07/05/2026"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -445,7 +584,11 @@
           "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-sucesion-explotaciones-agricolas",
           "title": "Ayudas de cooperación para la sucesión de explotaciones agrícolas",
           "consultedOn": "2026-09-28",
-          "quotes": ["08/06/2026 Resolución de la convocatoria"]
+          "quotes": ["08/06/2026 Resolución de la convocatoria"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"

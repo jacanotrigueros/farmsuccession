@@ -6,14 +6,16 @@
     "region": "bourgogne-franche-comte"
   },
   "language": "fr",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-11-21",
   "context": [
     "La Région Bourgogne-Franche-Comté gère la DJA et a officiellement annoncé le 30 juin 2026 sa revalorisation de 45 000 à 65 000 euros, avec un plafond possible de 72 000 euros.",
     "La Région maintient un programme de formation à la reprise permettant aux candidats hors cadre familial de tester une exploitation pendant 3 à 12 mois avec accompagnement.",
     "La Safer Bourgogne-Franche-Comté reste l'opérateur foncier régional pour installation, transmission, consolidation et annonces légales.",
     "Terre de Liens Bourgogne-Franche-Comté est actif en 2026 et décrit des parcours d'installation, transmission et accès au foncier.",
     "AITA est structuré régionalement ; la DRAAF décrit les volets accueil, conseil, professionnalisation, transmission et animation. Ne pas confondre financement des structures et aide directement accessible au bénéficiaire final.",
-    "France Services Agriculture est en phase d'expérimentation en 2026 et relève de la couche nationale."
+    "France Services Agriculture est en phase d'expérimentation en 2026 et relève de la couche nationale.",
+    "Malgré son libellé dans le registre de découverte, la page « Sites utiles » est un annuaire installation-transmission et non une présentation du programme AITA.",
+    "La page node/391 présente le même programme de test de reprise hors cadre familial que la fiche node/1901 ; elle distingue les organismes destinataires de la fiche des candidats agricoles bénéficiaires du stage."
   ],
   "portals": [
     {
@@ -129,6 +131,33 @@
       "reason": "Phase de test 2026 d'un dispositif national prévu pour déploiement ultérieur ; ne pas le dupliquer comme service régional établi.",
       "foundBy": "bfc-aita",
       "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "bfc-portail-aides-nouveaux-agriculteurs",
+      "name": "Les aides en faveur des nouveaux agriculteurs",
+      "url": "https://draaf.bourgogne-franche-comte.agriculture.gouv.fr/les-aides-en-faveur-des-nouveaux-agriculteurs-r782.html",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "bourgogne-franche-comte-portail-aides-nouveaux-agriculteurs",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "bfc-sites-utiles-installation-transmission",
+      "name": "Sites utiles",
+      "url": "https://draaf.bourgogne-franche-comte.agriculture.gouv.fr/sites-utiles-a3319.html",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "bourgogne-franche-comte-sites-utiles-installation-transmission",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "bfc-formation-creation-reprise-node-391",
+      "name": "Formation à la création-reprise d’entreprise - programme régional de formation",
+      "url": "https://www.bourgognefranchecomte.fr/node/391",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "bourgogne-franche-comte-formation-reprise-exploitation",
+      "checkedOn": "2026-11-21"
     }
   ],
   "instrumentChecks": [
@@ -178,6 +207,26 @@
       "date": "2026-09-30",
       "by": "CLAUDE (Claude Code)",
       "summary": "Revue des sources : la citation d'un café installation à la Ferme de la Motte a disparu de la page, qui fait tourner ses évènements ; seules les citations stables des parcours restent, et la date de dernière évidence tirée de cet évènement est retirée."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page publie toujours les coordonnées des services couvrant tous les départements cités ; la disparition signalée vient d’une citation qui regroupait artificiellement leurs noms avec des séparateurs absents du texte actuel. Je remplace cette citation par les intitulés exacts de chaque service départemental, sans modifier les autres sources ni les informations de la fiche."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La rubrique de la DRAAF constitue une porte d’entrée officielle vers les aides à l’installation et à la transmission, avec des accès distincts à la DJA, à l’AITA et aux autres aides. Je propose de l’admettre comme portail régional, sans créer de nouvelle fiche pour les dispositifs qu’elle référence."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page « Sites utiles » constitue un annuaire officiel régional donnant accès aux contacts des PAI et à des ressources pour l’installation et la transmission. Je propose de l’admettre comme portail d’orientation, distinct de la rubrique consacrée aux aides, sans attribuer à la DRAAF les services des organismes référencés."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page décrit le même programme de formation à la reprise déjà publié, et non un guide général des aides. Je l’ajoute comme source à la fiche existante et précise la durée non renouvelable, la définition du hors cadre familial et la possibilité de rémunération des stagiaires, sans créer de doublon."
     }
   ]
 }

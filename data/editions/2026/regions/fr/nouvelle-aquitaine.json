@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "nouvelle-aquitaine",
   "officialName": "Nouvelle-Aquitaine",
-  "published": "2026-10-30",
+  "published": "2026-11-24",
   "summary": "La DNJA et un prêt d'honneur soutiennent l'installation agricole. La Région finance aussi des études et suivis individuels, tandis que l'AITA finance les organismes qui animent l'installation et la transmission. La Safer et des associations territoriales proposent des parcours d'accès au foncier et de transmission.",
   "coverage": {
     "status": "PARTIAL",
@@ -77,9 +77,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -96,6 +93,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -135,7 +139,11 @@
             "Nous facilitons vos recherches d’exploitations agricoles ainsi que l’accès au foncier",
             "nous facilitons la transmission de votre exploitation agricole",
             "contact@saferna.fr"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.saferna.fr/qui-sommes-nous/",
@@ -144,7 +152,11 @@
           "quotes": [
             "Charente, Charente-Maritime, Corrèze, Creuse, Dordogne, Gironde, Landes, Lot-et-Garonne, Pyrénées-Atlantiques, Deux-Sèvres, Vienne et Haute-Vienne.",
             "fusion des trois Safer régionales : Aquitaine-Atlantique, Marche-Limousin et Poitou-Charentes."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La Safer Nouvelle-Aquitaine intervient en Charente, Charente-Maritime, Corrèze, Creuse, Dordogne, Gironde, Landes, Lot-et-Garonne, Pyrénées-Atlantiques, Deux-Sèvres, Vienne et Haute-Vienne. Elle est issue de la fusion des trois Safer régionales Aquitaine-Atlantique, Marche-Limousin et Poitou-Charentes."
@@ -176,13 +188,21 @@
             "âgées de 18 à 55 ans de s'installer comme chefs d'exploitations agricoles",
             "Un volet \"outil de production\" (pour les JA et les NA)",
             "vous devez passer par le Point Accueil Installation Transmission (PAIT)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.europe-en-nouvelle-aquitaine.eu/fr/renouvellement-generationnel.html",
           "title": "Renouvellement générationnel",
           "consultedOn": "2026-09-29",
-          "quotes": ["deux dispositifs sont ouverts toute l'année", "Déposer mon dossier (nouveaux agriculteurs)"]
+          "quotes": ["deux dispositifs sont ouverts toute l'année", "Déposer mon dossier (nouveaux agriculteurs)"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "Le portail régional affiche un dépôt pour jeunes et nouveaux agriculteurs. Aucune date de clôture propre aux demandes DNJA n'a été déduite de l'appel destiné aux organismes d'accompagnement."
@@ -216,7 +236,11 @@
             "Information et dépôt de la demande auprès de la Plateforme Initiative",
             "Soit avoir moins de 41 ans et être non éligible à la Dotation Nouveaux et Jeunes Agriculteurs (DNJA)",
             "Soit avoir plus de 41 ans"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "La page mentionne également l'aquaculture. Le présent fichier retient son application aux exploitations agricoles ; le dépôt est examiné au fil de l'eau."
@@ -245,7 +269,11 @@
           "quotes": [
             "Ce dispositif d'accompagnement s'adresse à chaque porteur de projet",
             "Le candidat contacte en suivant l'organisme d'accompagnement de son choix"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "Le financement va aux organismes sélectionnés ; ceux-ci déduisent l'aide de la facture du candidat. Ce diagnostic est distinct de leur appel à candidatures."
@@ -276,7 +304,11 @@
             "Pour déposer un dossier de demande d'aide DJA/DNJA, l'étude économique doit obligatoirement avoir été réalisée par un organisme sélectionné par la Région Nouvelle-Aquitaine.",
             "Tout candidat à l’installation doit passer au Point Accueil Installation Transmission (PAIT) du département de son installation",
             "Le candidat contacte en suivant l'organisme d'accompagnement de son choix qui réalisera l'étude économique pré-installation."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "Cette étude est une prestation distincte du diagnostic pré-installation. L'aide régionale finance l'organisme sélectionné ; la voie d'accès du candidat passe par le PAIT."
@@ -306,7 +338,11 @@
             "L’accompagnement post-installation vise à sécuriser et pérenniser l’installation de chaque Nouvel Installé",
             "Chaque NI ayant bénéficié de la Dotation Jeune Agriculteur (DJA) ou du Prêt d'Honneur pourra bénéficier 3 fois au maximum d’un suivi, dans les 5 ans suivant son installation",
             "doit contacter l'organisme d'accompagnement de son choix qui réalisera le suivi"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "La fiche régionale publie une voie d'accès directe à la prestation ; le financement de l'organisme n'est pas présenté comme un versement au nouvel installé."
@@ -346,7 +382,11 @@
             "L’accompagnement à l’installation et à la transmission en agriculture mis en œuvre à partir du 1er janvier 2026",
             "Le présent appel à projets organisé par la DRAAF Nouvelle-Aquitaine et la Région Nouvelle-Aquitaine a pour objet de retenir les actions d’animation et de communication les plus pertinentes et efficientes en faveur de l’installation en agriculture et de la transmission des exploitations, sur son territoire.",
             "Date limite de remise des dossiers : 3 avril 2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/IMG/pdf/aap_aita_animation_communication_2026.pdf",
@@ -359,7 +399,11 @@
             "Sont exclus les opérateurs économiques et commerciaux.",
             "Les associations en gestion des espaces-tests ne sont pas éligibles à cet appel à projet",
             "Toute structure intervenant dans le cadre du repérage, de la sensibilisation ou de l’accompagnement des cédants ou des porteurs de projet, qui demande un financement"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La date limite concernait les organismes candidats au financement, pas les agriculteurs. La ressource est publiée comme aide financière aux structures avec un appel 2026 clos, sans la présenter comme une aide directe aux porteurs de projet ou aux cédants."
@@ -386,7 +430,11 @@
           "url": "https://anicap-na.org/espace-eleveur/transmettre-mon-exploitation/",
           "title": "Transmettre son exploitation — ANICAP Nouvelle-Aquitaine",
           "consultedOn": "2026-09-29",
-          "quotes": ["ont élaboré le Plan Capr’1", "favorise la rencontre avec des repreneurs intéressés par la production caprine"]
+          "quotes": ["ont élaboré le Plan Capr’1", "favorise la rencontre avec des repreneurs intéressés par la production caprine"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La page décrit le programme, mais ne date pas son fonctionnement actuel ; sa disponibilité reste inconnue."
@@ -417,7 +465,11 @@
             "Notre accompagnement individuel à l’installation",
             "diagnostic pré-installation, étude économique certifiée et dépôt de dossiers d’aides",
             "contact@agap33.org"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Service départemental fourni par l'association elle-même, distinct de la fiche régionale qui finance certains conseils. La page ne porte pas de date probante de fonctionnement en 2026."
@@ -459,7 +511,11 @@
             "vous aider à élaborer un projet économique viable",
             "Vous pouvez participer à l’un des Rendez Vous de l’Installation Paysanne que nous organisons un lundi par mois",
             "abdeabearn@gmail.com"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.agriculturepaysanne.org/Qui-nous-sommes",
@@ -469,7 +525,11 @@
             "Notre accompagnement individuel à la transmission s’attache à tout ces aspects de votre ferme.",
             "DIAGNOSTIC DE LA FERME A TRANSMETTRE",
             "Diffusion d’une annonce pour communiquer auprès de repreneurs potentiels"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La page d'installation publie des rendez-vous mensuels et les deux pages donnent le même contact institutionnel. La fiche réunit les parcours complémentaires d'un même opérateur dans le Béarn."
@@ -498,7 +558,11 @@
           "quotes": [
             "Plus de 150 candidats à l'installation et cédants accueillis.",
             "Primo-accueils : écoute et analyse des sollicitations par mail, téléphone"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "L'association indique agir dans les cinq départements de l'ancienne Aquitaine ; ce périmètre ne couvre pas toute la Nouvelle-Aquitaine."
@@ -527,7 +591,11 @@
           "quotes": [
             "Renseigne, accompagne et oriente les porteurs et porteuses de projet",
             "dans leurs démarches de recherche ou de transmission de foncier agricole"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Service territorial en Limousin, distinct de ceux des associations Aquitaine et Poitou-Charentes."
@@ -553,10 +621,91 @@
           "url": "https://terredeliens.org/poitou-charentes/",
           "title": "Poitou-Charentes — Terre de Liens",
           "consultedOn": "2026-09-29",
-          "quotes": ["Accompagner des porteurs de projets dans leur démarche d’accès aux terres"]
+          "quotes": ["Accompagner des porteurs de projets dans leur démarche d’accès aux terres"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Service de l'association territoriale, et non simple renvoi vers le réseau national."
+    },
+    {
+      "id": "nouvelle-aquitaine-perigord-limousin-clit",
+      "name": "Comité local installation-transmission (CLIT) du Périgord-Limousin",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Communauté de Communes Périgord-Limousin"
+      },
+      "operator": "Communauté de Communes Périgord-Limousin, Chambre d’agriculture de Dordogne et CrDA PérigordVert",
+      "operatorType": "MIXED",
+      "whatItOffers": "Accompagnement à la création d'une entreprise agricole et à la transmission d'une exploitation : entretien personnalisé, plan d'accompagnement, identification des fermes viables à reprendre et valorisation des exploitations auprès de porteurs de projet.",
+      "whoCanUseIt": "Personnes ayant un projet d'installation agricole sur le territoire et agriculteurs souhaitant vendre leur exploitation.",
+      "howToAccess": "Prendre contact avec la Chambre d'agriculture de Dordogne ou la Communauté de Communes Périgord-Limousin par les interlocuteurs indiqués sur la page pour demander un accompagnement individualisé.",
+      "accessUrl": "https://www.perigord-limousin.fr/vos-demarches-au-quotidien/agriculture/transmission-reprise-exploitations-agricoles-en-perigord-limousin/",
+      "assetTypes": ["WHOLE_HOLDINGS"],
+      "targetProfiles": ["NEW_ENTRANT", "TRANSFEROR"],
+      "sources": [
+        {
+          "url": "https://www.perigord-limousin.fr/vos-demarches-au-quotidien/agriculture/transmission-reprise-exploitations-agricoles-en-perigord-limousin/",
+          "title": "Transmission - Reprise d'exploitations agricoles en Périgord-Limousin - Communauté de Communes Périgord-Limousin",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous avez un projet d’installation en agriculture, des offres d’exploitations vous sont proposées sur la Communauté de communes du Périgord Limousin.",
+            "Notre collectivité a signé un partenariat avec la Chambre d’agriculture et le CrDA Périgord vert vous permettant de bénéficier d’un accompagnement tout le long de la création de votre d’entreprise via le CLIT",
+            "Vous êtes agriculteur(trice), et vous souhaitez vendre votre exploitation agricole? Contactez nous afin de bénéficier d’un accompagnement individualisé",
+            "la Communauté de Communes du Périgord Limousin, la Chambre d’agriculture de Dordogne et le CrDA PérigordVert ont souhaité conjuguer leurs forces à travers la mise en place d’un comité local installation-transmission (CLIT).",
+            "entretien personnalisé, mise en place de plan d’accompagnement, valorisation de leur exploitation auprès de porteur de projet",
+            "Concrètement, un salarié de la Chambre d’Agriculture sera chargé d’identifier les fermes agricoles viables pour être reprises, sur les 22 communes de la Communauté de Communes.",
+            "Cette convention signée le 15 Novembre dernier jusqu’à fin 2020 fera l’objet de bilan régulier sur l’avancée des différents dispositifs et s’adaptera aux enjeux locaux.",
+            "Contact Chambre d’Agriculture Dordogne",
+            "Communauté de Communes Périgord-Limousin"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "notes": "La convention décrite sur la page allait jusqu'à fin 2020. La disponibilité actuelle de cet accompagnement reste à confirmer auprès des organismes partenaires.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "nouvelle-aquitaine-guide-aides-agriculture",
+      "name": "Le Guide des Aides de la Région Nouvelle-Aquitaine",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Région Nouvelle-Aquitaine",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Catalogue régional d'aides agricoles, comprenant des fiches sur l'accompagnement individuel pré-installation par une étude économique et sur le prêt d'honneur pour l'installation.",
+      "howToAccess": "Rechercher une aide et filtrer les résultats par profils, thématiques et types d'aides, puis consulter la fiche du dispositif recherché.",
+      "accessUrl": "https://les-aides.nouvelle-aquitaine.fr/agriculture",
+      "sources": [
+        {
+          "url": "https://les-aides.nouvelle-aquitaine.fr/agriculture",
+          "title": "Agriculture | Le Guide des Aides",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Le Guide des Aides de la Région Nouvelle-Aquitaine",
+            "Trouvez l'aide dont vous avez besoin :",
+            "Filtrer par Profils",
+            "Filtrer par Thématiques",
+            "Filtrer par Types d'aides",
+            "Accompagnement individuel pré-installation : étude économique",
+            "Installation : prêt d'honneur Initiative Nouvelle-Aquitaine"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
@@ -572,7 +721,11 @@
           "url": "https://www.europe-en-nouvelle-aquitaine.eu/fr/appels-%C3%A0-projets/appel-candidatures-selection-des-organismes-de-conseil-et-daccompagnement",
           "title": "Sélection des organismes de conseil et d'accompagnement à l'installation 2026",
           "consultedOn": "2026-09-29",
-          "quotes": ["Date de début de l'appel à projets : Jeudi 17 septembre 2026", "Toute structure publique ou privée"]
+          "quotes": ["Date de début de l'appel à projets : Jeudi 17 septembre 2026", "Toute structure publique ou privée"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ]
     }

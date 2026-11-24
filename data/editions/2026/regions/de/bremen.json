@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "bremen",
   "officialName": "Bremen",
-  "published": "2026-10-29",
+  "published": "2026-11-24",
   "summary": "In Bremen bietet die Landwirtschaftskammer Seminare zur Planung und Umsetzung der Hofübergabe an. Das beschlossene Entwicklungskonzept Landwirtschaft Bremen 2035 sieht für 2024 bis 2027 außerdem den Aufbau von Vernetzungs- und Beratungsangeboten für die externe Hofnachfolge vor.",
   "coverage": {
     "status": "PARTIAL",
@@ -20,9 +20,6 @@
         "detail": "https://www.lwk-bremen.de/beratung/ und https://umwelt.bremen.de/umwelt/landwirtschaft/landwirtschaft-52770"
       }
     ]
-  },
-  "review": {
-    "status": "DRAFT"
   },
   "metadata": {
     "language": "de",
@@ -39,6 +36,13 @@
         "tool": "CHATGPT",
         "model": "gpt-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -68,7 +72,11 @@
             "Die Landwirtschaftskammer Bremen bietet umfassende Beratung für Landwirte und Gärtner in Bremen.",
             "Beratung zur Hofübergabe: Damit die Betriebsnachfolge reibungslos gelingt, bieten wir gezielte Seminare zur Planung und Umsetzung der Hofübergabe an.",
             "Kontaktieren Sie uns – wir stehen Ihnen gerne zur Seite!"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -95,7 +103,11 @@
           "consultedOn": "2026-10-29",
           "quotes": [
             "Anfang 2024 wurde der Beteiligungsprozess für das Entwicklungskonzept Landwirtschaft Bremen 2035 abgeschlossen und die Umsetzung des Konzepts einstimmig vom Senat und der Deputation Umwelt, Klima und Landwirtschaft bis zum 23.05.2024 beschlossen."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://umwelt.bremen.de/sixcms/media.php/13/Entwicklungskonzept_Landwirtschaft_Bremen_2035pdf.pdf",
@@ -103,11 +115,57 @@
           "consultedOn": "2026-10-29",
           "quotes": [
             "Analyse über die Situation der Betriebe ohne geklärte Hofnachfolge. Darauf aufbauend Aufbau von Vernetzungs- und Beratungsangeboten zur Ermöglichung externer Hofnachfolge. 2024 - 2027"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Das Konzept beschreibt die geplante Umsetzung. Es belegt nicht, dass alle darin vorgesehenen Beratungs- und Vernetzungsangebote bereits verfügbar sind.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "bremen-bremer-agrarnetzwerk",
+      "name": "Bremer Agrarnetzwerk",
+      "kind": "NETWORK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Landwirtschaftskammer Bremen",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Vernetzung, fachlicher Austausch und persönliche Weiterentwicklung für die junge Landwirtschaft in Bremen, ausdrücklich auch für Hofnachfolgerinnen und Hofnachfolger. Zu den Themen gehören Betriebsnachfolge und Generationenwechsel. Geplant sind Netzwerktreffen, digitale Austauschformate, Fachvorträge, Workshops und Exkursionen.",
+      "whoCanUseIt": "Insbesondere junge Landwirtinnen und Landwirte, Hofnachfolgerinnen und Hofnachfolger, Betriebsleitende sowie Auszubildende und Studierende im Agrarbereich. Eingeladen sind auch junge Menschen ohne eigenen Hof mit Interesse an der Landwirtschaft.",
+      "howToAccess": "Zur Teilnahme die auf der Netzwerkseite genannte Ansprechperson kontaktieren. Die Seite dient außerdem der Veröffentlichung nächster Termine und von Nachberichten.",
+      "accessUrl": "https://landwirtschaftskammer-bremen.de/bremer-agrarnetzwerk/",
+      "targetProfiles": ["YOUNG_FARMER", "SUCCESSOR", "GENERAL"],
+      "sectors": ["AGRICULTURE"],
+      "lastEvidenceDate": "2026-03-30",
+      "sources": [
+        {
+          "url": "https://landwirtschaftskammer-bremen.de/bremer-agrarnetzwerk/",
+          "title": "Bremer Agrarnetzwerk - Landwirtschaftskammer Bremen",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Das Bremer Agrarnetzwerk bringt junge Landwirtinnen und Landwirte aus Bremen zusammen.",
+            "Das Netzwerk soll junge Betriebsleiterinnen und Betriebsleiter sowie Hofnachfolgerinnen und Hofnachfolger dabei unterstützen, Landwirtschaft aktiv und zukunftsorientiert weiterzuentwickeln.",
+            "Betriebsnachfolge und Generationenwechsel",
+            "Auszubildende und Studierende im Agrarbereich",
+            "Geplant sind: klassische Netzwerktreffen digitale Austauschformate Fachvorträge und Workshops interaktive Diskussionsrunden Exkursionen zu Best-Practice-Betrieben",
+            "Mit dem Ziel, ein aktives Netzwerk für junge Menschen aus der Landwirtschaft aufzubauen, startete das neue „Bremer Agrarnetzwerk“ mit einer Auftaktveranstaltung am Montag, den 30. März 2026, in den Räumen der Landwirtschaftskammer Bremen.",
+            "Gerne sind alle jungen Menschen aus der Landwirtschaft aber auch ohne Hof und mit Interesse an der Landwirtschaft eingeladen, am Netzwerk teilzunehmen.",
+            "Wendet euch dazu an Louisa Strohmeyer:",
+            "Dort werden u.a. auch die nächsten Termine oder Nachberichte von vergangenen Aktivitäten veröffentlicht.",
+            "Das Bremer Agrarnetzwerk versteht sich deshalb als Plattform für Austausch, Innovation und Zukunftsgestaltung – getragen von der Landwirtschaft selbst und eingebettet in die Strukturen der Landwirtschaftskammer Bremen."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

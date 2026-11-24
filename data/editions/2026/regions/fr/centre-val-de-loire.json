@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "centre-val-de-loire",
   "officialName": "Centre-Val de Loire",
-  "published": "2026-10-25",
+  "published": "2026-11-24",
   "summary": "En Centre-Val de Loire, la Safer du Centre fait de l’installation des jeunes agriculteurs une priorité : elle les accompagne, dispose d’un fonds d’aide à l’installation et propose un portage foncier qui diffère l’investissement sur la terre ; la Région pilote par ailleurs l’aide à l’installation dans son plan régional FEADER.",
   "coverage": {
     "status": "PARTIAL",
@@ -25,9 +25,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -43,6 +40,20 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -57,9 +68,9 @@
       },
       "operator": "Safer du Centre",
       "operatorType": "MIXED",
-      "whatItOffers": "Accompagne les porteurs de projet dans leurs démarches foncières, verse un fonds d’aide à l’installation et propose, avec un partenaire bancaire, un portage foncier qui permet de différer l’investissement sur la terre et d’alléger l’endettement au moment de l’installation.",
-      "whoCanUseIt": "Futurs agriculteurs, jeunes agriculteurs qui s’installent à titre principal et exploitants qui cherchent des solutions de transmission.",
-      "howToAccess": "Prendre contact avec le conseiller foncier du secteur où se situe le bien et consulter les appels à candidature et les biens à la vente de la Safer.",
+      "whatItOffers": "Accompagne les porteurs de projet dans leurs démarches foncières, verse un fonds d’aide à l’installation et propose, avec un partenaire bancaire, un portage foncier qui permet de différer l’investissement sur la terre et d’alléger l’endettement au moment de l’installation. Pour la transmission, réalise une visite, un diagnostic et une évaluation des biens, organise la publicité et la recherche de repreneurs, puis accompagne les parties jusqu’à la signature de la vente ou de la location. Peut assurer une gestion temporaire des biens par convention de mise à disposition résiliable annuellement. Le FAI correspond à 10 % du montant du premier investissement foncier, en achat ou en location par la Safer, dans la limite de 5 000 €.",
+      "whoCanUseIt": "Futurs agriculteurs, jeunes agriculteurs qui s’installent à titre principal et exploitants qui cherchent des solutions de transmission, notamment pour vendre ou louer tout ou partie de leur exploitation. Pour le FAI, avoir moins de 40 ans lors de l’installation et investir par l’intermédiaire de la Safer dans le cadre d’une installation principale ou progressive.",
+      "howToAccess": "Prendre contact avec le conseiller foncier du secteur où se situe le bien afin d’étudier les solutions de transmission et consulter les appels à candidature et les biens à la vente de la Safer. L’éligibilité au FAI est étudiée avec le conseiller foncier à la finalisation de l’attribution ou du bail.",
       "accessUrl": "https://www.saferducentre.fr/agriculteurs/linstallation-de-jeunes-agriculteurs-notre-priorite",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
@@ -75,7 +86,11 @@
             "un système de portage foncier qui s’adresse aux jeunes agriculteurs de moins de 45 ans s’installant à titre principal",
             "Le portage permet de différer l’investissement sur le foncier et ainsi d’alléger l’endettement du jeune agriculteur au moment de l’installation.",
             "Prenez contact avec le conseiller foncier du secteur où se situe votre bien afin d'étudier les solutions de transmission qui peuvent vous correspondre."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.saferducentre.fr/notaires/foire-aux-questions-sur-les-notifications",
@@ -88,11 +103,50 @@
             "37 - Indre-et-Loire",
             "41 - Loir-et-Cher à partir de 10 ares",
             "45 - Loiret à partir de 50 ares"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.saferducentre.fr/agriculteurs/je-veux-transmettre-mon-exploitation",
+          "title": "Je veux transmettre mon exploitation | safer",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous souhaitez vendre tout ou partie de votre exploitation ?",
+            "Après une visite et un diagnostic de l’exploitation, la Safer réalise une évaluation des biens avec la connaissance du marché et du prix des terres.",
+            "Elle met en publicité les biens en vente ou en location et recueille les candidatures.",
+            "La Safer accompagne le vendeur, l’acquéreur, le bailleur, le locataire jusqu’à la signature en assurant le lien avec tous les interlocuteurs (techniques, juridiques, financiers).",
+            "La Safer organise le transfert total ou partiel de votre exploitation (terres, bâtiments, matériel, cheptel, parts sociales), par vente ou location, en une ou plusieurs fois.",
+            "d'une gestion temporaire de vos biens, avec la convention de mise à disposition résiliable annuellement, dans l'attente de la mise en place d’une solution définitive (bail rural, vente, ou installation d’un membre de la famille...).",
+            "Prenez contact avec le conseiller foncier du secteur où se situe votre bien afin d'étudier les solutions de transmission qui peuvent vous correspondre."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.saferducentre.fr/agriculteurs/accompagnement-des-jeunes-agriculteurs",
+          "title": "Accompagnement des jeunes agriculteurs | safer",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "L’aide est calculée à hauteur de 10 % du montant de votre investissement foncier",
+            "avec un plafond maximal fixé à 5 000 €.",
+            "Être âgé de moins de 40 ans au moment de l'installation.",
+            "Être engagé dans une démarche d'installation agricole (à titre principal ou progressif).",
+            "Réaliser son investissement foncier ou locatif par l'intermédiaire de la Safer du Centre.",
+            "L’éligibilité de votre dossier est étudiée en étroite collaboration avec vos conseillers fonciers"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "claude-1",
-      "notes": "La Safer du Centre couvre le Cher (18), l’Eure-et-Loir (28), l’Indre (36), l’Indre-et-Loire (37), le Loir-et-Cher (41) et le Loiret (45)."
+      "notes": "La Safer du Centre couvre le Cher (18), l’Eure-et-Loir (28), l’Indre (36), l’Indre-et-Loire (37), le Loir-et-Cher (41) et le Loiret (45).",
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "centre-val-de-loire-feader-installation",
@@ -118,10 +172,403 @@
             "L’aide à l’installation des jeunes agriculteurs",
             "Les aides aux investissements agricoles (productifs et non productifs) et forestiers",
             "Les aides LEADER qui soutiennent des projets de développement rural lancés au niveau local"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "claude-1"
+    },
+    {
+      "id": "centre-val-de-loire-capacite-professionnelle-agricole",
+      "name": "La capacité professionnelle agricole",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Centre-Val de Loire",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Explique la capacité professionnelle agricole et donne accès au formulaire et aux pièces à fournir pour demander une dérogation à la liste des diplômes permettant de justifier des compétences requises pour demander la DJA. La DRAAF examine chaque dossier au cas par cas.",
+      "whoCanUseIt": "Candidats souhaitant s’installer en Centre-Val de Loire et demander une dérogation sur la base d’un diplôme, titre ou certificat de niveau 4 minimum. L’expérience professionnelle n’est pas prise en compte pour cette dérogation.",
+      "howToAccess": "Adresser le dossier à la DRAAF Centre-Val de Loire par courriel ou par courrier. Joindre le formulaire téléchargeable, un courrier précisant le projet d’installation, une copie de la pièce d’identité et des diplômes, titres ou certificats. Pour les qualifications étrangères, joindre une attestation de comparabilité ; les diplômes non établis en français doivent être accompagnés de leur traduction.",
+      "accessUrl": "https://draaf.centre-val-de-loire.agriculture.gouv.fr/la-capacite-professionnelle-agricole-a1815.html",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "DRAAF Centre-Val de Loire — Service régional de la formation et du développement",
+          "value": "srfd.draaf-centre-val-de-loire@agriculture.gouv.fr",
+          "sourceUrl": "https://draaf.centre-val-de-loire.agriculture.gouv.fr/la-capacite-professionnelle-agricole-a1815.html"
+        }
+      ],
+      "lastEvidenceDate": "2026-09-29",
+      "sources": [
+        {
+          "url": "https://draaf.centre-val-de-loire.agriculture.gouv.fr/la-capacite-professionnelle-agricole-a1815.html",
+          "title": "La capacité professionnelle agricole | DRAAF Centre-Val de Loire",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Publié le 29/09/2026",
+            "La capacité professionnelle agricole (CPA) est le niveau de qualification professionnelle requis pour bénéficier des aides à l’installation de l’État et est également prise en compte dans le cadre du contrôle des structures.",
+            "L’arrêté du 24 avril 2023 fixe la liste des diplômes agricoles de niveau 4 ou supérieur permettant de justifier des compétences requises pour demander la DJA.",
+            "Le cas échéant, la Direction Régionale de l’Alimentation de l’Agriculture et de la Forêt (DRAAF) est compétente pour instruire les demandes de dérogation à cette liste.",
+            "Elle s’assure que les compétences attestées par le diplôme, titre ou certificat de niveau 4 minimum du demandeur correspondent aux compétences nécessaires à l’exercice du métier de responsable d’exploitation agricole.",
+            "Chaque dossier de demande est étudié au cas par cas.",
+            "ATTENTION : il n’est pas prévu que l’expérience professionnelle du demandeur soit prise en compte pour l’attribution de cette dérogation.",
+            "Pour toute demande, le candidat doit adresser un dossier à la DRAAF de la région dans laquelle il souhaite s’installer.",
+            "En région Centre-Val de Loire, la demande est à adresser : par mail à srfd.draaf-centre-val-de-loire@agriculture.gouv.fr OU par courrier",
+            "Le formulaire de demande de dérogation, téléchargeable ci-après ; Un courrier précisant le projet d’installation ; Une photocopie de la carte nationale d’identité ou du passeport ; Une photocopie des diplômes, titres ou certificats obtenus ;",
+            "Pour les titulaires de diplômes, titres ou certificats étrangers, une attestation de comparabilité délivrée par un organisme habilité pour établir une comparaison entre les diplômes, titres ou certificats étrangers et le cadre national des certifications professionnelles.",
+            "Lorsque les diplômes ne sont pas établis en langue française, leur traduction est jointe.",
+            "Formulaire de demande de dérogation de diplôme"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "centre-val-de-loire-point-accueil-installation",
+      "name": "Le Point Accueil Installation (PAI)",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Centre-Val de Loire",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Présente les missions des PAI en Centre-Val de Loire et donne accès à leur site et à leurs coordonnées : accueil, information, orientation vers les structures compétentes et accompagnement de la définition du projet d’installation et de l’auto-diagnostic.",
+      "whoCanUseIt": "Tous les porteurs de projets en agriculture, quel que soit l’avancement du projet, qu’ils demandent ou non des aides publiques.",
+      "howToAccess": "Suivre le lien « Consulter le site Internet des PAI en région Centre-Val de Loire » pour accéder aux coordonnées des PAI et prendre contact.",
+      "accessUrl": "https://draaf.centre-val-de-loire.agriculture.gouv.fr/le-point-accueil-installation-pai-a669.html",
+      "targetProfiles": ["NEW_ENTRANT"],
+      "lastEvidenceDate": "2025-11-03",
+      "sources": [
+        {
+          "url": "https://draaf.centre-val-de-loire.agriculture.gouv.fr/le-point-accueil-installation-pai-a669.html",
+          "title": "Le Point Accueil Installation (PAI) | DRAAF Centre-Val de Loire",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "DRAAF Centre-Val de Loire",
+            "Publié le 05/10/2017 | Mis à jour le 03/11/2025",
+            "Le point accueil installation (PAI), présent dans les 6 départements de la région Centre-Val de Loire, est la porte d’entrée unique du parcours à l’installation pour toutes les personnes souhaitant s’installer en agriculture.",
+            "Il reçoit et accompagne tous les porteurs de projet quel que soit l’état d’avancement de leur projet.",
+            "Consulter le site Internet des PAI en région Centre-Val de Loire https://centre-valdeloire.chambres-agriculture.fr/sinformer/sinstaller] et accéder à leurs coordonnées.",
+            "Il est donc ouvert à tous les porteurs de projets en agriculture, qu’ils soient demandeurs ou non des aides auprès des Pouvoirs Publics.",
+            "Accompagner dans la réflexion de la définition du pré-projet d’installation si celui-ci est à consolider, puis à l’élaboration du document d’auto-diagnostic, si nécessaire.",
+            "Ainsi, le Point Accueil Installation, en s’appuyant sur un réseau pluraliste d’accompagnement des structures partenaires départementales, est la structure pivot pour accueillir, informer, orienter et accompagner tout porteur de projet."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "centre-val-de-loire-aita",
+      "name": "Programme d’accompagnement à l’installation et à la transmission en agriculture (AITA)",
+      "kind": "POLICY",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Centre-Val de Loire et Directions départementales des territoires",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Cadre régional d’accompagnement à l’installation et à la transmission : financement de l’accueil des candidats et des futurs cédants, soutien au plan de professionnalisation personnalisé et au stage collectif de 21 heures, stages en exploitation, prise en charge de diagnostics et aides à la transmission hors cadre familial.",
+      "howToAccess": "Consulter l’arrêté régional accessible sur la page pour les modalités d’intervention et de gestion des dossiers. La page répartit les actions entre la DRAAF et les Directions départementales des territoires. Pour la prise en charge d’un diagnostic d’exploitation à reprendre ou à céder, le prestataire doit être préalablement agréé par la DRAAF.",
+      "accessUrl": "https://draaf.centre-val-de-loire.agriculture.gouv.fr/programme-d-accompagnement-a-l-installation-et-a-la-transmission-en-agriculture-a439.html",
+      "lastEvidenceDate": "2023-12-01",
+      "sources": [
+        {
+          "url": "https://draaf.centre-val-de-loire.agriculture.gouv.fr/programme-d-accompagnement-a-l-installation-et-a-la-transmission-en-agriculture-a439.html",
+          "title": "Programme d’accompagnement à l’installation et à la transmission en agriculture (AITA) | DRAAF Centre-Val de Loire",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Publié le 19/06/2017 | Mis à jour le 01/12/2023",
+            "Dans ce cadre, le programme d’accompagnement à l’installation et à la transmission en agriculture (AITA), accompagné par l’Etat en région Centre-Val de Loire, se compose de plusieurs actions.",
+            "Actions gérées par la Direction régionale de l’alimentation, de l’agriculture et de la forêt",
+            "accueil des porteurs de projets : financement des missions des points accueil installation (PAI) en faveur des candidats à l’installation",
+            "missions des points accueil transmission (PAT) en faveur des futurs cédants.",
+            "Actions gérées par les Directions départementales des territoires",
+            "préparation à l’installation : soutien à la réalisation du plan de professionnalisation personnalisé (PPP) et du stage collectif de 21 heures, bourse de stage d’application en exploitation, indemnité du maître de stage et stage de parrainage",
+            "prise en charge du diagnostic d’exploitation à reprendre",
+            "incitation à la transmission hors cadre familial : prise en charge du diagnostic de l’exploitation à céder, aide à l’inscription du cédant au Répertoire Départ Installation (RDI), contrat de génération et aide à la transmission globale du foncier.",
+            "Pour la prise en charge du diagnostic d’exploitation à reprendre ou à céder, le prestataire doit préalablement être agréé par la DRAAF.",
+            "L’arrêté précise les modalités d’intervention de l’État, les modalités de mise en œuvre et de gestion des dossiers.",
+            "Arrêté du 06 février 2017 relatif au programme régional AITA"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "centre-val-de-loire-inpact-annonces-foncieres",
+      "name": "InPACT Centre — annonces de terres et de fermes",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "InPACT Centre",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Recensement d’offres et de demandes de terres ou de fermes.",
+      "accessUrl": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+      "sources": [
+        {
+          "url": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+          "title": "Installation - Transmission, notre approche - InPACT Centre",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Le réseau InPACT recense des offres et des demandes de terres ou de fermes.",
+            "Voir les annonces foncières d'InPACT Centre."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personnes qui proposent ou recherchent du foncier ou une ferme.",
+      "howToAccess": "Ouvrir les annonces foncières d’InPACT Centre depuis la page.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "centre-val-de-loire-mrjc-premiere-experience-ferme",
+      "name": "MRJC — première expérience sur une ferme",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "MRJC / InPACT Centre",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Découvrir une production et vérifier sa motivation lors d’un week-end à la ferme.",
+      "accessUrl": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+      "sources": [
+        {
+          "url": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+          "title": "Installation - Transmission, notre approche - InPACT Centre",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "aux jeunes de 13 à 30 ans la possibilité de vivre une première expérience sur une ferme, le temps d’un week-end.",
+            "L’occasion de découvrir une production, et de tester sa motivation.",
+            "vous pouvez vous rapprocher du MRJC."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Jeunes de 13 à 30 ans.",
+      "howToAccess": "Se rapprocher du MRJC depuis la page InPACT.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "centre-val-de-loire-ardear-accompagnement-installation",
+      "name": "ARDEAR Centre-Val de Loire — émergence et tutorat",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "ARDEAR Centre-Val de Loire / InPACT Centre",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Formations collectives et accompagnement individuel pour bâtir un projet agricole. Le tutorat permet un appui technique par un agriculteur installé et facilite l’insertion locale.",
+      "accessUrl": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+      "sources": [
+        {
+          "url": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+          "title": "Installation - Transmission, notre approche - InPACT Centre",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "nous proposons des formations collectives, des rencontres avec d’autres porteurs de projet",
+            "Un accompagnement individuel",
+            "bénéficier de l’expérience d’un agriculteur installé",
+            "vous pouvez vous rapprocher de l'ARDEAR"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet d’installation agricole.",
+      "howToAccess": "Se rapprocher de l’ARDEAR.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "centre-val-de-loire-ciap-paysan-creatif",
+      "name": "CIAP — stage Paysan Créatif en Centre-Val de Loire",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "CIAP Centre-Val de Loire",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Stage pour dimensionner son projet agricole, mettre en place l’outil de production et ancrer l’activité sur le territoire.",
+      "accessUrl": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+      "sources": [
+        {
+          "url": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+          "title": "Installation - Transmission, notre approche - InPACT Centre",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Dimensionner son projet, mettre en place son outil de production, ancrer son projet sur le territoire",
+            "Participer au stage paysan créatif de la CIAP"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs d’un projet d’installation agricole.",
+      "howToAccess": "Suivre le lien d’InPACT Centre vers le stage Paysan Créatif.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "centre-val-de-loire-ciap-espace-test",
+      "name": "CIAP — entrepreneuriat à l’essai en Centre-Val de Loire",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "CIAP Centre-Val de Loire",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Test de l’activité agricole sur un espace test en vue d’une installation progressive.",
+      "accessUrl": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+      "sources": [
+        {
+          "url": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+          "title": "Installation - Transmission, notre approche - InPACT Centre",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "S'installer progressivement en testant son activité sur un espace test avec la CIAP",
+            "Devenir entrepreneur à l'essai"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet souhaitant essayer leur activité avant de s’installer.",
+      "howToAccess": "Suivre le lien « Devenir entrepreneur à l’essai ».",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "centre-val-de-loire-terre-de-liens-acquisition-solidaire",
+      "name": "Terre de Liens Centre — acquisition solidaire de foncier",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Terre de Liens Centre",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Acquisition de terres grâce à l’épargne ou aux dons, puis mise à disposition par bail rural environnemental.",
+      "accessUrl": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+      "sources": [
+        {
+          "url": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+          "title": "Installation - Transmission, notre approche - InPACT Centre",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "l’acquisition solidaire de foncier permet à des porteurs de projet d’accéder au foncier en tant que fermier.",
+            "Les terres peuvent être acquises grâce à de l’épargne ou des dons, puis louées avec un bail rural environnemental garantissant une agriculture biologique et paysanne."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet souhaitant accéder à la terre en tant que fermiers en agriculture biologique et paysanne.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "centre-val-de-loire-inpact-accompagnement-cedants",
+      "name": "InPACT Centre — accompagnement des cédants",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "InPACT Centre",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Accompagnement départemental à la transmission, avec diffusion d’annonces et formations pour préparer la transmission ou le projet de retraite.",
+      "accessUrl": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+      "sources": [
+        {
+          "url": "https://inpact-centre.fr/installation-transmission/installation-transmission-nos-actions",
+          "title": "Installation - Transmission, notre approche - InPACT Centre",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Un accompagnement humain et socio-territorial des cédants est proposé dans les départements",
+            "Publication d'annonce foncière",
+            "formations (s'associer pour mieux transmettre, projet de retraite",
+            "Pour en savoir plus, vous pouvez consulter nos différentes plaquettes"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Cédants agricoles dans le Centre-Val de Loire.",
+      "howToAccess": "Consulter les plaquettes d’InPACT au bas de la rubrique transmission.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "centre-val-de-loire-safer-portage-foncier",
+      "name": "Portage foncier de la Safer du Centre",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Safer du Centre / Caisses régionales du Crédit Agricole",
+      "operatorType": "MIXED",
+      "whatItOffers": "La Safer achète le foncier non bâti et le met à disposition avant le rachat par l’exploitant. Le portage commence pour cinq ans et peut être prolongé jusqu’à cinq ans de plus. Un acompte annuel de 2 % du prix futur est déduit au moment du rachat.",
+      "accessUrl": "https://www.saferducentre.fr/agriculteurs/accompagnement-des-jeunes-agriculteurs",
+      "sources": [
+        {
+          "url": "https://www.saferducentre.fr/agriculteurs/accompagnement-des-jeunes-agriculteurs",
+          "title": "Accompagnement des jeunes agriculteurs | safer",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Destiné aux jeunes agriculteurs lors de leur première installation",
+            "qu'ils bénéficient ou non de la DJA.",
+            "Le montant du foncier est plafonné à 250 000 € maximum par opération",
+            "La Safer du Centre achète le foncier agricole non bâti nécessaire à votre projet",
+            "vous versez annuellement à la Safer un acompte de 2 % de votre futur prix d'acquisition.",
+            "Période initiale : Le dispositif est mis en place pour une première période de 5 ans.",
+            "le portage peut être prolongé après analyse et accord jusqu'à 5 années supplémentaires",
+            "Contactez le service départemental de la Safer du Centre pour étudier la faisabilité d'un portage foncier."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Jeunes agriculteurs en première installation, dans ou hors cadre familial, avec ou sans DJA. Le plafond foncier annoncé est de 250 000 € par opération.",
+      "howToAccess": "Contacter le service départemental de la Safer du Centre pour étudier la faisabilité.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "campania",
   "officialName": "Campania",
-  "published": "2026-10-08",
+  "published": "2026-11-24",
   "summary": "In Campania è aperto il bando SRE01 per il primo insediamento dei giovani agricoltori, prorogato al 30 settembre 2026. Il programma SRE02 per nuovi agricoltori ha una convocazione chiusa. La Banca della Terra Campana e il percorso regionale di formazione per il primo insediamento sono documentati, ma la loro disponibilità attuale non è stata confermata.",
   "coverage": {
     "status": "PARTIAL",
@@ -65,9 +65,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -83,6 +80,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -134,7 +138,11 @@
             "DRD n. 363 del 09/09/2026 - proroga termini bando SRE01",
             "chiuso il 30 settembre 2026 - ore 16:00",
             "agricoltura.investimenti@regione.campania.it"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://agricoltura.regione.campania.it/CSR_2023-2027/pdf/DRD_256-03-07-26.pdf",
@@ -145,7 +153,11 @@
             "45.000,00 per le macroaree A e B",
             "50.000,00 euro per le macroaree C e D.",
             "le domande di sostegno potranno essere rilasciate telematicamente sul portale SIAN"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.campania.it/regione-informa/notizie/crs-campania-20232027-intervento-sre01-insediamento-giovani-agricoltori",
@@ -154,7 +166,11 @@
           "quotes": [
             "decreto dirigenziale n. 363 del 09/09/2026",
             "Il nuovo termine di scadenza è fissato alle ore 16:00 del 30 settembre 2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -168,9 +184,9 @@
       },
       "operator": "Regione Campania",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Inventario pubblico di terreni agricoli incolti o abbandonati e del patrimonio agricolo pubblico, pensato per eventuali concessioni ad agricoltori, in particolare giovani di recente insediamento.",
-      "whoCanUseIt": "Agricoltori interessati ai terreni eventualmente inseriti nell'inventario; la pagina menziona in particolare i giovani agricoltori neo insediati.",
-      "howToAccess": "Consultare l'elenco pubblicato e gli eventuali bandi o avvisi della Regione. La pagina non mostra un avviso attuale di assegnazione.",
+      "whatItOffers": "Inventario pubblico di terreni agricoli incolti o abbandonati e del patrimonio agricolo pubblico, finalizzato anche all'insediamento di nuove aziende agricole. Il regolamento prevede l'assegnazione di terreni e fabbricati rurali mediante contratti di affitto di durata compresa fra sei e venti anni, con canone determinato sulla base dei valori agricoli medi.",
+      "whoCanUseIt": "Imprenditori agricoli in forma singola o associata; categorie dell'agricoltura sociale riconosciute dall'articolo 3 della legge regionale 30 marzo 2012, n. 5; giovani che intendono insediarsi per la prima volta come titolari d'impresa agricola, con età inferiore a quaranta anni alla presentazione della domanda. Il limite di età riguarda questa ultima categoria, non tutti i destinatari.",
+      "howToAccess": "Consultare l'elenco pubblicato e gli eventuali bandi o avvisi della Regione. Il regolamento prevede procedure di evidenza pubblica: i bandi e gli avvisi predisposti dalla struttura regionale competente stabiliscono modalità e termini delle domande. La pagina dell'inventario non mostra un avviso attuale di assegnazione.",
       "accessUrl": "https://agricoltura.regione.campania.it/BTC/BTC.html",
       "assetTypes": ["PLOTS"],
       "languages": ["it"],
@@ -188,9 +204,36 @@
             "Predisposizione dei bandi e/o avvisi con relativa modulistica;",
             "Elenco dei terreni - aggiornamento dicembre 2019",
             "ultimo aggiornamento 19 dicembre 2019"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.regione.campania.it/normativa/item.php?b79f7d70f28fffc18af20b3afb0a87ac=c343e07f3bf4311cb6a486e4d3501c2f&id_doc_type=3&id_tema=23&pgCode=G19I238R1786&refresh=on",
+          "title": "Regolamento Regionale 28 agosto 2018, n. 6",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "promuovere l'insediamento di nuove aziende agricole;",
+            "L'elenco contiene terreni di proprietà regionale e di altri enti pubblici.",
+            "L'elenco della Banca della terra Campana è gestito dalla Regione Campania attraverso la struttura amministrativa competente in agricoltura",
+            "imprenditori, in forma singola o associata, che svolgono attività agricola ai sensi dell'articolo 2135 del codice civile;",
+            "le categorie riconosciute dall'articolo 3 della legge regionale 30 marzo 2012, n. 5",
+            "i giovani che intendono insediarsi per la prima volta come titolari d'impresa agricola, con età inferiore ai quaranta anni alla data di presentazione della domanda di assegnazione.",
+            "I bandi/avvisi sono predisposti dalla struttura amministrativa regionale competente e contengono le modalità ed i termini per la presentazione delle domande.",
+            "avviene attraverso procedure di evidenza pubblica nel rispetto della normativa vigente.",
+            "Per l'assegnazione dei terreni e dei fabbricati rurali",
+            "L'assegnazione avviene mediante la stipula di un contratto di affitto, di durata non inferiore a sei anni e non superiore a venti anni,",
+            "sulla base dei valori agricoli medi per ettaro e per tipo di coltura valevoli per l'anno corrente"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
-      ]
+      ],
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "campania-sre02-nuovi-agricoltori",
@@ -232,7 +275,11 @@
             "chiuso 4 novembre 2024 - ore 16.00",
             "10 agosto 2026",
             "Approvata la graduatoria definitva dell'intervento SRE02"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -264,7 +311,11 @@
             "Gli interessati alla partecipazione potranno presentare istanza accedendo al portale dei corsi:",
             "COMPILA IL FORM ONLINE",
             "ultimo aggiornamento 16 gennaio 2025"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://agricoltura.regione.campania.it/CSR_2023-2027/pdf/SRH03-FAQ-25-07-24.pdf",
@@ -273,9 +324,101 @@
           "quotes": [
             "il corso F.1.1 GESTIONE MANAGERIALE DELL’IMPRESA AGRICOLA della durata tra 100 e 200 ore",
             "corrisponde a quello che normalmente viene chiamato corso di Primo insediamento."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
+    },
+    {
+      "id": "campania-legge-17-2015",
+      "name": "Legge regionale 23 dicembre 2015, n. 17 — Interventi per i giovani imprenditori agricoli",
+      "kind": "POLICY",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Campania",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Quadro normativo per il primo insediamento e la gestione dei suoli e beni pubblici a vocazione rurale. Prevede una priorità per i giovani imprenditori agricoli nell'affidamento di una quota non inferiore al cinquanta per cento dei beni individuati dalla legge richiamata.",
+      "whoCanUseIt": "Giovani imprenditori agricoli, singoli o associati, che non hanno ancora compiuto quaranta anni, possiedono conoscenze e competenze professionali e presentano un piano aziendale. Nelle società, comprese le cooperative, i requisiti di età e competenza devono essere posseduti dal rappresentante legale e dalla maggioranza dei soci. La procedura riguarda il primo insediamento.",
+      "howToAccess": "La legge prevede la trasmissione della richiesta di primo insediamento, completa della documentazione amministrativa, agli enti competenti entro centottanta giorni dall'effettivo insediamento. Il piano aziendale è parte sostanziale dell'istanza; la pagina non identifica uno sportello né una finestra attuale di domanda.",
+      "accessUrl": "https://www.regione.campania.it/normativa/item.php?b79f7d70f28fffc18af20b3afb0a87ac=d862ed65595ce3893afc73b122195695&id_doc_type=1&id_tema=23&pgCode=G19I231R1302&refresh=on",
+      "lastEvidenceDate": "2015-12-23",
+      "notes": "Il testo pubblicato è quello del bollettino regionale, non un avviso di assegnazione. La legge prevede inoltre obblighi documentali e di iscrizione per il primo insediamento, da verificare nel testo prima di presentare un'istanza.",
+      "sources": [
+        {
+          "url": "https://www.regione.campania.it/normativa/item.php?b79f7d70f28fffc18af20b3afb0a87ac=d862ed65595ce3893afc73b122195695&id_doc_type=1&id_tema=23&pgCode=G19I231R1302&refresh=on",
+          "title": "Legge regionale 23 dicembre 2015, n. 17.",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Legge regionale 23 dicembre 2015, n. 17.",
+            "Bollettino Ufficiale Regione Campania n. 78 del 23 Dicembre 2015",
+            "Interventi per i giovani imprenditori agricoli.",
+            "La Regione, con la presente legge stabilisce i requisiti previsti dall'articolo 2, per l'accesso dei giovani imprenditori agricoli, in forma singola o associata, all'insediamento ed alla gestione dei suoli e dei beni pubblici a vocazione rurale.",
+            "Hanno la priorità nell'affidamento dei beni individuati dall'articolo 2 per una quota non inferiore al cinquanta per cento, i giovani imprenditori agricoli che:",
+            "non hanno ancora compiuto quaranta anni di età; per le società, anche costituite in forma di cooperativa, il requisito è soddisfatto dal rappresentante legale e dalla maggioranza dei soci;",
+            "possiedono le conoscenze e le competenze professionali; per le società, anche costituite in forma di cooperativa, il requisito è posseduto dal rappresentante legale e dalla maggioranza dei soci;",
+            "presentano il piano aziendale per lo sviluppo dell'attività agricola, in linea con gli obiettivi del vigente programma di sviluppo rurale.",
+            "La procedura prevista dall'articolo 2 si applica alla fattispecie del primo insediamento.",
+            "la richiesta di primo insediamento, completa di tutta la documentazione amministrativa, deve essere trasmessa agli enti competenti entro il termine di centottanta giorni dalla data di effettivo insediamento.",
+            "La presentazione del piano aziendale costituisce parte sostanziale dell'istanza presentata per la sua ammissibilità.",
+            "sono tenuti alla costituzione o all'aggiornamento del fascicolo aziendale"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "campania-legge-associazioni-fondiarie",
+      "name": "Legge Regionale 26 aprile 2023, n. 10 — Norme per la valorizzazione dei terreni agricoli e forestali e per favorire la costituzione di associazioni fondiarie",
+      "kind": "POLICY",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Campania",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Quadro normativo per raggruppare e gestire terreni agricoli e boschi attraverso associazioni fondiarie, favorendo nuove attività produttive con particolare riferimento ai giovani imprenditori. Prevede finanziamenti alle associazioni: 600 euro per ettaro per piani di gestione e miglioramenti fondiari e contributi fino all'ottanta per cento delle spese di animazione, competenze professionali e costituzione, entro 4.000 euro. Per i proprietari o aventi titolo prevede un contributo una tantum fino a 500 euro per ettaro utilizzabile conferito per almeno quindici anni.",
+      "whoCanUseIt": "Le associazioni fondiarie sono costituite tra proprietari di terreni pubblici o privati. Le disposizioni sui finanziamenti riguardano le associazioni legalmente costituite e i proprietari o aventi titolo dei terreni privati che vi aderiscono.",
+      "howToAccess": "La legge delega ai Comuni le assegnazioni delle terre incolte, abbandonate o insufficientemente coltivate e prevede che le associazioni legalmente costituite presentino un piano di gestione ai Comuni. Rinvia a deliberazioni della Giunta regionale per criteri e modalità di assegnazione dei terreni e dei finanziamenti; questa pagina non documenta una finestra attuale di domanda.",
+      "accessUrl": "https://www.regione.campania.it/normativa/item.php?b79f7d70f28fffc18af20b3afb0a87ac=d596bbbfe589b5632f2d600919eab4a1&id_doc_type=1&id_tema=23&pgCode=G19I231R2035&refresh=on",
+      "lastEvidenceDate": "2023-04-27",
+      "notes": "La fonte riporta il testo della legge come pubblicato nel bollettino regionale, non un avviso di finanziamento o un inventario di terreni disponibili.",
+      "sources": [
+        {
+          "url": "https://www.regione.campania.it/normativa/item.php?b79f7d70f28fffc18af20b3afb0a87ac=d596bbbfe589b5632f2d600919eab4a1&id_doc_type=1&id_tema=23&pgCode=G19I231R2035&refresh=on",
+          "title": "Legge Regionale 26 aprile 2023, n. 10.",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Legge Regionale 26 aprile 2023, n. 10.",
+            "Bollettino Ufficiale Regione Campania n. 31 del 27 aprile 2023",
+            "Norme per la valorizzazione dei terreni agricoli e forestali e per favorire la costituzione di associazioni fondiarie",
+            "in grado di favorire l'occupazione, la costituzione di nuove attività produttive ed il consolidamento di quelle esistenti con particolare riferimento ai giovani imprenditori.",
+            "Le associazioni fondiarie di cui alla presente legge sono costituite tra i proprietari dei terreni pubblici o privati al fine di raggruppare terreni agricoli e boschi, in attualità di gestione, incolti o abbandonati, o per consentirne un uso economicamente sostenibile e produttivo.",
+            "Per le finalità di cui all'articolo 1, la Regione può erogare alle associazioni fondiarie legalmente costituite le seguenti tipologie di finanziamento:",
+            "600,00 euro per ettaro di superficie lorda per la redazione del piano di gestione dei terreni conferiti dai soci o assegnati ai sensi della legge 440/1978 e per la realizzazione dei miglioramenti fondiari necessari;",
+            "contributi fino all'ottanta per cento per la copertura delle spese sostenute per l'animazione territoriale, le competenze professionali e la costituzione dell'associazione fondiaria, fino a un limite massimo di 4.000,00 euro.",
+            "La Regione riconosce ai proprietari o agli aventi titolo dei terreni privati che aderiscono ad un'associazione fondiaria legalmente costituita un contributo, per un'unica volta, nella misura massima di 500,00 euro per ogni ettaro conferito di superficie utilizzabile, a condizione che il conferimento sia di durata non inferiore ad anni quindici.",
+            "Le funzioni di assegnazione delle terre incolte, abbandonate o insufficientemente coltivate di cui all'articolo 5 della legge 440/1978 sono delegate ai Comuni per i territori di propria competenza.",
+            "anche in favore delle associazioni fondiarie legalmente costituite che presentano un piano di gestione ai Comuni",
+            "stabilisce le modalità ed i criteri per l'assegnazione o la revoca dei terreni incolti o abbandonati",
+            "i criteri e le modalità attuative per l'assegnazione e la revoca dei finanziamenti di cui al presente articolo.",
+            "Testo come pubblicato nel Bollettino n. 31 del 27 aprile 2023"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

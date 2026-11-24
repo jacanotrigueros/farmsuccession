@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "hessen",
   "officialName": "Hessen",
-  "published": "2026-10-29",
+  "published": "2026-11-24",
   "summary": "Hessen betreibt eine kostenfreie Hofbörse und berät bei der Hofnachfolge. Im Agrarinvestitionsförderungsprogramm können Junglandwirtinnen und Junglandwirte unter den veröffentlichten Voraussetzungen einen zusätzlichen Investitionszuschuss erhalten.",
   "coverage": {
     "status": "PARTIAL",
@@ -29,9 +29,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -48,6 +45,20 @@
         "model": "GPT-5",
         "promptVersion": "1.9.0",
         "processedAt": "2026-10-29"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -81,10 +92,26 @@
             "In einem zeitgemäßen Design können Inserierende ihre Angebote und Gesuche nun selbstständig, auf Wunsch anonymisiert, einstellen und verwalten.",
             "Doch die kostenfreie Plattform bietet noch mehr",
             "Der LLH unterstützt und berät in allen betriebswirtschaftlichen und produktion"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://www.hlg.org/leistungsspektrum/landwirtschaft/flaechenmanagement/vorkaufsrecht/",
+          "title": "Landwirtschaftliches Flächenmanagement - Hessische Landgesellschaft mbH",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Abgerundet wird das Flächenmanagement durch die Instrumente des freiwilligen Landnutzungstausches zur Verbesserung der Flächenstruktur sowie der Hofbörse, die Angebote und Nachfragen von Hofstellen in ganz Hessen in einem Portal zusammenfasst."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "hessen-llh-hofnachfolge-beratung",
@@ -96,10 +123,10 @@
       },
       "operator": "Landesbetrieb Landwirtschaft Hessen",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Beratung rund um die Hofübergabe, unabhängig davon, ob innerhalb der Familie, an Fremde, an Existenzgründende oder an Nachfolgerinnen und Nachfolger ohne landwirtschaftliche Ausbildung übergeben wird.",
+      "whatItOffers": "Beratung rund um die Hofübergabe, unabhängig davon, ob innerhalb der Familie, an Fremde, an Existenzgründende oder an Nachfolgerinnen und Nachfolger ohne landwirtschaftliche Ausbildung übergeben wird. Die Krisenhilfe des LLH nennt ergänzend eine gemeinsame Beratung mit Familie und Betrieb, in der fachliche und persönliche Fragen bearbeitet werden.",
       "whoCanUseIt": "Übergebende und Übernehmende land- und gartenbaulicher Betriebe in Hessen.",
-      "howToAccess": "Beratungskräfte des Landesbetriebs im Bereich Ökonomie und Verfahrenstechnik ansprechen.",
-      "accessUrl": "https://llh.hessen.de/unternehmensfuehrung/unternehmensentwicklung/analyse-strategie-finanzen/hofnachfolge-interview/",
+      "howToAccess": "Beratungskräfte des Landesbetriebs im Bereich Ökonomie und Verfahrenstechnik ansprechen. Für dieses Angebot an die jeweiligen Beratungsstandorte des LLH wenden.",
+      "accessUrl": "https://llh.hessen.de/leistungen-und-beratungsangebote/beratung/",
       "languages": ["de"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
       "sources": [
@@ -107,10 +134,42 @@
           "url": "https://llh.hessen.de/unternehmensfuehrung/unternehmensentwicklung/analyse-strategie-finanzen/hofnachfolge-interview/",
           "title": "Hofnachfolge ist bunter geworden - Landesbetrieb Landwirtschaft Hessen",
           "consultedOn": "2026-09-20",
-          "quotes": ["Hofnachfolge ist bunter geworden"]
+          "quotes": ["Hofnachfolge ist bunter geworden"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://llh.hessen.de/leistungen-und-beratungsangebote/beratung/",
+          "title": "Beratung – Landesbetrieb Landwirtschaft Hessen",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Die hessische Landesregierung unterstützt die landwirtschaftlichen und gartenbaulichen Betriebe in Hessen durch die Bereitstellung der Offizialberatung in der Trägerschaft des Landesbetriebes Landwirtschaft Hessen (LLH).",
+            "Die hessische Offizialberatung bietet den Vorteil, dass sie praxisnah, neutral und von Interessen Dritter unabhängig arbeitet.",
+            "Finanzierung der Offizialberatung"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://llh.hessen.de/unternehmensfuehrung/unternehmensentwicklung/arbeit-soziales/krisen-hilfen-fuer-landwirte/",
+          "title": "Psychosoziale & Krisen-Hilfen für Landwirte in Hessen – Landesbetrieb Landwirtschaft Hessen",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "ein Angebot, in dem fachliche und persönliche Themen aus unterschiedlichen Blickwinkeln gemeinsam bearbeitet werden können.",
+            "Kontakt: über die jeweiligen Beratungsstandorte"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "claude-1"
+      "notes": "Die LLH-Übersicht nennt die Rechtsgrundlagen und die Finanzierung der Offizialberatung.",
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "hessen-afp-junglandwirte-zuschuss",
@@ -139,11 +198,49 @@
             "Digitale Förderanträge für das Agrarinvestitionsförderungsprogramm (AFP) und die Förderung von Investitionen zur Diversifizierung (FID) können fortlaufend über das Antragsportal gestellt werden.",
             "Die Auswahl der Förderanträge für eine Bewilligung erfolgt an den hierzu festgelegten Auswahlstichtagen.",
             "Junglandwirte und -landwirtinnen können einen zusätzlichen Zuschuss in Höhe von 10 Prozent der zuwendungsfähigen Ausgaben, maximal 20.000 Euro, erhalten. Sie sind zum Zeitpunkt der Antragstellung höchstens 40 Jahre alt und weisen nach, dass die erstmalige Niederlassung als Allein- oder Mitunternehmer in einem landwirtschaftlichen Betrieb zum Zeitpunkt der Antragstellung nicht länger als fünf Jahre zurückliegt."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Die fortlaufende Antragstellung wird nicht mit einer automatischen Bewilligung gleichgesetzt; Auswahlstichtage sind keine Antragsfristen.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "hessen-familie-betrieb-hofuebergabe",
+      "name": "Familie & Betrieb – Begleitung der Hofübergabe",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Evangelische Kirche von Kurhessen-Waldeck / Evangelische Kirche in Hessen und Nassau",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Kostenfreie und religionsunabhängige Einzel-, Paar- und Familienberatung mit Begleitung im Hofübergabeprozess.",
+      "accessUrl": "https://llh.hessen.de/unternehmensfuehrung/unternehmensentwicklung/arbeit-soziales/krisen-hilfen-fuer-landwirte/",
+      "sources": [
+        {
+          "url": "https://llh.hessen.de/unternehmensfuehrung/unternehmensentwicklung/arbeit-soziales/krisen-hilfen-fuer-landwirte/",
+          "title": "Psychosoziale & Krisen-Hilfen für Landwirte in Hessen – Landesbetrieb Landwirtschaft Hessen",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Das Angebot ist religionsunabhängig und kostenfrei.",
+            "Hofübergabe-Prozessbegleitung.",
+            "Beratung erfolgt wahlweise in neutralen Räumen, auf dem Hof oder per Video/Telefon.",
+            "Sprechzeiten: Dienstag & Donnerstag, 9:00–12:00 Uhr",
+            "Menschen aus landwirtschaftlichen Unternehmen und dem ländlichen Raum"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Menschen aus landwirtschaftlichen Unternehmen und dem ländlichen Raum, auch bei Hofnachfolge- oder Generationenkonflikten.",
+      "howToAccess": "Die Beratung ist in neutralen Räumen, auf dem Hof, per Video oder telefonisch möglich. Die auf der LLH-Seite genannten Sprechzeiten sind dienstags und donnerstags von 9 bis 12 Uhr.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

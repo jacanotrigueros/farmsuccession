@@ -51,7 +51,7 @@ export interface SnapshotBase {
    */
   officialName: string;
   /**
-   * Date this file was last published. Every consultation and review date is on or before it.
+   * Date this file was last published. Every consultation and verification date is on or before it.
    */
   published: string;
   /**
@@ -59,7 +59,6 @@ export interface SnapshotBase {
    */
   summary: string;
   coverage: Coverage;
-  review: Review;
   metadata: Metadata;
   /**
    * Everything documented for this territory at this layer. A resource that also applies to a wider territory lives in that wider file instead, never in both.
@@ -109,23 +108,6 @@ export interface CoverageMethod {
    * The portal, API query, feed, search query or document actually used, concrete enough to run again.
    */
   detail: string;
-}
-/**
- * The one review state of the file. A DRAFT has not been checked by a person, and only a person sets REVIEWED.
- */
-export interface Review {
-  /**
-   * DRAFT until a person has checked the file against its sources. An agent never sets REVIEWED, whatever checks it ran.
-   */
-  status: "DRAFT" | "REVIEWED";
-  /**
-   * Who carried out the review. A person, never a tool.
-   */
-  reviewedBy?: string;
-  /**
-   * The date the person reviewed it, on or before the file's publication date.
-   */
-  reviewedOn?: string;
 }
 export interface Metadata {
   /**
@@ -248,6 +230,18 @@ export interface Resource {
    */
   qualifiesForEstablishmentAid?: boolean;
   /**
+   * The codes under which the managing authority runs this resource in its CAP plan, exactly as the source writes them, for example "SRE01", "75-01", "C.2.2.1" or "TI 75.011". A code means something only within its plan, issuer and period, which the record's territory and operator already give; it is never mapped to another country's code or to an EU intervention type here. One application that covers several interventions lists every code. Omit rather than infer one.
+   *
+   * @minItems 1
+   */
+  interventionCodes?: [InterventionCode, ...InterventionCode[]];
+  /**
+   * The acts the resource rests on, where its sources name them. Omit rather than infer one.
+   *
+   * @minItems 1
+   */
+  legalBasis?: [LegalAct, ...LegalAct[]];
+  /**
    * Every application period documented for this resource, past and future. Keeping them here is what stops a closed call from making the programme itself look gone.
    */
   calls?: Call[];
@@ -324,6 +318,48 @@ export interface ContactPoint {
    * The one source of this resource that publishes the contact.
    */
   sourceUrl: string;
+  /**
+   * The areas this office or channel serves, each named as the source names it, for example "Burgenland", "Seine-et-Marne (77)" or "Comarca de Terra Chá". Each appears in the same quote of the cited source as the contact's value, so an office is never paired with an area another row of the page gives to someone else. Absent when the source does not tie the channel to an area; that is not a claim that it serves the whole scope.
+   *
+   * @minItems 1
+   */
+  areas?: [string, ...string[]];
+}
+/**
+ * One code of a CAP plan intervention, as its source writes it.
+ */
+export interface InterventionCode {
+  /**
+   * The code exactly as the source writes it. It appears in a quote of the cited source.
+   */
+  code: string;
+  /**
+   * The one source of this resource whose quotes give the code.
+   */
+  sourceUrl: string;
+}
+/**
+ * An act that creates or governs the resource, as its source names it. Not used for a record that is the act itself.
+ */
+export interface LegalAct {
+  /**
+   * The act's title or its official short form exactly as the source writes it, for example "Ley 5/2019" or "Salzburger Grundverkehrsgesetz 2023 – S.GVG 2023". It appears in a quote of the cited source.
+   */
+  title: string;
+  /**
+   * The articles or sections that create or govern the resource, each as the source writes it, for example "artículo 32" or "§ 32". Each appears in a quote of the cited source.
+   *
+   * @minItems 1
+   */
+  provisions?: [string, ...string[]];
+  /**
+   * The one source of this resource whose quotes name the act.
+   */
+  sourceUrl: string;
+  /**
+   * The act's official text, when the cited source is a guide or a consolidated mirror rather than the act. It is also one of the resource's sources, so the source check re-reads it.
+   */
+  actUrl?: string;
 }
 /**
  * One application period. The programme stays a single resource and its calls are listed here, so a closed call never makes the programme itself look gone.
@@ -404,6 +440,20 @@ export interface Source {
    * @minItems 1
    */
   quotes: [string, ...string[]];
+  verification?: Verification;
+}
+/**
+ * The last time every quote of this source was found, character for character, on the live page. Amounts, dates and conditions a record states rest on those quotes, so this is the check of them. Absent when that has not happened since the page was read: the next pass starts there.
+ */
+export interface Verification {
+  /**
+   * The date every quote was found on the live page. On or after consultedOn, and on or before the file's publication date.
+   */
+  checkedOn: string;
+  /**
+   * How the page was read: FETCH by the repository's source check, BROWSER in a real browser for a page a script cannot read.
+   */
+  method: "FETCH" | "BROWSER";
 }
 /**
  * A dated event of the edition year, for example a government announcing a state land bank or a call closing earlier than published.

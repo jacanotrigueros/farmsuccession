@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "brandenburg",
   "officialName": "Brandenburg",
-  "published": "2026-09-30",
+  "published": "2026-11-24",
   "summary": "Brandenburg bietet eine laufend beantragbare Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte, Flächenvermittlung und öffentliche Pachtangebote. Für Gründung und Hofübernahme gibt es zudem Projektbegleitung sowie geförderte Beratung, die auch die Betriebsabgabe umfasst.",
   "coverage": {
     "status": "PARTIAL",
@@ -49,9 +49,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -74,6 +71,13 @@
         "model": "gpt-6",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-29"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -115,7 +119,11 @@
             "Eine kontinuierliche Antragstellung ist möglich.",
             "über das digitale Antragssystem",
             "Bewilligungsbehörde ist die Investitionsbank des Landes Brandenburg"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "Die Ministeriumsseite bezeichnet die Richtlinie ausdrücklich als gemeinsame Richtlinie für Brandenburg und Berlin. Informationsseite und Antragsweg sind daher dieselben wie in Berlin, wo dieselbe Beihilfe für Berliner Betriebsstätten verzeichnet ist.",
@@ -131,29 +139,86 @@
       },
       "operator": "Bündnis Junge Landwirtschaft e.V.",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Eine Plattform mit aktuellen Angeboten und Gesuchen für landwirtschaftliche Flächen und Agrarimmobilien, die Flächeneigentümerinnen und Flächeneigentümer mit insbesondere jungen Betrieben vernetzt.",
-      "whoCanUseIt": "Flächeneigentümerinnen und Flächeneigentümer sowie Menschen und Betriebe auf der Suche nach landwirtschaftlichen Flächen.",
+      "whatItOffers": "Eine Plattform mit aktuellen Angeboten und Gesuchen für landwirtschaftliche Flächen und Agrarimmobilien, die Flächeneigentümerinnen und Flächeneigentümer mit insbesondere jungen Betrieben vernetzt. Der Schwerpunkt liegt auf nachhaltiger Landwirtschaft.",
+      "whoCanUseIt": "Flächeneigentümerinnen und Flächeneigentümer sowie Menschen und Betriebe auf der Suche nach landwirtschaftlichen Flächen, insbesondere Junglandwirtinnen und Junglandwirte sowie Existenzgründende.",
       "howToAccess": "Angebote und Gesuche auf der Plattform ansehen; nach Anmeldung ein eigenes Profil kostenlos inserieren.",
       "accessUrl": "https://flaechenplattform.de/",
       "assetTypes": ["PLOTS"],
       "accessCostType": "FREE",
       "languages": ["de"],
-      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "YOUNG_FARMER", "NEW_ENTRANT"],
+      "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR"],
       "sources": [
         {
           "url": "https://flaechenplattform.de/",
-          "title": "Flächenplattform Nachhaltige Landwirtschaft Brandenburg",
-          "consultedOn": "2026-09-29",
+          "title": "Agrarimmobilien-Webportal für nachhaltige Landwirtschaft: Flächenplattform Brandenburg",
+          "consultedOn": "2026-11-24",
           "quotes": [
-            "Flächeneigentümer:innen und Junglandwirt:innen inserieren kostenfrei",
+            "Flächeneigentümer:innen und Junglandwirt:innen inserieren kostenfrei ihr Wunsch-Profil für Angebote und Gesuche.",
             "Jetzt anmelden und inserieren",
-            "Angebote 5",
-            "Bündnis Junge Landwirtschaft e.V."
-          ]
+            "Bündnis Junge Landwirtschaft e.V.",
+            "Auf dieser Plattform vernetzen sich Flächeneigentümer:innen und Junglandwirt:innen, die gemeinsam bäuerliche Betriebe erhalten und damit die Landwirtschaft nachhaltig stärken.",
+            "Hier finden Sie Angebote und Gesuche für Flächen für die nachhaltige Landwirtschaft",
+            "Gemeinsam mit Vielen wollen wir Betriebsgründungen ermöglichen und bestehende Betriebe mit nachhaltigen Bewirtschaftungsmodellen unterstützen.",
+            "Landwirte im Haupt- und Nebenerwerb",
+            "Flächeneigentümer:innen und Junglandwirt:innen inserieren kostenfrei"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://flaechenplattform.de/nachhaltige-landwirtschaft/hofuebergabe",
+          "title": "Hofübergabe: Flächenplattform Brandenburg",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Agrarimmobilien umsonst inserieren, suchen, pachten, kaufen und verkaufen",
+            "Jetzt anmelden und inserieren",
+            "Bei der außerfamiliären Suche nach einem Hofnachfolger:in bieten sich insbesondere darauf spezialisierte Onlineportale (wie z.B. Hof sucht Bauer, Hof gesucht gefunden oder Flächenplattform Brandenburg) zur Hofnachfolge und Beratung durch Expert:innen an.",
+            "Hier können Hofsuchende wie Hofabgebende ihre Wünsche und Bedürfnisse bereits im Vorfeld schildern und so zielgerichtet nach geeigneten Übernahmepartnern suchen."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://flaechenplattform.de/nachhaltige-landwirtschaft/junglandwirte",
+          "title": "Junglandwirte in der Nachhaltigen Landwirtschaft: Flächenplattform Brandenburg",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Agrarimmobilien umsonst inserieren, suchen, pachten, kaufen und verkaufen",
+            "Jetzt anmelden und inserieren",
+            "Angebote wie beispielsweise auf flaechenplattform.de, hof-gesucht-gefunden.de, oder hofsuchtbauer.de helfen jungen Landwirtinnen und Landwirten kostenlos bei ihrer Suche und vermitteln zwischen Landbesitzern und Suchenden.",
+            "Junglandwirt:innen und Existenzgründerinnen und Existenzgründer in der Landwirtschaft stehen oft vor der Herausforderung, Landwirtschaftsflächen zu finden.",
+            "Die Flächenplattform setzt dabei einen Fokus auf die nachhaltige Landwirtschaft.",
+            "Angebot Hofstelle mit 8,2 ha im Biosphärenreservat Elbe sucht Bewirtschafter – Lenzen (Elbe), Prignitz"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://flaechenplattform.de/nachhaltige-landwirtschaft/landwirtschaftliche-flaechen-pachten",
+          "title": "Landwirtschaftliche Flächen Pachten: Flächenplattform Brandenburg",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "FLÄCHENPLATTFORM NACHHALTIGE LANDWIRTSCHAFT BRANDENBURG",
+            "Agrarimmobilien umsonst inserieren, suchen, pachten, kaufen und verkaufen",
+            "Jetzt anmelden und inserieren",
+            "Anzeigen in der Datenbank Gesuche 31 | Angebote 4",
+            "Onlineportale wie die Flächenplattform.de helfen Suchenden und Verpachtenden Agrarimmobilien zu finden oder anzubieten.",
+            "Erfolg! Wieder wird eine Fläche über die Flächenplattform Brandenburg an Junglandwirt:innen vermittelt."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Die Betreiberangabe der bisherigen Edition wurde berichtigt: Die Plattform nennt das Bündnis Junge Landwirtschaft e.V.; FÖL erscheint im Umfeld des Projekts, aber nicht als hier benannter Plattformbetreiber.",
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "brandenburg-klimaresiliente-landwirtschaft-gruendungsberatung",
@@ -183,7 +248,11 @@
             "Die Beratungsleistung ist kostenfrei",
             "Jetzt bewerben",
             "Fördergemeinschaft Ökologischer Landbau Berlin-Brandenburg (FÖL) e.V."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Das konkrete Projekt begleitet Gründende und Übernehmende; die Förderung der Beratungsdienstleistungen des Landes ist ein anderes Instrument mit eigenem Antragsweg.",
@@ -225,7 +294,11 @@
             "Die Antragstellung erfolgt durch die anerkannten Beratungsfachkräfte.",
             "Zuwendungsfähig sind 90 Prozent",
             "Die Beratungen dürfen erst nach der Bewilligung"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://mleuv.brandenburg.de/sixcms/media.php/9/Anlage1-Beratungssteckbriefe.pdf",
@@ -235,7 +308,11 @@
             "Begleitung bei Betriebsübernahme und Betriebsabgabe",
             "gartenbaulichen Betriebes in Brandenburg",
             "Begleitung bei der Hofsuche / Nachfolgesuche"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "Der Zuschuss wird an anerkannte Beratungskräfte ausgezahlt, während Betriebe eine bezuschusste Beratung erhalten. Der Beraterfinder ist ein Zugangsweg zu diesem Instrument, keine zusätzliche Förderung.",
@@ -268,7 +345,11 @@
             "landwirtschaftliche Nutzung (Landpachtverträge)",
             "Aktuelle Verpachtungsangebote nach Landkreisen",
             "Drucken Sie das Sie interessierende Angebotsblatt aus."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Diese Ausschreibungsübersicht hat einen eigenen Zugang zu Landesflächen und ist von der gemeinnützigen Flächenplattform verschieden. Nicht jeder Landkreis hat aktuell ein Angebot.",

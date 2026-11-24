@@ -4,10 +4,8 @@
   "edition": "2026",
   "country": "FR",
   "officialName": "France",
-  "published": "2026-10-30",
+  "published": "2026-11-24",
   "summary": "Trouvez les aides à l’installation agricole, dont la dotation jeunes agriculteurs (DJA) lorsqu’elle est recensée. Consultez aussi les ressources pour trouver des terres, reprendre ou transmettre une exploitation.",
-  "metaTitle": "Aides à l’installation et transmission agricoles en France",
-  "metaDescription": "Consultez les aides à l’installation agricole par territoire et les ressources pour trouver des terres, reprendre ou transmettre une exploitation.",
   "countryContext": {
     "consultedOn": "2026-11-19",
     "land": {
@@ -83,9 +81,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -96,6 +91,20 @@
         "model": "Codex",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-14"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -133,7 +142,11 @@
             "Cette nouvelle enveloppe a pour ambition de proposer des prêts garantis par l’Etat à près de 15 000 agriculteurs au cours des prochaines années (régions métropolitaines et ultramarines), proposés à des conditions préférentielles.",
             "Ces prêts permettent de soutenir le financement d’investissements, corporels et incorporels, du capital d’exploitation (fonds de roulement lié aux investissements financés dans la limite de 30% du montant du projet), du foncier (jusqu’à 20% du montant du projet en cas d’installation et de reprise), de parts sociales et de matériel d’occasion.",
             "Renforcer le renouvellement des générations et l’installation des jeunes agriculteurs"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Le ministère ne publie pas de date de clôture sur cette page. Les pourcentages indiqués concernent la part maximale de certaines dépenses dans le projet, pas le taux de garantie du prêt.",
@@ -174,7 +187,11 @@
             "avoir un apport initial personnel minimal",
             "en cas d’installation : un montant d’investissement par FEVE d’au moins 200 000€ et une valeur des terres supérieures à celles des bâtiments",
             "Fermes En ViE est une entreprise de l'économie sociale et solidaire qui facilite l’installation de la nouvelle génération d’agriculteurs et agricultrices grâce à ses foncières solidaires et à la plateforme La Grange."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Le dispositif porte une ferme déjà identifiée ; ce n’est pas un inventaire libre de parcelles. Le matériel, l’équipement et le cheptel ne sont pas financés par la foncière.",
@@ -211,7 +228,11 @@
             "La limite d'âge peut être reportée d'un an par enfant à charge (pour les bénéficiaires de prestations familiales) ou en cas de service militaire.",
             "Vous bénéficiez d'une exonération partielle et dégressive de vos cotisations sociales durant les cinq années qui suivent votre installation et dans la limite d'un plafond fixé par arrêté ministériel.",
             "Pour vous aider dans votre parcours d'installation, contactez un conseiller de votre MSA."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.formulaires.service-public.gouv.fr/gf/cerfa_12555.do",
@@ -220,7 +241,11 @@
           "quotes": [
             "Un dossier pour votre affiliation à la MSA",
             "Vous pouvez bénéficier de l’exonération des cotisations Jeune agriculteur si vous êtes âgé de dix-huit ans au moins et de quarante ans au plus à la date de votre affiliation au régime de protection sociale des non-salariés agricoles, toutefois cette limite d’âge peut être reculée d’un an par enfant à charge."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "L’exonération porte sur les cotisations personnelles du chef d’exploitation et non sur celles des membres de sa famille ou de salariés.",
@@ -236,9 +261,9 @@
       },
       "operator": "Terre de Liens",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Plateforme de petites annonces pour mettre en relation les offres et les recherches de foncier agricole, faciliter la reprise de fermes et l’installation en agriculture biologique, avec une porte d’entrée vers l’accompagnement foncier des associations territoriales de Terre de Liens.",
-      "whoCanUseIt": "Personnes qui recherchent des terres, agriculteurs et propriétaires qui ont un bien agricole à transmettre, ainsi que personnes qui souhaitent se former, rejoindre un projet agricole ou trouver des associés.",
-      "howToAccess": "Consulter gratuitement les annonces. Créer un compte gratuit pour déposer une annonce, contacter un annonceur ou solliciter l’accompagnement de l’association Terre de Liens du territoire concerné.",
+      "whatItOffers": "Plateforme de petites annonces pour mettre en relation les offres et les recherches de foncier agricole, faciliter la reprise de fermes et l’installation en agriculture biologique, avec une porte d’entrée vers l’accompagnement foncier des associations territoriales de Terre de Liens. Le parcours de transmission donne aussi accès à des guides méthodologiques et à des exemples d’installations et de transmissions sur le Centre de Ressources Terre de Liens.",
+      "whoCanUseIt": "Personnes qui recherchent des terres, agriculteurs et propriétaires qui ont un bien agricole à transmettre, ainsi que personnes qui souhaitent se former, rejoindre un projet agricole ou trouver des associés. L’accompagnement foncier s’adresse notamment aux personnes recherchant des terres pour s’installer, des financements pour des terres ou une ferme déjà identifiées, ainsi qu’aux agriculteurs bientôt à la retraite et aux propriétaires privés préparant une transmission.",
+      "howToAccess": "Consulter gratuitement les annonces. Créer un compte gratuit pour déposer une annonce, contacter un annonceur ou solliciter l’accompagnement de l’association Terre de Liens du territoire concerné. Depuis la page « Transmettre ma ferme », accéder gratuitement au dossier « Je transmets mes terres ou ma ferme » du Centre de Ressources Terre de Liens. Les agriculteurs qui souhaitent mettre des terres à disposition peuvent utiliser la plateforme pour publier une annonce et contacter l’association Terre de Liens de leur région pour être accompagnés sur le volet foncier.",
       "accessUrl": "https://www.objectif-terres.org/qui-sommes-nous",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "sectors": ["AGRICULTURE"],
@@ -256,7 +281,11 @@
             "un site de petites annonces à destination des particuliers et des professionnels de l’accompagnement, pour faciliter la rencontre entre les offres et les recherches de foncier agricole, pour faciliter la reprise des fermes et permettre l’installation de nouveaux paysan-ne-s en bio.",
             "Vous pouvez consulter gratuitement l’ensemble des annonces publiées, mais aussi contacter et interagir directement avec les annonceurs de votre choix.",
             "une porte d’entrée pour se faire accueillir, orienter et accompagner sur le volet foncier de votre projet par l’une des 19 associations régionales de Terre de Liens"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.objectif-terres.org/faq",
@@ -267,11 +296,72 @@
             "de déposer une annonce",
             "d’échanger directement avec un annonceur",
             "de solliciter un accompagnement auprès d’une association régionale Terre de Liens"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.objectif-terres.org/accompagnement/demarrer",
+          "title": "Être accompagné par Terre deLiens | Objectif Terres",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Pour faire une demande d'accompagnement, il vous faut au préalable : CREER UN COMPTE OU SE CONNECTER",
+            "Terre de Liens peut vous accompagner sur le volet foncier de votre projet, que vous soyez :",
+            "en recherche de terres en vue d’une installation",
+            "en recherche de financements pour des terres ou une ferme que vous avez identifié",
+            "dans une démarche de transmission de votre ferme ou de votre bien agricole, en tant qu’agricultrice ou agriculteur bientôt à la retraite ou en tant que propriétaire privé",
+            "Pour connaître nos modalités d’accueil, indiquez la région concernée par votre projet .",
+            "Notre capacité à vous accompagner pouvant être limitée, merci de cibler le territoire prioritaire sur lequel porte votre projet d’installation.",
+            "Précisez brièvement ce que vous attendez de Terre de Liens",
+            "Vous serez amené(e) à décrire votre projet plus précisément à l’étape suivante."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.objectif-terres.org/transmettre-ma-ferme",
+          "title": "Transmettre ma ferme | Objectif Terres",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "ont édité un ensemble de guides méthodologiques et recueilli une diversité de projets réussis et inspirants d’installations et de transmissions.",
+            "L’ensemble de ces ressources vous sont mises à disposition gratuitement sur le site du Centre de Ressources Terre de Liens",
+            "Je transmets mes terres ou ma ferme",
+            "Déposer une annonce pour rendre visible votre offre",
+            "Solliciter un accompagnement de votre projet auprès de l’une des dix-neuf associations territoriales Terre de Liens"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://ressources.terredeliens.org/cedant-e-s",
+          "title": "Cédant.e.s - Je transmets mes terres ou ma ferme - Centre de Ressources - Terre de liens",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Contactez l’association Terre de Liens de votre région à travers la plateforme Objectif Terres pour un accompagnement sur le volet foncier.",
+            "poster une annonce foncière"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La plateforme nationale porte les annonces et la demande initiale d’accompagnement. Les modalités et délais de l’accompagnement dépendent ensuite de l’association territoriale ; les services régionaux déjà documentés restent des ressources distinctes et ne sont pas recopiés ici.",
-      "generatorId": "chatgpt-1"
+      "notes": "La plateforme nationale porte les annonces et la demande initiale d’accompagnement. Les modalités et délais de l’accompagnement dépendent ensuite de l’association territoriale ; les services régionaux déjà documentés restent des ressources distinctes et ne sont pas recopiés ici. La capacité d’accompagnement peut être limitée.",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Demande d’accompagnement Terre de Liens",
+          "value": "https://www.objectif-terres.org/accompagnement/demarrer",
+          "sourceUrl": "https://www.objectif-terres.org/accompagnement/demarrer"
+        }
+      ],
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "fr-france-services-agriculture",
@@ -298,16 +388,322 @@
             "La loi d’orientation pour la souveraineté alimentaire et le renouvellement des générations en agriculture (LOSARGA) du 24 mars 2025 prévoit la mise en œuvre et le déploiement opérationnel du réseau France Services Agriculture (FSA) à compter du 1er janvier 2027.",
             "Ce réseau s'articule autour de deux niveaux de service.",
             "Ouvert à toute personne ayant un projet d’installation ou de transmission de son activité agricole"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://chambres-agriculture.fr/je-suis-futur-agriculteur",
+          "title": "Je suis futur agriculteur - Chambre d'agriculture France",
+          "consultedOn": "2026-11-24",
+          "quotes": ["À partir du 1er janvier 2027, lancement du dispositif France services agriculture."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "Le ministère présente encore ce réseau comme une nouveauté à déployer ; aucune voie d'accès opérationnelle propre n'est publiée sur la page.",
-      "generatorId": "chatgpt-1"
+      "notes": "Le ministère présente encore ce réseau comme une nouveauté à déployer ; aucune voie d'accès opérationnelle propre n'est publiée sur la page. Le portail national des Chambres d’agriculture annonce le lancement du dispositif au 1er janvier 2027.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "fr-aita",
+      "name": "Programme pour l’accompagnement à l’installation et la transmission en agriculture (AITA)",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Ministère de l’agriculture — DGPE/SDC",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Cadre de gestion et de mise en œuvre du programme pour l’accompagnement à l’installation et la transmission en agriculture (AITA) pour l’année 2026, fixé par l’instruction technique DGPE/SDC/2026-54.",
+      "accessUrl": "https://info.agriculture.gouv.fr/boagri/instruction-2026-54",
+      "lastEvidenceDate": "2026-06-25",
+      "sources": [
+        {
+          "url": "https://info.agriculture.gouv.fr/boagri/instruction-2026-54",
+          "title": "DGPE/SDC/2026-54 du 25-06-2026",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Bulletin officiel Instructions du ministère de l’agriculture",
+            "DGPE/SDC Bureau du financement des entreprises",
+            "Statut : EnVigueur",
+            "La présente instruction technique présente les modalités de gestion et de mise en œuvre du programme pour l’accompagnement à l’installation et la transmission en agriculture (AITA) pour l’année 2026.",
+            "Instruction technique DGPE/SDC/2026-54 Publiée le 25-06-2026",
+            "Cette instruction n'est abrogée par aucune instruction.",
+            "Cette instruction n'est modifiée par aucune instruction."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://draaf.occitanie.agriculture.gouv.fr/l-accompagnement-a-l-installation-transmission-en-agriculture-aita-r612.html",
+          "title": "L'Accompagnement à l'Installation-Transmission en Agriculture | DRAAF Occitanie",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Ce programme d’action actuellement encadré par l’instruction technique AITA basculera au 1er janvier 2027 vers France Service Agriculture (FSA)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "notes": "La notice donne accès au PDF de l’instruction ; elle ne constitue pas un guichet de demande d’accompagnement ou d’aide. La DRAAF Occitanie annonce le passage du programme à France services agriculture au 1er janvier 2027.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "fr-aides-agri",
+      "name": "Aides Agri",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Ministère de l'Agriculture, de l'Agro-Alimentaire et de la Souveraineté Alimentaire",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Catalogue de dispositifs publics pour les agriculteurs, comprenant des aides à l’installation et à la transmission. Il présente des financements, prêts, avantages fiscaux, services d’assistance, conseils, études, formations et informations, puis oriente vers les fiches des dispositifs et leurs sites officiels.",
+      "whoCanUseIt": "Agriculteurs recherchant des dispositifs adaptés à leur besoin, notamment pour une installation ou une transmission.",
+      "howToAccess": "Consulter le catalogue, sélectionner son département et ses filières, puis choisir un thème comme « Installation » ou « Transmission, retraite, fin d’activité ». Suivre les liens « Consulter la fiche dispositif » ou « Voir le site officiel » pour connaître le dispositif et sa voie d’accès.",
+      "accessUrl": "https://www.aides-agri.beta.gouv.fr/aides",
+      "sources": [
+        {
+          "url": "https://www.aides-agri.beta.gouv.fr/aides",
+          "title": "Catalogue de dispositifs — Aides Agri",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "La plateforme qui oriente les agriculteurs vers les dispositifs adaptés.",
+            "Aides Agri, porté par l’incubateur du Ministère de l’Agriculture, de l’Agro-alimentaire et de la Souveraineté Alimentaire, a pour ambition de recenser les aides des partenaires publics à destination des agriculteurs, de les rendre visibles et d'aiguiller les agriculteurs selon leur besoin.",
+            "Votre département Sélectionnez un département",
+            "Vos filières Sélectionnez une ou plusieurs options",
+            "Installation Ressources humaines Développer ou optimiser l’exploitation Adaptation au changement climatique Transmission, retraite, fin d’activité",
+            "Menu par types d’aides Financement Prêt Avantage fiscal Assistance Conseil Étude Formation Informations",
+            "Dotation Jeunes Agriculteurs (DJA)",
+            "Consulter la fiche dispositif",
+            "Voir le site officiel",
+            "Contrat de parrainage agricole"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "fr-transmettre-elevage-caprin",
+      "name": "Transmettre en élevage caprin",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Institut de l'Elevage",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Guide pratique pour préparer la transmission d’un élevage caprin : anticipation du projet, échanges avec l’entourage, recherche d’un repreneur, choix des modalités de transmission et évaluation de l’exploitation. Il propose un calendrier de préparation et indique les interlocuteurs à solliciter selon les questions.",
+      "whoCanUseIt": "Éleveurs caprins préparant la transmission de leur exploitation.",
+      "howToAccess": "Consulter le guide au format PDF sur le site de la Fédération nationale des éleveurs de chèvres (FNEC).",
+      "accessUrl": "https://fnec.fr/IMG/pdf/TRANSMETTRE_EN_ELEVAGE_CAPRIN.pdf",
+      "sectors": ["LIVESTOCK"],
+      "targetProfiles": ["TRANSFEROR"],
+      "sources": [
+        {
+          "url": "https://fnec.fr/IMG/pdf/TRANSMETTRE_EN_ELEVAGE_CAPRIN.pdf",
+          "title": "Transmettre en élevage caprin",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "TRANSMETTRE EN ÉLEVAGE CAPRIN",
+            "Pour réussir au mieux la transmission, il est nécessaire d’anticiper, d'y réfléchir assez tôt, d’en parler en famille, aux associés et de se faire accompagner.",
+            "TROUVER UN REPRENEUR",
+            "CHOISIR LES MODALITES DE TRANSMISSION",
+            "Évaluer son exploitation est une étape incontournable de la transmission.",
+            "BÂTIR SON PROJET DE TRANSMISSION",
+            "A CHAQUE QUESTION, DES INTERLOCUTEURS PRIVILÉGIÉS",
+            "Document édité par l'Institut de l'Elevage",
+            "Janvier 2020"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "notes": "Publication de janvier 2020 : les démarches administratives, les aides et les coordonnées présentées doivent être vérifiées auprès des organismes concernés avant utilisation.",
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "fr-service-public-annonce-cession-rdi",
+      "name": "Déposer une annonce de cession d’une entreprise agricole ou rurale dans le Répertoire Départ Installation (RDI)",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Entreprendre Service Public / Direction de l'information légale et administrative (Premier ministre)",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Fiche officielle donnant accès à l’outil des Chambres d’agriculture pour déposer une annonce de cession d’une entreprise agricole ou rurale au RDI. Elle présente le dispositif de diffusion des offres de transmission et de mise en relation des cédants avec les candidats à l’installation.",
+      "howToAccess": "Suivre le lien « Accéder à l’outil de recherche » sur la fiche Service Public.",
+      "accessUrl": "https://entreprendre.service-public.gouv.fr/vosdroits/R18247",
+      "lastEvidenceDate": "2026-10-01",
+      "sources": [
+        {
+          "url": "https://entreprendre.service-public.gouv.fr/vosdroits/R18247",
+          "title": "Déposer une annonce de cession d’une entreprise agricole ou rurale dans le Répertoire Départ Installation (RDI) | Service Public Entreprendre",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Déposer une annonce de cession d’une entreprise agricole ou rurale dans le Répertoire Départ Installation (RDI)",
+            "Dispositif des Chambres d’agriculture permettant de diffuser des offres de transmission et de mettre en relation cédants et candidats à l’installation.",
+            "Accéder à l’outil de recherche",
+            "Émetteur de l'outil de recherche : Chambres d'agriculture",
+            "Vérifié le 01 octobre 2026 - Entreprendre Service Public / Direction de l'information légale et administrative (Premier ministre)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "fr-la-transmission-des-fermes-outils-methodes",
+      "name": "La transmission des fermes - outils et méthodes pour une transmission réussie",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "CIVAM Bretagne, InterAfocg, Terre en vue, NEL, Landwirtschaft, Land&co, Landgilde",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Guide présentant des outils et méthodes pour réussir une transmission de ferme, avec des exemples venant de France, d’Autriche, de Belgique et des Pays-Bas.",
+      "howToAccess": "Utiliser le lien « Télécharger la ressource » sur le Centre de Ressources Terre de Liens.",
+      "accessUrl": "https://ressources.terredeliens.org/les-ressources/la-transmission-des-fermes-outils-et-methodes-pour-une-transmission-reussie",
+      "sources": [
+        {
+          "url": "https://ressources.terredeliens.org/les-ressources/la-transmission-des-fermes-outils-et-methodes-pour-une-transmission-reussie",
+          "title": "La transmission des fermes - outils et méthodes pour une transmission réussie - Centre de Ressources - Terre de liens",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "La transmission des fermes - outils et méthodes pour une transmission réussie",
+            "Publié en octobre 2016",
+            "Outils et méthodes pour une transmission réussie avec des exemples venant de France, d'Autriche, de Belgique et des Pays-Bas.",
+            "Type de ressources Guides",
+            "Auteur CIVAM Bretagne, InterAfocg, Terre en vue, NEL, Landwirtschaft, Land&co, Landgilde",
+            "Télécharger la ressource"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "notes": "Guide publié en octobre 2016 ; la notice ne permet pas de confirmer l’actualité des démarches éventuellement décrites dans le document.",
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "fr-chambres-agriculture-parcours-installation",
+      "name": "Chambres d’agriculture — préparer son installation",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Chambres d’agriculture France",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Portail pour préparer un projet agricole, trouver le premier accueil local et consulter les modalités régionales des aides aux jeunes et aux nouveaux agriculteurs.",
+      "accessUrl": "https://chambres-agriculture.fr/je-suis-futur-agriculteur",
+      "sources": [
+        {
+          "url": "https://chambres-agriculture.fr/je-suis-futur-agriculteur",
+          "title": "Je suis futur agriculteur - Chambre d'agriculture France",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Votre Chambre d'agriculture vous accompagne de l'idée à la création de votre entreprise.",
+            "Contacter son Point Accueil Installation",
+            "Modalités par région de l'aide Jeune agriculteur (en vert) et de l'aide Nouvel agriculteur (en rouge)."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personnes qui envisagent de s’installer en agriculture.",
+      "howToAccess": "Dans le portail, utiliser le lien vers son Point Accueil Installation et la rubrique des aides par région.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "fr-terre-de-liens-parcours-transmission",
+      "name": "Terre de Liens — Je transmets mes terres ou ma ferme",
+      "kind": "OTHER",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Terre de Liens",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Ressources pour préparer puis mettre en œuvre une transmission, organisées selon l’avancement du projet.",
+      "accessUrl": "https://ressources.terredeliens.org/cedant-e-s",
+      "sources": [
+        {
+          "url": "https://ressources.terredeliens.org/cedant-e-s",
+          "title": "Cédant.e.s - Je transmets mes terres ou ma ferme - Centre de Ressources - Terre de liens",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Vous trouverez dans ce parcours des ressources utiles en fonction du stade de votre projet de transmission",
+            "pour mettre en oeuvre de manière plus concrète votre projet de transmission"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personnes préparant la transmission de terres ou d’une ferme.",
+      "howToAccess": "Utiliser le parcours en fonction de l’étape de son projet.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "fr-fondation-terre-de-liens-donation-ferme",
+      "name": "Fondation Terre de Liens — donations et legs de terres et de fermes",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Fondation Terre de Liens",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "La Fondation reçoit des donations et legs de terres ou de fermes. Une donation peut être assortie de conditions d’usage à respecter.",
+      "accessUrl": "https://ressources.terredeliens.org/cedant-e-s",
+      "sources": [
+        {
+          "url": "https://ressources.terredeliens.org/cedant-e-s",
+          "title": "Cédant.e.s - Je transmets mes terres ou ma ferme - Centre de Ressources - Terre de liens",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Il vous est possible de nous donner votre terre et assortir ce geste de conditions d’utilisation qui s’imposeront à Terre de Liens.",
+            "la Fondation Terre de Liens est habilitée à recevoir des donations et legs de terres et de fermes."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Agriculteurs qui souhaitent confier leurs terres ou leur ferme à la Fondation.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],
   "limitations": [
     "Le Répertoire Départ Installation, les Safer et les points d'accueil ont été identifiés, mais leurs portées et pages nationales d'accès doivent encore être consolidées. Objectif Terres est documenté séparément comme plateforme nationale et porte d’entrée vers les associations territoriales de Terre de Liens.",
     "La garantie INAF et l’exonération nationale de cotisations MSA sont documentées ; les autres aides financières sont principalement publiées sur les pages des régions."
-  ]
+  ],
+  "metaTitle": "Aides à l’installation et transmission agricoles en France",
+  "metaDescription": "Consultez les aides à l’installation agricole par territoire et les ressources pour trouver des terres, reprendre ou transmettre une exploitation."
 }

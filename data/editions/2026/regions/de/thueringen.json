@@ -5,7 +5,7 @@
   "country": "DE",
   "region": "thueringen",
   "officialName": "Thüringen",
-  "published": "2026-09-14",
+  "published": "2026-11-24",
   "summary": "Thüringen fördert die erstmalige Gründung oder Übernahme landwirtschaftlicher Betriebe durch Junglandwirte. Das Programm ist aktuell dokumentiert, die jährliche Antragsfrist 2026 ist jedoch geschlossen.",
   "coverage": {
     "status": "PARTIAL",
@@ -29,9 +29,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -47,6 +44,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -105,7 +109,11 @@
             "die außerfamiliäre Übernahme/Übergabe einschließlich dem Kauf von bestehenden landwirtschaftlichen Betrieben",
             "Die Höhe der Zuwendung beträgt mindestens 35.000 Euro und maximal 70.000 Euro.",
             "Als Junglandwirt gilt, wer zum Zeitpunkt der Antragstellung höchstens 40 Jahre alt ist"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.aw-landesverwaltungsamt.thueringen.de/foerderung/eler",
@@ -114,11 +122,63 @@
           "quotes": [
             "Der Freistaat Thüringen fördert über das Thüringer Landesverwaltungsamt (TLVwA) Unternehmen und Existenzgründer:innen in der Landwirtschaft",
             "ELER - Förderung zur Niederlassung von Junglandwirten"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "„Aktiv“ beschreibt das bestehende Programm. Die konkrete Antragsrunde 2026 ist geschlossen; eine nächste Runde darf erst nach Veröffentlichung als offen oder bevorstehend bezeichnet werden.",
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "thueringen-tbv-sozialberatung",
+      "name": "Sozialberatung",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Thüringer Bauernverband e.V.",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Kostenfreie und unabhängige Beratung zur landwirtschaftlichen Sozialversicherung, ausdrücklich auch zu Hofabgaben und Hofübergaben. Die Beratungsstellen unterstützen bei Versicherungs-, Beitrags- und Leistungsangelegenheiten sowie beim Ausfüllen von Anträgen und Meldungen an die SVLFG.",
+      "whoCanUseIt": "Alle Versicherten der SVLFG sowie Interessierte, die ein landwirtschaftliches oder forstwirtschaftliches Unternehmen im Haupt- oder Nebenerwerb gründen oder übernehmen wollen.",
+      "howToAccess": "Einen Beratungstermin mit einer der auf der Seite aufgeführten Beratungsstellen in Thüringen vereinbaren. Für die Sozialberatung ist auch die E-Mail-Adresse sozialberatung@tbv-erfurt.de veröffentlicht.",
+      "accessUrl": "https://www.tbv-erfurt.de/service/sozialberatung",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "TBV Sozialberatung",
+          "value": "sozialberatung@tbv-erfurt.de",
+          "sourceUrl": "https://www.tbv-erfurt.de/service/sozialberatung"
+        }
+      ],
+      "sectors": ["AGRICULTURE", "FORESTRY"],
+      "accessCostType": "FREE",
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR"],
+      "sources": [
+        {
+          "url": "https://www.tbv-erfurt.de/service/sozialberatung",
+          "title": "Sozialberatung - Beratung und Betreuung bei Versicherungs-, Beitrags- und Leistungsangelegenheiten",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Der Thüringer Bauernverband (TBV) leistet eine umfassende Unterstützung zur landwirtschaftlichen Sozialversicherung in Thüringen.",
+            "In den Beratungsstellen des TBV, die im Auftrag der SVLFG tätig sind, erhalten alle Versicherte der SVLFG und Interessierte, die ein landwirtschaftliches oder forstwirtschaftliches Unternehmen im Haupt- oder Nebenerwerb gründen oder übernehmen wollen, eine kostenfreie und unabhängige Auskunft und Beratung",
+            "Das Aufgabengebiet der Beratungsstellen umfasst die Auskunft, Beratung und Betreuung in allen Versicherungs-, Beitrags- und Leistungsangelegenheiten",
+            "Beratung zu Hofabgaben und Hofübergaben",
+            "Mithilfe beim Ausfüllen von Anträgen (auch sämtliche Rentenanträge) und Meldungen an die SVLFG",
+            "Die Sozialberaterinnen und -berater des Thüringer Bauernverbandes unterstützen und helfen – vereinbaren Sie einfach einen Beratungstermin.",
+            "oder sozialberatung@tbv-erfurt.de",
+            "Thüringer Bauernverband e.V."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

@@ -5,7 +5,7 @@
   "country": "ES",
   "region": "araba-alava",
   "officialName": "Araba / Álava",
-  "published": "2026-09-30",
+  "published": "2026-11-24",
   "summary": "En Álava la Diputación Foral gestiona la ayuda al establecimiento de personas jóvenes agricultoras. El acceso a tierra cuenta además con el Banco de Tierras de Aiaraldea y con las parcelas municipales BIOHAZI de Elburgo/Burgelu, orientadas al emprendimiento agroecológico. UAGA mantiene una página específica de participación y acompañamiento para jóvenes, aunque la vigencia operativa de ese servicio concreto no está fechada. La Oficina de Intermediación para el Relevo Generacional Agrario se representa en la capa común del País Vasco.",
   "coverage": {
     "status": "PARTIAL",
@@ -93,9 +93,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -111,6 +108,20 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -152,7 +163,11 @@
             "Facilitar la incorporación de jóvenes agricultores y agricultoras que se instalen, por primera vez, en el sector agrario",
             "favoreciendo el relevo generacional",
             "Trámite: Ayudas a la creación de empresas por jóvenes agricultores/as"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.araba.eus/BOTHA/Boletines/2026/030/2026_030_00629_C.pdf",
@@ -164,7 +179,11 @@
             "Importe mínimo de subvención (min): 10.000,00 euros.",
             "Plazo para presentación de solicitudes: 20 días hábiles a contar desde el siguiente al de publicación en el BOTHA",
             "miércoles, 11 de marzo de 2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -178,28 +197,38 @@
         "level": "SUBREGIONAL",
         "area": "Aiaraldea"
       },
-      "operator": "ADR Zabaia",
+      "operator": "Asociación de Desarrollo Rural Zabaia",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Herramienta para poner en contacto a personas propietarias de parcelas aptas para explotación agropecuaria con personas interesadas en utilizarlas. Publica normas y formularios de alta y baja tanto para propietarios como para demandantes.",
+      "whatItOffers": "Herramienta para poner en contacto a personas propietarias de parcelas aptas para explotación agropecuaria con personas interesadas en utilizarlas mediante cesión o arrendamiento. Publica normas y formularios de alta y baja tanto para propietarios como para demandantes.",
       "whoCanUseIt": "Personas propietarias que quieran incorporar parcelas al banco y personas demandantes interesadas en acceder a tierra para uso agropecuario en Aiaraldea.",
-      "howToAccess": "Consultar las normas de funcionamiento y presentar el formulario de alta correspondiente como persona propietaria o demandante desde la página del Banco de Tierras.",
-      "accessUrl": "https://www.adrlautada.eus/es/banco-de-tierras-aiaraldea",
+      "howToAccess": "Solicitar la inscripción mediante el impreso normalizado de las normas: anexo 1 para personas propietarias y anexo 3 para demandantes. Las personas propietarias aportan sus datos y los de las parcelas; las demandantes indican sus datos y las características de la parcela que buscan. La sede del banco está en la Asociación de Desarrollo Rural Zabaia.",
+      "accessUrl": "https://www.zabaia.eus/images/pdf/Normas-funcionamiento-Banco-de-Tierra-Aiaraldea.pdf",
       "assetTypes": ["PLOTS"],
       "languages": ["es"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "YOUNG_FARMER"],
+      "notes": "La inscripción autoriza el intercambio de datos entre propietarios y demandantes. Zabaia facilita el contacto, pero se abstiene de intervenir, orientar o asesorar sobre los negocios que puedan acordar las partes.",
       "sources": [
         {
-          "url": "https://www.adrlautada.eus/es/banco-de-tierras-aiaraldea",
-          "title": "Banco de Tierras - ADR Lautada",
-          "consultedOn": "2026-09-27",
+          "url": "https://www.zabaia.eus/images/pdf/Normas-funcionamiento-Banco-de-Tierra-Aiaraldea.pdf",
+          "title": "NORMAS DE FUNCIONAMIENTO DEL BANCO DE TIERRAS DE AIARALDEA",
+          "consultedOn": "2026-11-20",
           "quotes": [
-            "El Banco de Tierras de Aiaraldea es una herramienta impulsada por la ADR Zabaia",
-            "facilitar el contacto entre personas propietarias de parcelas aptas para la explotación agropecuaria y las personas interesadas en su uso",
-            "Solicitud de alta en el Banco de Tierras de Aiaraldea como demandante de parcela."
-          ]
+            "aquellos terrenos aportados al banco de tierras se ofrecen en cesión o arrendamiento a las personas interesadas",
+            "El Banco de Tierras tendrá su sede en la Asociación de Desarrollo Rural Zabaia",
+            "Las personas inscritas en la base de datos deben ser propietarias de las parcelas, y así lo hacen constar a través de la firma del impreso normalizado que se adjunta (Anexo 1) a las presentes normas de funcionamiento.",
+            "Las personas interesadas en la explotación agropecuaria de una parcela de la comarca de Aiaraldea, podrán solicitar su inclusión en el registro de Banco de Tierras de Aiaraldea, según impreso normalizado que se adjunta (Anexo 3) a las presentes normas de funcionamiento.",
+            "En dicho impreso de solicitud se incluirán los datos personales del/la demandante y las características de la parcela de su preferencia.",
+            "la persona propietaria deberá cumplimentar sus datos personales e información sobre la/s parcela/s de su propiedad",
+            "Esta cesión de datos debidamente autorizada será bidireccional",
+            "La Asociación de Desarrollo Rural Zabaia se abstendrá de intervenir, orientar o asesorar acerca de los negocios que, en su caso, puedan llevar a cabo las personas interesadas que se hayan puesto en contacto para registrarse en el Banco de Tierras de Aiaraldea."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "araba-alava-elburgo-biohazi",
@@ -213,8 +242,8 @@
       "operator": "Ayuntamiento de Elburgo/Burgelu",
       "operatorType": "PUBLIC",
       "whatItOffers": "Proyecto municipal de apoyo al emprendimiento agroecológico mediante dos parcelas municipales de alrededor de 1.000 m² en Añua. El Ayuntamiento indica que asesora además en la comercialización en circuitos cortos y mercados locales; la convocatoria 2026 ofrece el uso de las parcelas por cuatro años.",
-      "whoCanUseIt": "Personas y entidades que cumplan los requisitos de la convocatoria municipal para el emprendimiento agroecológico; consultar las bases antes de solicitar una nueva adjudicación.",
-      "howToAccess": "Consultar la página BIOHAZI y las convocatorias del Ayuntamiento de Elburgo/Burgelu. La página de la convocatoria no indica plazo, por lo que una vacante o una nueva convocatoria debe comprobarse en la web municipal.",
+      "whoCanUseIt": "Personas y entidades que cumplan los requisitos de la convocatoria municipal para el emprendimiento agroecológico; consultar las bases antes de solicitar una nueva adjudicación. La ordenanza exige que las personas físicas sean mayores de 18 años y menores de 65. Las personas empadronadas y las entidades registradas en Elburgo tienen preferencia en la adjudicación.",
+      "howToAccess": "Consultar la página BIOHAZI y las convocatorias del Ayuntamiento de Elburgo/Burgelu. La página de la convocatoria no indica plazo, por lo que una vacante o una nueva convocatoria debe comprobarse en la web municipal. Cuando haya una convocatoria, presentar la solicitud en el registro general del Ayuntamiento mediante el modelo normalizado.",
       "accessUrl": "https://elburgo-burgelu.eus/biohazi/",
       "assetTypes": ["PLOTS"],
       "languages": ["es"],
@@ -229,7 +258,11 @@
             "Biohazi es un proyecto de apoyo a iniciativas agroecológicas",
             "dos parcelas municipales de 1000m2 cada una",
             "el propio Ayuntamiento asesora en el proceso de comercialización de productos en circuitos cortos y mercados locales"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://elburgo-burgelu.eus/convocatoria-adjudicacion-de-huertos-de-elburgo/",
@@ -238,10 +271,28 @@
           "quotes": [
             "Abrimos la convocatoria para adjudicar el uso de dos parcelas municipales en Añua destinadas al emprendimiento agroecológico dentro del proyecto «BIOHAZI».",
             "se concederán por un plazo de cuatro años."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://araba.eus/botha/Boletines/2024/062/2024_062_01636_C.pdf",
+          "title": "Ordenanza reguladora de la adjudicación y uso de las huertas municipales de Elburgo",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Ser mayor de 18 años y menor de 65 años.",
+            "podrán presentar la solicitud en el registro general del ayuntamiento a través del modelo normalizado que se facilite a tales efectos.",
+            "Tendrán preferencia en la adjudicación de las huertas municipales las personas empadronadas o entidades registradas en el municipio"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "araba-alava-uaga-incorporacion-jovenes",
@@ -270,7 +321,11 @@
             "hacer lo más fácil posible y también viable la incorporación de nuevas explotaciones al sector agrario alavés",
             "Realizando un seguimiento en el proceso de incorporación",
             "ofreciendo asesoramiento y precios de servicios rebajados"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.uaga.eus/servicios/asesoramiento/",
@@ -279,10 +334,66 @@
           "quotes": [
             "Ofrecemos un servicio de asesoramiento integral de calidad a nuestros afiliados",
             "contamos con un equipo técnico constituido por 8 personas"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "araba-alava-registro-relevo-generacional",
+      "name": "Registro de Relevo Generacional y Oficina de Intermediación para el Relevo Generacional",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Diputación Foral de Álava — Departamento de Agricultura",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Registro e intermediación para poner en relación a titulares que quieren ceder total o parcialmente su explotación y personas que desean incorporarse al sector agrario. Las bases prevén información sobre explotaciones o proyectos compatibles y asesoramiento técnico, fiscal o jurídico para la cesión o incorporación. La inscripción no confiere derecho económico ni preferencia para obtener ayudas.",
+      "whoCanUseIt": "Personas cedentes titulares de una explotación inscrita en el Registro de Explotaciones Agrarias de Álava, con 57 o más años en el año de solicitud, salvo excepciones por fuerza mayor. Para incorporarse: personas con más de 18 y menos de 49 años en el año de presentación, sin explotación en la que instalarse o con una explotación cuya falta de viabilidad sea sobrevenida por causas no imputables a ellas. Deben aportar la manifestación de interés y las fichas exigidas; si reciben una explotación, deben participar en la tutorización y asesoramiento, coordinarse con la persona cedente, firmar el compromiso de confidencialidad e iniciar Gaztenek si procede.",
+      "howToAccess": "Dirigir los formularios de manifestación de interés a la Oficina de Intermediación para el Relevo Generacional, a través del Registro Electrónico Común de la Diputación Foral de Álava o por los demás medios legales previstos. Las bases establecen presentación continuada hasta que el Departamento de Agricultura declare finalizada la ejecución del plan; esta publicación no acredita por sí sola la atención efectiva del servicio.",
+      "accessUrl": "https://e-s.araba.eus/BOTHA/Boletines/2026/012/2026_012_00165_C.pdf",
+      "targetProfiles": ["TRANSFEROR", "NEW_ENTRANT"],
+      "lastEvidenceDate": "2026-01-28",
+      "sources": [
+        {
+          "url": "https://e-s.araba.eus/BOTHA/Boletines/2026/012/2026_012_00165_C.pdf",
+          "title": "Orden Foral 7049/2025, de 17 de diciembre",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "miércoles, 28 de enero de 2026",
+            "Diputación Foral de Álava DEPARTAMENTO DE AGRICULTURA",
+            "Aprobar la convocatoria pública de manifestación de interés para la participación en la Estrategia para el Relevo Generacional en el Sector Agrario Alavés, así como la creación del Registro de Relevo Generacional y la Oficina de Intermediación para el Relevo Generacional",
+            "La gestión de las manifestaciones y del registro se realizará a través de la Oficina de Interme- diación para el Relevo Generacional, dependiente del Servicio de Desarrollo Agrario.",
+            "las personas titulares de explotaciones agrarias que manifiesten su inten- ción de ceder total o parcialmente su explotación",
+            "y que no dispongan de una explotación en la que instalarse o cuya explotación presente falta de viabilidad sobrevenida por causas no imputables a ellas.",
+            "Ser titular de una explotación agraria inscrita en el Registro de Explotaciones Agrarias de Álava.",
+            "Tener 57 o más años en el año de presentación de la solicitud. Excepcionalmente, se ad- mitirán solicitudes de personas de menor edad por causas de fuerza mayor (incapacidad, etc.).",
+            "Tener más de 18 y menos de 49 años en el año de presentación.",
+            "Cumplimentar la ficha del anexo III, donde se detallen, al menos:",
+            "Cumplimentar la ficha del anexo II, indicando, al menos:",
+            "Iniciar, si procede, el procedimiento Gaztenek de incorporación de jóvenes.",
+            "Participar en los programas de tutorización y asesoramiento previstos.",
+            "Trabajar de manera coordinada con la persona cedente.",
+            "Firmar el compromiso de confidencialidad de datos.",
+            "Las personas interesadas deberán presentar la manifestación de interés mediante los for- mularios que se incluyen como anexos I y II de las presentes bases, dirigidos a la Oficina de Intermediación para el Relevo Generacional.",
+            "La presentación se realizará a través del Registro Electrónico Común de la Diputación Foral de Álava (https://egoitza.araba.eus/es/-/registro-electronico-comun), o por los medios previstos en el artículo 16.4 de la Ley 39/2015",
+            "El plazo para la presentación permanecerá abierto de forma continuada, hasta que el Depar- tamento de Agricultura declare finalizada la ejecución del Plan Estratégico para el Relevo Gene- racional.",
+            "Recibir información sobre explotaciones o proyectos compatibles.",
+            "Acceder a asesoramiento técnico, fiscal o jurídico relacionado con procesos de cesión o incorporación.",
+            "La inclusión en el registro no confiere derecho económico ni preferencia alguna para la con- cesión de ayudas."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

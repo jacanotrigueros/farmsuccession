@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "guyane",
   "officialName": "Guyane",
-  "published": "2026-11-05",
+  "published": "2026-11-24",
   "summary": "En Guyane, trois dotations FEADER visent des profils distincts de nouveaux agriculteurs. La Safer propose un accès au foncier et un accompagnement à la transmission. Une intervention de coopération pour la transmission est décrite, mais aucun appel ouvert n'a été vérifié.",
   "coverage": {
     "status": "PARTIAL",
@@ -41,9 +41,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -59,6 +56,20 @@
         "tool": "CHATGPT",
         "model": "gpt-6",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -93,7 +104,11 @@
             "Je dépose mon dossier",
             "75.01 Aide à l’installation en agriculture (DJA)",
             "la limite d’âge maximale afin d’être reconnu jeune agriculteur est fixée à 40 ans"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "claude-1"
@@ -127,7 +142,11 @@
             "Dispositif non cumulable avec DJA ou DNA",
             "En continu",
             "75.02 Aide à la petite exploitation agricole (DPA)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -161,7 +180,11 @@
             "Être âgé de 41 ans ou plus",
             "Dispositif non cumulable avec DJA ou DPA",
             "75.05 Dotation Nouvel Installé (DNA)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -196,7 +219,11 @@
             "Je dépose mon dossier",
             "73.17 Investissements Jeunes agriculteurs (JA)",
             "la limite d’âge maximale afin d’être reconnu jeune agriculteur est fixée à 40 ans"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -230,7 +257,11 @@
             "Ingénierie/conseil",
             "Par appel à projet",
             "77.04 Renouvellement des générations en agriculture"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -245,10 +276,24 @@
       },
       "operator": "Safer Guyane",
       "operatorType": "MIXED",
-      "whatItOffers": "Accès à des parcelles agricoles à acheter ou à louer et publication d'appels de candidatures.",
-      "whoCanUseIt": "Porteurs de projet agricole recherchant du foncier ; les demandes des jeunes agriculteurs bénéficient d'un traitement prioritaire annoncé par la Safer.",
-      "howToAccess": "Consulter les appels de candidatures de la Safer et les étapes pour acheter ou louer, puis contacter la Safer pour le bien concerné. La présence d'une annonce dans la liste ne prouve pas que son délai de candidature court encore.",
+      "whatItOffers": "Accès à des parcelles agricoles à acheter ou à louer et publication d'appels de candidatures. La Safer analyse le projet d’achat ou de location, propose des biens adaptés, met en relation avec les personnes ressources, gère les candidatures et accompagne la sécurisation du bien jusqu’au titrement foncier effectif.",
+      "whoCanUseIt": "Porteurs de projet agricole recherchant du foncier ; les demandes des jeunes agriculteurs bénéficient d'un traitement prioritaire annoncé par la Safer. L’accompagnement décrit s’adresse aussi aux personnes ayant un projet rural.",
+      "howToAccess": "Consulter les appels de candidatures de la Safer et les étapes pour acheter ou louer, puis contacter la Safer pour le bien concerné ou pour présenter son projet d’achat ou de location. La présence d'une annonce dans la liste ne prouve pas que son délai de candidature court encore.",
       "accessUrl": "https://safer-guyane.fr/sinstaller/projet-agricole/",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Safer Guyane",
+          "value": "0594 25 84 67",
+          "sourceUrl": "https://safer-guyane.fr/sinstaller/comment-sinstaller/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Safer Guyane",
+          "value": "direction@safer-guyane.fr",
+          "sourceUrl": "https://safer-guyane.fr/sinstaller/comment-sinstaller/"
+        }
+      ],
       "assetTypes": ["PLOTS"],
       "languages": ["fr"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "YOUNG_FARMER"],
@@ -260,17 +305,46 @@
           "quotes": [
             "Traiter prioritairement les demandes de foncier émanant des jeunes",
             "Les étapes pour acheter ou louer un bien à la Safer"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://safer-guyane.fr/biens-disponibles/appels-de-candidatures/",
           "title": "Appels de candidatures – Safer Guyane",
           "consultedOn": "2026-11-05",
-          "quotes": ["Consultez ci-dessous la liste de nos appels de candidatures :", "Macouria Vente d'une parcelle agricole de 23 ha"]
+          "quotes": ["Consultez ci-dessous la liste de nos appels de candidatures :", "Macouria Vente d'une parcelle agricole de 23 ha"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://safer-guyane.fr/sinstaller/comment-sinstaller/",
+          "title": "Comment s'installer ? - SAFER Guyane",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous cherchez à vous installer ou vous avez un projet rural, la Safer vous aidera à trouver un bien (foncier, avec ou sans bâti), vous accompagnera jusqu’au titrement foncier et favorisera le développement harmonieux de votre projet en l’intégrant dans le territoire agricole ou rural.",
+            "Véritables experts en foncier rural, la Safer Guyane interviendra à tous les stades de votre démarche en clarifiant et analysant votre projet d’achat ou location :",
+            "Proposition de biens en adéquation avec votre demande",
+            "Mise en relation avec les personnes ressources pour la concrétisation de votre projet (chambre d’agriculture, collectivités…)",
+            "Gestion des candidatures",
+            "Sécurisation (Valeur, conditions juridiques du titrement, plans, situation juridique du bien, autorisation d’exploiter, validation professionnelle du projet, accès et servitudes…)",
+            "Suivi jusqu’au titrement foncier effectif",
+            "Besoin d'un renseignement ? Nous contacter",
+            "0594 25 84 67",
+            "direction@safer-guyane.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "claude-1",
-      "notes": "La Safer Guyane intervient sur le territoire de la Guyane."
+      "notes": "La Safer Guyane intervient sur le territoire de la Guyane.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "guyane-safer-transmission",
@@ -300,10 +374,106 @@
             "5 novembre 2025",
             "Vous êtes agriculteur et vous souhaitez cesser votre activité et transmettre votre exploitation.",
             "Une transmission se prépare, n’hésitez pas à nous contacter !"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
+    },
+    {
+      "id": "guyane-portail-foncier-agricole-etat",
+      "name": "Les agriculteurs - Accès au foncier de l'État",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Les services de l'État en Guyane",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Présentation des procédures permettant aux agriculteurs de bénéficier de baux et de concessions sur le foncier agricole de l’État en Guyane, avec un schéma d’instruction et des rubriques consacrées aux formulaires de demande, aux bilans des attributions et aux procès-verbaux des commissions.",
+      "whoCanUseIt": "Agriculteurs en Guyane.",
+      "howToAccess": "Consulter le schéma de procédure et la rubrique « Formulaires de demande agricole » depuis cette page. L’EPFAG demande aux porteurs de projet de localiser la parcelle au moyen des cartes de l’OFAG et de déposer les formulaires auprès de la Mission Foncier.",
+      "accessUrl": "https://www.guyane.gouv.fr/Actions-de-l-Etat/Acces-au-foncier-de-l-Etat/Les-agriculteurs",
+      "notes": "La page présente le cadre d’accès et les rubriques utiles, sans établir la disponibilité actuelle de foncier ou une période de dépôt des demandes. L’EPFAG indique que le transfert progressif de compétences agricoles vers la Safer Guyane a commencé après la convention signée en novembre 2024.",
+      "lastEvidenceDate": "2023-08-07",
+      "sources": [
+        {
+          "url": "https://www.guyane.gouv.fr/Actions-de-l-Etat/Acces-au-foncier-de-l-Etat/Les-agriculteurs",
+          "title": "Les agriculteurs - Accès au foncier de l'État - Actions de l'État - Les services de l'État en Guyane",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Les services de l'État en Guyane",
+            "Les procédures d’accès au foncier agricole au titre des articles R5141-1 à R5141-25 du code général de la propriété des personnes publiques prévoient qu'en Guyane les agriculteurs peuvent bénéficier de baux et de concessions.",
+            "Le schéma de la procédure est résumé dans le document suivant",
+            "Schéma Procédure Instruction Agricole PDF - 3,49 Mb - 07/08/2023",
+            "Formulaires de demande agricole",
+            "Bilan des attributions de foncier agricole",
+            "PV des commissions d'attribution agricole"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.epfag.fr/nos-commercialisations/agriculteurs/acces-au-foncier-agricole/",
+          "title": "🌱Accès au Foncier Agricole - EPFA Guyane",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Les formulaires sont à remplir et à déposer auprès de la Mission Foncier",
+            "Chaque porteur de projet doit localiser précisément la parcelle sollicitée à l’aide de cartes réalisées via l’OFAG.",
+            "Depuis la signature de la convention EPFAG–SAFER en novembre 2024, un transfert progressif des compétences agricoles est engagé vers la SAFER Guyane."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "guyane-cacl-foncier-agricole-amenage",
+      "name": "Programme de Foncier agricole aménagé",
+      "kind": "LAND_BANK",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Communauté d’Agglomération du Centre Littoral de Guyane"
+      },
+      "operator": "Communauté d’Agglomération du Centre Littoral de Guyane",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Programme prévoyant l’acquisition de terrains agricoles et leur aménagement préalable : bornage, accès et études agronomiques, afin de faciliter l’installation des futurs exploitants.",
+      "whoCanUseIt": "Futurs exploitants agricoles ; la convention vise notamment à soutenir l’installation des jeunes agriculteurs.",
+      "accessUrl": "https://www.cacl-guyane.fr/actualites/signature-dune-convention-avec-la-safer/",
+      "assetTypes": ["PLOTS"],
+      "notes": "La première acquisition envisagée porte sur une parcelle de 23 hectares à Carapa, sur la commune de Macouria. La page indique que la proposition est soumise à l’approbation de l’Assemblée Plénière ; elle ne publie pas de procédure de candidature.",
+      "lastEvidenceDate": "2025-08-01",
+      "sources": [
+        {
+          "url": "https://www.cacl-guyane.fr/actualites/signature-dune-convention-avec-la-safer/",
+          "title": "Signature d’une convention avec la SAFER – Communauté d’Agglomération du Centre Littoral de Guyane",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Communauté d’Agglomération du Centre Littoral de Guyane",
+            "Dernière modification le 1 août 2025",
+            "la CACL devient le premier EPCI (Établissement public de coopération intercommunale) de Guyane à formaliser un accord de coopération avec la SAFER de Guyane.",
+            "Soutenir l’installation des jeunes agriculteurs",
+            "Dans le cadre de la mise en œuvre de son programme de Foncier agricole aménagé, la CACL prévoit l’acquisition d’une première parcelle de 23 hectares située à Carapa, sur la commune de Macouria.",
+            "Ce terrain, identifié par la SAFER, fait actuellement l’objet d’une proposition soumise à l’approbation de l’Assemblée Plénière.",
+            "Les terrains concernés seront aménagés en amont (bornage, accès, études agronomiques) afin de permettre une installation rapide, sécurisée et encadrée des futurs exploitants.",
+            "Cette première acquisition marque le lancement d’une dynamique intercommunale, appelée à s’étendre progressivement à d’autres communes du territoire, notamment Montsinéry-Tonnégrande, Matoury et Roura, avec l’objectif de constituer un réseau structuré et cohérent de foncier agricole aménagé."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

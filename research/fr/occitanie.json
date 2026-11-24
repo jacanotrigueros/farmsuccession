@@ -6,7 +6,7 @@
     "region": "occitanie"
   },
   "language": "fr",
-  "updatedOn": "2026-09-29",
+  "updatedOn": "2026-11-24",
   "context": [
     "La Région Occitanie finance des structures labellisées pour conseiller les candidats à l'installation et les cédants sans repreneur.",
     "Les opérateurs de proximité comprennent les chambres départementales et les associations départementales pour le développement de l'emploi agricole et rural.",
@@ -16,7 +16,12 @@
     "Les tableaux de périodes DJA et DNA séparent « date de début d'éligibilité » et « périodes de dépôt » : le dépôt est continu en 2026, sans date d'ouverture à inférer de la première colonne.",
     "La Safer, la Foncière Agricole et les ADEAR offrent des voies foncières différentes. Une annonce immobilière isolée n'est pas un instrument supplémentaire.",
     "Une page de l'ADEAR 31 indique ne plus avoir de personnel et réoriente vers des ADEAR limitrophes ; ne pas qualifier son accompagnement d'ACTIVE sans nouvelle vérification.",
-    "La fiche détaillée CEFI du portail Me former en région a expiré pendant l'ouverture ; le parcours d'inscription reste à établir."
+    "La fiche détaillée CEFI du portail Me former en région a expiré pendant l'ouverture ; le parcours d'inscription reste à établir.",
+    "Le libellé du registre mentionne l’APECA et la Caraïbe, mais cette adresse publie le parcours d’installation de l’ARDEAR Occitanie.",
+    "L’adresse transmettre.php décrit le parcours des cédants, contrairement au libellé « S'installer » du registre ; elle complète la fiche régionale existante de la Safer.",
+    "La page des Pyrénées-Orientales distingue les formulaires PPP réservés au CEPPP des contacts d’orientation destinés aux porteurs de projet ; elle précise aussi que le suivi AITA après installation n’est pas pris en charge en Occitanie.",
+    "Malgré le libellé du registre mentionnant la Caraïbe, cette page appartient à l’ADEAR de l’Ariège et décrit son accompagnement individuel à l’installation.",
+    "La fiche CEFI de la Chambre de Haute-Garonne fournit des conditions détaillées et un formulaire de contact ; elle complète le dispositif régional existant sans établir une restriction aux seuls candidats de Haute-Garonne."
   ],
   "portals": [
     {
@@ -210,13 +215,14 @@
     },
     {
       "id": "occitanie-tdl-midi-pyrenees",
-      "name": "Terre de Liens Midi-Pyrénées",
-      "url": "https://terredeliens.org/midi-pyrenees/",
+      "name": "Terre de Liens Midi-Pyrénées — accueil et accompagnement foncier",
+      "url": "https://terredeliens.org/midi-pyrenees",
       "kind": "ADVICE",
-      "status": "TO_CHECK",
+      "status": "ADMITTED",
       "reason": "La recherche a trouvé une association territoriale et un accueil de candidats et cédants, mais l'ouverture de la page a échoué dans cette passe. Rouvrir sa page officielle avant de créer une entrée.",
       "foundBy": "occitanie-terre-de-liens",
-      "checkedOn": "2026-09-29"
+      "checkedOn": "2026-11-24",
+      "resourceId": "occitanie-terre-de-liens-midi-pyrenees"
     },
     {
       "id": "occitanie-addearg",
@@ -269,6 +275,69 @@
       "reason": "Les biens isolés ne sont pas chacun une ressource. Le parcours foncier et les appels de la Safer sont documentés dans une seule fiche de service régional.",
       "foundBy": "occitanie-safer",
       "checkedOn": "2026-09-29"
+    },
+    {
+      "id": "occitanie-ardear-installer",
+      "name": "S’installer — ARDEAR Occitanie",
+      "url": "https://www.agriculturepaysanne.org/S-installer-607",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-ardear-installer",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "occitanie-safer-transmettre",
+      "name": "Transmettre — Safer Occitanie",
+      "url": "https://www.safer-occitanie.com/fr/page/transmettre.php",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-safer-foncier",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "occitanie-pyrenees-orientales-installation-ppp",
+      "name": "Installation (AITA - volet 3)",
+      "url": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-pyrenees-orientales-installation-ppp",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "occitanie-adear-ariege-accompagnement-individuel",
+      "name": "L’accompagnement individuel",
+      "url": "https://www.agriculturepaysanne.org/L-accompagnement-indivduel",
+      "kind": "ADVICE",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-adear-ariege-accompagnement-individuel",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "occitanie-aude-point-accueil-transmission",
+      "name": "Point Accueil Transmission (PAT)",
+      "url": "https://aude.chambres-agriculture.fr/fileadmin/user_upload/278_chambre_dagriculture_-_aude/Documents/Entreprises/Installation/A4_3Volets_PAT-V3.pdf",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-aude-point-accueil-transmission",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "occitanie-cefi-haute-garonne",
+      "name": "CEFI – Contrat Emploi Formation Installation",
+      "url": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-cefi",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "occitanie-dja-source",
+      "name": "1 - DJA / DNA : quelles compétences requises ? | DRAAF Occitanie",
+      "url": "https://draaf.occitanie.agriculture.gouv.fr/1-dja-dna-quelles-competences-requises-a8794.html",
+      "kind": "OTHER",
+      "status": "ADMITTED",
+      "resourceId": "occitanie-dna",
+      "checkedOn": "2026-11-24"
     }
   ],
   "instrumentChecks": [
@@ -312,6 +381,51 @@
       "date": "2026-09-29",
       "by": "CHATGPT (gpt-6)",
       "summary": "Revalidation des trois fiches existantes ; ajout des dotations DJA et DNA, du CEFI, de la Safer, de la Foncière Agricole et de services associatifs dans le Gard, le Lot et le Languedoc-Roussillon. Dépôt continu 2026 distingué de l'éligibilité ; accès détaillé CEFI et autres départements encore partiels."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page de l’ARDEAR Occitanie décrit l’accompagnement à l’installation assuré par les ADEAR-Terres Vivantes et indique comment joindre les associations départementales. Cet accès associatif propre est distinct du programme régional déjà recensé ; le contenu concerne bien l’Occitanie, contrairement au libellé du registre qui mentionne la Caraïbe."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page « Transmettre » décrit l’évaluation des biens, la recherche de repreneurs, la médiation et l’accompagnement jusqu’à l’acte proposés par la Safer Occitanie. J’enrichis la fiche régionale existante avec ce parcours destiné aux cédants, sans créer de doublon et en conservant ses sources."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page préfectorale fournit un accès départemental propre aux démarches d’agrément et de validation du PPP, avec des formulaires réservés au CEPPP et des contacts institutionnels. Ce portail du volet préparatoire de l’AITA n’est pas déjà recensé et ne se confond pas avec les accompagnements financés par la Région."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page décrit l’accompagnement individuel de l’ADEAR de l’Ariège, avec montage des dossiers d’aides et mise en place et suivi des CEFI : il s’agit d’un service départemental propre, distinct des dispositifs régionaux déjà recensés. Je propose une fiche de conseil précisant la formation préalable au dépôt des dossiers avec l’association et le caractère payant de l’accompagnement DJA."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La brochure décrit le Point Accueil Transmission de la Chambre d’agriculture de l’Aude et sa propre voie d’accès par rendez-vous individuel avec un conseiller transmission. Je propose ce service départemental distinct des dispositifs régionaux déjà recensés ; le CEFI, le RDI et les formations sont mentionnés comme outils complémentaires."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La fiche de la Chambre d’agriculture décrit le CEFI déjà recensé en Occitanie et précise ses conditions, sa durée, sa rémunération et une voie de contact directe. J’enrichis la fiche existante en conservant ses sources et en distinguant l’accès proposé par la Chambre de Haute-Garonne du parcours régional."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La page de l’antenne Midi-Pyrénées indique son accueil des porteurs de projet et des cédants, son appui aux acquisitions et un formulaire de contact."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La DRAAF distingue les qualifications requises pour la DJA et la DNA ainsi que le service instructeur."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La DRAAF distingue les qualifications requises pour la DJA et la DNA ainsi que le service instructeur."
     }
   ]
 }

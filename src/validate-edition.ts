@@ -16,6 +16,10 @@ import type { EditionSnapshot, Metric, Resource, Source } from "./types/edition.
 import type { Territories } from "./types/territories.ts";
 import { canonicalPage, samePage } from "./urls.ts";
 
+/** Whether one of a source's quotes carries the value, ignoring case. */
+const quoted = (source: Source, value: string): boolean =>
+  source.quotes.some((quote) => quote.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
+
 /**
  * The units each measure can be expressed in, so the same measure stays comparable from one territory
  * to the next. A budget is money; land is parcels, properties or hectares; training is people or
@@ -188,7 +192,7 @@ function checkIdentity(file: string, data: EditionSnapshot, territories: Territo
 /**
  * Dates that contradict each other, or the edition, or the day the file was written. Nothing read
  * from a page can be in the future, nothing can have been consulted after the file was published, and
- * a review signed before the last consultation covered less than it claims.
+ * a page cannot have been verified before it was read or after the file was published.
  */
 function checkDates(data: EditionSnapshot, today: string, found: Problems): void {
   if (data.published > today) found.error(`published ${data.published} is in the future`);
@@ -202,19 +206,13 @@ function checkDates(data: EditionSnapshot, today: string, found: Problems): void
       found.error(`${at}: source consultedOn ${source.consultedOn} is after published ${data.published}`);
     }
     if (new Set(source.quotes).size !== source.quotes.length) found.warn(`${at}: ${source.url} repeats a quote`);
-  }
-
-  const reviewedOn = data.review.reviewedOn;
-  if (reviewedOn === undefined) return;
-  if (reviewedOn > data.published) found.error(`review.reviewedOn ${reviewedOn} is after published ${data.published}`);
-  const lastConsulted = sourcesOf(data)
-    .map(({ source }) => source.consultedOn)
-    .toSorted()
-    .at(-1);
-  if (lastConsulted !== undefined && reviewedOn < lastConsulted) {
-    found.error(
-      `review.reviewedOn ${reviewedOn} is before the last consultation (${lastConsulted}), so part of the file was never reviewed`,
-    );
+    const checkedOn = source.verification?.checkedOn;
+    if (checkedOn !== undefined && checkedOn < source.consultedOn) {
+      found.error(`${at}: verification.checkedOn ${checkedOn} is before consultedOn ${source.consultedOn}`);
+    }
+    if (checkedOn !== undefined && checkedOn > data.published) {
+      found.error(`${at}: verification.checkedOn ${checkedOn} is after published ${data.published}`);
+    }
   }
 }
 
@@ -259,6 +257,40 @@ function checkResource(data: EditionSnapshot, resource: Resource, today: string,
       (contact.channel === "FORM" && samePage(contact.value, contact.sourceUrl)) ||
       source.quotes.some((quote) => quote.toLocaleLowerCase().includes(contact.value.toLocaleLowerCase()));
     if (!published) found.error(`${label} value is not present in the cited source quotes`);
+    // An area belongs to this office only when the page says both in one place: a phone from one row
+    // and an area from another would send a reader to the wrong office. A form is the page itself, so
+    // its areas only have to be quoted.
+    for (const area of contact.areas ?? []) {
+      const sameBlock = source.quotes.some((quote) => {
+        const lower = quote.toLocaleLowerCase();
+        const hasValue = contact.channel === "FORM" || lower.includes(contact.value.toLocaleLowerCase());
+        return hasValue && lower.includes(area.toLocaleLowerCase());
+      });
+      if (!sameBlock) found.error(`${label} area "${area}" is not in a quote of the cited source that also gives its value`);
+    }
+  }
+
+  // An intervention code or an act is a claim like any other: the cited source has to say it.
+  const sourceAt = (url: string): Source | undefined => resource.sources.find((candidate) => candidate.url === url);
+  for (const { code, sourceUrl } of resource.interventionCodes ?? []) {
+    const source = sourceAt(sourceUrl);
+    if (!source) found.error(`${at}: intervention code "${code}" cites ${sourceUrl}, which is not one of its sources`);
+    else if (!quoted(source, code)) found.error(`${at}: intervention code "${code}" is not present in the cited source quotes`);
+  }
+  for (const act of resource.legalBasis ?? []) {
+    const label = `${at}: legal act "${act.title}"`;
+    const source = sourceAt(act.sourceUrl);
+    if (!source) {
+      found.error(`${label} cites ${act.sourceUrl}, which is not one of its sources`);
+      continue;
+    }
+    if (!quoted(source, act.title)) found.error(`${label} is not named in the cited source quotes`);
+    for (const provision of act.provisions ?? []) {
+      if (!quoted(source, provision)) found.error(`${label} provision "${provision}" is not present in the cited source quotes`);
+    }
+    if (act.actUrl !== undefined && !sourceAt(act.actUrl)) {
+      found.error(`${label} links its official text ${act.actUrl}, which is not one of its sources, so nothing re-reads it`);
+    }
   }
 
   checkCalls(at, resource, found);

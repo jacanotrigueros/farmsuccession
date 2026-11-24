@@ -6,7 +6,7 @@
     "region": "nouvelle-aquitaine"
   },
   "language": "fr",
-  "updatedOn": "2026-10-30",
+  "updatedOn": "2026-11-21",
   "context": [
     "La Safer Nouvelle-Aquitaine dispose d'une page régionale lisible qui décrit directement l'installation, la transmission et l'accès au foncier.",
     "Les pages de la Chambre régionale d'agriculture Nouvelle-Aquitaine renvoient actuellement une erreur 403; rechercher des pages départementales ou des documents officiels alternatifs.",
@@ -19,7 +19,8 @@
     "L'ANICAP décrit le Plan Capr'1, mais sa page ne démontre pas une activité actuelle datée.",
     "Les fiches régionales distinguent le diagnostic, l'étude économique pré-installation et le suivi post-installation comme trois prestations différentes.",
     "L'ABDEA publie deux parcours complémentaires en Béarn, annonce des rendez-vous mensuels pour l'installation et décrit le diagnostic puis la mise en relation pour la transmission.",
-    "L'appel AITA 2026 est une aide aux structures qui réalisent des actions d'animation et de communication ; sa clôture au 3 avril ne constitue pas une date de demande pour les agriculteurs."
+    "L'appel AITA 2026 est une aide aux structures qui réalisent des actions d'animation et de communication ; sa clôture au 3 avril ne constitue pas une date de demande pour les agriculteurs.",
+    "La page du CLIT Périgord-Limousin décrit une convention allant jusqu'à fin 2020 ; vérifier son renouvellement avant de présenter le service comme actuellement opérationnel."
   ],
   "portals": [
     {
@@ -283,6 +284,24 @@
       "reason": "Le Répertoire Départ Installation est déjà conservé comme piste nationale dans research/fr/country.json. Aucun service départemental distinct n'a été établi ici ; l'admettre au niveau régional dupliquerait le même outil avant la vérification de son parcours national.",
       "foundBy": "na-lower-levels",
       "checkedOn": "2026-10-30"
+    },
+    {
+      "id": "na-perigord-limousin-clit",
+      "name": "Transmission – Reprise d’exploitations agricoles en Périgord-Limousin",
+      "url": "https://www.perigord-limousin.fr/vos-demarches-au-quotidien/agriculture/transmission-reprise-exploitations-agricoles-en-perigord-limousin/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-perigord-limousin-clit",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "na-guide-aides-agriculture",
+      "name": "Le Guide des Aides de la Région Nouvelle-Aquitaine",
+      "url": "https://les-aides.nouvelle-aquitaine.fr/agriculture",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "nouvelle-aquitaine-guide-aides-agriculture",
+      "checkedOn": "2026-11-21"
     }
   ],
   "instrumentChecks": [
@@ -336,6 +355,16 @@
       "date": "2026-10-30",
       "by": "CHATGPT (Codex)",
       "summary": "Passe groupée des six pistes ouvertes : admis l'étude économique, le suivi post-installation, les parcours d'installation et transmission de l'ABDEA en Béarn et l'aide AITA aux organismes avec son appel 2026 clos. La piste générique des Chambres et le RDI régional ont été rejetés faute de service régional distinct et pour éviter de dupliquer la piste nationale."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page établit un accompagnement local à l'installation et à la transmission via le comité local installation-transmission (CLIT), distinct du simple renvoi au Répertoire Départ Installation national. Je propose une fiche dont le fonctionnement actuel reste non confirmé : la convention décrite allait jusqu'à fin 2020 et la page ne documente pas son renouvellement."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La page constitue un portail officiel régional de recherche d'aides et donne accès notamment à l'étude économique pré-installation et au prêt d'honneur pour l'installation. Je propose une fiche pour ce portail, distincte des dispositifs déjà publiés, sans déduire de nouvelles conditions ni de nouvelles périodes de candidature des seules notices du catalogue."
     }
   ]
 }

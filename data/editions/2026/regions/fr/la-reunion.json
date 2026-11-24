@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "la-reunion",
   "officialName": "La Réunion",
-  "published": "2026-09-20",
+  "published": "2026-11-24",
   "summary": "À La Réunion, la Safer publie des avis d’appel à candidature pour rétrocéder des terres agricoles, des exploitations et des propriétés rurales, et accompagne les candidats jusqu’à la signature de l’acte ; l’aide à l’installation des jeunes agriculteurs n’a pas pu être citée sur une source lisible.",
   "coverage": {
     "status": "PARTIAL",
@@ -25,9 +25,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -37,6 +34,20 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -53,7 +64,7 @@
       "operatorType": "MIXED",
       "whatItOffers": "Publie des avis d’appel à candidature pour rétrocéder des terres agricoles, des exploitations et des propriétés rurales, et accompagne le candidat retenu jusqu’à la signature de l’acte notarié.",
       "whoCanUseIt": "Agriculteurs, opérateurs publics et porteurs de projet en milieu rural qui veulent acheter ou louer un bien.",
-      "howToAccess": "Déposer une candidature complète avec les pièces demandées avant la date limite indiquée dans l’avis, en suivant le guide de la procédure d’instruction.",
+      "howToAccess": "Déposer une candidature complète avec les pièces demandées avant la date limite indiquée dans l’avis, en suivant le guide de la procédure d’instruction. Le guide d’installation 2023 indique de se présenter au conseiller foncier de la Safer pendant la période légale de publicité.",
       "accessUrl": "https://www.safer-reunion.fr/appel-a-candidature",
       "accessCostType": "FEE_REQUIRED",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
@@ -70,10 +81,258 @@
             "Vous êtes un agriculteur, un opérateur public, un porteur de projet en milieu rural, et vous souhaitez acheter un bien ? La Safer vous accompagne.",
             "des frais de candidature par dossier déposé sont appliqués",
             "Elle accompagne le candidat jusqu’à la signature de l’acte authentique notarié."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+          "title": "Guide à l’installation en agriculture — Chambre d’agriculture de La Réunion, 2023",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Pour être candidat il faut se présenter au conseiller foncier de la SAFER", "durant la période légale de publicité."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "la-reunion-terres-incultes",
+      "name": "Procédure « Terres Incultes »",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "SAFER Réunion, pour le compte du Département",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Recensement et inventaire des terres en friche pour leur reconquête agricole, notamment afin de répondre aux besoins d’installation des nouveaux agriculteurs et d’agrandissement des actifs. La page permet de signaler une parcelle en friche. Le guide de la Chambre de 2023 décrit la possibilité, par la cellule Terres Incultes basée à la Safer pour le volet amiable, d’être mis en relation avec un propriétaire qui recherche un exploitant.",
+      "howToAccess": "Remplir le formulaire « Terrain en friche » sur la page pour informer la SAFER d’une parcelle en friche.",
+      "accessUrl": "https://www.safer-reunion.fr/terres-en-friche",
+      "assetTypes": ["PLOTS"],
+      "sources": [
+        {
+          "url": "https://www.safer-reunion.fr/terres-en-friche",
+          "title": "TERRES EN FRICHE | SAFER Réunion",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "La SAFER mène pour le compte du Département la procédure dite des « Terres Incultes ».",
+            "besoins en installation des nouveaux agriculteurs, besoins en agrandissement des actifs, protection du foncier agricole par la reconquête de terres agricoles en friche",
+            "Les recensements s’opèrent sur la base d’inventaires réalisés par la cellule Terres Incultes.",
+            "Vous souhaitez nous informer d'une parcelle en friche",
+            "Terrain en friche Pour nous informer, veuillez prendre le temps de remplir les informations ci-dessous."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+          "title": "Guide à l’installation en agriculture — Chambre d’agriculture de La Réunion, 2023",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "La Cellule Terres Incultes, elle est basée à la SAFER pour la partie amiable",
+            "relation avec un propriétaire en recherche d’exploitant."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "la-reunion-safer-transmission",
+      "name": "Evaluer, Vendre et Transmettre",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "SAFER Réunion",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Évaluation du bien rural et accompagnement à sa transmission par vente ou location, partielle ou totale, en une ou plusieurs fois. Le conseiller peut rechercher des candidats agriculteurs à la reprise de l’exploitation ou de la propriété rurale et accompagner les démarches pour en assurer la sécurité juridique.",
+      "whoCanUseIt": "Propriétaires d’un bien foncier rural souhaitant connaître sa valeur ou être accompagnés pour sa vente et sa transmission.",
+      "howToAccess": "Remplir le formulaire de la page : un conseiller foncier prend contact pour étudier le projet et proposer les services adaptés. Une évaluation peut faire l’objet d’un devis sur simple demande.",
+      "accessUrl": "https://www.safer-reunion.fr/vendre-et-transmettre",
+      "targetProfiles": ["LANDOWNER", "TRANSFEROR"],
+      "sources": [
+        {
+          "url": "https://www.safer-reunion.fr/vendre-et-transmettre",
+          "title": "Evaluer, Vendre et Transmettre | SAFER Réunion",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Vous êtes propriétaire d'un bien foncier rural et souhaitez mieux connaitre la valeur de votre bien ou être accompagné sur la vente de ce dernier, la SAFER peut vous aider en vous apportant son expérience et sa connaissance du marché foncier rural.",
+            "étudier avec vous des solutions sur mesure de transmission (vente ou location, partielle ou totale, en une ou plusieurs fois)",
+            "rechercher des candidats agriculteurs sérieux à la reprise de votre exploitation et/ou propriété rurale",
+            "vous accompagne dans toutes vos démarches et vous apporte la sécurité juridique.",
+            "Remplissez le formulaire ci-dessous , un conseiller foncier prendra contact avec vous afin d'étudier en détail votre projet et vous proposer les services les plus adaptés",
+            "Pour cela, et sur simple demande de votre part, la SAFER peut vous proproser un devis pour :"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "la-reunion-repertoire-depart-installation",
+      "name": "Répertoire Départ Installation de La Réunion",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Chambre d’agriculture de La Réunion",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide 2023 présente le RDI comme un service qui met en relation des propriétaires de foncier et des candidats à l’installation.",
+      "accessUrl": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+      "sources": [
+        {
+          "url": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+          "title": "Guide à l’installation en agriculture — Chambre d’agriculture de La Réunion, 2023",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Le Répertoire Départ Installation (RDI) géré par la Chambre d’Agriculture de La Réunion.",
+            "mettre en relation des propiétaires de fonciers avec des candidats à l’installation."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Propriétaires qui proposent du foncier et personnes à la recherche d’une terre ou d’une exploitation.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "la-reunion-point-accueil-installation",
+      "name": "Point Accueil Installation de La Réunion",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Chambre d’agriculture de La Réunion",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide 2023 décrit le PAI comme la première porte d’entrée du parcours. Il accueille, informe, conseille et aide à remplir l’autodiagnostic.",
+      "accessUrl": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+      "sources": [
+        {
+          "url": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+          "title": "Guide à l’installation en agriculture — Chambre d’agriculture de La Réunion, 2023",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Le Point Accueil Installation est la porte d’entrée de votre installation, labellisé par l’Etat.",
+            "le PAI vous accueille, informe, conseille, et oriente durant votre première phase d’installation.",
+            "aide également au remplissage de votre autodiagnostic."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personnes qui préparent une installation agricole à La Réunion.",
+      "howToAccess": "S’adresser au Point Accueil Installation de la Chambre d’agriculture avant les premières démarches.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "la-reunion-dotation-jeune-agriculteur",
+      "name": "Dotation Jeune Agriculteur de La Réunion",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Département de La Réunion",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Le guide de la Chambre d’agriculture de 2023 présente la DJA parmi les aides à l’installation. Le guide FEADER 2023–2027 fixe pour la TI 75.011 un montant de base de 30 000 €, modulable jusqu’à 100 000 €, et prévoit un plan d’entreprise.",
+      "accessUrl": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+      "sources": [
+        {
+          "url": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+          "title": "Guide à l’installation en agriculture — Chambre d’agriculture de La Réunion, 2023",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Certaines demandes d’aides telles que la DJA doivent être demandées AVANT d’effectuer les",
+            "démarches administratives d’installation.",
+            "Point Accueil Installation."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf",
+          "title": "Aides FEADER liées au Plan stratégique national 2023–2027 — Département de La Réunion",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "DOTATION JEUNE AGRICULTEUR (TI 75.011)",
+            "Montant de base de 30 000 € pouvant être modulé",
+            "jusqu’à 100 000 € max",
+            "Limite d’âge maximale fixée à 40 ans au plus",
+            "Être titulaire d’un diplôme agricole de niveau 4",
+            "la mise en œuvre d’un plan d’entreprise",
+            "Département de La Réunion",
+            "www.europac.cd974.re",
+            "AIDES FEADER LIÉES AU PLAN STRATÉGIQUE NATIONAL (PSN) 2023-2027"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "howToAccess": "Le guide de 2023 indique de déposer la demande de DJA avant les démarches administratives d’installation et renvoie vers le PAI de la Chambre. Le guide indique de prendre contact avec le Département de La Réunion et renvoie au portail Europac pour constituer la demande.",
+      "whoCanUseIt": "Le guide départemental fixe un âge maximal de 40 ans au dépôt et mentionne un diplôme agricole de niveau 4 et les conditions relatives à l’AMEXA ou à la participation au capital d’une société.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "la-reunion-feader-travaux-amenagement-foncier",
+      "name": "Aide aux travaux d’aménagement foncier et territoires prioritaires — TI 73.018",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Département de La Réunion",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Pour le programme FEADER 2023–2027, le guide indique un financement à 80 % des travaux et frais généraux éligibles. L’aménagement vise notamment à faciliter la mécanisation, la diversification et le renouvellement des générations.",
+      "accessUrl": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf",
+      "sources": [
+        {
+          "url": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf",
+          "title": "Aides FEADER liées au Plan stratégique national 2023–2027 — Département de La Réunion",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "AIDE AUX TRAVAUX D’AMÉNAGEMENT FONCIER ET TERRITOIRES",
+            "renouvellement des générations dans des conditions",
+            "Taux de financement : 80 %",
+            "Groupements d’agriculteurs",
+            "Sociétés agricoles",
+            "www.europac.cd974.re",
+            "AIDES FEADER LIÉES AU PLAN STRATÉGIQUE NATIONAL (PSN) 2023-2027",
+            "Aide aux travaux d’aménagement foncier et territoires prioritaires (TI 73.018)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Agriculteurs, groupements d’agriculteurs, sociétés agricoles et EPLEFPA.",
+      "howToAccess": "Contacter le Département et consulter Europac pour constituer la demande.",
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

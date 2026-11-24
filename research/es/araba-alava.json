@@ -6,13 +6,15 @@
     "region": "araba-alava"
   },
   "language": "es",
-  "updatedOn": "2026-09-30",
+  "updatedOn": "2026-11-24",
   "context": [
     "En Euskadi las ayudas del Plan Estratégico de la PAC las gestionan las Diputaciones Forales; el Gobierno Vasco coordina con ellas Gaztenek y programas de formación a través de HAZI.",
     "La página web.araba.eus y el listado de trámites de egoitza.araba.eus permiten comprobar la convocatoria foral 2026; el comprobador automático del repositorio puede comportarse de forma distinta con certificados de Izenpe, por lo que el gate exacto de fuentes debe repetirse desde un checkout normal.",
     "La Oficina de Intermediación para el Relevo Generacional Agrario funciona desde 2026 en los tres territorios y se documenta una sola vez en la capa del País Vasco.",
     "La Formación para el Empleo de HAZI 2026 incluye Arkaute, Derio y Fraisoro/Oiartzun y persigue la incorporación y el relevo en toda Euskadi: no debe duplicarse en cada territorio histórico.",
-    "Las ayudas 2026 del Gobierno Vasco a la cesión de explotaciones y a los espacios test efímeros son igualmente comunes a Euskadi y corresponden a la capa del País Vasco."
+    "Las ayudas 2026 del Gobierno Vasco a la cesión de explotaciones y a los espacios test efímeros son igualmente comunes a Euskadi y corresponden a la capa del País Vasco.",
+    "La orden foral documenta una gestión y una vía de presentación propias de Álava; debe revisarse la descripción anterior que trataba la oficina como servicio único sin prestación territorial diferenciada.",
+    "Queda pendiente comprobar la atención efectiva del servicio y localizar los formularios: el texto remite a anexos cuya numeración se solapa con el anexo de criterios."
   ],
   "portals": [
     {
@@ -190,6 +192,33 @@
       "reason": "La convocatoria del Gobierno Vasco se aplica al conjunto de Euskadi y contempla espacios test y cesión de explotaciones. No es un recurso exclusivo de Álava; debe investigarse y, si procede, publicarse en la capa País Vasco.",
       "foundBy": "ala-relevo-2026",
       "checkedOn": "2026-09-27"
+    },
+    {
+      "id": "ala-banco-tierras-aiaraldea-normas",
+      "name": "Normas de funcionamiento del Banco de Tierras de Aiaraldea",
+      "url": "https://www.zabaia.eus/images/pdf/Normas-funcionamiento-Banco-de-Tierra-Aiaraldea.pdf",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "araba-alava-banco-tierras-aiaraldea",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "ala-registro-relevo-generacional",
+      "name": "Registro de Relevo Generacional y Oficina de Intermediación para el Relevo Generacional",
+      "url": "https://e-s.araba.eus/BOTHA/Boletines/2026/012/2026_012_00165_C.pdf",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "araba-alava-registro-relevo-generacional",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "araba-alava-elburgo-biohazi",
+      "name": "BIOHAZI - parcelas municipales para emprendimiento agroecológico",
+      "url": "https://araba.eus/botha/Boletines/2024/062/2024_062_01636_C.pdf",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "araba-alava-elburgo-biohazi",
+      "checkedOn": "2026-11-24"
     }
   ],
   "instrumentChecks": [
@@ -264,6 +293,21 @@
       "date": "2026-09-30",
       "by": "CLAUDE (Claude Code)",
       "summary": "Revisión de fuentes: el listado paginado de trámites de la sede que se citaba para la convocatoria 2026 redirige ahora a la página general de trámites y sus citas venían de datos internos de la página; se retira. La convocatoria se cita desde el BOTHA (publicación el 11 de marzo de 2026, 20 días hábiles desde el día siguiente); se elimina la fecha de cierre, que era un cálculo de días hábiles y no figura en ninguna fuente."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "Las normas de Zabaia documentan el mismo Banco de Tierras de Aiaraldea ya publicado. Se añade la fuente del operador y se precisa el acceso mediante los impresos de alta, la cesión o arrendamiento de parcelas y el límite de su intervención en los acuerdos entre particulares, conservando la fuente anterior."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol, core-documentation)",
+      "summary": "La orden foral establece una prestación propia de Álava, con Registro de Relevo Generacional, gestión adscrita al Servicio de Desarrollo Agrario y presentación mediante el registro electrónico foral. Se propone como servicio territorial diferenciado del sistema común del País Vasco, sin dar por acreditada su operación efectiva únicamente por la aprobación de sus bases."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol, core-documentation)",
+      "summary": "La ordenanza añade a araba-alava-elburgo-biohazi el trámite ante el registro municipal, la edad exigida a las personas físicas y la preferencia local."
     }
   ]
 }

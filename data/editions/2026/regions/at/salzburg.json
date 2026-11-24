@@ -5,7 +5,7 @@
   "country": "AT",
   "region": "salzburg",
   "officialName": "Salzburg",
-  "published": "2026-11-06",
+  "published": "2026-11-24",
   "summary": "Die Übersicht für Salzburg enthält auch die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte sowie den Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs. Ein eigenes Angebot des Landes ist in dieser Fassung noch nicht dokumentiert.",
   "coverage": {
     "status": "PARTIAL",
@@ -17,9 +17,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -30,10 +27,49 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-06"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrSbg&Gesetzesnummer=20001397",
+      "id": "salzburg-grundverkehrsgesetz",
+      "name": "Salzburger Grundverkehrsgesetz 2023",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "operator": "Grundverkehrskommission des Landes Salzburg",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Regelt den landwirtschaftlichen Grundverkehr in Salzburg. Das Gesetz enthält eine Regel für Erwerbe nach der ungeteilten Übertragung eines landwirtschaftlichen Betriebs während der ersten drei Jahre und ein an gesetzliche Voraussetzungen geknüpftes Eintrittsrecht zu den Bedingungen des vorliegenden Geschäfts.",
+      "sources": [
+        {
+          "url": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrSbg&Gesetzesnummer=20001397",
+          "title": "Salzburger Grundverkehrsgesetz 2023",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "einen landwirtschaftlichen Betrieb ungeteilt übertragen erhalten hat, während der ersten drei Jahre nach der Übertragung",
+            "den gleichen Bedingungen wie im vorliegenden Rechtsgeschäft und nach Maßgabe des § 32 zu erwerben (Eintrittsrecht)",
+            "Die Vollziehung der Bestimmungen dieses Abschnitts obliegt der Grundverkehrskommission",
+            "Salzburger Grundverkehrsgesetz 2023 – S.GVG 2023"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
   "news": [],
   "limitations": [
     "Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Salzburg sind in dieser Fassung noch nicht dokumentiert.",
