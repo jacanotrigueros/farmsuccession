@@ -243,6 +243,41 @@ test("the complete, localized footer is shared by every built page", () => {
  * nothing about the evidence (founder, 24 Nov 2026). What it says instead, on each source, is the last day
  * every quote was found again on the official page.
  */
+test("a record shows its plan code and the act it rests on, labelled in the page's language", () => {
+  const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
+    .toSorted()
+    .toReversed();
+  const files = readdirSync(path.join(REPOSITORY, "data", "editions", editions[0]!), { recursive: true, encoding: "utf8" })
+    .filter((file) => file.endsWith(".json"))
+    .map(
+      (file) =>
+        JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", editions[0]!, file), "utf8")) as {
+          metadata: { language: string };
+          resources: Array<{ id: string; interventionCodes?: Array<{ code: string }>; legalBasis?: Array<{ title: string }> }>;
+        },
+    );
+  const find = (field: "interventionCodes" | "legalBasis") => {
+    for (const file of files) {
+      const record = file.resources.find((resource) => resource[field]);
+      if (record) return { record, language: file.metadata.language };
+    }
+    assert.fail(`no record carries ${field}, so nothing shows that the page renders it`);
+  };
+  const pageOf = (id: string) => {
+    const page = pages.find(({ file }) => file.split(path.sep).includes(id));
+    assert.ok(page, `no page was built for ${id}`);
+    return decodeHTML(page.html);
+  };
+  const coded = find("interventionCodes");
+  const codedHtml = pageOf(coded.record.id);
+  assert.ok(codedHtml.includes(words(coded.language).planCodeRow), `${coded.record.id}: the plan code has no label in ${coded.language}`);
+  assert.ok(codedHtml.includes(coded.record.interventionCodes![0]!.code), `${coded.record.id}: its plan code is not on its page`);
+  const based = find("legalBasis");
+  const basedHtml = pageOf(based.record.id);
+  assert.ok(basedHtml.includes(words(based.language).legalBasisRow), `${based.record.id}: the legal basis has no label`);
+  assert.ok(basedHtml.includes(based.record.legalBasis![0]!.title), `${based.record.id}: the act it rests on is not on its page`);
+});
+
 test("a record says when each source was verified, and never that it awaits review", () => {
   const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
     .toSorted()

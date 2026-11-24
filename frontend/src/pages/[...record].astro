@@ -247,7 +247,23 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
         },
       ]
     : []),
+  // The plan's own code, as its managing authority writes it: what a reader types to find the call.
+  ...(resource.interventionCodes
+    ? [{ label: text.planCodeRow, value: resource.interventionCodes.map(({ code }) => code).join(" · "), icon: ICON.planCode }]
+    : []),
   { label: text.runByRow, value: resource.operator, icon: ICON.operator },
+  ...(resource.legalBasis
+    ? [
+        {
+          label: text.legalBasisRow,
+          icon: ICON.law,
+          value: resource.legalBasis
+            .map(({ title, provisions }) => (provisions ? `${title}, ${provisions.join(", ")}` : title))
+            .join(" · "),
+          ...(resource.legalBasis.length === 1 && resource.legalBasis[0]!.actUrl ? { href: resource.legalBasis[0]!.actUrl } : {}),
+        },
+      ]
+    : []),
   { label: text.stateRow, value: stateLabel(resource.status, language), icon: ICON.status },
   ...(resource.lastEvidenceDate
     ? [
@@ -528,6 +544,12 @@ const browseHere = searchUrl("/", {
                 <li class="card p-5 [overflow-wrap:anywhere]">
                   <p class="font-bold">{contact.label}</p>
                   <p class="meta">{channelLabel(contact.channel, language)}</p>
+                  {contact.areas && (
+                    <p class="meta flex items-center gap-1.5">
+                      <Icon name={ICON.area} aria-hidden="true" class="size-4 shrink-0" />
+                      {text.servesArea}: {contact.areas.join(" · ")}
+                    </p>
+                  )}
                   <p class="flex min-h-(--spacing-target) flex-wrap items-center gap-x-2">
                     {contact.channel === "EMAIL" && <a href={`mailto:${contact.value}`}>{contact.value}</a>}
                     {contact.channel === "PHONE" && <a href={`tel:${contact.value.replace(/\s/gu, "")}`}>{contact.value}</a>}
