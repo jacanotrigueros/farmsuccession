@@ -181,9 +181,25 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2025/11/19/BOCM-20251119-36.PDF",
+          "title": "BOCM de 19 de noviembre de 2025",
+          "consultedOn": "2026-11-24",
+          "quotes": ["La ayuda máxima será de 50.000 euros por beneficiario."]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Ayuda máxima por beneficiario",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2025-11-19",
+          "sourceUrl": "https://www.bocm.es/boletin/CM_Orden_BOCM/2025/11/19/BOCM-20251119-36.PDF"
+        }
+      ]
     },
     {
       "id": "madrid-incorporacion-jovenes-agricultores",
@@ -440,7 +456,8 @@
           "quotes": [
             "formación técnica en agroecología y emprendimiento",
             "asesoramiento personalizado para la elaboración de proyectos para la explotación agrícola de las parcelas",
-            "acompañamiento en el desarrollo y puesta en ejecución de las explotaciones"
+            "acompañamiento en el desarrollo y puesta en ejecución de las explotaciones",
+            "También podrá concertarse una cita fuera de ese horario, y solicitar información a través del siguiente enlace info@barriosproductores.es"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -449,7 +466,15 @@
         }
       ],
       "notes": "La convocatoria también prevé una Bolsa de Proyectos en Espera. La disponibilidad de parcelas depende de las adjudicaciones.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Oficina técnica de Barrios Productores y del Vivero de Emprendimiento en Agricultura Urbana",
+          "value": "info@barriosproductores.es",
+          "sourceUrl": "https://www.madrid.es/portales/munimadrid/es/Inicio/Vivienda-urbanismo-y-obras/Urbanismo/Se-abre-la-oficina-tecnica-de-atencion-al-publico-del-proyecto-Barrios-Productores-y-del-Vivero-de-Emprendimiento-en-Agricultura-Urbana/?vgnextchannel=2af331d3b28fe410VgnVCM1000000b205a0aRCRD&vgnextoid=ab35edb90b1b3810VgnVCM1000001d4a900aRCRD"
+        }
+      ]
     },
     {
       "id": "madrid-curso-incorporacion-empresa-agraria-inalocal",

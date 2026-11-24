@@ -196,10 +196,26 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://agader.xunta.gal/es/banco-de-tierras",
+          "title": "Banco de Tierras | AGADER",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "puede ponerse en contacto con el Banco de Tierras a través del teléfono: 881 997 193 o del correo electrónico: bancodeterras@xunta.gal"
+          ]
         }
       ],
       "notes": "La incorporación de parcelas por sus titulares es libre y gratuita; esto no significa que su arrendamiento sea gratuito. Para ofrecer una parcela hay que identificarla, fijar el precio de arrendamiento y aportar datos de contacto, y después remitir a Agader el formulario generado. Para solicitar arrendamientos mediante SITEGAL es necesario identificarse con certificado digital, llave365 o DNI electrónico.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Banco de Tierras de Galicia (Agader)",
+          "value": "bancodeterras@xunta.gal",
+          "sourceUrl": "https://agader.xunta.gal/es/banco-de-tierras"
+        }
+      ]
     },
     {
       "id": "galicia-banco-explotaciones",
@@ -228,6 +244,12 @@
           "name": "MR617C - intermediación para acceso",
           "state": "OPEN",
           "sourceUrl": "https://sede.xunta.gal/detalle-procedemento?codtram=MR617C"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://boe.es/eli/es-ga/l/2021/05/14/11/con"
         }
       ],
       "sources": [
@@ -261,7 +283,11 @@
           "url": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR617C",
           "title": "MR617C - Intermediación para el acceso",
           "consultedOn": "2026-09-28",
-          "quotes": ["Abierto todo el año", "desde las oficinas rurales se informará y se asesorará a las personas interesadas"],
+          "quotes": [
+            "Abierto todo el año",
+            "desde las oficinas rurales se informará y se asesorará a las personas interesadas",
+            "Email: sxt.medio-rural@xunta.gal"
+          ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
@@ -304,7 +330,15 @@
         }
       ],
       "notes": "Para MR617C se prevén el DNI/NIE de la persona solicitante y, en su caso, la acreditación de la representación legal. La Administración puede consultar automáticamente el DNI/NIE. Aunque las instrucciones generales de tramitación indican la presentación por internet, el apartado de documentación contempla expresamente la alternativa presencial para quienes no estén obligados a la presentación electrónica.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Subdirección Xeral de Planificación de Extensión Agraria",
+          "value": "sxt.medio-rural@xunta.gal",
+          "sourceUrl": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR617C"
+        }
+      ]
     },
     {
       "id": "galicia-cooperacion-sucesion-explotaciones",
@@ -366,10 +400,31 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://mediorural.xunta.gal/es/temas/explotaciones/banco-de-explotaciones",
+          "title": "Banco de Explotaciones - Consellería de Medio Rural de Galicia",
+          "consultedOn": "2026-11-24",
+          "quotes": ["oficinasrurais.medio-rural@xunta.gal"]
         }
       ],
       "notes": "Las bases reguladoras existen desde diciembre de 2025, pero no demuestran por sí solas una convocatoria operativa.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Oficinas Rurais, Consellería do Medio Rural",
+          "value": "oficinasrurais.medio-rural@xunta.gal",
+          "sourceUrl": "https://mediorural.xunta.gal/es/temas/explotaciones/banco-de-explotaciones"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://sede.xunta.gal/es/detalle-procedemento?codtram=MR617D"
+        }
+      ]
     },
     {
       "id": "galicia-establecimiento-jovenes-agricultores",
@@ -487,10 +542,38 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.xunta.gal/dog/Publicados/2024/20240122/AnuncioG0426-020124-0005_gl.html",
+          "title": "DOG n.º 15 de 22 de enero de 2024: bases de las ayudas a la mejora de las estructuras de producción de las explotaciones agrarias",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "As solicitudes presentaranse obrigatoriamente por medios electrónicos a través do formulario normalizado",
+            "O importe da axuda será de 25.000 euros, que poderá incrementarse ata os 55.000 euros"
+          ]
         }
       ],
       "notes": "No se ha verificado una convocatoria posterior a 2024; por eso la operatividad actual queda como «Estado no confirmado».",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "howToAccess": "Cuando se abra una convocatoria, presentar por vía electrónica el formulario normalizado correspondiente en la sede de la Xunta de Galicia. El plazo de la convocatoria de 2024 está cerrado.",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Importe base para nuevas personas agricultoras en 2024",
+          "value": 25000,
+          "unit": "EUR",
+          "asOf": "2024-01-22",
+          "sourceUrl": "https://www.xunta.gal/dog/Publicados/2024/20240122/AnuncioG0426-020124-0005_gl.html"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Importe máximo para nuevas personas agricultoras en 2024",
+          "value": 55000,
+          "unit": "EUR",
+          "asOf": "2024-01-22",
+          "sourceUrl": "https://www.xunta.gal/dog/Publicados/2024/20240122/AnuncioG0426-020124-0005_gl.html"
+        }
+      ]
     },
     {
       "id": "galicia-curso-aptitud-empresarial-agraria",
@@ -508,6 +591,12 @@
       "accessUrl": "https://agacal.xunta.gal/es/formacion/formacion-continua",
       "languages": ["gl", "es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://agacal.xunta.gal/es/formacion/formacion-continua"
+        }
+      ],
       "sources": [
         {
           "url": "https://agacal.xunta.gal/es/formacion/formacion-continua",
@@ -515,7 +604,8 @@
           "consultedOn": "2026-09-30",
           "quotes": [
             "Setembro 2026 Relación de Cursos semipresenciais AEA - Edicións 127, 128, 129, 130 e 131",
-            "poderán formular, en calquera momento, a súa petición"
+            "poderán formular, en calquera momento, a súa petición",
+            "Esta acción formativa impártese na modalidade semipresencial."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -523,7 +613,8 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "trainingFormats": ["HYBRID"]
     },
     {
       "id": "galicia-programa-tutorizacion-incorporacion",
