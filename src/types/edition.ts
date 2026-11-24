@@ -252,6 +252,12 @@ export interface Resource {
    */
   calls?: Call[];
   /**
+   * Answers a reader needs that the resource's sources were read for and do not give: who can use it, how to access it, the amount one beneficiary gets, a contact, the cost, the training format, or the land it handles. Saying so tells the reader the record was checked and the official page is silent, which an empty field cannot. The dates of a call use a call with state NOT_PUBLISHED instead. Never set beside the field that answers the same question.
+   *
+   * @minItems 1
+   */
+  notPublished?: [NotPublished, ...NotPublished[]];
+  /**
    * Whether using the resource costs the reader anything. NOT_APPLICABLE for something that is not accessed at all, such as a policy framework.
    */
   accessCostType?: "FREE" | "FEE_REQUIRED" | "NOT_APPLICABLE" | "UNKNOWN";
@@ -400,6 +406,26 @@ export interface Call {
   closes?: IsoDate;
   /**
    * The one source of this resource that shows the period.
+   */
+  sourceUrl: string;
+}
+/**
+ * One reader question the cited source was read for and does not answer.
+ */
+export interface NotPublished {
+  /**
+   * WHO_CAN_USE: who can use it. HOW_TO_ACCESS: how to access it. AMOUNT_PER_BENEFICIARY: what one beneficiary gets. CONTACT_CHANNEL: a public channel. ACCESS_COST: what using it costs. TRAINING_FORMAT: how training is delivered. LAND_HANDLED: what land or holdings it handles.
+   */
+  question:
+    | "WHO_CAN_USE"
+    | "HOW_TO_ACCESS"
+    | "AMOUNT_PER_BENEFICIARY"
+    | "CONTACT_CHANNEL"
+    | "ACCESS_COST"
+    | "TRAINING_FORMAT"
+    | "LAND_HANDLED";
+  /**
+   * The source read for the answer, whose consultation date says when it was silent. It is the resource's main page for the question, usually its accessUrl.
    */
   sourceUrl: string;
 }

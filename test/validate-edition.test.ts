@@ -212,6 +212,31 @@ test("a record applies a higher measure only where its source names it", () => {
   );
 });
 
+test("a record says a source is silent only about what it does not answer", () => {
+  const page = "https://example.test/land-bank";
+  assert.equal(errorsOf(withResource({ notPublished: [{ question: "CONTACT_CHANNEL", sourceUrl: page }] })), "");
+  assert.match(
+    errorsOf(withResource({ notPublished: [{ question: "CONTACT_CHANNEL", sourceUrl: "https://example.test/elsewhere" }] })),
+    /not published CONTACT_CHANNEL cites https:\/\/example.test\/elsewhere, which is not one of its sources/u,
+  );
+  assert.match(
+    errorsOf(withResource({ whoCanUseIt: "Anyone farming on the island.", notPublished: [{ question: "WHO_CAN_USE", sourceUrl: page }] })),
+    /not published WHO_CAN_USE, yet the record answers it/u,
+    "a record cannot say both who it is for and that the source does not say",
+  );
+  assert.match(
+    errorsOf(
+      withResource({
+        notPublished: [
+          { question: "ACCESS_COST", sourceUrl: page },
+          { question: "ACCESS_COST", sourceUrl: page },
+        ],
+      }),
+    ),
+    /not published ACCESS_COST is listed twice/u,
+  );
+});
+
 test("a record describes itself with its own evidence, not with the file's", () => {
   assert.match(
     errorsOf(withResource({ whoCanUseIt: "Applicants may apply for the 25.000 euro payment." })),

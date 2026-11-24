@@ -288,6 +288,31 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
     icon: ICON.applies,
     href: recordHref(measure.id, where),
   })),
+  /*
+    A question the source was read for and does not answer says so, in the row a reader looks in: "not
+    published by the official source" is an answer they can act on, where a missing row is not.
+  */
+  ...(resource.notPublished ?? []).map(({ question }) => ({
+    label: {
+      WHO_CAN_USE: text.whoTitle,
+      HOW_TO_ACCESS: text.accessTitle,
+      AMOUNT_PER_BENEFICIARY: text.amountRow,
+      CONTACT_CHANNEL: text.contactTitle,
+      ACCESS_COST: text.costRow,
+      TRAINING_FORMAT: text.taughtRow,
+      LAND_HANDLED: text.handlesRow,
+    }[question],
+    value: text.notPublishedValue,
+    icon: {
+      WHO_CAN_USE: ICON.profile,
+      HOW_TO_ACCESS: ICON.chevron,
+      AMOUNT_PER_BENEFICIARY: PRACTICAL_ICON.instrumentType!,
+      CONTACT_CHANNEL: ICON.operator,
+      ACCESS_COST: PRACTICAL_ICON.accessCostType!,
+      TRAINING_FORMAT: PRACTICAL_ICON.trainingFormats!,
+      LAND_HANDLED: PRACTICAL_ICON.assetTypes!,
+    }[question],
+  })),
   { label: text.runByRow, value: resource.operator, icon: ICON.operator },
   ...(resource.legalBasis
     ? [

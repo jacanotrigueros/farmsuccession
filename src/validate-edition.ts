@@ -303,6 +303,26 @@ function checkResource(data: EditionSnapshot, resource: Resource, today: string,
     else if (!quoted(source, named)) found.error(`${label}: "${named}" is not present in the cited source quotes`);
   }
 
+  // "The source does not publish it" is a finding about a source, so it names one, and it can never sit
+  // beside the field that answers the same question: the record would say two opposite things.
+  const answered: Record<NonNullable<Resource["notPublished"]>[number]["question"], boolean> = {
+    WHO_CAN_USE: resource.whoCanUseIt !== undefined,
+    HOW_TO_ACCESS: resource.howToAccess !== undefined,
+    AMOUNT_PER_BENEFICIARY: (resource.metrics ?? []).some(({ measure }) => /_PER_BENEFICIARY_/u.test(measure)),
+    CONTACT_CHANNEL: (resource.contactPoints ?? []).length > 0,
+    ACCESS_COST: resource.accessCostType !== undefined && resource.accessCostType !== "UNKNOWN",
+    TRAINING_FORMAT: (resource.trainingFormats ?? []).length > 0,
+    LAND_HANDLED: (resource.assetTypes ?? []).length > 0,
+  };
+  const silent = new Set<string>();
+  for (const { question, sourceUrl } of resource.notPublished ?? []) {
+    const label = `${at}: not published ${question}`;
+    if (silent.has(question)) found.error(`${label} is listed twice`);
+    silent.add(question);
+    if (!sourceAt(sourceUrl)) found.error(`${label} cites ${sourceUrl}, which is not one of its sources`);
+    if (answered[question]) found.error(`${label}, yet the record answers it`);
+  }
+
   checkCalls(at, resource, found);
   checkEvidenceDate(at, data, resource, today, found);
 
