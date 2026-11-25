@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "pays-de-la-loire",
   "officialName": "Pays de la Loire",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "En Pays de la Loire, la Région gère la dotation aux jeunes agriculteurs et soutient des territoires pilotes qui expérimentent des actions locales de transmission. L’État finance, par l’AITA, un diagnostic et un suivi après l’installation. La Safer accompagne les cédants, Passeurs de terres facilite l’accès à des fermes biologiques et la CIAP propose une formation certifiante d’un an.",
   "coverage": {
     "status": "PARTIAL",
@@ -573,6 +573,16 @@
       "operatorType": "MIXED",
       "whatItOffers": "Prise en charge par la Safer d’une partie des frais d’acte notariés.",
       "accessUrl": "https://www.safer-pays-de-loire.fr/agriculteurs/sinstaller/",
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.safer-pays-de-loire.fr/agriculteurs/sinstaller/"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.safer-pays-de-loire.fr/agriculteurs/sinstaller/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.safer-pays-de-loire.fr/agriculteurs/sinstaller/",
@@ -586,10 +596,24 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.safer-pays-de-loire.fr/contacter-un-conseiller-safer/",
+          "title": "Contacter un conseiller safer | SAFER Pays de la Loire",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Recherchez le conseiller de votre secteur"]
         }
       ],
       "whoCanUseIt": "Porteurs d’un projet d’installation accompagné par la Safer.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Rechercher le conseiller foncier de son secteur à partir de la commune ou du code postal pour se renseigner sur le SAFiR.",
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.safer-pays-de-loire.fr/agriculteurs/sinstaller/"
+        }
+      ]
     }
   ],
   "news": [],

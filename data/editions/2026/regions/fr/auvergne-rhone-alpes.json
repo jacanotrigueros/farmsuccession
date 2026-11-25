@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "auvergne-rhone-alpes",
   "officialName": "Auvergne-Rhône-Alpes",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Auvergne-Rhône-Alpes dispose d'une Safer active pour l'accès au foncier et la transmission et d'un accompagnement territorial de Terre de Liens en Rhône-Alpes. La Dotation Jeunes Agriculteurs régionale et le programme AITA restent à revérifier faute de source consultable.",
   "coverage": {
     "status": "PARTIAL",
@@ -1132,6 +1132,12 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide du Sancy présente l’aide départementale aux investissements matériels et immatériels concernant la production agricole primaire, au titre de la mesure 16.",
       "accessUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.puy-de-dome.fr/fileadmin/user_upload/Guide_des_Aides_Agricoles_et_Forestieres.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
@@ -1147,10 +1153,35 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.puy-de-dome.fr/fileadmin/user_upload/Guide_des_Aides_Agricoles_et_Forestieres.pdf",
+          "title": "Guide des aides agricoles et forestières (PDF, Département du Puy-de-Dôme)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "POUR TOUTES INFORMATIONS TECHNIQUES OU ADMINISTRATIVES CONCERNANT VOTRE PROJET, PRENEZ CONTACT DÈS MAINTENANT :",
+            "04 73 42 23 90 (71 16)"
+          ]
         }
       ],
       "whoCanUseIt": "Nouveaux installés pendant cinq ans.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Prendre contact avec la Direction Agriculture Sylviculture et Alimentation du Conseil départemental pour obtenir les renseignements techniques ou administratifs sur le projet.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Direction Agriculture Sylviculture et Alimentation (poste 71 16)",
+          "value": "04 73 42 23 90",
+          "sourceUrl": "https://www.puy-de-dome.fr/fileadmin/user_upload/Guide_des_Aides_Agricoles_et_Forestieres.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.puy-de-dome.fr/fileadmin/user_upload/Guide_des_Aides_Agricoles_et_Forestieres.pdf"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-monts-lyonnais-portail-installation-transmission",
