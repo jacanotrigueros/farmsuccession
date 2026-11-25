@@ -13,6 +13,7 @@ import OnThisPage from "../components/OnThisPage.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { countryTerritories, euTerritory, href, languageOf, type Territory } from "../lib/corpus.ts";
 import { words } from "../lib/words.ts";
+import { snippet } from "../lib/snippet.ts";
 
 export function getStaticPaths() {
   const europe = euTerritory();
@@ -46,7 +47,7 @@ const index = [
 
 <SiteLayout
   title={`${text.historyTitle} · ${text.siteName}`}
-  description={text.historyIntro}
+  description={snippet(text.historyIntro)}
   language={language}
   current={home}
   documentKind="history"

@@ -51,6 +51,7 @@ import {
 } from "../lib/corpus.ts";
 import { goalOf } from "../lib/goals.ts";
 import { namesPlace, shortTitleTail } from "../lib/place-name.ts";
+import { snippet } from "../lib/snippet.ts";
 import { flagOf, ICON, PRACTICAL_ICON } from "../lib/icons.ts";
 import { euCardIn } from "../lib/eu-presentation.ts";
 import { countryNameIn, dateIn } from "../lib/language.ts";
@@ -138,7 +139,6 @@ const pageTitle = resource.metaTitle ?? shortTitleTail(baseTitle, countryName, r
  *
  * The page itself still carries the whole summary. This is the line a result shows, and nowhere else.
  */
-const SNIPPET = 155;
 
 const callYear = (call: { name: string; opens?: string; closes?: string }): string =>
   (call.closes ?? call.opens ?? /\b20\d{2}\b/u.exec(call.name)?.[0] ?? "").slice(0, 4);
@@ -164,20 +164,7 @@ const callNamed = !documentedCall
     ? documentedCall.name
     : (/\b20\d{2}\b/u.exec(documentedCall.name)?.[0] ?? callYear(documentedCall));
 
-const pageDescription = ((): string => {
-  if (resource.metaDescription) return resource.metaDescription;
-  const lead = callNamed ? `${callNamed} · ` : "";
-  const room = SNIPPET - lead.length;
-  const summary = resource.whatItOffers;
-  if (summary.length <= room) return lead + summary;
-  // A sentence that ends is better than one cut off: stop at the last full stop, colon or semicolon in the
-  // room when what it leaves is still at least half of it, and only otherwise cut at a word.
-  const clause = /^(.*[.:;])\s/su.exec(summary.slice(0, room + 1))?.[1];
-  if (clause && clause.length >= room / 2) return lead + clause.replace(/[:;]$/u, ".");
-  const cut = summary.slice(0, room - 1);
-  const atWord = cut.includes(" ") ? cut.slice(0, cut.lastIndexOf(" ")) : cut;
-  return `${lead}${atWord.replace(/[\s,;:·—-]+$/u, "")}…`;
-})();
+const pageDescription = resource.metaDescription ?? snippet(resource.whatItOffers, callNamed ? `${callNamed} · ` : "");
 
 /** Corrections start with the page the reader was looking at; they should not have to identify it again. */
 const reportCountry = territory.layer.level === "EU" ? "" : territory.layer.country.toLowerCase();

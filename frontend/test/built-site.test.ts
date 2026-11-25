@@ -1095,3 +1095,21 @@ test("country lists name each country in the page's language", () => {
     );
   }
 });
+
+/**
+ * A territory page's description is what a result shows of it. Its summary is written for the page and ran
+ * to 456 characters in France, so a result cut it mid-sentence; it now ends inside what a result shows.
+ */
+test("a territory page's description ends inside what a search result shows", () => {
+  const territories = pages.filter(({ file }) => {
+    const parts = file.split(path.sep);
+    const iso = parts[0] ?? "";
+    return /^[a-z]{2}$/u.test(iso) && (parts.length === 2 || parts[1] === regionSlug(iso.toUpperCase()));
+  });
+  assert.ok(territories.length > 100, `only ${territories.length} territory pages were checked`);
+  for (const { file, html } of territories) {
+    const description = decodeHTML(/<meta name="description" content="([^"]*)"/u.exec(html)?.[1] ?? "");
+    assert.ok(description.length > 0, `${file} has no description`);
+    assert.ok(description.length <= 160, `${file}: the description runs to ${description.length} characters, past what a result shows`);
+  }
+});
