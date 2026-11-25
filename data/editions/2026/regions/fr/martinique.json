@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "martinique",
   "officialName": "Martinique",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "En Martinique, la Collectivité territoriale gère les aides non surfaciques du fonds européen agricole, dont l’aide au démarrage pour les jeunes agriculteurs et pour les nouveaux agriculteurs, ainsi que le conseil et la formation ; aucun opérateur foncier local n’a pu être cité dans cette passe.",
   "coverage": {
     "status": "PARTIAL",
@@ -87,7 +87,14 @@
           }
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.europe-martinique.com/feader-23-27/"
+        }
+      ]
     },
     {
       "id": "martinique-suivi-nouvel-exploitant",
@@ -114,6 +121,19 @@
       "targetProfiles": ["NEW_ENTRANT"],
       "lastEvidenceDate": "2024-01-23",
       "notes": "Les prestations relevant du fonctionnement normal de l’exploitation ou d’obligations légales sont exclues du suivi.",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html",
@@ -129,7 +149,8 @@
             "La Chambre d’Agriculture de Martinique",
             "Le Conseil Gestion Suivi en milieu Rural (CGSR)",
             "L’association des Jeunes Agriculteurs (JA)",
-            "Pour toute demande ou information, vous pouvez nous contacter à l’adresse suivante : aita.daaf.daaf972@agriculture.gouv.fr"
+            "Pour toute demande ou information, vous pouvez nous contacter à l’adresse suivante : aita.daaf.daaf972@agriculture.gouv.fr",
+            "Le volet 4 « suivi du nouvel exploitant » du programme AITA vise à soutenir financièrement le suivi post-installation des nouveaux exploitants qui ont bénéficié des aides à l’installation"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -164,6 +185,12 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Point d’entrée pour les porteurs de projet agricole, auquel renvoie la DAAF.",
       "accessUrl": "https://daaf.martinique.agriculture.gouv.fr/l-accompagnement-a-l-installation-transmission-en-agriculture-aita-r358.html",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://daaf.martinique.agriculture.gouv.fr/le-point-d-accueil-installation-transmission-pait-a863.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://daaf.martinique.agriculture.gouv.fr/l-accompagnement-a-l-installation-transmission-en-agriculture-aita-r358.html",
@@ -184,7 +211,8 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "Le PAIT (point d’accueil installation transmission) est la porte d’entrée de tout porteur de projet.",
-            "Immeuble Chambre d’Agriculture"
+            "Immeuble Chambre d’Agriculture",
+            "0596 51 34 28"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -194,7 +222,15 @@
       ],
       "whoCanUseIt": "Personnes souhaitant créer ou reprendre une exploitation agricole en Martinique.",
       "howToAccess": "Suivre la fiche PAIT depuis la rubrique AITA de la DAAF pour les coordonnées de la Chambre.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "PAIT – Jeunes Agriculteurs Martinique",
+          "value": "0596 51 34 28",
+          "sourceUrl": "https://daaf.martinique.agriculture.gouv.fr/le-point-d-accueil-installation-transmission-pait-a863.html"
+        }
+      ]
     }
   ],
   "news": [],

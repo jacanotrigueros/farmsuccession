@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "abruzzo",
   "officialName": "Abruzzo",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "L'Abruzzo dispone nel 2026 di due strumenti regionali distinti per il primo insediamento dei giovani agricoltori: l'intervento SRE01 del CSR e il Fondo attuato in base al DM 24 ottobre 2025. Le rispettive finestre 2026 sono chiuse. La Banca della Terra resta documentata sul piano normativo, ma non è stato verificato un inventario regionale operativo e accessibile nel 2026.",
   "coverage": {
     "status": "PARTIAL",
@@ -98,6 +98,13 @@
         }
       ],
       "notes": "Il bando dispone una dotazione di 10 milioni di euro. La Regione ha comunicato il 18 febbraio 2026 l'apertura della piattaforma SIAN e il termine del 10 aprile 2026.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://www2.regione.abruzzo.it/agricoltura/pac-2023-2027/bandi-pac-2023-2027/bando-sre01-insediamento-giovani-agricoltori-anno-2025"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.regione.abruzzo.it/notizie/agricoltura-imprudente-altri-10-milioni-supportare-l-insediamento-di-giovani-agricoltori",
@@ -128,6 +135,18 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://trasparenza.regione.abruzzo.it/sovvenzioni-contributi-sussidi-vantaggi-economici/atti-concessione/determinazione-dpd018371-del",
+          "title": "DETERMINAZIONE DPD018/371 del 21/09/2026 | Amministrazione trasparente",
+          "consultedOn": "2026-11-25",
+          "quotes": ["PEO dpd018@regione.abruzzo.it"]
+        },
+        {
+          "url": "https://www2.regione.abruzzo.it/agricoltura/pac-2023-2027/bandi-pac-2023-2027/bando-sre01-insediamento-giovani-agricoltori-anno-2025",
+          "title": "Bando SRE01 – Insediamento giovani agricoltori, anno 2025 (Regione Abruzzo)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Bando per l'attivazione dell'intervento SRE01 “Insediamento giovani agricoltori “ – Anno 2025"]
         }
       ],
       "generatorId": "chatgpt-1",
@@ -137,11 +156,12 @@
           "sourceUrl": "https://www.regione.abruzzo.it/notizie/agricoltura-imprudente-altri-10-milioni-supportare-l-insediamento-di-giovani-agricoltori"
         }
       ],
-      "implements": [
+      "contactPoints": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "SRE01",
-          "sourceUrl": "https://www.regione.abruzzo.it/notizie/agricoltura-imprudente-altri-10-milioni-supportare-l-insediamento-di-giovani-agricoltori"
+          "channel": "EMAIL",
+          "label": "DPD018 – Servizio Competitività Agricoltura",
+          "value": "dpd018@regione.abruzzo.it",
+          "sourceUrl": "https://trasparenza.regione.abruzzo.it/sovvenzioni-contributi-sussidi-vantaggi-economici/atti-concessione/determinazione-dpd018371-del"
         }
       ]
     },
@@ -190,15 +210,51 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "Primo Insediamento dei giovani nell’agricoltura",
-            "Fondo per il primo insediamento dei giovani nell’agricoltura previste dal DM 0575481 del 24 ottobre 2025"
+            "Fondo per il primo insediamento dei giovani nell’agricoltura previste dal DM 0575481 del 24 ottobre 2025",
+            "PEO dpd018@regione.abruzzo.it"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www2.regione.abruzzo.it/system/files/contributi-finanziamenti/agricoltura/183170/bando-pubblico-primo-insediamento-giovani-masaf-anno-2024-signed.pdf",
+          "title": "Bando pubblico primo insediamento giovani, anno 2024 (PDF, Regione Abruzzo)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "pari a Euro 60.000,00 elevata a Euro 70.000,00 nel caso di insediamento in aziende ricadenti in Area D",
+            "Euro 70.000,00 nel caso di insediamento in aziende ricadenti in Area D"
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Premio per imprese al primo finanziamento con fondi pubblici",
+          "value": 60000,
+          "unit": "EUR",
+          "asOf": "2026-01-01",
+          "sourceUrl": "https://www2.regione.abruzzo.it/system/files/contributi-finanziamenti/agricoltura/183170/bando-pubblico-primo-insediamento-giovani-masaf-anno-2024-signed.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Premio per insediamento in area D",
+          "value": 70000,
+          "unit": "EUR",
+          "asOf": "2026-01-01",
+          "sourceUrl": "https://www2.regione.abruzzo.it/system/files/contributi-finanziamenti/agricoltura/183170/bando-pubblico-primo-insediamento-giovani-masaf-anno-2024-signed.pdf"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ufficio Sostegno Giovani Agricoltori e Diversificazione Aziende Agricole",
+          "value": "dpd018@regione.abruzzo.it",
+          "sourceUrl": "https://trasparenza.regione.abruzzo.it/sovvenzioni-contributi-sussidi-vantaggi-economici/atti-concessione/determinazione-dpd018371-del"
+        }
+      ]
     }
   ],
   "news": [],

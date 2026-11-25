@@ -92,6 +92,13 @@
       "purposes": ["FIRST_ESTABLISHMENT"],
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "75.01",
+          "sourceUrl": "https://www.paysdelaloire.fr/sites/default/files/aides/786159bc-80d5-11ea-8bb8-c7ceddcbc7e6/subvention%2Cpret_reglement-dja-20242027_786159bc_ri.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.paysdelaloire.fr/les-aides/dotation-jeunes-agriculteurs-dja-feader",
@@ -106,9 +113,33 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.paysdelaloire.fr/sites/default/files/aides/786159bc-80d5-11ea-8bb8-c7ceddcbc7e6/subvention%2Cpret_reglement-dja-20242027_786159bc_ri.pdf",
+          "title": "Règlement d'intervention DJA 2024-2027 (PDF, Région Pays de la Loire)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["La DJA est au minimum de 20 000 € et au maximum de 42 000 €.", "Intervention du PSN 2023-2027 n° 75.01"]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "Socle minimal de la DJA",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2025-04-09",
+          "sourceUrl": "https://www.paysdelaloire.fr/sites/default/files/aides/786159bc-80d5-11ea-8bb8-c7ceddcbc7e6/subvention%2Cpret_reglement-dja-20242027_786159bc_ri.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond de la DJA avec les deux modulations",
+          "value": 42000,
+          "unit": "EUR",
+          "asOf": "2025-04-09",
+          "sourceUrl": "https://www.paysdelaloire.fr/sites/default/files/aides/786159bc-80d5-11ea-8bb8-c7ceddcbc7e6/subvention%2Cpret_reglement-dja-20242027_786159bc_ri.pdf"
+        }
+      ]
     },
     {
       "id": "pays-de-la-loire-aita-suivi-nouvel-exploitant",
@@ -120,13 +151,6 @@
       },
       "operator": "Direction régionale de l’alimentation, de l’agriculture et de la forêt des Pays de la Loire",
       "operatorType": "PUBLIC",
-      "implements": [
-        {
-          "resourceId": "fr-aita",
-          "named": "AITA",
-          "sourceUrl": "https://demarche.numerique.gouv.fr/fermeture/aita-aide-suivi-nouvel-exploitant-2026"
-        }
-      ],
       "whatItOffers": "Prise en charge d’un diagnostic dans le cadre du plan d’entreprise et, lorsque le diagnostic le préconise, mise en place d’un suivi technico-économique associant séquences collectives et appui individuel.",
       "whoCanUseIt": "Nouveaux exploitants agricoles en Pays de la Loire qui demandent l’aide au suivi post-installation du volet 4 de l’AITA.",
       "howToAccess": "La démarche 2026 est close depuis le 17 octobre. Sa page reste consultable sur demarche.numerique.gouv.fr et identifie la DRAAF Pays de la Loire comme gestionnaire.",
@@ -143,6 +167,13 @@
       ],
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT"],
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.pays-de-la-loire.agriculture.gouv.fr/IMG/pdf/arrete_2026_42_du_30_06_2026-mise_en_oeuvre_2026.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.pays-de-la-loire.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-ce-dispostif-a1125.html",
@@ -165,16 +196,33 @@
           "quotes": [
             "La démarche AITA - Aide pour le Suivi du Nouvel Exploitant (SNE) 2026 en Pays de la Loire est close depuis le 17 octobre 2026",
             "Cette démarche est gérée par",
-            "Direction régionale de l'alimentation, de l'agriculture et de la forêt (Draaf) - Pays de la Loire"
+            "Direction régionale de l'alimentation, de l'agriculture et de la forêt (Draaf) - Pays de la Loire",
+            "contact.pays-de-la-loire@agriculture.gouv.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://draaf.pays-de-la-loire.agriculture.gouv.fr/IMG/pdf/arrete_2026_42_du_30_06_2026-mise_en_oeuvre_2026.pdf",
+          "title": "Arrêté 2026-42 du 30 juin 2026, mise en œuvre 2026 (PDF, DRAAF Pays de la Loire)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "portant cadrage régional des actions mises en œuvre au titre de l’accompagnement à l’installation-transmission en agriculture (AITA) pour l’année 2026"
+          ]
         }
       ],
       "notes": "La DRAAF indique que l’AITA sera remplacé par France Services Agriculture au 1er janvier 2027. La démarche SNE 2026 est close depuis le 17 octobre ; le programme reste documenté comme actif pour l’édition 2026, sans présumer une nouvelle fenêtre.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "DRAAF Pays de la Loire – démarche AITA Suivi nouvel exploitant",
+          "value": "contact.pays-de-la-loire@agriculture.gouv.fr",
+          "sourceUrl": "https://demarche.numerique.gouv.fr/fermeture/aita-aide-suivi-nouvel-exploitant-2026"
+        }
+      ]
     },
     {
       "id": "pays-de-la-loire-passeurs-de-terres",
@@ -261,7 +309,8 @@
             "Durée de formation : 12 mois",
             "Rythme du stage : à temps plein (35h) ou à temps partiel (21h)",
             "Un accompagnement global : 12 jours de formation collective avec d’autres porteurs de projet pour finaliser le projet d’installation et le rendre opérationnel.",
-            "Venez participer à une réunion d'information collective organisée par la CIAP et ses partenaires (merci de nous contacter au minimum 2 mois avant l'entrée souhaitée en formation)."
+            "Venez participer à une réunion d'information collective organisée par la CIAP et ses partenaires (merci de nous contacter au minimum 2 mois avant l'entrée souhaitée en formation).",
+            "1 an de stage pratique : sur des fermes d'accueil et accompagnement par des paysans·es référent·es."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -277,10 +326,18 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://ciap-pdl.fr/wp-content/uploads/2026/07/Plaquette-Formation-EAP-Modifs-Danae.pdf",
+          "title": "Plaquette de la formation EAP (PDF, CIAP Pays de la Loire)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Frais d’inscription : 250 € non éligible à financement"]
         }
       ],
       "notes": "La Région répertorie la formation sous son ancien nom « Paysan créatif » parmi les formations autorisées pour la DJA. Ni la disponibilité de places ni le coût d’une future session ne sont déduits des pages consultées.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "trainingFormats": ["IN_PERSON"],
+      "accessCostType": "FEE_REQUIRED"
     },
     {
       "id": "pays-de-la-loire-territoires-pilotes-transmission",
@@ -360,7 +417,8 @@
             "Maine-et-Loire",
             "Mayenne Service départemental",
             "Sarthe Service départemental",
-            "Vendée Service départemental"
+            "Vendée Service départemental",
+            "02.43.83.48.10"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -400,7 +458,15 @@
         }
       ],
       "notes": "La Safer Pays de la Loire intervient en Loire-Atlantique, Maine-et-Loire, Mayenne, Sarthe et Vendée.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Safer Pays de la Loire",
+          "value": "02.43.83.48.10",
+          "sourceUrl": "https://www.safer-pays-de-loire.fr/contact/"
+        }
+      ]
     },
     {
       "id": "pays-de-la-loire-installation-agriculture-biologique-hors-dja",
@@ -437,9 +503,32 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.paysdelaloire.fr/sites/default/files/aides/e647d0d8-2274-11ea-99a2-6fe47e6a9894/subvention_reglement-dintervention-abhorsdja-2026_e647d0d8_ri.pdf",
+          "title": "Règlement d'intervention de l'aide hors DJA 2026 (PDF, Région Pays de la Loire)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["subvention forfaitaire de 7 000 euros."]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Subvention forfaitaire – installation en agriculture biologique hors DJA",
+          "value": 7000,
+          "unit": "EUR",
+          "asOf": "2026-01-01",
+          "sourceUrl": "https://www.paysdelaloire.fr/sites/default/files/aides/e647d0d8-2274-11ea-99a2-6fe47e6a9894/subvention_reglement-dintervention-abhorsdja-2026_e647d0d8_ri.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.paysdelaloire.fr/sites/default/files/aides/e647d0d8-2274-11ea-99a2-6fe47e6a9894/subvention_reglement-dintervention-abhorsdja-2026_e647d0d8_ri.pdf"
+        }
+      ]
     },
     {
       "id": "pays-de-la-loire-etude-installation-agriculture",
@@ -456,6 +545,16 @@
       "howToAccess": "Réaliser l’étude sur le Portail des aides de la Région, à partir de la rubrique « Déposer un dossier » de la fiche. L’étude est un prérequis aux demandes d’aide liées à l’installation agricole auprès de la Région des Pays de la Loire, notamment pour la Dotation Jeunes Agriculteurs (DJA).",
       "accessUrl": "https://www.paysdelaloire.fr/les-aides/etude-dinstallation-en-agriculture",
       "targetProfiles": ["NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.paysdelaloire.fr/les-aides/etude-dinstallation-en-agriculture"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.paysdelaloire.fr/les-aides/etude-dinstallation-en-agriculture"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.paysdelaloire.fr/les-aides/etude-dinstallation-en-agriculture",
@@ -520,9 +619,30 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.initiative-paysdelaloire.fr/pret-agricole-boost-40.html",
+          "title": "Le Prêt AgriBoost 40+ - Initiative Pays de la Loire, membre d'INITIATIVE FRANCE, 1er réseau associatif de financement des créateurs d'entreprise",
+          "consultedOn": "2026-11-25",
+          "quotes": ["contact@initiative-paysdelaloire.fr"]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Initiative Pays de la Loire – Agri Boost 40+",
+          "value": "contact@initiative-paysdelaloire.fr",
+          "sourceUrl": "https://www.initiative-paysdelaloire.fr/pret-agricole-boost-40.html"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.paysdelaloire.fr/les-aides/pret-dhonneur-agri-boost-40"
+        }
+      ]
     },
     {
       "id": "pays-de-la-loire-stage-parrainage-agriculture",
@@ -539,6 +659,12 @@
       "howToAccess": "Consulter le règlement dans l’onglet « Calendrier et procédure ». Contacter le Point Accueil Installation de son département pour obtenir des renseignements complémentaires et vérifier son éligibilité.",
       "accessUrl": "https://www.paysdelaloire.fr/les-aides/stage-de-parrainage-en-agriculture",
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.paysdelaloire.fr/les-aides/stage-de-parrainage-en-agriculture"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.paysdelaloire.fr/les-aides/stage-de-parrainage-en-agriculture",

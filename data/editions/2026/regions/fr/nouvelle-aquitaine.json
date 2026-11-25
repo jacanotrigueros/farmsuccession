@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "nouvelle-aquitaine",
   "officialName": "Nouvelle-Aquitaine",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "La DNJA et un prêt d'honneur soutiennent l'installation agricole. La Région finance aussi des études et suivis individuels, tandis que l'AITA finance les organismes qui animent l'installation et la transmission. La Safer et des associations territoriales proposent des parcours d'accès au foncier et de transmission.",
   "coverage": {
     "status": "PARTIAL",
@@ -130,6 +130,12 @@
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "TRANSFEROR", "LAND_SEEKER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.saferna.fr/agriculteurs/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.saferna.fr/agriculteurs/",
@@ -358,13 +364,6 @@
       },
       "operator": "DRAAF Nouvelle-Aquitaine et Région Nouvelle-Aquitaine",
       "operatorType": "PUBLIC",
-      "implements": [
-        {
-          "resourceId": "fr-aita",
-          "named": "L’accompagnement à l’installation et à la transmission en agriculture",
-          "sourceUrl": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-actions-d-a3984.html?id_rub=209"
-        }
-      ],
       "whatItOffers": "Financement d'actions menées par des organismes pour repérer et informer les futurs cédants et porteurs de projet, animer le volet transmission des PAIT et accompagner leur mise en relation.",
       "whoCanUseIt": "Structures intervenant dans le repérage, la sensibilisation ou l'accompagnement des cédants ou des porteurs de projet ; les opérateurs économiques et commerciaux ainsi que les associations gestionnaires d'espaces-test sont exclus de cet appel.",
       "howToAccess": "Consulter les appels publiés par la DRAAF Nouvelle-Aquitaine. L'appel 2026 est clos : sa date limite de remise des dossiers était le 3 avril 2026.",
@@ -380,6 +379,19 @@
         }
       ],
       "languages": ["fr"],
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/IMG/pdf/aap_aita_animation_communication_2026.pdf"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/IMG/pdf/aap_aita_animation_communication_2026.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/accompagnement-a-l-installation-transmission-en-agriculture-aita-actions-d-a3984.html?id_rub=209",
@@ -405,7 +417,9 @@
             "l’accompagnement dans la mise en relation des cédants et des porteurs de projets",
             "Sont exclus les opérateurs économiques et commerciaux.",
             "Les associations en gestion des espaces-tests ne sont pas éligibles à cet appel à projet",
-            "Toute structure intervenant dans le cadre du repérage, de la sensibilisation ou de l’accompagnement des cédants ou des porteurs de projet, qui demande un financement"
+            "Toute structure intervenant dans le cadre du repérage, de la sensibilisation ou de l’accompagnement des cédants ou des porteurs de projet, qui demande un financement",
+            "installation@nouvelle-aquitaine.fr",
+            "Les actions AITA du volet 1 à 5 ne sont pas finançables dans le cadre de cet appel à projets volet 6 animation-communication."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -413,7 +427,15 @@
           }
         }
       ],
-      "notes": "La date limite concernait les organismes candidats au financement, pas les agriculteurs. La ressource est publiée comme aide financière aux structures avec un appel 2026 clos, sans la présenter comme une aide directe aux porteurs de projet ou aux cédants."
+      "notes": "La date limite concernait les organismes candidats au financement, pas les agriculteurs. La ressource est publiée comme aide financière aux structures avec un appel 2026 clos, sans la présenter comme une aide directe aux porteurs de projet ou aux cédants.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Région Nouvelle-Aquitaine – installation",
+          "value": "installation@nouvelle-aquitaine.fr",
+          "sourceUrl": "https://draaf.nouvelle-aquitaine.agriculture.gouv.fr/IMG/pdf/aap_aita_animation_communication_2026.pdf"
+        }
+      ]
     },
     {
       "id": "nouvelle-aquitaine-plan-capr1",
@@ -432,6 +454,12 @@
       "accessUrl": "https://anicap-na.org/espace-eleveur/transmettre-mon-exploitation/",
       "assetTypes": ["WHOLE_HOLDINGS"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://anicap-na.org/espace-eleveur/transmettre-mon-exploitation/"
+        }
+      ],
       "sources": [
         {
           "url": "https://anicap-na.org/espace-eleveur/transmettre-mon-exploitation/",
@@ -442,9 +470,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://anicap-na.org/contact/",
+          "title": "Les coordonnées de l'ANICAP Nouvelle-Aquitaine | ANICAP Nouvelle-Aquitaine",
+          "consultedOn": "2026-11-25",
+          "quotes": ["05 49 44 74 80"]
         }
       ],
-      "notes": "La page décrit le programme, mais ne date pas son fonctionnement actuel ; sa disponibilité reste inconnue."
+      "notes": "La page décrit le programme, mais ne date pas son fonctionnement actuel ; sa disponibilité reste inconnue.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "ANICAP Nouvelle-Aquitaine",
+          "value": "05 49 44 74 80",
+          "sourceUrl": "https://anicap-na.org/contact/"
+        }
+      ]
     },
     {
       "id": "nouvelle-aquitaine-agap-gironde-installation",
@@ -463,6 +505,12 @@
       "howToAccess": "Consulter les actions de l'AGAP et lui écrire au contact institutionnel publié sur cette page.",
       "accessUrl": "https://www.agriculturepaysanne.org/Nos-actions-1721",
       "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Nos-actions-1721"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.agriculturepaysanne.org/Nos-actions-1721",
@@ -479,7 +527,15 @@
           }
         }
       ],
-      "notes": "Service départemental fourni par l'association elle-même, distinct de la fiche régionale qui finance certains conseils. La page ne porte pas de date probante de fonctionnement en 2026."
+      "notes": "Service départemental fourni par l'association elle-même, distinct de la fiche régionale qui finance certains conseils. La page ne porte pas de date probante de fonctionnement en 2026.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "AGAP",
+          "value": "contact@agap33.org",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Nos-actions-1721"
+        }
+      ]
     },
     {
       "id": "nouvelle-aquitaine-abdea-bearn-installation-transmission",
@@ -507,6 +563,12 @@
       ],
       "assetTypes": ["WHOLE_HOLDINGS"],
       "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Qui-sommes-nous-234"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.agriculturepaysanne.org/Qui-sommes-nous-234",
@@ -557,6 +619,12 @@
       "howToAccess": "Contacter l'association par les parcours d'installation et de transmission de sa page territoriale.",
       "accessUrl": "https://terredeliens.org/aquitaine/",
       "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/aquitaine/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/aquitaine/",
@@ -564,7 +632,9 @@
           "consultedOn": "2026-09-29",
           "quotes": [
             "Plus de 150 candidats à l'installation et cédants accueillis.",
-            "Primo-accueils : écoute et analyse des sollicitations par mail, téléphone"
+            "Primo-accueils : écoute et analyse des sollicitations par mail, téléphone",
+            "Accueillir les cédants et porteurs de projet agricole et suivre les fermes Terre de Liens.",
+            "09 70 20 31 32"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -572,7 +642,16 @@
           }
         }
       ],
-      "notes": "L'association indique agir dans les cinq départements de l'ancienne Aquitaine ; ce périmètre ne couvre pas toute la Nouvelle-Aquitaine."
+      "notes": "L'association indique agir dans les cinq départements de l'ancienne Aquitaine ; ce périmètre ne couvre pas toute la Nouvelle-Aquitaine.",
+      "whoCanUseIt": "Cédants et porteurs de projet agricole en Aquitaine.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Terre de Liens Aquitaine",
+          "value": "09 70 20 31 32",
+          "sourceUrl": "https://terredeliens.org/aquitaine/"
+        }
+      ]
     },
     {
       "id": "nouvelle-aquitaine-terre-de-liens-limousin",
@@ -590,6 +669,12 @@
       "howToAccess": "Utiliser les parcours d'installation ou de transmission de la page territoriale de l'association.",
       "accessUrl": "https://terredeliens.org/limousin/",
       "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/limousin/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/limousin/",
@@ -597,7 +682,9 @@
           "consultedOn": "2026-09-29",
           "quotes": [
             "Renseigne, accompagne et oriente les porteurs et porteuses de projet",
-            "dans leurs démarches de recherche ou de transmission de foncier agricole"
+            "dans leurs démarches de recherche ou de transmission de foncier agricole",
+            "nous œuvrons à la préservation des terres agricoles et soutenons des projets d’installation agricole en Limousin.",
+            "09 70 20 31 13"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -605,7 +692,16 @@
           }
         }
       ],
-      "notes": "Service territorial en Limousin, distinct de ceux des associations Aquitaine et Poitou-Charentes."
+      "notes": "Service territorial en Limousin, distinct de ceux des associations Aquitaine et Poitou-Charentes.",
+      "whoCanUseIt": "Porteurs d’un projet d’installation agricole en Limousin.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Terre de Liens Limousin",
+          "value": "09 70 20 31 13",
+          "sourceUrl": "https://terredeliens.org/limousin/"
+        }
+      ]
     },
     {
       "id": "nouvelle-aquitaine-terre-de-liens-poitou-charentes",
@@ -623,19 +719,38 @@
       "howToAccess": "Utiliser le parcours « Devenir paysan·ne » ou le contact de la page territoriale.",
       "accessUrl": "https://terredeliens.org/poitou-charentes/",
       "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/poitou-charentes/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/poitou-charentes/",
           "title": "Poitou-Charentes — Terre de Liens",
           "consultedOn": "2026-09-29",
-          "quotes": ["Accompagner des porteurs de projets dans leur démarche d’accès aux terres"],
+          "quotes": [
+            "Accompagner des porteurs de projets dans leur démarche d’accès aux terres",
+            "Accompagner des porteurs de projets dans leur démarche d’accès aux terres,",
+            "05 45 67 79 46"
+          ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
         }
       ],
-      "notes": "Service de l'association territoriale, et non simple renvoi vers le réseau national."
+      "notes": "Service de l'association territoriale, et non simple renvoi vers le réseau national.",
+      "whoCanUseIt": "Porteurs de projets qui recherchent des terres en Poitou-Charentes.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Terre de Liens Poitou-Charentes",
+          "value": "05 45 67 79 46",
+          "sourceUrl": "https://terredeliens.org/poitou-charentes/"
+        }
+      ]
     },
     {
       "id": "nouvelle-aquitaine-perigord-limousin-clit",
@@ -654,6 +769,12 @@
       "accessUrl": "https://www.perigord-limousin.fr/vos-demarches-au-quotidien/agriculture/transmission-reprise-exploitations-agricoles-en-perigord-limousin/",
       "assetTypes": ["WHOLE_HOLDINGS"],
       "targetProfiles": ["NEW_ENTRANT", "TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.perigord-limousin.fr/vos-demarches-au-quotidien/agriculture/transmission-reprise-exploitations-agricoles-en-perigord-limousin/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.perigord-limousin.fr/vos-demarches-au-quotidien/agriculture/transmission-reprise-exploitations-agricoles-en-perigord-limousin/",
