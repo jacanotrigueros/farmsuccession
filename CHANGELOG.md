@@ -10,6 +10,28 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.1.0 — 2026-11-26
+
+A record answers whether a reader can apply right under its title, and the site's own search lists the
+catalogue in one order and finds a record by the name readers type. The page and search change in ways a
+reader can use, so the middle digit moves.
+
+- "Can I apply now?" comes right after a record's title, place and operator, before what it offers. On a
+  phone it was a screen down, under a green "active" tag that read like a yes; the programme's status is
+  still shown, in grey, beside its own answer.
+- A record with several application periods shows the open ones first, then the upcoming ones, then the
+  closed ones; each keeps its own name, dates and checked date, and none is hidden. The Balearic FOGAIBA
+  record said "no" for its closed 2025 call before "yes" for the 2026 window open that day.
+- A period whose sources publish no dates reads "No application period documented", which is what is
+  known, rather than a statement about the source.
+- An empty search lists the European layer first and then country by country, as the page without
+  JavaScript does; it used to open on nineteen Austrian records in German. A record is found by its search
+  title too: "Niederlassungsprämie" now finds Austria's 75-01 record. The search says it is loading while
+  it loads, instead of saying it did not run.
+- The home page prints each figure once in the reader's number format: "1,103" over "sources cited".
+- Data: the Pays de la Loire young farmer grant listed its one call twice, and Aragón's summary said
+  Zaragoza's land bank operates while its record cannot confirm it. Both are corrected.
+
 ## 2.0.1 — 2026-11-25
 
 Cards and lists line up across the site, so a page reads in order instead of as boxes of every
