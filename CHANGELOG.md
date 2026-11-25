@@ -10,8 +10,39 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
-## Unreleased
+## 2.0.0 — 2026-11-25
 
+A record now answers what a reader of its kind asks, or says that its official source does not
+publish it, and the Netherlands appears for the first time. The open data's schema changes in a way
+that breaks a validator written for 1.x, so the first digit moves.
+
+- 663 records over 124 edition files, up from 369 over 111: the Netherlands enters with 38 records,
+  and Austria (19), Germany (66), Spain (168), France (229), Italy (99), Portugal (36) and the EU
+  layer (8) grow. The Mecklenburg-Vorpommern Hofbörse is withdrawn: its page no longer loads.
+- Who can use a resource, how to access it, the amount per beneficiary, a contact, the cost, the
+  training format and the land handled are answered with a quote from the official page, read in a
+  browser, or the record says the source does not publish them. Every record of every country
+  answers them or says its source does not: 663 of 663. Amounts taken from scanned orders were read
+  page by page; an amount is dated as its page dates it, or by the day the page was read when it does not.
+- Every country's records and regional pages carry titles and descriptions written from how people
+  search there, per region and co-official language ("banc de terres", "Gaztenek", "banco de terras",
+  "Hofübergabe", "bedrijfsovername"); the European page names EU generational renewal and CAP support
+  for young farmers.
+- French records and régions show the département numbers readers type ("safer 29"): in the title
+  where it still fits a search result, and always on the page.
+- A record title too short to say where it applies takes its country, and its operator while still
+  short. Every page's description now ends inside what a search result shows; territory summaries ran
+  to 456 characters.
+- After each publication the site tells IndexNow which pages it published, so Bing and the other
+  engines that take it learn of a new edition without waiting for a crawl.
+- Email, phone and form links in a record's contact block, and the licence link in the footer, are
+  now full-size targets (44 px, 16 px text) for readers on a phone.
+- "Free" is shown only where the official source says so, in its own words; where it does not, a
+  course or advisory service says its source does not publish the cost.
+- The policy type reads "rules and strategies" in every language, as its description always did,
+  instead of "legal framework", which a strategy or a Commission communication is not.
+- A record carries the former names and programme codes people still search for ("Safer
+  Aquitaine-Atlantique", "ex sm 6.1", "C.2.2.1") as quotes from its sources.
 - Each source shows the date its quotes were last found on the official page.
 - Edition files no longer carry a `review` state. **Breaking** for anyone validating the open data
   with the earlier `edition.schema.json`; `schemaVersion` stays `1.0.0`.
@@ -25,8 +56,7 @@ after the version was closed and is not a part of it.
   ([decision 041](decisions/041-a-measure-links-the-records-that-apply-it.md)).
 - A record can say that its official source was read and does not publish what a reader asks (who
   can use it, how to access it, the amount, a contact, the cost, the training format, the land), and
-  the page says so in that row. 138 of the 168 Spanish records now answer every question a reader of
-  their kind brings, or say the source is silent, up from 30. From the 2027 edition the validator
+  the page says so in that row. From the 2027 edition the validator
   rejects a record that leaves one of those questions open.
 - Icons for every fact of a record are drawn in the site's two-tone style, and long lists of
   territories and records on a country page flow in two columns without gaps.
