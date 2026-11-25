@@ -530,6 +530,11 @@
           "url": "https://agriculture.gouv.fr/documentation-officielle-pac",
           "authority": "Ministère de l’Agriculture",
           "purpose": "CAP / FEADER governance"
+        },
+        {
+          "url": "https://www.insee.fr/fr/information/2560452",
+          "authority": "Insee",
+          "purpose": "département names and numbers (Code officiel géographique)"
         }
       ],
       "rationale": "Les 18 Régions sont à la fois les hubs publics et les feuilles documentaires. Elles portent une part structurante de la mise en œuvre FEADER; une subdivision systématique en départements ajouterait de la fragmentation sans frontière agricole institutionnelle comparable aux exceptions espagnoles ou italiennes.",
@@ -630,114 +635,554 @@
           "slug": "auvergne-rhone-alpes",
           "name": "Auvergne-Rhône-Alpes",
           "inPhrase": "en Auvergne-Rhône-Alpes",
-          "parentHub": "auvergne-rhone-alpes"
+          "parentHub": "auvergne-rhone-alpes",
+          "subdivisions": [
+            {
+              "name": "Ain",
+              "code": "01"
+            },
+            {
+              "name": "Allier",
+              "code": "03"
+            },
+            {
+              "name": "Ardèche",
+              "code": "07"
+            },
+            {
+              "name": "Cantal",
+              "code": "15"
+            },
+            {
+              "name": "Drôme",
+              "code": "26"
+            },
+            {
+              "name": "Isère",
+              "code": "38"
+            },
+            {
+              "name": "Loire",
+              "code": "42"
+            },
+            {
+              "name": "Haute-Loire",
+              "code": "43"
+            },
+            {
+              "name": "Puy-de-Dôme",
+              "code": "63"
+            },
+            {
+              "name": "Rhône",
+              "code": "69"
+            },
+            {
+              "name": "Savoie",
+              "code": "73"
+            },
+            {
+              "name": "Haute-Savoie",
+              "code": "74"
+            }
+          ]
         },
         {
           "slug": "bourgogne-franche-comte",
           "name": "Bourgogne-Franche-Comté",
           "inPhrase": "en Bourgogne-Franche-Comté",
-          "parentHub": "bourgogne-franche-comte"
+          "parentHub": "bourgogne-franche-comte",
+          "subdivisions": [
+            {
+              "name": "Côte-d’Or",
+              "code": "21"
+            },
+            {
+              "name": "Doubs",
+              "code": "25"
+            },
+            {
+              "name": "Jura",
+              "code": "39"
+            },
+            {
+              "name": "Nièvre",
+              "code": "58"
+            },
+            {
+              "name": "Haute-Saône",
+              "code": "70"
+            },
+            {
+              "name": "Saône-et-Loire",
+              "code": "71"
+            },
+            {
+              "name": "Yonne",
+              "code": "89"
+            },
+            {
+              "name": "Territoire de Belfort",
+              "code": "90"
+            }
+          ]
         },
         {
           "slug": "bretagne",
           "name": "Bretagne",
           "inPhrase": "en Bretagne",
-          "parentHub": "bretagne"
+          "parentHub": "bretagne",
+          "subdivisions": [
+            {
+              "name": "Côtes-d’Armor",
+              "code": "22"
+            },
+            {
+              "name": "Finistère",
+              "code": "29"
+            },
+            {
+              "name": "Ille-et-Vilaine",
+              "code": "35"
+            },
+            {
+              "name": "Morbihan",
+              "code": "56"
+            }
+          ]
         },
         {
           "slug": "centre-val-de-loire",
           "name": "Centre-Val de Loire",
           "inPhrase": "en Centre-Val de Loire",
-          "parentHub": "centre-val-de-loire"
+          "parentHub": "centre-val-de-loire",
+          "subdivisions": [
+            {
+              "name": "Cher",
+              "code": "18"
+            },
+            {
+              "name": "Eure-et-Loir",
+              "code": "28"
+            },
+            {
+              "name": "Indre",
+              "code": "36"
+            },
+            {
+              "name": "Indre-et-Loire",
+              "code": "37"
+            },
+            {
+              "name": "Loir-et-Cher",
+              "code": "41"
+            },
+            {
+              "name": "Loiret",
+              "code": "45"
+            }
+          ]
         },
         {
           "slug": "corse",
           "name": "Corse",
           "inPhrase": "en Corse",
-          "parentHub": "corse"
+          "parentHub": "corse",
+          "subdivisions": [
+            {
+              "name": "Corse-du-Sud",
+              "code": "2A"
+            },
+            {
+              "name": "Haute-Corse",
+              "code": "2B"
+            }
+          ]
         },
         {
           "slug": "grand-est",
           "name": "Grand Est",
           "inPhrase": "dans le Grand Est",
-          "parentHub": "grand-est"
+          "parentHub": "grand-est",
+          "subdivisions": [
+            {
+              "name": "Ardennes",
+              "code": "08"
+            },
+            {
+              "name": "Aube",
+              "code": "10"
+            },
+            {
+              "name": "Marne",
+              "code": "51"
+            },
+            {
+              "name": "Haute-Marne",
+              "code": "52"
+            },
+            {
+              "name": "Meurthe-et-Moselle",
+              "code": "54"
+            },
+            {
+              "name": "Meuse",
+              "code": "55"
+            },
+            {
+              "name": "Moselle",
+              "code": "57"
+            },
+            {
+              "name": "Bas-Rhin",
+              "code": "67"
+            },
+            {
+              "name": "Haut-Rhin",
+              "code": "68"
+            },
+            {
+              "name": "Vosges",
+              "code": "88"
+            }
+          ]
         },
         {
           "slug": "hauts-de-france",
           "name": "Hauts-de-France",
           "inPhrase": "dans les Hauts-de-France",
-          "parentHub": "hauts-de-france"
+          "parentHub": "hauts-de-france",
+          "subdivisions": [
+            {
+              "name": "Aisne",
+              "code": "02"
+            },
+            {
+              "name": "Nord",
+              "code": "59"
+            },
+            {
+              "name": "Oise",
+              "code": "60"
+            },
+            {
+              "name": "Pas-de-Calais",
+              "code": "62"
+            },
+            {
+              "name": "Somme",
+              "code": "80"
+            }
+          ]
         },
         {
           "slug": "ile-de-france",
           "name": "Île-de-France",
           "inPhrase": "en Île-de-France",
-          "parentHub": "ile-de-france"
+          "parentHub": "ile-de-france",
+          "subdivisions": [
+            {
+              "name": "Paris",
+              "code": "75"
+            },
+            {
+              "name": "Seine-et-Marne",
+              "code": "77"
+            },
+            {
+              "name": "Yvelines",
+              "code": "78"
+            },
+            {
+              "name": "Essonne",
+              "code": "91"
+            },
+            {
+              "name": "Hauts-de-Seine",
+              "code": "92"
+            },
+            {
+              "name": "Seine-Saint-Denis",
+              "code": "93"
+            },
+            {
+              "name": "Val-de-Marne",
+              "code": "94"
+            },
+            {
+              "name": "Val-d’Oise",
+              "code": "95"
+            }
+          ]
         },
         {
           "slug": "normandie",
           "name": "Normandie",
           "inPhrase": "en Normandie",
-          "parentHub": "normandie"
+          "parentHub": "normandie",
+          "subdivisions": [
+            {
+              "name": "Calvados",
+              "code": "14"
+            },
+            {
+              "name": "Eure",
+              "code": "27"
+            },
+            {
+              "name": "Manche",
+              "code": "50"
+            },
+            {
+              "name": "Orne",
+              "code": "61"
+            },
+            {
+              "name": "Seine-Maritime",
+              "code": "76"
+            }
+          ]
         },
         {
           "slug": "nouvelle-aquitaine",
           "name": "Nouvelle-Aquitaine",
           "inPhrase": "en Nouvelle-Aquitaine",
-          "parentHub": "nouvelle-aquitaine"
+          "parentHub": "nouvelle-aquitaine",
+          "subdivisions": [
+            {
+              "name": "Charente",
+              "code": "16"
+            },
+            {
+              "name": "Charente-Maritime",
+              "code": "17"
+            },
+            {
+              "name": "Corrèze",
+              "code": "19"
+            },
+            {
+              "name": "Creuse",
+              "code": "23"
+            },
+            {
+              "name": "Dordogne",
+              "code": "24"
+            },
+            {
+              "name": "Gironde",
+              "code": "33"
+            },
+            {
+              "name": "Landes",
+              "code": "40"
+            },
+            {
+              "name": "Lot-et-Garonne",
+              "code": "47"
+            },
+            {
+              "name": "Pyrénées-Atlantiques",
+              "code": "64"
+            },
+            {
+              "name": "Deux-Sèvres",
+              "code": "79"
+            },
+            {
+              "name": "Vienne",
+              "code": "86"
+            },
+            {
+              "name": "Haute-Vienne",
+              "code": "87"
+            }
+          ]
         },
         {
           "slug": "occitanie",
           "name": "Occitanie",
           "inPhrase": "en Occitanie",
-          "parentHub": "occitanie"
+          "parentHub": "occitanie",
+          "subdivisions": [
+            {
+              "name": "Ariège",
+              "code": "09"
+            },
+            {
+              "name": "Aude",
+              "code": "11"
+            },
+            {
+              "name": "Aveyron",
+              "code": "12"
+            },
+            {
+              "name": "Gard",
+              "code": "30"
+            },
+            {
+              "name": "Haute-Garonne",
+              "code": "31"
+            },
+            {
+              "name": "Gers",
+              "code": "32"
+            },
+            {
+              "name": "Hérault",
+              "code": "34"
+            },
+            {
+              "name": "Lot",
+              "code": "46"
+            },
+            {
+              "name": "Lozère",
+              "code": "48"
+            },
+            {
+              "name": "Hautes-Pyrénées",
+              "code": "65"
+            },
+            {
+              "name": "Pyrénées-Orientales",
+              "code": "66"
+            },
+            {
+              "name": "Tarn",
+              "code": "81"
+            },
+            {
+              "name": "Tarn-et-Garonne",
+              "code": "82"
+            }
+          ]
         },
         {
           "slug": "pays-de-la-loire",
           "name": "Pays de la Loire",
           "inPhrase": "dans les Pays de la Loire",
-          "parentHub": "pays-de-la-loire"
+          "parentHub": "pays-de-la-loire",
+          "subdivisions": [
+            {
+              "name": "Loire-Atlantique",
+              "code": "44"
+            },
+            {
+              "name": "Maine-et-Loire",
+              "code": "49"
+            },
+            {
+              "name": "Mayenne",
+              "code": "53"
+            },
+            {
+              "name": "Sarthe",
+              "code": "72"
+            },
+            {
+              "name": "Vendée",
+              "code": "85"
+            }
+          ]
         },
         {
           "slug": "provence-alpes-cote-d-azur",
           "name": "Provence-Alpes-Côte d’Azur",
           "inPhrase": "en Provence-Alpes-Côte d’Azur",
-          "parentHub": "provence-alpes-cote-d-azur"
+          "parentHub": "provence-alpes-cote-d-azur",
+          "subdivisions": [
+            {
+              "name": "Alpes-de-Haute-Provence",
+              "code": "04"
+            },
+            {
+              "name": "Hautes-Alpes",
+              "code": "05"
+            },
+            {
+              "name": "Alpes-Maritimes",
+              "code": "06"
+            },
+            {
+              "name": "Bouches-du-Rhône",
+              "code": "13"
+            },
+            {
+              "name": "Var",
+              "code": "83"
+            },
+            {
+              "name": "Vaucluse",
+              "code": "84"
+            }
+          ]
         },
         {
           "slug": "guadeloupe",
           "name": "Guadeloupe",
           "inPhrase": "en Guadeloupe",
           "parentHub": "guadeloupe",
-          "kind": "outre-mer"
+          "kind": "outre-mer",
+          "subdivisions": [
+            {
+              "name": "Guadeloupe",
+              "code": "971"
+            }
+          ]
         },
         {
           "slug": "martinique",
           "name": "Martinique",
           "inPhrase": "en Martinique",
           "parentHub": "martinique",
-          "kind": "outre-mer"
+          "kind": "outre-mer",
+          "subdivisions": [
+            {
+              "name": "Martinique",
+              "code": "972"
+            }
+          ]
         },
         {
           "slug": "guyane",
           "name": "Guyane",
           "inPhrase": "en Guyane",
           "parentHub": "guyane",
-          "kind": "outre-mer"
+          "kind": "outre-mer",
+          "subdivisions": [
+            {
+              "name": "Guyane",
+              "code": "973"
+            }
+          ]
         },
         {
           "slug": "la-reunion",
           "name": "La Réunion",
           "inPhrase": "à La Réunion",
           "parentHub": "la-reunion",
-          "kind": "outre-mer"
+          "kind": "outre-mer",
+          "subdivisions": [
+            {
+              "name": "La Réunion",
+              "code": "974"
+            }
+          ]
         },
         {
           "slug": "mayotte",
           "name": "Mayotte",
           "inPhrase": "à Mayotte",
           "parentHub": "mayotte",
-          "kind": "outre-mer"
+          "kind": "outre-mer",
+          "subdivisions": [
+            {
+              "name": "Mayotte",
+              "code": "976"
+            }
+          ]
         }
       ]
     },

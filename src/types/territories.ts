@@ -129,6 +129,33 @@ export interface Region {
    */
   seoName?: string;
   /**
+   * The official subdivisions inside this region that readers name by a public code, each with its name and that code, as the jurisdiction's statistical office publishes them — France's départements and their numbers from Insee's Code officiel géographique. A reader types the code ("safer 29"); a record that leaves it out is missing how its reader names the territory.
+   *
+   * @minItems 1
+   */
+  subdivisions?: [
+    {
+      /**
+       * The subdivision's official name, as the statistical office writes it.
+       */
+      name: string;
+      /**
+       * Its official public code, as readers type it: a French département number such as 29 or 2A.
+       */
+      code: string;
+    },
+    ...{
+      /**
+       * The subdivision's official name, as the statistical office writes it.
+       */
+      name: string;
+      /**
+       * Its official public code, as readers type it: a French département number such as 29 or 2A.
+       */
+      code: string;
+    }[]
+  ];
+  /**
    * Anything a researcher or reader needs to know about this region that no other field holds, such as why its boundary differs from the administrative one.
    */
   note?: string;
