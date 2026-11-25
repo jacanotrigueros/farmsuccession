@@ -337,6 +337,12 @@ if (form && state && resultsList && everything && template && askBlock && filter
   };
 
   async function start() {
+    // The script is running, so the search has not failed: it is loading. The notice that it did not run
+    // is for readers without JavaScript and for a real failure, which failed() shows again; while the index
+    // loads, a shared link with words in it read as broken.
+    show(fallback, false);
+    show(state, true);
+    state.textContent = words.loading;
     const wider = form.querySelector("[data-widen]");
     if (wider) wider.href = europeanSearch(stateFromQuery(location.search, scope.country));
     try {
