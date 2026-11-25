@@ -20,7 +20,7 @@ import type { Resource } from "../lib/corpus.ts";
 import { stateLabel } from "../lib/vocabulary.ts";
 import { dateIn } from "../lib/language.ts";
 import { words } from "../lib/words.ts";
-import { APPLY_TONE, applyKey } from "../../public/apply.js";
+import { APPLY_RANK, APPLY_TONE, applyKey } from "../../public/apply.js";
 
 type Props = { resource: Resource; language: string; locale?: string };
 const { resource, language, locale = language } = Astro.props;
@@ -30,45 +30,49 @@ const [checkedBefore, checkedAfter] = text.checkedOn.split("{date}");
 const on = (iso?: string): string => (iso ? dateIn(iso, locale) : "");
 const today = new Date().toISOString().slice(0, 10);
 
-/** Every documented period answers for itself, in the record's order (decisions/029). */
-const entries = (resource.calls?.length ? resource.calls : [undefined]).map((call, index) => {
-  /** Every answer for this period, so the browser can refresh it without formatting dates. */
-  const answers = {
-    open: { text: text.applyOpen },
-    openByDates: { text: text.applyOpenByDates.replace("{date}", on(call?.closes)) },
-    upcoming: { text: text.applyUpcoming },
-    closed: { text: text.applyClosed },
-    deadlinePassed: { text: text.applyDeadlinePassed.replace("{date}", on(call?.closes)) },
-    shouldBeOpen: { text: text.applyUnconfirmed, detail: text.applyShouldBeOpen.replace("{date}", on(call?.opens)) },
-    noDates: { text: text.applyUnconfirmed, detail: text.applyNoDates },
-    announced: { text: call ? text.applyAnnounced : stateLabel(resource.status, language) },
-    historical: { text: call ? text.applyHistorical : stateLabel(resource.status, language) },
-    unconfirmed: call
-      ? { text: text.applyUnconfirmed, detail: text.applyUnconfirmedDetail }
-      : { text: stateLabel(resource.status, language) },
-  };
+/**
+ * Every documented period answers for itself (decisions/029). The periods a reader can apply through come
+ * first, then the upcoming ones, then the closed ones; ties keep the record's order (decisions/042).
+ */
+const entries = (resource.calls?.length ? resource.calls : [undefined])
+  .map((call) => {
+    /** Every answer for this period, so the browser can refresh it without formatting dates. */
+    const answers = {
+      open: { text: text.applyOpen },
+      openByDates: { text: text.applyOpenByDates.replace("{date}", on(call?.closes)) },
+      upcoming: { text: text.applyUpcoming },
+      closed: { text: text.applyClosed },
+      deadlinePassed: { text: text.applyDeadlinePassed.replace("{date}", on(call?.closes)) },
+      shouldBeOpen: { text: text.applyUnconfirmed, detail: text.applyShouldBeOpen.replace("{date}", on(call?.opens)) },
+      noDates: { text: text.applyNoPeriod, detail: text.applyNoDates },
+      announced: { text: call ? text.applyAnnounced : stateLabel(resource.status, language) },
+      historical: { text: call ? text.applyHistorical : stateLabel(resource.status, language) },
+      unconfirmed: call
+        ? { text: text.applyUnconfirmed, detail: text.applyUnconfirmedDetail }
+        : { text: stateLabel(resource.status, language) },
+    };
 
-  const key = applyKey(call, resource.status, today);
-  const answer = key ? answers[key as keyof typeof answers] : undefined;
+    const key = applyKey(call, resource.status, today);
+    const answer = key ? answers[key as keyof typeof answers] : undefined;
 
-  /** The call's own source dates the answer; with no call, the most recent reading of the record. */
-  const checked = call
-    ? resource.sources.find((source) => source.url === call.sourceUrl)?.consultedOn
-    : resource.sources
-        .map((source) => source.consultedOn)
-        .toSorted()
-        .at(-1);
-  if (call && !checked) throw new Error(`${resource.id}: the application period "${call.name}" has no consulted source`);
-  return {
-    call,
-    key,
-    answer,
-    answers,
-    checked,
+    /** The call's own source dates the answer; with no call, the most recent reading of the record. */
+    const checked = call
+      ? resource.sources.find((source) => source.url === call.sourceUrl)?.consultedOn
+      : resource.sources
+          .map((source) => source.consultedOn)
+          .toSorted()
+          .at(-1);
+    if (call && !checked) throw new Error(`${resource.id}: the application period "${call.name}" has no consulted source`);
+    return { call, key, answer, answers, checked };
+  })
+  .toSorted(
+    (a, b) => (a.key ? APPLY_RANK[a.key as keyof typeof APPLY_RANK] : 9) - (b.key ? APPLY_RANK[b.key as keyof typeof APPLY_RANK] : 9),
+  )
+  .map((entry, index) => ({
+    ...entry,
     titleId: index === 0 ? "apply-title" : `apply-title-${index + 1}`,
     nameId: `apply-call-${index + 1}`,
-  };
-});
+  }));
 ---
 
 {entries.some(({ key }) => key) && (

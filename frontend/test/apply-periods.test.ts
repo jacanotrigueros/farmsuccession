@@ -6,6 +6,7 @@ import { test } from "node:test";
 import { decodeHTML } from "entities";
 
 import type { Call, Resource } from "../../src/types/edition.ts";
+import { APPLY_RANK, applyKey } from "../public/apply.js";
 import { recordSlug } from "../public/search-scope.js";
 import { dateIn } from "../src/lib/language.ts";
 import { words } from "../src/lib/words.ts";
@@ -44,7 +45,11 @@ test("there are documented periods to check, including records with several call
 
 for (const { resource, country, language } of records.filter(({ resource }) => (resource.calls?.length ?? 0) > 1)) {
   test(`${resource.id}: every call gets its own named answer and browser payload`, () => {
-    const calls = resource.calls!;
+    // The periods a reader can apply through come first, then upcoming, then closed; ties keep the file's
+    // order (decisions/042). The build answers for its own day, as this test does.
+    const today = new Date().toISOString().slice(0, 10);
+    const rank = (call: Call) => APPLY_RANK[applyKey(call, resource.status, today) as keyof typeof APPLY_RANK];
+    const calls = resource.calls!.toSorted((a, b) => rank(a) - rank(b));
     const blocks = blocksOf(htmlOf(resource, country));
     assert.equal(
       blocks.length,
@@ -52,7 +57,7 @@ for (const { resource, country, language } of records.filter(({ resource }) => (
       `${resource.id}: ${calls.length} documented calls need ${calls.length} headline answers; array position must not hide a period`,
     );
     const carried = blocks.map((block) => JSON.parse(decodeHTML(attribute(block[1] ?? "", "data-apply-call") ?? "null")) as Call);
-    assert.deepEqual(carried, calls, `${resource.id}: the browser must receive every call in recorded order, not a selected call`);
+    assert.deepEqual(carried, calls, `${resource.id}: the browser must receive every call, open ones first, not a selected call`);
 
     for (const [index, call] of calls.entries()) {
       const attributes = blocks[index]?.[1] ?? "";
@@ -104,4 +109,31 @@ test("resources without a documented call describe availability rather than inve
     checked++;
   }
   assert.ok(checked > 0, "announced and unconfirmed records must be inspected too");
+});
+
+test("a record whose later call is open answers with it first", () => {
+  // The Balearic FOGAIBA record lists its closed 2025 call before its 2026 one; a reader asking "can I apply?"
+  // read "no" first while the same page documented an open period.
+  const balearic = records.find(({ resource }) => resource.id === "illes-balears-fogaiba-creacion-empresas-jovenes-agricultores");
+  assert.ok(balearic, "the Balearic FOGAIBA record is gone; choose another record with a closed call listed before an open one");
+  const blocks = blocksOf(htmlOf(balearic.resource, balearic.country));
+  const tones = blocks.map((block) => attribute(block[1] ?? "", "data-tone"));
+  const firstNo = tones.indexOf("no");
+  const lastYes = tones.lastIndexOf("yes");
+  if (lastYes >= 0 && firstNo >= 0) assert.ok(lastYes < firstNo, `an open period must come before a closed one: ${tones.join(", ")}`);
+});
+
+test("the answer to whether a reader can apply comes before what the resource offers", () => {
+  // On a phone the answer sat a screen below the title, after the summary and the buttons, while a green
+  // "active" tag above the title read like a yes (decisions/042).
+  let checked = 0;
+  for (const { resource, country, language } of records) {
+    const html = htmlOf(resource, country);
+    const answer = html.search(/<section\b[^>]*\bdata-apply-answers=/u);
+    if (answer < 0) continue;
+    const offers = html.indexOf(`>${words(language).offersTitle}<`);
+    assert.ok(offers > answer, `${resource.id}: the application answer must precede "${words(language).offersTitle}"`);
+    checked++;
+  }
+  assert.ok(checked > 0, "no record answers whether a reader can apply, so this check proved nothing");
 });
