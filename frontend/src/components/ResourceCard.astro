@@ -8,9 +8,8 @@
  * The whole card is the link. The title carries the underline, and an overlay on it covers the card, so a
  * finger can land anywhere on the box and a screen reader is still read one link with the record's name.
  *
- * `compact` drops the box for a divided row — the search results, which are scanned twenty at a time,
- * where a box is weight a reader does not need. A handful of records on a territory page is a different
- * job: there the box is what separates one record from the next.
+ * `compact` puts the place and operator on a shared line. Search results use a shorter description
+ * than cards on territory pages.
  *
  * The state is always printed, even when it is the expected one, because "this exists" and "you can apply
  * today" are different claims and this project exists to keep them apart.
@@ -31,11 +30,11 @@ type Props = {
   language: string;
   level?: "h2" | "h3" | "h4";
   compact?: boolean;
-  showFullSummary?: boolean;
+  summaryLines?: 2 | 3;
   /** The country of the page a European card is shown on. */
   country?: string;
 };
-const { resource, recordedIn, language, level = "h3", compact = false, showFullSummary = false, country } = Astro.props;
+const { resource, recordedIn, language, level = "h3", compact = false, summaryLines = compact ? 2 : 3, country } = Astro.props;
 const Heading = level;
 const recordLanguage = languageOf(recordedIn);
 const text = words(language);
@@ -90,7 +89,7 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), res
       {text.originalName.split("{name}")[1]}
     </p>
   )}
-  <p lang={cardLanguage} class:list={["mt-3", showFullSummary ? "" : compact ? "line-clamp-2" : "line-clamp-3"]}>
+  <p lang={cardLanguage} class:list={["mt-3", summaryLines === 2 ? "line-clamp-2" : "line-clamp-3"]}>
     {translated?.offers ?? resource.whatItOffers}
   </p>
   {home &&
@@ -107,7 +106,7 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), res
       </p>
     ))}
   {compact ? (
-    <p class="meta mt-3 flex flex-wrap items-start gap-x-4 gap-y-1">
+    <p class="meta mt-auto flex flex-wrap items-start gap-x-4 gap-y-1 pt-3">
       <span class="inline-flex items-start gap-1.5">
         <Icon name={ICON.territory} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
         <span>
