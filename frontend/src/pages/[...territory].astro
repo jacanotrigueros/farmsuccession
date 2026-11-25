@@ -605,15 +605,12 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
 <style>
   /*
-    Closed territory cards share a row height within their list. An open disclosure can
-    grow its own row without giving that height to every other row.
+    Territory cards in the same row share its height, which the grid gives them by stretching each
+    item to its row. Rows are sized one by one: a shared 1fr height would give every row the height
+    of the tallest card in the list, leaving a name-only island as tall as one with an aid preview.
+
+    On a phone the list becomes divided rows.
   */
-  .territory-list {
-    grid-auto-rows: 1fr;
-  }
-  .territory-list:has(> :global(li.territory) > :global(details[open])) {
-    grid-auto-rows: auto;
-  }
   @media (max-width: 599px) {
     .territory-list {
       gap: 0;

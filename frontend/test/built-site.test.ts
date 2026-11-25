@@ -1145,3 +1145,23 @@ test("a French record and region page show the département numbers readers type
   const regional = decodeHTML(page(path.join("fr", "ressources", "bretagne-safer-bretagne")));
   assert.ok(regional.includes("(22, 29, 35, 56)"), "the Safer Bretagne record does not show the numbers of the départements it covers");
 });
+test("a territory list sizes each row to its own cards", () => {
+  // In a territory list one card may hold an aid preview and a disclosure while its neighbours hold only a
+  // name. A grid sizes each row to its own tallest card; a shared 1fr row height gives every row the
+  // height of the tallest card in the whole list, and on a phone the Canary Islands, El Hierro and
+  // Fuerteventura became boxes of empty space (about 1,500 px on the Spanish page). Record, country and
+  // search cards keep their shared height on purpose: their contents are clamped to the same few lines.
+  const css = readdirSync(path.join(DIST, "_astro"))
+    .filter((file) => file.endsWith(".css"))
+    .map((file) => readFileSync(path.join(DIST, "_astro", file), "utf8"))
+    .concat(pages.flatMap(({ html }) => [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gu)].map(([, rules]) => rules ?? "")))
+    .join("\n");
+  const sharedRows = [...css.matchAll(/([^{}]*\.territory-list[^{}]*)\{([^}]*)\}/gu)]
+    .filter(([, , body]) => /grid-auto-rows:\s*1fr/u.test(body ?? ""))
+    .map(([, selector]) => selector?.trim());
+  assert.deepEqual(sharedRows, [], "territory-list rules that give every row the tallest card's height");
+  const offenders = pages
+    .filter(({ html }) => /<ul\b[^>]*class="[^"]*\bterritory-list\b[^"]*\bauto-rows-fr\b/u.test(html))
+    .map(({ file }) => file);
+  assert.deepEqual(offenders, [], "pages whose territory list gives every row the tallest card's height");
+});
