@@ -8,8 +8,8 @@
  * The whole card is the link. The title carries the underline, and an overlay on it covers the card, so a
  * finger can land anywhere on the box and a screen reader is still read one link with the record's name.
  *
- * `compact` puts the place and operator on a shared line. Territory previews cap the text in
- * each part of the card so a long title or operator does not set the height of the whole grid.
+ * `compact` bounds titles and footer metadata for scanning. Territory pages give the description
+ * one more line than search previews.
  *
  * The state is always printed, even when it is the expected one, because "this exists" and "you can apply
  * today" are different claims and this project exists to keep them apart.
@@ -80,7 +80,7 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), res
       lang={cardLanguage}
       class="text-brand-strong underline decoration-1 underline-offset-3 after:absolute after:inset-0 hover:decoration-2"
     >
-      {territoryPreview ? <span class="line-clamp-3">{name}</span> : name}
+      {compact ? <span class="line-clamp-3">{name}</span> : name}
     </a>
   </Heading>
   {translated && (
@@ -107,17 +107,17 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), res
       </p>
     ))}
   {compact ? (
-    <p class:list={["meta mt-auto gap-y-1 pt-3", territoryPreview ? "grid" : "flex flex-wrap items-start gap-x-4"]}>
+    <p class:list={["meta mt-auto grid gap-x-4 gap-y-1 pt-3", !territoryPreview && "sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]"]}>
       <span class="inline-flex min-w-0 items-start gap-1.5">
         <Icon name={ICON.territory} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
-        <span class:list={[territoryPreview && "line-clamp-1"]}>
+        <span class="line-clamp-1">
           {place.label}
           {place.area && <span lang={recordLanguage}>{place.area}</span>}
         </span>
       </span>
       <span class="inline-flex min-w-0 items-start gap-1.5">
         <Icon name={ICON.operator} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
-        <span lang={recordLanguage} class:list={[territoryPreview && "line-clamp-1"]}>
+        <span lang={recordLanguage} class="line-clamp-1">
           {resource.operator}
         </span>
       </span>

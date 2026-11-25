@@ -81,7 +81,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     const row = template.content.firstElementChild.cloneNode(true);
     const link = row.querySelector("[data-result-link]");
     link.href = result.url;
-    link.textContent = result.meta.title ?? result.url;
+    link.querySelector("[data-result-title]").textContent = result.meta.title ?? result.url;
 
     const kind = row.querySelector("[data-result-kind]");
     const code = result.meta.kind;
@@ -111,9 +111,12 @@ if (form && state && resultsList && everything && template && askBlock && filter
     // only that excerpt is marked HTML from this build's index. Summary metadata is always plain text.
     const description = resultDescription(result, term, document.documentElement.lang);
     const excerpt = row.querySelector("[data-result-excerpt]");
-    if (term) excerpt.classList.remove("line-clamp-2");
-    if (description.format === "html") excerpt.innerHTML = description.value;
-    else excerpt.textContent = description.value;
+    if (description.format === "html") {
+      excerpt.classList.remove("line-clamp-2");
+      excerpt.innerHTML = description.value;
+    } else {
+      excerpt.textContent = description.value;
+    }
     setResultLanguage(row, result);
     return row;
   }
