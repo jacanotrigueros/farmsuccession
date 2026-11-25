@@ -28,3 +28,14 @@ export const numberIn = (value, language) => value.toLocaleString(localeOf(langu
 
 /** @param {number} value @param {readonly [string, string]} forms @param {string} language */
 export const counted = (value, forms, language) => `${numberIn(value, language)} ${forms[pluralIndex(value, language)]}`;
+
+/** Format a source's calendar day without shifting it into the previous day in another time zone.
+ * @param {string} iso @param {string} language @param {"long"|"short"} month
+ */
+export const dateIn = (iso, language, month = "long") =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString(localeOf(language), {
+    day: "numeric",
+    month,
+    year: "numeric",
+    timeZone: "UTC",
+  });

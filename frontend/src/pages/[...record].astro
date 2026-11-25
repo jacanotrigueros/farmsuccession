@@ -19,6 +19,7 @@ import { resourcePlaceParts } from "../../public/resource-place.js";
 import { countryFilters, searchUrl } from "../../public/search-scope.js";
 import { Icon } from "astro-icon/components";
 import ApplyNow from "../components/ApplyNow.astro";
+import { documentedPeriods } from "../../public/apply.js";
 import { catalogueOrderOf } from "../lib/catalogue-order.ts";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CallWindows from "../components/CallWindows.astro";
@@ -87,6 +88,7 @@ const { resource, territory } = Astro.props;
 const language = languageOf(territory);
 const locale = localeOf(territory);
 const text = words(language);
+const periods = documentedPeriods(resource);
 
 /** Every claim on this page cites one of the record's own sources, so each can be followed by number. */
 const sourceNumber = new Map(resource.sources.map((source, index) => [source.url, index + 1]));
@@ -465,6 +467,8 @@ const browseHere = searchUrl("/", {
         the page shows only the official name (decisions/042). */}
     {pageTitle !== resource.name && <span hidden data-pagefind-index-attrs="data-search-title" data-search-title={pageTitle}></span>}
     {/* Its place in the catalogue, which an empty search is listed by (lib/catalogue-order.ts). */}
+    <span hidden data-pagefind-filter={`documentaryLayer:${territory.layer.level}`}></span>
+    {periods.length > 0 && <span hidden data-pagefind-meta="periods[data-periods]" data-periods={JSON.stringify(periods)}></span>}
     <span hidden data-pagefind-sort={`order:${catalogueOrderOf(territory, resource.id)}`}></span>
     <span hidden data-pagefind-filter={`kind:${resource.kind}`} data-pagefind-meta={`kind:${resource.kind}`}></span>
     <span hidden data-pagefind-filter={`status:${resource.status}`} data-pagefind-meta={`status:${resource.status}`}></span>

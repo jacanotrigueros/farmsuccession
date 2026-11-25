@@ -3,9 +3,9 @@
  * The same shell on every page: the wordmark, one explicit control for where you are, and the way in to
  * searching.
  *
- * The territory control is a `<details>`, which the browser opens and closes on its own — no script, and
- * it still works with none. The flag beside each name is a file of this site's own, because the emoji it
- * used to be is a pair of letters on any system without a glyph for the pair, which is most of them.
+ * The territory control is a `<details>`, which the browser opens and closes on its own, so
+ * it works without JavaScript. Escape closes it and restores focus when the enhancement is available.
+ * The locally hosted flags also render on systems without flag emoji.
  *
  * The search button leads to the search page of the territory the reader is on: written in the same
  * language as the page they came from, and complete before anything is typed.
@@ -121,6 +121,8 @@ const here = places.filter((place) => current.startsWith(place.href)).toSorted((
     </a>
   </div>
 </header>
+
+{europe && <script is:inline type="module" src="/territory-picker.js"></script>}
 
 <style>
   summary::-webkit-details-marker {

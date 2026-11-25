@@ -72,6 +72,30 @@ export function applyKey(call, status, today) {
   return undefined;
 }
 
+/** The same evidence accompanies a documented period on its record and in search results.
+ * @param {import("../../src/types/edition.ts").Resource} resource
+ */
+export function documentedPeriods(resource) {
+  return (resource.calls ?? []).map((call) => {
+    const checked = resource.sources.find(({ url }) => url === call.sourceUrl)?.consultedOn;
+    if (!checked) throw new Error(`${resource.id}: the application period "${call.name}" has no consulted source`);
+    return { call, checked };
+  });
+}
+
+/**
+ * @param {{ call: { name: string, state: string, opens?: string, closes?: string }, checked: string }[]} periods
+ * @param {string} today
+ */
+export function rankedPeriods(periods, today) {
+  return periods
+    .flatMap((period) => {
+      const key = applyKey(period.call, "", today);
+      return key ? [{ ...period, key }] : [];
+    })
+    .toSorted((a, b) => APPLY_RANK[a.key] - APPLY_RANK[b.key]);
+}
+
 /** The reader's own calendar day, which is what the documented dates are compared against. */
 export function localToday(now = new Date()) {
   /** @param {number} number */

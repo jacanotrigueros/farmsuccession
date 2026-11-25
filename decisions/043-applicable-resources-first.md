@@ -44,15 +44,13 @@ that says when each of those pages last changed materially?
    An official link ending in `.pdf` identifies that format. Conditions on
    published amounts can use the existing figure label, which travels with the
    amount and its citation.
-5. The sitemap leaves out `lastmod` until a page-level material date can be
-   established. Canonical and robots signals still determine inclusion, as in
-   [028](028-a-page-may-ask-not-to-be-indexed.md).
+   The sitemap is scheduled for review after 10 December 2026, using a material
+   modification date per page.
 
 ## What it costs
 
 A territory with inherited records only relies on the scoped search for kind
 filtering. A record with lengthy access instructions has a longer header.
-Crawlers receive the list of canonical destinations without a freshness hint.
 
 ## What would overturn it
 
