@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "PT",
   "region": "regiao-autonoma-dos-acores",
+  "metaTitle": "Açores: apoios à instalação de jovens agricultores",
+  "metaDescription": "Conheça a intervenção regional E.7.1 para jovens agricultores que se instalam pela primeira vez e os três períodos de candidatura açorianos de 2026.",
   "officialName": "Região Autónoma dos Açores",
-  "published": "2026-10-30",
+  "published": "2026-11-25",
   "summary": "Os Açores dispõem da intervenção regional E.7.1 para primeira instalação de jovens agricultores; os três períodos de candidatura de 2026 estão encerrados. O RICTA apoia a compra de terras agrícolas através de crédito com spread reduzido, e existe ainda um regime histórico de cessação orientado à transferência para cessionários.",
   "coverage": {
     "status": "PARTIAL",
@@ -41,9 +43,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "pt",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -66,6 +65,8 @@
     {
       "id": "acores-e71-instalacao-jovens-agricultores",
       "name": "E.7.1 — Apoio à instalação de jovens agricultores",
+      "metaTitle": "Apoio à instalação de jovens agricultores — Açores",
+      "metaDescription": "Conheça o prémio PEPAC Açores E.7.1 para a primeira instalação de jovens agricultores e consulte os avisos dos três períodos de candidatura de 2026.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -105,6 +106,18 @@
       "accessCostType": "NOT_APPLICABLE",
       "languages": ["pt"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "E.7.1",
+          "sourceUrl": "https://www.gpp.pt/index.php/pepac/pepac-candidaturas"
+        },
+        {
+          "resourceId": "pt-premio-instalacao-jovens",
+          "named": "E.7.1",
+          "sourceUrl": "https://diariodarepublica.pt/dr/detalhe/portaria/137-2025-992475352"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.gpp.pt/index.php/pepac/pepac-candidaturas",
@@ -114,21 +127,88 @@
             "E.7.1 - Apoio à instalação de jovens agricultores",
             "3º Concurso AG PEPAC Açores/AVISO 02/E.7.1/2026 (28 de abril a 3 de julho de 2026)",
             "A submissão de candidaturas deve ser efetuada no GestPDR."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.gpp.pt/index.php/pepac/pepac-legislacao-nacional-intervencoes-de-apoio",
           "title": "PEPAC | Legislação Nacional — Intervenções de apoio",
           "consultedOn": "2026-09-28",
-          "quotes": ["E7 - Apoio à Instalação de Jovens Agricultores", "Portaria n.º 137/2025 de 23 de dezembro de 2025"]
+          "quotes": ["E7 - Apoio à Instalação de Jovens Agricultores", "Portaria n.º 137/2025 de 23 de dezembro de 2025"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://diariodarepublica.pt/dr/detalhe/portaria/137-2025-992475352",
+          "title": "Portaria n.º 137/2025 — Diário da República",
+          "consultedOn": "2026-11-25",
+          "quotes": ["intervenção E.7.1 - Apoio à instalação de jovens agricultores"]
+        },
+        {
+          "url": "https://jovemagricultor.azores.gov.pt/contactos.aspx",
+          "title": "Contactos – Jovem Agricultor (Governo dos Açores)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["JovemAgricultor@azores.gov.pt"]
+        },
+        {
+          "url": "https://portal.azores.gov.pt/documents/37730/0/137-I-Portaria-2025-12-23.pdf/77af3c43-20f6-8884-ac24-d362f06116eb?t=1767778814652",
+          "title": "Portaria n.º 137/2025, de 23 de dezembro (Jornal Oficial dos Açores)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "O montante do prémio é de 55 000,00€ para o jovem agricultor que se instale como ATP e 15 000,00€ quando não se instale como ATP."
+          ]
         }
       ],
       "notes": "A intervenção permanece vigente no quadro PEPAC, mas não há período de candidatura E.7.1 aberto em 28 de setembro de 2026 na página oficial consultada.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "interventionCodes": [
+        {
+          "code": "E.7.1",
+          "sourceUrl": "https://www.gpp.pt/index.php/pepac/pepac-candidaturas"
+        }
+      ],
+      "legalBasis": [
+        {
+          "title": "Portaria n.º 137/2025 de 23 de dezembro de 2025",
+          "sourceUrl": "https://www.gpp.pt/index.php/pepac/pepac-legislacao-nacional-intervencoes-de-apoio"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Portal do Jovem Agricultor — Açores",
+          "value": "JovemAgricultor@azores.gov.pt",
+          "sourceUrl": "https://jovemagricultor.azores.gov.pt/contactos.aspx"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "Prémio à instalação sem regime de ATP",
+          "value": 15000,
+          "unit": "EUR",
+          "asOf": "2025-12-23",
+          "sourceUrl": "https://portal.azores.gov.pt/documents/37730/0/137-I-Portaria-2025-12-23.pdf/77af3c43-20f6-8884-ac24-d362f06116eb?t=1767778814652"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Prémio à instalação em regime de ATP",
+          "value": 55000,
+          "unit": "EUR",
+          "asOf": "2025-12-23",
+          "sourceUrl": "https://portal.azores.gov.pt/documents/37730/0/137-I-Portaria-2025-12-23.pdf/77af3c43-20f6-8884-ac24-d362f06116eb?t=1767778814652"
+        }
+      ]
     },
     {
       "id": "acores-cessacao-atividade-agricola",
       "name": "Regime de cessação da atividade agrícola dos Açores",
+      "metaDescription": "Conheça o regime açoriano de cessação definitiva para produtores que pretendam deixar a atividade e os requisitos para quem recebe as terras.",
       "kind": "SUCCESSION_SERVICE",
       "status": "HISTORICAL",
       "scope": {
@@ -142,6 +222,12 @@
       "accessUrl": "https://diariodarepublica.pt/dr/detalhe/decreto-legislativo-regional/14-2020-136600051",
       "languages": ["pt"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://diariodarepublica.pt/dr/detalhe/decreto-legislativo-regional/14-2020-136600051"
+        }
+      ],
       "sources": [
         {
           "url": "https://diariodarepublica.pt/dr/detalhe/decreto-legislativo-regional/14-2020-136600051",
@@ -151,15 +237,35 @@
             "Favorecer a substituição de agricultores idosos por jovens agricultores",
             "«Cedente», o agricultor, pessoa singular, que cessa definitivamente toda a atividade agrícola",
             "«Cessionário», o ATP, pessoa singular ou coletiva, que toma, total ou parcialmente, as terras libertadas pelo cedente"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://www.iroa.pt/contatos/",
+          "title": "Contatos – IROA",
+          "consultedOn": "2026-11-25",
+          "quotes": ["E-mail: iroa.sa@azores.gov.pt"]
         }
       ],
       "notes": "A legislação continua consultável e o regime é diretamente relevante para relevo/transmissão, mas nesta revisão não foi localizada uma janela de candidatura posterior às prorrogações do ciclo anterior; por isso é publicado como «Histórico».",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Instituto Regional de Ordenamento Agrário",
+          "value": "iroa.sa@azores.gov.pt",
+          "sourceUrl": "https://www.iroa.pt/contatos/"
+        }
+      ]
     },
     {
       "id": "acores-ricta-compra-terras",
       "name": "RICTA — Regime de Incentivos à Compra de Terras Agrícolas",
+      "metaTitle": "RICTA: compra de terras agrícolas nos Açores",
+      "metaDescription": "Conheça o crédito para comprar terras agrícolas nos Açores, o spread de 1,5% dos protocolos de 2026 e como confirmar junto do IROA o procedimento.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -176,6 +282,12 @@
       "languages": ["pt"],
       "targetProfiles": ["LAND_SEEKER"],
       "lastEvidenceDate": "2026-07-03",
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.iroa.pt/2026/07/03/ricta_compra-de-terras-agricolas-nos-acores-com-custos-reduzidos-apos-corte-de-50-no-spread/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.iroa.pt/2026/07/03/ricta_compra-de-terras-agricolas-nos-acores-com-custos-reduzidos-apos-corte-de-50-no-spread/",
@@ -187,11 +299,40 @@
             "o spread recuou para os 1,5%, metade dos 3% que eram praticados até agora.",
             "Até ao momento, este regime e o SICATE já permitiram aprovar 490 processos, num total de mais de 2.578 hectares de terreno apoiados.",
             "trabalho de proximidade e acompanhamento técnico junto dos profissionais do setor"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://jovemagricultor.azores.gov.pt/noticia.aspx?f=14&t=3&i=25",
+          "title": "RICTA – Regime de Incentivo à Compra de Terras Agrícolas (Governo dos Açores)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Agricultores, pessoas singulares ou colectivas, que preencham os requisitos previstos no diploma, incluindo Jovens agricultores, entre 18 e 40 anos de idade, que promovam uma ação de emparcelamento.",
+            "iroa.sa@azores.gov.pt"
           ]
         }
       ],
       "notes": "A página de 2026 demonstra protocolos renovados e execução do regime, mas não publica uma janela, um formulário ou as condições completas de elegibilidade. Não se acrescentam limites nem preferência por jovens; o operador deve confirmar o percurso atual.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "whoCanUseIt": "Agricultores, pessoas singulares ou coletivas, que cumpram os requisitos do diploma, incluindo jovens agricultores de 18 a 40 anos que promovam uma ação de emparcelamento.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "IROA, SA",
+          "value": "iroa.sa@azores.gov.pt",
+          "sourceUrl": "https://jovemagricultor.azores.gov.pt/noticia.aspx?f=14&t=3&i=25"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Concurso",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.iroa.pt/2026/07/03/ricta_compra-de-terras-agricolas-nos-acores-com-custos-reduzidos-apos-corte-de-50-no-spread/"
+        }
+      ]
     }
   ],
   "news": [],

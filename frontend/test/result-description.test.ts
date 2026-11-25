@@ -42,3 +42,20 @@ test("missing summary metadata does not silently bring back the browsing excerpt
     "an absent summary must stay absent rather than repeating unrelated index text",
   );
 });
+
+test("a record in another language than the page shows what it offers, even for a typed query", () => {
+  const english = {
+    meta: { summary: "Toolkit for young farmers.", language: "en" },
+    excerpt: "Joven <mark>agricultor/a</mark> · Unión Europea",
+  };
+  assert.deepEqual(
+    resultDescription(english, "joven agricultor", "es"),
+    { format: "text", value: "Toolkit for young farmers." },
+    "a Spanish reader who matched an English record through translated labels must see its summary, not the label list",
+  );
+  assert.deepEqual(
+    resultDescription(english, "young farmers", "en"),
+    { format: "html", value: english.excerpt },
+    "a record in the page's own language keeps the excerpt that shows where the words matched",
+  );
+});

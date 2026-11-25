@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "NL",
+  "region": "zuid-holland",
+  "metaTitle": "Zuid-Holland: bedrijfsopvolging en toegang tot grond",
+  "metaDescription": "Het overzicht over bedrijfsopvolging en toegang tot grond in Zuid-Holland is in opbouw. Het aanbod van de provincie wordt nog onderzocht.",
+  "officialName": "Zuid-Holland",
+  "published": "2026-11-25",
+  "summary": "Het overzicht voor Zuid-Holland is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Zuid-Holland gelden.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.zuid-holland.nl/onderwerpen/ruimte/grondzaken/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.zuid-holland.nl/online-regelen/meldingen-verzoeken/pacht-landbouwgronden-belangstellingsregistratie/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.zuid-holland.nl/publish/pages/36143/spelregels_pacht_6_.pdf"
+      }
+    ]
+  },
+  "metadata": {
+    "language": "nl",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5-5",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "zuid-holland-pachten-van-grond",
+      "name": "Pachten van grond",
+      "metaDescription": "Lees hoe Zuid-Holland provinciale pachtgrond verdeelt, waar de spelregels en scoretabel staan en waar de provincie een volgende inschrijving aankondigt.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Zuid-Holland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Provinciale gronden die voor kortere of langere tijd worden verpacht. Bij meerdere belangstellenden wordt de pachtgrond toegewezen aan de belangstellende met het hoogste aantal punten volgens de scoretabel.",
+      "howToAccess": "Maak ieder jaar opnieuw je belangstelling kenbaar, ook als je al provinciale grond pacht of eerder hebt gepacht. Op dit moment is registratie niet mogelijk; de provincie meldt op deze pagina wanneer de belangstellingsregistratie weer opengaat. De pagina verwijst naar de spelregels pacht en de scoretabel.",
+      "accessUrl": "https://www.zuid-holland.nl/onderwerpen/ruimte/grondzaken/",
+      "assetTypes": ["PLOTS"],
+      "targetProfiles": ["LAND_SEEKER"],
+      "calls": [
+        {
+          "name": "Belangstellingsregistratie",
+          "state": "CLOSED",
+          "sourceUrl": "https://www.zuid-holland.nl/onderwerpen/ruimte/grondzaken/"
+        }
+      ],
+      "notes": "Naast de algemene spelregels gelden aanvullende voorwaarden voor gronden met een natuurdoelstelling, akkerbouwpercelen, graslandpercelen en specifieke gebieden met maatwerkafspraken.",
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.zuid-holland.nl/onderwerpen/ruimte/grondzaken/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.zuid-holland.nl/onderwerpen/ruimte/grondzaken/",
+          "title": "Grondzaken | Provincie Zuid-Holland",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "De provincie heeft een aantal gronden in eigendom die voor kortere of langere tijd worden verpacht.",
+            "Als er meerdere belangstellenden zijn voor de pachtgrond, wijzen wij de grond toe aan de belangstellende met het hoogste aantal punten.",
+            "Zowel de ‘spelregels pacht’ als de scoretabel vind je aan de rechterkant op deze pagina.",
+            "Heb je belangstelling voor het pachten van grond? Dan is het belangrijk dat je ieder jaar je interesse aan ons kenbaar maakt, ook als je nu grond van ons pacht of dit in het verleden hebt gedaan.",
+            "Let op: op dit moment is het niet mogelijk om je interesse kenbaar te maken voor het pachten van grond.",
+            "Zodra de belangstellingsregistratie weer open is, lees je dat op deze webpagina.",
+            "Let op: naast de ‘spelregels pacht’ zijn er aanvullende voorwaarden voor gronden met een natuurdoelstelling, bijvoorbeeld omdat ze deel uitmaken van het Natuurnetwerk Nederland (NNN) of vanwege de bescherming van weide- en akkervogels.",
+            "Dit geldt ook voor akkerbouwpercelen, graslandpercelen en specifieke gebieden waarvoor maatwerkafspraken zijn gemaakt.",
+            "Wil je meer weten over het pachten van provinciale gronden? Mail dan naar beheergrondzaken@pzh.nl."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Beheer grondzaken provincie Zuid-Holland",
+          "value": "beheergrondzaken@pzh.nl",
+          "sourceUrl": "https://www.zuid-holland.nl/onderwerpen/ruimte/grondzaken/"
+        }
+      ]
+    },
+    {
+      "id": "zuid-holland-pacht-landbouwgronden",
+      "name": "Pacht landbouwgronden, belangstellingsregistratie",
+      "metaTitle": "Pacht landbouwgronden in Zuid-Holland: inschrijving",
+      "metaDescription": "Bekijk de voorwaarden voor tijdelijke pachtgrond in Zuid-Holland en hoe je belangstelling registreert met eHerkenning. De ronde voor 2027 is gesloten.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Zuid-Holland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Belangstellingsregistratie voor provinciale landbouwpercelen die geliberaliseerd worden verpacht. De pacht is vrijwel altijd tijdelijk; binnen een gebiedsproces kan een langere pachtduur mogelijk zijn.",
+      "whoCanUseIt": "Belangstellenden voor pachtpercelen. Voor akkerbouwpercelen moeten agrariërs ten minste één Planet Proof certificaat hebben of SKAL gecertificeerd zijn. Voor grasland gelden toewijzingscriteria voor onder meer duurzaamheid, weidegang en afstand tot het perceel.",
+      "howToAccess": "De inschrijving voor pachtgronden 2027 is gesloten. Belangstelling doorgeven kan uitsluitend via een e-formulier met E-herkenning 2+. De pagina verwijst naar de Spelregels Pacht en de scoretabel voor de voorwaarden en rangschikking. Voor gronden binnen het NNN in de Krimpenerwaard moet je je aanmelden bij het Natuurbeheercollectief.",
+      "accessUrl": "https://www.zuid-holland.nl/online-regelen/meldingen-verzoeken/pacht-landbouwgronden-belangstellingsregistratie/",
+      "assetTypes": ["PLOTS"],
+      "calls": [
+        {
+          "name": "Belangstellingsregistratie pacht 2027",
+          "state": "CLOSED",
+          "opens": "2026-05-15",
+          "closes": "2026-08-15",
+          "sourceUrl": "https://www.zuid-holland.nl/online-regelen/meldingen-verzoeken/pacht-landbouwgronden-belangstellingsregistratie/"
+        }
+      ],
+      "lastEvidenceDate": "2026-08-17",
+      "sources": [
+        {
+          "url": "https://www.zuid-holland.nl/online-regelen/meldingen-verzoeken/pacht-landbouwgronden-belangstellingsregistratie/",
+          "title": "Pacht landbouwgronden, belangstellingsregistratie | Provincie Zuid-Holland",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "De provincie heeft een aantal percelen in eigendom, die geliberaliseerd worden verpacht.",
+            "In het kader van een gebiedsproces kunnen de percelen ook voor een langere tijd worden gepacht.",
+            "Het pachten van percelen is vrijwel altijd tijdelijk.",
+            "De belangstellingsregistratie voor deze percelen was mogelijk van 15 mei 2026 tot en met 15 augustus 2026.",
+            "In het laatste kwartaal van 2026 zal GS de pachtprijzen voor het pachtjaar 2027 vaststellen.",
+            "Het is helaas niet meer mogelijk om uw belangstelling kenbaar te maken voor de pachtgronden 2027.",
+            "Je kunt alleen via een e-formulier je belangstelling kenbaar maken.",
+            "Je dient hiervoor in het bezit te zijn van E-herkenning 2+.",
+            "Voor agrariërs die in aanmerking wensen te komen voor akkerbouwpercelen geldt dat zij in het bezit moeten zijn van tenminste één Planet Proof certificaat of dat zij SKAL gecertificeerd zijn.",
+            "Het hebben van specifieke certificaten op het gebied van duurzaamheid; Toepassen weidegang; De afstand tot het pachtperceel vanaf de bedrijfslocatie;",
+            "In de spelregels Pacht staan de algemene voorwaarden en algemene toewijzingscriteria die de provincie stelt bij het verpachten van de percelen",
+            "De inschrijvingen worden beoordeeld op basis van een scoretabel, zie de Scoretabel Pachtuitgifte 2027.",
+            "Voor gronden binnen het NNN moet je je aanmelden bij het Natuurbeheercollectief.",
+            "In het kader van het gebiedsproces in de Krimpenerwaard heeft de provincie haar pachtgronden binnen het Natuur Netwerk Nederland (NNN) uitgegeven aan het Natuurbeheercollectief Krimpenerwaard.",
+            "Uitvoerende instantie Provincie Zuid-Holland",
+            "Bijgewerkt 17 augustus 2026",
+            "Voor meer informatie en vragen, mail ons via beheergrondzaken@pzh.nl onder vermelding van belangstellingsregistratie pacht 2027."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Beheer grondzaken provincie Zuid-Holland",
+          "value": "beheergrondzaken@pzh.nl",
+          "sourceUrl": "https://www.zuid-holland.nl/online-regelen/meldingen-verzoeken/pacht-landbouwgronden-belangstellingsregistratie/"
+        }
+      ]
+    },
+    {
+      "id": "zuid-holland-pachtuitgifte",
+      "name": "Spelregels pachtuitgifte",
+      "metaDescription": "Lees de spelregels voor tijdelijke pacht van provinciale landbouwgrond in Zuid-Holland, met eisen aan registratie, teelt en gebruik van de grond.",
+      "kind": "LAND_BANK",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Provincie Zuid-Holland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Tijdelijke uitgifte van provinciale agrarische gronden in geliberaliseerde pacht, via een belangstellingsregistratie en verdeling onder belangstellenden. Er kunnen beperkende voorwaarden gelden voor natuur, teelt en gewasbescherming.",
+      "whoCanUseIt": "Agrariërs met landbouw als hoofdberoep die voldoen aan de provinciale criteria. Zij moeten zich registreren, eerdere pachtverplichtingen zijn nagekomen en de toepasselijke teelt- en gebruiksvoorwaarden accepteren.",
+      "howToAccess": "Volgens de spelregels verloopt de belangstellingsregistratie via een e-formulier op de provinciale website, na aankondiging op die website en in regionale bladen. Inschrijven op een specifiek perceel is niet mogelijk. Het document bevestigt geen actuele inschrijvingsperiode.",
+      "accessUrl": "https://www.zuid-holland.nl/publish/pages/36143/spelregels_pacht_6_.pdf",
+      "assetTypes": ["PLOTS"],
+      "notes": "Bedrijven binnen vijf kilometer van het perceel krijgen voorrang, daarna bedrijven binnen twaalf kilometer. De provincie geeft in beginsel niet meer dan 50% van de huidige bedrijfsomvang aan dezelfde pachter uit; voor zelfrealisatoren gelden uitzonderingen. Eerder pachten geeft geen zekerheid op pacht in het volgende jaar.",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.zuid-holland.nl/publish/pages/36143/spelregels_pacht_6_.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.zuid-holland.nl/publish/pages/36143/spelregels_pacht_6_.pdf",
+          "title": "Spelregels pachtuitgifte",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Bijlage 3 bij de Uitvoeringsnota Grondbeleid Provincie Zuid-Holland",
+            "In de tussentijd worden deze agrarische gronden, voor zover niet al ingericht, in geliberaliseerde pacht uitgegeven.",
+            "Het level playing field (open speelveld) biedt in principe aan iedere agrariër met een hoofdberoep in de landbouw (conform artikel 7:311 en 7:312 BW) de gelegenheid om voor pacht in aanmerking te komen.",
+            "zich als belangstellende ingeschreven bij de provincie Zuid-Holland middels het e-formulier op de website van de provincie Zuid-Holland;",
+            "accepteert, indien van toepassing, het teeltplan voor bouwland opgesteld door de provincie;",
+            "De belangstellende komt niet in aanmerking voor pacht indien hij/zij verplichtingen uit voorgaande jaren, zoals opgenomen in de pachtovereenkomst, niet is nagekomen.",
+            "accepteert de beperkende maatregelen op het gebied van gewasbeschermingsmiddelen en bestrijdingsmiddelen;",
+            "accepteert, voor zover van toepassing, de beperkende (natuur)voorwaarden voor pacht;",
+            "Deze wordt bovendien in de regionale bladen aangekondigd.",
+            "er kan niet op een specifiek perceel worden ingeschreven",
+            "Daarom gaan bedrijven, waarvan de bedrijfsgebouwen binnen een straal van vijf kilometer van het te verpachten perceel zijn gelegen voor op andere bedrijven.",
+            "Vervolgens wordt een tweede cirkel toegepast waarbij bedrijven binnen een straal van twaalf kilometer voor gaan op andere bedrijven buiten deze straal.",
+            "Om dit toetsbaar te maken, geeft de provincie niet meer dan 50% van de huidige bedrijfsomvang in geliberaliseerde pacht uit aan dezelfde pachter.",
+            "Uitzondering zijn de afspraken met de zelfrealisatoren;",
+            "Voor belangstellenden die al meerdere jaren gronden hebben gepacht, mag het geen vanzelfsprekendheid zijn het volgende jaar weer te kunnen pachten."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "zuid-holland-boerenperspectief",
+      "name": "BoerenPerspectief Zuid-Holland",
+      "metaDescription": "Agrariërs in Zuid-Holland krijgen gratis begeleiding bij toekomstvragen zoals bedrijfsovername. Lees hoe je contact opneemt en waar je je aanmeldt.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "BoerenNatuur Zuid-Holland en LTO Noord",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Kosteloze onafhankelijke procesbegeleiding bij zakelijke en persoonlijke toekomstvragen, waaronder bedrijfsovername en samenwerking binnen de familie. Je wordt gekoppeld aan een begeleider met een passend specialisme. Indien nodig kan de dienst je tijdens of na het traject doorverwijzen naar een specialist uit het eigen netwerk.",
+      "whoCanUseIt": "Agrariërs met zakelijke of persoonlijke vragen over de toekomst van hun bedrijf.",
+      "howToAccess": "Neem vrijblijvend contact op via het contactformulier op de pagina, telefonisch of per e-mail. Voor deelname verwijst de pagina naar het Aanmeldformulier BoerenPerspectief Zuid-Holland.",
+      "accessUrl": "https://www.boerenperspectiefzuidholland.nl/wie-zijn-wij/",
+      "accessCostType": "FREE",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "BoerenPerspectief Zuid-Holland",
+          "value": "088-8886640",
+          "sourceUrl": "https://www.boerenperspectiefzuidholland.nl/wie-zijn-wij/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "BoerenPerspectief Zuid-Holland",
+          "value": "zuidholland@boerenperspectief.nl",
+          "sourceUrl": "https://www.boerenperspectiefzuidholland.nl/wie-zijn-wij/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.boerenperspectiefzuidholland.nl/wie-zijn-wij/",
+          "title": "Wie zijn wij - BoerenPerspectief Zuid Holland",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "BoerenPerspectief Zuid-Holland is een initiatief en samenwerkingsverband van BoerenNatuur Zuid-Holland (de provinciale koepelorganisatie van de agrarische collectieven in Zuid-Holland) en LTO Noord.",
+            "Kosteloze begeleiding door onafhankelijke procesbegeleiders",
+            "Welke vraagstukken houden je bezig op zakelijk of persoonlijk vlak?",
+            "Dankzij financiering van LVVN kunnen agrariërs onafhankelijke sociaal-economische begeleiding krijgen om strategische keuzes voor hun toekomst te maken.",
+            "Je wordt gekoppeld aan degene met het specialisme wat past bij jouw vraagstuk.",
+            "Bedrijfsovername en samenwerking binnen de familie;",
+            "Mocht je situatie daarom vragen, dan koppelen we je desgewenst tijdens of na het BoerenPerspectief-traject aan een specialist uit ons brede netwerk die jou weer een stapje verder kan brengen.",
+            "Meld je nu aan voor BoerenPerspectief Zuid-Holland!",
+            "Neem vrijblijvend contact met ons op 088-8886640 zuidholland@boerenperspectief.nl",
+            "Wil je je aanmelden als deelnemer? Dat kan via het Aanmeldformulier BoerenPerspectief Zuid-Holland",
+            "Door het contactformulier of aanmeldformulier te gebruiken ga je akkoord met de verwerking van je persoonsgegevens volgens onze privacyverklaring"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    }
+  ],
+  "news": [],
+  "limitations": []
+}

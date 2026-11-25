@@ -56,6 +56,7 @@ test("a page ships JavaScript only for what it actually carries", () => {
     if (html.includes('class="apply')) allowed.add("/apply.js");
     if (html.includes("data-filter")) allowed.add("/filter.js");
     if (html.includes("data-report")) allowed.add("/report.js");
+    if (html.includes("data-sortable")) allowed.add("/sort.js");
 
     for (const [, src] of html.matchAll(/<script[^>]*\ssrc="([^"]+)"/giu)) {
       assert.ok(
@@ -149,6 +150,9 @@ test("every link inside the site reaches a page the build produced", () => {
   }
 });
 
+/** Exclude editorial cross-references from Europe to the country's own records. */
+const withoutCounterparts = (html: string): string => html.replace(/<p\b[^>]*data-counterpart[^>]*>[\s\S]*?<\/p>/gu, "");
+
 /**
  * A country's page is the stable, indexable entrance to everything documented below it. Search pages can
  * narrow the same corpus, but they deliberately ask not to be indexed, so they cannot be the only place
@@ -171,9 +175,10 @@ test("a country page links every one of its records by name", () => {
       .replaceAll(/<[^>]*>/gu, " ")
       .replaceAll(/\s+/gu, " ")
       .trim();
-    const link = [...country.html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === address);
+    const listing = withoutCounterparts(country.html);
+    const link = [...listing.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === address);
     assert.ok(link, `${country.file} does not link ${address}`);
-    const copies = [...country.html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].filter(([, href]) => href === address);
+    const copies = [...listing.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)].filter(([, href]) => href === address);
     assert.equal(copies.length, 1, `${country.file} repeats ${address} in competing lists`);
     const linkedName = (link[2] ?? "")
       .replaceAll(/<[^>]*>/gu, " ")
@@ -197,84 +202,131 @@ test("country entry pages expose the same unique record destinations as their co
       .filter((href) => recordAddresses.has(href))
       .toSorted();
   for (const iso of Object.keys(catalogueJurisdictions)) {
+    // Europe's page lists only what applies at EU level; its search covers every country, so the two
+    // are not meant to match (founder, 16 Nov 2026).
+    if (iso === "EU") continue;
     const country = pages.find(({ file }) => file === path.join(iso.toLowerCase(), "index.html"));
     if (!country) continue;
     const search = pages.find(({ file }) => file === path.join(searchPath("/", iso).slice(1), "index.html"));
     assert.ok(search, `${iso}: missing complete national search fallback`);
-    const actual = listedRecords(country.html);
+    const actual = listedRecords(withoutCounterparts(country.html));
     assert.equal(actual.length, new Set(actual).size, `${iso}: a resource destination is repeated`);
     assert.deepEqual(actual, listedRecords(search.html), `${iso}: progressive disclosure lost or widened the country's records`);
   }
 });
 
 /**
- * About, method, privacy and the former project's history remain one step from each home page. They are
- * not repeated below every record: doing so makes project documentation the strongest destination in a
- * directory whose records are the destination.
+ * Every page shares the same footer. A page deep in the catalogue must offer the same
+ * project, method, privacy and history destinations as an entry page, in its own language.
  */
-test("project navigation is confined to home and country entry pages", () => {
-  let entryPages = 0;
-  let otherPages = 0;
+test("the complete, localized footer is shared by every built page", () => {
+  let checked = 0;
   for (const { file, html } of pages) {
     const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0];
     assert.ok(footer, `${file} has no footer`);
     const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const first = file.split(path.sep)[0] ?? "";
-    const inCountry = /^[a-z]{2}$/u.test(first);
-    const isCountry = inCountry && file === path.join(first, "index.html");
-    const isEntry = file === "index.html" || isCountry;
-    const root = inCountry ? `/${first}/` : "/";
+    // Europe's page (/eu/) is no country: its footer links are the site's own.
+    const root = /^[a-z]{2}$/u.test(first) && first !== "eu" ? `/${first}/` : "/";
     const about = `${root}${words(language).aboutSlug}/`;
     const history = `${root}${words(language).historySlug}/`;
-
-    if (isEntry) {
-      assert.ok(footer.includes(`href="${about}"`), `${file} does not lead to its project page`);
-      assert.ok(footer.includes(`href="${history}"`), `${file} does not lead to its history page`);
-      entryPages += 1;
-    } else {
-      assert.ok(!footer.includes(`href="${about}`), `${file} repeats project navigation in its footer`);
-      assert.ok(!footer.includes(`href="${history}`), `${file} repeats history navigation in its footer`);
-      otherPages += 1;
+    for (const target of [about, history, `${about}#method`, `${about}#privacy`]) {
+      assert.ok(footer.includes(`href="${target}"`), `${file}: footer omits ${target}`);
     }
+    checked++;
   }
-  assert.equal(entryPages, Object.keys(catalogueJurisdictions).length, "the European and every country entry page were not all checked");
-  assert.ok(otherPages > 400, "too few non-entry pages were checked for a site-wide footer rule");
+  assert.ok(checked > 400, "too few built pages checked for footer consistency");
 });
 
 /**
- * The home page counts the drafts rather than warning about one file, because it is about all of them;
- * every page about a single territory or record carries the warning itself. Either way the claim has to
- * follow the data, which is the one thing a reader cannot check for themselves.
+ * A record never tells a reader it awaits a person's review: that reads as an unfinished product and says
+ * nothing about the evidence (founder, 24 Nov 2026). What it says instead, on each source, is the last day
+ * every quote was found again on the official page.
  */
-test("a page says what has not been reviewed, and the count follows the data", () => {
+test("a record shows its plan code and the act it rests on, labelled in the page's language", () => {
+  const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
+    .toSorted()
+    .toReversed();
+  const files = readdirSync(path.join(REPOSITORY, "data", "editions", editions[0]!), { recursive: true, encoding: "utf8" })
+    .filter((file) => file.endsWith(".json"))
+    .map(
+      (file) =>
+        JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", editions[0]!, file), "utf8")) as {
+          metadata: { language: string };
+          resources: Array<{ id: string; interventionCodes?: Array<{ code: string }>; legalBasis?: Array<{ title: string }> }>;
+        },
+    );
+  const find = (field: "interventionCodes" | "legalBasis") => {
+    for (const file of files) {
+      const record = file.resources.find((resource) => resource[field]);
+      if (record) return { record, language: file.metadata.language };
+    }
+    assert.fail(`no record carries ${field}, so nothing shows that the page renders it`);
+  };
+  const pageOf = (id: string) => {
+    const page = pages.find(({ file }) => file.split(path.sep).includes(id));
+    assert.ok(page, `no page was built for ${id}`);
+    return decodeHTML(page.html);
+  };
+  const coded = find("interventionCodes");
+  const codedHtml = pageOf(coded.record.id);
+  assert.ok(codedHtml.includes(words(coded.language).planCodeRow), `${coded.record.id}: the plan code has no label in ${coded.language}`);
+  assert.ok(codedHtml.includes(coded.record.interventionCodes![0]!.code), `${coded.record.id}: its plan code is not on its page`);
+  const based = find("legalBasis");
+  const basedHtml = pageOf(based.record.id);
+  assert.ok(basedHtml.includes(words(based.language).legalBasisRow), `${based.record.id}: the legal basis has no label`);
+  assert.ok(basedHtml.includes(based.record.legalBasis![0]!.title), `${based.record.id}: the act it rests on is not on its page`);
+});
+
+test("a measure and the records that apply it link to each other, so neither page stands alone", () => {
+  const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
+    .toSorted()
+    .toReversed();
+  const links = readdirSync(path.join(REPOSITORY, "data", "editions", editions[0]!), { recursive: true, encoding: "utf8" })
+    .filter((file) => file.endsWith(".json"))
+    .flatMap((file) => {
+      const data = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", editions[0]!, file), "utf8")) as {
+        resources: Array<{ id: string; implements?: Array<{ resourceId: string }> }>;
+      };
+      return data.resources.flatMap(({ id, implements: applied }) => (applied ?? []).map(({ resourceId }) => ({ id, resourceId })));
+    });
+  assert.ok(links.length > 0, "no record applies a higher measure, so nothing shows that the pages render the link");
+  const pageOf = (id: string): string => {
+    const page = pages.find(({ file }) => file.split(path.sep).includes(id));
+    assert.ok(page, `no page was built for ${id}`);
+    return page.html;
+  };
+  for (const { id, resourceId } of links) {
+    assert.match(pageOf(id), new RegExp(`href="[^"]*/${resourceId}/"`, "u"), `${id} does not link the measure it applies, ${resourceId}`);
+    const applied = pageOf(resourceId).split('id="applied"')[1];
+    assert.ok(applied, `${resourceId} has no list of the records that apply it`);
+    assert.match(applied, new RegExp(`href="[^"]*/${id}/"`, "u"), `${resourceId} does not list ${id}, which applies it`);
+  }
+});
+
+test("a record says when each source was verified, and never that it awaits review", () => {
   const editions = readdirSync(path.join(REPOSITORY, "data", "editions"))
     .toSorted()
     .toReversed();
   const edition = editions[0];
   assert.ok(edition, "no edition to render");
+  for (const { file, html } of pages) {
+    assert.ok(!html.includes('data-review="pending"'), `${file}: a page still says a review is pending`);
+  }
 
-  const files = (function walk(dir: string): { review: { status: string } }[] {
-    return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) return walk(full);
-      return entry.name.endsWith(".json") ? [JSON.parse(readFileSync(full, "utf8")) as { review: { status: string } }] : [];
-    });
-  })(path.join(REPOSITORY, "data", "editions", edition));
-  const drafts = files.filter(({ review }) => review.status === "DRAFT").length;
-
-  const home = pages.find(({ file }) => file === "index.html");
-  assert.ok(home, "no home page was built");
-  const said = /All (\d+) of its files are drafts|(\d+) of its (\d+) files are drafts/u.exec(home.html);
-  assert.ok(said, "the home page does not say how much of the edition nobody has checked yet");
-  const counted = Number(said[1] ?? said[2]);
-  assert.equal(counted, drafts, `the home page says ${counted} drafts and the edition has ${drafts}`);
-
-  const eu = pages.find(({ file }) => file === path.join("resources", "eu-cap-network-generational-renewal", "index.html"));
-  assert.ok(eu, "no European record page was built");
+  const austria = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", edition, "countries", "at.json"), "utf8")) as {
+    resources: Array<{ id: string; sources: Array<{ verification?: { checkedOn: string; method: string } }> }>;
+  };
+  const record = austria.resources.find(({ sources }) => sources.some(({ verification }) => verification));
+  assert.ok(record, "no Austrian record has a verified source to render");
+  const page = pages.find(({ file }) => file === path.join("at", "angebote", record.id, "index.html"));
+  assert.ok(page, `no page was built for ${record.id}`);
+  const checked = record.sources.find(({ verification }) => verification)!.verification!;
   assert.ok(
-    eu.html.includes(words("en").draftNotice),
-    "a record page of a draft file does not carry the warning, which is the first thing its reader is owed",
+    page.html.includes(`<time datetime="${checked.checkedOn}" data-verified="${checked.method}"`),
+    "a verified source does not show the day its quotes were found again",
   );
+  assert.ok(page.html.includes(words("de").sourceCheckedOn), "the verification date is not labelled as a check");
 });
 
 /**
@@ -338,9 +390,14 @@ test("a page declares the language its text is actually written in", () => {
  * What a reader who mistyped an address gets, and what a crawler is told. Both are easy to leave out —
  * nothing on the site links to either — and both are how somebody arrives at all.
  */
-test("the page for an address that does not exist speaks every language of the site", () => {
+test("the illustrated 404 gives clear recovery actions and localized country links", () => {
   const notFound = pages.find(({ file }) => file === "404.html");
   assert.ok(notFound, "the build produced no 404 page: an unknown address would answer with nothing at all");
+
+  assert.match(notFound.html, /src="\/img\/404-wayfinding\.webp"/u, "404 illustration missing");
+  assert.match(notFound.html, /href="\/search\/"/u, "404 lacks a direct route to search");
+  assert.match(notFound.html, /href="\/"/u, "404 lacks a route to the home page");
+  assert.doesNotMatch(notFound.html, /data-search/u, "404 must not carry a second search form or client index");
 
   // This file is served for every address that does not exist, so it is the one page with no address of
   // its own. Requested directly it answers 200, which is what static hosting can do; what it must not do
@@ -367,10 +424,7 @@ test("the page for an address that does not exist speaks every language of the s
       new RegExp(`href="/${iso.toLowerCase()}/"`, "u"),
       `the 404 page offers no way back into ${iso}, so a reader lost under /${iso.toLowerCase()}/ is sent to another country`,
     );
-    assert.ok(
-      notFound.html.includes(words(lang).notFoundText),
-      `the 404 page does not say what happened in ${lang}. One file answers every unknown address on a site written in six languages, so it says it in all of them.`,
-    );
+    assert.ok(notFound.html.includes(`${words(lang).startHere}:`), `the 404 page offers no localized way back for ${lang}`);
   }
 });
 
@@ -538,24 +592,125 @@ test("every page names the site where a result reads it, and the home page names
  * it. It says what the page is about now, in the page's own language.
  */
 test("a territory page says in its title what the page is about", () => {
-  // A territory is a country page, or a page under that country's own segment for territories, and
-  // nothing else: /de/ and /de/regionen/bayern/ are territories, /de/geschichte/ is a page of the site.
+  // A territory is Europe's page or a page under a country's own segment for territories, and nothing
+  // else: /de/regionen/bayern/ is a territory, /de/geschichte/ is a page of the site. A country page may
+  // carry its own search title in its data, so territory-presentation.test.ts checks it against that.
   const territories = pages.filter(({ file }) => {
+    if (file === path.join("eu", "index.html")) return true;
     const parts = file.split(path.sep);
     const iso = parts[0] ?? "";
-    if (!/^[a-z]{2}$/u.test(iso)) return false;
-    return parts.length === 2 || parts[1] === regionSlug(iso.toUpperCase());
+    return /^[a-z]{2}$/u.test(iso) && parts[1] === regionSlug(iso.toUpperCase());
   });
   assert.ok(territories.length > 0, "no territory page was built: this check would pass without checking anything");
 
+  // A region or hub may carry a search title of its own, written from how people there search for it
+  // ("Ayudas, tierras y formación agraria en Andalucía"); that title is its subject.
+  const ownTitles = new Set(
+    readdirSync(path.join(REPOSITORY, "data", "editions"), { recursive: true, encoding: "utf8" })
+      .filter((file) => /(regions|hubs)[\\/].+\.json$/u.test(file))
+      .map(
+        (file) => (JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", file), "utf8")) as { metaTitle?: string }).metaTitle,
+      )
+      .filter((title): title is string => title !== undefined),
+  );
+  assert.ok(ownTitles.size > 0, "no region carries its own search title: that path is not exercised");
   for (const { file, html } of territories) {
     const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const title = /<title>([^<]*)<\/title>/u.exec(html)?.[1] ?? "";
-    const about = words(language).territoryTitle.replace("{where}", "").trim();
+    if (ownTitles.has(decodeHTML(title))) continue;
+    // Europe's page has a search title of its own, which names the subject in full.
+    const about =
+      file === path.join("eu", "index.html") ? words(language).euMetaTitle : words(language).territoryTitle.replace("{where}", "").trim();
     assert.ok(
       title.includes(about),
       `${file} is titled "${title}", which is a name and not a subject. A reader meets this in a search result before they meet the page.`,
     );
+  }
+});
+
+/**
+ * Country pages are about different countries, not translations of one another, so they carry no
+ * alternates between them (decision recorded in CLAUDE.md). Each still says in its structured data which
+ * language it is written in, and its breadcrumb trail is the path a reader takes: from the overview of
+ * every country, not from inside Europe's page.
+ */
+test("a country page states its own language and is reached from the overview of every country", () => {
+  const countries = pages.filter(({ file }) => /^[a-z]{2}$/u.test(file.split(path.sep)[0] ?? "") && file.split(path.sep).length === 2);
+  assert.ok(countries.length > 0, "no country page was built: this check would pass without checking anything");
+  for (const { file, html } of countries) {
+    if (file === path.join("eu", "index.html")) continue;
+    const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const data = [...html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/gu)].map(([, json]) => JSON.parse(json!));
+    assert.ok(
+      data.some((item) => item["@type"] === "WebPage" && item.inLanguage === language),
+      `${file} does not state its language as a WebPage, so a search engine has only the text to guess from`,
+    );
+    const trail = data.find((item) => item["@type"] === "BreadcrumbList");
+    assert.equal(
+      trail?.itemListElement?.[0]?.item,
+      "https://farmsuccession.eu/",
+      `${file} starts its trail somewhere other than the overview of every country`,
+    );
+    assert.ok(!html.includes('hreflang="'), `${file} declares language alternates, but a country page translates no other page`);
+  }
+});
+
+/**
+ * A European measure is applied by each country in its own way, so a European record leads on to every
+ * country page; and a record's trail is the path a reader takes, which passes through Europe's page only
+ * when the record is European (founder, 17 Nov 2026).
+ */
+test("a European record leads to every country, and only a European record's trail passes through Europe", () => {
+  const trailOf = (html: string): string[] => {
+    const data = [...html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/gu)].map(([, json]) => JSON.parse(json!));
+    return (data.find((item) => item["@type"] === "BreadcrumbList")?.itemListElement ?? []).map((item: { item: string }) => item.item);
+  };
+  const countryPages = pages
+    .filter(({ file }) => /^[a-z]{2}[\/]index\.html$/u.test(file) && !file.startsWith("eu"))
+    .map(({ file }) => `/${file.split(/[\/]/u)[0]}/`);
+  const european = pages.filter(({ file }) => file.startsWith(`resources${path.sep}`));
+  assert.ok(european.length > 0 && countryPages.length > 0, "no European record or country page was built");
+  for (const { file, html } of european) {
+    for (const country of countryPages) {
+      assert.ok(html.includes(`href="${country}"`), `${file} does not lead to ${country}, where the country applies the measure`);
+    }
+    assert.deepEqual(
+      trailOf(html).slice(0, 2),
+      ["https://farmsuccession.eu/", "https://farmsuccession.eu/eu/"],
+      `${file}: a European record's trail must pass through Europe's page`,
+    );
+  }
+  const national = pages.filter(
+    ({ file, html }) => /^[a-z]{2}[\/][^\/]+[\/][^\/]+[\/]index\.html$/u.test(file) && trailOf(html).length > 2,
+  );
+  assert.ok(national.length > 0, "no national record page was checked");
+  for (const { file, html } of national) {
+    assert.ok(
+      !trailOf(html).includes("https://farmsuccession.eu/eu/"),
+      `${file}: a national record's trail passes through Europe's page, which a reader did not take`,
+    );
+  }
+});
+
+/**
+ * A European record is English and applies everywhere, so its kind, audience and "European Union" are given
+ * to the search index in every language the site writes, as an attribute nothing on the page displays.
+ * A national record is already written in its readers' language and carries none.
+ */
+test("a European record can be searched for in every language, through the site's own vocabulary only", () => {
+  const european = pages.filter(({ file }) => file.startsWith(`resources${path.sep}`));
+  assert.ok(european.length > 0, "no European record page was built");
+  for (const { file, html } of european) {
+    const terms = /data-pagefind-index-attrs="data-terms" data-terms="([^"]*)"/u.exec(html)?.[1];
+    assert.ok(terms, `${file} gives the search no words in other languages, so a Spanish or Dutch reader finds it only by luck`);
+    for (const language of ["en", "es", "de", "fr", "it", "pt", "nl"]) {
+      assert.ok(terms.includes(words(language).euName), `${file}: the search terms leave out ${language}`);
+    }
+  }
+  const national = pages.filter(({ file, html }) => /^[a-z]{2}[\/]/u.test(file) && html.includes("data-pagefind-body"));
+  assert.ok(national.length > 0, "no national record page was built");
+  for (const { file, html } of national) {
+    assert.ok(!html.includes("data-terms="), `${file} is written in its readers' language and needs no translated terms`);
   }
 });
 
@@ -618,7 +773,11 @@ test("a record is never listed without saying which layer it comes from", () => 
         // The records of this territory hang from the heading that names it — "the whole country" on a
         // country, the territory's name below one — and the ones that reach it from a wider layer hang
         // from a heading naming that layer, one level further down.
-        const own = says(text.ownRecords).test(heading.text) || heading.text.startsWith(flat(text.wholeCountryTitle));
+        // Europe's page names its layer in "Understand the EU framework".
+        const own =
+          says(text.ownRecords).test(heading.text) ||
+          heading.text.startsWith(flat(text.wholeCountryTitle)) ||
+          heading.text.startsWith(flat(text.euFrameworkTitle));
         group = own ? heading.text : "";
         if (group) grouped += 1;
       }
@@ -846,5 +1005,143 @@ test("every record prioritises actionable feedback with its context and retains 
     }
   }
   assert.ok(checked > 100, `only ${checked} records asked the question; every record page should`);
-  assert.equal(byLanguage.size, 6, "the question was not checked in all six languages");
+  assert.equal(byLanguage.size, 7, "the question was not checked in all seven languages: Dutch records joined the six on 20 Nov 2026");
+});
+
+test("every page links its scoped licence notice and every evidence block warns about third-party rights", () => {
+  for (const { file, html } of pages) {
+    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const text = words(language);
+    const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0] ?? "";
+    assert.ok(footer.includes(text.licence), `${file}: missing scoped licence notice`);
+    const first = file.split(path.sep)[0] ?? "";
+    // Europe's page (/eu/) is no country: its footer links are the site's own.
+    const root = /^[a-z]{2}$/u.test(first) && first !== "eu" ? `/${first}/` : "/";
+    assert.ok(footer.includes(`href="${root}${text.aboutSlug}/#licence"`), `${file}: cannot inspect reuse conditions`);
+    if (html.includes("<blockquote")) {
+      assert.ok(html.includes(text.sourceRights), `${file}: quotations have no adjacent third-party rights notice`);
+    }
+  }
+});
+
+/**
+ * Short entry-point explanations may use more width than running prose, and a search whose
+ * index is still loading must not look like a small dialog stranded at the left edge.
+ */
+test("search fallback and primary controls are sized for the full content area", () => {
+  const html = pages.find(({ file }) => file === path.join("search", "index.html"))?.html ?? "";
+  assert.ok(html, "Europe search page was not built");
+  const fallback = /<aside\b[^>]*data-search-fallback[^>]*>/u.exec(html)?.[0] ?? "";
+  assert.match(fallback, /\bw-full\b/u, "search initial state is constrained to a narrow column");
+  assert.doesNotMatch(fallback, /max-w-3xl/u);
+  const form = /<div\b[^>]*data-field[^>]*>/u.exec(html)?.[0] ?? "";
+  assert.match(form, /\bw-full\b/u, "loaded query controls must also use the available width");
+});
+
+test("on-page navigation wraps onto more lines instead of scrolling sideways, and is not pill buttons", () => {
+  const html = pages.find(({ file }) => file === path.join("es", "index.html"))?.html ?? "";
+  assert.ok(html, "Spanish country page was not built");
+  const nav =
+    [...html.matchAll(/<nav\b[^>]*data-pagefind-ignore[^>]*>[\s\S]*?<\/nav>/gu)]
+      .map(([markup]) => markup)
+      .find((markup) => markup.includes(`aria-label="${words("es").onThisPage}"`)) ?? "";
+  assert.ok(nav, "the Spanish country page has no on-page navigation");
+  // A sideways strip hides every link past the edge of a phone, with nothing to say they are there;
+  // the audience is older readers with little digital practice, so every link must stay visible.
+  assert.match(nav, /\bflex-wrap\b/u, "section navigation must wrap so every link is visible on a phone");
+  assert.doesNotMatch(nav, /overflow-x-(?:auto|scroll)/u, "section navigation must never scroll sideways");
+  assert.doesNotMatch(nav, /rounded-full/u, "section navigation must not become a second button menu");
+});
+
+// Reuse the same recognizable symbols as resource cards, rendered inline with no image fetch.
+test("practical needs retain descriptive icons from the shared resource vocabulary", () => {
+  const home = pages.find(({ file }) => file === "index.html")?.html ?? "";
+  assert.ok(home, "Europe home page was not built");
+  // The project's own two-tone set (src/icons/farm), one drawing per concept.
+  for (const name of ["handover", "land", "funding", "training", "advice"]) {
+    assert.ok(home.includes(`data-icon="farm/${name}"`), `the ${name} entry has no descriptive icon`);
+  }
+  assert.doesNotMatch(home, /src="\/img\/needs\//u, "retired illustrations must not be fetched");
+});
+
+/**
+ * A list of countries read in one language names them in that language: "Germany" on the English home
+ * page, not "Deutschland" next to English words, which a reader has to translate before they can choose
+ * (founder, 17 Nov 2026). The place picker adds each country's own name on a quieter line, marked with
+ * its language, because somebody looking for their own country recognises it first.
+ */
+test("country lists name each country in the page's language", () => {
+  const home = pages.find(({ file }) => file === "index.html");
+  assert.ok(home, "the home page was not built");
+  const html = decodeHTML(home.html);
+  const start = html.indexOf("territory-options");
+  const picker = html.slice(start, html.indexOf("</ul>", start));
+  const cards = html.slice(html.lastIndexOf("grid gap-4 sm:grid-cols-2 lg:grid-cols-4"));
+  const english = new Intl.DisplayNames(["en"], { type: "region" });
+  const published = Object.entries(catalogueJurisdictions as Record<string, { name: string; lang: string }>).filter(
+    ([iso]) => iso !== "EU" && cards.includes(`href="/${iso.toLowerCase()}/"`),
+  );
+  assert.ok(published.length > 0, "no country card on the home page: this check would pass without checking anything");
+  for (const [iso, { name, lang }] of published) {
+    const label = english.of(iso)!;
+    assert.ok(cards.includes(`>${label}<`), `${iso}: the home page's country card should read "${label}"`);
+    assert.ok(picker.includes(label), `${iso}: the place picker should name "${label}"`);
+    if (name === label) continue;
+    assert.ok(!cards.includes(`>${name}<`), `${iso}: the English card shows "${name}", a name in another language`);
+    assert.match(
+      picker,
+      new RegExp(`lang="${lang}"[^>]*>\\s*${name}\\s*<`, "u"),
+      `${iso}: the picker should add "${name}" marked lang="${lang}"`,
+    );
+  }
+});
+
+/**
+ * A territory page's description is what a result shows of it. Its summary is written for the page and ran
+ * to 456 characters in France, so a result cut it mid-sentence; it now ends inside what a result shows.
+ */
+test("a territory page's description ends inside what a search result shows", () => {
+  const territories = pages.filter(({ file }) => {
+    const parts = file.split(path.sep);
+    const iso = parts[0] ?? "";
+    return /^[a-z]{2}$/u.test(iso) && (parts.length === 2 || parts[1] === regionSlug(iso.toUpperCase()));
+  });
+  assert.ok(territories.length > 100, `only ${territories.length} territory pages were checked`);
+  for (const { file, html } of territories) {
+    const description = decodeHTML(/<meta name="description" content="([^"]*)"/u.exec(html)?.[1] ?? "");
+    assert.ok(description.length > 0, `${file} has no description`);
+    assert.ok(description.length <= 160, `${file}: the description runs to ${description.length} characters, past what a result shows`);
+  }
+});
+
+/**
+ * French readers name a département by its number — `safer 29`, `rdi 22`, `commission des structures 59` —
+ * and no French page carried one. The numbers come from the territory catalogue (Insee), and a record of a
+ * whole region or of one département now shows them where search reads them.
+ */
+test("a region's search title fits a result once the site name is set aside", () => {
+  // The site name trails every built title and may be cut; what comes before it is the part a reader
+  // reads. Six French regions without a title of their own reached 104 characters of it.
+  const long = readdirSync(DIST, { recursive: true, encoding: "utf8" })
+    .filter((file) => /(^|\/)(regions|regiones|regioni|regionen|regioes|provincies)\/[^/]+\/index\.html$/u.test(file.replaceAll("\\", "/")))
+    .map(
+      (file) =>
+        [
+          file,
+          decodeHTML(/<title>([^<]*)<\/title>/u.exec(readFileSync(path.join(DIST, file), "utf8"))?.[1] ?? "").replace(
+            / · FarmSuccession$/u,
+            "",
+          ),
+        ] as const,
+    )
+    .filter(([, title]) => title.length > 60);
+  assert.deepEqual(long.slice(0, 3), [], `${long.length} region title(s) run past 60 characters before the site name`);
+});
+
+test("a French record and region page show the département numbers readers type", () => {
+  const page = (route: string): string => readFileSync(path.join(DIST, route, "index.html"), "utf8");
+  const region = page(path.join("fr", "regions", "bretagne"));
+  assert.match(region, /<title>[^<]*\(22, 29, 35, 56\)/u, "the Bretagne page does not carry its département numbers in its title");
+  const regional = decodeHTML(page(path.join("fr", "ressources", "bretagne-safer-bretagne")));
+  assert.ok(regional.includes("(22, 29, 35, 56)"), "the Safer Bretagne record does not show the numbers of the départements it covers");
 });

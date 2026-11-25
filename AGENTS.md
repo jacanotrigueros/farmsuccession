@@ -38,8 +38,9 @@ keep the placeholder that stood in for its contents.
 `data/editions/2026` and `research/` hold the real data: the European layer; Spain,
 with its three groupings of several regions and its 28 regional territories; Germany,
 with its 16 Länder; France, with its 18 régions; Italy, with its 19 regions and two
-autonomous provinces; and Portugal, with its 9, each territory with one research brief.
-The catalogue carries the EU layer and those five countries, and nothing else. The two halves of that have to agree: a file whose
+autonomous provinces; Portugal, with its 9; Austria, with its 9 Länder; and the
+Netherlands, with its 12 provinces, each territory with one research brief.
+The catalogue carries the EU layer and those seven countries, and nothing else. The two halves of that have to agree: a file whose
 country the catalogue does not define is an error rather than a file waiting for its
 country, and a country the catalogue defines with no file of its own is the same
 mistake the other way round. `test/territories.test.ts` compares the two instead of
@@ -132,7 +133,7 @@ The rules, which are requirements rather than preferences:
 - **Sizes are a constraint**: 17px body, nothing functional under 16px, metadata never
   under 15px, anything tappable at least 44px, and the page works at 320px wide. The
   readers are farmers, often older, often on a phone.
-- **No imagery beyond one illustration in the home hero.** The schema has no image
+- **Illustrations are limited to the home hero and the 404 recovery page.** The schema has no image
   field; operator emblems are protected marks; a grid that is mostly placeholder reads
   as broken. Every asset is first-party and committed, and `image.domains` and
   `image.remotePatterns` stay empty — which is also what keeps the one open advisory in
@@ -150,7 +151,7 @@ Three data schemas are settled: `territories.schema.json` (the catalogue),
 `config/` and carries no version, because nothing publishes it.
 
 `data/territories.json` is the catalogue, keyed by ISO code plus `EU`. It
-carries the EU layer and five countries: a country is added with its data, never ahead
+carries the EU layer and seven countries: a country is added with its data, never ahead
 of it. `src/layers.ts` is the one implementation of the territorial tree —
 anything that needs to know what a page shows asks it, so a reader and a
 validator cannot disagree. `src/territories.ts` loads the catalogue and also

@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "FR",
   "region": "bourgogne-franche-comte",
+  "metaTitle": "Installation agricole en Bourgogne-Franche-Comté",
+  "metaDescription": "Préparez une installation ou une reprise en Bourgogne-Franche-Comté : retrouvez la DJA, la formation à la reprise, la Safer et Terre de Liens.",
   "officialName": "Bourgogne-Franche-Comté",
-  "published": "2026-10-25",
+  "published": "2026-11-25",
   "summary": "Bourgogne-Franche-Comté combine une DJA régionale revalorisée en 2026, un programme de formation permettant de tester une reprise agricole hors cadre familial, la Safer régionale pour le foncier et la transmission, et Terre de Liens Bourgogne-Franche-Comté pour l'accès à la terre et l'accompagnement installation-transmission.",
   "coverage": {
     "status": "PARTIAL",
@@ -37,9 +39,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -55,6 +54,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -62,6 +68,7 @@
     {
       "id": "bourgogne-franche-comte-dja",
       "name": "Dotation jeunes agriculteurs (DJA) Bourgogne-Franche-Comté",
+      "metaDescription": "La DJA aide à une première installation en Bourgogne-Franche-Comté. La fiche présente le montant de base de 65 000 € annoncé par la Région en 2026.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -96,6 +103,13 @@
           "sourceUrl": "https://www.bourgognefranchecomte.fr/index.php/la-region-muscle-la-dotation-jeunes-agriculteurs-pour-attirer-une-nouvelle-generation"
         }
       ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "75.01",
+          "sourceUrl": "https://www.bourgognefranchecomte.fr/node/4207"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bourgognefranchecomte.fr/node/4207",
@@ -105,8 +119,13 @@
             "La dotation Jeunes Agriculteurs a pour objectif de soutenir l'installation de jeunes agriculteurs",
             "être âgé de 20 ans minimum et strictement moins de 41 ans",
             "La dotation jeune agriculteur permet de soutenir les installations comme chef d’exploitation.",
-            "Date(s) limite(s) de dépôt 5 décembre 2025"
-          ]
+            "Date(s) limite(s) de dépôt 5 décembre 2025",
+            "Cet appel à projets est proposé au titre de l’intervention 75.01 du Plan Stratégique National français en Bourgogne-Franche-Comté."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.bourgognefranchecomte.fr/index.php/la-region-muscle-la-dotation-jeunes-agriculteurs-pour-attirer-une-nouvelle-generation",
@@ -116,14 +135,43 @@
             "Mardi 30 juin 2026",
             "La Région a donc décidé de relever la DJA de 45 000 à 65 000 euros",
             "avec un plafond pouvant atteindre 72 000 euros selon les situations."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.europe-bfc.eu/nos-aides/dotation-jeunes-agriculteurs-2026",
+          "title": "Dotation Jeunes Agriculteurs 2026 | Europe en Bourgogne-Franche-Comté",
+          "consultedOn": "2026-11-25",
+          "quotes": ["16 novembre 2026 au 03 décembre 2026.", "feader.dja@bourgognefranchecomte.fr"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "calls": [
+        {
+          "name": "Dotation Jeunes Agriculteurs 2026",
+          "state": "OPEN",
+          "opens": "2026-11-16",
+          "closes": "2026-12-03",
+          "sourceUrl": "https://www.europe-bfc.eu/nos-aides/dotation-jeunes-agriculteurs-2026"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Région Bourgogne-Franche-Comté – service instructeur DJA",
+          "value": "feader.dja@bourgognefranchecomte.fr",
+          "sourceUrl": "https://www.europe-bfc.eu/nos-aides/dotation-jeunes-agriculteurs-2026"
+        }
+      ]
     },
     {
       "id": "bourgogne-franche-comte-formation-reprise-exploitation",
-      "name": "Programme de formation à la reprise des exploitations agricoles",
+      "name": "Formation à la création-reprise d’entreprise - programme régional de formation",
+      "metaTitle": "Formation création-reprise — Bourgogne-Franche-Comté",
+      "metaDescription": "Testez votre projet de création ou de reprise hors cadre familial en conditions réelles pendant 3 à 12 mois, avec le programme régional de formation.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -131,13 +179,19 @@
       },
       "operator": "Région Bourgogne-Franche-Comté",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Permet à un créateur ou repreneur hors cadre familial de tester son projet en situation réelle pendant 3 à 12 mois, tout en bénéficiant d'un accompagnement individuel et collectif et du statut de stagiaire de la formation professionnelle.",
-      "whoCanUseIt": "Porteurs d'un projet de création ou reprise d'une exploitation agricole hors cadre familial, âgés de moins de 50 ans pour l'agriculture, avec priorité aux moins de 40 ans.",
+      "whatItOffers": "Permet à un créateur ou repreneur hors cadre familial de tester son projet en situation réelle pendant 3 à 12 mois non renouvelables, tout en bénéficiant d'un accompagnement individuel et collectif et du statut de stagiaire de la formation professionnelle. Les stagiaires peuvent bénéficier d’une rémunération conformément au code du travail et au règlement d’intervention régional.",
+      "whoCanUseIt": "Porteurs d'un projet de création ou reprise d'une exploitation agricole hors cadre familial, âgés de moins de 50 ans pour l'agriculture, avec priorité aux moins de 40 ans. Le hors cadre familial désigne une installation sur une exploitation indépendante de celle d’un parent du candidat ou de son conjoint lié par un pacs ou un mariage, jusqu’au troisième degré, collatéraux inclus.",
       "howToAccess": "Consulter la fiche régionale, contacter la Chambre d'agriculture Bourgogne-Franche-Comté et déposer un dossier via le portail de subventions indiqué sur la fiche.",
       "accessUrl": "https://www.bourgognefranchecomte.fr/node/1901",
       "trainingFormats": ["IN_PERSON"],
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.bourgognefranchecomte.fr/node/1901"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bourgognefranchecomte.fr/node/1901",
@@ -149,14 +203,38 @@
             "Durée du stage : stage de 3 mois minimum et de 12 mois maximum non renouvelable.",
             "Déposer un dossier",
             "le public visé est celui des candidats hors cadre familial* de moins de 50 ans avec une priorité pour les publics âgés de moins de 40 ans"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.bourgognefranchecomte.fr/node/391",
+          "title": "Formation à la création-reprise d’entreprise - programme régional de formation | Région Bourgogne-Franche-Comté",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Formation à la création-reprise d’entreprise - programme régional de formation",
+            "permettant au créateur/repreneur de tester son projet en situation réelle tout en bénéficiant d’un accompagnement individuel et collectif.",
+            "Pour les entreprises agricoles, le public visé est celui des candidats hors cadre familial* de moins de 50 ans avec une priorité pour les publics âgés de moins de 40 ans.",
+            "Le statut des bénéficiaires de ce dispositif est celui de stagiaire de la formation professionnelle.",
+            "Les stagiaires peuvent bénéficier de la rémunération conformément au code du travail (Articles L6341-1 à L6341-12 et R6341-1 à R6342-4 ; les taux et les montants des rémunérations versées aux stagiaires de formation professionnelle sont fixés par décret) et au règlement d’intervention régionale n°44.21.",
+            "*l’installation hors cadre familial s’entend comme l’installation sur une exploitation agricole indépendante de l’exploitation d’un parent (ou d’un parent du conjoint lié par un pacs ou un mariage) jusqu’au 3ème degré, collatéraux inclus.",
+            "Durée du stage : stage de 3 mois minimum et de 12 mois maximum non renouvelable."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "bourgogne-franche-comte-safer-bfc",
       "name": "Safer Bourgogne-Franche-Comté",
+      "metaTitle": "Safer Bourgogne-Franche-Comté",
+      "metaDescription": "Accédez aux annonces légales de la Safer BFC, par exemple en Saône-et-Loire (71), dans le Doubs (25) et le Jura (39), et retrouvez ses conseillers.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -179,30 +257,58 @@
           "quotes": [
             "Installation, transmission, consolidation",
             "La Safer Bourgogne-Franche-Comté vous accompagne dans la réalisation de tous vos projets.",
-            "Consulter les dernières annonces légales publiées par la Safer BFC."
-          ]
+            "Consulter les dernières annonces légales publiées par la Safer BFC.",
+            "safer@saferbfc.com"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.saferbfc.com/nous-contacter/",
           "title": "Nous contacter - Safer Bourgogne-Franche-Comté",
-          "consultedOn": "2026-10-25",
+          "consultedOn": "2026-11-19",
           "quotes": [
-            "Côte-d'Or (21) · Doubs (25) et Territoire de Belfort (90) · Jura (39) · Nièvre (58) · Haute-Saône (70) · Saône-et-Loire (71) · Yonne (89)"
-          ]
+            "Côte-d’Or (21)",
+            "Doubs (25) et Territoire de Belfort (90)",
+            "Jura (39) 16 Chemin de Rougemont",
+            "Nièvre (58)",
+            "Haute-Saône (70)",
+            "Saône-et-Loire (71)",
+            "Yonne (89)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.saferbfc.com/changement-de-presidence-a-la-safer-bourgogne-franche-comte/",
           "title": "Changement de présidence à la Safer Bourgogne-Franche-Comté",
           "consultedOn": "2026-10-25",
-          "quotes": ["fusion des Safer Bourgogne et Franche-Comté"]
+          "quotes": ["fusion des Safer Bourgogne et Franche-Comté"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1",
-      "notes": "La Safer Bourgogne-Franche-Comté intervient en Côte-d’Or (21), dans le Doubs (25), le Jura (39), la Nièvre (58), la Haute-Saône (70), la Saône-et-Loire (71), l’Yonne (89) et le Territoire de Belfort (90). Elle est issue de la fusion des Safer Bourgogne et Franche-Comté."
+      "notes": "La Safer Bourgogne-Franche-Comté intervient en Côte-d’Or (21), dans le Doubs (25), le Jura (39), la Nièvre (58), la Haute-Saône (70), la Saône-et-Loire (71), l’Yonne (89) et le Territoire de Belfort (90). Elle est issue de la fusion des Safer Bourgogne et Franche-Comté.",
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Safer Bourgogne-Franche-Comté",
+          "value": "safer@saferbfc.com",
+          "sourceUrl": "https://www.saferbfc.com/"
+        }
+      ]
     },
     {
       "id": "bourgogne-franche-comte-terre-de-liens",
       "name": "Terre de Liens Bourgogne-Franche-Comté",
+      "metaDescription": "Terre de Liens protège les terres agricoles et accompagne les projets d’installation en bio en Bourgogne-Franche-Comté. Découvrez son action régionale.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -210,25 +316,124 @@
       },
       "operator": "Terre de Liens Bourgogne-Franche-Comté",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Accompagnement sur l'accès à la terre, l'installation et la transmission, avec recherche de foncier, annonces Objectif Terres, accueil de porteurs de projet et de cédants et mise en relation.",
+      "whatItOffers": "Terre de Liens préserve des terres agricoles en Bourgogne-Franche-Comté et favorise l’installation de paysans et de paysannes en agriculture biologique. La page régionale donne accès à des annonces foncières et à des informations sur la transmission de fermes.",
       "whoCanUseIt": "Porteurs de projet agricole, personnes recherchant du foncier, paysans souhaitant transmettre ou céder des terres et propriétaires.",
-      "howToAccess": "Utiliser les parcours « Devenir paysan·ne », « Transmettre des terres » ou le contact territorial depuis la page Bourgogne-Franche-Comté de Terre de Liens.",
+      "howToAccess": "Consulter les annonces et les informations sur la transmission depuis la page Bourgogne-Franche-Comté de Terre de Liens, ou contacter l’association régionale.",
       "accessUrl": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/",
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR", "SUCCESSOR", "LANDOWNER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/",
           "title": "Terre de Liens Bourgogne-Franche-Comté",
-          "consultedOn": "2026-09-30",
+          "consultedOn": "2026-11-24",
           "quotes": [
-            "faciliter l’installation de paysans et de paysannes",
-            "M'installer grâce à Terre de Liens Bourgogne-Franche-Comté",
-            "Transmettre des terres Préparer la transmission, confier des terres"
-          ]
+            "favoriser l’installation de paysans et de paysannes en agriculture biologique",
+            "Les petites annonces d'Objectif Terres",
+            "Transmettre sa ferme, c'est possible !"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/contact/",
+          "title": "CONTACT — Terre de Liens",
+          "consultedOn": "2026-11-25",
+          "quotes": ["bfc@terredeliens.org"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Terre de Liens Bourgogne-Franche-Comté",
+          "value": "bfc@terredeliens.org",
+          "sourceUrl": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/contact/"
+        }
+      ]
+    },
+    {
+      "id": "bourgogne-franche-comte-portail-aides-nouveaux-agriculteurs",
+      "name": "Les aides en faveur des nouveaux agriculteurs",
+      "metaTitle": "Aides aux nouveaux agriculteurs — Bourgogne-Franche-Comté",
+      "metaDescription": "Les candidats à l’installation peuvent consulter les aides régionales, dont la DJA, et retrouver les dispositifs qui correspondent à leur parcours.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Bourgogne - Franche-Comté",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Rubrique officielle donnant accès aux pages consacrées à la Dotation des Jeunes Agriculteurs (DJA), aux dispositifs de l’aide à l’Installation et à la Transmission (AITA) et aux autres aides. Elle distingue le soutien financier à la première installation du soutien aux structures accompagnant les porteurs de projets.",
+      "howToAccess": "Choisir dans la rubrique l’entrée « La Dotation des Jeunes Agriculteurs (DJA) », « Les dispositifs de l’aide à l’Installation et à la Transmission : AITA » ou « Autres aides ».",
+      "accessUrl": "https://draaf.bourgogne-franche-comte.agriculture.gouv.fr/les-aides-en-faveur-des-nouveaux-agriculteurs-r782.html",
+      "sources": [
+        {
+          "url": "https://draaf.bourgogne-franche-comte.agriculture.gouv.fr/les-aides-en-faveur-des-nouveaux-agriculteurs-r782.html",
+          "title": "Les aides en faveur des nouveaux agriculteurs | DRAAF Bourgogne - Franche-Comté",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "DRAAF Bourgogne - Franche-Comté",
+            "Les aides en faveur des nouveaux agriculteurs",
+            "Les aides en faveur de l’installation visent pour une part à soutenir financièrement les nouveaux agriculteurs pour leur première installation (Aide DJA) et d’autre part à promouvoir l’installation et la transmission par le soutien aux structures permettant l’accompagnement de tous les porteurs de projets (Aide AITA).",
+            "La Dotation des Jeunes Agriculteurs (DJA)",
+            "Les dispositifs de l’aide à l’Installation et à la Transmission : AITA",
+            "Autres aides"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "bourgogne-franche-comte-sites-utiles-installation-transmission",
+      "name": "Sites utiles",
+      "metaTitle": "Contacts et sites d’installation — Bourgogne-Franche-Comté",
+      "metaDescription": "Retrouvez les contacts des Points Accueil Installation, le Répertoire Départ Installation et les sites utiles aux candidats et aux futurs cédants.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRAAF Bourgogne - Franche-Comté",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Liste de sites consacrés à l’installation et à la transmission : accès aux contacts des PAI en Bourgogne-Franche-Comté, au répertoire Départ Installation, à des organismes d’accompagnement, aux espaces-test agricoles et aux ressources régionales de la PAC.",
+      "howToAccess": "Suivre les liens de l’annuaire ; l’entrée « Site BFC des PAI » permet de trouver les contacts des PAI en Bourgogne-Franche-Comté.",
+      "accessUrl": "https://draaf.bourgogne-franche-comte.agriculture.gouv.fr/sites-utiles-a3319.html",
+      "lastEvidenceDate": "2025-01-23",
+      "sources": [
+        {
+          "url": "https://draaf.bourgogne-franche-comte.agriculture.gouv.fr/sites-utiles-a3319.html",
+          "title": "Sites utiles | DRAAF Bourgogne - Franche-Comté",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "DRAAF Bourgogne - Franche-Comté",
+            "Publié le 23/01/2025",
+            "Liste non exhaustive des sites internet en rapport avec l’Installation et la Transmission.",
+            "permet d’avoir les contacts des PAI en Bourgogne-Franche-Comté",
+            "Le répertoire Départ Installation : https://www.repertoireinstallation.com/",
+            "ARDEAR : https://www.agriculturepaysanne.org/ARDEAR-Bourgogne-Franche-Comte",
+            "Espace test Agricole : https://reneta.fr/Les-membres-du-RENETA",
+            "Euro pac tutoriel : https://www.europe-bfc.eu/ressources/euro-pac-tutoriels"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

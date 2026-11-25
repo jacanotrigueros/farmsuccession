@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "ES",
   "region": "gipuzkoa",
+  "metaTitle": "Gaztenek y acceso a tierras agrarias en Gipuzkoa",
+  "metaDescription": "Consulta Gaztenek para la primera instalación, GILUR para tierras y explotaciones privadas y Lur Funtsa para acceder a fincas de titularidad pública.",
   "officialName": "Gipuzkoa",
-  "published": "2026-09-28",
+  "published": "2026-11-25",
   "summary": "Gipuzkoa combina GazteNek para primera instalación, dos vías públicas de acceso a tierra —GILUR para oferta y demanda privada y Lur Funtsa para suelo agrario público— y el programa Baserritar Misto Profesional para incorporaciones agrarias compatibles con empleo por cuenta ajena. Además hereda de la capa del País Vasco la Oficina de Intermediación para el Relevo Generacional Agrario.",
   "coverage": {
     "status": "PARTIAL",
@@ -49,9 +51,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -67,13 +66,22 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
   "resources": [
     {
       "id": "gipuzkoa-gaztenek-establecimiento-jovenes",
-      "name": "Ayudas GazteNek al establecimiento de personas jóvenes agricultoras en Gipuzkoa",
+      "name": "Ayudas a la creación de empresas por jóvenes agricultores y agricultoras (GAZTENEK)",
+      "metaTitle": "Gaztenek: ayudas a jóvenes agricultores en Gipuzkoa",
+      "metaDescription": "Gaztenek acompaña la primera instalación de jóvenes en Gipuzkoa y evalúa el plan de empresa. La ayuda de 2026, ya cerrada, alcanzaba 70.000 euros.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -120,15 +128,45 @@
             "Acreditar la capacitación y competencia profesional de 200 horas",
             "en la Oficina Comarcal Agraria correspondiente a la ubicación de la explotación agraria.",
             "La ayuda se concederá en forma de prima única, siendo el importe máximo de 70.000 euros por persona beneficiaria.",
-            "Haber cumplido los 18 años y no haber cumplido los 41 en el año de la convocatoria."
-          ]
+            "Haber cumplido los 18 años y no haber cumplido los 41 en el año de la convocatoria.",
+            "+34 943 11 21 11"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://egoitza.gipuzkoa.eus/es/listado-tramites/-/tramiteak/xehetasuna/2435",
+          "title": "Ayudas a la creación de empresas por jóvenes agricultores y agricultoras (GAZTENEK) - Sede electrónica - Diputación Foral de Gipuzkoa",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Ayudas a la creación de empresas por jóvenes agricultores y agricultoras (GAZTENEK)",
+            "El objetivo de estas ayudas es facilitar la incorporación de personas jóvenes adecuadamente formadas en el sector agrario y el relevo generacional",
+            "Tramitado por DEPARTAMENTO DE EQUILIBRIO TERRITORIAL VERDE Dirección General de Agricultura y Equilibrio Territorial Servicio de Ayudas y Registros",
+            "Solicitud por internet Pulsar para acceder a la tramitación"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Diputación Foral de Gipuzkoa",
+          "value": "+34 943 11 21 11",
+          "sourceUrl": "https://egoitza.gipuzkoa.eus/es/subvenciones/-/laguntza/2026/25/LAGA08"
+        }
+      ]
     },
     {
       "id": "gipuzkoa-gilur-tierras-explotaciones",
       "name": "GILUR, instrumento público de tierras y explotaciones de Gipuzkoa",
+      "metaTitle": "GILUR: tierras y explotaciones agrarias en Gipuzkoa",
+      "metaDescription": "GILUR publica ofertas y demandas de tierras y explotaciones privadas en Gipuzkoa y pone en contacto a las partes. Consulta el portal y el contacto.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -168,14 +206,40 @@
             "ayudar a las personas propietarias de terrenos y/o explotaciones sin uso y a las personas que necesitan tierra o explotaciones",
             "Llámanos al 943337556 y te ayudaremos o escríbenos a gilur@gipuzkoa.eus.",
             "Si aparece alguna persona interesada, te avisaremos y te pondremos en contacto con ella."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.gipuzkoa.eus/es/web/gilur/",
+          "title": "Hasiera - Gilur - Diputación Foral de Gipuzkoa",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Gestión de la oferta y demanda de terrenos y explotaciones agrarias",
+            "LISTADO DE OFERTAS DE TERRENOS Y EXPLOTACIONES",
+            "QUIERO OFRECER UN TERRENO Y/O EXPLOTACIÓN",
+            "NECESITO UN TERRENO Y/O EXPLOTACIÓN",
+            "Es un instrumento público para dinamizar y facilitar las transacciones de tierras y explotaciones para uso agrario entre individuos.",
+            "El papel de GILUR, a través de una página web, es ayudar a las personas propietarias de terrenos y/o explotaciones sin uso y a las personas que necesitan tierra o explotaciones.",
+            "En GILUR se dinamizan los terrenos y explotaciones de propiedad privada, impulsando y apoyando sus transacciones.",
+            "En Lur Funtsa se incluyen los terrenos agrarios disponibles propiedad de las Entidades Públicas para su adjudicación a terceros, es decir, los terrenos públicos.",
+            "Necesito ayuda tanto para ofrecer un terreno y/o explotación como para rellenar el formulario de solicitud",
+            "Llámanos al 943337556 y te ayudaremos o escríbenos a gilur@gipuzkoa.eus."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "gipuzkoa-lur-funtsa-fondo-suelo-agrario",
       "name": "Lur Funtsa - Fondo de Suelo Agrario de Gipuzkoa",
+      "metaDescription": "Fondo público de Gipuzkoa para profesionales agrícolas y ganaderos. Consulta cómo solicitar la adjudicación de una finca o de derechos de uso.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -199,15 +263,30 @@
             "pretende poner fincas a disposición de todas aquellas personas que las necesiten para el progreso de sus proyectos relacionados con el sector agrícola ganadero.",
             "Persona, asociación o empresa que necesite parcelas para desarrollar proyectos profesionales en el ámbito agrario.",
             "Formulario de solicitud para la incorporación de fincas al Fondo de Suelo Agrario (todo el año)",
-            "Formulario de solicitud de adjudicación de fincas o derechos integrados en el Fondo de Suelo Agrario"
-          ]
+            "Formulario de solicitud de adjudicación de fincas o derechos integrados en el Fondo de Suelo Agrario",
+            "+34 943 11 21 11"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Diputación Foral de Gipuzkoa",
+          "value": "+34 943 11 21 11",
+          "sourceUrl": "https://egoitza.gipuzkoa.eus/es/listado-tramites/-/tramiteak/xehetasuna/2129"
+        }
+      ]
     },
     {
       "id": "gipuzkoa-baserritarra-mixto-profesional",
       "name": "Ayudas a baserritarras mixtos profesionales",
+      "metaTitle": "Baserritar Misto Profesional: ayuda agraria en Gipuzkoa",
+      "metaDescription": "Ayuda para quienes compaginan su explotación en Gipuzkoa con empleo asalariado. La primera concesión es de 30.000 euros y el plazo acaba el 31/12/2026.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -254,11 +333,24 @@
             "Facilitar a las personas que quieran dedicarse al sector primario que puedan compatibilizar su actividad en el caserío con el trabajo por cuenta ajena en otros sectores",
             "Tener cumplidos los 18 años y tener menos de 55 años en el año de la solicitud de la ayuda para nuevas solicitudes de inclusión en el presente programa BMP.",
             "No haber recibido ayudas a la primera instalación en el sector agroganadero.",
-            "Concesión inicial: 30.000 €"
-          ]
+            "Concesión inicial: 30.000 €",
+            "+34 943 11 21 11"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Diputación Foral de Gipuzkoa",
+          "value": "+34 943 11 21 11",
+          "sourceUrl": "https://egoitza.gipuzkoa.eus/es/subvenciones/-/laguntza/2026/25/LAGA11"
+        }
+      ]
     }
   ],
   "news": [],

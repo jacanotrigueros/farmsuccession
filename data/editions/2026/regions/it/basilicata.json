@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "IT",
   "region": "basilicata",
+  "metaTitle": "Primo insediamento in Basilicata: SRE01 e SRE02",
+  "metaDescription": "Le schede dei bandi in Basilicata distinguono il premio SRE01 per giovani agricoltori e il premio SRE02 per chi si insedia in età superiore.",
   "officialName": "Basilicata",
-  "published": "2026-09-28",
+  "published": "2026-11-25",
   "summary": "In Basilicata sono documentati due distinti bandi di primo insediamento: SRE01 per giovani agricoltori e SRE02 per nuovi agricoltori di età superiore. Le finestre di domanda dei bandi esaminati sono concluse. Sono inoltre disponibili sportelli lucani del CAA Coldiretti che assistono nella predisposizione delle richieste di primo insediamento. La Banca regionale della terra lucana è ancora oggetto di attività preparatorie documentate da ALSIA; non è stata verificata una procedura attuale di accesso ai terreni.",
   "coverage": {
     "status": "PARTIAL",
@@ -53,9 +55,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -78,6 +77,7 @@
     {
       "id": "basilicata-insediamento-giovani-agricoltori",
       "name": "Intervento SRE01 per l'insediamento dei giovani agricoltori in Basilicata",
+      "metaTitle": "SRE01 Basilicata: insediamento giovani agricoltori",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -93,6 +93,13 @@
       "purposes": ["FIRST_ESTABLISHMENT"],
       "languages": ["it"],
       "targetProfiles": ["YOUNG_FARMER"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://basilicatacsr.it/wp-content/uploads/2023/12/DGR851-2023-SRE01-APP.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://basilicatacsr.it/wp-content/uploads/2023/12/DGR851-2023-SRE01-APP.pdf",
@@ -101,21 +108,77 @@
           "quotes": [
             "età compresa tra 18 anni e 41 anni non compiuti;",
             "€ 60.000,00 in tutte le altre aree.",
-            "FASE 1 – PRESENTAZIONE DELL’ ISTANZA DI CANDIDATURA"
-          ]
+            "FASE 1 – PRESENTAZIONE DELL’ ISTANZA DI CANDIDATURA",
+            "€ 70.000,00 per gli insediamenti in Aree protette, aree Natura 2000 o aree montane ai sensi della Direttiva CE 275/76.",
+            "Intervento SRE01 Insediamento giovani agricoltori - Approvazione Bando, anno 2023."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://basilicatacsr.it/wp-content/uploads/2023/12/Documento_Principale_987.pdf",
           "title": "Determinazione 987/2024: differimento della fase II SRE01",
           "consultedOn": "2026-09-28",
-          "quotes": ["entro le ore 16.00 del 9 settembre 2024;", "trasmissione della documentazione attraverso la piattaforma SIA-RB;"]
+          "quotes": [
+            "entro le ore 16.00 del 9 settembre 2024;",
+            "trasmissione della documentazione attraverso la piattaforma SIA-RB;",
+            "presentazione del Piano di Sviluppo Aziendale (PSA) entro le ore 16.00 del 9 settembre 2024"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://basilicatacsr.it/interventi/sre01-insediamento-giovani-agricoltori/",
+          "title": "SRE01 - Insediamento giovani agricoltori - CSR Basilicata",
+          "consultedOn": "2026-11-25",
+          "quotes": ["ufficio.autorita.gest.psr@cert.regione.basilicata.it"]
         }
       ],
-      "notes": "Il premio del bando esaminato variava secondo le aree indicate dal bando. La documentazione aperta prova il bando storico e la chiusura della sua finestra, ma non consente di confermare una nuova convocazione o l'attuale disponibilità per nuovi richiedenti; per questo lo stato del programma è «Stato non confermato»."
+      "notes": "Il premio del bando esaminato variava secondo le aree indicate dal bando. La documentazione aperta prova il bando storico e la chiusura della sua finestra, ma non consente di confermare un nuovo bando o l'attuale disponibilità per nuovi richiedenti; per questo lo stato del programma è «Stato non confermato».",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Premio di insediamento nelle altre aree",
+          "value": 60000,
+          "unit": "EUR",
+          "asOf": "2023-01-01",
+          "sourceUrl": "https://basilicatacsr.it/wp-content/uploads/2023/12/DGR851-2023-SRE01-APP.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Premio di insediamento in aree protette, Natura 2000 o montane",
+          "value": 70000,
+          "unit": "EUR",
+          "asOf": "2023-01-01",
+          "sourceUrl": "https://basilicatacsr.it/wp-content/uploads/2023/12/DGR851-2023-SRE01-APP.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Insediamento giovani agricoltori – Fase II",
+          "state": "CLOSED",
+          "closes": "2024-09-09",
+          "sourceUrl": "https://basilicatacsr.it/wp-content/uploads/2023/12/Documento_Principale_987.pdf"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ufficio Autorità di gestione PSR Basilicata e politiche di sviluppo agricolo e rurale",
+          "value": "ufficio.autorita.gest.psr@cert.regione.basilicata.it",
+          "sourceUrl": "https://basilicatacsr.it/interventi/sre01-insediamento-giovani-agricoltori/"
+        }
+      ]
     },
     {
       "id": "basilicata-insediamento-nuovi-agricoltori",
       "name": "Intervento SRE02 per l'insediamento dei nuovi agricoltori in Basilicata",
+      "metaTitle": "SRE02 Basilicata: insediamento nuovi agricoltori 2025",
+      "metaDescription": "Premio SRE02 2025 di 30.000 o 40.000 euro per chi si insedia in Basilicata dai 41 ai 60 anni. Consulta requisiti, procedura e recapiti.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -131,6 +194,13 @@
       "purposes": ["FIRST_ESTABLISHMENT"],
       "languages": ["it"],
       "targetProfiles": ["NEW_ENTRANT"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE02",
+          "sourceUrl": "https://basilicatacsr.it/wp-content/uploads/2025/08/SRE02-2025-ALLEGATO-A-BANDO.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://basilicatacsr.it/wp-content/uploads/2025/08/SRE02-2025-ALLEGATO-A-BANDO.pdf",
@@ -140,15 +210,69 @@
             "età compresa tra 41 anni compiuti e 61 anni non compiuti;",
             "€ 30.000,00 in tutte le altre aree.",
             "Entro le ore 23.59 del giorno 10/10/2025",
-            "Contestualmente, i potenziali beneficiari trasmettono obbligatoriamente sul portale SIARB"
-          ]
+            "Contestualmente, i potenziali beneficiari trasmettono obbligatoriamente sul portale SIARB",
+            "€ 40.000,00 per gli insediamenti in aree protette, aree Natura 2000 o aree montane delimitate ai sensi della Direttiva CE 75/268/CE.",
+            "BANDO INTERVENTO SRE02"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://basilicatacsr.it/bando-csr/sre02-insediamento-nuovi-agricoltori/",
+          "title": "SRE02 Insediamento nuovi agricoltori - CSR Basilicata",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Scadenza prorogata al 14 novembre 2025, ore 16:00"]
+        },
+        {
+          "url": "https://agricoltura.regione.basilicata.it/faq-csr-sre02-insediamento-nuovi-agricoltori/",
+          "title": "FAQ CSR – Bando SRE02 – Insediamento nuovi agricoltori – SIA-RB",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Prima di inoltrare un quesito si raccomanda di consultare le FAQ già disponibili."]
         }
       ],
-      "notes": "Il premio del bando consultato variava secondo le aree indicate. Il termine originario è stato successivamente prorogato secondo pagine individuate nella ricerca, ma tali atti non sono stati leggibili durante questa passata. La documentazione consultata non dimostra una finestra attuale per nuovi richiedenti."
+      "notes": "Il premio del bando consultato variava secondo le aree indicate. Il termine originario è stato successivamente prorogato secondo pagine individuate nella ricerca, ma tali atti non sono stati leggibili durante questa passata. La documentazione consultata non dimostra una finestra attuale per nuovi richiedenti.",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Premio di insediamento nelle altre aree",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2025-01-01",
+          "sourceUrl": "https://basilicatacsr.it/wp-content/uploads/2025/08/SRE02-2025-ALLEGATO-A-BANDO.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Premio di insediamento in aree protette, Natura 2000 o montane",
+          "value": 40000,
+          "unit": "EUR",
+          "asOf": "2025-01-01",
+          "sourceUrl": "https://basilicatacsr.it/wp-content/uploads/2025/08/SRE02-2025-ALLEGATO-A-BANDO.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Bando intervento SRE02 – Insediamento nuovi agricoltori 2025",
+          "state": "CLOSED",
+          "closes": "2025-11-14",
+          "sourceUrl": "https://basilicatacsr.it/bando-csr/sre02-insediamento-nuovi-agricoltori/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "FAQ CSR – Bando SRE02 – Insediamento nuovi agricoltori",
+          "value": "https://agricoltura.regione.basilicata.it/faq-csr-sre02-insediamento-nuovi-agricoltori/",
+          "sourceUrl": "https://agricoltura.regione.basilicata.it/faq-csr-sre02-insediamento-nuovi-agricoltori/"
+        }
+      ]
     },
     {
       "id": "basilicata-caa-coldiretti-primo-insediamento",
       "name": "Assistenza CAA Coldiretti al primo insediamento in Basilicata",
+      "metaTitle": "CAA Coldiretti Basilicata: assistenza primo insediamento",
+      "metaDescription": "Il CAA Coldiretti aiuta le imprese con le pratiche di primo insediamento. Consulta gli sportelli in Basilicata, nelle province di Matera e Potenza.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -162,6 +286,12 @@
       "accessUrl": "https://caa.coldiretti.it/dove-siamo/basilicata/",
       "languages": ["it"],
       "targetProfiles": ["YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://caa.coldiretti.it/predisposizione-atti-amministrativi/"
+        }
+      ],
       "sources": [
         {
           "url": "https://caa.coldiretti.it/dove-siamo/basilicata/",
@@ -171,8 +301,13 @@
             "Il Centro Assistenza Agricola Coldiretti Srl opera direttamente attraverso le società ausiliarie “Impresa Verde”",
             "contattando le singole strutture provinciali è possibile avere ulteriori informazioni",
             "Provincia di MATERA",
-            "Provincia di POTENZA"
-          ]
+            "Provincia di POTENZA",
+            "tel. 0835-336201-5"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://caa.coldiretti.it/predisposizione-atti-amministrativi/",
@@ -181,10 +316,22 @@
           "quotes": [
             "Assistenza propedeutica alla corretta elaborazione e compilazione degli atti amministrativi",
             "richieste di primo insedimento di giovani agricoltori"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La pagina nazionale descrive il servizio specifico e la pagina territoriale documenta sportelli operativi in entrambe le province lucane; l'accesso regionale consiste nella prestazione locale, non in una seconda copia del bando SRE01."
+      "notes": "La pagina nazionale descrive il servizio specifico e la pagina territoriale documenta sportelli operativi in entrambe le province lucane; l'accesso regionale consiste nella prestazione locale, non in una seconda copia del bando SRE01.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Impresa Verde Basilicata, ufficio di Matera",
+          "value": "0835-336201",
+          "sourceUrl": "https://caa.coldiretti.it/dove-siamo/basilicata/"
+        }
+      ]
     }
   ],
   "news": [],

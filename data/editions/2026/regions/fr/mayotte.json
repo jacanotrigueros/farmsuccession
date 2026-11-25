@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "FR",
   "region": "mayotte",
+  "metaTitle": "Aides à l’installation agricole à Mayotte (976)",
+  "metaDescription": "Vous préparez une première installation à Mayotte ? Repérez les deux dotations FEADER selon votre profil et les aides à l’investissement agricole.",
   "officialName": "Mayotte",
-  "published": "2026-10-26",
+  "published": "2026-11-25",
   "summary": "Mayotte publie deux aides FEADER ouvertes à la première installation : l’intervention 75.01 pour les jeunes agriculteurs et l’intervention 75.05 pour les nouveaux agriculteurs de 40 ans révolus qui n’ont pas atteint 62 ans. Les deux dossiers peuvent être déposés directement sur SAFRAN pendant la programmation 2023-2027.",
   "coverage": {
     "status": "PARTIAL",
@@ -29,9 +31,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -41,6 +40,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -48,6 +54,8 @@
     {
       "id": "mayotte-feader-installation-jeune-agriculteur",
       "name": "75.01 — Aides à l’installation du jeune agriculteur",
+      "metaTitle": "Aide aux jeunes agriculteurs 75.01 — Mayotte (976)",
+      "metaDescription": "À Mayotte, la dotation FEADER peut atteindre 49 000 € pour une première installation à titre principal. Consultez les conditions selon votre projet.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -74,6 +82,13 @@
           "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/IMG/pdf/fi_75.01_aide_a_l_installation_du_jeune_agriculteur__v2_0.pdf"
         }
       ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "75.01",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/75-01-aides-a-l-installation-du-jeune-agriculteur-ouvert-a617.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://daaf.mayotte.agriculture.gouv.fr/75-01-aides-a-l-installation-du-jeune-agriculteur-ouvert-a617.html",
@@ -82,8 +97,13 @@
           "quotes": [
             "Intervention disponible sur Safran depuis le 19/02/2024",
             "L’intervention 75.01 \"Aides à l’installation du jeune agriculteur\" vise à favoriser l’installation et le renouvellement des générations pour encourager le maintien de l’activité agricole et préserver la surface agricole utile (SAU), permettant la souveraineté alimentaire de la France.",
-            "Il est possible de déposer un dossier tout le long de la programmation 2023-2027 sur l’intervention 75.01 directement sur Safran"
-          ]
+            "Il est possible de déposer un dossier tout le long de la programmation 2023-2027 sur l’intervention 75.01 directement sur Safran",
+            "Il est possible de déposer un dossier tout le long de la programmation 2023-2027 sur l’intervention 75.01 directement sur Safran, le site de gestion des aides FEADER que vous trouverez ici."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://daaf.mayotte.agriculture.gouv.fr/IMG/pdf/fi_75.01_aide_a_l_installation_du_jeune_agriculteur__v2_0.pdf",
@@ -94,16 +114,44 @@
             "Les projets doivent être mis en œuvre sur le territoire de Mayotte.",
             "Être âgé de 40 ans au plus à la date de la demande",
             "Plafond 49 000 € de dépenses publiques",
-            "Le montant de l’aide est sur la base d’un forfait, pour une installation à titre principal l’agriculteur touche 100% du forfait tandis qu'en cas d'installation à titre secondaire le montant forfaitaire est divisé par deux."
-          ]
+            "Le montant de l’aide est sur la base d’un forfait, pour une installation à titre principal l’agriculteur touche 100% du forfait tandis qu'en cas d'installation à titre secondaire le montant forfaitaire est divisé par deux.",
+            "Mail: def-sea.daaf976@agriculture.gouv.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La fiche fixe des conditions supplémentaires de qualification, d’expérience, de viabilité et de plan d’entreprise. Le montant dépend des points liés aux difficultés d’installation ; le forfait est divisé par deux pour une installation à titre secondaire.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "interventionCodes": [
+        {
+          "code": "75.01",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/75-01-aides-a-l-installation-du-jeune-agriculteur-ouvert-a617.html"
+        }
+      ],
+      "calls": [
+        {
+          "name": "75.01 — Aides à l’installation du jeune agriculteur",
+          "state": "OPEN",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/75-01-aides-a-l-installation-du-jeune-agriculteur-ouvert-a617.html"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "DAAF de Mayotte — Service économie agricole",
+          "value": "def-sea.daaf976@agriculture.gouv.fr",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/IMG/pdf/fi_75.01_aide_a_l_installation_du_jeune_agriculteur__v2_0.pdf"
+        }
+      ]
     },
     {
       "id": "mayotte-feader-installation-nouvel-agriculteur",
       "name": "75.05 — Aide à l’installation du nouvel agriculteur",
+      "metaTitle": "Aide au nouvel agriculteur 75.05 — Mayotte (976)",
+      "metaDescription": "La dotation FEADER de Mayotte prévoit 20 000 € versés en deux fois pour démarrer une activité agricole. Vérifiez l’âge et les autres conditions d’accès.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -138,8 +186,13 @@
           "quotes": [
             "Intervention disponible sur Safran depuis le 02/04/2024",
             "L’intervention 75.05 \"Aide à l’installation du nouvel agriculteur de Mayotte\" a pour vocation de favoriser l’emploi, renforcer la production locale, améliorer la viabilité des exploitations et encourager la diversification végétale et animale.",
-            "Il est possible de déposer un dossier tout le long de la programmation 2023-2027 sur l’intervention 75.05 directement sur Safran"
-          ]
+            "Il est possible de déposer un dossier tout le long de la programmation 2023-2027 sur l’intervention 75.05 directement sur Safran",
+            "Il est possible de déposer un dossier tout le long de la programmation 2023-2027 sur l’intervention 75.05 directement sur Safran, le site de gestion des aides FEADER que vous trouverez ici."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://daaf.mayotte.agriculture.gouv.fr/IMG/pdf/fi_75.05_aide_a_l_installation_du_nouvel_agriculteur_v3_0.pdf",
@@ -150,12 +203,144 @@
             "L’aide peut être déposée sur le téléservice SAFRAN sur toute la durée de la programmation 2023-2027 à partir de son ouverture.",
             "Les projets doivent être mis en œuvre sur le territoire de Mayotte.",
             "Avoir 40 ans révolus et ne pas avoir atteint 62 ans, ni l’âge légal limite de départ à la retraite à taux plein",
-            "Le soutien à l’installation se fait sous la forme d’une dotation de 20 000 € en capital versée en deux tranches après le constat de l’installation."
-          ]
+            "Le soutien à l’installation se fait sous la forme d’une dotation de 20 000 € en capital versée en deux tranches après le constat de l’installation.",
+            "Mail: def-sea.daaf976@agriculture.gouv.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La fiche exige notamment de ne pas être affilié à la MSA comme agriculteur principal ou secondaire, ou de ne pas l’être depuis plus de cinq ans, ainsi qu’un plan d’entreprise de cinq ans. Les conditions complètes restent celles de la fiche officielle.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "interventionCodes": [
+        {
+          "code": "75.05",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/75-05-aide-a-l-installation-du-nouvel-agriculteur-ouvert-a619.html"
+        }
+      ],
+      "calls": [
+        {
+          "name": "75.05 — Aide à l’installation du nouvel agriculteur",
+          "state": "OPEN",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/75-05-aide-a-l-installation-du-nouvel-agriculteur-ouvert-a619.html"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "DAAF de Mayotte — Service économie agricole",
+          "value": "def-sea.daaf976@agriculture.gouv.fr",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/IMG/pdf/fi_75.05_aide_a_l_installation_du_nouvel_agriculteur_v3_0.pdf"
+        }
+      ]
+    },
+    {
+      "id": "mayotte-feader-investissements-jeunes-agriculteurs",
+      "name": "73.17 - Investissements bonifiés en faveur des jeunes agriculteurs de Mayotte",
+      "metaTitle": "Investissements bonifiés 73.17 — Mayotte (976)",
+      "metaDescription": "Les jeunes agriculteurs de Mayotte peuvent consulter cette aide aux investissements dans les bâtiments, les équipements et les infrastructures agricoles.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direction de l’alimentation, de l’agriculture et de la forêt de Mayotte",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Soutien aux investissements dans les bâtiments, les équipements et les infrastructures des exploitations ou des groupements d’agriculteurs pour améliorer leur performance économique et garantir leur viabilité.",
+      "whoCanUseIt": "Dispositif uniquement disponible pour les Jeunes Agriculteurs (JA).",
+      "howToAccess": "Déposer la demande de financement FEADER directement sur Safran pendant toute la programmation 2023-2027. Consulter au préalable le guide du bénéficiaire, la notice transversale et la fiche d’intervention accessibles depuis la page. Les demandes de paiement se font également sur SAFRAN dans l’espace du dossier d’aide.",
+      "accessUrl": "https://daaf.mayotte.agriculture.gouv.fr/73-17-investissements-bonifies-en-faveur-des-jeunes-agriculteurs-de-mayotte-a627.html",
+      "purposes": ["INVESTMENT"],
+      "targetProfiles": ["YOUNG_FARMER"],
+      "lastEvidenceDate": "2026-03-26",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "73.17",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/73-17-investissements-bonifies-en-faveur-des-jeunes-agriculteurs-de-mayotte-a627.html"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/73-17-investissements-bonifies-en-faveur-des-jeunes-agriculteurs-de-mayotte-a627.html"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/73-17-investissements-bonifies-en-faveur-des-jeunes-agriculteurs-de-mayotte-a627.html"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://daaf.mayotte.agriculture.gouv.fr/73-17-investissements-bonifies-en-faveur-des-jeunes-agriculteurs-de-mayotte-a627.html",
+          "title": "73.17 - Investissements bonifiés en faveur des jeunes agriculteurs de Mayotte (OUVERT) | DAAF Mayotte",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Direction de l’alimentation, de l’agriculture et de la forêt de Mayotte",
+            "73.17 - Investissements bonifiés en faveur des jeunes agriculteurs de Mayotte (OUVERT)",
+            "Publié le 13/03/2024 | Mis à jour le 26/03/2026",
+            "L’intervention 73.17 \"Investissements bonifiés en faveur des jeunes agriculteurs de Mayotte\" vise à soutenir les investissements dans les bâtiments, les équipements et les infrastructures pour aider les exploitations ou les groupements d’agriculteurs afin d’améliorer leur performance économique et garantir leur viabilité.",
+            "Ce dispositif est uniquement disponible pour les Jeunes Agriculteurs (JA).",
+            "Avant de déposer votre demande de financement FEADER sur Safran, nous vous invitons à consulter le guide du bénéficiaire ainsi que la notice transversale que vous trouverez ici.",
+            "Il est possible de déposer un dossier tout le long de la programmation 2023-2027 sur l’intervention 73.17 directement sur Safran, le site de gestion des aides FEADER que vous trouverez à ce lien.",
+            "Vous trouverez la fiche intervention de ce dispositif que nous vous invitons à consulter ainsi que la feuille de synthèse des dépenses",
+            "Les demandes de paiement se font également via SAFRAN dans l’espace dédié au dossier d’aide."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "interventionCodes": [
+        {
+          "code": "73.17",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/73-17-investissements-bonifies-en-faveur-des-jeunes-agriculteurs-de-mayotte-a627.html"
+        }
+      ],
+      "calls": [
+        {
+          "name": "73.17 - Investissements bonifiés en faveur des jeunes agriculteurs de Mayotte",
+          "state": "OPEN",
+          "sourceUrl": "https://daaf.mayotte.agriculture.gouv.fr/73-17-investissements-bonifies-en-faveur-des-jeunes-agriculteurs-de-mayotte-a627.html"
+        }
+      ]
+    },
+    {
+      "id": "mayotte-portail-interventions-psn",
+      "name": "Interventions du Plan Stratégique National",
+      "metaTitle": "Plan Stratégique National : interventions à Mayotte (976)",
+      "metaDescription": "Le répertoire officiel du Plan Stratégique National permet de repérer les interventions à Mayotte pour l’installation, l’investissement ou le conseil.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direction de l’alimentation, de l’agriculture et de la forêt de Mayotte",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Répertoire officiel des interventions du Plan Stratégique National à Mayotte, organisé en rubriques dont l’installation, les investissements, la coopération, la formation et le conseil.",
+      "howToAccess": "Choisir la rubrique « 75 - Installation » pour accéder aux interventions relatives à l’installation.",
+      "accessUrl": "https://daaf.mayotte.agriculture.gouv.fr/interventions-du-plan-strategique-national-r182.html",
+      "sources": [
+        {
+          "url": "https://daaf.mayotte.agriculture.gouv.fr/interventions-du-plan-strategique-national-r182.html",
+          "title": "Interventions du Plan Stratégique National | DAAF Mayotte",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Direction de l’alimentation, de l’agriculture et de la forêt de Mayotte",
+            "Interventions du Plan Stratégique National",
+            "70 - Environnement et climat 73 - Investissements 75 - Installation 77 - Coopération 78 - Formation et conseil"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],

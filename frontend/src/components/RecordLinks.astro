@@ -1,0 +1,52 @@
+---
+/**
+ * A territory's records are rendered as canonical links even inside a closed disclosure. Each carries its
+ * kind's icon, so a reader scanning a list of names can tell a land bank from a course before reading it
+ * (founder, 18 Nov 2026).
+ */
+import { Icon } from "astro-icon/components";
+import { languageOf, localeOf, recordHref, type Resource, type Territory } from "../lib/corpus.ts";
+import { kindIcon } from "../lib/icons.ts";
+import { dateIn } from "../lib/language.ts";
+import { callStateLabel } from "../lib/vocabulary.ts";
+import { words } from "../lib/words.ts";
+
+type Props = {
+  place: Territory;
+  language: string;
+  resources: readonly Resource[];
+  featured?: boolean;
+};
+const { place, language, resources, featured = false } = Astro.props;
+const text = words(language);
+const recordLanguage = languageOf(place);
+---
+
+<ul class:list={["divide-y divide-line", featured && "border-t border-line"]}>
+  {resources
+    .toSorted((a, b) => a.name.localeCompare(b.name, language))
+    .map((resource) => {
+      // Show a dated closure when the record documents a single call. Several calls need the full context of the record page.
+      const call = featured && resource.calls?.length === 1 ? resource.calls[0] : undefined;
+      const closedOn = call?.state === "CLOSED" ? resource.sources.find(({ url }) => url === call.sourceUrl)?.consultedOn : undefined;
+      return (
+        <li>
+          <a
+            href={recordHref(resource.id, place)}
+            class="flex min-h-(--spacing-target) w-full items-start gap-2 px-4 py-2 text-brand-strong [overflow-wrap:anywhere]"
+          >
+            <Icon name={kindIcon(resource.kind)} aria-hidden="true" class="mt-0.5 size-5 shrink-0 text-brand" />
+            <span lang={recordLanguage} class="underline">
+              {resource.name}
+            </span>
+          </a>
+          {call && closedOn && (
+            <p class="meta px-4 pb-2">
+              <span lang={recordLanguage}>{call.name}</span> · {callStateLabel(call.state, language)} · {text.recordedOn}{" "}
+              <time datetime={closedOn}>{dateIn(closedOn, localeOf(place))}</time>
+            </p>
+          )}
+        </li>
+      );
+    })}
+</ul>

@@ -61,8 +61,6 @@ const original = versions.find((version) => version.language === language);
 const isCopy = original !== undefined && original.url !== here;
 const canonical = hasAddress ? (isCopy ? original.url : here) : undefined;
 const defaultVersion = versions.find(({ language }) => language === "en");
-/** Project pages belong in the navigation of entry pages, not below every record in the catalogue. */
-const showProjectNavigation = Astro.url.pathname === "/" || /^\/[a-z]{2}\/$/u.test(Astro.url.pathname);
 /**
  * The site's name, said once where a search engine looks for it: a result prints it on its own line, so
  * titles do not have to spend their room repeating it. The home page names the site as a WebSite.
@@ -75,6 +73,23 @@ const website =
         "@type": "WebSite",
         name: siteName,
         url: new URL("/", Astro.site).href,
+        inLanguage: language,
+      }).replaceAll("<", "\\u003c")
+    : undefined;
+/**
+ * Every other indexable page says what it is and which language it is written in. A country page is not a
+ * translation of another, so its language is stated here rather than through alternates between countries.
+ */
+const webPage =
+  !website && canonical && !noindex
+    ? JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: title,
+        description,
+        url: canonical,
+        inLanguage: language,
+        isPartOf: { "@type": "WebSite", name: siteName, url: new URL("/", Astro.site).href },
       }).replaceAll("<", "\\u003c")
     : undefined;
 ---
@@ -94,6 +109,7 @@ const website =
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {website && <script type="application/ld+json" set:html={website} />}
+    {webPage && <script type="application/ld+json" set:html={webPage} />}
     <meta property="og:type" content="website" />
     {canonical && <meta property="og:url" content={canonical} />}
     {/*
@@ -132,6 +148,6 @@ const website =
     <main id="content" class="flex-1">
       <slot />
     </main>
-    <Footer language={language} current={current} showProjectNavigation={showProjectNavigation} />
+    <Footer language={language} current={current} />
   </body>
 </html>

@@ -1,0 +1,52 @@
+---
+/**
+ * One card per country, four to a row on a wide screen: the home page's overview and the way out of
+ * Europe's page into a reader's own country. One component, so the two can never count differently.
+ *
+ * What a card counts is what applies inside it — its own records, its groupings', its regions' and the
+ * European ones — because that is what a reader gets by going there, not what the country file happens
+ * to hold. A count of territory pages is not shown: it mixes units (Spain's 28 pages are 17
+ * communities plus islands and Basque provinces), and the country page lists them.
+ */
+import { Icon } from "astro-icon/components";
+import { countryTerritories, euTerritory, href, hubTerritories, regionsOf } from "../lib/corpus.ts";
+import { flagOf, ICON } from "../lib/icons.ts";
+import { countryNameIn } from "../lib/language.ts";
+import { counted, words } from "../lib/words.ts";
+
+type Props = { language: string };
+const { language } = Astro.props;
+const text = words(language);
+const european = euTerritory()?.data.resources.length ?? 0;
+
+const countries = countryTerritories()
+  .map((country) => {
+    const iso = country.layer.level === "EU" ? "" : country.layer.country;
+    const inside = [country, ...hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === iso), ...regionsOf(iso)];
+    return {
+      href: href(country.layer),
+      name: countryNameIn(iso, language),
+      flag: flagOf(iso),
+      own: inside.reduce((total, { data }) => total + data.resources.length, 0),
+    };
+  })
+  .toSorted((a, b) => a.name.localeCompare(b.name, language));
+/** A country with nothing of its own yet says so, rather than showing a total that looks researched. */
+const label = (own: number): string =>
+  own === 0 ? text.onlyEu.replace("{n}", String(european)) : counted(own + european, text.statRecords, language);
+---
+
+<ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  {countries.map((country) => (
+    <li>
+      <a href={country.href} class="card card-link flex min-h-full items-center gap-3 p-5 no-underline">
+        <img src={country.flag} alt="" width="36" height="27" class="h-7 w-9 shrink-0 rounded-xs border border-line object-cover" />
+        <span class="flex min-w-0 flex-1 flex-col">
+          <span class="text-lg font-bold text-ink">{country.name}</span>
+          <span class="meta">{label(country.own)}</span>
+        </span>
+        <Icon name={ICON.chevron} aria-hidden="true" class="size-5 shrink-0 text-muted" />
+      </a>
+    </li>
+  ))}
+</ul>

@@ -90,7 +90,7 @@ and an `instrumentChecks` answer may not contradict the resources published.
 
 ### 1.13.0 — never narrower than the source
 
-Current version. Building the record pages showed what the corpus had been saying
+Building the record pages showed what the corpus had been saying
 quietly: 11 of 132 records were aimed at "anyone" and at named profiles at once, which
 the schema's wording made a contradiction, and in eight of them both halves were true
 — the source opened the thing to anyone and also said who it had in mind. Two of the
@@ -178,3 +178,13 @@ Each file in `versions/` is the complete prompt at that point, self-contained an
 unedited. They are history: a correction to a superseded version would make the
 record of what a pass was told to do a record of what we now wish it had been
 told.
+
+### 1.14.0 — verified sources
+
+Current version. Each source records when its quotes were last found on the live page and how it was
+read. The per-file review state is removed. A record may give its plan's
+intervention codes, the acts it rests on and the areas each channel serves, each
+quoted, and the higher measure it applies, named as its source names it
+(decision 041). Every record answers the questions a reader of its kind brings, or says
+the source does not publish the answer; from 2027 a record with an open question is
+rejected.

@@ -109,7 +109,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     }
     // Browsing starts with what the record offers. A text query keeps the contextual match excerpt;
     // only that excerpt is marked HTML from this build's index. Summary metadata is always plain text.
-    const description = resultDescription(result, term);
+    const description = resultDescription(result, term, document.documentElement.lang);
     const excerpt = row.querySelector("[data-result-excerpt]");
     if (description.format === "html") excerpt.innerHTML = description.value;
     else excerpt.textContent = description.value;

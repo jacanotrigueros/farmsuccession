@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "ES",
   "hub": "pais-vasco",
+  "metaTitle": "Relevo generacional agrario en Euskadi: oficina y recursos",
+  "metaDescription": "Consulta la oficina de las tres diputaciones forales para ceder o continuar una explotación y explora los recursos de Álava, Bizkaia y Gipuzkoa.",
   "officialName": "País Vasco / Euskadi",
-  "published": "2026-09-21",
+  "published": "2026-11-24",
   "summary": "En el País Vasco, las diputaciones forales de Álava, Bizkaia y Gipuzkoa han puesto en marcha conjuntamente una oficina de intermediación para el relevo generacional agrario que acompaña a quienes ceden su explotación y a quienes buscan incorporarse.",
   "coverage": {
     "status": "PARTIAL",
@@ -16,9 +18,6 @@
         "detail": "https://www.gipuzkoa.eus/es/-/hiru-foru-aldundiek-nekazaritzako-belaunaldien-erreleborako-bitartekaritza-bulegoa-aktibatu-dute"
       }
     ]
-  },
-  "review": {
-    "status": "DRAFT"
   },
   "metadata": {
     "language": "es",
@@ -37,6 +36,8 @@
     {
       "id": "pais-vasco-oficina-intermediacion-relevo-generacional",
       "name": "Oficina de Intermediación para el Relevo Generacional Agrario",
+      "metaTitle": "Oficina de Relevo Generacional Agrario de Euskadi",
+      "metaDescription": "Intermediación pública para titulares que quieren ceder su explotación y personas que buscan empezar en el campo. Incluye análisis y asesoramiento.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -51,6 +52,12 @@
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT", "YOUNG_FARMER"],
       "lastEvidenceDate": "2026-03-04",
       "notes": "Se cita la nota oficial conjunta de las tres diputaciones publicada en gipuzkoa.eus. No se ha localizado una página propia del servicio con el modo de inscripción en ninguna de las tres diputaciones.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://nombres.euskadi.eus/oficinas-de-intermediacion-para-el-relevo-generacional-en-el-primer-sector/web01-a2nekabe/es/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.gipuzkoa.eus/es/-/hiru-foru-aldundiek-nekazaritzako-belaunaldien-erreleborako-bitartekaritza-bulegoa-aktibatu-dute",
@@ -65,10 +72,29 @@
             "Asesoramiento jurídico, técnico y fiscal a cedentes y futuros titulares.",
             "Mediación neutral y confidencial entre ambas partes.",
             "04/03/2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://nombres.euskadi.eus/oficinas-de-intermediacion-para-el-relevo-generacional-en-el-primer-sector/web01-a2nekabe/es/",
+          "title": "Oficinas de intermediación para el relevo generacional en el primer sector - Agricultura, Ganadería y Forestal - Euskadi.eus",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Encuentra tu oficina:", "E-mail: lurraldeoreka@gipuzkoa.eus"]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "howToAccess": "Buscar la oficina foral del territorio correspondiente en el apartado «Encuentra tu oficina» y contactar por las vías que indica su ficha.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Servicio de Desarrollo Rural de Gipuzkoa — Oficina de Intermediación",
+          "value": "lurraldeoreka@gipuzkoa.eus",
+          "sourceUrl": "https://nombres.euskadi.eus/oficinas-de-intermediacion-para-el-relevo-generacional-en-el-primer-sector/web01-a2nekabe/es/"
+        }
+      ]
     }
   ],
   "news": [],

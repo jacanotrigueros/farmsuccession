@@ -1,5 +1,9 @@
 ---
-/** One observable claim, shared by the home badge and every footer. */
+/**
+ * One observable claim, shared by every footer: the directory gathers what others published, links each
+ * record to its source with the date it was read, and leaves the rights with the publisher. How sources
+ * are re-read automatically is explained in the method, not here.
+ */
 import { words } from "../lib/words.ts";
 
 type Props = { language: string };
@@ -7,6 +11,4 @@ const { language } = Astro.props;
 const text = words(language);
 ---
 
-<span data-source-claim>
-  <strong>{text.trustSourced}.</strong> {text.trust}
-</span>
+<span data-source-claim>{text.trust}</span>

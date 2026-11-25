@@ -4,9 +4,11 @@
   "edition": "2026",
   "country": "IT",
   "region": "sicilia",
+  "metaTitle": "Primo insediamento in Sicilia: premi SRE01 e SRE02",
+  "metaDescription": "In Sicilia, consulta i due premi per chi si insedia per la prima volta alla guida di un’azienda agricola: SRE01 per giovani e SRE02 per nuovi agricoltori.",
   "officialName": "Sicilia",
-  "published": "2026-10-30",
-  "summary": "La Sicilia attua due distinti premi di primo insediamento: SRE01 per giovani agricoltori e SRE02 per nuovi agricoltori. Le domande della convocazione verificata sono chiuse; nel 2026 sono state approvate le graduatorie definitive. La Banca della Terra ha concesso terreni con bandi precedenti, ma non è stato verificato un bando aperto nel 2026.",
+  "published": "2026-11-25",
+  "summary": "La Sicilia attua due distinti premi di primo insediamento: SRE01 per giovani agricoltori e SRE02 per nuovi agricoltori. Le domande del bando verificato sono chiuse; nel 2026 sono state approvate le graduatorie definitive. La Banca della Terra ha concesso terreni con bandi precedenti, ma non è stato verificato un bando aperto nel 2026.",
   "coverage": {
     "status": "PARTIAL",
     "note": "Verificati il portale regionale, le pagine dei due interventi, la proroga delle domande, le graduatorie e le pagine istituzionali della Banca della Terra. Quest'ultima è pubblicata come risorsa storica perché i bandi verificati risalgono al 2020 e al 2021 e l'atto del 2026 ricostituisce soltanto il tavolo tecnico. Non è stato verificato un servizio autonomo di subentro delle organizzazioni agricole o dei GAL.",
@@ -37,9 +39,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -55,6 +54,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -62,6 +68,7 @@
     {
       "id": "sicilia-portale-sviluppo-rurale",
       "name": "Sviluppo Rurale Regione Sicilia",
+      "metaDescription": "Il portale Sviluppo Rurale Regione Sicilia aiuta chi cerca gli interventi agricoli a consultare bandi aperti e chiusi e il cronoprogramma.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -79,13 +86,19 @@
           "url": "https://svilupporurale.regione.sicilia.it/",
           "title": "Sviluppo Rurale Regione Sicilia",
           "consultedOn": "2026-09-28",
-          "quotes": ["SVILUPPO RURALE 23-27", "INTERVENTI", "CRONOPROGRAMMA", "BANDI APERTI", "BANDI CHIUSI"]
+          "quotes": ["SVILUPPO RURALE 23-27", "INTERVENTI", "CRONOPROGRAMMA", "BANDI APERTI", "BANDI CHIUSI"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
     {
       "id": "sicilia-sre01-insediamento-giovani",
       "name": "SRE01 — Insediamento giovani agricoltori",
+      "metaTitle": "SRE01 Sicilia 2025: insediamento giovani agricoltori",
+      "metaDescription": "Il bando SRE01 2025 in Sicilia prevedeva 50.000 euro per giovani al primo insediamento. Consulta requisiti e modalità di domanda tramite CAA.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -94,8 +107,8 @@
       "operator": "Dipartimento regionale dell'agricoltura",
       "operatorType": "PUBLIC",
       "whatItOffers": "Contributo a fondo perduto di 50.000 euro per il primo insediamento come capo di un'azienda agricola.",
-      "whoCanUseIt": "Persone da 18 anni a meno di 41 anni che si insediano per la prima volta come capo azienda, o lo hanno fatto nei 12 mesi precedenti la domanda, secondo i requisiti del bando.",
-      "howToAccess": "Per una futura convocazione, verificare il bando regionale e presentare la domanda sul portale SIAN tramite un Centro di Assistenza Agricola. La finestra verificata è terminata il 30 giugno 2025.",
+      "whoCanUseIt": "Persone da 18 anni a meno di 41 anni che si insediano per la prima volta come capo azienda, o lo hanno fatto nei 12 mesi precedenti la domanda, secondo i requisiti del bando. Non sono ammessi insediamenti multipli.",
+      "howToAccess": "Per un futuro bando, verificare il bando regionale e presentare la domanda sul portale SIAN tramite un Centro di Assistenza Agricola. La finestra verificata è terminata il 30 giugno 2025.",
       "accessUrl": "https://svilupporurale.regione.sicilia.it/primo-insediamento-in-agricoltura/",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
@@ -110,6 +123,13 @@
       "languages": ["it"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-09-03",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://svilupporurale.regione.sicilia.it/2024/05/17/intervento-sre01-insediamento-giovani-agricoltori-bando-modificato-ed-integrato/"
+        }
+      ],
       "sources": [
         {
           "url": "https://svilupporurale.regione.sicilia.it/primo-insediamento-in-agricoltura/",
@@ -121,13 +141,21 @@
             "I soggetti che si insediano per la prima volta in qualità di capo azienda o che si sono insediati in qualità di capo azienda entro i 12 mesi antecedenti alla presentazione della domanda.",
             "presentando la domanda di sostegno al portale del Sistema Informativo Agricolo Nazionale (SIAN), attraverso i Centri di Assistenza Agricola (CAA).",
             "Quali sono i termini di presentazione della domanda? 15 ottobre 2023 – 15 gennaio 2024."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://svilupporurale.regione.sicilia.it/2025/05/29/avviso-prot-111142-del-29-05-2025-proroga-dei-termini-di-presentazione-domande-al-30-giugno-2025-interventi-sre01-e-sre02/",
           "title": "Proroga della presentazione delle domande SRE01 e SRE02",
           "consultedOn": "2026-09-28",
-          "quotes": ["Interventi SRE01 e SRE02", "proroga del termine di presentazione delle domande al 30 giugno 2025."]
+          "quotes": ["Interventi SRE01 e SRE02", "proroga del termine di presentazione delle domande al 30 giugno 2025."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://svilupporurale.regione.sicilia.it/2026/06/09/intervento-sre01-insediamento-giovani-agricoltori-graduatoria-regionale-definitiva-delle-domande-di-sostegno-ammissibili-lelenco-regionale-definitivo-delle-domande-non-ri/",
@@ -136,7 +164,11 @@
           "quotes": [
             "09/06/2026",
             "Con D.R.S. n. 3488 del 08/06/2026 sono approvati la graduatoria regionale definitiva delle domande di sostegno ammissibili"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://svilupporurale.regione.sicilia.it/2026/09/03/interventi-sre01-e-sre02-proroga-al-8-ottobre-2026-del-termine-per-la-presentazione-della-documentazione-prevista-ai-paragrafi-13-e-14-dei-bandi/",
@@ -145,14 +177,70 @@
           "quotes": [
             "03 Settembre 2026",
             "Proroga al 8 ottobre 2026 del termine per la presentazione della documentazione prevista ai paragrafi 13 e 14 dei bandi"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://svilupporurale.regione.sicilia.it/2024/05/17/intervento-sre01-insediamento-giovani-agricoltori-bando-modificato-ed-integrato/",
+          "title": "Intervento SRE01 Insediamento Giovani Agricoltori – Bando modificato ed integrato",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Intervento SRE01 Insediamento Giovani Agricoltori – Bando modificato ed integrato",
+            "Con DDG 2768 del 16/05/2024 è stato approvato il bando modificato ed integrato relativo all’Intervento SRE01 “Insediamento Giovani Agricoltori”",
+            "Beneficiari : Giovane agricoltore che si insedia per la prima in qualità di capo d’azienda agricola (non sono ammessi insediamenti multipli).",
+            "Tipo di pagamento: Sovvenzione in conto capitale – Somme forfettarie",
+            "Aliquota di contribuzione: Premio: euro 50.000",
+            "Termini presentazione domanda : 30 giugno 2025 (Termine prorogato con Avviso pubblico prot. n. 111142 del 29/05/2025)",
+            "DIPARTIMENTO REGIONALE DELL’AGRICOLTURA",
+            "Intervento SRE01 “Insediamento Giovani Agricoltori” del Complemento per lo sviluppo rurale della Regione Siciliana al Piano Strategico PAC 2023 2027"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://svilupporurale.regione.sicilia.it/contatti/",
+          "title": "Contatti | Sviluppo Rurale Regione Sicilia",
+          "consultedOn": "2026-11-25",
+          "quotes": ["E-mail: agri.servizioproduzioni@regione.sicilia.it"]
         }
       ],
-      "notes": "La scadenza dell'8 ottobre 2026 riguarda documentazione prevista dai bandi, non nuove domande di sostegno."
+      "notes": "La scadenza dell'8 ottobre 2026 riguarda documentazione prevista dai bandi, non nuove domande di sostegno.",
+      "generatorId": "chatgpt-3",
+      "interventionCodes": [
+        {
+          "code": "SRE01",
+          "sourceUrl": "https://svilupporurale.regione.sicilia.it/2025/05/29/avviso-prot-111142-del-29-05-2025-proroga-dei-termini-di-presentazione-domande-al-30-giugno-2025-interventi-sre01-e-sre02/"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Premio per l’insediamento dei giovani agricoltori",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2024-05-16",
+          "sourceUrl": "https://svilupporurale.regione.sicilia.it/2024/05/17/intervento-sre01-insediamento-giovani-agricoltori-bando-modificato-ed-integrato/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Servizio 2 – Interventi relativi alle produzioni agricole e zootecniche",
+          "value": "agri.servizioproduzioni@regione.sicilia.it",
+          "sourceUrl": "https://svilupporurale.regione.sicilia.it/contatti/"
+        }
+      ]
     },
     {
       "id": "sicilia-sre02-insediamento-nuovi",
       "name": "SRE02 — Insediamento nuovi agricoltori",
+      "metaTitle": "SRE02 Sicilia 2025: insediamento nuovi agricoltori",
+      "metaDescription": "Il bando SRE02 2025 in Sicilia prevedeva 30.000 euro per nuovi capi azienda dai 41 ai 60 anni. Consulta requisiti e modalità di domanda.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -162,7 +250,7 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Contributo a fondo perduto di 30.000 euro per il primo insediamento di nuovi agricoltori.",
       "whoCanUseIt": "Persone da 41 anni a meno di 61 anni che si insediano per la prima volta come capo azienda, o lo hanno fatto nei 12 mesi precedenti la domanda, secondo i requisiti del bando.",
-      "howToAccess": "Per una futura convocazione, verificare il bando regionale e presentare la domanda sul portale SIAN tramite un Centro di Assistenza Agricola. La finestra verificata è terminata il 30 giugno 2025.",
+      "howToAccess": "Per un futuro bando, verificare il bando regionale e presentare la domanda sul portale SIAN tramite un Centro di Assistenza Agricola. La finestra verificata è terminata il 30 giugno 2025.",
       "accessUrl": "https://svilupporurale.regione.sicilia.it/primo-insediamento-in-agricoltura/",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
@@ -177,6 +265,13 @@
       "languages": ["it"],
       "targetProfiles": ["NEW_ENTRANT"],
       "lastEvidenceDate": "2026-09-03",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE02",
+          "sourceUrl": "https://svilupporurale.regione.sicilia.it/primo-insediamento-in-agricoltura/"
+        }
+      ],
       "sources": [
         {
           "url": "https://svilupporurale.regione.sicilia.it/primo-insediamento-in-agricoltura/",
@@ -186,14 +281,23 @@
             "Insediamento nuovi agricoltori",
             "Età 41 anni – 61 anni non compiuti: € 30.000.",
             "I soggetti che si insediano per la prima volta in qualità di capo azienda o che si sono insediati in qualità di capo azienda entro i 12 mesi antecedenti alla presentazione della domanda.",
-            "presentando la domanda di sostegno al portale del Sistema Informativo Agricolo Nazionale (SIAN), attraverso i Centri di Assistenza Agricola (CAA)."
-          ]
+            "presentando la domanda di sostegno al portale del Sistema Informativo Agricolo Nazionale (SIAN), attraverso i Centri di Assistenza Agricola (CAA).",
+            "Insediamento nuovi agricoltori – Codice intervento: SRE02"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://svilupporurale.regione.sicilia.it/2025/05/29/avviso-prot-111142-del-29-05-2025-proroga-dei-termini-di-presentazione-domande-al-30-giugno-2025-interventi-sre01-e-sre02/",
           "title": "Proroga della presentazione delle domande SRE01 e SRE02",
           "consultedOn": "2026-09-28",
-          "quotes": ["Interventi SRE01 e SRE02", "proroga del termine di presentazione delle domande al 30 giugno 2025."]
+          "quotes": ["Interventi SRE01 e SRE02", "proroga del termine di presentazione delle domande al 30 giugno 2025."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://svilupporurale.regione.sicilia.it/2026/06/09/intervento-sre02-insediamento-nuovi-agricoltori-graduatoria-regionale-definitiva-delle-domande-di-sostegno-ammissibili-lelenco-regionale-definitivo-delle-domande-non-rice/",
@@ -202,7 +306,11 @@
           "quotes": [
             "09/06/2026",
             "Con D.R.S. n. 3491 del 08/06/2026 sono approvati: la graduatoria regionale definitiva delle domande di sostegno ammissibili"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://svilupporurale.regione.sicilia.it/2026/09/03/interventi-sre01-e-sre02-proroga-al-8-ottobre-2026-del-termine-per-la-presentazione-della-documentazione-prevista-ai-paragrafi-13-e-14-dei-bandi/",
@@ -211,14 +319,55 @@
           "quotes": [
             "03 Settembre 2026",
             "Proroga al 8 ottobre 2026 del termine per la presentazione della documentazione prevista ai paragrafi 13 e 14 dei bandi"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://svilupporurale.regione.sicilia.it/storage/2025/03/Bando-modificato-ed-integrato-Intervento-SRE02-Insediamento-Nuovi-Agricoltori.pdf",
+          "title": "Bando modificato e integrato – Intervento SRE02 Insediamento nuovi agricoltori (PDF, Regione Siciliana)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Per il presente intervento è previsto un sostegno forfetario in conto capitale di 30.000 euro."]
+        },
+        {
+          "url": "https://svilupporurale.regione.sicilia.it/contatti/",
+          "title": "Contatti | Sviluppo Rurale Regione Sicilia",
+          "consultedOn": "2026-11-25",
+          "quotes": ["E-mail: agri.servizioproduzioni@regione.sicilia.it"]
         }
       ],
-      "notes": "La scadenza dell'8 ottobre 2026 riguarda documentazione prevista dai bandi, non nuove domande di sostegno."
+      "notes": "La scadenza dell'8 ottobre 2026 riguarda documentazione prevista dai bandi, non nuove domande di sostegno.",
+      "interventionCodes": [
+        {
+          "code": "SRE02",
+          "sourceUrl": "https://svilupporurale.regione.sicilia.it/2025/05/29/avviso-prot-111142-del-29-05-2025-proroga-dei-termini-di-presentazione-domande-al-30-giugno-2025-interventi-sre01-e-sre02/"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Sostegno forfettario in conto capitale per nuovi agricoltori",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2025-03-20",
+          "sourceUrl": "https://svilupporurale.regione.sicilia.it/storage/2025/03/Bando-modificato-ed-integrato-Intervento-SRE02-Insediamento-Nuovi-Agricoltori.pdf"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Servizio 2 – Interventi relativi alle produzioni agricole e zootecniche",
+          "value": "agri.servizioproduzioni@regione.sicilia.it",
+          "sourceUrl": "https://svilupporurale.regione.sicilia.it/contatti/"
+        }
+      ]
     },
     {
       "id": "sicilia-banca-terra",
       "name": "Banca della Terra di Sicilia",
+      "metaDescription": "L’albo della Banca della Terra di Sicilia riguarda terreni e immobili agricoli. Consulta i bandi precedenti per giovani agricoltori e il portale regionale.",
       "kind": "LAND_BANK",
       "status": "HISTORICAL",
       "scope": {
@@ -227,7 +376,7 @@
       "operator": "Dipartimento regionale dell'agricoltura",
       "operatorType": "PUBLIC",
       "whatItOffers": "Albo regionale di terreni e immobili agricoli pubblici o privati, utilizzato in passato per concedere terreni e valorizzare il patrimonio agricolo incolto o abbandonato.",
-      "whoCanUseIt": "I bandi precedenti hanno assegnato terreni a giovani imprenditori agricoli; requisiti e destinatari di un'eventuale futura convocazione dovranno essere verificati nel relativo bando.",
+      "whoCanUseIt": "I bandi precedenti hanno assegnato terreni a giovani imprenditori agricoli; requisiti e destinatari di un eventuale futuro bando dovranno essere verificati nel relativo bando.",
       "howToAccess": "Non è stato verificato un bando aperto nel 2026. Consultare la pagina ufficiale dei bandi per eventuali nuove procedure; l'atto del 17 aprile 2026 ricostituisce il tavolo tecnico e non apre domande.",
       "accessUrl": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/altri-contenuti/banca-della-terra-di-sicilia/bandi",
       "assetTypes": ["PLOTS"],
@@ -244,7 +393,11 @@
             "favorire il ricambio generazionale nel comparto agricolo",
             "la \"Banca della Terra di Sicilia\" comprende i seguenti beni",
             "procedure di evidenza pubblica per la concessione dei predetti beni a imprenditori agricoli e giovani"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/altri-contenuti/banca-della-terra-di-sicilia/bandi",
@@ -255,7 +408,11 @@
             "D.D.G. 2278 del 18/06/2021 approvazione bando",
             "DDG. 2384 del 05/08/2020",
             "Ultimo aggiornamento 13/06/2023"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://regione.sicilia.it/la-regione-informa/banca-terra-assegnati-lotti-terreno-melilli-custonaci-due-giovani-imprenditori-agricoli",
@@ -264,16 +421,176 @@
           "quotes": [
             "Sono cinque i giovani imprenditori siciliani che si sono aggiudicati il secondo bando",
             "Con il primo bando, invece, erano stati assegnati circa 430 ettari a 12 aziende agricole"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.sicilia.it/la-regione-informa/legge-regionale-n-52014-art-21-banca-terra-sicilia-ricostituzione-tavolo-tecnico-interdipartimentale",
           "title": "Ricostituzione del Tavolo Tecnico Interdipartimentale",
           "consultedOn": "2026-10-30",
-          "quotes": ["17 Apr 2026", "è ricostituito nella nuova composizione il Tavolo Tecnico Interdipartimentale"]
+          "quotes": ["17 Apr 2026", "è ricostituito nella nuova composizione il Tavolo Tecnico Interdipartimentale"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/altri-contenuti/banca-della-terra-di-sicilia",
+          "title": "Banca della Terra di Sicilia | Regione Siciliana",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Banca della Terra di Sicilia",
+            "Cos'è la Banca della Terra Riferimenti Normativi Bandi Beni disponibili Beni concessi",
+            "Ultimo aggiornamento 08/06/2021, 20:07"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/organizzazione/servizio-2-interventi-relativi-alle-produzioni-agricole/uo-s204-interventi-capitale-umano",
+          "title": "UO S2.04 - Credito agrario e danni in agricoltura - Banca della terra | Regione Siciliana",
+          "consultedOn": "2026-11-25",
+          "quotes": ["E-mail: agri.creditoeassicurazioni@regione.sicilia.it"]
         }
       ],
-      "notes": "I bandi e le assegnazioni verificati sono precedenti al 2026. La ricostituzione del tavolo tecnico nel 2026 indica attività amministrativa, ma non costituisce una convocazione né una procedura di domanda; la risorsa è quindi classificata come storica."
+      "notes": "I bandi e le assegnazioni verificati sono precedenti al 2026. La ricostituzione del tavolo tecnico nel 2026 indica attività amministrativa, ma non costituisce un bando né una procedura di domanda; la risorsa è quindi classificata come storica.",
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "UO S2.04 – Credito agrario e danni in agricoltura – Banca della terra",
+          "value": "agri.creditoeassicurazioni@regione.sicilia.it",
+          "sourceUrl": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/organizzazione/servizio-2-interventi-relativi-alle-produzioni-agricole/uo-s204-interventi-capitale-umano"
+        }
+      ]
+    },
+    {
+      "id": "sicilia-assome-conduttore",
+      "name": "Corso Conduttore di Impresa Agricola",
+      "metaTitle": "Corso Conduttore di Impresa Agricola: AssoMe Sicilia",
+      "metaDescription": "AssoMe Academy propone in Sicilia un corso da 600 euro per aspiranti agricoltori e addetti. Consulta requisiti, tirocinio e contatti.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "ASSOME Società Cooperativa Sociale",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Percorso per avviare, condurre o migliorare la gestione di un'azienda agricola, di almeno 150 ore: 120 ore di lezione e 30 ore di tirocinio. Rilascia la qualifica professionale di Conduttore impresa agricola, livello EQF 3, dopo il completamento del percorso e il superamento della prova finale.",
+      "whoCanUseIt": "Giovani imprenditori agricoli, aspiranti agricoltori, agricoltori che intendono migliorare la gestione e professionisti interessati al settore agroalimentare, occupati o disoccupati. Sono richiesti almeno il titolo di scuola secondaria di primo grado, l'assolvimento dell'obbligo scolastico e un'età pari o superiore a 18 anni e inferiore a 61 anni; non è richiesta esperienza lavorativa pregressa.",
+      "howToAccess": "Utilizzare l'iscrizione nella scheda del corso oppure contattare AssoMe Academy per verificare disponibilità, requisiti, calendario e modalità di iscrizione. Il prezzo attuale pubblicato è di 600,00 euro.",
+      "accessUrl": "https://assome.org/product/corso-conduttore-impresa-agricola/",
+      "trainingFormats": ["ONLINE", "IN_PERSON"],
+      "accessCostType": "FEE_REQUIRED",
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "AssoMe Academy",
+          "value": "info@assome.org",
+          "sourceUrl": "https://assome.org/product/corso-conduttore-impresa-agricola/"
+        },
+        {
+          "channel": "PHONE",
+          "label": "AssoMe Academy",
+          "value": "090 738 6778",
+          "sourceUrl": "https://assome.org/product/corso-conduttore-impresa-agricola/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://assome.org/product/corso-conduttore-impresa-agricola/",
+          "title": "Corso Conduttore di Impresa Agricola",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Il corso Conduttore di Impresa Agricola è un percorso formativo rivolto a chi desidera avviare, condurre o migliorare la gestione di un’azienda agricola.",
+            "Il corso è pertinente a persone occupate o disoccupate che desiderano sviluppare competenze per il settore agricolo.",
+            "Giovani imprenditori agricoli e aspiranti agricoltori",
+            "Agricoltori che vogliono innovare e migliorare la gestione aziendale",
+            "Professionisti interessati a sviluppare nuove competenze nel settore agroalimentare",
+            "È richiesto almeno il titolo di scuola secondaria di primo grado e l'assolvimento dell'obbligo scolastico.",
+            "Età pari o superiore a 18 anni e inferiore a 61 anni.",
+            "No, non è richiesta esperienza lavorativa pregressa.",
+            "Il percorso prevede almeno 150 ore. Suddivise in 120 ore di lezione e 30 ore di tirocinio.",
+            "Qualifica di Conduttore impresa agricola, livello EQF 3, previo completamento del percorso e superamento della prova finale.",
+            "Modalità Online",
+            "L'esame finale prevede una prova scritta e orale della durata di 4 ore, in presenza.",
+            "600,00 € Il prezzo attuale è: 600,00 €.",
+            "Iscriviti ora",
+            "Contattaci per verificare disponibilità, requisiti, calendario e modalità di iscrizione.",
+            "La qualifica non garantisce automaticamente finanziamenti, ammissione a bandi o inserimento lavorativo: l’eventuale riconoscimento ai fini di specifiche misure agricole dipende dai requisiti del singolo bando.",
+            "Assenze massime pari al 30% delle ore.",
+            "assome academy via dogali 20 – messina 090 738 6778 | info@assome.org",
+            "ASSOME Società Cooperativa Sociale"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "notes": "La scheda indica modalità online e un esame finale scritto e orale in presenza. Sono consentite assenze fino al 30% delle ore. La qualifica non garantisce finanziamenti, ammissione a bandi o inserimento lavorativo: il riconoscimento per specifiche misure agricole dipende dai requisiti del singolo bando.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "sicilia-iblea-conduttore",
+      "name": "Corso Conduttore Impresa Agricola, ex corso Capo Azienda e IAP",
+      "metaTitle": "Corso Conduttore Impresa Agricola: Iblea, Sicilia",
+      "metaDescription": "Il corso Iblea per chi si insedia in Sicilia prevede 150 ore tra lezioni online e stage. Consulta i requisiti e come richiedere un preventivo.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Associazione MSR Iblea Formazione",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Corso per acquisire la qualifica di Conduttore Impresa Agricola: 150 ore, di cui 130 online e 20 di stage aziendale, con test finale e colloquio. La pagina lo indica come obbligatorio per l'acquisizione delle competenze per chi partecipa a SRE01 e SRE02.",
+      "whoCanUseIt": "Residenti in Sicilia tra 18 e 55 anni che abbiano assolto l'obbligo scolastico e possano documentare uno dei requisiti agricoli elencati nella scheda: domanda di sostegno, titolarità o partecipazione in azienda agricola, lavoro agricolo, partita IVA agricola, contributi agricoli, qualifica IAP provvisoria, iscrizione come coltivatore diretto o coadiuvante familiare. La pagina si rivolge anche ai giovani che vogliono avviare un'attività agricola.",
+      "howToAccess": "Aggiungere il corso al carrello, procedere alla cassa e compilare i campi indicando un recapito telefonico: l'ente ricontatta per inviare il modulo d'iscrizione e il preventivo. Sono richiesti documento d'identità, tessera sanitaria, titolo di studio o autocertificazione e documento comprovante il requisito di accesso.",
+      "accessUrl": "https://www.ibleaformazione.com/prodotto/corso-conduttore-impresa-agricola-ex-corso-capo-azienda-e-iap/",
+      "trainingFormats": ["ONLINE", "IN_PERSON"],
+      "qualifiesForEstablishmentAid": true,
+      "accessCostType": "FEE_REQUIRED",
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.ibleaformazione.com/prodotto/corso-conduttore-impresa-agricola-ex-corso-capo-azienda-e-iap/",
+          "title": "Corso Conduttore Impresa Agricola, ex corso Capo Azienda e IAP – MSR Iblea Formazione",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Associazione MSR Iblea Formazione",
+            "Corso per i residenti in Regione Sicilia per l’acquisizione della qualifica di Conduttore Impresa Agricola, ex corso Capo Azienda e IAP.",
+            "Giovani under 40 che vogliono avviare un’attività agricola.",
+            "Il corso è obbligatorio per chi partecipa alla misura SRE01 insediamento giovani e intervento SRE02 insediamento nuovo agricoltore per acquisizione delle competenze.",
+            "Il corso in modalità Formazione a Distanza FAD, ON-LINE è di 150 ore. 130 ore ON-LINE; 20 ore STAGE Aziendale",
+            "Test Finale e Colloquio",
+            "Possono partecipare al corso i residenti nel territorio della Regione Siciliana, età compresa tra i 18 e i 55 anni ed aver assolto l’obbligo scolastico.",
+            "Documento che prova il requisito per accedere al corso. (Visura, INPS, Partita IVA, Domanda PSR Sicilia, altro)",
+            "I potenziali beneficiari che hanno presentato domanda di aiuto per intervento SRE01 (insediamento giovani in agricoltura) , intervento SRE02 (insediamento nuovi agricoltori)",
+            "Titolare di un’ Azienda Agricola dimostrabile da P.IVA, Visura Camerale della camera commercio;",
+            "Chi è socio di un’azienda agricola al 50% oppure chi è socio al 33% dimostrabile da visura camerale;",
+            "Bracciante agricolo/lavoratore agricolo dimostrabile con busta paga INPS;",
+            "Chi ha P. IVA agricola;",
+            "Chi ha giornate agricole dimostrabili con contributi INPS versati;",
+            "Chi è in possesso di una qualifica di IAP provvisoria rilasciata dal comune purché dimostrabile con P.IVA o iscrizione Camera Commercio.",
+            "Coltivatore diretto dimostrabile iscrizione all’INPS.",
+            "Coadiuvante familiare dimostrabile con INPS e contributi versati.",
+            "Aggiungi al carrello il corso, vai alla cassa, riempi i campi e sarai ricontattato/a con invio del modulo di iscrizione e relativo preventivo del costo del corso.",
+            "Indica, gentilmente, il tuo recapito telefonico di ricontatto.",
+            "Modulo d’iscrizione Copia carta d’identità fronte retro Copia tessera sanitaria fronte e retro Titolo di studio o autocertificazione"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
@@ -289,13 +606,21 @@
           "url": "https://svilupporurale.regione.sicilia.it/2026/06/09/intervento-sre01-insediamento-giovani-agricoltori-graduatoria-regionale-definitiva-delle-domande-di-sostegno-ammissibili-lelenco-regionale-definitivo-delle-domande-non-ri/",
           "title": "Graduatoria definitiva SRE01",
           "consultedOn": "2026-09-28",
-          "quotes": ["09/06/2026", "graduatoria regionale definitiva delle domande di sostegno ammissibili"]
+          "quotes": ["09/06/2026", "graduatoria regionale definitiva delle domande di sostegno ammissibili"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://svilupporurale.regione.sicilia.it/2026/06/09/intervento-sre02-insediamento-nuovi-agricoltori-graduatoria-regionale-definitiva-delle-domande-di-sostegno-ammissibili-lelenco-regionale-definitivo-delle-domande-non-rice/",
           "title": "Graduatoria definitiva SRE02",
           "consultedOn": "2026-09-28",
-          "quotes": ["09/06/2026", "graduatoria regionale definitiva delle domande di sostegno ammissibili"]
+          "quotes": ["09/06/2026", "graduatoria regionale definitiva delle domande di sostegno ammissibili"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -314,7 +639,11 @@
           "quotes": [
             "03 Settembre 2026",
             "Proroga al 8 ottobre 2026 del termine per la presentazione della documentazione prevista ai paragrafi 13 e 14 dei bandi"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     }

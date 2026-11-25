@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "FR",
   "region": "ile-de-france",
+  "metaTitle": "Installation agricole et foncier en Île-de-France",
+  "metaDescription": "Repérez l’aide FEADER à l’installation et les services de la Safer et d’Île-de-France Nature pour accéder au foncier ou transmettre une exploitation.",
   "officialName": "Île-de-France",
-  "published": "2026-10-25",
+  "published": "2026-11-25",
   "summary": "En Île-de-France, l’accès à la terre passe par deux opérateurs vérifiables : Île-de-France Nature, qui loue ses terres agricoles et porte du foncier pour installer des agriculteurs en zone périurbaine avec la Safer, et la Safer de l’Île-de-France, qui accompagne les cédants dans la transmission de leur exploitation.",
   "coverage": {
     "status": "PARTIAL",
@@ -25,9 +27,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -37,13 +36,29 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
   "resources": [
     {
       "id": "ile-de-france-safer-idf-transmission",
-      "name": "Safer de l’Île-de-France, accompagnement à la transmission",
+      "name": "Safer de l’Île-de-France, accompagnement à l’installation et à la transmission",
+      "metaTitle": "Safer de l’Île-de-France : installation et transmission",
+      "metaDescription": "La Safer francilienne aide à préparer une cession ou une reprise. La fiche indique où consulter les biens en vente et comment joindre le conseiller.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -51,13 +66,19 @@
       },
       "operator": "Safer de l’Île-de-France",
       "operatorType": "MIXED",
-      "whatItOffers": "Facilite la transmission des exploitations sur leur volet foncier et immobilier, apporte une expertise de diagnostic et d’évaluation des biens et sécurise l’opération par sa garantie de vendeur professionnel.",
-      "whoCanUseIt": "Cédants qui veulent transmettre leur exploitation, de tous types de productions, et contribuer à l’installation d’un jeune agriculteur.",
-      "howToAccess": "Contacter la Safer de l’Île-de-France et rencontrer le conseiller foncier du secteur pour définir les conditions de la transmission.",
+      "whatItOffers": "Facilite la transmission des exploitations sur leur volet foncier et immobilier, apporte une expertise de diagnostic et d’évaluation des biens et sécurise l’opération par sa garantie de vendeur professionnel. Pour une création ou une reprise, recherche un bien adapté au projet et accompagne la candidature jusqu’à la signature de l’acte, en sécurisant l’acquisition sur les plans technique, juridique et fiscal. La Safer achète des biens agricoles ou ruraux, publie les ventes et examine les candidatures en comité technique départemental avant de choisir le ou les acquéreurs.",
+      "whoCanUseIt": "Cédants qui veulent transmettre leur exploitation, de tous types de productions, et contribuer à l’installation d’un jeune agriculteur ; personnes souhaitant créer ou reprendre une exploitation agricole en Île-de-France. La Safer traite prioritairement les demandes de foncier des jeunes pour leur installation et encourage l’installation des jeunes agriculteurs hors cadre familial.",
+      "howToAccess": "Pour transmettre, contacter la Safer de l’Île-de-France et rencontrer le conseiller foncier du secteur pour définir les conditions de la transmission. Pour s’installer ou reprendre, consulter les biens en vente sur le site de la Safer de l’Ile-de-France et y déposer sa candidature ; rencontrer le conseiller foncier de son secteur pour lui présenter son projet.",
       "accessUrl": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/transmettre-une-exploitation-agricole/",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
-      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "LANDOWNER"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "LANDOWNER", "NEW_ENTRANT", "LAND_SEEKER", "YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/transmettre-une-exploitation-agricole/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/transmettre-une-exploitation-agricole/",
@@ -68,32 +89,77 @@
             "Elle sécurise et facilite la transmission par sa garantie de vendeur professionnel.",
             "Rencontrez le/la conseiller(e) foncier(e) en charge de votre secteur",
             "contribuer à l’installation d’un(e) jeune agriculteur(rice)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.saferidf.fr/contact/",
           "title": "Contact - Safer de l’Île-de-France",
-          "consultedOn": "2026-10-25",
+          "consultedOn": "2026-11-24",
           "quotes": [
             "Secteurs Nord Seine et Marne, Seine-Saint-Denis",
-            "Secteurs Essonne/Val-de-Marne",
             "Secteur Yvelines",
-            "Secteur Val-d’Oise"
-          ]
+            "Secteur Val-d’Oise",
+            "Secteur Essonne/Val-de-Marne",
+            "safer@safer-idf.com"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.saferidf.fr/",
           "title": "La Safer de l’Île-de-France",
           "consultedOn": "2026-10-25",
-          "quotes": ["sur toute la Région Ile-de-France"]
+          "quotes": ["sur toute la Région Ile-de-France"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/devenir-agriculteur/",
+          "title": "Devenir agriculteur - La Safer de l'Ile-de-France",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Vous souhaitez devenir agriculteur et vous avez l’intention de vous installer en Ile-de-France ? La Safer peut vous accompagner dans cette démarche.",
+            "La Safer encourage l’installation des jeunes agriculteurs hors cadre familial, restructure, agrandit, assure un rôle d’aménagement et de rationalisation des exploitations.",
+            "Traiter prioritairement les demandes de foncier émanant des jeunes pour favoriser leur projet d’installation.",
+            "Les biens en vente disponibles sont annoncés sur le site de la Safer de l’Ile-de-France, sur lequel vous pouvez déposer votre candidature.",
+            "rencontrez le conseiller foncier de votre secteur pour lui expliquer plus en détail votre projet.",
+            "Dans le but d’aider les repreneurs d’exploitation agricole et les personnes souhaitant créer une activité agricole, la Safer achète des biens agricoles ou ruraux mis en vente et fixe un prix en accord avec le vendeur (ce prix sera identique pour tous les candidats potentiels).",
+            "Elle annonce les ventes, que vous pouvez retrouver ici, et recueille les candidatures qui sont par la suite étudié en comité technique départemental (commission d’acteurs locaux, professionnels agricoles, élus…) pour examiner tous les projets des candidats.",
+            "En regard des avis du comité technique départemental, la Safer identifie le ou les candidat(s) dont le projet professionnel de production agricole s’inscrit le mieux dans le tissu local et lui revend le bien.",
+            "Un(e) conseiller(e) foncier(e) vous accompagne dans votre projet de candidature jusqu’à la signature de l’acte.",
+            "Dans le cadre de votre création d’activité agricole ou bien de reprise d’une exploitation, il vous aide à trouver le bien qui correspond à votre projet, à sa juste valeur en connaissant parfaitement le prix du marché.",
+            "Enfin, elle sécurise votre acquisition sur les plans techniques, juridiques et fiscaux"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "claude-1",
-      "notes": "Les secteurs publiés pour les conseillers fonciers couvrent la Seine-et-Marne, la Seine-Saint-Denis, l’Essonne, le Val-de-Marne, les Yvelines et le Val-d’Oise. Le site de l’opérateur indique par ailleurs qu’il intervient sur toute la région Île-de-France."
+      "notes": "Les secteurs publiés pour les conseillers fonciers couvrent la Seine-et-Marne, la Seine-Saint-Denis, l’Essonne, le Val-de-Marne, les Yvelines et le Val-d’Oise. Le site de l’opérateur indique par ailleurs qu’il intervient sur toute la région Île-de-France.",
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Safer de l’Île-de-France",
+          "value": "safer@safer-idf.com",
+          "sourceUrl": "https://www.saferidf.fr/contact/"
+        }
+      ]
     },
     {
       "id": "ile-de-france-nature-terres-agricoles",
       "name": "Île-de-France Nature, location de terres agricoles et portage foncier",
+      "metaTitle": "Île-de-France Nature : louer des terres agricoles",
+      "metaDescription": "Vous cherchez des terres pour vous installer en Île-de-France ? La fiche explique les acquisitions de l’agence et ses baux ruraux de 9 ou 18 ans.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -101,7 +167,7 @@
       },
       "operator": "Île-de-France Nature, avec la Safer de l’Île-de-France",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Loue ses terres agricoles à des porteurs de projet par des baux ruraux, assure si nécessaire le portage du foncier et peut vendre ensuite les terres et bâtiments acquis, dans le cadre du dispositif régional d’installation agricole.",
+      "whatItOffers": "Loue ses terres agricoles à des porteurs de projet par des baux ruraux de 9 ou 18 ans, après achat de terres sans repreneur au sein des Périmètres régionaux d’intervention foncière. Assure également l’achat temporaire de terres sur l’ensemble de la région puis leur revente aux agriculteurs porteurs de projets retenus, dans le cadre du dispositif « Île-de-France, terre d’installation agricole », co-piloté avec la SAFER de l’Île-de-France. Peut vendre ensuite les terres et bâtiments acquis.",
       "whoCanUseIt": "Porteurs de projet agricole qui cherchent des terres libres en Île-de-France, avec des activités économiquement viables et compatibles avec les enjeux du territoire.",
       "howToAccess": "Répondre aux appels à candidatures lancés par l’agence régionale et passer par le dispositif mené avec la Safer de l’Île-de-France.",
       "accessUrl": "https://www.iledefrance-nature.fr/offres-et-accompagnement/je-souhaite-minstaller-sur-des-terres-agricoles/",
@@ -117,11 +183,227 @@
             "favorise l’installation d’agriculteurs en zone périurbaine, dont les activités sont économiquement viables et compatibles avec les enjeux du territoire",
             "en louant ses terres agricoles à des porteurs de projets agricoles, notamment à travers des baux ruraux",
             "en assurant, si nécessaire, le portage du foncier",
-            "dans le cadre du dispositif « Île-de-France, terre d’installation agricole » mené en partenariat avec la SAFER de l’Île-de-France"
-          ]
+            "dans le cadre du dispositif « Île-de-France, terre d’installation agricole » mené en partenariat avec la SAFER de l’Île-de-France",
+            "merci de contacter la mission agriculture : agriculture@iledefrance-nature.fr."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.iledefrance-nature.fr/terres-agricoles/",
+          "title": "Terres agricoles - Île-de-France Nature",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Achat de terres agricoles mises en vente au sein des Périmètres régionaux d’intervention foncière et sans repreneur, puis leur location aux agriculteurs porteurs de projets retenus (baux ruraux long terme de 9 ou 18 ans).",
+            "Achat temporaire de terres agricoles mises en vente sur l’ensemble de la région, dans le cadre du dispositif de portage foncier « Île-de-France, terre d’installation agricole », co-piloté avec la SAFER de l’Île-de-France et la revente de ces terres aux agriculteurs porteurs de projets retenus.",
+            "Favoriser l’installation d’agriculteurs, dont les activités sont compatibles avec les enjeux du territoire et économiquement viables",
+            "Île-de-France Nature est le nom d’usage de l’Agence des espaces verts de la région d’Île-de-France, établissement public à caractère administratif",
+            "Nos actions au quotidien"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Île-de-France Nature – mission agriculture",
+          "value": "agriculture@iledefrance-nature.fr",
+          "sourceUrl": "https://www.iledefrance-nature.fr/offres-et-accompagnement/je-souhaite-minstaller-sur-des-terres-agricoles/"
+        }
+      ]
+    },
+    {
+      "id": "ile-de-france-gab-idf-transmettre-sa-ferme",
+      "name": "Transmettre sa ferme",
+      "metaTitle": "Transmettre sa ferme : accompagnement en Île-de-France",
+      "metaDescription": "En Île-de-France, les cédants peuvent être accompagnés pour diagnostiquer leur ferme, diffuser une annonce et organiser les échanges avec un repreneur.",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "GAB IdF",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Accompagnement individuel des cédants : rédaction et diffusion d’annonces, mise en lien avec des porteurs de projet, réflexion sur la transmission, diagnostic de la ferme et médiation entre cédant et repreneur. Pour les candidats à l’installation : étude de faisabilité, appui au dossier d’aide à l’investissement, prévisionnel économique, prix, débouchés et communication, diagnostic agronomique et analyse de sol, accompagnement de la diversification.",
+      "whoCanUseIt": "Cédants, candidats à la reprise et candidats à l’installation.",
+      "howToAccess": "Solliciter le GAB IdF par le contact indiqué sur la page « Transmettre sa ferme ».",
+      "accessUrl": "https://www.bioiledefrance.fr/transmettre-sa-ferme",
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.bioiledefrance.fr/transmettre-sa-ferme"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.bioiledefrance.fr/transmettre-sa-ferme",
+          "title": "Transmettre sa ferme - le GAB IDF",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Le GAB IdF accompagne les cédants et les candidats à la reprise dans cette étape clé et sensible de la vie d’une ferme.",
+            "1/5 ferme bio est à reprendre en Ile de France dans les années qui viennent.",
+            "Aux cédant, le GAB IdF propose un accompagnement individuel: Aide à la rédaction et diffusion d’annonces, Mise en lien avec des porteurs de projet, Aide à la réflexion sur le projet de transmission, Aide au diagnostic de la ferme, Médiation cédant repreneur.",
+            "Aux candidats à l'installation, le GAB IdF propose un accompagnement individuel Etude de faisabilité du projet, Appui au montage du dossier d’aide à l’investissement, Construction du prévisionnel économique, Calcul des prix, débouchés, communication, Diagnostic agronomique et analyse de sol, Accompagnement des projets de diversification.",
+            "Mon contact Tanneguy PICHON Chargé de développement agricole et partenarial et référent Aides et réglementation BIO"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.bioiledefrance.fr/formulaire-de-contact",
+          "title": "Formulaire de contact - le GAB IDF",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Objet de votre message"]
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Bio Île-de-France",
+          "value": "https://www.bioiledefrance.fr/formulaire-de-contact",
+          "sourceUrl": "https://www.bioiledefrance.fr/formulaire-de-contact"
+        }
+      ]
+    },
+    {
+      "id": "ile-de-france-feader-installation-jeune-agriculteur",
+      "name": "FEADER - Aide à l'installation du jeune agriculteur",
+      "metaTitle": "Aide à l’installation du jeune agriculteur — Île-de-France",
+      "metaDescription": "La dotation FEADER soutient les jeunes installés franciliens. La fiche présente le montant de base de 22 000 € et les bonifications possibles.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Région Île-de-France",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Dotation en capital pour la trésorerie, d’un montant de base de 22.000€. Bonifications possibles : agriculture biologique, 22.000€ ; valeur ajoutée, 20.000€ ; investissements importants, de 10.000€ à 40.000€ selon le montant des investissements. Les bonifications agriculture biologique et valeur ajoutée ne sont pas cumulables. Pour une installation à titre secondaire, les montants sont divisés par deux. Versement en plusieurs fois pendant la réalisation du plan d’entreprise et à sa fin.",
+      "whoCanUseIt": "Personnes de 18 à moins de 40 ans s’installant pour la première fois comme chefs d’exploitation agricole en Île-de-France, à titre principal, secondaire ou progressif.",
+      "howToAccess": "Déposer un dossier sur mesdemarches.iledefrance.fr, dans le dispositif « FEADER - Aide à l'installation du jeune agriculteur ». Le document à télécharger lors du dépôt précise les critères à remplir et le contenu du dossier. Pour les questions sur le dispositif, contacter le service pré-instructeur de la Chambre d’agriculture d’Île-de-France.",
+      "accessUrl": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Service pré-instructeur de la Chambre d’agriculture d’Île-de-France",
+          "value": "installation-transmission@idf.chambagri.fr",
+          "sourceUrl": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur"
+        }
+      ],
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "FEADER",
+          "sourceUrl": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Montant de base à titre principal",
+          "value": 22000,
+          "unit": "EUR",
+          "asOf": "2026-11-21",
+          "sourceUrl": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur",
+          "title": "FEADER - Aide à l'installation du jeune agriculteur | Région Île-de-France",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "La Région apporte une aide à la trésorerie aux agriculteurs de 18 à moins de 40 ans ayant un projet de première installation à titre principal, à titre secondaire ou progressive.",
+            "L’aide à l’installation du jeune agriculteur est une dotation en capital destinée à des personnes de 18 à moins de 40 ans qui s’installent pour la première fois en tant que chefs d’exploitation agricole.",
+            "Jeune agriculteur de 18 à moins de 40 ans portant un projet d'installation en agriculture en Île-de-France.",
+            "Aide à la trésorerie d'un montant de base de 22.000€.",
+            "Projet en agriculture biologique : 22.000€, Projet avec valeur ajoutée : 20.000€, Projet avec des investissements importants, représentant un montant compris entre 10.000€ et 40.000€ : selon le montant des investissements.",
+            "Les bonifications « agriculture biologique » et « valeur ajoutée » ne sont pas cumulables entre elles.",
+            "Pour les installations à titre secondaire, ces montants sont divisés par 2.",
+            "Cette dotation en capital est versée en plusieurs fois au cours de la réalisation du plan d’entreprise et à sa fin",
+            "Pour bénéficier de cette aide, vous devez déposer un dossier sur la plateforme en ligne mesdemarches.iledefrance.fr (dispositif « FEADER - Aide à l'installation du jeune agriculteur »).",
+            "Le document à télécharger lors du dépôt de dossier reprend l'ensemble des critères à remplir et le contenu du dossier de demande d'aide.",
+            "Pour toute demande liée au dispositif, vous pouvez contacter le service pré-instructeur de la Chambre d’agriculture d’Île-de-France : installation-transmission@idf.chambagri.fr",
+            "FEADER - Aide à l'installation du jeune agriculteur"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur"
+        }
+      ]
+    },
+    {
+      "id": "ile-de-france-driaaf-renouvellement-generations",
+      "name": "Renouvellement des générations",
+      "metaTitle": "Renouvellement des générations agricoles — Île-de-France",
+      "metaDescription": "La rubrique de la DRAAF présente le parcours à l’installation en Île-de-France et oriente vers l’accompagnement régional, l’AITA et les structures agréées.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DRIAAF Île-de-France",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Rubrique donnant accès aux pages sur le parcours à l’installation, le dispositif d’accompagnement à l’installation en Île-de-France, le Comité régional installation transmission, le programme AITA et l’agrément des structures de conseil et d’accompagnement France services agriculture. Une fiche DRIAAF du 10 octobre 2017 présente le PAI comme point d’entrée, le CEPPP comme centre d’élaboration du plan de professionnalisation et le stage collectif de 21 heures comme composante de ce plan.",
+      "howToAccess": "Choisir dans la rubrique la page consacrée au parcours à l’installation ou au dispositif d’accompagnement recherché.",
+      "accessUrl": "https://driaaf.ile-de-france.agriculture.gouv.fr/renouvellement-des-generations-r101.html",
+      "sources": [
+        {
+          "url": "https://driaaf.ile-de-france.agriculture.gouv.fr/renouvellement-des-generations-r101.html",
+          "title": "Renouvellement des générations | DRIAAF Île-de-France",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Le Parcours à l’installation : PAI, CEPPP, stage 21h",
+            "Le dispositif d’accompagnement à l’installation en Île-de-France",
+            "Comité régional installation transmission (CRIT)",
+            "Programme d’Accompagnement à l’installation et la transmission en agriculture (AITA)",
+            "France services agriculture : agrément des structures de conseil et d’accompagnement des porteurs de projet",
+            "Site officiel de la direction régionale et interdépartementale de l'Alimentation, de l'Agriculture et de la Forêt (DRIAAF) du ministère en charge de l'agriculture."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://driaaf.ile-de-france.agriculture.gouv.fr/les-structures-d-accompagnement-a-l-installation-pai-ceppp-stage-collectif-21-a1305.html",
+          "title": "Les structures d’accompagnement à l’installation : PAI, CEPPP, Stage collectif 21 heures | DRIAAF Île-de-France",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Cette structure est une « porte d’entrée unique » chargée d’accueillir et de coordonner l’accompagnement de proximité",
+            "Ce centre, animé par des conseillers, est chargé de l’élaboration des plans de professionnalisation (PPP)",
+            "Le stage collectif de 21 heures est un stage de formation ouvert à tous les porteurs de projet d’une installation en agriculture.",
+            "Le stage collectif de 21 heures est une composante du plan de professionnalisation personnalisé (PPP).",
+            "Publié le 10/10/2017"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

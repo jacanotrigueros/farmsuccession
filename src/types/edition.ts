@@ -51,7 +51,7 @@ export interface SnapshotBase {
    */
   officialName: string;
   /**
-   * Date this file was last published. Every consultation and review date is on or before it.
+   * Date this file was last published. Every consultation and verification date is on or before it.
    */
   published: string;
   /**
@@ -59,7 +59,6 @@ export interface SnapshotBase {
    */
   summary: string;
   coverage: Coverage;
-  review: Review;
   metadata: Metadata;
   /**
    * Everything documented for this territory at this layer. A resource that also applies to a wider territory lives in that wider file instead, never in both.
@@ -109,23 +108,6 @@ export interface CoverageMethod {
    * The portal, API query, feed, search query or document actually used, concrete enough to run again.
    */
   detail: string;
-}
-/**
- * The one review state of the file. A DRAFT has not been checked by a person, and only a person sets REVIEWED.
- */
-export interface Review {
-  /**
-   * DRAFT until a person has checked the file against its sources. An agent never sets REVIEWED, whatever checks it ran.
-   */
-  status: "DRAFT" | "REVIEWED";
-  /**
-   * Who carried out the review. A person, never a tool.
-   */
-  reviewedBy?: string;
-  /**
-   * The date the person reviewed it, on or before the file's publication date.
-   */
-  reviewedOn?: string;
 }
 export interface Metadata {
   /**
@@ -178,6 +160,14 @@ export interface Resource {
    * The resource's name as its operator gives it.
    */
   name: string;
+  /**
+   * Optional search title of the record page, in its language, when the one the site builds says less than people search for. The record's own name, placed in its territory, is used when this is absent.
+   */
+  metaTitle?: string;
+  /**
+   * Optional short search description of the record page, in its language, saying only what the page already says. The start of whatItOffers is used when this is absent.
+   */
+  metaDescription?: string;
   kind: ResourceKind;
   /**
    * Existence is not availability. ACTIVE: the page shows current operation. ANNOUNCED_NOT_OPERATING: announced or in law, with no operation shown. HISTORICAL: ran in the past. DISCONTINUED: shown as ended. UNKNOWN: the sources do not say.
@@ -248,9 +238,33 @@ export interface Resource {
    */
   qualifiesForEstablishmentAid?: boolean;
   /**
+   * The codes under which the managing authority runs this resource in its CAP plan, exactly as the source writes them, for example "SRE01", "75-01", "C.2.2.1" or "TI 75.011". A code means something only within its plan, issuer and period, which the record's territory and operator already give; it is never mapped to another country's code or to an EU intervention type here. One application that covers several interventions lists every code. Omit rather than infer one.
+   *
+   * @minItems 1
+   */
+  interventionCodes?: [InterventionCode, ...InterventionCode[]];
+  /**
+   * The acts the resource rests on, where its sources name them. Omit rather than infer one.
+   *
+   * @minItems 1
+   */
+  legalBasis?: [LegalAct, ...LegalAct[]];
+  /**
+   * The higher-layer resources — European, or national for a regional record — that this resource applies in its territory, where its own source names that measure, its plan or its code in that plan. A regional first-establishment aid run under a country's CAP plan implements the country's record of that plan, or the European record when the country has none. Mentioning a measure is not applying it: an advice service that helps with CAP applications implements nothing. Omit rather than infer one.
+   *
+   * @minItems 1
+   */
+  implements?: [Implementation, ...Implementation[]];
+  /**
    * Every application period documented for this resource, past and future. Keeping them here is what stops a closed call from making the programme itself look gone.
    */
   calls?: Call[];
+  /**
+   * Answers a reader needs that the resource's sources were read for and do not give: who can use it, how to access it, the amount one beneficiary gets, a contact, the cost, the training format, or the land it handles. Saying so tells the reader the record was checked and the official page is silent, which an empty field cannot. The dates of a call use a call with state NOT_PUBLISHED instead. Never set beside the field that answers the same question.
+   *
+   * @minItems 1
+   */
+  notPublished?: [NotPublished, ...NotPublished[]];
   /**
    * Whether using the resource costs the reader anything. NOT_APPLICABLE for something that is not accessed at all, such as a policy framework.
    */
@@ -324,6 +338,65 @@ export interface ContactPoint {
    * The one source of this resource that publishes the contact.
    */
   sourceUrl: string;
+  /**
+   * The areas this office or channel serves, each named as the source names it, for example "Burgenland", "Seine-et-Marne (77)" or "Comarca de Terra Chá". Each appears in the same quote of the cited source as the contact's value, so an office is never paired with an area another row of the page gives to someone else. Absent when the source does not tie the channel to an area; that is not a claim that it serves the whole scope.
+   *
+   * @minItems 1
+   */
+  areas?: [string, ...string[]];
+}
+/**
+ * One code of a CAP plan intervention, as its source writes it.
+ */
+export interface InterventionCode {
+  /**
+   * The code exactly as the source writes it. It appears in a quote of the cited source.
+   */
+  code: string;
+  /**
+   * The one source of this resource whose quotes give the code.
+   */
+  sourceUrl: string;
+}
+/**
+ * An act that creates or governs the resource, as its source names it. Not used for a record that is the act itself.
+ */
+export interface LegalAct {
+  /**
+   * The act's title or its official short form exactly as the source writes it, for example "Ley 5/2019" or "Salzburger Grundverkehrsgesetz 2023 – S.GVG 2023". It appears in a quote of the cited source.
+   */
+  title: string;
+  /**
+   * The articles or sections that create or govern the resource, each as the source writes it, for example "artículo 32" or "§ 32". Each appears in a quote of the cited source.
+   *
+   * @minItems 1
+   */
+  provisions?: [string, ...string[]];
+  /**
+   * The one source of this resource whose quotes name the act.
+   */
+  sourceUrl: string;
+  /**
+   * The act's official text, when the cited source is a guide or a consolidated mirror rather than the act. It is also one of the resource's sources, so the source check re-reads it.
+   */
+  actUrl?: string;
+}
+/**
+ * One higher-layer resource this resource applies, with the words its source uses for it.
+ */
+export interface Implementation {
+  /**
+   * The id of the resource applied. It belongs to a file this one inherits: the European file, or the country's file for a region.
+   */
+  resourceId: string;
+  /**
+   * How the cited source names the measure, its plan or its code in that plan, exactly as written, for example "PEPAC", "SRE01" or "AITA". It appears in a quote of the cited source.
+   */
+  named: string;
+  /**
+   * The one source of this resource whose quotes name the measure.
+   */
+  sourceUrl: string;
 }
 /**
  * One application period. The programme stays a single resource and its calls are listed here, so a closed call never makes the programme itself look gone.
@@ -341,6 +414,26 @@ export interface Call {
   closes?: IsoDate;
   /**
    * The one source of this resource that shows the period.
+   */
+  sourceUrl: string;
+}
+/**
+ * One reader question the cited source was read for and does not answer.
+ */
+export interface NotPublished {
+  /**
+   * WHO_CAN_USE: who can use it. HOW_TO_ACCESS: how to access it. AMOUNT_PER_BENEFICIARY: what one beneficiary gets. CONTACT_CHANNEL: a public channel. ACCESS_COST: what using it costs. TRAINING_FORMAT: how training is delivered. LAND_HANDLED: what land or holdings it handles.
+   */
+  question:
+    | "WHO_CAN_USE"
+    | "HOW_TO_ACCESS"
+    | "AMOUNT_PER_BENEFICIARY"
+    | "CONTACT_CHANNEL"
+    | "ACCESS_COST"
+    | "TRAINING_FORMAT"
+    | "LAND_HANDLED";
+  /**
+   * The source read for the answer, whose consultation date says when it was silent. It is the resource's main page for the question, usually its accessUrl.
    */
   sourceUrl: string;
 }
@@ -377,7 +470,7 @@ export interface Metric {
    */
   unit: "EUR" | "HECTARES" | "PARCELS" | "OFFERS" | "PROPERTIES" | "HOLDINGS" | "PEOPLE" | "HOURS";
   /**
-   * The date the figure refers to, as the page gives it.
+   * The date the figure refers to, as the page gives it; when the page gives none, the day the page was read.
    */
   asOf: string;
   /**
@@ -404,6 +497,20 @@ export interface Source {
    * @minItems 1
    */
   quotes: [string, ...string[]];
+  verification?: Verification;
+}
+/**
+ * The last time every quote of this source was found, character for character, on the live page. Amounts, dates and conditions a record states rest on those quotes, so this is the check of them. Absent when that has not happened since the page was read: the next pass starts there.
+ */
+export interface Verification {
+  /**
+   * The date every quote was found on the live page. On or after consultedOn, and on or before the file's publication date.
+   */
+  checkedOn: string;
+  /**
+   * How the page was read: FETCH by the repository's source check, BROWSER in a real browser for a page a script cannot read.
+   */
+  method: "FETCH" | "BROWSER";
 }
 /**
  * A dated event of the edition year, for example a government announcing a state land bank or a call closing earlier than published.
@@ -462,6 +569,148 @@ export interface CountryIdentity {
    * ISO 3166-1 alpha-2, uppercase.
    */
   country: string;
+  /**
+   * Optional search title of the country page, in its language. The site's localised country title is used when this is absent.
+   */
+  metaTitle?: string;
+  /**
+   * Optional short search description of the country page, in its language. The public summary is used when this is absent.
+   */
+  metaDescription?: string;
+  countryContext?: CountryContext;
+}
+/**
+ * Dated national statistics with the original source observations. Economic observations are at current prices in million euros. Age counts are agricultural holdings grouped by age of the farm manager.
+ */
+export interface CountryContext {
+  consultedOn: IsoDate;
+  /**
+   * Utilised agricultural area from the farm structure survey.
+   */
+  land: {
+    /**
+     * Reference year of the reported observations.
+     */
+    year: number;
+    /**
+     * Published utilised agricultural area in hectares.
+     */
+    hectares: number;
+    sourceUrl: HttpsUrl;
+    /**
+     * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+     */
+    flag?: "IMPUTED" | "PROVISIONAL";
+    /**
+     * The EU-27's utilised agricultural area for the same year, so the countries can be read against Europe's total.
+     */
+    europe?: {
+      /**
+       * Reference year of the reported observation.
+       */
+      year: number;
+      /**
+       * Published utilised agricultural area of the EU-27 in hectares.
+       */
+      hectares: number;
+      sourceUrl: HttpsUrl;
+      /**
+       * Eurostat's status flag on the observation, when it has one.
+       */
+      flag?: "IMPUTED" | "PROVISIONAL";
+    };
+  };
+  /**
+   * Gross value added and gross domestic product from annual national accounts at current prices.
+   */
+  economy: {
+    /**
+     * Reference year of the reported observations.
+     */
+    year: number;
+    /**
+     * Gross value added of crop and animal production (NACE A01), in million euros. Forestry and fishing are left out: fishing is another project's subject.
+     */
+    sectorValueAdded: number;
+    /**
+     * Gross domestic product at market prices, in million euros.
+     */
+    gdp: number;
+    sectorSourceUrl: HttpsUrl;
+    gdpSourceUrl: HttpsUrl;
+    /**
+     * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+     */
+    flag?: "IMPUTED" | "PROVISIONAL";
+  };
+  /**
+   * Reported holdings by age of the manager from the farm structure survey.
+   */
+  succession: {
+    /**
+     * Reference year of the reported observations.
+     */
+    year: number;
+    /**
+     * Total agricultural holdings covered by the age table, across all ages.
+     */
+    holdings: number;
+    /**
+     * Holdings with a manager under 25.
+     */
+    under25: number;
+    /**
+     * Holdings with a manager aged 25 to 34.
+     */
+    from25To34: number;
+    /**
+     * Holdings with a manager aged 35 to 39.
+     */
+    from35To39: number;
+    /**
+     * Holdings with a manager aged 65 or over.
+     */
+    atLeast65: number;
+    sourceUrl: HttpsUrl;
+    /**
+     * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+     */
+    flag?: "IMPUTED" | "PROVISIONAL";
+    /**
+     * The same age table for the EU-27 aggregate and year, so a country's shares can be read against Europe's.
+     */
+    europe?: {
+      /**
+       * Reference year of the reported observations.
+       */
+      year: number;
+      /**
+       * Total agricultural holdings covered by the age table, across all ages.
+       */
+      holdings: number;
+      /**
+       * Holdings with a manager under 25.
+       */
+      under25: number;
+      /**
+       * Holdings with a manager aged 25 to 34.
+       */
+      from25To34: number;
+      /**
+       * Holdings with a manager aged 35 to 39.
+       */
+      from35To39: number;
+      /**
+       * Holdings with a manager aged 65 or over.
+       */
+      atLeast65: number;
+      sourceUrl: HttpsUrl;
+      /**
+       * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+       */
+      flag?: "IMPUTED" | "PROVISIONAL";
+    };
+  };
 }
 export interface HubIdentity {
   schemaId: "hub-snapshot";
@@ -473,6 +722,14 @@ export interface HubIdentity {
    * Hub slug exactly as the territory catalogue gives it. The hub must group more than one region.
    */
   hub: string;
+  /**
+   * Optional search title of the hub page, in its language, when the one the site builds says less than people search for. The site's localised territory title is used when this is absent.
+   */
+  metaTitle?: string;
+  /**
+   * Optional short search description of the hub page, in its language, saying only what the page already says. The public summary is used when this is absent.
+   */
+  metaDescription?: string;
 }
 export interface RegionalIdentity {
   schemaId: "regional-snapshot";
@@ -484,4 +741,12 @@ export interface RegionalIdentity {
    * Region slug exactly as the territory catalogue gives it.
    */
   region: string;
+  /**
+   * Optional search title of the region page, in its language, when the one the site builds says less than people search for. The site's localised territory title is used when this is absent.
+   */
+  metaTitle?: string;
+  /**
+   * Optional short search description of the region page, in its language, saying only what the page already says. The public summary is used when this is absent.
+   */
+  metaDescription?: string;
 }

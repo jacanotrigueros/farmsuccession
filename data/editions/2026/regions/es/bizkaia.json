@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "ES",
   "region": "bizkaia",
+  "metaTitle": "Ayudas a jóvenes y suelo agrario en Bizkaia",
+  "metaDescription": "Consulta las ayudas forales de incorporación, el Fondo de Suelo Agrario para buscar tierras y el acompañamiento a nuevas incorporaciones de EHNE Bizkaia.",
   "officialName": "Bizkaia",
-  "published": "2026-09-27",
+  "published": "2026-11-25",
   "summary": "Bizkaia cuenta con ayudas forales al establecimiento de personas jóvenes y con un Fondo de Suelo Agrario que publica lotes y facilita la solicitud de acceso a tierra. EHNE Bizkaia mantiene una página de acompañamiento a nuevas incorporaciones, aunque su vigencia operativa actual no ha podido fecharse. La Oficina de Intermediación para el Relevo Generacional, común a los tres territorios históricos, se representa en la capa del País Vasco.",
   "coverage": {
     "status": "PARTIAL",
@@ -113,9 +115,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -131,6 +130,20 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -138,6 +151,8 @@
     {
       "id": "bizkaia-establecimiento-jovenes-agricultores",
       "name": "Ayudas al establecimiento de personas jóvenes agricultoras en explotaciones agrarias",
+      "metaTitle": "Ayudas a jóvenes agricultores en Bizkaia (Gaztenek)",
+      "metaDescription": "Subvención foral para jóvenes que se instalan en Bizkaia con un plan Gaztenek. La convocatoria 2026, ya cerrada, preveía hasta 70.000 euros.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -145,8 +160,8 @@
       },
       "operator": "Diputación Foral de Bizkaia",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Ayudas para facilitar el establecimiento de personas jóvenes en explotaciones agrarias de Bizkaia. La Diputación indica que pueden alcanzar 70.000 euros y que la incorporación mediante relevo de una explotación que se jubila añade un incremento de 10.000 euros.",
-      "whoCanUseIt": "Personas mayores de 18 años y menores de 41 que se establecen como jóvenes agricultoras o agricultores y cumplen los requisitos de la convocatoria, incluido el registro de la explotación.",
+      "whatItOffers": "Ayudas para facilitar el establecimiento de personas jóvenes en explotaciones agrarias de Bizkaia. La Diputación indica que pueden alcanzar 70.000 euros y que la incorporación mediante relevo de una explotación que se jubila añade un incremento de 10.000 euros. La guía foral describe asesoramiento, formación y ayuda económica dentro de Gaztenek, y menciona el complemento de 10.000 euros para primera instalación en una empresa agraria existente cuyo titular o titulares cesen. La información territorial sobre GAZTENEK describe un acompañamiento escalonado e individual para poner en marcha el proyecto empresarial.",
+      "whoCanUseIt": "Personas mayores de 18 años y menores de 41 que se establecen como jóvenes agricultoras o agricultores y cumplen los requisitos de la convocatoria, incluido el registro de la explotación. La guía foral indica como banda de edad haber cumplido 18 años y no haber cumplido 41 en el año en que se presenta la solicitud. La página de GAZTENEK indica como requisito para su itinerario contar con un plan de empresa aprobado por el programa.",
       "howToAccess": "Solicitar durante la convocatoria anual de la Diputación Foral de Bizkaia. La convocatoria 2026 cerró el 27 de febrero; consultar la ficha para la siguiente apertura.",
       "accessUrl": "https://gazteak.bizkaia.eus/es/-/ayudas-a-j%C3%B3venes-agricultores-y-agricultoras-2021",
       "instrumentType": "GRANT",
@@ -172,8 +187,13 @@
             "Ayudas al establecimiento de personas jóvenes agricultoras en explotaciones agrarias",
             "Plazo finalizado 27/02/2026",
             "La persona beneficiaria deberá estar registrada en el Registro de Explotaciones Agrarias.",
-            "Tener más de 18 años y menos de 41 años"
-          ]
+            "Tener más de 18 años y menos de 41 años",
+            "Diputacion Foral Bizkaia 944066836"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.bizkaia.eus/es/web/comunicacion/noticias/-/news/detailView/la-diputacion-foral-de-bizkaia-refuerza-su-apuesta-por-el-relevo-generacional-para-garantizar-el-futuro-del-primer-sector",
@@ -182,15 +202,66 @@
           "quotes": [
             "Las ayudas a la incorporación podrán alcanzar los 70.000 euros",
             "incluyen incentivos específicos cuando la incorporación se produce mediante el relevo",
-            "un incremento de una ayuda de 10.000 euros"
-          ]
+            "un incremento de una ayuda de 10.000 euros",
+            "Estas ayudas pueden alcanzar hasta 70.000 euros por persona beneficiaria"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://www.bizkaia.eus/documents/842933/21135397/herramientas-de-apoyo-para-mujeres-baserritarras.pdf",
+          "title": "Herramientas de apoyo para mujeres baserritarras",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Gaztenek ofrece asesoramiento, formación y ayudas económicas",
+            "podrán recibir una ayuda adicional de 10.000 euros",
+            "A personas que hayan cumplido los 18 años y no hayan cumplido los 41 años en el año de presentación de la solicitud."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://durangaldeaelikadura.eus/es/haztegia-3/",
+          "title": "gu baserritarrak | Durangaldea elikadura",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Servicio de apoyo a las personas emprendedoras que deseen trabajar en el sector primario para poner en marcha su proyecto empresarial de forma escalonada e individual.",
+            "Plan de empresa aprobado por GAZTENEK."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-4",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Prima máxima por persona beneficiaria",
+          "value": 70000,
+          "unit": "EUR",
+          "asOf": "2026-01-15",
+          "sourceUrl": "https://www.bizkaia.eus/es/web/comunicacion/noticias/-/news/detailView/la-diputacion-foral-de-bizkaia-refuerza-su-apuesta-por-el-relevo-generacional-para-garantizar-el-futuro-del-primer-sector"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Servicio de Desarrollo Rural de la Diputación Foral de Bizkaia",
+          "value": "944066836",
+          "sourceUrl": "https://gazteak.bizkaia.eus/es/-/ayudas-a-j%C3%B3venes-agricultores-y-agricultoras-2021"
+        }
+      ]
     },
     {
       "id": "bizkaia-fondo-suelo-agrario",
       "name": "Fondo de Suelo Agrario de Bizkaia",
+      "metaDescription": "Servicio público de acceso a tierras de cultivo en Bizkaia. Consulta dónde se publican los lotes disponibles para reparto y el impreso de solicitud.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -199,7 +270,7 @@
       "operator": "Diputación Foral de Bizkaia",
       "operatorType": "PUBLIC",
       "whatItOffers": "Servicio público de acceso a tierras agrarias que informa de los lotes de suelo disponibles para reparto y facilita el impreso de solicitud. La Diputación mantiene además el procedimiento de adjudicación de bienes y derechos integrantes del Fondo.",
-      "whoCanUseIt": "Personas interesadas en acceder a los lotes agrarios publicados que cumplan los requisitos del Decreto Foral 81/2020 y de la adjudicación correspondiente.",
+      "whoCanUseIt": "Personas interesadas en acceder a los lotes agrarios publicados que cumplan los requisitos del Decreto Foral 81/2020 y de la adjudicación correspondiente. La guía foral dirige el Fondo a personas que necesitan tierras para ampliar o desarrollar una actividad agraria.",
       "howToAccess": "Entrar en la sección Fondo de suelo agrario del portal de Medio Natural y Agricultura, consultar los lotes a reparto y utilizar el impreso de solicitud publicado por la Diputación.",
       "accessUrl": "https://www.bizkaia.eus/es/medio-natural-y-agricultura",
       "assetTypes": ["PLOTS"],
@@ -214,7 +285,11 @@
           "quotes": [
             "Fondo de suelo agrario",
             "ofrece información sobre los lotes de suelo agrario a reparto y facilita el impreso de solicitud"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.bizkaia.eus/es/detalle-de-datos?f=16750753",
@@ -223,15 +298,40 @@
           "quotes": [
             "Adjudicación de bienes y derechos integrantes del Fondo de Suelo Agrario",
             "Dirección General de Agricultura",
-            "Decreto Foral 81/2020 de 25 de agosto"
-          ]
+            "Decreto Foral 81/2020 de 25 de agosto",
+            "Alameda Rekalde, 30 - 48009 Bilbao"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://www.bizkaia.eus/documents/842933/21135397/herramientas-de-apoyo-para-mujeres-baserritarras.pdf",
+          "title": "Herramientas de apoyo para mujeres baserritarras",
+          "consultedOn": "2026-11-24",
+          "quotes": ["A personas que necesiten tierras para ampliar o desarrollar una actividad agraria."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Departamento de Medio Natural y Agricultura, Diputación Foral de Bizkaia",
+          "value": "Alameda Rekalde, 30 - 48009 Bilbao",
+          "sourceUrl": "https://www.bizkaia.eus/es/detalle-de-datos?f=16750753"
+        }
+      ]
     },
     {
       "id": "bizkaia-ehne-acompanamiento-incorporacion",
       "name": "Acompañamiento de EHNE Bizkaia a personas que inician una actividad agraria",
+      "metaTitle": "EHNE Bizkaia: acompañamiento para empezar en el campo",
+      "metaDescription": "EHNE Bizkaia describe su acompañamiento a quien inicia una actividad agraria, con talleres y visitas. Consulta el formulario de Jóvenes Baserritarras.",
       "kind": "ADVICE",
       "status": "UNKNOWN",
       "scope": {
@@ -246,6 +346,12 @@
       "languages": ["es", "eu"],
       "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
       "notes": "La página de servicio continúa accesible y mantiene formulario de contacto, pero no está fechada y conserva referencias a un plan Gaztenek anterior. Se mantiene como «Estado no confirmado» hasta poder demostrar que este acompañamiento concreto admite actualmente nuevas personas, sin inferirlo de otras actividades 2026 de EHNE Bizkaia.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.ehnebizkaia.eus/jovenes/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.ehnebizkaia.eus/jovenes/",
@@ -254,11 +360,193 @@
           "quotes": [
             "desarrollamos un proceso de acompañamiento a las personas que quieran iniciar una actividad en el sector agrario, que incluye un plan integral de formación y aprendizaje",
             "Dentro de este asesoramiento personalizado, planteamos incluso la posibilidad de hacer prácticas",
-            "más abajo tienes el formulario de contacto"
-          ]
+            "más abajo tienes el formulario de contacto",
+            "Si crees que te podemos ayudar o simplemente quieres tener más información o hacernos alguna pregunta, rellena al menos los campos obligatorios."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "EHNE Bizkaia, acompañamiento a jóvenes",
+          "value": "https://www.ehnebizkaia.eus/jovenes/",
+          "sourceUrl": "https://www.ehnebizkaia.eus/jovenes/"
+        }
+      ]
+    },
+    {
+      "id": "bizkaia-haztegia-enkarterri",
+      "name": "Haztegia Enkarterri",
+      "metaTitle": "Haztegia Enkarterri: espacio test agrario en Bizkaia",
+      "metaDescription": "Espacio en Bizkaia para personas que quieren probar la viabilidad de un proyecto empresarial de horticultura ecológica durante un máximo de dos años.",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Enkarterri"
+      },
+      "operator": "Enkarterrialde",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Espacio test agrario para probar la viabilidad de proyectos empresariales de horticultura ecológica durante un máximo de dos años. Ofrece un espacio físico en una explotación de Artzentales, soporte legal a través de Lorra y soporte integral coordinado con un productor ecológico.",
+      "whoCanUseIt": "Nuevas personas que quieren incorporarse al sector agrario y probar la viabilidad de su proyecto.",
+      "accessUrl": "https://enkarterrialde.eus/Actualidad/enkarterrialde_presenta_el_espacio_test_agrario_haztegia_enkarterri_en_artzentales",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Enkarterrialde",
+          "value": "enkarterrialde@enkarterrialde.eus",
+          "sourceUrl": "https://enkarterrialde.eus/Actualidad/enkarterrialde_presenta_el_espacio_test_agrario_haztegia_enkarterri_en_artzentales"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Enkarterrialde",
+          "value": "94 610 95 90",
+          "sourceUrl": "https://enkarterrialde.eus/Actualidad/enkarterrialde_presenta_el_espacio_test_agrario_haztegia_enkarterri_en_artzentales"
+        }
+      ],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "notes": "La noticia describe una convocatoria ya resuelta y dos proyectos seleccionados. No publica una nueva vía de solicitud ni un plazo de incorporación vigente; los contactos corresponden a la entidad operadora.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.enkarterrialde.eus/Actualidad/ii_edici%C3%B3n_haztegi_enkarterri"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://enkarterrialde.eus/Actualidad/enkarterrialde_presenta_el_espacio_test_agrario_haztegia_enkarterri_en_artzentales",
+          "title": "Enkarterrialde presenta el espacio test agrario Haztegia Enkarterri en Artzentales",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "09 Mayo 2025",
+            "La asociación de desarrollo rural Enkarterrialde, en colaboración con Diputación Foral de Bizkaia y Petronor, ha presentado hoy el proyecto Haztegia Enkarterri en el municipio de Artzentales.",
+            "Haztegia Enkarterri es un programa de espacios tests agrarios que tiene como objetivo facilitar la incorporación de nuevas personas a este sector para testar la viabilidad de proyectos empresariales relacionados con este ámbito durante un periodo máximo de dos años.",
+            "Ante la escasa presencia en Enkarterri de proyectos relacionados con la horticultura ecológica, la asociación de desarrollo rural ha querido facilitar la incorporación de nuevas personas a este sector ofreciendo así un espacio para probar la viabilidad de proyectos empresariales de esta índole.",
+            "Haztegia cuenta con un soporte físico ubicado en la explotación de Artzentales que estará a disposición de las personas emprendedoras por un periodo de dos años hasta que decidan seguir o no con su negocio; un soporte legal materializado a través de Lorra y un soporte integral que contará con la ayuda de Jon Bastante, productor ecológico que liderará los espacios tests en coordinación con las dos personas emprendedoras.",
+            "Tras una convocatoria a la que se presentaron cinco posibles “testers”, se seleccionaron los proyectos de Esti Trevilla, de Karrantza y Alex Rodríguez, de Otxaran-Zalla.",
+            "Teléfono: 94 610 95 90",
+            "Email: enkarterrialde@enkarterrialde.eus"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.enkarterrialde.eus/Actualidad/ii_edici%C3%B3n_haztegi_enkarterri",
+          "title": "Actualidad ENKARTERRIALDE | Noticias de Las Encartaciones | Suscríbete a nuestro Newsletter",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Infórmate sin compromiso llamando al 946 10 95 90 o escribiendo a enkarterrialde@enkarterrialde.eus."]
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "howToAccess": "Para informarse sobre la segunda edición, llamar al 946 10 95 90 o escribir a enkarterrialde@enkarterrialde.eus."
+    },
+    {
+      "id": "bizkaia-diputacion-intermediacion-relevo-agrario",
+      "name": "Servicio de intermediación para el relevo agrario de Bizkaia",
+      "metaDescription": "La guía foral explica cómo se pone en contacto a titulares que quieren ceder su empresa agraria en Bizkaia con personas interesadas en continuarla.",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Diputación Foral de Bizkaia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "La guía foral describe un servicio para poner en contacto a titulares que desean ceder su empresa agraria con personas interesadas en continuarla.",
+      "accessUrl": "https://www.bizkaia.eus/documents/842933/21135397/herramientas-de-apoyo-para-mujeres-baserritarras.pdf",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.bizkaia.eus/documents/842933/21135397/herramientas-de-apoyo-para-mujeres-baserritarras.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.bizkaia.eus/documents/842933/21135397/herramientas-de-apoyo-para-mujeres-baserritarras.pdf",
+          "title": "Herramientas de apoyo para mujeres baserritarras",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "ha puesto en marcha un servicio de intermediación",
+            "A personas titulares que estén pensando en jubilarse o dejar la actividad.",
+            "A personas interesadas en incorporarse al sector agrario a través de una empresa agraria ya existente.",
+            "Departamento de medio natural y agricultura de la Diputación Foral de Bizkaia."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://nombres.euskadi.eus/oficinas-de-intermediacion-para-el-relevo-generacional-en-el-primer-sector/web01-a2nekabe/es/",
+          "title": "Oficinas de intermediacin para el relevo generacional en el primer sector - Agricultura, Ganadería y Forestal - Euskadi.eus",
+          "consultedOn": "2026-11-24",
+          "quotes": ["E-mail: desarrollo.rural@bizkaia.eus"]
+        }
+      ],
+      "whoCanUseIt": "Titulares que prevén jubilarse o cesar y personas interesadas en incorporarse a través de una empresa agraria existente.",
+      "howToAccess": "Contactar con el Departamento de Medio Natural y Agricultura de la Diputación Foral de Bizkaia.",
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Oficina de Intermediación de Bizkaia, Servicio de Desarrollo Rural",
+          "value": "desarrollo.rural@bizkaia.eus",
+          "sourceUrl": "https://nombres.euskadi.eus/oficinas-de-intermediacion-para-el-relevo-generacional-en-el-primer-sector/web01-a2nekabe/es/"
+        }
+      ]
+    },
+    {
+      "id": "bizkaia-haztegia-durangaldea-lea-artibai",
+      "name": "HAZTEGIA Durangaldea y Lea-Artibai",
+      "metaTitle": "Haztegia Durangaldea y Lea-Artibai: espacio test agrario",
+      "metaDescription": "Espacio de prueba para proyectos de horticultura ecológica con una parcela, apoyo y cobertura legal durante un máximo de tres años en Bizkaia.",
+      "kind": "TRAINING",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Durangaldea y Lea-Artibai"
+      },
+      "operator": "Durangaldea Elikadura",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Espacio de prueba de hasta tres años con una parcela de horticultura ecológica, apoyo integral y cobertura legal.",
+      "accessUrl": "https://durangaldeaelikadura.eus/es/haztegia-3/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://durangaldeaelikadura.eus/es/haztegia-3/"
+        },
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://durangaldeaelikadura.eus/es/haztegia-3/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://durangaldeaelikadura.eus/es/haztegia-3/",
+          "title": "gu baserritarrak | Durangaldea elikadura",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Facilitamos una actividad temporal (máximo 3 años) con una parcela de formación en huerto ecológico, ofreciéndote ayuda integral y cobertura legal.",
+            "Formación en horticultura ecológica: competencias mínimas.",
+            "Descárgate El Dossier",
+            "Ponte en contacto"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personas que se incorporan al sector agrario con una formación mínima en horticultura ecológica.",
+      "howToAccess": "Consultar el dosier de HAZTEGIA y utilizar el formulario de contacto de la página.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

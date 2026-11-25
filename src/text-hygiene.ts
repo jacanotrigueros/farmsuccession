@@ -56,6 +56,17 @@ function words(list: string): ReadonlySet<string> {
 }
 
 /**
+ * Words that are a language's own but say nothing about it when found elsewhere. Dutch's commonest
+ * function words are also Spanish, English, French or German ones ("de", "en", "is", "of", "in"), so
+ * the Dutch list above keeps only words no other catalogue language has, and a Dutch sentence would
+ * read as Spanish or English. Counting these as Dutch's own fixes that without making any of them a
+ * sign of Dutch inside another language's text, so the other languages' measurement is unchanged.
+ */
+const OWN_ONLY: Record<string, ReadonlySet<string>> = {
+  nl: words("de en van in is op te die met of als er aan om tot dan door zo dit nu wat wie kan moet zal"),
+};
+
+/**
  * How many distinct foreign function words make a text read as another language.
  *
  * Measured, not chosen: across the 2,085 pieces of prose in the 101 real editions, no text correctly
@@ -169,8 +180,9 @@ export type ForeignWords = { language: string; words: string[] };
  * always removes them: see decisions/006.
  */
 export function foreignWordCounts(text: string, language: string, options: { keepNameParticles?: boolean } = {}): ForeignWords[] {
-  const own = FUNCTION_WORDS[language];
-  if (!own) return [];
+  const listed = FUNCTION_WORDS[language];
+  if (!listed) return [];
+  const own = new Set([...listed, ...(OWN_ONLY[language] ?? [])]);
   const withoutQuoted = text.replaceAll(NOT_OWN_WORDS, " ");
   const prose = options.keepNameParticles ? withoutQuoted : withoutQuoted.replaceAll(NAME_PARTICLE, " ");
   const tokens = new Set(

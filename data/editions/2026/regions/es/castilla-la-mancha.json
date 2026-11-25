@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "ES",
   "region": "castilla-la-mancha",
+  "metaTitle": "Ayudas y formación agraria en Castilla-La Mancha",
+  "metaDescription": "Consulta los recursos para empezar en el campo en Castilla-La Mancha, con ayudas a jóvenes, capacitación agraria y la Escuela de Pastores.",
   "officialName": "Castilla-La Mancha",
-  "published": "2026-09-28",
+  "published": "2026-11-25",
   "summary": "Castilla-La Mancha combina ayudas al establecimiento de jóvenes, una ruta reconocida de capacitación agraria, la Escuela de Pastores y servicios de asesoramiento de entidades cooperativas. El Banco de Tierras creado por la Ley 9/2023 sigue sin una vía operativa verificada de inscripción, inventario o consulta pública.",
   "coverage": {
     "status": "PARTIAL",
@@ -57,9 +59,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -82,6 +81,8 @@
     {
       "id": "clm-establecimiento-jovenes-agricultores",
       "name": "Ayudas al establecimiento de jóvenes en la actividad agraria",
+      "metaTitle": "Ayudas a jóvenes agricultores en Castilla-La Mancha",
+      "metaDescription": "Prima para la primera instalación de jóvenes en Castilla-La Mancha. La convocatoria 2026, ya cerrada, fijó 37.000 euros de base y hasta 60.000 euros.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -112,7 +113,6 @@
           "sourceUrl": "https://docm.jccm.es/docm/verArchivoHtml.do?ruta=2025%2F12%2F26%2Fhtml%2F2025_9950.html&tipo=rutaDocm"
         }
       ],
-      "accessCostType": "FREE",
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2025-12-26",
@@ -153,7 +153,11 @@
             "La aplicación está disponible en este enlace y en ella se puede consultar información necesaria para la tramitación de las solicitudes como manuales de aplicación",
             "jovenesclm@jccm.es",
             "tener más de 18 años y no cumplir más de 40 años en el año que presenta la solicitud de ayuda"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://docm.jccm.es/docm/verArchivoHtml.do?ruta=2025%2F12%2F26%2Fhtml%2F2025_9950.html&tipo=rutaDocm",
@@ -164,14 +168,32 @@
             "Se establece una ayuda básica de 37.000 euros.",
             "sin superar en ningún momento los 60.000 euros.",
             "Para esta convocatoria de ayudas el crédito es de 23.388.000,00 euros para la intervención 6961.1"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "interventionCodes": [
+        {
+          "code": "6961.1",
+          "sourceUrl": "https://docm.jccm.es/docm/verArchivoHtml.do?ruta=2025%2F12%2F26%2Fhtml%2F2025_9950.html&tipo=rutaDocm"
+        }
+      ],
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "6961.1",
+          "sourceUrl": "https://docm.jccm.es/docm/verArchivoHtml.do?ruta=2025%2F12%2F26%2Fhtml%2F2025_9950.html&tipo=rutaDocm"
+        }
+      ]
     },
     {
       "id": "clm-banco-tierras-disponibles",
       "name": "Banco de Tierras Disponibles de Castilla-La Mancha",
+      "metaDescription": "Registro previsto por la Ley 9/2023 para reunir oferta y demanda de parcelas agrarias y recuperar tierras abandonadas en Castilla-La Mancha.",
       "kind": "LAND_BANK",
       "status": "ANNOUNCED_NOT_OPERATING",
       "scope": {
@@ -185,6 +207,16 @@
       "languages": ["es"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "YOUNG_FARMER", "NEW_ENTRANT"],
       "notes": "La ley crea el registro, pero hasta el 28 de septiembre de 2026 no se ha localizado una página de servicio con inventario consultable, inscripción de parcelas o solicitud de acceso. Se mantiene como «Anunciado, todavía no operativo» para separar existencia legal de disponibilidad real.",
+      "notPublished": [
+        {
+          "question": "HOW_TO_ACCESS",
+          "sourceUrl": "https://docm.jccm.es/portaldocm/verArchivoHtml.do?ruta=2023%2F04%2F17%2Fhtml%2F2023_3386.html&tipo=rutaDocm"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://docm.jccm.es/portaldocm/verArchivoHtml.do?ruta=2023%2F04%2F17%2Fhtml%2F2023_3386.html&tipo=rutaDocm"
+        }
+      ],
       "sources": [
         {
           "url": "https://docm.jccm.es/portaldocm/verArchivoHtml.do?ruta=2023%2F04%2F17%2Fhtml%2F2023_3386.html&tipo=rutaDocm",
@@ -192,15 +224,23 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "la creación de un Banco de Tierras Disponibles en Castilla-La Mancha",
-            "que facilite la puesta en contacto entre la oferta y la demanda de parcelas agrarias"
-          ]
+            "que facilite la puesta en contacto entre la oferta y la demanda de parcelas agrarias",
+            "la puesta en contacto entre la oferta y la demanda de parcelas agrarias, cultivadas o cultivables, ubicadas en la Comunidad Autónoma de Castilla-La Mancha."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "whoCanUseIt": "Quienes ofrecen y quienes buscan parcelas agrarias, cultivadas o cultivables, en Castilla-La Mancha."
     },
     {
       "id": "clm-capacitacion-incorporacion-empresa-agraria",
       "name": "Capacitación para la incorporación a la empresa agraria",
+      "metaTitle": "Capacitación agraria en Castilla-La Mancha",
+      "metaDescription": "Consulta qué formación se admite en Castilla-La Mancha para acreditar la capacitación agraria exigida en las ayudas de primer establecimiento.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -216,14 +256,10 @@
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-03-04",
-      "metrics": [
+      "notPublished": [
         {
-          "measure": "TRAINING_HOURS",
-          "label": "Curso de Incorporación a la Empresa Agraria de Cooperativas Agro-alimentarias CLM, edición febrero-marzo 2026",
-          "value": 150,
-          "unit": "HOURS",
-          "asOf": "2026-02-09",
-          "sourceUrl": "https://agroalimentariasclm.coop/project/incorporacion-a-la-empresa-agraria-2/"
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://pepac.castillalamancha.es/desarrollo-rural/programas-e-intervenciones/jovenes"
         }
       ],
       "sources": [
@@ -235,7 +271,11 @@
             "La CAPACITACIÓN AGRARIA exigida para acceder al cobro de estas ayudas puede adquirirse de las siguientes maneras:",
             "Formación agraria impartida por la Consejería de Agricultura, Ganadería y Desarrollo Rural, otras Administraciones Públicas, Organizaciones Agrarias y Entidades Privadas",
             "La programación de actividades formativas de 2026 se encuentra en el siguiente enlace:"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://pepac.castillalamancha.es/desarrollo-rural/formacion",
@@ -243,26 +283,23 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "PROGRAMACIÓN 2026 ACTUACIONES DE TRANSFERENCIA DE CONOCIMIENTOS, FORMACIÓN E INFORMACIÓN",
-            "La solicitud de asistencia para participar en las acciones formativas puede descargarse desde el área de descarga de más abajo"
-          ]
-        },
-        {
-          "url": "https://agroalimentariasclm.coop/project/incorporacion-a-la-empresa-agraria-2/",
-          "title": "Incorporación a la Empresa Agraria - Cooperativas Agro-alimentarias Castilla-La Mancha",
-          "consultedOn": "2026-09-28",
-          "quotes": [
-            "9/02 al 26/03 de 2026",
-            "Horario 150 horas",
-            "Capacitar a los/as participantes para el cumplimiento de los requisitos de formación necesarios para constituirse como empresarios/as agrícolas según normativa vigente (Orden 198/2023)."
-          ]
+            "La solicitud de asistencia para participar en las acciones formativas puede descargarse desde el área de descarga de más abajo",
+            "Las modalidades de impartición de las docencias podrán ser: 1. Presencial. 2. Teleformación. 3. Telepresencial."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "notes": "Se registra la ruta regional de capacitación, no cada proveedor como un recurso separado. La edición 2026 de Cooperativas Agro-alimentarias sirve como evidencia concreta de impartición actual.",
-      "generatorId": "chatgpt-1"
+      "notes": "Se registra la ruta regional de capacitación, que puede cursarse mediante la oferta de la Consejería o mediante formación homóloga.",
+      "generatorId": "chatgpt-1",
+      "trainingFormats": ["IN_PERSON", "ONLINE"]
     },
     {
       "id": "clm-escuela-pastores",
       "name": "Escuela de Pastores de Castilla-La Mancha",
+      "metaDescription": "Formación práctica en ganadería extensiva y pastoreo. Quienes obtienen el certificado pueden incorporarse a una bolsa de trabajo regional.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -288,6 +325,12 @@
           "sourceUrl": "https://pepac.castillalamancha.es/articulos-de-prensa/castilla-la-mancha-consolida-la-escuela-de-pastores-como-herramienta"
         }
       ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://pepac.castillalamancha.es/pdr/novedades/escuela-de-pastores-de-castilla-la-mancha"
+        }
+      ],
       "sources": [
         {
           "url": "https://pepac.castillalamancha.es/pdr/novedades/escuela-de-pastores-de-castilla-la-mancha",
@@ -296,7 +339,11 @@
           "quotes": [
             "la creación de un programa formativo eminentemente práctico",
             "orientado al relevo generacional, creación de nuevas explotaciones"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://pepac.castillalamancha.es/articulos-de-prensa/castilla-la-mancha-consolida-la-escuela-de-pastores-como-herramienta",
@@ -305,7 +352,11 @@
           "quotes": [
             "Desde su puesta en marcha, se han realizado 51 cursos, con la participación de 510 alumnos",
             "Este modelo está centrado en la inserción laboral real y ha hecho posible que se hayan realizado 66 contrataciones."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.castillalamancha.es/actualidad/notasdeprensa/el-gobierno-de-castilla-la-mancha-apuesta-por-la-escuela-de-pastores-para-fijar-poblacion-rural",
@@ -314,7 +365,11 @@
           "quotes": [
             "Este curso forma parte del programa de Formación 2026 de la Delegación Provincial",
             "Los participantes en el curso reciben un certificado de asistencia y aprovechamiento"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -322,6 +377,8 @@
     {
       "id": "clm-cooperativas-asesoramiento-explotaciones",
       "name": "Servicio de Asesoramiento a Explotaciones de Cooperativas Agro-alimentarias Castilla-La Mancha",
+      "metaTitle": "Asesoramiento agrario de Cooperativas en Castilla-La Mancha",
+      "metaDescription": "Técnicos de cooperativas de Castilla-La Mancha asesoran individualmente a explotaciones vinculadas al servicio. Consulta el contacto de la entidad.",
       "kind": "ADVICE",
       "status": "UNKNOWN",
       "scope": {
@@ -335,6 +392,12 @@
       "accessUrl": "https://agroalimentariasclm.coop/consultoria/",
       "languages": ["es"],
       "targetProfiles": ["GENERAL", "YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://agroalimentariasclm.coop/consultoria/"
+        }
+      ],
       "sources": [
         {
           "url": "https://agroalimentariasclm.coop/consultoria/",
@@ -343,12 +406,25 @@
           "quotes": [
             "SERVICIO DE ASESORAMIENTO A EXPLOTACIONES (SAE).",
             "llevamos a cabo asesoramiento individualizado a cerca de 1.000 explotaciones de la región.",
-            "disponemos de aplicaciones informáticas sencillas y prácticas en Web para la gestión del servicio de asesoramiento"
-          ]
+            "disponemos de aplicaciones informáticas sencillas y prácticas en Web para la gestión del servicio de asesoramiento",
+            "cooperativas@agroalimentariasclm.coop"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La página de servicio continúa publicada, pero no se ha localizado una ventana de ejecución fechada posterior a la del proyecto ya iniciado. Por ello la disponibilidad se mantiene como «Estado no confirmado» y no se presenta como una convocatoria abierta.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Cooperativas Agro-alimentarias Castilla-La Mancha",
+          "value": "cooperativas@agroalimentariasclm.coop",
+          "sourceUrl": "https://agroalimentariasclm.coop/consultoria/"
+        }
+      ]
     }
   ],
   "news": [
@@ -364,7 +440,11 @@
           "url": "https://docm.jccm.es/docm/verArchivoHtml.do?ruta=2025%2F12%2F26%2Fhtml%2F2025_9950.html&tipo=rutaDocm",
           "title": "Resolución de 23/12/2025 — convocatoria 2026 de establecimiento de jóvenes",
           "consultedOn": "2026-09-28",
-          "quotes": ["finaliza el 5 de marzo de 2026"]
+          "quotes": ["finaliza el 5 de marzo de 2026"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -384,7 +464,11 @@
           "quotes": [
             "Desde su puesta en marcha, se han realizado 51 cursos, con la participación de 510 alumnos",
             "se hayan realizado 66 contrataciones."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "generatorId": "chatgpt-1"

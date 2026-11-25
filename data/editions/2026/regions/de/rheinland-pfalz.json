@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "rheinland-pfalz",
+  "metaTitle": "Hofnachfolge in Rheinland-Pfalz: Niederlassungsbeihilfe",
+  "metaDescription": "Junge Landwirte finden in Rheinland-Pfalz Infos zur Niederlassungsbeihilfe bei Gründung, Kauf oder Hofübernahme innerhalb und außerhalb der Familie.",
   "officialName": "Rheinland-Pfalz",
-  "published": "2026-10-29",
+  "published": "2026-11-25",
   "summary": "Rheinland-Pfalz unterstützt junge Landwirtinnen und Landwirte bei Gründung, Kauf oder inner- und außerfamiliärer Übernahme mit einer Niederlassungsbeihilfe von 45.000 Euro. Die Landwirtschaftskammer begleitet Hofübergaben zudem in betriebswirtschaftlichen Teilbereichen.",
   "coverage": {
     "status": "PARTIAL",
@@ -29,9 +31,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -48,6 +47,13 @@
         "model": "GPT-5",
         "promptVersion": "1.9.0",
         "processedAt": "2026-10-29"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -55,6 +61,8 @@
     {
       "id": "rheinland-pfalz-lwk-hofuebergabe-begleitung",
       "name": "Betriebswirtschaftliche Begleitung der Hofübergabe durch die Landwirtschaftskammer Rheinland-Pfalz",
+      "metaTitle": "Hofübergabe in Rheinland-Pfalz: Planung mit der Kammer",
+      "metaDescription": "Die Landwirtschaftskammer unterstützt Betriebsleitende bei Übergabe oder Übernahme mit Betriebsanalyse, Planung und Tipps zu Seminaren und Fachliteratur.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -77,15 +85,37 @@
             "Die Landwirtschaftskammer Rheinland-Pfalz bietet keine allumfängliche Beratung zum Thema Hofübergabe und -übernahme an. Sie kann aber in Teilbereichen unterstützen",
             "Betriebswirtschaftliche Begleitung der Hofübergabe: Dazu gehört z. B. die Analyse des IST-Betriebs",
             "Planung im Rahmen der Betriebsübergabe",
-            "durch den Europäischen Landwirtschaftsfonds für die Entwicklung des ländlichen Raums (ELER) kofinanziert durch das Land, eine Förderung für die betriebswirtschaftliche Beratung"
-          ]
+            "durch den Europäischen Landwirtschaftsfonds für die Entwicklung des ländlichen Raums (ELER) kofinanziert durch das Land, eine Förderung für die betriebswirtschaftliche Beratung",
+            "Bei der Inanspruchnahme einer Beratung ist für ausgewählte Beratungsleistungen unter bestimmten Umständen eine teilweise oder vollständige Übernahme des Beratungs-honorars durch die EU und das Land Rheinland-Pfalz möglich."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.lwk-rlp.de/beratung/betriebswirtschaftliche-beratung/kontakt-bwl",
+          "title": "Kontakt BWL . Landwirtschaftskammer Rheinland-Pfalz",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Vor-, Nachname *"]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "accessCostType": "FEE_REQUIRED",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Betriebswirtschaftliche Beratung",
+          "value": "https://www.lwk-rlp.de/beratung/betriebswirtschaftliche-beratung/kontakt-bwl",
+          "sourceUrl": "https://www.lwk-rlp.de/beratung/betriebswirtschaftliche-beratung/kontakt-bwl"
+        }
+      ]
     },
     {
       "id": "rheinland-pfalz-niederlassungsbeihilfe-junglandwirte",
       "name": "Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte",
+      "metaTitle": "Niederlassungsbeihilfe für Junglandwirte in Rheinland-Pfalz",
+      "metaDescription": "Junglandwirte bis 40 Jahre können bei der ersten Niederlassung durch Gründung, Kauf oder Hofübernahme 45.000 Euro erhalten, ausgezahlt in drei Raten.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -111,6 +141,13 @@
           "sourceUrl": "https://www.dlr.rlp.de/Internet/global/themen.nsf/0/26b3f6e3ae3ef5d2c125724a00582954/%24FILE/FAQ_NLB_JLW_20250723.002.pdf/FAQ_NLB_JLW_20250723.pdf"
         }
       ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-strategic-plans",
+          "named": "DEB-EL-0501-02",
+          "sourceUrl": "https://www.dlr.rlp.de/Internet/global/themen.nsf/0/26b3f6e3ae3ef5d2c125724a00582954/%24FILE/FAQ_NLB_JLW_20250723.002.pdf/FAQ_NLB_JLW_20250723.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://mlwuf.rlp.de/themen/landwirtschaft/agrarfoerderung/foerderung-von-agrarinvestitionen",
@@ -119,7 +156,11 @@
           "quotes": [
             "Die Intervention unterstützt Junglandwirtinnen und Junglandwirte bei der erstmaligen Niederlassung und der Aufnahme einer selbständigen landwirtschaftlichen und landwirtschaftsnahen Tätigkeit mit einer Existenzgründungsbeihilfe und sichert so deren Einkommen.",
             "Gefördert werden Junglandwirte und Junglandwirtinnen, die einen Betrieb gründen, kaufen oder inner- bzw. außerfamiliär übernehmen."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.dlr.rlp.de/Internet/global/themen.nsf/0/26b3f6e3ae3ef5d2c125724a00582954/%24FILE/FAQ_NLB_JLW_20250723.002.pdf/FAQ_NLB_JLW_20250723.pdf",
@@ -129,12 +170,98 @@
             "Die Höhe der Beihilfe ist jedoch immer auf maximal 45.000 €/Unternehmen beschränkt.",
             "Zuwendungsvoraussetzung für die Gewährung der Niederlassungsbeihilfe ist, dass die /der JLW sich erstmalig und maximal in einem Zeitraum von 24 Monaten vor der Antragstellung niedergelassen hat.",
             "Altersgrenze von höchstens 40 Jahren zum Zeitpunkt der Vorlage des Antrags.",
-            "Die Niederlassungsbeihilfe wird als Pauschale in Höhe von 45.000 € gewährt und wird verteilt auf 3 aufeinander folgende Jahre in Tranchen mit jährlich 15.000 € ausbezahlt. Es handelt sich um eine reine Zuschussförderung, die an keine Investition gebunden ist."
-          ]
+            "Die Niederlassungsbeihilfe wird als Pauschale in Höhe von 45.000 € gewährt und wird verteilt auf 3 aufeinander folgende Jahre in Tranchen mit jährlich 15.000 € ausbezahlt. Es handelt sich um eine reine Zuschussförderung, die an keine Investition gebunden ist.",
+            "Intervention DEB-EL-0501-02 im Rahmen des GAP-Strategieplans in Rheinland-Pfalz",
+            "Gerne können Sie sich bei darüberhinausgehenden Fragen an das Dienstleistungszentrum ländlicher Raum Mosel (DLR Mosel) wenden."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://mwtek.rlp.de/themen/landwirtschaft/agrarfoerderung/investitionsfoerderung",
+          "title": "Förderung von Agrarinvestitionen . Ministerium für Wirtschaft, Tourismus, Energie und Klima des Landes Rheinland-Pfalz",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Die Intervention unterstützt Junglandwirtinnen und Junglandwirte bei der erstmaligen Niederlassung und der Aufnahme einer selbständigen landwirtschaftlichen und landwirtschaftsnahen Tätigkeit mit einer Existenzgründungsbeihilfe und sichert so deren Einkommen.",
+            "Gefördert werden Junglandwirte und Junglandwirtinnen, die einen Betrieb gründen, kaufen oder inner- bzw. außerfamiliär übernehmen."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
       "notes": "Das FAQ beschreibt ein Auswahlverfahren, veröffentlicht aber keinen dauerhaft offenen Antragsschluss. Deshalb wird kein aktuelles Auswahlfenster ausgewiesen.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Dienstleistungszentrum ländlicher Raum Mosel (DLR Mosel)",
+          "value": "Dienstleistungszentrum ländlicher Raum Mosel (DLR Mosel)",
+          "sourceUrl": "https://www.dlr.rlp.de/Internet/global/themen.nsf/0/26b3f6e3ae3ef5d2c125724a00582954/%24FILE/FAQ_NLB_JLW_20250723.002.pdf/FAQ_NLB_JLW_20250723.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://mlwuf.rlp.de/themen/landwirtschaft/agrarfoerderung/foerderung-von-agrarinvestitionen"
+        }
+      ]
+    },
+    {
+      "id": "rheinland-pfalz-lwk-foerderberatung",
+      "name": "Förderberatung",
+      "metaTitle": "Förderberatung für Gründung und Übernahme in Rheinland-Pfalz",
+      "metaDescription": "Die Landwirtschaftskammer berät zur Förderung bei Gründung, Einstieg oder Hofübernahme. Die Übersicht nennt den Kontakt und erklärt die Unterstützung.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Landwirtschaftskammer Rheinland-Pfalz",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Beratung zu Fördermöglichkeiten bei Erstniederlassung, Miteinstieg, Betriebsübernahme und Betriebsneugründung. Die Landwirtschaftskammer begleitet von der Bewertung der Fördervoraussetzungen bis zur Erstellung des Verwendungsnachweises.",
+      "whoCanUseIt": "Menschen, die erstmals einen Betrieb führen, in ein Unternehmen mit einsteigen, einen Betrieb mit oder ohne familiäre Bindung übernehmen oder einen Betrieb neu gründen möchten; das Beratungsangebot richtet sich außerdem an Betriebe mit Entwicklungs- und Investitionsvorhaben.",
+      "howToAccess": "Die Förderberatung telefonisch oder über das auf der Seite verlinkte Kontaktformular ansprechen. Frühzeitig Kontakt aufnehmen: Bei hoher Nachfrage vor Abgabefristen können wegen begrenzter Kapazitäten Aufträge gegebenenfalls erst für den nächsten Bewilligungszeitraum angenommen werden.",
+      "accessUrl": "https://www.lwk-rlp.de/beratung/foerderberatung",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Förderberatung der Landwirtschaftskammer Rheinland-Pfalz",
+          "value": "0671 793 270",
+          "sourceUrl": "https://www.lwk-rlp.de/beratung/foerderberatung"
+        }
+      ],
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.lwk-rlp.de/beratung/foerderberatung"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.lwk-rlp.de/beratung/foerderberatung",
+          "title": "Förderberatung . Landwirtschaftskammer Rheinland-Pfalz",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Wollen Sie Ihren Betrieb weiterentwickeln? Planen Sie eine Investition? Möchten Sie in einen Betrieb mit einsteigen oder übernehmen?",
+            "Die fachkundigen Beraterinnen und Berater der Landwirtschaftskammer begleiten Sie von der Bewertung der Fördervoraussetzungen bis zur Erstellung des Verwendungsnachweises.",
+            "Erstmalige Niederlassung Miteinstieg in das Unternehmen oder Übernahme des Unternehmens (mit oder ohne familiäre Bindung) Betriebsneugründung",
+            "So erreichen Sie uns 0671 793 270 Kontaktformular >>>",
+            "Die Nachfrage nach Förderberatung ist vor Abgabefristen oft sehr hoch. Daher bitten wir um frühzeitige Kontaktaufnahme.",
+            "Aufgrund begrenzter Kapazitäten können wir sonst Aufträge nur noch für den nächsten Bewilligungszeitraum annehmen."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

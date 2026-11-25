@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "ES",
   "region": "eivissa",
+  "metaTitle": "Banc de Terres d'Eivissa y ayudas para empezar en el campo",
+  "metaDescription": "Consulta el banco de tierras de Ibiza para proyectos ecológicos, la ayuda de primera instalación del FOGAIBA y el asesoramiento cooperativo insular.",
   "officialName": "Eivissa / Ibiza",
-  "published": "2026-09-30",
+  "published": "2026-11-24",
   "summary": "En Eivissa, la ayuda de primera instalación del FOGAIBA se hereda de la capa común de Illes Balears. A escala insular, APAEEF mantiene un banco de tierras para proyectos de agricultura ecológica y Cooperatives Agro-alimentàries Illes Balears dispone de una oficina técnica de acompañamiento y asesoramiento agrario en AgroEivissa.",
   "coverage": {
     "status": "PARTIAL",
@@ -41,9 +43,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -66,6 +65,7 @@
     {
       "id": "eivissa-apaeef-banc-de-terres",
       "name": "Banc de Terres d'Eivissa",
+      "metaDescription": "APAEEF conecta fincas en desuso de Ibiza con quienes quieren cultivar en ecológico. Consulta cómo ofrecer o buscar tierra y qué apoyo hay para la cesión.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -99,7 +99,11 @@
             "Acompanyem processos de cessió de terres amb acords de custòdia agrària.",
             "Connectem terrenys abandonats amb nous/es agricultors/es",
             "627464677 Vols més informació?"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "La página actual publica indicadores de tierras en custodia, nuevas solicitudes y nuevas fincas incorporadas, lo que refuerza la evidencia de operación actual; no se trasladan como métricas porque no todos los indicadores muestran unidad o periodo de referencia inequívocos.",
@@ -108,6 +112,8 @@
     {
       "id": "eivissa-cooperatives-ib-oficina-acompanamiento",
       "name": "Oficina técnica de acompañamiento agrario de Cooperatives Agro-alimentàries en Eivissa",
+      "metaTitle": "Oficina de asesoramiento agrario de Eivissa",
+      "metaDescription": "Cooperatives Agro-alimentàries Illes Balears asesora a agricultores y ganaderos de cooperativas socias en Ibiza con ayudas y gestiones digitales.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -131,6 +137,12 @@
       "languages": ["ca", "es"],
       "targetProfiles": ["GENERAL"],
       "lastEvidenceDate": "2026-06-09",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://agroalimentaries.es/notas_de_prensa/cooperatives-agro-alimentaries-illes-balears-renueva-su-compromiso-con-el-sector-agroalimentario-de-ibiza/"
+        }
+      ],
       "sources": [
         {
           "url": "https://agroalimentaries.es/notas_de_prensa/cooperatives-agro-alimentaries-illes-balears-renueva-su-compromiso-con-el-sector-agroalimentario-de-ibiza/",
@@ -138,13 +150,21 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "mantenimiento del gabinete de asesoramiento y acompañamiento dirigido a los agricultores y ganaderos de las cooperativas agroalimentarias socias de la isla"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.agroalimentaries.es/serveis/",
           "title": "Serveis — Cooperatives Agro-alimentàries Illes Balears",
           "consultedOn": "2026-09-30",
-          "quotes": ["Tramitació ajudes", "615 478 115"]
+          "quotes": ["Tramitació ajudes", "615 478 115"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "El recurso se representa como servicio de asesoramiento de una organización/cooperativa, no como servicio específico de sucesión. La renovación del convenio con el Consell d'Eivissa en junio de 2026 confirma continuidad actual de la oficina.",

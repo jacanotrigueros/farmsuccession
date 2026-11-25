@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "IT",
   "region": "molise",
+  "metaTitle": "Primo insediamento in Molise: Pacchetto Giovani",
+  "metaDescription": "In Molise, il Pacchetto Giovani abbina il premio per chi si insedia per la prima volta al sostegno SRD02 per gli investimenti ambientali.",
   "officialName": "Molise",
-  "published": "2026-09-28",
+  "published": "2026-11-25",
   "summary": "Il Pacchetto Giovani del Molise abbina il sostegno al primo insediamento all'intervento SRD02 per investimenti ambientali. La finestra verificata dell'edizione 2025 è chiusa. Per la formazione richiesta ai beneficiari non è stato verificato un corso con accesso diretto.",
   "coverage": {
     "status": "PARTIAL",
@@ -49,9 +51,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -67,6 +66,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
       }
     ]
   },
@@ -74,6 +80,7 @@
     {
       "id": "molise-pacchetto-giovani-insediamento",
       "name": "Pacchetto Giovani SRE01 e SRD02 del Molise",
+      "metaDescription": "Il Pacchetto Giovani 2025 del Molise abbinava il premio SRE01 al sostegno SRD02 per investimenti ambientali. Consulta requisiti e procedura.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -108,12 +115,28 @@
         }
       ],
       "notes": "Il premio SRE01 del bando 2025 era di 30.000 euro nelle zone montane e 40.000 euro nelle altre zone. Nel subentro aziendale il testo pone condizioni specifiche per il cedente, comprese età e cessione dell'azienda: occorre leggere il bando integrale. La graduatoria del 6 agosto 2026 riguarda domande già presentate; non dimostra una nuova finestra per richiedenti. Non è stata verificata l'operatività attuale del programma oltre alla gestione delle domande 2025.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://www.svilupporuralemolise.it/bandi/pacchetto-giovani-edizione-2025/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.svilupporuralemolise.it/bandi/pacchetto-giovani-edizione-2025/",
           "title": "Sviluppo Rurale Molise — Pacchetto Giovani Edizione 2025",
           "consultedOn": "2026-09-28",
-          "quotes": ["Stato del bando", "Stato del bando Chiuso", "20 Novembre 2025"]
+          "quotes": [
+            "Stato del bando",
+            "Stato del bando Chiuso",
+            "20 Novembre 2025",
+            "Approvazione Bando attuativo dell'intervento SRE01 \"Insediamento giovani agricoltori\" e SRD02 \"Investimenti produttivi agricoli per l'ambiente, clima e benessere animale\""
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.svilupporuralemolise.it/wp-content/uploads/2025/07/Copia_Allegato_A__-Bando_Pacchetto_Giovani_Edizione_2025.pdf",
@@ -124,26 +147,94 @@
             "La domanda deve essere presentata per via telematica sul portale SIAN",
             "40.000,00 euro nel caso l’insediamento avvenga in aziende localizzate nelle altre zone.",
             "30.000,00 euro nel caso l’insediamento avvenga in aziende localizzate in zone montane",
-            "avere un’età compresa tra i 18 anni compiuti e non superiore ai 41 anni non compiuti all’atto di presentazione della domanda di sostegno"
-          ]
-        },
-        {
-          "url": "https://www.regione.molise.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/20848",
-          "title": "Regione Molise — presentazione dei bandi CSR",
-          "consultedOn": "2026-09-28",
-          "quotes": [
-            "euro 30 Mila per le aree montane e euro 40 Mila per le aree non montane.",
-            "Il dimensionamento minimodell'intervento non può essere inferiore al premio richiesto",
-            "con meno di 41 anni non compiuti"
-          ]
+            "avere un’età compresa tra i 18 anni compiuti e non superiore ai 41 anni non compiuti all’atto di presentazione della domanda di sostegno",
+            "chiarimenti susseguenti alle specifiche richieste (FAQ) da inoltrare al seguente indirizzo e-mail: faqsvilupporurale@regione.molise.it."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.svilupporuralemolise.it/graduatorie/sre01-insediamento-giovani-agricoltori-srd02-investimenti-produttivi-agricoli-per-lambiente-clima-e-benessere-animale/",
           "title": "Sviluppo Rurale Molise — graduatoria SRE01/SRD02",
           "consultedOn": "2026-09-28",
-          "quotes": ["Con Determinazione dirigenziale n. 4757 del 06.08.2026", "Stato della Graduatoria", "Definitiva"]
+          "quotes": ["Con Determinazione dirigenziale n. 4757 del 06.08.2026", "Stato della Graduatoria", "Definitiva"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Help desk CSR Molise 2023-2027",
+          "value": "faqsvilupporurale@regione.molise.it",
+          "sourceUrl": "https://www.svilupporuralemolise.it/wp-content/uploads/2025/07/Copia_Allegato_A__-Bando_Pacchetto_Giovani_Edizione_2025.pdf"
         }
       ]
+    },
+    {
+      "id": "molise-portale-bandi-csr",
+      "name": "Bandi CSR – Sviluppo Rurale Molise",
+      "metaDescription": "Nell’archivio Bandi CSR del Molise puoi cercare il primo insediamento dei giovani e altri bandi rurali per parola chiave, intervento o stato.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Sviluppo Rurale Molise",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Archivio dei bandi CSR con ricerca per parola chiave, intervento e stato aperto o chiuso. Include il filtro SRE01 - Insediamento Giovani Agricoltori.",
+      "howToAccess": "Nella pagina Bandi CSR selezionare l'intervento e lo stato del bando, oppure inserire una parola chiave, quindi utilizzare Cerca.",
+      "accessUrl": "https://www.svilupporuralemolise.it/bandi/",
+      "sources": [
+        {
+          "url": "https://www.svilupporuralemolise.it/bandi/",
+          "title": "Archivi Bandi CSR – Sviluppo Rurale Molise",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Bandi CSR Parola chiave Intervento Scegli intervento",
+            "SRE01 - Insediamento Giovani Agricoltori",
+            "Stato del bando Stato dei bandi Bandi aperti Bandi chiusi Cerca",
+            "Contatti Tel. 0874 4291 PEC: regionemolise@cert.regione.molise.it"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.svilupporuralemolise.it/misura/sre01/",
+          "title": "SRE01 - Insediamento Giovani Agricoltori Archivi – Sviluppo Rurale Molise",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "SRE01 - Insediamento Giovani Agricoltori Chiuso Pacchetto Giovani Edizione 2025",
+            "Chiuso Pacchetto Giovani Edizione 2024",
+            "PROROGA Determinazione Dirigenziale n. 6110 del 15/10/2025 – Modifica dei Termini per la presentazione delle domande di Sostegno (Scadenza 20/11/2025)."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.svilupporuralemolise.it/bandi-csr/",
+          "title": "Bandi CSR – Sviluppo Rurale Molise",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Bandi CSR Parola chiave Intervento Scegli intervento",
+            "SRE01 - Insediamento Giovani Agricoltori",
+            "Stato del bando Stato dei bandi Bandi aperti Bandi chiusi Cerca"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

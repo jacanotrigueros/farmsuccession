@@ -1,19 +1,23 @@
 /**
- * One Lucide icon per concept, reused everywhere so an icon always means the
- * same thing. Icons are rendered to inline SVG at build time (astro-icon):
+ * One icon per concept, reused everywhere so an icon always means the same
+ * thing. Every concept a reader meets (kinds, figures, navigation, the facts
+ * of a record) uses the project's own two-tone set in src/icons/farm, drawn for
+ * it in Nov 2026: green draws the shape, ochre only accents it. Lucide is left
+ * for controls (search, close, external link, filters) and for the status
+ * symbols, which take the colour of their status. Icons are rendered to inline SVG at build time (astro-icon):
  * no icon font, no request, no JavaScript. They are always aria-hidden and
  * never carry meaning on their own: the text next to them does.
  */
 export const KIND_ICON: Record<string, string> = {
-  LAND_BANK: "lucide:land-plot",
-  SUCCESSION_SERVICE: "lucide:handshake",
-  FINANCIAL_SUPPORT: "lucide:hand-coins",
-  TRAINING: "lucide:graduation-cap",
-  ADVICE: "lucide:messages-square",
-  OFFICIAL_PORTAL: "lucide:globe",
-  POLICY: "lucide:scale",
-  NETWORK: "lucide:network",
-  OTHER: "lucide:file-text",
+  LAND_BANK: "farm/land",
+  SUCCESSION_SERVICE: "farm/handover",
+  FINANCIAL_SUPPORT: "farm/funding",
+  TRAINING: "farm/training",
+  ADVICE: "farm/advice",
+  OFFICIAL_PORTAL: "farm/portal",
+  POLICY: "farm/policy",
+  NETWORK: "farm/network",
+  OTHER: "farm/other",
 };
 
 export const kindIcon = (kind: string) => KIND_ICON[kind] ?? KIND_ICON.OTHER!;
@@ -30,39 +34,42 @@ export const statusIcon = (status: string): string => STATUS_ICON[status] ?? STA
 
 /** Practical attributes of a record, shown in its facts panel. */
 export const PRACTICAL_ICON: Record<string, string> = {
-  instrumentType: "lucide:banknote",
-  purposes: "lucide:target",
-  assetTypes: "lucide:tractor",
-  sectors: "lucide:wheat",
-  trainingFormats: "lucide:presentation",
-  accessCostType: "lucide:receipt",
-  languages: "lucide:languages",
+  instrumentType: "farm/support-type",
+  purposes: "farm/purpose",
+  assetTypes: "farm/assets",
+  sectors: "farm/sectors",
+  trainingFormats: "farm/format",
+  accessCostType: "farm/cost",
+  languages: "farm/languages",
 };
 
 export const ICON = {
   search: "lucide:search",
-  territory: "lucide:map-pin",
-  operator: "lucide:building-2",
+  territory: "farm/territories",
+  operator: "farm/operator",
+  planCode: "farm/code",
+  law: "farm/law",
+  applies: "farm/applies",
+  area: "farm/area",
   body: "lucide:landmark",
   external: "lucide:external-link",
-  evidence: "lucide:quote",
-  date: "lucide:calendar-check",
+  evidence: "farm/quote",
+  date: "farm/date",
   limits: "lucide:circle-alert",
-  draft: "lucide:triangle-alert",
-  profile: "lucide:user-round",
-  scope: "lucide:layers",
-  status: "lucide:activity",
-  kind: "lucide:shapes",
+  profile: "farm/profile",
+  scope: "farm/scope",
+  status: "farm/status",
+  kind: "farm/kind",
   filters: "lucide:sliders-horizontal",
-  europe: "lucide:earth",
+  europe: "farm/countries",
   note: "lucide:info",
-  found: "lucide:search-check",
+  found: "farm/needs",
   checked: "lucide:shield-check",
   open: "lucide:unlock",
-  resources: "lucide:file-text",
-  sources: "lucide:database",
-  chevron: "lucide:chevron-right",
-  chevronDown: "lucide:chevron-down",
+  resources: "farm/resources",
+  sources: "farm/sources",
+  chevron: "farm/open",
+  chevronDown: "farm/expand",
 } as const;
 
 /**

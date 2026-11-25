@@ -2,9 +2,9 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 import { compileDefinition } from "../src/schema.ts";
-import type { Call, EditionSnapshot, Metric, NewsItem, Resource } from "../src/types/edition.ts";
+import type { NotPublished, Call, EditionSnapshot, Metric, NewsItem, Resource } from "../src/types/edition.ts";
 import { checkSemantics } from "../src/validate-edition.ts";
-import { FAKE_EDITION_FILE, fakeEdition, fakeResource, fakeSource, fakeTerritories } from "./fixtures.ts";
+import { FAKE_EDITION_FILE, fakeCountryEdition, fakeEdition, fakeResource, fakeSource, fakeTerritories } from "./fixtures.ts";
 
 const TODAY = "2026-10-02";
 const territories = fakeTerritories();
@@ -84,13 +84,13 @@ test("nothing may be dated after the day the file was written, or the day it was
   assert.match(errorsOf(early), /consultedOn 2025-12-31 is before edition 2026/u);
 });
 
-const reviewed = (reviewedOn: string): EditionSnapshot =>
-  fakeEdition({ review: { status: "REVIEWED", reviewedBy: "A reviewer", reviewedOn } });
+const verified = (checkedOn: string): EditionSnapshot =>
+  withResource({ sources: [fakeSource({ consultedOn: "2026-09-20", verification: { checkedOn, method: "FETCH" } })] });
 
-test("a review covers the whole file or it is not a review", () => {
-  assert.equal(errorsOf(reviewed("2026-09-25")), "", "a review signed after the last consultation covers it");
-  assert.match(errorsOf(reviewed("2026-09-19")), /is before the last consultation \(2026-09-20\)/u);
-  assert.match(errorsOf(reviewed("2026-09-28")), /is after published 2026-09-27/u);
+test("a page is verified after it was read and before the file was published", () => {
+  assert.equal(errorsOf(verified("2026-09-25")), "", "a verification between reading and publication holds");
+  assert.match(errorsOf(verified("2026-09-19")), /verification.checkedOn 2026-09-19 is before consultedOn 2026-09-20/u);
+  assert.match(errorsOf(verified("2026-09-28")), /verification.checkedOn 2026-09-28 is after published 2026-09-27/u);
 });
 
 test("what the file says it searched has to match what it carries", () => {
@@ -142,6 +142,117 @@ test("a contact detail is published by the source that is cited for it", () => {
     ],
   });
   assert.equal(errorsOf(form), "", "a form is published by being the page itself, so no quote can show it");
+});
+
+test("an office's areas, an intervention code and an act are quoted from the source cited for them", () => {
+  const page = "https://example.test/land-bank";
+  const said = fakeSource({
+    quotes: ["The North Coast office handles requests under measure SRE01 of Land Act 4/2020, article 12."],
+  });
+  const office = { channel: "PHONE", label: "Land office", value: "+34 900 000 000", sourceUrl: page } as const;
+  const withPhone = fakeSource({
+    quotes: [...said.quotes, "North Coast and Islands: call the land office on +34 900 000 000.", "South Valley: +34 900 111 111."],
+  });
+
+  assert.equal(
+    errorsOf(withResource({ sources: [withPhone], contactPoints: [{ ...office, areas: ["North Coast", "Islands"] }] })),
+    "",
+    "areas the source gives with this office make it an answer to where a reader lives",
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [withPhone], contactPoints: [{ ...office, areas: ["South Valley"] }] })),
+    /area "South Valley" is not in a quote of the cited source that also gives its value/u,
+    "an area the page gives to another office's row would send the reader to the wrong office",
+  );
+
+  const code = { code: "SRE01", sourceUrl: page } as const;
+  assert.equal(errorsOf(withResource({ sources: [said], interventionCodes: [code] })), "");
+  assert.match(
+    errorsOf(withResource({ sources: [said], interventionCodes: [{ ...code, code: "SRE02" }] })),
+    /intervention code "SRE02" is not present/u,
+    "a code is never inferred from a resemblance",
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [said], interventionCodes: [{ ...code, sourceUrl: "https://example.test/elsewhere" }] })),
+    /intervention code "SRE01" cites https:\/\/example.test\/elsewhere, which is not one of its sources/u,
+  );
+
+  const act = { title: "Land Act 4/2020", provisions: ["article 12"] as [string, ...string[]], sourceUrl: page };
+  assert.equal(errorsOf(withResource({ sources: [said], legalBasis: [act] })), "");
+  assert.match(
+    errorsOf(
+      withResource({ sources: [said], legalBasis: [{ ...act, provisions: ["article 12", "article 13"] as [string, ...string[]] }] }),
+    ),
+    /provision "article 13" is not present/u,
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [said], legalBasis: [{ ...act, actUrl: "https://example.test/official-journal" }] })),
+    /links its official text https:\/\/example.test\/official-journal, which is not one of its sources/u,
+    "an official text nobody re-reads is a link that can rot unnoticed",
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [said], legalBasis: [{ ...act, title: "Land Act 5/2021" }] })),
+    /legal act "Land Act 5\/2021" is not named in the cited source quotes/u,
+  );
+});
+
+test("a record applies a higher measure only where its source names it", () => {
+  const page = "https://example.test/land-bank";
+  const said = fakeSource({ quotes: ["Installation aid under intervention SRE01 of the national CAP plan."] });
+  const link = { resourceId: "terra-nostra-establishment-aid", named: "SRE01", sourceUrl: page } as const;
+  assert.equal(errorsOf(withResource({ sources: [said], implements: [link] })), "");
+  assert.match(
+    errorsOf(withResource({ sources: [said], implements: [{ ...link, named: "PEPAC" }] })),
+    /implements "terra-nostra-establishment-aid": "PEPAC" is not present in the cited source quotes/u,
+    "a link to a measure is never inferred from a resemblance",
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [said], implements: [{ ...link, sourceUrl: "https://example.test/elsewhere" }] })),
+    /implements "terra-nostra-establishment-aid" cites https:\/\/example.test\/elsewhere, which is not one of its sources/u,
+  );
+});
+
+test("from 2027 a record goes out only when it answers its reader's questions or says the source is silent", () => {
+  const page = "https://example.test/land-bank";
+  const open = fakeResource({ kind: "OFFICIAL_PORTAL" });
+  const in2026 = fakeEdition({ resources: [open] });
+  assert.doesNotMatch(errorsOf(in2026), /leaves HOW_TO_ACCESS open/u, "the 2026 edition is completed in place, not blocked");
+  const in2027 = { ...in2026, edition: "2027" };
+  assert.match(
+    errorsOf(in2027),
+    /leaves HOW_TO_ACCESS open/u,
+    "a 2027 record that answers nothing is a link the reader still has to research",
+  );
+  const declared = {
+    ...in2027,
+    resources: [{ ...open, notPublished: [{ question: "HOW_TO_ACCESS", sourceUrl: page }] as [NotPublished] }],
+  };
+  assert.doesNotMatch(errorsOf(declared), /leaves HOW_TO_ACCESS open/u);
+});
+
+test("a record says a source is silent only about what it does not answer", () => {
+  const page = "https://example.test/land-bank";
+  assert.equal(errorsOf(withResource({ notPublished: [{ question: "CONTACT_CHANNEL", sourceUrl: page }] })), "");
+  assert.match(
+    errorsOf(withResource({ notPublished: [{ question: "CONTACT_CHANNEL", sourceUrl: "https://example.test/elsewhere" }] })),
+    /not published CONTACT_CHANNEL cites https:\/\/example.test\/elsewhere, which is not one of its sources/u,
+  );
+  assert.match(
+    errorsOf(withResource({ whoCanUseIt: "Anyone farming on the island.", notPublished: [{ question: "WHO_CAN_USE", sourceUrl: page }] })),
+    /not published WHO_CAN_USE, yet the record answers it/u,
+    "a record cannot say both who it is for and that the source does not say",
+  );
+  assert.match(
+    errorsOf(
+      withResource({
+        notPublished: [
+          { question: "ACCESS_COST", sourceUrl: page },
+          { question: "ACCESS_COST", sourceUrl: page },
+        ],
+      }),
+    ),
+    /not published ACCESS_COST is listed twice/u,
+  );
 });
 
 test("a record describes itself with its own evidence, not with the file's", () => {
@@ -238,4 +349,24 @@ test("the news of an edition is the news of its year, up to the day it was publi
   assert.match(errorsOf(fakeEdition({ news: [{ ...item, date: "2025-05-04" }] })), /date 2025-05-04 is outside edition 2026/u);
   assert.match(errorsOf(fakeEdition({ news: [{ ...item, date: "2026-09-30" }] })), /date 2026-09-30 is after published 2026-09-27/u);
   assert.match(errorsOf(fakeEdition({ news: [item, item] })), /news "land-bank-opened": duplicate id/u);
+});
+
+test("country context observations keep their own date and consistent age denominators", () => {
+  const sourceUrl = "https://example.test/statistics";
+  const context = {
+    consultedOn: TODAY,
+    land: { year: 2023, hectares: 100, sourceUrl },
+    economy: { year: 2025, sectorValueAdded: 25, gdp: 1000, sectorSourceUrl: sourceUrl, gdpSourceUrl: sourceUrl },
+    succession: { year: 2023, holdings: 100, under25: 1, from25To34: 4, from35To39: 5, atLeast65: 40, sourceUrl },
+  };
+  const edition = fakeCountryEdition({ countryContext: context });
+  const file = "2026/countries/xa.json";
+  assert.deepEqual(compileDefinition("schema/edition.schema.json", "countrySnapshot").errors(edition), []);
+  assert.equal(errorsOf(edition, file), "");
+  assert.match(errorsOf({ ...edition, countryContext: { ...context, consultedOn: "2026-10-03" } }, file), /consultation date/u);
+  assert.match(errorsOf({ ...edition, countryContext: { ...context, land: { ...context.land, year: 2027 } } }, file), /observation year/u);
+  assert.match(
+    errorsOf({ ...edition, countryContext: { ...context, succession: { ...context.succession, atLeast65: 99 } } }, file),
+    /age groups exceed/u,
+  );
 });

@@ -1,0 +1,27 @@
+/*
+ * The notice at the top of every page of an archived edition (decisions/038). It lives in the current
+ * site, not in the archived one, which knows nothing about archives, and it is a file because an inline
+ * style would break the page's Content-Security-Policy (decisions/034).
+ */
+.fs-archive {
+  background: #fdf6e3;
+  border-bottom: 1px solid #d9c9a3;
+  color: #2b2b2b;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+}
+
+.fs-archive p {
+  margin: 0 auto;
+  max-width: 75rem;
+}
+
+.fs-archive a {
+  color: #1f4d3a;
+  display: inline-flex;
+  font-weight: 700;
+  min-height: 2.75rem;
+  align-items: center;
+  text-decoration: underline;
+}

@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "saarland",
+  "metaTitle": "Hofnachfolge im Saarland: Förderung für Junglandwirte",
+  "metaDescription": "Das Saarland fördert junge Landwirtinnen und Landwirte, die einen Betrieb gründen oder einen Hof innerhalb oder außerhalb der Familie übernehmen.",
   "officialName": "Saarland",
-  "published": "2026-10-29",
+  "published": "2026-11-25",
   "summary": "Das Saarland fördert die Existenzgründung von Junglandwirtinnen und Junglandwirten bei inner- und außerfamiliären Betriebsübernahmen sowie Neugründungen. Die Landwirtschaftskammer bietet zudem sozioökonomische Beratung an; ihr Jahresbericht belegt Beratungen zur Hofübergabe.",
   "coverage": {
     "status": "PARTIAL",
@@ -28,9 +30,6 @@
         "detail": "https://www.lwk-saarland.de/ueber-uns/aufgaben"
       }
     ]
-  },
-  "review": {
-    "status": "DRAFT"
   },
   "metadata": {
     "language": "de",
@@ -55,6 +54,8 @@
     {
       "id": "saarland-existenzgruendungsfoerderung-junglandwirte",
       "name": "Existenzgründungsförderung für Junglandwirtinnen und Junglandwirte im Saarland",
+      "metaTitle": "Existenzgründungsförderung für Junglandwirte im Saarland",
+      "metaDescription": "Das Saarland unterstützt junge Landwirtinnen und Landwirte bei der Neugründung eines Betriebs oder bei der Hofübernahme in und außerhalb der Familie.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -70,6 +71,13 @@
       "purposes": ["FIRST_ESTABLISHMENT", "TRANSFER"],
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "EL-0501",
+          "sourceUrl": "https://www.saarland.de/mukmav/DE/portale/landwirtschaft/informationen/existenzgruendungsfoerderung/existenzgruendungsfoerderung.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.saarland.de/mukmav/DE/portale/landwirtschaft/informationen/existenzgruendungsfoerderung/existenzgruendungsfoerderung.html",
@@ -78,15 +86,56 @@
           "quotes": [
             "Existenzgründungsförderung für Junglandwirte und Junglandwirtinnen",
             "Mit der Beihilfe soll die Existenzgründung von Junglandwirten sowohl durch innerfamiliäre als auch außerfamiliäre Betriebsübernahmen oder Gründungen von neuen landwirtschaftlichen Unternehmen initiiert und unterstützt werden.",
-            "Mit der Förderung des Generationswechsels werden die innovativen Potentiale der jungen Generation gehoben."
+            "Mit der Förderung des Generationswechsels werden die innovativen Potentiale der jungen Generation gehoben.",
+            "Die Existenzgründungsförderung für Junglandwirtinnen und Junglandwirte ist Teil der ELER-Intervention EL-0501 im nationalen GAP Strategieplan für die Förderperiode 2023-2027."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.saarland.de/SharedDocs/Downloads/DE/mukmav/landwirtschaft/dl_frl_junglandwirtefoerderung_de.pdf?__blob=publicationFile&v=3",
+          "title": "Förderrichtlinie Junglandwirteförderung (PDF, Saarland)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Die Zuwendung beträgt pauschal 50.000 Euro je Junglandwirtin bzw. -wirt, die bzw. der das Unternehmen wirksam und langfristig kontrolliert",
+            "Bewilligungsbehörde ist das Ministerium für Umwelt, Klima, Mobilität, Agrar und Verbraucherschutz Referat A/4."
           ]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Pauschalförderbetrag je Junglandwirtin bzw. Junglandwirt",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2025-07-01",
+          "sourceUrl": "https://www.saarland.de/SharedDocs/Downloads/DE/mukmav/landwirtschaft/dl_frl_junglandwirtefoerderung_de.pdf?__blob=publicationFile&v=3"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Ministerium für Umwelt, Klima, Mobilität, Agrar und Verbraucherschutz",
+          "value": "Referat A/4",
+          "sourceUrl": "https://www.saarland.de/SharedDocs/Downloads/DE/mukmav/landwirtschaft/dl_frl_junglandwirtefoerderung_de.pdf?__blob=publicationFile&v=3"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.saarland.de/SharedDocs/Downloads/DE/mukmav/landwirtschaft/dl_frl_junglandwirtefoerderung_de.pdf?__blob=publicationFile&v=3"
+        }
+      ]
     },
     {
       "id": "saarland-lwk-soziooekonomische-hofuebergabeberatung",
       "name": "Sozioökonomische Hofübergabeberatung der Landwirtschaftskammer für das Saarland",
+      "metaTitle": "Hofübergabe im Saarland: Sozioökonomische Beratung",
+      "metaDescription": "Die Landwirtschaftskammer im Saarland berät Landwirtinnen und Landwirte bei Hofübergaben und bei betrieblichen oder familiären Fragen rund um den Wechsel.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -100,6 +149,12 @@
       "accessUrl": "https://www.lwk-saarland.de/ueber-uns/aufgaben",
       "languages": ["de"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.lwk-saarland.de/ueber-uns/aufgaben"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.lwk-saarland.de/ueber-uns/aufgaben",
@@ -108,8 +163,13 @@
           "quotes": [
             "Die Landwirtschaftskammer für das Saarland ist die gesetzliche Berufsvertretung der Landwirtschaft gem. § 59 der Verfassung des Saarlandes. Sie ist eine Körperschaft des öffentlichen Rechts auf der Grundlage des Gesetzes über die Landwirtschaftskammer für das Saarland (Gesetz Nr. 532 vom 9. Juli 1956).",
             "die Betriebsberatung für Landwirte und Gärtner sowie sozioökonomische Beratung,",
-            "Termine bitte vorher vereinbaren"
-          ]
+            "Termine bitte vorher vereinbaren",
+            "info@lwk-saarland.de"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.lwk-saarland.de/fileadmin/landwirtschaftskammer/data/downloads/verwaltung/Jahresbericht_2024__2_.pdf",
@@ -117,10 +177,22 @@
           "consultedOn": "2026-10-29",
           "quotes": [
             "Im Jahr 2024 wurden neben Hofübergabe Beratungen zu unterschiedlichen betrieblichen und familiären Krisen nachgefragt."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Landwirtschaftskammer für das Saarland",
+          "value": "info@lwk-saarland.de",
+          "sourceUrl": "https://www.lwk-saarland.de/ueber-uns/aufgaben"
+        }
+      ]
     }
   ],
   "news": [],

@@ -6,7 +6,7 @@
     "region": "veneto"
   },
   "language": "it",
-  "updatedOn": "2026-10-27",
+  "updatedOn": "2026-11-21",
   "context": [
     "Veneto Rurale (venetorurale.it) è il sito dell'Autorità di gestione del CSR: le notizie ufficiali riportano scadenze e risorse aggiornate, mentre alcune schede bando mostrano ancora il ciclo precedente.",
     "In Veneto l'intervento SRE01 si attiva solo nel Pacchetto Giovani insieme ad almeno un intervento di investimento.",
@@ -14,7 +14,10 @@
     "Passata con la lista di controllo nazionale sul file del benchmark: restavano da compilare solo gli strumenti attesi.",
     "La scheda SRE01 con suffisso -3 riguarda il bando scaduto il 16 gennaio 2026; quella con suffisso -4 riguarda il nuovo Pacchetto Giovani approvato nel settembre 2026. Non confondere le due dotazioni: 11,2 milioni dopo la modifica del vecchio bando e 14 milioni nel nuovo.",
     "La DGR n. 990 è stata pubblicata nel BUR n. 135 del 2 ottobre 2026 e ha aperto il nuovo Pacchetto Giovani; l'Autorità di gestione indica la scadenza del 15 gennaio 2027.",
-    "Un decreto BUR del febbraio 2026 documenta canoni di terreni già affittati dalla Banca della terra; non dimostra che oggi vi siano lotti aperti."
+    "Un decreto BUR del febbraio 2026 documenta canoni di terreni già affittati dalla Banca della terra; non dimostra che oggi vi siano lotti aperti.",
+    "La pagina regionale della DGR n. 990 contiene la scadenza SRE01 e i recapiti AVEPA; SRH01 e SRH03 sono descritti genericamente, senza un legame esplicito con l'insediamento.",
+    "Restano nel file una limitazione e una notizia non allineate alla verifica dell'apertura SRE01 già registrata; questa valutazione aggiorna soltanto la risorsa.",
+    "L'indice contiene domande di conferma del 2026 ma riporta come ultima modifica il 5 ottobre 2024: verificare l'attualità dei singoli bandi nelle rispettive procedure."
   ],
   "portals": [
     {
@@ -170,6 +173,25 @@
       "reason": "L'operatore annuncia un percorso distinto di 150 ore con ammissioni chiuse il 14 agosto e prima lezione prevista il 28 settembre 2026. Verificare con una pagina aggiornata dell'ente se il corso è effettivamente partito e se esistono successive sessioni; non inferire disponibilità dalla sola notizia di apertura iscrizioni.",
       "foundBy": "veneto-formazione-iap",
       "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "veneto-dgr-990-2026",
+      "name": "Bandi DGR n. 990 del 15 settembre 2026 - Regione del Veneto",
+      "url": "https://www.regione.veneto.it/web/agricoltura-e-foreste/bando-dgr-n-990-del-15-settembre-2026",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "veneto-sre01-insediamento-giovani",
+      "reason": "Pagina regionale dei bandi della DGR n. 990: conferma dotazione e scadenza del SRE01 già pubblicato e indica AVEPA per procedure e modulistica; non documenta una banca della terra.",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "veneto-rurale-bandi",
+      "name": "Bandi | Veneto Rurale",
+      "url": "https://venetorurale.it/bandi-e-finanziamenti/",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "veneto-rurale-bandi",
+      "checkedOn": "2026-11-21"
     }
   ],
   "instrumentChecks": [
@@ -219,6 +241,16 @@
       "date": "2026-10-27",
       "by": "CHATGPT (GPT-6.1 Sol)",
       "summary": "Risolta la contraddizione del nuovo Pacchetto Giovani: la DGR n. 990 è pubblicata nel BUR, la finestra è aperta dal 2 ottobre 2026 e l'Autorità di gestione fissa la scadenza al 15 gennaio 2027. Aggiornata inoltre la prova del corso IAP alla pagina corrente con calendario e iscrizione."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La pagina regionale documenta lo stesso SRE01 già registrato, confermando la dotazione di 14 milioni di euro e la scadenza del 15 gennaio 2027; non riguarda una banca della terra. Aggiungo la fonte e il recapito istituzionale di AVEPA per procedure e modulistica, mantenendo le fonti e le informazioni esistenti."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La pagina è un portale ufficiale regionale che dà accesso alle schede sull'insediamento dei giovani agricoltori e sugli interventi collegati del Pacchetto Giovani, distinto dall'aiuto SRE01 già registrato. Propongo il portale con operatività attuale non confermata, poiché la data di ultimo aggiornamento riportata risale al 2024."
     }
   ]
 }

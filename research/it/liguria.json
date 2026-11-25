@@ -1,12 +1,20 @@
 {
   "schemaVersion": "1.0.0",
-  "territory": { "level": "REGION", "country": "IT", "region": "liguria" },
+  "territory": {
+    "level": "REGION",
+    "country": "IT",
+    "region": "liguria"
+  },
   "language": "it",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-11-21",
   "context": [
     "Il portale agricolo regionale agriligurianet.it descrive la banca regionale della terra e ospita la documentazione dei bandi del complemento regionale.",
     "I comunicati della giunta regionale sono la fonte leggibile più diretta sugli importi dei bandi agricoli.",
-    "La banca regionale della terra è stata attivata con una deliberazione della giunta regionale del 2014."
+    "La banca regionale della terra è stata attivata con una deliberazione della giunta regionale del 2014.",
+    "La procedura regionale di segnalazione dei terreni richiede Spid, Cie o CNS; resta da verificare la modalità di consultazione e richiesta dei terreni da parte degli interessati.",
+    "La revoca riguarda la disponibilità dei singoli terreni già inseriti, non la chiusura della Banca regionale della terra.",
+    "Il filtro SIAR per M06.1.A documenta un accesso alla ricerca dei bandi, non l’apertura di una finestra né la sua coincidenza con il bando di insediamento già censito.",
+    "Le disposizioni attuative del 2014 contengono i moduli A, B, C e D; la lettura fornita è parziale e non stabilisce se i canali cartacei e PEC siano tuttora utilizzabili accanto alle procedure autenticate."
   ],
   "portals": [
     {
@@ -27,7 +35,11 @@
       "kinds": ["FINANCIAL_SUPPORT"],
       "query": "Regione Liguria bando SRE01 insediamento giovani agricoltori 2026 agriligurianet"
     },
-    { "id": "lig-terra", "kinds": ["LAND_BANK"], "query": "Liguria banca della terra terreni agricoli incolti regione assegnazione" }
+    {
+      "id": "lig-terra",
+      "kinds": ["LAND_BANK"],
+      "query": "Liguria banca della terra terreni agricoli incolti regione assegnazione"
+    }
   ],
   "leads": [
     {
@@ -61,11 +73,67 @@
       "reason": "Procedura amministrativa collegata alla banca della terra; utile per documentare il funzionamento del servizio.",
       "foundBy": "lig-terra",
       "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "lig-brt-disponibilita-terreni",
+      "name": "Banca regionale della terra - segnalazione disponibilità di terreni",
+      "url": "https://www.regione.liguria.it/homepage-agricoltura/come-fare-per/brt-disponibilita-terreni.html",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "liguria-banca-regionale-terra",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "lig-brt-revoca-procedura",
+      "name": "Banca regionale della terra - revoca disponibilità di terreni già inseriti",
+      "url": "https://www.regione.liguria.it/homepage-agricoltura/come-fare-per/brt-revoca-terreni.html",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "liguria-banca-regionale-terra",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "lig-siar-bandi-pubblici",
+      "name": "SIAR - Ricerca bandi pubblici",
+      "url": "https://www.siarliguria.it/web/Public/Bandi.aspx",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "liguria-siar-bandi-pubblici",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "lig-sre01-bando-2026",
+      "name": "Intervento SRE01 Insediamento giovani agricoltori",
+      "url": "https://www.agriligurianet.it/it/component/publiccompetitions/publiccompetition/730-Intervento%20SRE01.html?id=730%3AIntervento+SRE01&view=publiccompetition",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "liguria-insediamento-giovani-agricoltori",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "lig-brt-disposizioni-attuative",
+      "name": "Disposizioni attuative della Banca Regionale della Terra",
+      "url": "https://www.agriligurianet.it/it/impresa/politiche-di-sviluppo/banca-della-terra/item/download/3320_13882693ae952067ed85f1f80c8cec1c.html",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "liguria-banca-regionale-terra",
+      "reason": "Disposizioni del 2014 con modulistica e istruzioni operative, aggiunte alla risorsa esistente senza confermare l’attuale utilizzabilità dei canali di presentazione indicati nel documento.",
+      "checkedOn": "2026-11-21"
     }
   ],
   "instrumentChecks": [
-    { "expectedId": "it-sre01-bando-regionale", "status": "FOUND", "leadId": "lig-bando-insediamento", "checkedOn": "2026-09-20" },
-    { "expectedId": "it-banca-terra-regionale", "status": "FOUND", "leadId": "lig-banca-terra", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "it-sre01-bando-regionale",
+      "status": "FOUND",
+      "leadId": "lig-bando-insediamento",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "it-banca-terra-regionale",
+      "status": "FOUND",
+      "leadId": "lig-banca-terra",
+      "checkedOn": "2026-09-20"
+    },
     {
       "expectedId": "it-formazione-insediamento",
       "status": "NOT_FOUND",
@@ -84,6 +152,31 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Prima passata con la lista di controllo nazionale: ammessi il bando di insediamento e la banca regionale della terra."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La pagina regionale documenta la procedura per segnalare terreni alla Banca regionale della terra, già censita come liguria-banca-regionale-terra, e richiede l’autenticazione con Spid, Cie o CNS. Propongo di aggiungerla alle fonti della risorsa esistente e di integrare le modalità di accesso, senza creare un nuovo strumento."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La pagina regionale documenta la procedura per revocare la disponibilità dei terreni già inseriti nella Banca regionale della terra, non la cessazione della banca. Integro la risorsa esistente con questa fonte e con il requisito di autenticazione per la revoca, conservando la fonte e le informazioni già presenti."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La pagina SIAR offre una ricerca dei bandi regionali e dei relativi documenti, con un filtro specifico per gli aiuti all’insediamento dei giovani agricoltori: è quindi ammissibile come portale ufficiale distinto dal singolo bando già censito. L’avviso di interruzione del servizio non consente di confermarne la disponibilità operativa."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La pagina ufficiale documenta il bando SRE01 già censito, con apertura il 16 giugno 2026 e proroga della scadenza al 23 settembre 2026. Integro la risorsa esistente con questa fonte e con la finestra ormai chiusa, mantenendo le informazioni e la fonte precedenti e usando la pagina del bando come accesso diretto."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "Il documento contiene le disposizioni attuative della Banca Regionale della Terra già censita, con moduli e istruzioni per offerta, aggiornamento, revoca e segnalazione di terreni in presunto abbandono. Aggiungo la fonte e descrivo questa modulistica come contenuto delle disposizioni del 2014, senza presentare i canali allora indicati come alternative attualmente confermate alle procedure autenticate."
     }
   ]
 }

@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "FR",
   "region": "occitanie",
+  "metaTitle": "Installation, reprise et aides agricoles en Occitanie",
+  "metaDescription": "Comparez les dotations DJA et DNA et repérez le stage CEFI et le portage foncier pour préparer une installation ou une reprise agricole en Occitanie.",
   "officialName": "Occitanie",
-  "published": "2026-10-25",
+  "published": "2026-11-25",
   "summary": "L'Occitanie propose deux dotations d'installation, un stage de reprise, un portage foncier et des accompagnements à l'installation et à la transmission. La Safer et des associations disposent également de services territoriaux.",
   "coverage": {
     "status": "PARTIAL",
@@ -69,9 +71,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -88,6 +87,20 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -96,6 +109,8 @@
       "id": "occitanie-accompagnement-installation",
       "generatorId": "chatgpt-1",
       "name": "Accompagnement à l'installation en agriculture",
+      "metaTitle": "Accompagnement à l’installation en agriculture — Occitanie",
+      "metaDescription": "Des structures labellisées en Occitanie conseillent les porteurs de projet à la création d’une ferme et assurent un suivi après l’installation.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -109,20 +124,41 @@
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-07-16",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide",
           "title": "Agriculture : aide au renouvellement des générations",
           "consultedOn": "2026-09-29",
-          "quotes": ["conseil à la création agricole et d’un suivi post-installation", "Article publié le 16 juillet 2026."]
+          "quotes": [
+            "conseil à la création agricole et d’un suivi post-installation",
+            "Article publié le 16 juillet 2026.",
+            "de conseil à la création agricole et d’un suivi post-installation par des structures labellisées (chambres d’agriculture et associations pour le développement de l’emploi agricole et rural départementales)."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La page officielle régionale annonce le financement de conseils en 2026. Aucun guichet stable destiné directement aux candidats n'a pu être établi pour l'ensemble de cette prestation ; les voies d'accès des structures labellisées restent à détailler."
+      "notes": "La page officielle régionale annonce le financement de conseils en 2026. Aucun guichet stable destiné directement aux candidats n'a pu être établi pour l'ensemble de cette prestation ; les voies d'accès des structures labellisées restent à détailler.",
+      "howToAccess": "S’adresser à une structure labellisée, chambre d’agriculture ou association départementale pour le développement de l’emploi agricole et rural, pour un conseil à la création ou un suivi post-installation."
     },
     {
       "id": "occitanie-accompagnement-pretransmission",
       "generatorId": "chatgpt-1",
       "name": "Accompagnement pré-transmission des exploitations",
+      "metaTitle": "Accompagnement pré-transmission des fermes — Occitanie",
+      "metaDescription": "Vous préparez la cession d’une exploitation en Occitanie ? La fiche présente l’appui au diagnostic, au plan d’action et au suivi de la transmission.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -136,20 +172,41 @@
       "languages": ["fr"],
       "targetProfiles": ["TRANSFEROR"],
       "lastEvidenceDate": "2026-07-16",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide",
           "title": "Agriculture : aide au renouvellement des générations",
           "consultedOn": "2026-09-29",
-          "quotes": ["cédants n’ayant pas encore de repreneur", "diagnostic et d’un suivi pré-transmission"]
+          "quotes": [
+            "cédants n’ayant pas encore de repreneur",
+            "diagnostic et d’un suivi pré-transmission",
+            "la réalisation d’un état des lieux sur l’exploitation et d’un plan d’actions pour résoudre les fragilités et/ou la mise en place d’un diagnostic et d’un suivi pré-transmission par des structures labellisées (chambres d’agriculture et associations pour le développement de l’emploi agricole et rural départementales)."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La Région décrit deux prestations distinctes, financées en 2026. La page de sélection des opérateurs comporte une ancienne échéance de candidature des structures : elle ne constitue pas une échéance pour les cédants."
+      "notes": "La Région décrit deux prestations distinctes, financées en 2026. La page de sélection des opérateurs comporte une ancienne échéance de candidature des structures : elle ne constitue pas une échéance pour les cédants.",
+      "howToAccess": "S’adresser à une structure labellisée, chambre d’agriculture ou association départementale pour le développement de l’emploi agricole et rural, pour un état des lieux, un plan d’actions ou un diagnostic et un suivi pré-transmission."
     },
     {
       "id": "occitanie-europac",
       "generatorId": "chatgpt-1",
       "name": "Portail Euro-pac",
+      "metaTitle": "Portail Euro-pac : demandes FEADER en Occitanie",
+      "metaDescription": "Vous déposez une demande d’aide FEADER en Occitanie ? Accédez au portail Euro-pac utilisé pour transmettre votre demande en ligne à la Région.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -167,14 +224,19 @@
           "url": "https://www.europe-en-occitanie.eu/Euro-pac",
           "title": "Le portail Euro-pac",
           "consultedOn": "2026-09-29",
-          "quotes": ["Toutes vos demandes relatives au FEADER Occitanie se font sur le site d'Euro-pac."]
+          "quotes": ["Toutes vos demandes relatives au FEADER Occitanie se font sur le site d'Euro-pac."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
     {
       "id": "occitanie-dja",
-      "generatorId": "chatgpt-1",
       "name": "Dotation Jeune Agriculteur",
+      "metaTitle": "Dotation Jeune Agriculteur (DJA) — Occitanie",
+      "metaDescription": "La DJA 2026 soutient la trésorerie des jeunes qui démarrent une activité agricole en Occitanie. Consultez les conditions et les modalités de la demande.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -183,8 +245,8 @@
       "operator": "Région Occitanie",
       "operatorType": "PUBLIC",
       "whatItOffers": "Aide de trésorerie pour le démarrage de l'activité agricole des jeunes agriculteurs.",
-      "whoCanUseIt": "Jeunes agriculteurs remplissant les critères de l'appel régional 2026.",
-      "howToAccess": "Consulter l'appel à projets et ses pièces sur la fiche régionale, puis déposer le dossier sur Euro-pac.",
+      "whoCanUseIt": "Jeunes agriculteurs remplissant les critères de l'appel régional 2026. Pour la compétence professionnelle au titre de la DJA, la DRAAF indique un diplôme agricole de niveau 4 minimum, ou un autre diplôme de niveau 4 minimum complété par 24 mois au moins de travail dans la production agricole dans les trois années qui précèdent la demande.",
+      "howToAccess": "Consulter l'appel à projets et ses pièces sur la fiche régionale, puis déposer le dossier sur Euro-pac. La DRAAF indique que les services du Conseil régional instruisent les demandes depuis le 1er janvier 2024.",
       "accessUrl": "https://www.europe-en-occitanie.eu/Dotation-Jeune-Agriculteur-FEADER-23-27",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
@@ -196,6 +258,12 @@
         }
       ],
       "targetProfiles": ["YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.europe-en-occitanie.eu/Dotation-Jeune-Agriculteur-FEADER-23-27"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.europe-en-occitanie.eu/Dotation-Jeune-Agriculteur-FEADER-23-27",
@@ -204,21 +272,60 @@
           "quotes": [
             "Aide aux jeunes agriculteurs pour le démarrage de leur activité agricole.",
             "Le dépôt des dossiers a lieu sur le site de dépôt dématérialisé"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.europe-en-occitanie.eu/IMG/pdf/6/8/6/dja_periodes_enveloppes_2026_cpdec25.pdf",
           "title": "Périodes de dépôt et enveloppes DJA 2026",
           "consultedOn": "2026-09-29",
-          "quotes": ["Dépôt en continu des dossiers"]
+          "quotes": ["Dépôt en continu des dossiers"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://draaf.occitanie.agriculture.gouv.fr/1-dja-dna-quelles-competences-requises-a8794.html",
+          "title": "1 - DJA / DNA : quelles compétences requises ? | DRAAF Occitanie",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Etre titulaire d’un diplôme agricole de niveau 4 minimum",
+            "d’au minimum 24 mois au cours des 3 années précédant le dépôt de la demande.",
+            "Depuis le 1er janvier 2024, les demandes de dotation (DJA ou DNA)",
+            "sont instruites par les services du Conseil Régional."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.europe-en-occitanie.eu/contact-europe",
+          "title": "Nous contacter - Europe en Occitanie",
+          "consultedOn": "2026-11-25",
+          "quotes": ["programmes.europeens@laregion.fr"]
         }
       ],
-      "notes": "Le document de périodes distingue la date de début d'éligibilité de la colonne « Périodes de dépôt 2026 ». Il prévoit un dépôt continu et une sélection à chaque comité ; aucune date précise d'ouverture ou de clôture des dépôts n'est reportée dans les champs de l'appel."
+      "notes": "Le document de périodes distingue la date de début d'éligibilité de la colonne « Périodes de dépôt 2026 ». Il prévoit un dépôt continu et une sélection à chaque comité ; aucune date précise d'ouverture ou de clôture des dépôts n'est reportée dans les champs de l'appel.",
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Région Occitanie – programmes européens",
+          "value": "programmes.europeens@laregion.fr",
+          "sourceUrl": "https://www.europe-en-occitanie.eu/contact-europe"
+        }
+      ]
     },
     {
       "id": "occitanie-dna",
-      "generatorId": "chatgpt-1",
       "name": "Dotation Nouvel Agriculteur",
+      "metaTitle": "Dotation Nouvel Agriculteur (DNA) — Occitanie",
+      "metaDescription": "La DNA 2026 soutient le démarrage des nouveaux agriculteurs en Occitanie, notamment après 40 ans. Retrouvez les conditions et la procédure de demande.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -227,8 +334,8 @@
       "operator": "Région Occitanie",
       "operatorType": "PUBLIC",
       "whatItOffers": "Aide de trésorerie au démarrage de l'activité des nouveaux agriculteurs, notamment ceux de plus de 40 ans.",
-      "whoCanUseIt": "Nouveaux installés de plus de 40 ans ; certains candidats plus jeunes peuvent être admissibles selon les conditions de l'appel.",
-      "howToAccess": "Consulter l'appel régional 2026 et déposer la demande sur Euro-pac.",
+      "whoCanUseIt": "Nouveaux installés de plus de 40 ans ; certains candidats plus jeunes peuvent être admissibles selon les conditions de l'appel. Pour la compétence professionnelle au titre de la DNA, la DRAAF indique un diplôme agricole de niveau 4 minimum, ou un diplôme agricole de niveau 3 ou un autre diplôme de niveau 4 minimum avec les points requis dans la grille diplôme-expérience.",
+      "howToAccess": "Consulter l'appel régional 2026 et déposer la demande sur Euro-pac. La DRAAF indique que les services du Conseil régional instruisent les demandes depuis le 1er janvier 2024.",
       "accessUrl": "https://www.europe-en-occitanie.eu/Dotation-Nouvel-Agriculteur-FEADER-23-27",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
@@ -240,6 +347,12 @@
         }
       ],
       "targetProfiles": ["NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.europe-en-occitanie.eu/Dotation-Nouvel-Agriculteur-FEADER-23-27"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.europe-en-occitanie.eu/Dotation-Nouvel-Agriculteur-FEADER-23-27",
@@ -248,21 +361,60 @@
           "quotes": [
             "réservée aux nouveaux installés âgés de plus de 40 ans",
             "certains porteurs de projets de moins de 40 ans peuvent bénéficier de la DNA"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.europe-en-occitanie.eu/IMG/pdf/b/4/3/dna_periodes_enveloppes_2026_cpdec25.pdf",
           "title": "Périodes de dépôt et enveloppes DNA 2026",
           "consultedOn": "2026-09-29",
-          "quotes": ["Dépôt en continu des dossiers"]
+          "quotes": ["Dépôt en continu des dossiers"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://draaf.occitanie.agriculture.gouv.fr/1-dja-dna-quelles-competences-requises-a8794.html",
+          "title": "1 - DJA / DNA : quelles compétences requises ? | DRAAF Occitanie",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Etre titulaire d’un diplôme agricole de niveau 4 minimum",
+            "Etre titulaire d’un diplôme de niveau 3 agricole ou d’un diplôme de niveau 4 minimum quelque soit la spécialité et justifier de points dans la grille d’évaluation croisée diplôme / expérience",
+            "sont instruites par les services du Conseil Régional.",
+            "Depuis le 1er janvier 2024, les demandes de dotation (DJA ou DNA)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.europe-en-occitanie.eu/contact-europe",
+          "title": "Nous contacter - Europe en Occitanie",
+          "consultedOn": "2026-11-25",
+          "quotes": ["programmes.europeens@laregion.fr"]
         }
       ],
-      "notes": "Le tableau 2026 annonce un dépôt continu. Sa date de début d'éligibilité n'est pas présentée comme date d'ouverture des dossiers."
+      "notes": "Le tableau 2026 annonce un dépôt continu. Sa date de début d'éligibilité n'est pas présentée comme date d'ouverture des dossiers.",
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Région Occitanie – programmes européens",
+          "value": "programmes.europeens@laregion.fr",
+          "sourceUrl": "https://www.europe-en-occitanie.eu/contact-europe"
+        }
+      ]
     },
     {
       "id": "occitanie-safer-foncier",
-      "generatorId": "chatgpt-1",
       "name": "Accès au foncier et accompagnement par la Safer Occitanie",
+      "metaTitle": "Safer Occitanie : foncier, candidatures et transmission",
+      "metaDescription": "La Safer Occitanie aide les candidats à trouver des terres et les cédants à évaluer leur bien. Retrouvez les appels à candidatures et les démarches.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -270,12 +422,12 @@
       },
       "operator": "Safer Occitanie",
       "operatorType": "MIXED",
-      "whatItOffers": "Recherche et proposition de biens fonciers adaptés à un projet d'installation, gestion des candidatures et appels à candidatures pour des biens agricoles.",
-      "whoCanUseIt": "Candidats à l'installation et personnes recherchant du foncier agricole en Occitanie.",
-      "howToAccess": "Consulter le parcours « S'installer » et les appels à candidatures de la Safer, puis contacter son service compétent.",
+      "whatItOffers": "Recherche et proposition de biens fonciers adaptés à un projet d'installation, gestion des candidatures et appels à candidatures pour des biens agricoles. Pour transmettre une exploitation : évaluation des biens, recherche de candidats à la reprise, solutions de vente ou de location partielles ou totales, cession de parts sociales, médiation en cas de concurrence entre acheteurs et accompagnement technique, juridique et fiscal jusqu’à la signature de l’acte.",
+      "whoCanUseIt": "Candidats à l'installation et personnes recherchant du foncier agricole en Occitanie, ainsi que personnes souhaitant transmettre leur exploitation.",
+      "howToAccess": "Consulter le parcours « S'installer » et les appels à candidatures de la Safer, puis contacter son service compétent. Pour une transmission, consulter le parcours « Transmettre », qui donne accès aux contacts des services départementaux et régionaux.",
       "accessUrl": "https://www.safer-occitanie.com/fr/page/s-installer.php",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
-      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "LAND_SEEKER"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR"],
       "sources": [
         {
           "url": "https://www.safer-occitanie.com/fr/page/s-installer.php",
@@ -284,13 +436,21 @@
           "quotes": [
             "La Safer vous aide à trouver un bien foncier (avec ou sans bâti)",
             "Proposition de biens en adéquation avec votre demande"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer-occitanie.com/fr/appels-a-candidature.php",
           "title": "Appels à candidatures — Safer Occitanie",
           "consultedOn": "2026-09-29",
-          "quotes": ["rétrocéder, échanger, substituer ou louer des biens fonciers en Occitanie"]
+          "quotes": ["rétrocéder, échanger, substituer ou louer des biens fonciers en Occitanie"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer-occitanie.com/fr/page/carte-interactive-des-departements.php",
@@ -298,7 +458,11 @@
           "consultedOn": "2026-10-25",
           "quotes": [
             "Ariège (09) Aude (11) Aveyron (12) Gard (30) Haute-Garonne (31) Gers (32) Hérault (34) Lot (46) Lozère (48) Hautes-Pyrénées (65) Pyrénées-Orientales (66) Tarn (81) Tarn-et-Garonne (82)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer-occitanie.com/fr/page/la-safer-occitanie.php",
@@ -306,15 +470,55 @@
           "consultedOn": "2026-10-25",
           "quotes": [
             "fusion de la Safer Gascogne Haut Languedoc, la Safer Aveyron, lot, Tarn, Tarn et Garonne et de la Safer Languedoc-Roussillon."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.safer-occitanie.com/fr/page/transmettre.php",
+          "title": "Transmettre - Safer Occitanie",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Avec la Safer, l’opérateur foncier de la transmission d’exploitation, vous bénéficiez :",
+            "D’une expertise reconnue pour l’évaluation de vos biens (terres, bâtiments, cheptel, matériel,…)",
+            "D’une solution sur mesure adaptée à vos souhaits et vos besoins (vente ou location, partielle ou totale, en une ou plusieurs fois, cession de parts sociales,…)",
+            "D’une recherche de candidats sérieux à la reprise de votre exploitation",
+            "D’une médiation en cas de concurrence entre acheteur",
+            "D’un partenaire privilégié pour sécuriser vos projets fonciers sur les plans techniques, juridiques et fiscaux",
+            "D’un conseil et d’un accompagnement, avec un interlocuteur unique, jusqu’à la signature de l’acte",
+            "Contact Services départementaux Contact Services régionaux"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.safer-occitanie.com/fr/contact-service-regional/service-proprietes-rurales.php",
+          "title": "Contacter en région Propriétés Rurales Safer Occitanie",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Formulaire de contact"]
         }
       ],
-      "notes": "La Safer propose également une prestation de transmission ; les deux parcours relèvent ici du même opérateur régional. Les échéances appartiennent à chaque bien publié, et aucune n'est généralisée à ce service. La Safer Occitanie intervient dans l’Ariège (09), l’Aude (11), l’Aveyron (12), le Gard (30), la Haute-Garonne (31), le Gers (32), l’Hérault (34), le Lot (46), la Lozère (48), les Hautes-Pyrénées (65), les Pyrénées-Orientales (66), le Tarn (81) et le Tarn-et-Garonne (82). Elle est issue de la fusion de la Safer Gascogne Haut Languedoc, de la Safer Aveyron, Lot, Tarn, Tarn-et-Garonne et de la Safer Languedoc-Roussillon."
+      "notes": "La Safer propose également une prestation de transmission ; les deux parcours relèvent ici du même opérateur régional. Les échéances appartiennent à chaque bien publié, et aucune n'est généralisée à ce service. La Safer Occitanie intervient dans l’Ariège (09), l’Aude (11), l’Aveyron (12), le Gard (30), la Haute-Garonne (31), le Gers (32), l’Hérault (34), le Lot (46), la Lozère (48), les Hautes-Pyrénées (65), les Pyrénées-Orientales (66), le Tarn (81) et le Tarn-et-Garonne (82). Elle est issue de la fusion de la Safer Gascogne Haut Languedoc, de la Safer Aveyron, Lot, Tarn, Tarn-et-Garonne et de la Safer Languedoc-Roussillon.",
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Safer Occitanie – Propriétés Rurales",
+          "value": "https://www.safer-occitanie.com/fr/contact-service-regional/service-proprietes-rurales.php",
+          "sourceUrl": "https://www.safer-occitanie.com/fr/contact-service-regional/service-proprietes-rurales.php"
+        }
+      ]
     },
     {
       "id": "occitanie-fonciere-agricole",
       "generatorId": "chatgpt-1",
       "name": "Foncière Agricole d'Occitanie",
+      "metaTitle": "Foncière Agricole d’Occitanie : portage de terres",
+      "metaDescription": "La Foncière Agricole d’Occitanie peut acheter les terres nécessaires à une installation, les louer au candidat et lui permettre de les racheter ensuite.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -337,15 +541,34 @@
             "Acquérir tout ou partie du foncier du projet",
             "Le dépôt d’un dossier de demande de portage du foncier",
             "étant âgé.e de moins de 45 ans"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.arac-occitanie.fr/contact/",
+          "title": "Prendre contact avec l'ARAC Occitanie - Arac Occitanie",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Formulaire de contact"]
         }
       ],
-      "notes": "La Foncière porte le foncier d'un projet identifié ; elle ne constitue pas un inventaire libre de parcelles. Son parcours est distinct de l'attribution foncière de la Safer."
+      "notes": "La Foncière porte le foncier d'un projet identifié ; elle ne constitue pas un inventaire libre de parcelles. Son parcours est distinct de l'attribution foncière de la Safer.",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "ARAC Occitanie",
+          "value": "https://www.arac-occitanie.fr/contact/",
+          "sourceUrl": "https://www.arac-occitanie.fr/contact/"
+        }
+      ]
     },
     {
       "id": "occitanie-cefi",
-      "generatorId": "chatgpt-1",
-      "name": "Contrat Emploi Formation Installation",
+      "name": "CEFI – Contrat Emploi Formation Installation",
+      "metaTitle": "CEFI : Contrat Emploi Formation Installation — Occitanie",
+      "metaDescription": "Testez une première reprise hors cadre familial ou une association en Occitanie grâce à un stage rémunéré de 3 à 12 mois dans l’exploitation.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -353,12 +576,27 @@
       },
       "operator": "Région Occitanie et structures labellisées",
       "operatorType": "MIXED",
-      "whatItOffers": "Stage dans une exploitation à reprendre ou à rejoindre pour tester une première installation hors cadre familial avec un accompagnement pédagogique.",
-      "whoCanUseIt": "Porteurs de projet de première installation agricole hors cadre familial préparant une reprise ou une association.",
-      "howToAccess": "Consulter la présentation agricole de la Région et demander à une structure d'accompagnement labellisée les modalités du stage.",
-      "accessUrl": "https://www.laregion.fr/Agriculture-Viticulture-Alimentation",
+      "whatItOffers": "Stage de 3 à 12 mois dans une exploitation à reprendre ou à rejoindre pour tester une première installation hors cadre familial par reprise ou association. Le stage est rémunéré par France Travail et/ou la Région et comprend un accompagnement par un conseiller référent tout au long du stage, un diagnostic et des plans d’actions en amont, des visites intermédiaires et un bilan.",
+      "whoCanUseIt": "Porteurs de projet de première installation agricole hors cadre familial préparant une reprise ou une association, ayant le statut de demandeur d’emploi, âgés de moins de 55 ans et remplissant les conditions requises de formation. L’agriculteur accueillant doit être affilié comme chef d’exploitation en Occitanie et avoir un projet de transmission ou d’association.",
+      "howToAccess": "Consulter la présentation agricole de la Région et demander à une structure d’accompagnement labellisée les modalités du stage. La Chambre d’agriculture de la Haute-Garonne propose un formulaire « Vous êtes intéressé ? » sur sa fiche de prestation pour solliciter des informations. La prestation est proposée toute l’année.",
+      "accessUrl": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Chambre d’agriculture de la Haute-Garonne — demande d’informations CEFI",
+          "value": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation",
+          "sourceUrl": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation"
+        }
+      ],
       "trainingFormats": ["IN_PERSON"],
-      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR"],
+      "lastEvidenceDate": "2026-02-06",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.laregion.fr/Agriculture-Viticulture-Alimentation",
@@ -367,21 +605,56 @@
           "quotes": [
             "Tester l’activité sur une période et un espace approprié au projet",
             "Construire une relation et un lien de confiance avec le cédant"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.laregion.fr/La-Region-Occitanie-reaffirme-son-soutien-a-l-installation-agricole-et-au",
           "title": "La Région réaffirme son soutien à l'installation agricole",
           "consultedOn": "2026-09-29",
-          "quotes": ["ce dispositif vient d’être renouvelé", "Article publié le 6 février 2026."]
+          "quotes": ["ce dispositif vient d’être renouvelé", "Article publié le 6 février 2026."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation",
+          "title": "CEFI – Contrat Emploi Formation Installation - Chambre d'agriculture - Haute-Garonne",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "CEFI – Contrat Emploi Formation Installation",
+            "Dernière mise à jour le 09 janvier 2026",
+            "Réaliser un stage chez un agriculteur afin de tester son installation hors du cadre familial par reprise ou association sur l’exploitation d’accueil.",
+            "Porteurs de projet à l’installation ayant le statut de demandeur d’emploi et remplissant les conditions requises (niveau de formation, moins de 55 ans, hors cadre familial)",
+            "L’agriculteur accueillant doit être affilié comme chef d’exploitation en Occitanie et avoir un projet de transmission ou d’association.",
+            "Réalisation d’un stage de 3 à 12 mois destiné à « tester grandeur nature » son projet de reprise ou d’association avec l’agriculteur en place ayant la volonté de transmettre ses compétences techniques et de gestion de l’entreprise (signature d’une convention de stage)",
+            "Stage rémunéré par France Travail et/ou la Région",
+            "Accompagnement par le conseiller référent tout au long du stage sur la bonne mise en place du CEFI et sur l’avancée du projet d’installation.",
+            "Diagnostic et plans d’actions en amont du CEFI",
+            "Compte-rendu des visites intermédiaires",
+            "Bilan du CEFI.",
+            "Période de réalisation Toute l'année.",
+            "Besoin de plus d'informations ? Nous contacter Vous êtes intéressé ?"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La fiche détaillée de formation liée par la Région n'a pas pu être ouverte. La présentation officielle établit le stage et son renouvellement, mais le parcours de candidature individuel doit encore être confirmé."
+      "notes": "La fiche de la Chambre précise qu’un niveau de formation est requis sans en donner le détail. Son formulaire permet de demander des informations sur la prestation ; il n’est pas présenté comme un dépôt de candidature au stage.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "occitanie-terre-de-liens-languedoc-roussillon",
       "generatorId": "chatgpt-1",
       "name": "Accompagnement foncier de Terre de Liens Languedoc-Roussillon",
+      "metaTitle": "Terre de Liens Languedoc-Roussillon — Occitanie",
+      "metaDescription": "Terre de Liens accueille et oriente sur le foncier les personnes qui préparent une installation ou une transmission en Languedoc-Roussillon.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -394,6 +667,16 @@
       "howToAccess": "Utiliser le parcours d'installation et de transmission de la page territoriale de l'association.",
       "accessUrl": "https://terredeliens.org/languedoc-roussillon/",
       "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://terredeliens.org/languedoc-roussillon/"
+        },
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/languedoc-roussillon/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/languedoc-roussillon/",
@@ -401,16 +684,31 @@
           "consultedOn": "2026-09-29",
           "quotes": [
             "Accompagner sur le volet foncier des projets d’installation ou des projets de transmission",
-            "accueil des porteurs de projets, conseils, orientation"
-          ]
+            "accueil des porteurs de projets, conseils, orientation",
+            "09 70 20 31 18"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "Le service est assuré dans le territoire de cette association et ne représente pas l'ensemble de l'Occitanie."
+      "notes": "Le service est assuré dans le territoire de cette association et ne représente pas l'ensemble de l'Occitanie.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Terre de Liens Languedoc-Roussillon",
+          "value": "09 70 20 31 18",
+          "sourceUrl": "https://terredeliens.org/languedoc-roussillon/"
+        }
+      ]
     },
     {
       "id": "occitanie-addearg-transmission",
       "generatorId": "chatgpt-1",
       "name": "Accompagnement à la transmission par l'ADDEARG",
+      "metaTitle": "ADDEARG : transmettre sa ferme dans le Gard — Occitanie (30)",
+      "metaDescription": "L’ADDEARG accompagne les cédants du Gard (30), les met en relation avec des candidats et aide le binôme à préparer la reprise de la ferme.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -424,20 +722,44 @@
       "howToAccess": "Consulter le parcours « Transmettre » de l'ADDEARG et joindre l'association.",
       "accessUrl": "https://www.agriculturepaysanne.org/Transmettre-139",
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Transmettre-139"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.agriculturepaysanne.org/Transmettre-139",
           "title": "Transmettre — ADDEARG",
           "consultedOn": "2026-09-29",
-          "quotes": ["Un accompagnement individuel pour se préparer", "un accompagnement cédant-repreneur pour se tester"]
+          "quotes": [
+            "Un accompagnement individuel pour se préparer",
+            "un accompagnement cédant-repreneur pour se tester",
+            "addearg@wanadoo.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La prestation départementale et son accès associatif sont propres à l'ADDEARG, même si elle peut intervenir comme structure labellisée du programme régional."
+      "notes": "La prestation départementale et son accès associatif sont propres à l'ADDEARG, même si elle peut intervenir comme structure labellisée du programme régional.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ADDEARG",
+          "value": "addearg@wanadoo.fr",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Transmettre-139"
+        }
+      ]
     },
     {
       "id": "occitanie-adear-lot-carte-transmission",
       "generatorId": "chatgpt-1",
       "name": "Carte des fermes en transmission de l'ADEAR du Lot",
+      "metaTitle": "Carte des fermes à reprendre dans le Lot (46) — Occitanie",
+      "metaDescription": "La carte de l’ADEAR du Lot permet de repérer les fermes engagées dans une démarche de transmission avant d’envisager une reprise ou une association.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -459,11 +781,307 @@
           "consultedOn": "2026-09-29",
           "quotes": [
             "Carte interactive des fermes inscrites dans une démarche de transmission",
-            "en rachetant ou louant une propriété agricole ou en vous associant"
-          ]
+            "en rachetant ou louant une propriété agricole ou en vous associant",
+            "adearlot@orange.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "L'ADEAR du Lot fournit ici un accès départemental propre ; les liens vers les annonces nationales de partenaires ne sont pas dupliqués comme ressources locales."
+      "notes": "L'ADEAR du Lot fournit ici un accès départemental propre ; les liens vers les annonces nationales de partenaires ne sont pas dupliqués comme ressources locales.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ADEAR du Lot",
+          "value": "adearlot@orange.fr",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Acceder-au-foncier-et-s-equiper"
+        }
+      ]
+    },
+    {
+      "id": "occitanie-ardear-installer",
+      "name": "S’installer",
+      "metaTitle": "S’installer en agriculture paysanne — Occitanie",
+      "metaDescription": "Le réseau oriente les porteurs de projet vers les associations départementales qui les aident à préparer leur installation en agriculture paysanne.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "ARDEAR Occitanie et ADEAR-Terres Vivantes (TV) d’Occitanie",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Orientation vers les associations départementales et accompagnement technique, humain et opérationnel pour préparer une installation en agriculture paysanne.",
+      "whoCanUseIt": "Personnes portant un projet d’installation en agriculture paysanne en Occitanie.",
+      "howToAccess": "Retrouver les coordonnées des associations départementales dans la rubrique contact du site pour joindre les animatrices et animateurs des ADEAR-Terres Vivantes.",
+      "accessUrl": "https://www.agriculturepaysanne.org/S-installer-607",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ARDEAR Occitanie",
+          "value": "ardear.occitanie@jeminstallepaysan.org",
+          "sourceUrl": "https://www.agriculturepaysanne.org/S-installer-607"
+        },
+        {
+          "channel": "PHONE",
+          "label": "ARDEAR Occitanie",
+          "value": "04 67 06 23 67",
+          "sourceUrl": "https://www.agriculturepaysanne.org/S-installer-607"
+        }
+      ],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.agriculturepaysanne.org/S-installer-607"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.agriculturepaysanne.org/S-installer-607",
+          "title": "S’installer",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "ARDEAR Occitanie",
+            "Pour se former et s’informer : les associations départementales",
+            "Pour s’installer en agriculture paysanne en Occitanie, il est nécessaire de se former, de s’informer et de se faire accompagner par des professionnels qui sauront répondre à vos interrogations et vous orienteront au mieux.",
+            "Les animatrices et animateurs des ADEAR-Terres Vivantes (TV) d’Occitanie sont là pour vous aider.",
+            "Vous pouvez retrouver toutes leurs coordonnées dans la rubrique contact de notre site.",
+            "Un accompagnement technique, humain et opérationnel de qualité dans les ADEAR-TV",
+            "ardear.occitanie@jeminstallepaysan.org",
+            "04 67 06 23 67"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "occitanie-pyrenees-orientales-installation-ppp",
+      "name": "Installation (AITA - volet 3)",
+      "metaDescription": "Dans les Pyrénées-Orientales (66), retrouvez les contacts et les démarches pour préparer, faire agréer et valider votre plan de professionnalisation.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Pyrénées-Orientales"
+      },
+      "operator": "DDTM - service nature agriculture forêt",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Présentation de la préparation à l’installation par un plan de professionnalisation personnalisé (PPP) et ses stages constitutifs, contacts d’orientation et accès aux démarches d’agrément et de validation du PPP.",
+      "whoCanUseIt": "Les formulaires de dépôt des dossiers PPP sont réservés au Centre d’Élaboration des Plans de Professionnalisation Personnalisés (CEPPP).",
+      "howToAccess": "Le CEPPP accède aux liens de demande d’agrément et de validation PPP publiés sur la page. Les porteurs de projet peuvent joindre le point accueil installation de Jeunes Agriculteurs, le service entreprises de la Chambre d’agriculture ou le service nature agriculture forêt de la DDTM.",
+      "accessUrl": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Jeunes Agriculteurs - point accueil installation, lundi et jeudi",
+          "value": "04 68 51 90 80",
+          "sourceUrl": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Chambre d'agriculture - service entreprises",
+          "value": "04.68.35.74.00",
+          "sourceUrl": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation"
+        },
+        {
+          "channel": "PHONE",
+          "label": "DDTM - service nature agriculture forêt",
+          "value": "04.68.38.10.27",
+          "sourceUrl": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Agriculture/Installation",
+          "title": "Installation - Agriculture - Agriculture, forêt et développement rural - Actions de l'État - Les services de l'État dans les Pyrénées-Orientales",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Installation (AITA - volet 3)",
+            "La préparation à l’installation via la réalisation d’un plan de professionnalisation personnalisé et les stages constitutifs",
+            "Dépôt des dossiers \"Plan de Professionnalisation Personnalisé\" - PPP (formulaires réservés au Centre d’Élaboration des Plans de Professionnalisation Personnalisés - CEPPP)",
+            "Demande d'agrément PPP : https://demarche.numerique.gouv.fr/commencer/agrement_ppp_annee-2026_ddtm66-aita-volet-3-ceppp",
+            "Demande de validation PPP : https://demarche.numerique.gouv.fr/commencer/validation_ppp_annee-2026_ddtm66-aita-volet-3-cepp",
+            "Jeunes Agriculteurs - point accueil installation : 04 68 51 90 80 (lundi et le jeudi)",
+            "Chambre d'agriculture - service entreprises : 04.68.35.74.00",
+            "DDTM - service nature agriculture forêt : 04.68.38.10.27"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "occitanie-adear-ariege-accompagnement-individuel",
+      "name": "L’accompagnement individuel",
+      "metaTitle": "Ariège (09) : accompagnement à l’installation — Occitanie",
+      "metaDescription": "Un appui individuel pour les candidats ariégeois : chiffrage, foncier, démarches administratives et choix de la stratégie d’installation agricole.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Ariège"
+      },
+      "operator": "ADEAR de l’Ariège",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Accompagnement individuel à l’installation : procédures administratives, étude technico-économique, articulation entre vie privée et professionnelle, recherche de foncier, aspects sociaux, juridiques et fiscaux et stratégie d’installation. Aide au montage des dossiers d’aides régionales, ainsi qu’à la mise en place et au suivi des Contrats Emploi Formation Installation (CEFI).",
+      "whoCanUseIt": "Personnes préparant un projet d’installation agricole, accompagnées en fonction de l’état d’avancement de leur projet.",
+      "howToAccess": "Contacter l’ADEAR de l’Ariège. Pour déposer les dossiers d’aides avec l’association, participer préalablement à la formation « Chiffrer son projet agricole », organisée trois fois dans l’année ; les dates sont publiées sur le site. L’accompagnement individuel pour les demandes de DJA est payant.",
+      "accessUrl": "https://www.agriculturepaysanne.org/L-accompagnement-indivduel",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ADEAR de l’Ariège",
+          "value": "adear.09@orange.fr",
+          "sourceUrl": "https://www.agriculturepaysanne.org/L-accompagnement-indivduel"
+        }
+      ],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.agriculturepaysanne.org/L-accompagnement-indivduel",
+          "title": "L’accompagnement individuel",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "ADEAR de l’Ariège",
+            "En fonction de l’état d’avancement de votre projet, nous pouvons vous rencontrer individuellement afin de vous accompagner au mieux dans vos questionnements.",
+            "procédures administratives, étude technico-économique, articulation vie privée/vie professionnelle, recherche de foncier, aspects sociaux, juridiques et fiscaux, stratégie d’installation, etc.",
+            "Nous pouvons vous orienter et vous aider à monter les dossiers pour les demandes d’aides régionales.",
+            "Il est nécéssaire de participer à la formation \"Chiffrer son projet agricole\" que nous organisons 3 fois dans l’année afin de pouvoir déposer vos dossiers d’aides avec nous.",
+            "Les dates des formations sont sur le site.",
+            "Les demandes de DJA peuvent être déposés avec l’ADEAR09, l’accompagnement se fait individuellement et est payant.",
+            "Nous sommes aussi habilités pour accompagner la mise en place et le suivi des Contrats Emploi Formation Installation (CEFI).",
+            "Contact adear.09@orange.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "accessCostType": "FEE_REQUIRED"
+    },
+    {
+      "id": "occitanie-aude-point-accueil-transmission",
+      "name": "Point Accueil Transmission (PAT)",
+      "metaTitle": "Point Accueil Transmission (PAT), Aude (11) — Occitanie",
+      "metaDescription": "Prenez contact avec le PAT de l’Aude pour préparer la cession de votre ferme. Le conseiller présente les étapes et les possibilités d’accompagnement.",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Aude"
+      },
+      "operator": "Chambre d’agriculture de l’Aude",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Accueil, information, orientation et accompagnement pour préparer la transmission d’une exploitation. Un rendez-vous individuel avec un conseiller transmission permet d’aborder les étapes, les démarches et les offres d’accompagnement, avec la possibilité d’établir un plan d’action.",
+      "whoCanUseIt": "Agriculteurs en fin d’activité ou en projet de reconversion souhaitant préparer la transmission de leur exploitation.",
+      "howToAccess": "Demander un rendez-vous individuel auprès des conseillers Transmission de la Chambre d’agriculture de l’Aude, par téléphone ou par courriel.",
+      "accessUrl": "https://aude.chambres-agriculture.fr/fileadmin/user_upload/278_chambre_dagriculture_-_aude/Documents/Entreprises/Installation/A4_3Volets_PAT-V3.pdf",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Conseillers Transmission",
+          "value": "04 68 11 79 32",
+          "sourceUrl": "https://aude.chambres-agriculture.fr/fileadmin/user_upload/278_chambre_dagriculture_-_aude/Documents/Entreprises/Installation/A4_3Volets_PAT-V3.pdf"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Conseillers Transmission",
+          "value": "transmission@aude.chambagri.fr",
+          "sourceUrl": "https://aude.chambres-agriculture.fr/fileadmin/user_upload/278_chambre_dagriculture_-_aude/Documents/Entreprises/Installation/A4_3Volets_PAT-V3.pdf"
+        }
+      ],
+      "targetProfiles": ["TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://aude.chambres-agriculture.fr/fileadmin/user_upload/278_chambre_dagriculture_-_aude/Documents/Entreprises/Installation/A4_3Volets_PAT-V3.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://aude.chambres-agriculture.fr/fileadmin/user_upload/278_chambre_dagriculture_-_aude/Documents/Entreprises/Installation/A4_3Volets_PAT-V3.pdf",
+          "title": "LE PAT POINT ACCUEIL TRANSMISSION",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "POINT ACCUEIL TRANSMISSION (PAT)",
+            "Le Point Accueil Transmission de la Chambre d’agriculture de l’Aude accueille, informe, oriente et accompagne les agriculteurs en fin d’activité ou en projet de reconversion, afin qu’ils préparent la transmission de leur exploitation.",
+            "Véritable porte d’entrée de votre projet transmission, vous pouvez demander un rendez-vous individuel avec un conseiller transmission qui abordera avec vous les points essentiels à votre cessation d’activité.",
+            "Les étapes de la transmission Les démarches à accomplir Les offres d’accompagnement Possibilité d’établir un plan d’action",
+            "Pour tout renseignement, contactez les conseillers Transmission de votre Chambre d’Agriculture de l’Aude Tél : 04 68 11 79 32 transmission@aude.chambagri.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Midi-Pyrénées"
+      },
+      "accessUrl": "https://terredeliens.org/midi-pyrenees/",
+      "id": "occitanie-terre-de-liens-midi-pyrenees",
+      "name": "Terre de Liens Midi-Pyrénées — accueil et accompagnement foncier",
+      "metaTitle": "Terre de Liens Midi-Pyrénées — Occitanie",
+      "metaDescription": "Terre de Liens accueille les personnes qui préparent une installation ou une transmission en Midi-Pyrénées et accompagne les projets d’achat de terres.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "operator": "Terre de Liens Midi-Pyrénées",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Accueil des personnes qui préparent une installation agricole ou une transmission et accompagnement des projets d’acquisition.",
+      "whoCanUseIt": "Porteurs de projet agricole et cédants dans le périmètre de Terre de Liens Midi-Pyrénées.",
+      "howToAccess": "Utiliser le lien « Nous contacter » sur la page de l’antenne Midi-Pyrénées.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/midi-pyrenees/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://terredeliens.org/midi-pyrenees/",
+          "title": "Midi-Pyrénées — Terre de Liens",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "200 candidats à l'installation et cédants accueillis",
+            "Accueil des porteurs de projets et des cédants, accompagnement des projets d’acquisition, suivi des fermes",
+            "Nous contacter"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://terredeliens.org/national/formulaire/demande-dinformations-regionales/",
+          "title": "Demande d'informations régionales — Terre de Liens",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Votre message"]
+        }
+      ],
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Terre de Liens – demande à l’association territoriale",
+          "value": "https://terredeliens.org/national/formulaire/demande-dinformations-regionales/",
+          "sourceUrl": "https://terredeliens.org/national/formulaire/demande-dinformations-regionales/"
+        }
+      ]
     }
   ],
   "news": [
@@ -480,7 +1098,11 @@
           "url": "https://www.laregion.fr/Agriculture-la-Region-alloue-1-3-MEUR-pour-le-renouvellement-des-generations-l-aide",
           "title": "Agriculture : aide au renouvellement des générations",
           "consultedOn": "2026-09-29",
-          "quotes": ["une nouvelle aide de 1,3 M€"]
+          "quotes": ["une nouvelle aide de 1,3 M€"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -497,7 +1119,11 @@
           "url": "https://www.laregion.fr/La-Region-Occitanie-reaffirme-son-soutien-a-l-installation-agricole-et-au",
           "title": "La Région réaffirme son soutien à l'installation agricole",
           "consultedOn": "2026-09-29",
-          "quotes": ["ce dispositif vient d’être renouvelé", "Article publié le 6 février 2026."]
+          "quotes": ["ce dispositif vient d’être renouvelé", "Article publié le 6 février 2026."],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     }

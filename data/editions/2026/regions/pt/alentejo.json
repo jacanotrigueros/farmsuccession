@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "PT",
   "region": "alentejo",
+  "metaTitle": "Apoio a jovens agricultores no Alentejo",
+  "metaDescription": "Conheça o gabinete de Vila Viçosa, criado pelo Município e pela AJAP, com acompanhamento técnico especializado para jovens agricultores do concelho.",
   "officialName": "Alentejo",
-  "published": "2026-09-28",
+  "published": "2026-11-25",
   "summary": "Em Vila Viçosa, a AJAP e o Município abriram um gabinete de apoio ao agricultor que inclui acompanhamento técnico específico para jovens agricultores. Os instrumentos nacionais continuam disponíveis na camada Portugal.",
   "coverage": {
     "status": "PARTIAL",
@@ -33,9 +35,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "pt",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -51,6 +50,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -58,6 +64,8 @@
     {
       "id": "pt-alentejo-vila-vicosa-gabinete-agricultor",
       "name": "Gabinete de Apoio ao Agricultor de Vila Viçosa",
+      "metaTitle": "Gabinete de Apoio ao Agricultor de Vila Viçosa — Alentejo",
+      "metaDescription": "Apoio a candidaturas e projetos agrícolas para produtores de Vila Viçosa, incluindo jovens agricultores. Saiba onde e quando ter atendimento presencial.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -73,6 +81,12 @@
       "languages": ["pt"],
       "targetProfiles": ["YOUNG_FARMER", "GENERAL"],
       "lastEvidenceDate": "2026-09-21",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://ajap.pt/ajap-reforca-apoio-de-proximidade-aos-agricultores-com-novo-gabinete-tecnico-em-vila-vicosa/"
+        }
+      ],
       "sources": [
         {
           "url": "https://ajap.pt/ajap-reforca-apoio-de-proximidade-aos-agricultores-com-novo-gabinete-tecnico-em-vila-vicosa/",
@@ -82,11 +96,70 @@
             "A AJAP e o Município de Vila Viçosa inauguraram, a 18 de setembro, um novo Gabinete de Apoio ao Agricultor.",
             "O novo gabinete permitirá igualmente reforçar o acompanhamento dos Jovens Agricultores, designadamente através de assistência técnica especializada no âmbito da intervenção C.5.5 do PEPAC.",
             "O Gabinete de Apoio ao Agricultor funcionará semanalmente, às quartas-feiras, no Espaço Cowork do Mercado Municipal de Vila Viçosa."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "O projeto-piloto de Bolsa de Terras e as ações de formação mencionados pela AJAP são iniciativas previstas, não serviços já demonstrados.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Gabinete de Apoio ao Agricultor",
+          "value": "Espaço Cowork do Mercado Municipal de Vila Viçosa",
+          "sourceUrl": "https://ajap.pt/ajap-reforca-apoio-de-proximidade-aos-agricultores-com-novo-gabinete-tecnico-em-vila-vicosa/"
+        }
+      ]
+    },
+    {
+      "id": "pt-alentejo-acos-agricultura-sustentavel",
+      "name": "Implementar medidas de sustentabilidade e economia circular na agricultura (50H)",
+      "metaTitle": "Agricultura sustentável: formação Jovem Agricultor, Alentejo",
+      "metaDescription": "Curso de 50 horas da ACOS em Beja: «Implementar medidas de sustentabilidade e economia circular na agricultura». Consulte a ficha de inscrição.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Beja"
+      },
+      "operator": "ACOS - Associação de Agricultores do Sul",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Curso de 50 horas sobre medidas de sustentabilidade e economia circular na agricultura, identificado como formação base de Jovem Agricultor. Formação presencial em Beja, em regime pós-laboral.",
+      "whoCanUseIt": "A página identifica o curso como formação base de Jovem Agricultor e exige habilitações mínimas de 9º ano de escolaridade.",
+      "howToAccess": "Preencher a ficha de inscrição na página do curso e aguardar o contacto da ACOS.",
+      "accessUrl": "https://www.acos.pt/servicos/formacao-profissional/oferta-formativa/cursos-financiados/agricultura-sustentavel",
+      "trainingFormats": ["IN_PERSON"],
+      "targetProfiles": ["YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.acos.pt/servicos/formacao-profissional/oferta-formativa/cursos-financiados/agricultura-sustentavel"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.acos.pt/servicos/formacao-profissional/oferta-formativa/cursos-financiados/agricultura-sustentavel",
+          "title": "Formação Profissional - Oferta Formativa - Implementar medidas de sustentabilidade e economia circular na agricultura (50H) | ACOS - Associação de Agricultores do Sul",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "ACOS - Associação de Agricultores do Sul",
+            "Implementar medidas de sustentabilidade e economia circular na agricultura (50H)",
+            "Regime Pós-laboral Duração 50 Horas Local Beja Formato Presencial",
+            "Formação base de Jovem Agricultor",
+            "Requisitos: Habilitações mínimas: 9º ano de escolaridade",
+            "Ficha de Inscrição: Por favor indique o seu nome completo",
+            "Aguarde o nosso contacto após o preenchimento do formulário."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [
@@ -106,7 +179,11 @@
             "A AJAP e o Município de Vila Viçosa inauguraram, a 18 de setembro, um novo Gabinete de Apoio ao Agricultor.",
             "O novo gabinete permitirá igualmente reforçar o acompanhamento dos Jovens Agricultores, designadamente através de assistência técnica especializada no âmbito da intervenção C.5.5 do PEPAC.",
             "O Gabinete de Apoio ao Agricultor funcionará semanalmente, às quartas-feiras, no Espaço Cowork do Mercado Municipal de Vila Viçosa."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"

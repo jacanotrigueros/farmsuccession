@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "ES",
   "region": "navarra",
+  "metaTitle": "Ayudas a jóvenes agricultores y relevo agrario en Navarra",
+  "metaDescription": "Consulta las tres líneas de primera instalación de Navarra, la formación para incorporarte al campo y cómo buscar o ceder una explotación con Lurberri.",
   "officialName": "Comunidad Foral de Navarra",
-  "published": "2026-10-09",
+  "published": "2026-11-24",
   "summary": "Navarra combina tres líneas de establecimiento para jóvenes profesionales, jóvenes a tiempo parcial y nuevos agricultores, una ayuda específica a la cooperación para la sucesión, un servicio activo de intermediación de relevo dentro de Lurberri, formación de incorporación de INTIA y servicios de asesoramiento de INTIA y UAGN. El banco de tierras e infraestructuras anunciado dentro de Lurberri no se ha verificado como servicio independiente y operativo.",
   "coverage": {
     "status": "PARTIAL",
@@ -45,9 +47,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -63,6 +62,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -70,6 +76,8 @@
     {
       "id": "navarra-establecimiento-jovenes-profesionales",
       "name": "Ayudas al establecimiento de jóvenes agricultores/as profesionales",
+      "metaTitle": "Ayudas a jóvenes agricultores profesionales en Navarra",
+      "metaDescription": "Prima para jóvenes titulares, cotitulares o socios de explotaciones viables. La convocatoria cerrada de 2026 fijó de 40.000 a 100.000 euros.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -102,15 +110,56 @@
             "En resolución",
             "Personas físicas que se instalen mediante el correspondiente plan empresarial como titulares, cotitulares o socios y socias de explotaciones agrarias viables, ubicadas en Navarra",
             "Resolución 591E/2025, por la que se aprueba la convocatoria 2026 de las ayudas.",
-            "Resolución 265E/2026, de concesión y de pago (publicado el 05/08/2026)."
+            "Resolución 265E/2026, de concesión y de pago (publicado el 05/08/2026).",
+            "Correo electrónico: fomenexp@navarra.es"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://bon.navarra.es/es/anuncio/-/texto/2026/34/9",
+          "title": "Anuncio - Boletín Oficial de Navarra",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "La prima básica serán 40.000 euros, a los que se irán sumando incrementos según las condiciones de la explotación y/o del plan empresarial, con un máximo de 100.000 euros."
           ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima básica de la convocatoria 2026",
+          "value": 40000,
+          "unit": "EUR",
+          "asOf": "2026-02-17",
+          "sourceUrl": "https://bon.navarra.es/es/anuncio/-/texto/2026/34/9"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Prima máxima de la convocatoria 2026",
+          "value": 100000,
+          "unit": "EUR",
+          "asOf": "2026-02-17",
+          "sourceUrl": "https://bon.navarra.es/es/anuncio/-/texto/2026/34/9"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Sección de Fomento de Explotaciones Agrarias",
+          "value": "fomenexp@navarra.es",
+          "sourceUrl": "https://www.navarra.es/es/tramites/on/-/line/ayudas-al-establecimiento-de-jovenes-agricultores-profesionales-2026"
+        }
+      ]
     },
     {
       "id": "navarra-establecimiento-nuevos-agricultores",
       "name": "Ayudas al establecimiento de nuevos/as agricultores/as 2026",
+      "metaTitle": "Ayudas a nuevos agricultores en Navarra",
+      "metaDescription": "Prima para la primera instalación de nuevos agricultores en Navarra. En 2026 la convocatoria, ya cerrada, fijó una ayuda de 20.000 a 50.000 euros.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -118,8 +167,8 @@
       },
       "operator": "Gobierno de Navarra",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Línea específica de establecimiento para personas que se instalan por primera vez en una explotación agraria y cumplen los criterios de admisibilidad de la convocatoria de nuevos agricultores.",
-      "whoCanUseIt": "Personas físicas que se instalan por primera vez en una explotación agraria y cumplen los criterios de admisibilidad establecidos en la convocatoria.",
+      "whatItOffers": "Prima básica de 20.000 euros para la primera instalación, con incrementos según las condiciones de la explotación y del plan empresarial hasta un máximo de 50.000 euros. Se abona en dos pagos iguales, previstos en 2026 y 2028: el primero junto con la concesión, previa verificación del inicio del plan, y el segundo condicionado a su correcta ejecución.",
+      "whoCanUseIt": "Personas físicas de al menos 41 años y que no hayan cumplido 56 en la fecha de solicitud, que se instalen por primera vez en una explotación agraria y/o ganadera viable ubicada en Navarra. No deben haber sido titulares de una explotación individual de dimensión superior a 0,2 UTAS ni alcanzar esa cifra según su participación en una explotación asociativa o en cotitularidad, ni haber recibido ayuda a la primera instalación. Deben presentar un plan empresarial, acreditar el inicio del establecimiento y cumplir los requisitos legales y tributarios de la convocatoria. Las instalaciones en entidades asociativas solo se admiten si son de nueva creación y están constituidas íntegramente por nuevos agricultores y agricultoras.",
       "howToAccess": "Solicitud telemática en el trámite del Gobierno de Navarra, directamente o mediante entidad colaboradora acreditada, durante la convocatoria. La convocatoria 2026 ya está en resolución y publicó concesiones el 5 de agosto de 2026.",
       "accessUrl": "https://www.navarra.es/es/tramites/on/-/line/ayudas-al-establecimiento-de-nuevos-agricultores-2026",
       "instrumentType": "GRANT",
@@ -131,9 +180,24 @@
           "sourceUrl": "https://www.navarra.es/es/tramites/on/-/line/ayudas-al-establecimiento-de-nuevos-agricultores-2026"
         }
       ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Sección de Fomento de Explotaciones y Asociacionismo Agrario",
+          "value": "fomenexp@cfnavarra.es",
+          "sourceUrl": "https://www.navarra.es/documents/48192/55913868/Folleto%2Binformativo_ENA26.pdf/1e9c70bd-96f6-8e7b-f108-9ed5bb461821?t=1771409990723"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Sección de Fomento de Explotaciones y Asociacionismo Agrario",
+          "value": "848 42 48 70",
+          "sourceUrl": "https://www.navarra.es/documents/48192/55913868/Folleto%2Binformativo_ENA26.pdf/1e9c70bd-96f6-8e7b-f108-9ed5bb461821?t=1771409990723"
+        }
+      ],
       "languages": ["es"],
       "targetProfiles": ["NEW_ENTRANT"],
       "lastEvidenceDate": "2026-08-05",
+      "notes": "Al finalizar el plan empresarial, a 1 de noviembre de 2028, se exige capacitación profesional adecuada, control efectivo de la explotación, condición de agricultor activo, alta como autónomo por la actividad agraria y dedicación de al menos el 50 % del tiempo laboral a la explotación. Debe alcanzarse un mínimo de 0,5 UTAs por persona incorporada, proporcional a su participación en explotaciones asociativas o de titularidad compartida, y una renta unitaria superior al 35% de la renta de referencia. La concesión es competitiva y exige al menos 30 puntos.",
       "sources": [
         {
           "url": "https://www.navarra.es/es/tramites/on/-/line/ayudas-al-establecimiento-de-nuevos-agricultores-2026",
@@ -144,14 +208,81 @@
             "Personas físicas que se instalen por primera vez en una explotación agraria",
             "Resolución 594E/2025, por la que se aprueba la convocatoria.",
             "Resolución 264E/2026, de concesión y de pago (publicado el 05/08/2026)."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.navarra.es/documents/48192/55913868/Folleto%2Binformativo_ENA26.pdf/1e9c70bd-96f6-8e7b-f108-9ed5bb461821?t=1771409990723",
+          "title": "ESTABLECIMIENTO NUEVOS AGRICULTORES Y AGRICULTORAS 2026",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Personas físicas que se instalen por primera vez en una explotación agraria y/o ganadera viable ubicada en Navarra",
+            "Tener como mínimo 41 años y no haber cumplido los 56.",
+            "No haber sido titular de una explotación agraria individual con una dimensión mayor a 0,2 UTAS, o no alcanzar esta cifra en función de su participación en una sociedad, en el caso de que perteneciera a una explotación asociativa, o en cotitularidad.",
+            "No haber percibido ayuda a la primera instalación.",
+            "Presentar un \"plan empresarial\" conforme a lo dispuesto en las bases reguladoras.",
+            "Haber iniciado el proceso de establecimiento, , siendo acreditado documentalmente.",
+            "encontrarse al corriente de sus obligaciones tributarias y frente a la seguridad social.",
+            "No será admisible las instalaciones en entidades asociativas, salvo se trate de entidades de nueva creación, constituidas íntegramente por nuevos agricultoras y agricultores.",
+            "Prima básica de 20.000 euros, a los que se irán sumando incrementos según las condiciones de la explotación y/o del plan empresarial, con un máximo de 50.000 euros.",
+            "Las ayudas se abonarán en dos pagos iguales, en el año 2026 y 2028.",
+            "El primero pago se realizará junto con la concesión de la ayuda, tras la verificación del inicio del plan empresarial, quedando el segundo pago supeditado a la correcta ejecución del mismo.",
+            "Tras la aplicación del plan empresarial, a 1 de noviembre de 2028.",
+            "Haber adquirido la capacitación y competencia profesionales adecuadas, si la beneficiaria no la hubiera justificado en el momento de la solicitud.",
+            "Ejercer el control efectivo de la explotación.",
+            "Contar con la condición de “agricultor activo”.",
+            "Estar dado de alta como en la Seguridad Social como Trabajadores Autónomos por su actividad agraria como titular, socia o cotitular de explotación.",
+            "Dedicar al menos el 50 % de su tiempo laboral de trabajo a la explotación agraria.",
+            "Que en la explotación se haya alcanzado, como mínimo, 0,5 UTAs por cada persona incorporada.",
+            "En el caso de las explotaciones asociativas o de titularidad compartida, deberá alcanzarse 0,5 UTAs por cada persona instalada en proporción a su participación en el capital social.",
+            "Que la explotación sea económicamente viable (obtener una renta unitaria superior al 35% de la renta de referencia).",
+            "La concesión de estas ayudas será conforme al procedimiento de concurrencia competitiva.",
+            "Para tener derecho a la ayuda, será necesario obtener un mínimo de 30 puntos",
+            "Sección de Fomento de Explotaciones y Asociacionismo Agrario",
+            "Tlfo: 848 42 48 70 e-mail: fomenexp@cfnavarra.es"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://bon.navarra.es/es/anuncio/-/texto/2026/34/11",
+          "title": "Anuncio - Boletín Oficial de Navarra",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "La prima básica serán 20.000 euros, a los que se irán sumando incrementos según las condiciones de la explotación y/o del plan empresarial, con un máximo de 50.000 euros."
           ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima básica de la convocatoria 2026",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2026-02-17",
+          "sourceUrl": "https://bon.navarra.es/es/anuncio/-/texto/2026/34/11"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Prima máxima de la convocatoria 2026",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2026-02-17",
+          "sourceUrl": "https://bon.navarra.es/es/anuncio/-/texto/2026/34/11"
+        }
+      ]
     },
     {
       "id": "navarra-establecimiento-jovenes-tiempo-parcial",
       "name": "Ayudas al establecimiento de jóvenes agricultores/as a tiempo parcial 2026",
+      "metaTitle": "Ayuda a jóvenes agricultores a tiempo parcial en Navarra",
+      "metaDescription": "Ayuda de primera instalación agraria para jóvenes a tiempo parcial en Navarra. La convocatoria cerrada de 2026 fijó de 20.000 a 50.000 euros.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -184,15 +315,56 @@
             "En resolución",
             "Personas físicas que se instalen por primera vez en una explotación agraria",
             "Resolución 592E/2025, por la que se aprueba la convocatoria 2026 de las ayudas.",
-            "Resolución 266E/2026, de concesión y de pago (publicado el 05/08/2026)."
+            "Resolución 266E/2026, de concesión y de pago (publicado el 05/08/2026).",
+            "Correo electrónico: fomenexp@navarra.es"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://bon.navarra.es/es/anuncio/-/texto/2026/34/10",
+          "title": "Anuncio - Boletín Oficial de Navarra",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "La prima básica serán 20.000 euros, a los que se irán sumando incrementos según las condiciones de la explotación y/o del plan empresarial, con un máximo de 50.000 euros."
           ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima básica de la convocatoria 2026",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2026-02-17",
+          "sourceUrl": "https://bon.navarra.es/es/anuncio/-/texto/2026/34/10"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Prima máxima de la convocatoria 2026",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2026-02-17",
+          "sourceUrl": "https://bon.navarra.es/es/anuncio/-/texto/2026/34/10"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Sección de Fomento de Explotaciones Agrarias",
+          "value": "fomenexp@navarra.es",
+          "sourceUrl": "https://www.navarra.es/es/tramites/on/-/line/ayudas-al-establecimiento-de-jovenes-agricultores-a-tiempo-parcial-2026"
+        }
+      ]
     },
     {
       "id": "navarra-cooperacion-sucesion-explotaciones",
       "name": "Ayudas a la cooperación para la sucesión de explotaciones agrarias",
+      "metaTitle": "Ayudas a la sucesión de explotaciones agrarias en Navarra",
+      "metaDescription": "Prima para titulares que ceden su explotación por un proyecto de cooperación. Consulta la convocatoria cerrada de 2026 y la ayuda prevista para 2027.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -200,9 +372,9 @@
       },
       "operator": "Gobierno de Navarra",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Prima única, abonada en dos pagos, para quien cede su explotación agraria a otra persona física mediante un proyecto de cooperación, calculada a partir de sus ingresos agrarios y su pensión de jubilación.",
-      "whoCanUseIt": "Personas físicas titulares o socias de explotaciones viables inscritas en el Registro de Explotaciones Agrarias de Navarra que ceden su explotación y cumplen los requisitos de la convocatoria.",
-      "howToAccess": "Solicitud telemática con un proyecto de cooperación formalizado con la persona cesionaria. La convocatoria 2026 ya no admite solicitudes y está en fase de resolución.",
+      "whatItOffers": "Prima única, abonada en dos pagos, para quien cede su explotación agraria a otra persona física mediante un proyecto de cooperación. La ficha anunciada para 2027 establece un máximo de 85.000 euros por beneficiaria, calculado como el doble de la diferencia entre el 50 % de la media de los ingresos agrarios de los últimos tres años y la pensión anual de jubilación. Los dos pagos son iguales: el primero junto con la concesión y el segundo tras completar la transmisión y comprobar los compromisos.",
+      "whoCanUseIt": "Personas físicas titulares o socias de explotaciones viables inscritas en el Registro de Explotaciones Agrarias de Navarra que ceden su explotación. Para 2027, la ficha anuncia que solicita siempre la persona cedente: menor de 73 años, inscrita en REAN con más de 0,2 UTA y titular de una explotación viable durante los cinco años anteriores sin interrupción. Exige cotización agraria ininterrumpida en ese periodo, salvo personas de 65 a 72 años jubiladas ordinaria o parcialmente o con incapacidad permanente, cuya explotación haya superado 1 UTA en alguno de esos años. La persona receptora debe tener al menos 18 años y no haber cumplido 55 al cierre de la convocatoria, no tener parentesco hasta segundo grado con la cedente y no haber sido titular de una explotación de más de 0,5 UTA. Ambas deben participar en el proyecto de cooperación y disponer del contrato de asesoramiento al relevo.",
+      "howToAccess": "Solicitud telemática con un proyecto de cooperación formalizado con la persona cesionaria. La convocatoria 2026 ya no admite solicitudes y está en fase de resolución. La convocatoria 2027 está pendiente de publicar, con resolución prevista para marzo de 2027, sin plazo de solicitud anunciado. El proyecto debe contar con la participación de INTIA; la ficha ofrece contacto con su Servicio de Asesoramiento Agrario e Intermediación y con la Sección de Diversificación Rural y Desarrollo Sostenible.",
       "accessUrl": "https://www.navarra.es/es/tramites/on/-/line/ayudas-a-la-cooperacion-para-la-sucesion-de-explotaciones-agrarias",
       "instrumentType": "GRANT",
       "purposes": ["RETIREMENT_SUCCESSION", "TRANSFER"],
@@ -211,6 +383,11 @@
           "name": "Convocatoria 2026",
           "state": "CLOSED",
           "sourceUrl": "https://www.navarra.es/es/tramites/on/-/line/ayudas-a-la-cooperacion-para-la-sucesion-de-explotaciones-agrarias"
+        },
+        {
+          "name": "Convocatoria 2027",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.navarra.es/es/tramites/on/-/line/ayudas-a-la-cooperacion-para-la-sucesion-de-explotaciones-agrarias-2027?pageBackId=7572838"
         }
       ],
       "languages": ["es"],
@@ -225,6 +402,7 @@
           "sourceUrl": "https://www.navarra.es/es/tramites/on/-/line/ayudas-a-la-cooperacion-para-la-sucesion-de-explotaciones-agrarias"
         }
       ],
+      "notes": "Las condiciones de 2027 son informativas y quedan sujetas a la normativa que se publique. La ficha exige a la persona cedente transmitir la explotación, ceder en propiedad la base territorial y los derechos de ayuda, cesar la actividad, darse de baja en REAN y estar en jubilación ordinaria o incapacidad permanente. La persona receptora debe cotizar por actividad agraria, ser agricultora activa, figurar en REAN con al menos 1 UTA y mantener el asesoramiento. Ambas deben mantener los compromisos durante los tres años posteriores a la resolución de pago final. La selección es competitiva y requiere al menos 24 puntos.",
       "sources": [
         {
           "url": "https://www.navarra.es/es/tramites/on/-/line/ayudas-a-la-cooperacion-para-la-sucesion-de-explotaciones-agrarias",
@@ -233,15 +411,77 @@
           "quotes": [
             "Personas físicas que cedan su explotación agraria a otra persona física a través de un proyecto de cooperación.",
             "La ayuda tiene forma de prima única y se abona en dos pagos. No podrá superar los 85.000 euros.",
-            "En resolución"
-          ]
+            "En resolución",
+            "Correo electrónico: diverdesa@navarra.es"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.navarra.es/es/tramites/on/-/line/ayudas-a-la-cooperacion-para-la-sucesion-de-explotaciones-agrarias-2027?pageBackId=7572838",
+          "title": "Ayuda a la cooperación para la sucesión de explotaciones agrarias 2027",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Pendiente de convocar",
+            "Resolución por la que se aprueba la convocatoria (pendiente de publicar, con fecha prevista para marzo de 2027).",
+            "La persona solicitante es siempre la persona que cede la explotación.",
+            "Es el acuerdo entre la persona que cede la explotación y la persona que la recibe, con la participación de la entidad pública de asesoramiento en Navarra (INTIA).",
+            "No haber cumplido 73 años.",
+            "Estar inscrita en el Registro de Explotaciones Agrarias de Navarra (REAN), con una explotación de más de 0,2 UTA.",
+            "Haber sido titular de una explotación agraria viable durante los cinco años anteriores de forma ininterrumpida.",
+            "Haber cotizado por actividad agraria durante los últimos cinco años de forma ininterrumpida.",
+            "No obstante, este requisito no se exige a personas entre 65 y 72 años que estén jubiladas (ordinaria o parcialmente) o que tengan reconocida una incapacidad permanente reconocida, y cuya explotación haya tenido más de 1 UTA en alguno de los cinco años anteriores.",
+            "Tener suscrito un contrato de asesoramiento al relevo de explotaciones con la entidad pública de asesoramiento de Navarra.",
+            "Tener al menos 18 años.",
+            "No haber cumplido 55 años a fecha de cierre de la convocatoria.",
+            "No ser familiar de la persona cedente hasta segundo grado de parentesco.",
+            "No haber sido titular de una explotación agraria de más de 0,5 UTA.",
+            "Participar en el proyecto de cooperación.",
+            "Disponer del contrato de asesoramiento al relevo de explotaciones.",
+            "Importe máximo: 85.000 euros por beneficiaria.",
+            "Ayuda = 2 x (50 % de la media de los ingresos agrarios de los últimos tres años - pensión anual de jubilación)",
+            "Se abona en dos pagos iguales:",
+            "Primer pago: se realiza a la vez que la concesión de la ayuda con la comprobación de los requisitos exigidos.",
+            "Segundo pago: se realiza una vez completada la transmisión de la explotación y verificado el cumplimiento de todos los compromisos exigidos.",
+            "La persona cedente y la cesionaria deberán cumplir el proyecto de cooperación y mantener sus compromisos durante los tres años siguientes a la resolución de pago final.",
+            "Transmitir la explotación conforme al proyecto aprobado.",
+            "Ceder la base territorial y los derechos de ayuda en propiedad.",
+            "Cesar en la actividad agraria.",
+            "Darse de baja en REAN.",
+            "Estar en situación de jubilación ordinaria o tener reconocida una incapacidad permanente.",
+            "Cotizar a la Seguridad Social por actividad agraria.",
+            "Tener la condición de agricultora o agricultor activo.",
+            "Estar inscrita en REAN con una explotación de al menos 1 UTA.",
+            "Mantener el contrato de asesoramiento al relevo de explotaciones.",
+            "Las ayudas se conceden mediante concurrencia competitiva.",
+            "Para poder recibir la ayuda, es necesario alcanzar una puntuación mínima de 24 puntos.",
+            "Servicio de Asesoramiento Agrario e Intermediación - INTIA S.A.",
+            "Sección de Diversificación Rural y Desarrollo Sostenible",
+            "el contenido de esta página tiene carácter meramente informativo; las condiciones son las publicadas en la normativa correspondiente."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Sección de Diversificación Rural y Desarrollo Sostenible",
+          "value": "diverdesa@navarra.es",
+          "sourceUrl": "https://www.navarra.es/es/tramites/on/-/line/ayudas-a-la-cooperacion-para-la-sucesion-de-explotaciones-agrarias"
+        }
+      ]
     },
     {
       "id": "navarra-lurberri-intermediacion-relevo",
       "name": "Servicio de intermediación de relevo generacional Lurberri — INTIA",
+      "metaTitle": "Lurberri: relevo de explotaciones agrarias en Navarra",
+      "metaDescription": "INTIA conecta y acompaña gratis a quienes quieren ceder una explotación y a quienes buscan continuarla. Consulta cómo contactar con Lurberri.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -249,10 +489,10 @@
       },
       "operator": "INTIA / Gobierno de Navarra",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Intermediación confidencial entre titulares que quieren abandonar o ceder una explotación y personas interesadas en incorporarse, con entrevistas, búsqueda de compatibilidades, acompañamiento personalizado y encuentros territoriales Café Relevo.",
-      "whoCanUseIt": "Personas titulares próximas al cese y personas jóvenes o nuevas interesadas en acceder al sector primario mediante el relevo de una explotación existente.",
+      "whatItOffers": "Servicio gratuito de intermediación y tutorización entre titulares que quieren abandonar o ceder una explotación y personas interesadas en incorporarse, con entrevistas, búsqueda de compatibilidades, acompañamiento personalizado y encuentros territoriales Café Relevo. Incluye búsqueda de sucesor, tasación, análisis de gestión económica y posibles ayudas, definición conjunta de condiciones jurídicas y financieras, estudio de la situación de la PAC y del acceso a la tierra, y preparación de la transición.",
+      "whoCanUseIt": "Personas titulares próximas al cese o jubiladas y personas que quieren emprender en el sector primario mediante el relevo de una explotación en Navarra. Son prioritarias las explotaciones económicamente rentables cuyos titulares están jubilados o próximos a la jubilación y carecen de relevo identificado.",
       "howToAccess": "Contactar con el equipo de Emprendimiento y Relevo Generacional de INTIA por teléfono o correo electrónico. El servicio realiza una entrevista confidencial para recoger necesidades y buscar compatibilidades.",
-      "accessUrl": "https://www.intiasa.es/es/noticias/ultima-edicion-de-los-cafe-relevo-en-2026-dirigidos-personas-jovenes-que-desean",
+      "accessUrl": "https://www.intiasa.es/es/asesoramiento/jovenes/relevo-generacional",
       "contactPoints": [
         {
           "channel": "PHONE",
@@ -267,6 +507,7 @@
           "sourceUrl": "https://www.intiasa.es/es/noticias/desarrollo-rural-ofrece-mediacion-apoyo-y-acompanamiento-jovenes-con-interes-en-tomar-el"
         }
       ],
+      "assetTypes": ["WHOLE_HOLDINGS"],
       "accessCostType": "FREE",
       "languages": ["es"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "YOUNG_FARMER", "NEW_ENTRANT"],
@@ -279,7 +520,11 @@
           "quotes": [
             "el funcionamiento del servicio de intermediación",
             "El servicio de intermediación ofrece un acompañamiento personalizado y confidencial en la transmisión de explotaciones"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.intiasa.es/es/noticias/desarrollo-rural-ofrece-mediacion-apoyo-y-acompanamiento-jovenes-con-interes-en-tomar-el",
@@ -289,14 +534,45 @@
             "El equipo de intermediación de INTIA puede poner en contacto a jóvenes y personas agricultoras interesadas en jubilarse",
             "servicio gratuito de intermediación de INTIA",
             "llamando al 948 013 040 o por email a intiaemprendimiento@intiasa.es"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.intiasa.es/es/asesoramiento/jovenes/relevo-generacional",
+          "title": "Relevo generacional | Intia",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Servicio de intermediación y tutorización",
+            "El Departamento de Desarrollo Rural y Medio Ambiente del Gobierno de Navarra pone en marcha un servicio de intermediación gratuito para conectar a las personas que quieren emprender en el sector primario con explotaciones que buscan relevo, con el objetivo de garantizar la continuidad del sector.",
+            "En Navarra existen explotaciones con dimensión económica rentable cuyos titulares están jubilados o próximos a la jubilación y carecen de un relevo identificado, lo que pone en riesgo su continuidad a corto y medio plazo.",
+            "Estas explotaciones constituyen el eje prioritario de actuación.",
+            "Contacta: intiaemprendimiento@intiasa.es 948 013 040",
+            "Encontramos a la persona sucesora (si no está ya identificada).",
+            "Valoramos la explotación (tasación).",
+            "Analizamos los datos de gestión económica de la explotación.",
+            "Estudiamos si se puede acoger a ayudas de primera instalación, de inversiones u otras.",
+            "Definimos conjuntamente las condiciones jurídicas y financieras de la transmisión (alquiler, venta, arreglos familiares, etc.)",
+            "Analizamos la situación de la PAC.",
+            "Estudiamos el acceso a la tierra.",
+            "Preparamos la transición.",
+            "El servicio de intermediación ofrece un acompañamiento personalizado e imparcial que conjuga las necesidades, objetivos y expectativas de ambas partes."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "navarra-intia-curso-incorporacion-sector-agrario",
       "name": "Curso integral de incorporación al sector agrario — INTIA",
+      "metaTitle": "Curso de incorporación agraria de INTIA en Navarra",
+      "metaDescription": "Formación para jóvenes que quieren instalarse en agricultura o ganadería, con teoría, práctica y contenidos en línea. Consulta las ediciones de 2026.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -323,6 +599,12 @@
           "sourceUrl": "https://www.intiasa.es/es/noticias/agricultura-y-ganaderia-reciben-por-igual-nuevas-instalaciones-de-jovenes-formados-en"
         }
       ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.intiasa.es/es/formacion"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.intiasa.es/es/noticias/el-plan-de-formacion-de-intia-para-2026-apuesta-por-la-sostenibilidad-y-el",
@@ -331,7 +613,11 @@
           "quotes": [
             "se han programado cuatro ediciones del curso integral de incorporación",
             "dirigidas específicamente a jóvenes que planean instalarse en el sector, facilitando su acceso a las diferentes convocatorias de ayudas vigentes"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.intiasa.es/es/noticias/agricultura-y-ganaderia-reciben-por-igual-nuevas-instalaciones-de-jovenes-formados-en",
@@ -339,13 +625,21 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "Esta formación, que se prolongará hasta el mes de mayo, cuenta con una duración de 202 horas en modalidad semipresencial"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.intiasa.es/es/noticias/arranca-la-segunda-edicion-del-curso-de-incorporacion-de-intia-28-jovenes-se-forman-para",
           "title": "Arranca la segunda edición del curso de incorporación de INTIA",
           "consultedOn": "2026-09-28",
-          "quotes": ["28 jóvenes de Navarra comienzan hoy su formación en INTIA para incorporarse al sector agrario"]
+          "quotes": ["28 jóvenes de Navarra comienzan hoy su formación en INTIA para incorporarse al sector agrario"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.intiasa.es/es/formacion",
@@ -354,7 +648,11 @@
           "quotes": [
             "Ofrece anualmente cursos y jornadas, dirigidas a todo el sector agroalimentario.",
             "Incorporación de Jóvenes a la actividad agraria"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -362,6 +660,8 @@
     {
       "id": "navarra-intia-acompanamiento-jovenes",
       "name": "Asesoramiento técnico y apoyo empresarial de INTIA a jóvenes",
+      "metaTitle": "INTIA: asesoramiento a jóvenes agricultores en Navarra",
+      "metaDescription": "INTIA asesora a jóvenes que se incorporan al campo en Navarra sobre requisitos y viabilidad de su explotación. Consulta cómo contactar con el servicio.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -375,6 +675,12 @@
       "accessUrl": "https://www.intiasa.es/es/asesoramiento/jovenes",
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.intiasa.es/es/asesoramiento/jovenes/asesoramiento-tecnico-y-apoyo-empresarial"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.intiasa.es/es/asesoramiento/jovenes",
@@ -383,20 +689,42 @@
           "quotes": [
             "El Asesoramiento de INTIA a Jóvenes que pretenden incorporarse al sector agrario",
             "acompañamos y ayudamos a las personas que quieren instalarse en el sector agrícola o ganadero"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.intiasa.es/es/asesoramiento/jovenes/asesoramiento-tecnico-y-apoyo-empresarial",
           "title": "Asesoramiento técnico y apoyo empresarial — INTIA",
           "consultedOn": "2026-09-28",
-          "quotes": ["Servicio de Apoyo a la Creación de Empresas Agrarias", "un acompañamiento integral e individualizado"]
+          "quotes": [
+            "Servicio de Apoyo a la Creación de Empresas Agrarias",
+            "un acompañamiento integral e individualizado",
+            "intiasa@intiasa.es"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "INTIA · Asesoramiento a jóvenes",
+          "value": "intiasa@intiasa.es",
+          "sourceUrl": "https://www.intiasa.es/es/asesoramiento/jovenes/asesoramiento-tecnico-y-apoyo-empresarial"
+        }
+      ]
     },
     {
       "id": "navarra-uagn-asesoramiento-incorporacion",
       "name": "Planes de primera instalación y asesoramiento técnico — UAGN",
+      "metaTitle": "UAGN: asesoramiento para primera instalación en Navarra",
+      "metaDescription": "UAGN prepara planes de primera instalación de jóvenes agricultores y orienta sobre las ayudas agrarias en Navarra. Consulta el contacto técnico.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -410,15 +738,78 @@
       "accessUrl": "https://uagn.es/servicios/",
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://uagn.es/servicios/"
+        }
+      ],
       "sources": [
         {
           "url": "https://uagn.es/servicios/",
           "title": "Servicios — UAGN",
           "consultedOn": "2026-10-09",
-          "quotes": ["Planes de mejora y Primera Instalación de jóvenes agricultores", "Asesoría en PAC y PDR"]
+          "quotes": ["Planes de mejora y Primera Instalación de jóvenes agricultores", "Asesoría en PAC y PDR"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://uagn.es/contacto/",
+          "title": "Contacto – UAGN",
+          "consultedOn": "2026-11-24",
+          "quotes": ["E-mail: uagn@uagn.es"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "UAGN",
+          "value": "uagn@uagn.es",
+          "sourceUrl": "https://uagn.es/contacto/"
+        }
+      ]
+    },
+    {
+      "id": "navarra-portal-ayudas-desarrollo-rural",
+      "name": "Ayudas para el desarrollo rural",
+      "metaTitle": "Ayudas al desarrollo rural de Navarra: convocatorias",
+      "metaDescription": "Portal oficial con enlaces a las ayudas de primera instalación para jóvenes y nuevos agricultores y a la cooperación para la sucesión agraria.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Navarra",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Listado de enlaces a convocatorias de desarrollo rural, incluidas las ayudas al establecimiento de jóvenes agricultores profesionales, jóvenes a tiempo parcial y nuevos agricultores, la cooperación para la sucesión de explotaciones agrarias y el programa de relevo agrario Lurberri.",
+      "howToAccess": "Seleccionar el trámite correspondiente en los apartados Jóvenes y modernización o Diversificación y sucesión. La página también enlaza el programa de relevo agrario Lurberri.",
+      "accessUrl": "https://www.navarra.es/es/agricultura-y-ganaderia/ayudas-para-el-desarrollo-rural",
+      "sources": [
+        {
+          "url": "https://www.navarra.es/es/agricultura-y-ganaderia/ayudas-para-el-desarrollo-rural",
+          "title": "Ayudas para el desarrollo rural",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Gobierno de Navarra",
+            "Convocatorias para jóvenes, modernización, diversificación, innovación, grupos de acción local. También puedes consultar los expedientes de tus solicitudes",
+            "Jóvenes y modernización",
+            "Ayudas al establecimiento de jóvenes agricultores/as profesionales 2026",
+            "Ayudas al establecimiento de jóvenes agricultores/as a tiempo parcial 2026",
+            "Ayudas al establecimiento de nuevos/as agricultores/as 2026",
+            "Diversificación y sucesión",
+            "Ayudas a la cooperación para la sucesión de explotaciones agrarias 2026",
+            "Programa de relevo agrario Lurberri"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

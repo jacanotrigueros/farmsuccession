@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "AT",
   "region": "oberoesterreich",
+  "metaTitle": "Hofübergabe und Hofnachfolge in Oberösterreich",
+  "metaDescription": "Wer in Oberösterreich einen Hof übernimmt, findet den Landeszuschuss bei übernommenen Betriebsschulden und die bundesweiten Förderungen für Junglandwirte.",
   "officialName": "Oberösterreich",
-  "published": "2026-11-06",
+  "published": "2026-11-25",
   "summary": "Die Übersicht für Oberösterreich enthält auch die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte sowie den Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs. Ein eigener Zinsenzuschuss des Landes Oberösterreich ist ebenfalls dokumentiert.",
   "coverage": {
     "status": "PARTIAL",
@@ -20,9 +22,6 @@
         "detail": "https://www.land-oberoesterreich.gv.at/14450.htm"
       }
     ]
-  },
-  "review": {
-    "status": "DRAFT"
   },
   "metadata": {
     "language": "de",
@@ -41,6 +40,7 @@
     {
       "id": "oberoesterreich-konsolidierung-landeszuschuss",
       "name": "Konsolidierung landwirtschaftlicher Betriebe",
+      "metaDescription": "Wer bei der ersten Niederlassung in Oberösterreich hochverzinsliche Betriebsschulden übernimmt, findet Angaben zum Zinsenzuschuss und zum Antrag.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -56,6 +56,12 @@
       "purposes": ["TRANSFER"],
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.land-oberoesterreich.gv.at/14450.htm"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.land-oberoesterreich.gv.at/14450.htm",
@@ -69,12 +75,32 @@
             "Mindestqualifikation (Facharbeiterprüfung). Vorlage eines Betriebskonzeptes.",
             "Außerlandwirtschaftliche Einkommensgrenze",
             "Der Förderungswerber hat den Antrag innerhalb eines Jahres nach der ersten Niederlassung bei der Förderungsabwicklungsstelle einzureichen.",
-            "Der Antrag ist mittels Formular entweder direkt oder über die Bezirksbauernkammer bzw. die örtliche Hausbank an die Abteilung Land- und Forstwirtschaft zu richten."
-          ]
+            "Der Antrag ist mittels Formular entweder direkt oder über die Bezirksbauernkammer bzw. die örtliche Hausbank an die Abteilung Land- und Forstwirtschaft zu richten.",
+            "E-Mail lfw.post@ooe.gv.at"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "Der bundesweite Eintrag zur Konsolidierung beschreibt den Zinsenzuschuss des Bundes und die Bedingungen der Sonderrichtlinie. Hier sind der Zuschuss des Landes Oberösterreich und die Antragstellung beim Land dokumentiert.",
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.land-oberoesterreich.gv.at/14450.htm"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Abteilung Land- und Forstwirtschaft – Agrar- und Regionalförderungen",
+          "value": "lfw.post@ooe.gv.at",
+          "sourceUrl": "https://www.land-oberoesterreich.gv.at/14450.htm"
+        }
+      ]
     }
   ],
   "news": [],

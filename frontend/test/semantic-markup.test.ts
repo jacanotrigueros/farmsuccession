@@ -20,7 +20,7 @@ const pages = files(DIST, ".html").map((file) => ({ file, html: decodeHTML(readF
 const attr = (tag: string, name: string) => new RegExp(`\\b${name}="([^"]*)"`, "u").exec(tag)?.[1];
 const tagWithId = (html: string, id: string) => new RegExp(`<[^>]*\\bid="${id}"[^>]*>`, "u").exec(html)?.[0];
 
-test("inherited English descriptions keep English while the surrounding French card keeps French", () => {
+test("an inherited European card reads in the page's language and names its English original", () => {
   const { html } = pages.find(({ file }) => file.endsWith(path.join("fr", "index.html")))!;
   assert.ok(html, "no French country page: there is no inherited-language case to test");
   const card = [...html.matchAll(/<li\b[^>]*data-kind="[^"]+"[^>]*>([\s\S]*?)<\/li>/gu)].find((match) =>
@@ -32,12 +32,14 @@ test("inherited English descriptions keep English while the surrounding French c
   );
   const titleLink = /<a\b[^>]*href="\/resources\/eu-cap-network-generational-renewal\/"[^>]*>/u.exec(card)?.[0] ?? "";
   const description = /<\/h[234]>\s*(<p\b[^>]*>)/u.exec(card)?.[1] ?? "";
-  assert.equal(attr(titleLink, "lang"), "en", "an untranslated English title must not inherit the French page's pronunciation");
-  assert.equal(
-    attr(description, "lang"),
-    "en",
-    "decision 006 preserves English prose; its paragraph needs English, not a translated description",
+  // Translated for the reader (eu-presentation.ts, founder 17 Nov 2026); the original name stays, marked English.
+  assert.equal(attr(titleLink, "lang"), "fr", "a translated title must be marked French");
+  assert.match(
+    card,
+    /<span lang="en"[^>]*>EU CAP Network — Generational Renewal<\/span>/u,
+    "the card no longer names its English original",
   );
+  assert.ok(description.length > 0, "the card has no description");
   assert.ok(
     card.includes(words("fr").record[0]) || card.includes("Réseau"),
     "the card's interface labels must remain in the reader's language",
@@ -64,7 +66,7 @@ test("the actual Pagefind fragments carry each record's language for live result
       `${fragment.url}: the result needs its record language; the search page's language describes its controls, not its multilingual results`,
     );
   }
-  assert.equal(checked.size, 6, "not every language bundle's delivered metadata was checked");
+  assert.equal(checked.size, 7, "not every language bundle's delivered metadata was checked (seven since Dutch records were published)");
 });
 
 test("the date that qualifies an application answer is a time element, not only formatted prose", () => {

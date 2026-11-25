@@ -6,7 +6,7 @@
     "region": "piemonte"
   },
   "language": "it",
-  "updatedOn": "2026-10-26",
+  "updatedOn": "2026-11-20",
   "context": [
     "Il portale Bandi Piemonte pubblica stato, apertura, scadenza, procedura e allegati dei bandi agricoli regionali.",
     "Il bando SRE01 è aperto e distingue correttamente il programma attivo dalla finestra di domanda corrente.",
@@ -15,7 +15,8 @@
     "Passata con la lista di controllo nazionale su un file esistente: restavano da compilare solo gli strumenti attesi.",
     "Il vademecum regionale descrive la Banca della Terra piemontese come inventario di terreni disponibili, ma occorre raggiungere l'inventario effettivo prima di attribuirle operatività.",
     "Le associazioni fondiarie sono soggetti locali distinti dalla Banca regionale della terra. La Regione pubblica un elenco provinciale e descrive l'affitto a membri o soggetti esterni, ma questo non dimostra che ogni associazione abbia oggi lotti liberi per nuovi conduttori.",
-    "Il 26.10.2026 la pagina ufficiale delle associazioni fondiarie è stata letta nel servizio di consultazione web, mentre il controllo diretto del repository ha ricevuto HTTP 503 dall'intero portale regionale. Il relativo esito UNCHECKED non prova una modifica o una scomparsa della fonte."
+    "Il 26.10.2026 la pagina ufficiale delle associazioni fondiarie è stata letta nel servizio di consultazione web, mentre il controllo diretto del repository ha ricevuto HTTP 503 dall'intero portale regionale. Il relativo esito UNCHECKED non prova una modifica o una scomparsa della fonte.",
+    "La pagina di AsFo La Chiara documenta affidamenti concreti e l'inserimento di nuove aziende, ma non dimostra disponibilità attuale di lotti: distinguere l'esistenza del servizio dalla possibilità di ottenere oggi terreni."
   ],
   "portals": [
     {
@@ -115,10 +116,11 @@
       "name": "Associazione Fondiaria La Chiara, Usseglio",
       "url": "https://asfolachiara.it/associazione-fondiaria-la-chiara/",
       "kind": "LAND_BANK",
-      "status": "TO_CHECK",
+      "status": "ADMITTED",
       "reason": "La pagina propria documenta terreni un tempo affidati a giovani locali e pubblica moduli di adesione del 2022 e 2023. Verificare lotti oggi liberi, accesso per nuovi conduttori e attività corrente prima di ammettere un servizio di accesso alla terra.",
       "foundBy": "piemonte-asfo",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-11-20",
+      "resourceId": "piemonte-asfo-la-chiara"
     },
     {
       "id": "piemonte-asfo-elenco-regionale",
@@ -208,6 +210,11 @@
       "date": "2026-10-26",
       "by": "CHATGPT (Codex)",
       "summary": "Letta la pagina regionale delle associazioni fondiarie e ammessa come portale ufficiale: documenta adesione dei proprietari, gestione associata, affitto a membri o soggetti esterni ed elenco provinciale. Le singole associazioni restano separate e la pagina non prova disponibilità attuale, canoni o contratti."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La pagina dell'operatore documenta un servizio locale di gestione e affidamento di terreni, con lotti assegnati a giovani locali e l'obiettivo esplicito di inserire nuove aziende. Propongo una risorsa distinta dall'elenco regionale, senza attribuirle disponibilità attuale di terreni: l'operatività corrente resta da accertare."
     }
   ]
 }

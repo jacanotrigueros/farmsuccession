@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "FR",
   "region": "martinique",
+  "metaTitle": "Aides et installation agricoles en Martinique (972)",
+  "metaDescription": "Vous démarrez une activité agricole en Martinique ? Repérez l’aide du programme européen, le point d’accueil et le suivi pour les nouveaux exploitants.",
   "officialName": "Martinique",
-  "published": "2026-09-20",
+  "published": "2026-11-25",
   "summary": "En Martinique, la Collectivité territoriale gère les aides non surfaciques du fonds européen agricole, dont l’aide au démarrage pour les jeunes agriculteurs et pour les nouveaux agriculteurs, ainsi que le conseil et la formation ; aucun opérateur foncier local n’a pu être cité dans cette passe.",
   "coverage": {
     "status": "PARTIAL",
@@ -25,9 +27,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -37,6 +36,20 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-21"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -44,6 +57,8 @@
     {
       "id": "martinique-feader-aide-demarrage",
       "name": "Aide au démarrage pour jeunes et nouveaux agriculteurs du programme européen martiniquais",
+      "metaTitle": "Aide au démarrage agricole — Martinique (972)",
+      "metaDescription": "Le programme européen martiniquais prévoit une aide au démarrage pour les jeunes et nouveaux agriculteurs. Retrouvez les profils et activités visés.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -68,11 +83,187 @@
             "L’aide au démarrage (Dotation Jeunes Agriculteurs (DJA), Dotation Nouveaux Agriculteurs (DNA), création ou reprise d’entreprises en milieu rural….)",
             "Le conseil, le transfert de connaissances et la formation.",
             "En Martinique, la Collectivité Territoriale de Martinique (CTM) agit en tant qu’autorité de gestion régionale pour les mesures non surfaciques",
-            "Fiches d’interventions: elles présentent les financement éligibles"
-          ]
+            "Fiches d’interventions: elles présentent les financement éligibles",
+            "appui.europe@collectivitedemartinique.mq"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.europe-martinique.com/wp-content/uploads/2025/04/Fiche-dispositif-PSN-FEADER_75.02-dotation-en-capital-demarrage-ou-reprise.pdf",
+          "title": "Fiche dispositif MAR-75.02 — dotation en capital (PDF, Collectivité Territoriale de Martinique)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["L'aide est un forfait de 20 000 € attribué au bénéficiaire et versé en deux tranches."]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.europe-martinique.com/feader-23-27/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Collectivité territoriale de Martinique – appui aux fonds européens",
+          "value": "appui.europe@collectivitedemartinique.mq",
+          "sourceUrl": "https://www.europe-martinique.com/feader-23-27/"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Dotation forfaitaire de démarrage ou de reprise",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2025-04-16",
+          "sourceUrl": "https://www.europe-martinique.com/wp-content/uploads/2025/04/Fiche-dispositif-PSN-FEADER_75.02-dotation-en-capital-demarrage-ou-reprise.pdf"
+        }
+      ]
+    },
+    {
+      "id": "martinique-suivi-nouvel-exploitant",
+      "name": "Suivi du Nouvel Exploitant",
+      "metaTitle": "Suivi du Nouvel Exploitant — Martinique (972)",
+      "metaDescription": "Les nouveaux exploitants en Martinique peuvent consulter les modalités du suivi global de leur ferme ou d’un conseil spécialisé lié à leur installation.",
+      "kind": "ADVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "DAAF Martinique",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Suivi global de l’exploitation pour accompagner le bon déroulement du projet initial, ou conseil technico-économique spécialisé lié au projet d’installation. La participation de l’État est plafonnée à 80 % de la dépense hors taxes et à 1 500 €, versés directement au prestataire à l’issue de l’année de suivi. La DAAF présente le volet 4 de l’AITA comme un suivi post-installation financé chaque année durant quatre ans pour les nouveaux exploitants qui ont bénéficié de la DJA.",
+      "whoCanUseIt": "Nouveaux exploitants ayant un projet d’installation à suivre.",
+      "howToAccess": "Contacter la DAAF pour toute demande ou information. La page répertorie trois prestataires agréés en Martinique : la Chambre d’Agriculture de Martinique, le Conseil Gestion Suivi en milieu Rural (CGSR) et l’association des Jeunes Agriculteurs (JA).",
+      "accessUrl": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "DAAF Martinique — accompagnement à l’installation et à la transmission",
+          "value": "aita.daaf.daaf972@agriculture.gouv.fr",
+          "sourceUrl": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html"
+        }
+      ],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "lastEvidenceDate": "2024-01-23",
+      "notes": "Les prestations relevant du fonctionnement normal de l’exploitation ou d’obligations légales sont exclues du suivi.",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://daaf.martinique.agriculture.gouv.fr/suivi-du-nouvel-exploitant-a868.html",
+          "title": "Suivi du Nouvel Exploitant | DAAF Martinique",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Suivi du Nouvel Exploitant",
+            "Publié le 23/01/2024",
+            "Ce dispositif peut se décliner sous la forme d’un suivi global de l’exploitation permettant d’assurer le bon déroulement du projet initial ou d’un conseil technico-économique sur un domaine particulier, en lien avec le projet d’installation et nécessitant un conseil plus spécialisé.",
+            "Sont exclues du suivi les prestations de services, qui relèvent du fonctionnement normal de l’exploitation (tenue de comptabilité, inscription au contrôle laitier, aide au montage des dossiers PAC, bilan économique, etc.) et celles qui relèvent d’obligations légales (frais d’actes, rédaction d’actes, etc.).",
+            "Le montant de la participation de l’État est plafonné à 80% de la dépense engagée (HT), ne peut excéder 1 500 € et est directement versée au prestataire à l’issue de l’année de suivi.",
+            "En Martinique, plusieurs prestataires ont obtenu l’agrément pour effectuer ce suivi.",
+            "La Chambre d’Agriculture de Martinique",
+            "Le Conseil Gestion Suivi en milieu Rural (CGSR)",
+            "L’association des Jeunes Agriculteurs (JA)",
+            "Pour toute demande ou information, vous pouvez nous contacter à l’adresse suivante : aita.daaf.daaf972@agriculture.gouv.fr",
+            "Le volet 4 « suivi du nouvel exploitant » du programme AITA vise à soutenir financièrement le suivi post-installation des nouveaux exploitants qui ont bénéficié des aides à l’installation"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://daaf.martinique.agriculture.gouv.fr/l-accompagnement-a-l-installation-transmission-en-agriculture-aita-r358.html",
+          "title": "L’Accompagnement à l’Installation-Transmission en Agriculture (AITA) | DAAF Martinique",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "suivi post-installation des nouveaux exploitants qui ont bénéficié des aides à l’installation",
+            "Cet accompagnement est financé chaque année durant 4 ans."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "martinique-point-accueil-installation-transmission",
+      "name": "Point d’Accueil Installation Transmission de Martinique",
+      "metaTitle": "Point d’Accueil Installation Transmission, Martinique (972)",
+      "metaDescription": "Vous souhaitez créer ou reprendre une exploitation en Martinique ? Retrouvez les coordonnées du point d’accueil auquel renvoie la DAAF pour démarrer.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Chambre d’agriculture de la Martinique",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Point d’entrée pour les porteurs de projet agricole, auquel renvoie la DAAF.",
+      "accessUrl": "https://daaf.martinique.agriculture.gouv.fr/l-accompagnement-a-l-installation-transmission-en-agriculture-aita-r358.html",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://daaf.martinique.agriculture.gouv.fr/le-point-d-accueil-installation-transmission-pait-a863.html"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://daaf.martinique.agriculture.gouv.fr/l-accompagnement-a-l-installation-transmission-en-agriculture-aita-r358.html",
+          "title": "L’Accompagnement à l’Installation-Transmission en Agriculture (AITA) | DAAF Martinique",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Le Point d’Accueil Installation Transmission (PAIT)",
+            "Vous avez pour projet de créer ou reprendre une exploitation agricole ?"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://daaf.martinique.agriculture.gouv.fr/le-point-d-accueil-installation-transmission-pait-a863.html",
+          "title": "Le Point d'Accueil Installation Transmission (PAIT) | DAAF Martinique",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Le PAIT (point d’accueil installation transmission) est la porte d’entrée de tout porteur de projet.",
+            "Immeuble Chambre d’Agriculture",
+            "0596 51 34 28"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Personnes souhaitant créer ou reprendre une exploitation agricole en Martinique.",
+      "howToAccess": "Suivre la fiche PAIT depuis la rubrique AITA de la DAAF pour les coordonnées de la Chambre.",
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "PAIT – Jeunes Agriculteurs Martinique",
+          "value": "0596 51 34 28",
+          "sourceUrl": "https://daaf.martinique.agriculture.gouv.fr/le-point-d-accueil-installation-transmission-pait-a863.html"
+        }
+      ]
     }
   ],
   "news": [],

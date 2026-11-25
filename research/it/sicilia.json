@@ -6,7 +6,7 @@
     "region": "sicilia"
   },
   "language": "it",
-  "updatedOn": "2026-10-30",
+  "updatedOn": "2026-11-21",
   "context": [
     "Il portale Sviluppo Rurale Sicilia 2023-2027 è il punto di partenza per interventi, bandi aperti, bandi chiusi e cronoprogramma.",
     "Il precedente dominio PSR Sicilia mostra contenuti della programmazione 2014-2022 e date incoerenti; non usarlo per dimostrare un bando attuale senza una pagina specifica.",
@@ -15,7 +15,10 @@
     "Passata con la lista di controllo nazionale su un file esistente: restavano da compilare solo gli strumenti attesi.",
     "SRE01 e SRE02 sono aiuti distinti: il secondo riguarda anche persone da 41 anni a meno di 61 anni.",
     "La proroga annunciata nel settembre 2026 riguarda la documentazione dei bandi SRE01 e SRE02, non la presentazione di nuove domande.",
-    "La pagina ufficiale dei bandi della Banca della Terra è stata letta il 30 ottobre 2026: documenta bandi del 2020 e del 2021 e risultati fino al 2023. Il decreto del 17 aprile 2026 ricostituisce il tavolo tecnico, ma non apre una procedura di domanda."
+    "La pagina ufficiale dei bandi della Banca della Terra è stata letta il 30 ottobre 2026: documenta bandi del 2020 e del 2021 e risultati fino al 2023. Il decreto del 17 aprile 2026 ricostituisce il tavolo tecnico, ma non apre una procedura di domanda.",
+    "La scheda AssoMe documenta nuovamente destinatari, durata, requisiti e iscrizione: la precedente assenza di contenuti non è più attuale.",
+    "Il riconoscimento del corso per SRE01 o SRE02 non è dimostrato: la pagina lo subordina ai requisiti del singolo bando.",
+    "La scheda Iblea richiede un preventivo successivo al passaggio nel carrello: l'importo nullo mostrato dal negozio non è il prezzo del corso."
   ],
   "portals": [
     {
@@ -109,23 +112,25 @@
     },
     {
       "id": "sicilia-assome-conduttore",
-      "name": "Corso Conduttore di Impresa Agricola — AssoMe Academy",
+      "name": "Corso Conduttore di Impresa Agricola",
       "url": "https://assome.org/product/corso-conduttore-impresa-agricola/",
       "kind": "TRAINING",
-      "status": "TO_CHECK",
+      "status": "ADMITTED",
       "reason": "La scheda del 28 settembre descriveva un corso di 150 ore per aspiranti agricoltori; il 30 settembre riporta soltanto nome, modalità online, sede e prezzo, senza destinatari, durata né finalità. Prossimo passo: trovare una pagina dell'operatore o della Regione che descriva il corso e il suo valore per il requisito formativo SRE01 o SRE02 prima di riammetterlo.",
       "foundBy": "sicilia-corso-operatore",
-      "checkedOn": "2026-09-30"
+      "checkedOn": "2026-11-21",
+      "resourceId": "sicilia-assome-conduttore"
     },
     {
       "id": "sicilia-iblea-conduttore",
-      "name": "Corso Conduttore Impresa Agricola — MSR Iblea Formazione",
+      "name": "Corso Conduttore Impresa Agricola, ex corso Capo Azienda e IAP",
       "url": "https://www.ibleaformazione.com/prodotto/corso-conduttore-impresa-agricola-ex-corso-capo-azienda-e-iap/",
       "kind": "TRAINING",
-      "status": "TO_CHECK",
+      "status": "ADMITTED",
       "reason": "La scheda collega il corso di 150 ore a SRE01 e SRE02, ma mostra 0,00 euro nel carrello e prevede l'invio successivo di un preventivo. Verificare costo, iscrizione effettiva e riconoscimento della specifica edizione prima di pubblicarla.",
       "foundBy": "sicilia-corso-operatore",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-11-21",
+      "resourceId": "sicilia-iblea-conduttore"
     },
     {
       "id": "sicilia-confapi-notizia-sre01",
@@ -136,6 +141,25 @@
       "reason": "L'articolo del 2023 riassume e rimanda al bando regionale; non descrive un servizio proprio di insediamento o subentro.",
       "foundBy": "sicilia-organizzazioni-locali",
       "checkedOn": "2026-09-28"
+    },
+    {
+      "id": "sicilia-banca-terra-indice",
+      "name": "Banca della Terra di Sicilia",
+      "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/altri-contenuti/banca-della-terra-di-sicilia",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "sicilia-banca-terra",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "sicilia-sre01-bando-modificato",
+      "name": "Intervento SRE01 Insediamento Giovani Agricoltori – Bando modificato ed integrato",
+      "url": "https://svilupporurale.regione.sicilia.it/2024/05/17/intervento-sre01-insediamento-giovani-agricoltori-bando-modificato-ed-integrato/",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "resourceId": "sicilia-sre01-insediamento-giovani",
+      "checkedOn": "2026-11-21",
+      "reason": "Pagina dell'operatore relativa al bando modificato SRE01 già censito: conferma premio, beneficiari e termine prorogato delle domande; aggiunge l'esclusione degli insediamenti multipli."
     }
   ],
   "instrumentChecks": [
@@ -191,6 +215,26 @@
       "date": "2026-10-30",
       "by": "CHATGPT (Codex)",
       "summary": "Risolta la pista della Banca della Terra: lette le pagine istituzionali, verificati i bandi del 2020 e 2021 e le assegnazioni del 2023. Il decreto del 2026 ricostituisce il tavolo tecnico ma non apre domande; la risorsa entra nell'edizione come HISTORICAL."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La pagina è l'indice istituzionale della Banca della Terra di Sicilia già censita e dà accesso a descrizione, riferimenti normativi, bandi e beni disponibili o concessi. La aggiungo alle fonti della scheda esistente senza modificarne lo stato storico: l'aggiornamento indicato risale al 2021 e non dimostra una procedura corrente."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La pagina regionale documenta il bando modificato SRE01 già censito, confermando il premio di 50.000 euro e la chiusura delle domande al 30 giugno 2025. La aggiungo alle fonti della scheda sicilia-sre01-insediamento-giovani e integro l'esclusione degli insediamenti multipli, conservando le altre fonti e le informazioni da esse sostenute."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La scheda dell'operatore descrive nuovamente il corso, espressamente rivolto anche a chi desidera avviare un'azienda agricola, con requisiti, durata, costo e accesso. Propongo di ammetterlo come formazione per aspiranti agricoltori, senza attribuirgli un riconoscimento automatico per gli aiuti all'insediamento."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La pagina dell'associazione documenta un corso distinto, collegato espressamente all'insediamento SRE01 e SRE02, con requisiti e procedura di iscrizione. Propongo di ammetterlo come formazione: il costo è comunicato tramite preventivo e il prezzo nullo del carrello non dimostra la gratuità."
     }
   ]
 }

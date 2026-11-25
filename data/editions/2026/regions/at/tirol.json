@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "AT",
   "region": "tirol",
+  "metaTitle": "Hofübergabe und Hofnachfolge in Tirol",
+  "metaDescription": "Wer in Tirol einen Hof übernimmt, findet das Höfegesetz für die Erbteilung, Regeln zum Grundverkehr und Konsolidierungskredite des Landeskulturfonds.",
   "officialName": "Tirol",
-  "published": "2026-11-06",
+  "published": "2026-11-25",
   "summary": "Die Übersicht für Tirol enthält auch die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte sowie den Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs. Ein eigenes Angebot des Landes ist in dieser Fassung noch nicht dokumentiert.",
   "coverage": {
     "status": "PARTIAL",
@@ -17,9 +19,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -30,10 +29,158 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-06"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "tirol-landeskulturfonds-konsolidierung",
+      "name": "Konsolidierungskredite",
+      "metaTitle": "Konsolidierungskredite bei Hofübernahme in Tirol",
+      "metaDescription": "Wer in Tirol einen verschuldeten Hof übernimmt, findet Voraussetzungen für einen zinsgestützten Kredit und die Anschrift des Landeskulturfonds.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Landeskulturfonds",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Bei der Hofübernahme können übernommene Schulden der übergebenden Person teilweise in einen zinsgestützten Kredit umgewandelt werden. Bund und Land gewähren dazu Zinsenzuschüsse, um die Übernahme verschuldeter Betriebe zu erleichtern.",
+      "whoCanUseIt": "Natürliche Personen, die bei Antragstellung höchstens 40 Jahre alt sind und über die erforderliche berufliche Qualifikation verfügen. Voraussetzung sind die tatsächliche eigentumsrechtliche Übergabe des land- und forstwirtschaftlichen Betriebs und die Aufnahme der Bewirtschaftung durch die übernehmende Person. Außerdem müssen die Voraussetzungen für die Existenzgründungsbeihilfe erfüllt sein. Erstmalige Bewirtschaftung und Kreditantrag müssen im zeitlichen Zusammenhang mit der Hofübernahme stehen.",
+      "howToAccess": "Kreditgeber ist der Landeskulturfonds. Die Betreiberseite veröffentlicht Informationen zu den Voraussetzungen und die Anschrift des Fonds.",
+      "accessUrl": "https://landeskulturfonds.tirol/at/themen/132-konsolidierungskredite",
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Landeskulturfonds",
+          "value": "Wilhelm-Greil-Straße 9 A-6020 Innsbruck",
+          "sourceUrl": "https://landeskulturfonds.tirol/at/themen/132-konsolidierungskredite"
+        }
+      ],
+      "instrumentType": "LOAN",
+      "purposes": ["TRANSFER"],
+      "targetProfiles": ["YOUNG_FARMER", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://landeskulturfonds.tirol/at/themen/132-konsolidierungskredite"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://landeskulturfonds.tirol/at/themen/132-konsolidierungskredite",
+          "title": "Konsolidierungskredite",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Der Landeskulturfonds vergibt Kredite zur Unterstützung von JunglandwirtInnen bei der Übernahme land- und fortstwirtschaftlicher Betriebe.",
+            "Die Unterstützung besteht darin, dass Schulden des Übergebers, die vom Übernehmer nach Übernahme des Hofes zur Rückzahlung übernommen werden müssen, zum Teil in einen zinsgestützten Kredit umgewandelt werden können.",
+            "Mit dieser Umschuldungsmöglichkeit wird die Übernahme verschuldeter Betriebe erleichtert, indem seitens des Bundes und des Landes Zinsenzuschüsse zu einem sogenannten Konsolidierungskredit gewährt werden und damit eine finanzielle Entlastung für HofübernehmerInnen erreicht wird.",
+            "Voraussetzung ist die tatsächliche eigentumsrechtliche Übergabe des land- und forstwirtschaftlichen Betriebes und die Aufnahme der Bewirtschaftung durch den/die HofübernehmerIn.",
+            "Mögliche Kreditnehmer sind natürliche Personen, die zum Zeitpunkt der Antragstellung höchstens 40 Jahre alt sind und über eine erforderliche berufliche Qualifikation verfügen.",
+            "Weiters müssen die Voraussetzungen für die Existenzgründungsbeihilfe vorliegen, die ebenfalls im Zuge der erstmaligen Niederlassung/Bewirtschaftung angeboten wird.",
+            "Die erstmalige Bewirtschaftung und die Beantragung eines Konsolidierungskredites im Zuge der Hofübernahme muss in zeitlichem Zusammenhang stehen.",
+            "Anschrift Landeskulturfonds Wilhelm-Greil-Straße 9 A-6020 Innsbruck"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://landeskulturfonds.tirol/at/themen/132-konsolidierungskredite"
+        }
+      ]
+    },
+    {
+      "id": "tirol-hoefegesetz",
+      "name": "Gesetz betreffend die besonderen Rechtsverhältnisse geschlossener Höfe (Tiroler Höfegesetz - THG)",
+      "metaTitle": "Tiroler Höfegesetz (THG): Erbteilung bei geschlossenen Höfen",
+      "metaDescription": "Wer einen geschlossenen Hof in Tirol erbt, erfährt, wer den Hof übernehmen kann und wie das Gericht bei Streit über Teilung oder Übernahmswert vorgeht.",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Verlassenschaftsgericht",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Rechtsrahmen für geschlossene Höfe mit besonderen Erbteilungsvorschriften. Bei mehreren gesetzlichen Miterben kann der Hof samt Zugehör nur einem Anerben zufallen. Das Gesetz regelt die gerichtliche Erbteilung bei fehlender Einigung. Fehlen eine Verfügung und eine Einigung über den Übernahmswert, setzt das Gericht diesen so fest, dass der Übernehmer wohl bestehen kann; der Ertragswert ist angemessen zu berücksichtigen.",
+      "howToAccess": "Die konsolidierte Rechtsvorschrift im RIS lesen. Ein Übereinkommen über die Erbteilung zwischen Übernehmer und übrigen Miterben bedarf der Genehmigung des Verlassenschaftsgerichts; bei fehlender Einigung nimmt dieses nach mündlicher Verhandlung die Erbteilung vor.",
+      "accessUrl": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrT&Gesetzesnummer=10000001",
+      "sources": [
+        {
+          "url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrT&Gesetzesnummer=10000001",
+          "title": "RIS - Höfegesetz, Tiroler - Landesrecht konsolidiert Tirol, Fassung vom 24.11.2026",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Sind zur gesetzlichen Erbfolge nach dem Alleineigentümer eines geschlossenen Hofes mehrere Miterben berufen, so kann der Hof samt Zugehör (§ 20 Abs. 4) nur einem von ihnen, dem Anerben (Übernehmer), zufallen.",
+            "Die Erbteilung erfolgt durch ein Übereinkommen zwischen dem Übernehmer und den übrigen Miterben, das vom Verlassenschaftsgericht zu genehmigen ist.",
+            "Können sich die Miterben nicht einigen, so hat das Verlassenschaftsgericht nach Durchführung einer mündlichen Verhandlung die Erbteilung vorzunehmen.",
+            "Hat der Verstorbenekeine Verfügung über den Übernahmswert getroffen und können sich auch die Miterben darüber nicht einigen, so hat das Verlassenschaftsgericht den Wert des Hofes (des erledigten Anteils) nach billigem Ermessen so festzusetzen, daß der Übernehmer wohl bestehen kann.",
+            "Dabei ist der Ertragswert des Hofes (des erledigten Anteils) angemessen zu berücksichtigen."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "whoCanUseIt": "Die Regelung zur gesetzlichen Erbfolge betrifft mehrere Miterben nach dem Alleineigentümer eines geschlossenen Hofes. Einer von ihnen übernimmt den Hof als Anerbe."
+    },
+    {
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "accessUrl": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrT&Gesetzesnummer=20000005",
+      "id": "tirol-grundverkehrsgesetz",
+      "name": "Tiroler Grundverkehrsgesetz 1996",
+      "metaDescription": "Wer in Tirol einen Hof oder Agrarflächen kaufen und erst danach bewirtschaften will, findet Vorgaben zu Praxis, Ausbildung und Betriebskonzept.",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "operator": "Land Tirol",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Regelt den Erwerb landwirtschaftlicher Betriebe und Grundstücke. Auch Personen, die erst nach dem Erwerb landwirtschaftlich tätig werden wollen, können unter den gesetzlichen Voraussetzungen als Landwirte anerkannt werden.",
+      "whoCanUseIt": "Für die geplante Bewirtschaftung verlangt das Gesetz als Grundlage mindestens fünf Jahre praktische Tätigkeit oder eine fachliche Ausbildung sowie ein fachkundig erstelltes Betriebskonzept.",
+      "howToAccess": "Ein fachkundig erstelltes Betriebskonzept vorlegen.",
+      "sources": [
+        {
+          "url": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrT&Gesetzesnummer=20000005",
+          "title": "Tiroler Grundverkehrsgesetz 1996",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "wer nach dem Erwerb eines landwirtschaftlichen Betriebes oder eines landwirtschaftlichen Grundstückes eine Tätigkeit im Sinn der lit. a ausüben will",
+            "aufgrund seiner zumindest fünfjährigen praktischen Tätigkeit oder seiner fachlichen Ausbildung",
+            "entsprechend einem vorzulegenden, fachkundig erstellten Betriebskonzept",
+            "das Tiroler Grundverkehrsgesetz 1996 in seiner durch Art. I dieses Gesetzes geänderten Fassung"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    }
+  ],
   "news": [],
   "limitations": [
     "Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Tirol sind in dieser Fassung noch nicht dokumentiert.",

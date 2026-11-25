@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "FR",
   "region": "hauts-de-france",
+  "metaTitle": "Installation agricole et foncier en Hauts-de-France",
+  "metaDescription": "Repérez l’aide régionale ARSI, les services de portage de la Safer et les espaces-tests pour mettre à l’essai un projet agricole en Hauts-de-France.",
   "officialName": "Hauts-de-France",
-  "published": "2026-10-25",
+  "published": "2026-11-25",
   "summary": "En Hauts-de-France, la Safer offre un accès au foncier et un portage pour l'installation. Plusieurs associations accompagnent les nouveaux agriculteurs et les cédants, et deux espaces-test permettent d'essayer une activité agricole. Pévèle Carembault maintient un appel permanent pour une aide à l'immobilier afin de créer ou de reprendre une exploitation. La validité actuelle des deux fiches d'aide régionale incluses auparavant n'a pas pu être vérifiée.",
   "coverage": {
     "status": "PARTIAL",
@@ -41,9 +43,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -59,6 +58,20 @@
         "tool": "CHATGPT",
         "model": "gpt-6",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -66,6 +79,8 @@
     {
       "id": "hauts-de-france-safer-foncier",
       "name": "Installation et accès au foncier avec la Safer Hauts-de-France",
+      "metaTitle": "Safer Hauts-de-France : annonces et portage foncier",
+      "metaDescription": "Retrouvez les appels fonciers et l’appui à l’installation de la Safer Hauts-de-France, dont l’Aisne (02), l’Oise (60) et le Pas-de-Calais (62).",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -80,7 +95,7 @@
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "YOUNG_FARMER", "SUCCESSOR"],
-      "notes": "La page explique que l'intervention de la Safer a un coût. Aucune annonce individuelle n'est qualifiée ici d'appel ouvert : son délai doit être consulté séparément. La Safer Hauts-de-France intervient dans l’Aisne (02), le Nord (59), l’Oise (60), le Pas-de-Calais (62) et la Somme (80).",
+      "notes": "La page explique que l'intervention de la Safer a un coût. Aucune annonce individuelle n'est qualifiée ici d'appel ouvert : son délai doit être consulté séparément. La Safer Hauts-de-France intervient dans les départements de la région Hauts-de-France.",
       "sources": [
         {
           "url": "https://www.saferhautsdefrance.fr/exploitants-porteurs-de-projet/agricole/m-installer/",
@@ -89,21 +104,40 @@
           "quotes": [
             "un transfert total ou partiel : transfert des terres, du bâti, du matériel, du cheptel",
             "des solutions de portage du foncier avec nos partenaires",
-            "Vous pouvez candidater en ligne ou envoyer par écrit votre candidature"
-          ]
+            "Vous pouvez candidater en ligne ou envoyer par écrit votre candidature",
+            "contact@saferhdf.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.saferhautsdefrance.fr/espace-notaire-navigation/",
-          "title": "DIA - Safer Hauts-de-France",
-          "consultedOn": "2026-10-25",
-          "quotes": ["02 AISNE · 59 NORD · 60 OISE · 62 PAS-DE-CALAIS · 80 SOMME"]
+          "title": "Espace Notaire Navigation – Safer Hauts-de-France",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Espace Notaire Navigation", "chef de service opérationnel départemental", "62 PAS-DE-CALAIS"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Safer Hauts-de-France",
+          "value": "contact@saferhdf.fr",
+          "sourceUrl": "https://www.saferhautsdefrance.fr/exploitants-porteurs-de-projet/agricole/m-installer/"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-initiatives-paysannes-installation",
       "name": "Accompagnement à l'installation d'Initiatives Paysannes",
+      "metaTitle": "Initiatives Paysannes : installation — Hauts-de-France",
+      "metaDescription": "Un accompagnement individuel gratuit pour construire un projet agricole en Hauts-de-France, avec des entretiens, des outils et des mises en relation.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -111,10 +145,19 @@
       },
       "operator": "Initiatives Paysannes",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Accompagnement individuel pour construire un projet d'installation agricole, entretiens, outils de préparation, mise en relation avec des acteurs locaux et ateliers liés à l'installation.",
-      "whoCanUseIt": "Personnes préparant une installation agricole individuelle ou collective.",
-      "howToAccess": "Consulter la page d'accompagnement de l'association et écrire à son adresse générale publiée.",
+      "whatItOffers": "Accompagnement individuel gratuit pour construire un projet d'installation agricole, entretiens, outils de préparation, mise en relation avec des acteurs locaux et ateliers liés à l'installation. Le parcours couvre l’émergence, la formalisation du projet et le suivi jusqu’à trois ans après l’installation, avec un appui au prévisionnel économique, aux statuts, aux démarches administratives et au dépôt du dossier d’aide à l’installation.",
+      "whoCanUseIt": "Personnes préparant une installation agricole individuelle ou collective en Hauts-de-France, dès l’idée de projet, et personnes installées depuis trois ans au plus.",
+      "howToAccess": "Consulter la page d'accompagnement de l'association et écrire à son adresse générale ou au contact installation. Au stade de l’idée, s’inscrire à un café de l’émergence auprès du Point Accueil Installation Transmission (PAIT) ou d’Initiatives Paysannes. Pour demander les aides nationales ou régionales, la page indique qu’une rencontre du PAIT du département d’installation est obligatoire.",
       "accessUrl": "https://www.agriculturepaysanne.org/L-accompagnement",
+      "accessCostType": "FREE",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Installation — Initiatives Paysannes",
+          "value": "installation@initiatives-paysannes.fr",
+          "sourceUrl": "https://www.agriculturepaysanne.org/S-installer-341"
+        }
+      ],
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
       "sources": [
@@ -126,14 +169,39 @@
             "Soutenir la construction du projet d’installation agricole.",
             "Nous accompagnons les porteur.ses de projet qui souhaitent s’installer en individuel ou en collectif.",
             "contact@initiatives-paysannes.fr"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.agriculturepaysanne.org/S-installer-341",
+          "title": "Installation",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "L’objectif est de permettre des installations à taille humaine nombreuses et pérennes sur les territoires des Hauts-de-France.",
+            "Nous vous accompagnons de l’émergence de projet jusqu’à la post installation.",
+            "Notre accompagnement est totalement gratuit et prit en charge par la Région Hauts de France.",
+            "Nous vous accompagnons jusqu’à 3 ans après votre installation.",
+            "Vous pouvez vous inscrire auprès du Point Accueil Installation Transmission PAIT ou d’Initiatives Paysannes : installation@initiatives-paysannes.fr",
+            "C’est le stade de structuration et de concrétisation du projet : il faut maintenant construire un prévisionnel économique, définir les statuts (juridique, social, fiscal), les différentes démarches administratives (liées à l’accès au foncier notamment) et sécuriser les financements (subventions, banques…).",
+            "Si vous comptez demander les aides (nationales ou régionales) il faut obligatoirement que vous participiez à une rencontre du PAIT (inscription auprès du PAIT de votre département d’installation en consultant les dates directement sur le site).",
+            "Les conseiller.e.s d’Initiatives Paysannes peuvent vous accompagner lors de votre PPP mais également pour toutes les étapes de la formalisation (dont dépôt de dossier d’aide à l’installation)."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "hauts-de-france-initiatives-paysannes-transmission",
       "name": "Accompagnement à la transmission d'Initiatives Paysannes",
+      "metaTitle": "Initiatives Paysannes : transmission — Hauts-de-France",
+      "metaDescription": "Préparez le passage de relais avec Initiatives Paysannes : appui individuel sur l’organisation de la cession et aide à la rencontre de repreneurs.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -157,15 +225,30 @@
           "quotes": [
             "aide à la recherche et à la rencontre de repreneurs-neuses potentiels-les",
             "*prise en charge financière possible grâce au soutien du Conseil régional (voir conditions)",
-            "contact@initiatives-paysannes.fr"
-          ]
+            "contact@initiatives-paysannes.fr",
+            "Notre accompagnement individuel est personnalisé et adapté à votre projet, il est confidentiel et gratuit*."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "accessCostType": "FREE",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Initiatives Paysannes",
+          "value": "contact@initiatives-paysannes.fr",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Notre-accompagnement-1588"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-terre-de-liens-accompagnement",
       "name": "Accompagnement foncier de Terre de Liens Hauts-de-France",
+      "metaDescription": "Terre de Liens oriente les candidats à l’installation, les cédants et les propriétaires qui se posent des questions sur le foncier en Hauts-de-France.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -180,19 +263,44 @@
       "languages": ["fr"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "TRANSFEROR", "LANDOWNER"],
       "notes": "Il s'agit de l'accompagnement fourni par l'association régionale ; le portail national d'annonces Objectif Terres n'est pas repris comme ressource locale.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/hauts-de-france/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/hauts-de-france/",
           "title": "Hauts-de-France – Terre de Liens",
           "consultedOn": "2026-09-29",
-          "quotes": ["l’accompagnement de porteuses et porteurs de projet", "mais aussi les futur•es cédant•es", "Nous contacter"]
+          "quotes": [
+            "l’accompagnement de porteuses et porteurs de projet",
+            "mais aussi les futur•es cédant•es",
+            "Nous contacter",
+            "03 20 74 43 83"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Terre de Liens Hauts-de-France",
+          "value": "03 20 74 43 83",
+          "sourceUrl": "https://terredeliens.org/hauts-de-france/"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-germoir-espace-test",
       "name": "Espace-test agricole du Germoir d'Ambricourt",
+      "metaTitle": "Espace-test du Germoir, Ambricourt — Hauts-de-France",
+      "metaDescription": "Au Germoir d’Ambricourt, testez un projet agricole sur des terres en bio. Découvrez les équipements et l’accompagnement proposés avant l’installation.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -201,12 +309,18 @@
       },
       "operator": "Le Germoir",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Mise en situation agricole sur les terres biologiques de l'espace-test et accompagnement pour éprouver un projet avant l'installation.",
+      "whatItOffers": "Mise en situation agricole sur les terres biologiques de l'espace-test et accompagnement pour éprouver un projet avant l'installation. Le site dispose d’un espace de transformation végétale et propose des immersions pour découvrir les activités agricoles.",
       "whoCanUseIt": "Porteurs de projet souhaitant tester concrètement une activité agricole avant de s'installer.",
       "howToAccess": "Consulter la page de l'espace-test et contacter Le Germoir par son adresse institutionnelle.",
       "accessUrl": "https://legermoir-ambricourt.fr/les-activites/lespace-test-agricole/",
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://legermoir-ambricourt.fr/les-activites/lespace-test-agricole/"
+        }
+      ],
       "sources": [
         {
           "url": "https://legermoir-ambricourt.fr/les-activites/lespace-test-agricole/",
@@ -215,15 +329,43 @@
           "quotes": [
             "Le Germoir, basé depuis 2005 à Ambricourt (62310), est le premier espace-test agricole en fonctionnement de France.",
             "Le Germoir peut vous accompagner dans l’expérimentation concrète de votre projet agricole.",
-            "E-mail : le-germoir@orange.fr"
-          ]
+            "E-mail : le-germoir@orange.fr",
+            "Téléphone : 03 21 04 39 69"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://envieauprojet.fr/espace-test-agricole/",
+          "title": "Espaces-test agricoles Hauts-de-France - De l'envie au projet",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Doté d’un foodlab, le Germoir peut accueillir des projets de transformation alimentaire végétale",
+            "proposer des temps d’immersion pour se familiariser avec les activités agricoles."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Le Germoir d’Ambricourt",
+          "value": "03 21 04 39 69",
+          "sourceUrl": "https://legermoir-ambricourt.fr/les-activites/lespace-test-agricole/"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-a-petits-pas-espace-test",
       "name": "Espace-test agricole du Cœur de l'Avesnois",
+      "metaTitle": "Espace-test du Cœur de l’Avesnois — Hauts-de-France",
+      "metaDescription": "À Sains-du-Nord, testez votre activité agricole pendant un à trois ans sous contrat CAPE, avec des parcelles, du matériel et des locaux.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -232,10 +374,25 @@
       },
       "operator": "À Petits PAS",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Parcelles, matériel et locaux pour tester une activité agricole à Sains-du-Nord, avec hébergement juridique et accompagnement par la couveuse Chrysalide.",
-      "whoCanUseIt": "Porteurs de projet agricole souhaitant tester leur activité avant leur installation.",
-      "howToAccess": "Prendre contact avec l'antenne Avesnois de l'association à l'adresse institutionnelle indiquée sur la page.",
-      "accessUrl": "https://apetitspas.net/entreprenariat/lespace-test-agricole/",
+      "whatItOffers": "Parcelles, matériel et locaux pour tester une activité agricole avant l’installation, contre un loyer modeste, pendant un à trois ans sous contrat CAPE. L’hébergement juridique par la couveuse Chrysalide s’accompagne d’un appui juridique, fiscal et financier, de conseils techniques et commerciaux, de formations et d’un suivi individuel et collectif. Sur le site de Sains-du-Nord, le répertoire indique 1,5 hectare de terres, trois serres et l’accueil de quatre à cinq porteurs de projets en maraîchage bio, plantes aromatiques, petit élevage ou transformation.",
+      "whoCanUseIt": "Porteurs de projet agricole et alimentaire souhaitant tester leur activité avant leur installation ; le lieu accueille aussi des projets de transformation alimentaire ou de logistique.",
+      "howToAccess": "Prendre contact avec À Petits PAS – Antenne Avesnois par courriel ou téléphone. Les personnes accueillies sont intégrées à la couveuse et signent un contrat d’Appui au Projet d’Entreprise (CAPE).",
+      "accessUrl": "https://apetitspas.net/lespace-test-agricole/",
+      "accessCostType": "FEE_REQUIRED",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "À Petits PAS – Antenne Avesnois",
+          "value": "equipeETA@apetitspas.net",
+          "sourceUrl": "https://apetitspas.net/lespace-test-agricole/"
+        },
+        {
+          "channel": "PHONE",
+          "label": "À Petits PAS – Antenne Avesnois",
+          "value": "03 27 67 32 89",
+          "sourceUrl": "https://apetitspas.net/lespace-test-agricole/"
+        }
+      ],
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT"],
       "notes": "Les annonces de candidature retrouvées sont antérieures à cette édition ; aucun délai de candidature pour 2026 n'est affirmé.",
@@ -248,14 +405,59 @@
             "L’espace test agricole de Sains du Nord est un espace test permanent",
             "Les porteurs et porteuses de projet accueillis sur l’espace-test sont intégrés à la couveuse",
             "equipeETA@apetitspas.net"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://apetitspas.net/lespace-test-agricole/",
+          "title": "Espace test agricole - création d'activité - Région Hauts de France - A Petits PAS",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "L'espace-test de Sains-du-Nord, dit du coeur de l'Avesnois",
+            "Un espace-test agricole, c’est d’abord un terrain et du matériel mis à disposition d’un.e porteur.se de projet contre un loyer modeste.",
+            "l’activité est hébergée par la couveuse d’entreprises agricoles À Petits PAS durant toute la période de test (1 à 3 ans) via un contrat CAPE.",
+            "A travers ce contrat, le ou la porteur.se de projet bénéficie d’un accompagnement juridique, fiscal et financier pour l’élaboration de son projet.",
+            "techniques de production, stratégie commerciale, démarches administratives, gestion comptable et demandes de subvention, veille foncière, projet d’installation.",
+            "La couveuse apporte des outils pour acquérir la posture de chef.fe d’entreprise grâce à un suivi individuel et collectif, un appui administratif, des formations, une mise en réseau et un accompagnement au développement du projet.",
+            "La couveuse d’activités Chrysalide – À Petits PAS héberge chaque année près d’une centaine d’activités dans les Hauts-de-France.",
+            "Des bâtiments et locaux : hangar, local de vente, espace de stockage",
+            "ce lieu test accueille des porteur.ses de projet agricole et alimentaire souhaitant tester leur activité avant de s’engager dans une installation.",
+            "permet aujourd’hui d’accueillir également des projets de transformation alimentaire ou de logistique.",
+            "Les porteurs et porteuses de projet accueillis sur l’espace-test sont intégrés à la couveuse et signent un contrat d’Appui au Projet d’Entreprise (CAPE).",
+            "Contact : À Petits PAS – Antenne Avesnois",
+            "03 27 67 32 89",
+            "equipeETA@apetitspas.net"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://envieauprojet.fr/espace-test-agricole/",
+          "title": "Espaces-test agricoles Hauts-de-France - De l'envie au projet",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Localisation : Sains du Nord, Communauté de Communes Cœur de l’Avesnois",
+            "1,5 hectares de terres",
+            "Capacité d’accueil de 4 à 5 porteurs de projets : maraîchage Bio, PPAM, petit élevage, transformation"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-4"
     },
     {
       "id": "hauts-de-france-pevele-investissement-installation",
       "name": "Aide à l'investissement immobilier pour la création ou la reprise agricole",
+      "metaTitle": "Aide immobilière, Pévèle Carembault — Hauts-de-France",
+      "metaDescription": "Pour créer ou reprendre une ferme en Pévèle Carembault, l’aide peut couvrir jusqu’à 50 % des dépenses immobilières éligibles, dans la limite de 10 000 €.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -283,15 +485,47 @@
             "Le présent dispositif fait l’objet d’un appel à projet permanent.",
             "Pour accéder au formulaire vous devez vous connecter à votre compte",
             "les dossiers déposés avant le 15 mai seront attribués début juillet",
-            "les dossiers déposés avant le 30 septembre seront attribués fin décembre"
-          ]
+            "les dossiers déposés avant le 30 septembre seront attribués fin décembre",
+            "alimentation@pevelecarembault.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond de l’aide à l’investissement immobilier",
+          "value": 10000,
+          "unit": "EUR",
+          "asOf": "2025-01-01",
+          "sourceUrl": "https://demarches.pevelecarembault.fr/economie/demande-daide-linvestissement-immobilier-pour-exploitation-agricole"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Pévèle Carembault – service alimentation",
+          "value": "alimentation@pevelecarembault.fr",
+          "sourceUrl": "https://demarches.pevelecarembault.fr/economie/demande-daide-linvestissement-immobilier-pour-exploitation-agricole"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://demarches.pevelecarembault.fr/economie/demande-daide-linvestissement-immobilier-pour-exploitation-agricole"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-pevele-complement-arsi",
       "name": "Complément intercommunal à l'ARSI",
+      "metaTitle": "Complément ARSI, Pévèle Carembault — Hauts-de-France",
+      "metaDescription": "La fiche présente l’aide locale annoncée, jusqu’à 8 000 €, pour les projets de création ou de reprise bénéficiant de l’ARSI en Pévèle Carembault.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -318,11 +552,252 @@
           "quotes": [
             "Publié le Mardi 18 mars 2025",
             "une aide forfaitaire de 8 000 € maximum",
-            "vous n'avez besoin de déposer qu'un seul dossier sur plateforme régionale."
-          ]
+            "vous n'avez besoin de déposer qu'un seul dossier sur plateforme régionale.",
+            "une aide forfaitaire de 8 000 € maximum aux projets d’installation ou de reprise d’activités agricoles.",
+            "Tél : 03 20 79 20 80 (standard)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond du complément de Pévèle Carembault",
+          "value": 8000,
+          "unit": "EUR",
+          "asOf": "2025-01-01",
+          "sourceUrl": "https://www.pevelecarembault.fr/actualites/pevele-carembault-accompagne-les-agriculteurs"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Communauté de communes Pévèle Carembault, standard",
+          "value": "03 20 79 20 80",
+          "sourceUrl": "https://www.pevelecarembault.fr/actualites/pevele-carembault-accompagne-les-agriculteurs"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.pevelecarembault.fr/actualites/pevele-carembault-accompagne-les-agriculteurs"
+        }
+      ]
+    },
+    {
+      "id": "hauts-de-france-sources-et-vallees-espace-test",
+      "name": "Espace-Test de Sources et Vallées",
+      "metaTitle": "Espace-Test de Sources et Vallées — Hauts-de-France",
+      "metaDescription": "L’espace-test annoncé à Pontoise-les-Noyon prévoit du terrain et du matériel pour essayer le maraîchage ou les fruits rouges en bio avant de s’installer.",
+      "kind": "ADVICE",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Pontoise-les-Noyon"
+      },
+      "operator": "Pays de Sources et Vallées",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Espace-test annoncé pour expérimenter le maraîchage et la production de fruits rouges en agriculture biologique avant une installation définitive. Il prévoit un terrain et du matériel contre un loyer modeste, un hébergement d’activité par la couveuse A Petits Pas sous contrat d’appui au projet d’entreprise (CAPE) pendant un à trois ans, ainsi qu’un accompagnement juridique, fiscal, financier et technique. L’annuaire décrit une possibilité de tester le maraîchage biologique et les fruits rouges à Pontoise-lès-Noyon.",
+      "whoCanUseIt": "Dispositif ouvert à tous, même sans formation agricole, à condition d’avoir au moins une expérience en maraîchage et un projet d’installation, de reprise, de diversification ou de conversion. Le porteur doit être autonome dans la gestion de son activité ; il peut sortir d’études, être en reconversion ou être déjà installé.",
+      "howToAccess": "Télécharger l’Appel à Candidature lié à la rubrique d’inscription pour consulter les critères et modalités de sélection ainsi que les conditions de mise à disposition du foncier et du matériel. Contacter le Pays de Sources et Vallées pour vérifier l’ouverture effective et les possibilités d’accueil.",
+      "accessUrl": "https://www.sourcesetvallees.fr/rubrique-Espace-test-de-Sources-et-Vallees-40.html",
+      "accessCostType": "FEE_REQUIRED",
+      "targetProfiles": ["GENERAL", "NEW_ENTRANT", "SUCCESSOR"],
+      "notes": "La page annonce un accueil à compter de novembre 2025 mais indique toujours que l’espace-test est en cours d’aménagement. Cette annonce ne confirme ni son fonctionnement effectif ni une place actuellement disponible.",
+      "sources": [
+        {
+          "url": "https://www.sourcesetvallees.fr/rubrique-Espace-test-de-Sources-et-Vallees-40.html",
+          "title": "Espace test de Sources et Vallées",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Le projet d’espace-test agricole est initié et coordonné par le Pays de Sources et Vallées (association composée des Communautés de Communes du Pays Noyonnais, du Pays des Sources et des Deux Vallées) en partenariat avec la commune de Pontoise-les-Noyon, propriétaire du foncier mis à disposition.",
+            "L'Espace-Test de Sources et Vallées se situe sur la commune de Pontoise-les-Noyon.",
+            "L'Espace-Test de Sources et Vallées est en cours d’aménagement et pourra accueillir 2 premiers maraichers à compter de novembre 2025.",
+            "Un espace-test agricole c’est d’abord un terrain et du matériel mis à disposition d’un porteur de projet contre un loyer modeste afin qu’il puisse tester son activité de maraichage en conditions réelles et sans investir, avant de s’installer définitivement.",
+            "L'Espace-Test de Sources et Vallées est spécialisé dans le maraîchage et la production de fruits rouges en agriculture biologique.",
+            "son activité est hébergée par une couveuse d’entreprises agricoles (A Petits Pas) au travers d’un contrat d'appui au projet d'entreprise (CAPE) durant toute la période de test (1 à 3 ans).",
+            "Il bénéficie d’un accompagnement juridique, fiscal et financier pour l’élaboration de son projet.",
+            "Le lycée horticole de Ribécourt apporte une aide technique à travers des conseils et le prêt de matériel",
+            "Le dispositif est ouvert à tous (même si l’on n’est pas issu de formation agricole) à condition d’avoir au moins une expérience en maraîchage et un projet d’installation/reprise d’une exploitation ou de diversification/conversion.",
+            "Le porteur de projet peut sortir d'études (agricoles), être en reconversion professionnelle, ou encore être déjà installé mais souhaiter se diversifier ou produire en BIO.",
+            "Même si le porteur de projet sera accompagné durant la période de test, il devra tout de même être autonome et gérer son activité.",
+            "Les modalité d'inscription sont à télécharger sur le lien suivant : Appel à Candidature, où vous trouverez les critères de sélection, les modalités de sélection des candidats, de mise à disposition du foncier et du matériel, ...",
+            "E-mail : courrier@sourcesetvallees.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://envieauprojet.fr/espace-test-agricole/",
+          "title": "Espaces-test agricoles Hauts-de-France - De l'envie au projet",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Espace-Test de Sources et Vallées - Pontoise-lès-Noyon", "Activités : Maraîchage BIO et production de fruits rouges"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Sources et Vallées",
+          "value": "courrier@sourcesetvallees.fr",
+          "sourceUrl": "https://www.sourcesetvallees.fr/rubrique-Espace-test-de-Sources-et-Vallees-40.html"
+        }
+      ]
+    },
+    {
+      "id": "hauts-de-france-arsi",
+      "name": "Aide régionale Spécifique à l'Installation ARSI",
+      "metaTitle": "Aide régionale spécifique à l’installation — Hauts-de-France",
+      "metaDescription": "L’ARSI prévoit de 9 000 à 12 000 € pour les candidats éligibles à une installation agricole en Hauts-de-France. Vérifiez les profils et les modalités.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Région Hauts-de-France",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Dotation à l’installation pouvant aller de 9 000 € à 12 000 €, sous réserve du respect des conditions d’éligibilité.",
+      "whoCanUseIt": "Porteurs de projets en agriculture, particuliers, salariés en cours d’installation ou demandeurs d’emploi, ayant suivi le parcours à l’installation et non bénéficiaires de la Dotation Jeune Agriculteur (DJA).",
+      "howToAccess": "Avant toute demande, se faire connaître auprès du Point Accueil Installation Transmission (PAIT) de son département et suivre le parcours avant installation, puis déposer le dossier. L’instruction et le suivi sont assurés par la Direction de l’Agriculture ; la Commission Permanente du Conseil régional décide de l’octroi.",
+      "accessUrl": "https://guide-aides.hautsdefrance.fr/dispositif833",
+      "instrumentType": "GRANT",
+      "targetProfiles": ["NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://guide-aides.hautsdefrance.fr/dispositif833"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://guide-aides.hautsdefrance.fr/dispositif833",
+          "title": "Aide régionale Spécifique à l'Installation ARSI - Guide des aides - Région Hauts-de-France",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Les porteurs de projets en agriculture (particuliers, salariés en cours d'installation, demandeurs d'emplois) ayant suivi le parcours à l'installation et non bénéficiaires de la Dotation Jeune Agriculteur (DJA).",
+            "Une dotation d'un montant pouvant aller de 9 000€ à 12 000€*",
+            "*sous réserve du respect des conditions d'éligibilité",
+            "Tout porteur de projet doit se faire connaître auprès du Point Accueil Installation Transmission (PAIT) de son département (contact sur le site www.hautsdefrance-pait.fr) afin de suivre le parcours avant installation.",
+            "Tout porteur de projet doit contacter le PAIT et suivre le parcours avant le dépôt du dossier.",
+            "L'instruction et le suivi de l'ARSI sont assurés par la Direction de l'Agriculture.",
+            "La décision d'octroi ou de conventionnement est prise par la Commission Permanente du Conseil régional.",
+            "PAIT Pas-de-Calais : pait@agriculture-npdc.fr tel :03 21 60 57 41",
+            "PAIT Nord : pait@agriculture-npdc.fr tel :03 27 21 46 91",
+            "PAIT Aisne : pait@ma02.org tel :03 23 22 50 00",
+            "PAIT Oise : pait@oise.chambagri.fr tel :03 44 11 44 07",
+            "PAIT Somme : pait@somme.chambagri.fr tel :03 22 33 69 88"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://guide-aides.hautsdefrance.fr/dispositif833"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "PAIT Pas-de-Calais",
+          "value": "pait@agriculture-npdc.fr",
+          "areas": ["Pas-de-Calais"],
+          "sourceUrl": "https://guide-aides.hautsdefrance.fr/dispositif833"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "PAIT Nord",
+          "value": "pait@agriculture-npdc.fr",
+          "areas": ["Nord"],
+          "sourceUrl": "https://guide-aides.hautsdefrance.fr/dispositif833"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "PAIT Aisne",
+          "value": "pait@ma02.org",
+          "areas": ["Aisne"],
+          "sourceUrl": "https://guide-aides.hautsdefrance.fr/dispositif833"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "PAIT Oise",
+          "value": "pait@oise.chambagri.fr",
+          "areas": ["Oise"],
+          "sourceUrl": "https://guide-aides.hautsdefrance.fr/dispositif833"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "PAIT Somme",
+          "value": "pait@somme.chambagri.fr",
+          "areas": ["Somme"],
+          "sourceUrl": "https://guide-aides.hautsdefrance.fr/dispositif833"
+        }
+      ]
+    },
+    {
+      "id": "hauts-de-france-picardie-espace-test-douchy",
+      "name": "Espace Test de Picardie — Douchy",
+      "metaTitle": "Espace Test de Picardie, Douchy — Hauts-de-France",
+      "metaDescription": "À Douchy, testez un projet agricole avec des parcelles, des serres, des locaux d’élevage et un atelier de transformation. Retrouvez les activités visées.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Douchy"
+      },
+      "operator": "ETEA de Picardie",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Site d’essai agricole avec parcelles extérieures, serres, locaux d’élevage et atelier de transformation végétale et laitière.",
+      "accessUrl": "https://envieauprojet.fr/espace-test-agricole/",
+      "notPublished": [
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://envieauprojet.fr/espace-test-agricole/"
+        },
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://envieauprojet.fr/espace-test-agricole/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://envieauprojet.fr/espace-test-agricole/",
+          "title": "Espaces-test agricoles Hauts-de-France - De l'envie au projet",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Localisation : Douchy, Picardie",
+            "2 parcelles extérieures de 4000 m²",
+            "2 parcelles sous abri (serre) de 200 m²",
+            "2 locaux d’élevage avec parcours de 2000 m² (hors bovins et équins)",
+            "Labo de transformation légume et laitier",
+            "Apiculture, PPAM, Transformation légumes et lait.",
+            "ETEA de Picardie"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projets en maraîchage, apiculture, plantes aromatiques, transformation ou élevage hors bovins et équins.",
+      "howToAccess": "Contacter l’ETEA de Picardie à Douchy par l’intermédiaire de l’annuaire.",
+      "generatorId": "chatgpt-4"
     }
   ],
   "news": [],

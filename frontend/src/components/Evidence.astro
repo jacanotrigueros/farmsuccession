@@ -13,8 +13,8 @@
  * reader following one has to be able to find it at a glance. The quotes are set in the serif the site
  * keeps for quoted evidence: a quotation must never read like the site's own words.
  *
- * The date is the date the page was read, not today. Every claim drawn from a page is a claim about that
- * page on that day.
+ * The date is the last day every quote was found again on the live page, or, for a page not verified since,
+ * the day it was read. Never today: every claim drawn from a page is a claim about that page on that day.
  */
 import { Icon } from "astro-icon/components";
 import type { Source } from "../lib/corpus.ts";
@@ -37,6 +37,7 @@ const hostOf = (url: string): string => {
 ---
 
 <p class="text-lg text-muted">{text.quotesExplained}</p>
+<p class="meta mt-3">{text.sourceRights}</p>
 
 <ol class="mt-8 grid gap-8">
   {sources.map((source, index) => (
@@ -63,7 +64,18 @@ const hostOf = (url: string): string => {
           <span class="inline-flex items-center gap-1.5">
             <Icon name={ICON.date} aria-hidden="true" class="size-4 shrink-0" />
             <span>
-              {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, locale)}</time>
+              {source.verification ? (
+                <>
+                  {text.sourceCheckedOn}{" "}
+                  <time datetime={source.verification.checkedOn} data-verified={source.verification.method}>
+                    {dateIn(source.verification.checkedOn, locale)}
+                  </time>
+                </>
+              ) : (
+                <>
+                  {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, locale)}</time>
+                </>
+              )}
             </span>
           </span>
         </p>

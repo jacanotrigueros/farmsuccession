@@ -1,6 +1,6 @@
 # FarmSuccession — research one territory
 
-Prompt version: 1.13.0
+Prompt version: 1.14.0
 
 You are researching **{{territoryName}}** ({{territoryLabel}}) for the **{{edition}}**
 edition of FarmSuccession. Today is {{today}}. The result is two JSON files that
@@ -177,7 +177,44 @@ itself establishes an instrument of the families above.
      role-based channels that help a reader use the resource. Copy the email,
      telephone, form URL or office address from a cited source and quote it.
      Never record a named person's direct details. Omit contact points when the
-     page only publishes personal contact data.
+     page only publishes personal contact data. When the page ties a channel to
+     the areas it serves (a département, a comarca, a Bundesland), record them
+     in `areas` and quote the row or block that gives the channel and its
+     areas together; areas from another row never go on this channel.
+   - `interventionCodes`: the code under which the managing authority runs this
+     resource in its CAP plan, exactly as the source writes it ("SRE01",
+     "75.01", "C.2.2.1", "6961.1"), quoted. Only the resource's own
+     intervention: a code the page lists for something else, or a course or
+     fund that only requires another intervention, gets none. One application
+     under several interventions lists every code. Never map a code to an EU
+     type or to another country's code.
+   - `legalBasis`: the act that creates or governs the resource, with its title
+     as the source writes it and, when given, the articles in `provisions`;
+     both quoted. Not for a record that is the act itself, and not for a law
+     the resource only mentions (a procedure law, a definition of zones). When
+     the quoted source is a guide, the act's official text may go in `actUrl`,
+     which must also be one of the record's sources.
+   - `implements`: the higher-layer record this resource applies in its
+     territory — the European record, or the country's record for a regional
+     resource — with the words its own source uses for that measure, its plan
+     or its code in that plan ("PEPAC", "SRE01", "AITA"), quoted. Point at the
+     country's record when there is one, otherwise at the European record.
+     Mentioning a measure is not applying it: an advice service that helps
+     with CAP applications, or a portal that lists every call, gets none.
+   - Answer every question a reader of the resource's kind brings, while the
+     page is open. Financial support: who can use it, how to access it, the
+     amount one beneficiary gets (minimum, base and maximum when given; a total
+     budget is not one), the call dates, a contact. Land bank: who, how, the
+     land it handles, a contact. Succession service and advice: who, how, the
+     cost, a contact. Training: who, how, the format, the cost. Policy,
+     network and other: who, how. Official portal: how. Each answer is quoted.
+     When the page and the documents it links (its bases, its call) were read
+     and do not give an answer, record the question in `notPublished` with the
+     source read; for dates, a call with state NOT_PUBLISHED. A page that did
+     not load is not silent: record nothing for it and say so in the file's
+     notes. Never infer an answer (an activity on a plot does not make a course
+     in person), and never take it from another territory or year. From the
+     2027 edition the validator rejects a record that leaves a question open.
    - Fill the closed decision facets only when the source states them:
      `assetTypes` distinguishes plots from whole holdings; `sectors` records
      agriculture, livestock or forestry without inference; financial support
@@ -225,7 +262,10 @@ itself establishes an instrument of the families above.
      `SEARCHED` means only that the documented plan and its expansion pass were
      completed. It never means that the territory is exhaustively covered. Use
      `PARTIAL` whenever a portal, family, lower level or unresolved lead remains.
-   - `review.status` is `DRAFT`; a person marks it `REVIEWED`.
+   - A source whose every quote you have just found again on the live page
+     carries `verification` with today's `checkedOn` and the `method` used
+     (`FETCH` when the source check read it, `BROWSER` when you read it in a
+     real browser). Leave it out for anything you did not verify that way.
 5. **Update the research brief**: set every lead you evaluated to ADMITTED (with
    its `resourceId`) or REJECTED (with the reason), with `checkedOn`; every
    resource of this territory's edition file needs its ADMITTED lead, including
@@ -254,7 +294,7 @@ itself establishes an instrument of the families above.
      checks. Passing means only that this technical check ended without a
      blocking failure: it does not prove exhaustive coverage, that an
      instrument still operates (a quote found on an old page proves only that
-     the page still says it) or a human review. A source that stays UNCHECKED
+     the page still says it). A source that stays UNCHECKED
      supports a published resource only with a **documented manual check**:
      you opened the original page through a connection whose certificate chain
      validated (never with certificate checks disabled, never with a trust
@@ -264,8 +304,8 @@ itself establishes an instrument of the families above.
      confirmed, the claims they back, the tool and how the chain validated,
      who checked (the tool and model, or the person's name) and why the
      automatic check cannot read the page. The automatic result stays
-     UNCHECKED; a manual check by an assistant is not a human review, and the
-     file stays `DRAFT`. Without that record, keep the source as a TO_CHECK
+     UNCHECKED; the source carries `verification` with `method` `BROWSER`
+     and the date you read it. Without that record, keep the source as a TO_CHECK
      lead whose `reason` says what blocked it and the next action. Name every
      UNCHECKED source in your plain-text list either way. A resource listed **for
      review** shares its access page with a resource of a higher layer or a
@@ -338,8 +378,8 @@ breaks one is refused as a whole.
   `consultedOn` — write today's date. Every `consultedOn` falls in {{edition}};
   news dates fall in {{edition}} and not after `published`. `lastEvidenceDate`
   belongs to the resource, is a date the page shows and never equals a
-  consultation or publication date. A `review.reviewedOn` earlier than the last
-  `consultedOn` is refused: it would cover less than it claims.
+  consultation or publication date. A source's `verification.checkedOn` falls
+  between its `consultedOn` and `published`.
 - **Scope and links.** `LOCAL` and `SUBREGIONAL` resources name their `area`
   as the source names it. `accessUrl` and every contact, call or metric
   `sourceUrl` are among the resource's `sources`, and a URL is listed once per

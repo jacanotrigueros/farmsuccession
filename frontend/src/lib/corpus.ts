@@ -17,6 +17,7 @@ import type { Layer } from "../../../src/layers.ts";
 import type { Call, ContactPoint, EditionSnapshot, Metric, NewsItem, Resource, Source } from "../../../src/types/edition.ts";
 import type { Territories } from "../../../src/types/territories.ts";
 import { recordSlug, regionSlug } from "../../public/search-scope.js";
+import { countryNameIn } from "./language.ts";
 
 /**
  * The repository's modules are loaded from the repository, not bundled into the site.
@@ -111,13 +112,24 @@ export function view(territory: Territory): { layers: Territory[]; resources: Vi
 }
 
 /**
- * Where a territory lives on the site. The EU layer is the home, because it is what every reader shares.
+ * Where a territory lives on the site. The EU layer is the root every country's address hangs from, so
+ * its address is `/`; the page that lists the EU layer's own instruments is `EUROPE_PAGE`.
  *
  * Everything below a country sits under one segment, in that country's own language — `/es/regiones/galicia/`,
  * `/de/regionen/bayern/` — so the catalogue's open list of territories can never collide with the site's
  * own pages. A grouping that publishes a layer of its own is a territory like any other and lives there
  * too: for a reader it is the place the page is about, not a tier of the model.
  */
+/**
+ * The page of the European layer: what applies at EU level, on its own, built by the same template as a
+ * country. The home page `/` is the overview of every country; choosing Europe leads here instead, so it
+ * shows Europe's own instruments rather than the whole directory again (founder, 16 Nov 2026).
+ */
+export const EUROPE_PAGE = "/eu/";
+
+/** The page that shows a territory: its address, except Europe's, which is `EUROPE_PAGE`. */
+export const pageOf = (layer: Layer): string => (layer.level === "EU" ? EUROPE_PAGE : href(layer));
+
 export function href(layer: Layer): string {
   if (layer.level === "EU") return "/";
   const country = layer.country.toLowerCase();
@@ -131,14 +143,21 @@ export function href(layer: Layer): string {
  *
  * A region's own name is not enough on a list that mixes territories of several countries, and it is not
  * enough on a record either — "Andalucía" says where only to somebody who already knows. The country
- * comes first, as the postal order of a place does.
+ * comes first, as the postal order of a place does, and in the reader's language: a region keeps its own
+ * name, which is the one on every sign and form, but "Spain" is what an English reader knows the country by.
  */
-export function placeOf(territory: Territory, europe: string): string {
+export function placeOf(territory: Territory, europe: string, language: string): string {
   if (territory.layer.level === "EU") return europe;
-  const iso = territory.layer.country;
-  const country = countryTerritories(territory.file.slice(0, 4)).find(({ layer }) => layer.level === "COUNTRY" && layer.country === iso);
-  const name = country?.data.officialName ?? iso;
+  const name = countryNameIn(territory.layer.country, language);
   return territory.layer.level === "COUNTRY" ? name : `${name} · ${territory.data.officialName}`;
+}
+
+/** The official subdivisions of a region whose readers name places by code, as the catalogue gives them. */
+export function subdivisionsOf(territory: Territory): { name: string; code: string }[] {
+  const { data } = territory;
+  if (data.schemaId !== "regional-snapshot") return [];
+  const { country, region } = data;
+  return territories.jurisdictions[country]?.regions.find(({ slug }) => slug === region)?.subdivisions ?? [];
 }
 
 /** The language a territory's text is written in, which is the language the page is in. */
@@ -154,9 +173,6 @@ export const localeOf = (territory: Territory): string =>
     ? languageOf(territory)
     : (territories.jurisdictions[territory.layer.country]?.locale ?? languageOf(territory));
 
-/** A review nobody has signed is the one thing a reader has to be told before anything else. */
-export const isDraft = (territory: Territory): boolean => territory.data.review.status === "DRAFT";
-
 /** A record and the territory whose file holds it, which is the one place on the site it has a page. */
 export type RecordedResource = { resource: Resource; territory: Territory };
 
@@ -169,6 +185,18 @@ export type RecordedResource = { resource: Resource; territory: Territory };
  */
 export const records = (edition = currentEdition): RecordedResource[] =>
   territoriesOf(edition).flatMap((territory) => territory.data.resources.map((resource) => ({ resource, territory })));
+
+/** One record of the edition by its id, with the territory that recorded it. */
+export const recordById = (id: string, edition = currentEdition): RecordedResource | undefined =>
+  records(edition).find(({ resource }) => resource.id === id);
+
+/**
+ * The records that apply the measure `id` in their territory, each as its own source says (the record's
+ * `implements`). A region applying a national measure is found under that national record, not again
+ * under the European one: the chain is read one step at a time.
+ */
+export const implementationsOf = (id: string, edition = currentEdition): RecordedResource[] =>
+  records(edition).filter(({ resource }) => resource.implements?.some(({ resourceId }) => resourceId === id));
 
 /**
  * Where a record lives: one address, naming the record and nothing else.
@@ -204,7 +232,7 @@ export function corpusStats(edition = currentEdition): {
   sources: number;
   quotes: number;
   news: number;
-  drafts: number;
+  verified: number;
   files: number;
 } {
   const here = territoriesOf(edition);
@@ -217,7 +245,7 @@ export function corpusStats(edition = currentEdition): {
     sources: new Set(sources.map(({ url }) => url)).size,
     quotes: sources.reduce((total, { quotes }) => total + quotes.length, 0),
     news: here.reduce((total, { data }) => total + data.news.length, 0),
-    drafts: here.filter((territory) => isDraft(territory)).length,
+    verified: sources.filter(({ verification }) => verification !== undefined).length,
     files: here.length,
   };
 }

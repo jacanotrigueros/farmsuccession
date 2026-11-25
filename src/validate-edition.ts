@@ -10,11 +10,16 @@ import { errorMessage } from "./errors.ts";
 import { unsupportedFileFigures, unsupportedResourceFigures } from "./figures.ts";
 import { ancestorLayers, layerKey, snapshotLayer } from "./layers.ts";
 import { internalReferencesInText, schemaCodesInText } from "./reader-text.ts";
+import { questionsOf } from "./reader-questions.ts";
 import { jurisdiction } from "./territories.ts";
 import { textProblems } from "./text-hygiene.ts";
 import type { EditionSnapshot, Metric, Resource, Source } from "./types/edition.ts";
 import type { Territories } from "./types/territories.ts";
 import { canonicalPage, samePage } from "./urls.ts";
+
+/** Whether one of a source's quotes carries the value, ignoring case. */
+const quoted = (source: Source, value: string): boolean =>
+  source.quotes.some((quote) => quote.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
 
 /**
  * The units each measure can be expressed in, so the same measure stays comparable from one territory
@@ -80,11 +85,32 @@ function sourcesOf(data: EditionSnapshot): Array<{ at: string; source: Source }>
  *
  * `today` is a parameter rather than the clock, so a test is not tied to the day it runs.
  */
+/** The first edition whose records must answer every reader question of their kind. */
+export const FIRST_EDITION_WITH_ANSWERS = "2027";
+
 export function checkSemantics(file: string, data: EditionSnapshot, territories: Territories, today: string): Report {
   const found = collect();
   checkIdentity(file, data, territories, found);
   checkDates(data, today, found);
   checkCoverage(data, found);
+  if (data.schemaId === "country-snapshot" && data.countryContext) {
+    const { consultedOn, land, economy, succession } = data.countryContext;
+    if (consultedOn > today) found.error("countryContext: consultation date is in the future");
+    if ([land.year, economy.year, succession.year].some((year) => year > Number(consultedOn.slice(0, 4)))) {
+      found.error("countryContext: observation year is after the consultation year");
+    }
+    for (const table of [succession, ...(succession.europe ? [succession.europe] : [])]) {
+      if (table.under25 + table.from25To34 + table.from35To39 + table.atLeast65 > table.holdings) {
+        found.error("countryContext: age groups exceed the total number of holdings");
+      }
+    }
+    if (succession.europe && succession.europe.year !== succession.year) {
+      found.error("countryContext: the EU-27 reference is for another year than the country's age table");
+    }
+    if (land.europe && land.europe.year !== land.year) {
+      found.error("countryContext: the EU-27 land reference is for another year than the country's land figure");
+    }
+  }
 
   const ids = new Set<string>();
   for (const resource of data.resources) {
@@ -170,7 +196,7 @@ function checkIdentity(file: string, data: EditionSnapshot, territories: Territo
 /**
  * Dates that contradict each other, or the edition, or the day the file was written. Nothing read
  * from a page can be in the future, nothing can have been consulted after the file was published, and
- * a review signed before the last consultation covered less than it claims.
+ * a page cannot have been verified before it was read or after the file was published.
  */
 function checkDates(data: EditionSnapshot, today: string, found: Problems): void {
   if (data.published > today) found.error(`published ${data.published} is in the future`);
@@ -184,19 +210,13 @@ function checkDates(data: EditionSnapshot, today: string, found: Problems): void
       found.error(`${at}: source consultedOn ${source.consultedOn} is after published ${data.published}`);
     }
     if (new Set(source.quotes).size !== source.quotes.length) found.warn(`${at}: ${source.url} repeats a quote`);
-  }
-
-  const reviewedOn = data.review.reviewedOn;
-  if (reviewedOn === undefined) return;
-  if (reviewedOn > data.published) found.error(`review.reviewedOn ${reviewedOn} is after published ${data.published}`);
-  const lastConsulted = sourcesOf(data)
-    .map(({ source }) => source.consultedOn)
-    .toSorted()
-    .at(-1);
-  if (lastConsulted !== undefined && reviewedOn < lastConsulted) {
-    found.error(
-      `review.reviewedOn ${reviewedOn} is before the last consultation (${lastConsulted}), so part of the file was never reviewed`,
-    );
+    const checkedOn = source.verification?.checkedOn;
+    if (checkedOn !== undefined && checkedOn < source.consultedOn) {
+      found.error(`${at}: verification.checkedOn ${checkedOn} is before consultedOn ${source.consultedOn}`);
+    }
+    if (checkedOn !== undefined && checkedOn > data.published) {
+      found.error(`${at}: verification.checkedOn ${checkedOn} is after published ${data.published}`);
+    }
   }
 }
 
@@ -241,6 +261,80 @@ function checkResource(data: EditionSnapshot, resource: Resource, today: string,
       (contact.channel === "FORM" && samePage(contact.value, contact.sourceUrl)) ||
       source.quotes.some((quote) => quote.toLocaleLowerCase().includes(contact.value.toLocaleLowerCase()));
     if (!published) found.error(`${label} value is not present in the cited source quotes`);
+    // An area belongs to this office only when the page says both in one place: a phone from one row
+    // and an area from another would send a reader to the wrong office. A form is the page itself, so
+    // its areas only have to be quoted.
+    for (const area of contact.areas ?? []) {
+      const sameBlock = source.quotes.some((quote) => {
+        const lower = quote.toLocaleLowerCase();
+        const hasValue = contact.channel === "FORM" || lower.includes(contact.value.toLocaleLowerCase());
+        return hasValue && lower.includes(area.toLocaleLowerCase());
+      });
+      if (!sameBlock) found.error(`${label} area "${area}" is not in a quote of the cited source that also gives its value`);
+    }
+  }
+
+  // An intervention code or an act is a claim like any other: the cited source has to say it.
+  const sourceAt = (url: string): Source | undefined => resource.sources.find((candidate) => candidate.url === url);
+  for (const { code, sourceUrl } of resource.interventionCodes ?? []) {
+    const source = sourceAt(sourceUrl);
+    if (!source) found.error(`${at}: intervention code "${code}" cites ${sourceUrl}, which is not one of its sources`);
+    else if (!quoted(source, code)) found.error(`${at}: intervention code "${code}" is not present in the cited source quotes`);
+  }
+  for (const act of resource.legalBasis ?? []) {
+    const label = `${at}: legal act "${act.title}"`;
+    const source = sourceAt(act.sourceUrl);
+    if (!source) {
+      found.error(`${label} cites ${act.sourceUrl}, which is not one of its sources`);
+      continue;
+    }
+    if (!quoted(source, act.title)) found.error(`${label} is not named in the cited source quotes`);
+    for (const provision of act.provisions ?? []) {
+      if (!quoted(source, provision)) found.error(`${label} provision "${provision}" is not present in the cited source quotes`);
+    }
+    if (act.actUrl !== undefined && !sourceAt(act.actUrl)) {
+      found.error(`${label} links its official text ${act.actUrl}, which is not one of its sources, so nothing re-reads it`);
+    }
+  }
+
+  // Applying a higher measure is claimed the same way: the cited source names that measure, its plan or
+  // its code. Which record it points at is checked across the edition, where the higher files are.
+  for (const { resourceId, named, sourceUrl } of resource.implements ?? []) {
+    const label = `${at}: implements "${resourceId}"`;
+    const source = sourceAt(sourceUrl);
+    if (resourceId === resource.id) found.error(`${label}: a resource cannot implement itself`);
+    if (!source) found.error(`${label} cites ${sourceUrl}, which is not one of its sources`);
+    else if (!quoted(source, named)) found.error(`${label}: "${named}" is not present in the cited source quotes`);
+  }
+
+  // "The source does not publish it" is a finding about a source, so it names one, and it can never sit
+  // beside the field that answers the same question: the record would say two opposite things.
+  const answered: Record<NonNullable<Resource["notPublished"]>[number]["question"], boolean> = {
+    WHO_CAN_USE: resource.whoCanUseIt !== undefined,
+    HOW_TO_ACCESS: resource.howToAccess !== undefined,
+    AMOUNT_PER_BENEFICIARY: (resource.metrics ?? []).some(({ measure }) => /_PER_BENEFICIARY_/u.test(measure)),
+    CONTACT_CHANNEL: (resource.contactPoints ?? []).length > 0,
+    ACCESS_COST: resource.accessCostType !== undefined && resource.accessCostType !== "UNKNOWN",
+    TRAINING_FORMAT: (resource.trainingFormats ?? []).length > 0,
+    LAND_HANDLED: (resource.assetTypes ?? []).length > 0,
+  };
+  const silent = new Set<string>();
+  for (const { question, sourceUrl } of resource.notPublished ?? []) {
+    const label = `${at}: not published ${question}`;
+    if (silent.has(question)) found.error(`${label} is listed twice`);
+    silent.add(question);
+    if (!sourceAt(sourceUrl)) found.error(`${label} cites ${sourceUrl}, which is not one of its sources`);
+    if (answered[question]) found.error(`${label}, yet the record answers it`);
+  }
+
+  // From the 2027 edition on, a record goes out only when it answers every question a reader of its kind
+  // brings, or says the source is silent: an empty answer is a record the reader still has to research.
+  // The 2026 edition predates the rule and is being completed in place.
+  if (data.edition >= FIRST_EDITION_WITH_ANSWERS) {
+    const { open } = questionsOf(resource);
+    if (open.length > 0) {
+      found.error(`${at}: leaves ${open.join(", ")} open; answer each from a source or record it in notPublished`);
+    }
   }
 
   checkCalls(at, resource, found);
@@ -360,6 +454,8 @@ const LAYER_ORDER = { "eu-snapshot": 0, "country-snapshot": 1, "hub-snapshot": 2
  * - a figure in the file's own voice — its summary, its limitations, its news — is supported by the
  *   evidence of that same view, because a lower layer never repeats what it inherits;
  * - reader-facing text names no resource id, territory slug or repository path;
+ * - a resource implements only a resource of a file it inherits, so the measure it applies is always one
+ *   its reader sees above it, never a sibling region's or another country's;
  * - a resource whose access page already belongs to a resource in a higher layer, or in a sibling file
  *   of the same country at the same level, is listed for review.
  */
@@ -408,6 +504,15 @@ export function checkEdition(snapshots: readonly LoadedSnapshot[], territories: 
       const sibling = siblingPages.get(key);
       if (!sibling) siblingPages.set(key, { file, id: resource.id });
       else if (sibling.file !== file) reviews.push({ file, message: sharedPage(resource.id, resource.accessUrl, sibling) });
+    }
+
+    const inheritedIds = new Set(higher.flatMap(({ data: upper }) => upper.resources.map(({ id }) => id)));
+    for (const resource of data.resources) {
+      for (const { resourceId } of resource.implements ?? []) {
+        if (!inheritedIds.has(resourceId)) {
+          errors.push({ file, message: `${resource.id} implements "${resourceId}", which is not a resource of a file it inherits` });
+        }
+      }
     }
 
     const visible = new Set([...data.resources, ...higher.flatMap(({ data: above }) => above.resources)].map((resource) => resource.id));

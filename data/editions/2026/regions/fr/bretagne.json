@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "FR",
   "region": "bretagne",
+  "metaTitle": "Installation agricole en Bretagne (22, 29, 35, 56)",
+  "metaDescription": "Préparez votre installation ou la cession de votre ferme en Bretagne : repérez AGRI Install, AGRI Transmission, le RDI et les services de la Safer.",
   "officialName": "Bretagne",
-  "published": "2026-10-25",
+  "published": "2026-11-25",
   "summary": "La Bretagne combine AGRI Install pour la première installation, AGRI Transmission pour préparer les exploitations à céder, le RDI et la Safer pour la mise en relation et le foncier, ainsi que Terre de Liens et les CIVAM pour l'accompagnement installation-transmission.",
   "coverage": {
     "status": "SEARCHED",
@@ -45,9 +47,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "fr",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -63,6 +62,20 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
       }
     ]
   },
@@ -70,6 +83,7 @@
     {
       "id": "bretagne-agri-install",
       "name": "AGRI Install",
+      "metaDescription": "AGRI Install propose deux aides de trésorerie pour une première installation agricole en Bretagne. Retrouvez les profils concernés et les modalités.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -88,6 +102,13 @@
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
       "lastEvidenceDate": "2025-11-03",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "FEADER",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-install/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bretagne.bzh/aides/fiches/agri-install/",
@@ -98,15 +119,82 @@
             "Aide disponible",
             "Cette aide vise à soutenir l’installation en agriculture et à faciliter l’accès au foncier agricole.",
             "AGRI Install se décline en 2 aides à la trésorerie pour tout nouvel installé, sous forme de subvention",
-            "A compter du 3 novembre 2025, de nouvelles modalités entrent en vigueur."
-          ]
+            "A compter du 3 novembre 2025, de nouvelles modalités entrent en vigueur.",
+            "2023-2027 (FEADER uniquement)",
+            "30 000 € pour une installation à titre principal ITP (40 000 € pour le cas particulier des îles bretonnes)",
+            "15 000 € pour une installation à titre secondaire ITS (20 000 € pour le cas particulier des îles bretonnes).",
+            "Aide forfaitaire de 8 000 €.",
+            "Point accueil installation des départements bretons PAI Tél : 08 20 22 29 35"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "DJA – installation à titre principal",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2025-11-03",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-install/"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "DJA – installation à titre principal dans les îles bretonnes",
+          "value": 40000,
+          "unit": "EUR",
+          "asOf": "2025-11-03",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-install/"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "DJA – installation à titre secondaire",
+          "value": 15000,
+          "unit": "EUR",
+          "asOf": "2025-11-03",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-install/"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "DJA – installation à titre secondaire dans les îles bretonnes",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2025-11-03",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-install/"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Soutien à l’installation en agriculture (SIA)",
+          "value": 8000,
+          "unit": "EUR",
+          "asOf": "2025-11-03",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-install/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Point accueil installation des départements bretons",
+          "value": "08 20 22 29 35",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-install/"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-install/"
+        }
+      ]
     },
     {
       "id": "bretagne-agri-transmission",
       "name": "AGRI Transmission",
+      "metaDescription": "L’aide régionale finance une partie du diagnostic de votre ferme et du plan d’action pour faciliter sa reprise. Demandes jusqu’au 31 décembre 2027.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -122,6 +210,22 @@
       "purposes": ["TRANSFER"],
       "languages": ["fr"],
       "targetProfiles": ["TRANSFEROR"],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond du diagnostic versé à l’organisme agréé",
+          "value": 1000,
+          "unit": "EUR",
+          "asOf": "2026-01-13",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-transmission/"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-transmission/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bretagne.bzh/aides/fiches/agri-transmission/",
@@ -132,15 +236,31 @@
             "Disposer d’un socle en conseil stratégique qui renforcera l’attractivité de l’entreprise et facilitera sa reprise.",
             "elle correspond à 80 % maximum des dépenses éligibles et est plafonnée à 1000 € HT.",
             "comprenant au moins un associé exploitant ayant entre 45 et 65 ans à la date du dépôt de la demande",
-            "L’organisme fait la démarche de dépôt de demande d’aide auprès de la Région. L’exploitant n’a aucune démarche à effectuer."
-          ]
+            "L’organisme fait la démarche de dépôt de demande d’aide auprès de la Région. L’exploitant n’a aucune démarche à effectuer.",
+            "L’aide est versée par la Région à l’organisme agréé : elle correspond à 80 % maximum des dépenses éligibles et est plafonnée à 1000 € HT.",
+            "31/12/2027 23:59",
+            "L’aide est versée par la Région à l’organisme agréé : elle correspond à 80 % maximum des dépenses éligibles et est plafonnée à 1000 € HT"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "calls": [
+        {
+          "name": "AGRI Transmission",
+          "state": "OPEN",
+          "closes": "2027-12-31",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-transmission/"
+        }
+      ]
     },
     {
       "id": "bretagne-repertoire-depart-installation",
       "name": "Répertoire Départ Installation en Bretagne",
+      "metaDescription": "Le RDI breton permet de trouver une ferme ou de publier une annonce de reprise. Retrouvez le service et les conseillers qui vous mettent en relation.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -157,6 +277,12 @@
       "accessCostType": "UNKNOWN",
       "languages": ["fr"],
       "targetProfiles": ["SUCCESSOR", "TRANSFEROR", "LAND_SEEKER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://bretagne.chambres-agriculture.fr/detail-dossier/trouver-une-ferme-avec-le-rdi"
+        }
+      ],
       "sources": [
         {
           "url": "https://bretagne.chambres-agriculture.fr/detail-dossier/trouver-une-ferme-avec-le-rdi",
@@ -164,8 +290,13 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "Le RDI vous aide à trouver votre future ferme en Bretagne.",
-            "Un site et surtout des conseillers dédiés vous aident dans votre projet."
-          ]
+            "Un site et surtout des conseillers dédiés vous aident dans votre projet.",
+            "02 23 48 23 23"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://bretagne.chambres-agriculture.fr/detail-dossier/trouver-un-repreneur-avec-le-rdi",
@@ -173,14 +304,27 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "Le RDI favorise la transmission des entreprises agricoles en mettant en contact les repreneurs et les cédants. Découvrez les étapes."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Chambre d’agriculture de Bretagne",
+          "value": "02 23 48 23 23",
+          "sourceUrl": "https://bretagne.chambres-agriculture.fr/detail-dossier/trouver-une-ferme-avec-le-rdi"
+        }
+      ]
     },
     {
       "id": "bretagne-safer-bretagne",
       "name": "Safer Bretagne",
+      "metaDescription": "Retrouvez la Safer Bretagne pour le foncier et la transmission dans les Côtes-d’Armor (22), le Finistère (29), l’Ille-et-Vilaine (35) et le Morbihan (56).",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -188,20 +332,24 @@
       },
       "operator": "Safer Bretagne",
       "operatorType": "MIXED",
-      "whatItOffers": "Accès à la Safer Bretagne pour le foncier et la transmission, avec AGRI Install, AGRI Transmission, le RDI, Terre de Liens et les CIVAM.",
-      "whoCanUseIt": "Futurs agriculteurs, agriculteurs en recherche de foncier, propriétaires et exploitants qui souhaitent vendre ou transmettre en Bretagne.",
-      "howToAccess": "Consulter les appels à candidatures et les parcours « Je m'installe », « Je cherche du foncier » ou « Je transmets mon exploitation », puis contacter la Safer Bretagne.",
+      "whatItOffers": "Accès à la Safer Bretagne pour le foncier et la transmission, avec AGRI Install, AGRI Transmission, le RDI, Terre de Liens et les CIVAM. La Safer transmet des propriétés ou des parcelles et propose un accompagnement personnalisé de l'achat sur les plans techniques, juridiques et fiscaux.",
+      "whoCanUseIt": "Futurs agriculteurs, agriculteurs en recherche de foncier, propriétaires et exploitants qui souhaitent vendre ou transmettre en Bretagne. Toute personne intéressée peut se manifester lors d'un appel à candidatures ; pour être retenu, le projet doit être structuré et son financement assuré.",
+      "howToAccess": "Consulter les appels à candidatures et les parcours « Je m'installe », « Je cherche du foncier » ou « Je transmets mon exploitation », puis contacter la Safer Bretagne. Les projets d'attribution font l'objet d'un appel public à candidatures pendant 15 jours. Se manifester par écrit et transmettre la fiche candidature ; le conseiller foncier du secteur reprend contact pour préciser les conditions de cession, notamment financières. Après cet échange, compléter un dossier décrivant le projet.",
       "accessUrl": "https://www.safer-bretagne.fr/",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
-      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR", "LANDOWNER"],
+      "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR", "LANDOWNER", "GENERAL"],
       "lastEvidenceDate": "2026-07-02",
       "sources": [
         {
           "url": "https://www.safer-bretagne.fr/",
           "title": "Safer Bretagne",
           "consultedOn": "2026-09-28",
-          "quotes": ["Je transmets mon exploitation", "Je m’installe", "Je cherche du foncier", "Appels à candidatures"]
+          "quotes": ["Je transmets mon exploitation", "Je m’installe", "Je cherche du foncier", "Appels à candidatures"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer-bretagne.fr/agriculteurs/futurs-agriculteurs/",
@@ -211,21 +359,56 @@
             "La Safer Bretagne agit en faveur de l’installation",
             "Pour trouver une exploitation viable qui corresponde à son projet.",
             "La Safer propose un accompagnement personnalisé"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.safer-bretagne.fr/nous-contacter/contacts/",
           "title": "Contacts régionaux et départementaux - Safer Bretagne",
           "consultedOn": "2026-10-25",
-          "quotes": ["Ille-et-Vilaine (35)", "Finistère (29)", "Morbihan (56)", "Côte d'Armor (22)"]
+          "quotes": ["Ille-et-Vilaine (35)", "Finistère (29)", "Morbihan (56)", "Côte d'Armor (22)", "Téléphone : 02 96 94 05 95"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.safer-bretagne.fr/agriculteurs/vous-recherchez-des-terres-ou-une-exploitation/",
+          "title": "Vous recherchez des terres ou une exploitation - Safer Bretagne",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "La Safer transmet des propriétés ou des parcelles.",
+            "Elle propose un accompagnement personnalisé : son statut et ses missions en font un partenaire privilégié de votre projet d’achat et son expertise sécurise votre transaction sur les plans techniques, juridiques et fiscaux.",
+            "Conformément au code rural, tous les projets d’attribution (suite à acquisition amiable ou à une préemption) réalisés par la Safer font l’objet d’un appel public de candidatures pendant 15 jours, dans deux journaux locaux d’annonces légales, en mairie, sur notre site internet et celui des préfectures (département et région).",
+            "Toute personne intéressée peut se manifester par écrit et nous transmettre la fiche candidature (lien ver la fiche à télécharger).",
+            "Le conseiller foncier du secteur vous recontactera et vous pourrez échanger avec lui pour connaître les conditions de la cession et notamment les conditions financières.",
+            "Après contact avec un conseiller foncier, vous compléterez un dossier de candidature dans lequel vous décrivez votre projet.",
+            "Votre projet est structuré et son financement doit être assuré. Ce sont des conditions nécessaires pour être retenu."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1",
-      "notes": "La Safer Bretagne intervient dans l’Ille-et-Vilaine (35), le Finistère (29), le Morbihan (56) et les Côtes-d’Armor (22)."
+      "notes": "La Safer Bretagne intervient dans l’Ille-et-Vilaine (35), le Finistère (29), le Morbihan (56) et les Côtes-d’Armor (22).",
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Safer Bretagne – siège",
+          "value": "02 96 94 05 95",
+          "sourceUrl": "https://www.safer-bretagne.fr/nous-contacter/contacts/"
+        }
+      ]
     },
     {
       "id": "bretagne-terre-de-liens",
       "name": "Terre de Liens Bretagne",
+      "metaDescription": "Terre de Liens Bretagne aide les porteurs de projet et les cédants sur les questions foncières et soutient l’acquisition citoyenne de fermes.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -233,13 +416,19 @@
       },
       "operator": "Terre de Liens Bretagne - Liamm an douar",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Accompagnement des porteurs de projet d'installation et des transmetteurs sur le volet foncier, ainsi que soutien aux acquisitions citoyennes de fermes et formations liées au foncier et à la transmission.",
+      "whatItOffers": "Accompagnement des porteurs de projet d'installation et des transmetteurs sur le volet foncier, ainsi que soutien aux acquisitions citoyennes de fermes et formations liées au foncier et à la transmission. L’annuaire InPACT détaille l’accueil foncier des propriétaires, des cédants et des porteurs de projet, la formation pour construire une stratégie d’accès au foncier et l’appui aux acquisitions citoyennes.",
       "whoCanUseIt": "Porteurs de projet agricole et agriculteurs ou propriétaires préparant une transmission en Bretagne, notamment pour des projets d'agriculture biologique et paysanne.",
       "howToAccess": "Utiliser le formulaire « Nous contacter » de la page Bretagne de Terre de Liens pour demander un accompagnement installation-transmission ou foncier.",
       "accessUrl": "https://terredeliens.org/bretagne/",
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR", "SUCCESSOR", "LANDOWNER"],
       "lastEvidenceDate": "2026-09-17",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/bretagne/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/bretagne/",
@@ -248,15 +437,44 @@
           "quotes": [
             "Accompagnement des porteur·euse·s de projet d’installations agricoles et des transmetteu·euse·s sur le volet foncier.",
             "Accompagnement à l’acquisition citoyenne de fermes.",
-            "Formation transmission en lien avec les CIVAM"
-          ]
+            "Formation transmission en lien avec les CIVAM",
+            "Contactez-nous : bretagne@terredeliens.org"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Accueil et renseignements continus sur le foncier (propriétaires, cédants et porteurs de projet)",
+            "pour construire sa stratégie d’accès au foncier",
+            "Accompagnement à des rachats citoyens et solidaires : GFA, SCI, Foncière Terre de Liens"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Terre de Liens Bretagne",
+          "value": "bretagne@terredeliens.org",
+          "sourceUrl": "https://terredeliens.org/bretagne/"
+        }
+      ]
     },
     {
       "id": "bretagne-frcivam-installation-transmission",
       "name": "Accompagnement installation-transmission des CIVAM de Bretagne",
+      "metaTitle": "CIVAM Bretagne : installation et transmission",
+      "metaDescription": "Les CIVAM et le collectif InPACT proposent des parcours aux candidats à l’installation et aux futurs cédants en Bretagne. Retrouvez leur offre régionale.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -264,9 +482,9 @@
       },
       "operator": "FRCIVAM Bretagne",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Coordonne et propose avec les groupes CIVAM et le collectif InPACT des parcours d'installation et de transmission : formations d'émergence, accompagnement aux demandes DJA/SIA, accompagnement et formation des cédants et des binômes cédant-repreneur.",
+      "whatItOffers": "Coordonne et propose avec les groupes CIVAM et le collectif InPACT des parcours d'installation et de transmission : formations d'émergence, accompagnement aux demandes DJA/SIA, accompagnement et formation des cédants et des binômes cédant-repreneur. Pour les cédants, CIVAM 35 propose un accompagnement individualisé, la diffusion d’annonces et la mise en relation avec des repreneurs. Côté installation, CIVAM 35 propose un premier entretien collectif et des stages de découverte chez ses adhérents. L’accompagnement individualisé est proposé sur certains territoires. En Ille-et-Vilaine, l’annuaire décrit également le soutien de CIVAM 35 à la construction de projets d’association et l’accompagnement individualisé des collectifs.",
       "whoCanUseIt": "Porteurs de projet agricole, nouveaux installés, cédants et binômes cédant-repreneur accompagnés par les structures CIVAM/InPACT en Bretagne.",
-      "howToAccess": "Consulter la page installation-transmission de la FRCIVAM Bretagne et contacter le réseau via son adresse institutionnelle ou l'un des groupes territoriaux listés.",
+      "howToAccess": "Consulter la page installation-transmission de la FRCIVAM Bretagne et contacter le réseau via son adresse institutionnelle ou l'un des groupes territoriaux listés. CIVAM 35 tient aussi des permanences au Point Accueil Installation.",
       "accessUrl": "https://www.civam.org/fr-civam-bretagne/actions/installation-transmission-bretagne/",
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER", "TRANSFEROR", "SUCCESSOR"],
@@ -275,6 +493,12 @@
           "channel": "EMAIL",
           "label": "FRCIVAM Bretagne",
           "value": "bretagne@civam.org",
+          "sourceUrl": "https://www.civam.org/fr-civam-bretagne/actions/installation-transmission-bretagne/"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
           "sourceUrl": "https://www.civam.org/fr-civam-bretagne/actions/installation-transmission-bretagne/"
         }
       ],
@@ -288,10 +512,994 @@
             "L’accompagnement au dépôt de demande de Dotation Jeunes Agriculteurs (DJA) et de Soutien à l’Installation Agricole (SIA)",
             "L’accompagnement et la formation des cédant·es et des binômes cédant·es-repeneur·euse dans leur projet de transmission de leur ferme.",
             "bretagne@civam.org"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.civam.org/civam-35-installation-transmission/actions/accompagnement-des-cedants/",
+          "title": "Accompagnement des cédant·e·s",
+          "consultedOn": "2026-11-24",
+          "quotes": ["un accompagnement individualisé et la diffusion d’annonce", "une mise en relation avec des repreneur·ses"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.civam.org/civam-35-installation-transmission/actions/premiere-action-3/",
+          "title": "Accompagnement des porteur·se·s de projets de création d’activités agri-rurales",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "un entretien collectif premier accueil,",
+            "la possibilité de réaliser des stages découvertes chez des adhérents CIVAM,",
+            "Nous tenons également des permanences au Point Accueil Installation.",
+            "Accompagnement individualisé sur certains territoires."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Accompagnement des projets collectifs (cafés-installation, formation « construire son projet d’association », accompagnement individualisé de collectifs)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "bretagne-ille-et-vilaine-aide-installation",
+      "name": "Aide à l'installation",
+      "metaTitle": "Aide à l’installation en Ille-et-Vilaine (35) — Bretagne",
+      "metaDescription": "Aide départementale au démarrage en Ille-et-Vilaine, en complément de la DJA ou pour les porteurs de projet de plus de 40 ans. Consultez les conditions.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Ille-et-Vilaine"
+      },
+      "operator": "Département d’Ille-et-Vilaine",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Aide financière au démarrage de l’activité agricole, versée en complément de la dotation Jeune Agriculteur (DJA) ou pour des porteurs de projet de plus de 40 ans.",
+      "whoCanUseIt": "Porteurs de projets remplissant trois conditions cumulatives : s’inscrire dans un plan de professionnalisation personnalisé (PPP), avec une étude économique prouvant la viabilité du projet ; s’installer hors cadre familial ; présenter un projet économe en intrants, diversifié ou à forte valeur ajoutée.",
+      "howToAccess": "Compléter le formulaire de demande disponible sur la page et le renvoyer avec les pièces jointes demandées au Service installation transmission de la Chambre Régionale d’Agriculture de Bretagne, qui centralise les demandes.",
+      "accessUrl": "https://www.ille-et-vilaine.fr/les-aides-du-departement/aide-linstallation",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Service installation transmission de la chambre régionale d’agriculture de Bretagne",
+          "value": "02 23 48 29 90",
+          "sourceUrl": "https://www.ille-et-vilaine.fr/les-aides-du-departement/aide-linstallation"
+        }
+      ],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.ille-et-vilaine.fr/les-aides-du-departement/aide-linstallation"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.ille-et-vilaine.fr/les-aides-du-departement/aide-linstallation",
+          "title": "Aide à l'installation | Département Ille et Vilaine",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Département d’Ille-et-Vilaine",
+            "Le Département favorise l'installation des jeunes agricultrices et agriculteurs et la reprise d'exploitations via l'aide à l'installation.",
+            "L’aide à l’installation est une aide financière au démarrage de l’activité agricole.",
+            "Cette aide est versée en complément de la dotation Jeune Agriculteur (DJA) ou pour des porteurs de projet de plus de 40 ans.",
+            "Les porteurs de projets doivent répondre à ces 3 conditions cumulées :",
+            "S’inscrire dans un plan de professionnalisation personnalisé (PPP), avec une étude économique prouvant la viabilité du projet.",
+            "S’installer hors cadre familial.",
+            "Présenter un projet économe en intrants ou diversifié ou à forte valeur ajoutée.",
+            "Compléter et renvoyer le formulaire de demande accompagné des pièces-jointes demandées auprès du Service installation transmission de la Chambre Régionale d’Agriculture de Bretagne qui centralise les demandes.",
+            "Service installation transmission de la chambre régionale d’agriculture de Bretagne 02 23 48 29 90"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.ille-et-vilaine.fr/les-aides-du-departement/aide-linstallation"
+        }
+      ]
+    },
+    {
+      "id": "bretagne-ille-et-vilaine-mise-en-reserve-fonciere",
+      "name": "Mise en réserve foncière",
+      "metaTitle": "Réserve foncière en Ille-et-Vilaine (35) — Bretagne",
+      "metaDescription": "La Safer Bretagne peut stocker temporairement des terres ou des bâtiments en Ille-et-Vilaine pour y installer un projet durable ou agri-rural innovant.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Ille-et-Vilaine"
+      },
+      "operator": "Département d’Ille-et-Vilaine, en convention avec la SAFER Bretagne",
+      "operatorType": "MIXED",
+      "whatItOffers": "Stockage temporaire de foncier, avec ou sans bâti, par la SAFER Bretagne dans l’attente d’une installation sur un projet durable ou agri-rural innovant. Le Département prend en charge les frais générés par cette mise en réserve pour une durée de portage ne pouvant excéder deux ans.",
+      "whoCanUseIt": "Porteurs de projet agricole durable ou agri-rural innovant ayant besoin de temps pour finaliser leur parcours d’installation ou les démarches d’acquisition citoyenne des biens. Trois conditions sont cumulatives : s’inscrire dans un plan de professionnalisation personnalisé (PPP) avec une étude économique prouvant la viabilité du projet, s’installer hors cadre familial et présenter un projet économe en intrants, diversifié ou à forte valeur ajoutée.",
+      "howToAccess": "Compléter le formulaire « Mise en réserve foncière » proposé sur la page et l’envoyer avec les pièces demandées au Département d'Ille-et-Vilaine - Service Agriculture, Alimentation, Energie, à l’adresse publiée.",
+      "accessUrl": "https://www.ille-et-vilaine.fr/portage-foncier",
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "YOUNG_FARMER"],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Service agriculture et alimentation",
+          "value": "02 99 02 47 79",
+          "sourceUrl": "https://www.ille-et-vilaine.fr/portage-foncier"
+        },
+        {
+          "channel": "OFFICE",
+          "label": "Département d'Ille-et-Vilaine - Service Agriculture, Alimentation, Energie",
+          "value": "1 avenue de la Préfecture – CS 24218 35042 Rennes Cedex",
+          "sourceUrl": "https://www.ille-et-vilaine.fr/portage-foncier"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.ille-et-vilaine.fr/portage-foncier",
+          "title": "Mise en réserve foncière | Département Ille et Vilaine",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "La mise en réserve foncière permet le stockage de foncier, avec bâti ou non, par l’intermédiaire de la SAFER Bretagne (au moyen d’une convention conclue entre cette dernière et le Département d’Ille-et-Vilaine).",
+            "Ceci dans l’attente d’une installation sur un projet durable et / ou agri-rural innovant.",
+            "L'accompagnement financier départemental correspond à la prise en charge des frais générés par la mise en réserve de foncier pour une durée de portage ne pouvant excéder 2 ans.",
+            "Porteur de projet agricole durable et / ou agri-rural innovant justifiant d’un besoin de temps pour finaliser leur parcours d’installation, réaliser les démarches en vue d’une acquisition citoyenne des biens…",
+            "Les porteurs de projets doivent répondre à ces 3 conditions cumulées :",
+            "S’inscrire dans un plan de professionnalisation personnalisé (PPP), avec une étude économique prouvant la viabilité du projet.",
+            "S’installer hors cadre familial.",
+            "Présenter un projet économe en intrants ou diversifié ou à forte valeur ajoutée.",
+            "Compléter et envoyer le formulaire ci-dessous accompagné des pièces-jointes demandées à :",
+            "Département d'Ille-et-Vilaine - Service Agriculture, Alimentation, Energie",
+            "1 avenue de la Préfecture – CS 24218 35042 Rennes Cedex",
+            "02 99 02 47 79",
+            "Favoriser l'installation de jeunes agricultrices et agriculteurs par la reprise d'exploitations de type familial pour la mise en œuvre de projets viables et autonomes.",
+            "par la reprise d'exploitations de type familial"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "assetTypes": ["WHOLE_HOLDINGS"]
+    },
+    {
+      "id": "bretagne-gab-frab-accompagner-transmissions",
+      "name": "Accompagner les transmissions",
+      "metaDescription": "Vous préparez la transmission d’une ferme ? Les CIVAM proposent des formations, des cafés transmission et des fermes ouvertes pour échanger.",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Réseau GAB-FRAB",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Formations sur la retraite, l’estimation de la ferme et le foncier ; cafés transmission et fermes ouvertes pour échanger avec d’autres cédants et des repreneurs potentiels ; accompagnement individuel confidentiel pour préparer son projet de transmission et clarifier ses choix.",
+      "whoCanUseIt": "Paysans et paysannes préparant la transmission de leur ferme, avec l’objectif du réseau de maintenir les fermes bio en bio.",
+      "howToAccess": "Consulter le calendrier de formations et les événements transmission accessibles depuis la page. Pour un accompagnement individuel, solliciter un technicien de son GAB dans le cadre du dispositif Agri Transmission.",
+      "accessUrl": "https://www.agrobio-bretagne.org/accompagner-les-transmissions/",
+      "targetProfiles": ["TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.agrobio-bretagne.org/accompagner-les-transmissions/"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.agrobio-bretagne.org/accompagner-les-transmissions/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.agrobio-bretagne.org/accompagner-les-transmissions/",
+          "title": "Accompagner les transmissions • Réseau GAB - FRAB",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Le réseau GAB-FRAB vous accompagne dans votre transmission.",
+            "Notre but ? qu’un maximum de fermes bio restent en bio !",
+            "Transmettre sa ferme est une phase importante dans une vie de paysan·ne.",
+            "Les GAB et leurs partenaires proposent des formations pour appréhender la transmission et ses diverses composantes : retraite, estimation de la ferme, foncier, etc.",
+            "Accédez à notre calendrier de formations .",
+            "Ces temps d’échange collectifs sont l’occasion de rencontrer d’autres cédants, voire des repreneurs potentiels, de partager ses questionnements et d’y trouver des réponses.",
+            "Accédez à nos événements transmission.",
+            "Grâce au dispositif Agri Transmission, dans chaque GAB, un technicien peut vous accompagner dans votre projet en toute confidentialité.",
+            "Pour rester aligné avec vos valeurs, car nos conseillers vous aideront à clarifier ce qui est important pour vous.",
+            "Équipes formées et compétences reconnues : labellisés « Agri Transmission » par la Région Bretagne"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "bretagne-cap-sizun-ceder-exploitation",
+      "name": "Agriculteurs : céder son exploitation",
+      "metaTitle": "Céder son exploitation : contacts en Bretagne",
+      "metaDescription": "Un annuaire pour les agriculteurs qui préparent leur départ en Bretagne. Retrouvez à qui vous adresser pour un audit, un rendez-vous ou une formation.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "LOCAL",
+        "area": "Cap Sizun"
+      },
+      "operator": "Communauté de communes Cap Sizun - Pointe du Raz",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Annuaire de contacts et de liens pour préparer une transmission agricole : audit et évaluation de la ferme, rendez-vous individuels, formations collectives, accompagnement relationnel entre cédants et repreneurs, annonces et mise en relation.",
+      "whoCanUseIt": "Agriculteurs préparant la transmission de leur exploitation.",
+      "howToAccess": "Consulter les coordonnées et liens des organismes présentés sur la page, ou contacter le service agriculture et PAT de la communauté de communes.",
+      "accessUrl": "https://www.cap-sizun.bzh/agriculteurs-ceder-son-exploitation/",
+      "targetProfiles": ["TRANSFEROR"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Service agriculture et PAT",
+          "value": "alimentation@cap-sizun.fr",
+          "sourceUrl": "https://www.cap-sizun.bzh/agriculteurs-ceder-son-exploitation/"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Service agriculture et PAT",
+          "value": "+33 (0)2 98 70 16 00",
+          "sourceUrl": "https://www.cap-sizun.bzh/agriculteurs-ceder-son-exploitation/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.cap-sizun.bzh/agriculteurs-ceder-son-exploitation/",
+          "title": "Agriculteurs : céder son exploitation - CC Cap Sizun (29)",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Agriculteurs : céder son exploitation",
+            "Vos contacts utiles pour vous accompagner dans votre projet de transmission",
+            "Service agriculture et PAT alimentation@cap-sizun.fr +33 (0)2 98 70 16 00",
+            "La chambre d’agriculture accompagne la transmission en proposant des audits pour évaluer l’entreprise agricole et des recommandations pour améliorer la transmissibilité de votre ferme.",
+            "Le CIVAM propose plusieurs actions pour accompagner les personnes, futurs cédant.es, dans leur projet de transmission de ferme : rendez-vous individuels avec les cédants, formation collective, accompagnement relationnels cédants / repreneurs.",
+            "L’outil de la Chambre d’agriculture qui met en relation les agriculteurs à la recherche d’un repreneur ou d’un associé et des candidats à l’installation.",
+            "Les annonces Terre de liens : https://www.objectif-terres.org/",
+            "Communauté de communes Cap Sizun - Pointe du Raz"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "bretagne-finistere-aide-installation-agriculture",
+      "name": "Aide pour l’installation en agriculture",
+      "metaTitle": "Aide à l’installation dans le Finistère (29) — Bretagne",
+      "metaDescription": "Le Finistère propose une aide forfaitaire de 6 000 € aux nouveaux installés qui bénéficient de la DJA. Retrouvez les conditions de l’aide départementale.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Finistère"
+      },
+      "operator": "Département du Finistère",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Aide forfaitaire départementale de 6 000 € pour les nouveaux installés bénéficiant de la DJA. Hors parcours DJA, aide étudiée au cas par cas, plafonnée à 4 000 €. Le complément JA-CUMA apporte 1 000 € supplémentaires sous conditions d’adhésion et de formation.",
+      "whoCanUseIt": "Personnes s’installant pour la première fois comme chef d’exploitation agricole, à titre individuel ou comme associé en société. Le volet complémentaire à la DJA concerne les jeunes de moins de 40 ans. Le volet hors parcours DJA est étudié au cas par cas pour les agriculteurs non aidés par l’Europe, avec une étude prévisionnelle réalisée par un organisme tiers.",
+      "howToAccess": "Pour la DJA, effectuer la démarche en ligne sur le site de la Région Bretagne. Hors parcours DJA, adresser une demande au Département avant l’installation ou au plus tard un an après celle-ci, fournir une étude prévisionnelle réalisée par un organisme tiers et une attestation d’inscription à la MSA. Pour le complément JA-CUMA, contacter la Fédération des CUMA de Bretagne ; l’adhésion doit intervenir dans l’année suivant l’installation et une formation spécifique est requise.",
+      "accessUrl": "https://www.finistere.fr/aides-et-services/economie-attractivite/agriculture-et-alimentation/aide-pour-linstallation-en-agriculture/",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Département du Finistère — Service agriculture, foncier et aménagement",
+          "value": "02 98 76 65 19",
+          "sourceUrl": "https://www.finistere.fr/aides-et-services/economie-attractivite/agriculture-et-alimentation/aide-pour-linstallation-en-agriculture/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Fédération des CUMA de Bretagne — complément adhésion CUMA",
+          "value": "cumabretagne@cuma.fr",
+          "sourceUrl": "https://www.finistere.fr/aides-et-services/economie-attractivite/agriculture-et-alimentation/aide-pour-linstallation-en-agriculture/"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.finistere.fr/aides-et-services/economie-attractivite/agriculture-et-alimentation/aide-pour-linstallation-en-agriculture/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.finistere.fr/aides-et-services/economie-attractivite/agriculture-et-alimentation/aide-pour-linstallation-en-agriculture/",
+          "title": "Aide pour l'installation en agriculture - Département du Finistère",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Aide pour l’installation en agriculture",
+            "Département du Finistère",
+            "Les personnes s’installant pour la première fois en qualité de chef d’exploitation agricole, soit à titre individuel, soit en société comme associé",
+            "Dans le cadre du dispositif régional d’aide à l’installation en agriculture, aide à l’installation complémentaire à la (DJA), dotation jeune agriculteur (jeune de moins de 40 ans)",
+            "Étude au cas par cas hors de ce cadre, aide à l’installation des agriculteurs non aidés par l’Europe.",
+            "Aide forfaitaire du Département de 6 000 € pour les nouveaux installés bénéficiant de la Dotation jeune agriculteur DJA",
+            "Étude au cas par cas, dans la limite d’une aide forfaitaire de 4 000 €, pour les nouveaux installés « hors parcours DJA », avec étude prévisionnelle réalisée par un organisme tiers.",
+            "Aide «JA-CUMA» : complément de 1 000 € (adhésion dans l’année qui suit l’installation, formation spécifique à effectuer).",
+            "La démarche pour l’obtention de la DJA est à affecter en ligne sur le site de la Région Bretagne.",
+            "Pour l’aide « hors parcours DJA », adresser une demande au Département",
+            "fournir une étude prévisionnelle du projet d’installation réalisée par un organisme tiers",
+            "déposer la demande de financement avant l’installation ou, au plus tard, un an après la date d’installation",
+            "justifier de l’installation en agriculture en adressant une attestation d’inscription à la Mutualité sociale agricole (MSA).",
+            "Pour le complément « adhésion CUMA », s’adresser à : Fédération des CUMA de Bretagne",
+            "cumabretagne@cuma.fr",
+            "Service agriculture, foncier et aménagement",
+            "02 98 76 65 19"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.finistere.fr/aides-et-services/economie-attractivite/agriculture-et-alimentation/aide-pour-linstallation-en-agriculture/"
+        }
+      ]
+    },
+    {
+      "id": "bretagne-finistere-prepare-installation",
+      "name": "Je prépare mon installation",
+      "metaTitle": "Préparer son installation dans le Finistère (29) — Bretagne",
+      "metaDescription": "Retrouvez les étapes pour vous installer dans le Finistère, les interlocuteurs du parcours et la marche à suivre pour le diagnostic préalable.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Finistère"
+      },
+      "operator": "Les services de l'État en Finistère",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Page d’orientation vers le parcours à l’installation : diagnostic préalable, mise en relation avec le Centre l’Élaboration du PPP du Finistère et présentation du plan de professionnalisation personnalisé (PPP). Elle précise que le PPP comprend obligatoirement un stage collectif de 21 heures, complété si nécessaire par des formations ou un stage en exploitation.",
+      "whoCanUseIt": "Porteurs de projet préparant une installation agricole, aidée ou non aidée.",
+      "howToAccess": "Contacter le Point Accueil Installation situé à la Maison de l’Agriculture à Quimper pour se renseigner. Pour une installation aidée, le PAI accompagne le diagnostic puis met en contact avec le CEPPP du Finistère.",
+      "accessUrl": "https://www.finistere.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Installation-et-transmission-des-exploitations/Je-prepare-mon-installation",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Point Accueil Installation",
+          "value": "08 20 22 29 35",
+          "sourceUrl": "https://www.finistere.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Installation-et-transmission-des-exploitations/Je-prepare-mon-installation"
+        },
+        {
+          "channel": "OFFICE",
+          "label": "Point Accueil Installation — Maison de l’Agriculture",
+          "value": "5 allée Sully à Quimper",
+          "sourceUrl": "https://www.finistere.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Installation-et-transmission-des-exploitations/Je-prepare-mon-installation"
+        }
+      ],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "lastEvidenceDate": "2023-09-01",
+      "sources": [
+        {
+          "url": "https://www.finistere.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Installation-et-transmission-des-exploitations/Je-prepare-mon-installation",
+          "title": "Je prépare mon installation - Les services de l'État en Finistère",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Je prépare mon installation",
+            "Les services de l'État en Finistère",
+            "Mis à jour le 01/09/2023",
+            "Dans le cas d’une installation aidée, le point accueil installation départemental (PAI) vous mettra en contact avec le Centre l’Élaboration du PPP du Finistère (CEPPP) après vous avoir accompagné dans la réalisation d’un diagnostic.",
+            "Le PPP comprend obligatoirement un \"stage collectif de 21 heures\" et si nécessaire des modules de formation complémentaires et/ou un stage en exploitation agricole.",
+            "Pour tout renseignement sur l’installation (aidée ou non aidée)",
+            "Point Accueil Installation situé à la Maison de l’Agriculture 5 allée Sully à Quimper",
+            "Tél : 08 20 22 29 35"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "bretagne-finistere-civam-installation",
+      "name": "CIVAM du Finistère — premier accueil et accompagnement à l’installation",
+      "metaTitle": "CIVAM du Finistère (29) : installation — Bretagne",
+      "metaDescription": "Le CIVAM du Finistère propose un premier accueil gratuit aux candidats à l’installation, puis des formations, des visites et des échanges entre pairs.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Finistère"
+      },
+      "operator": "CIVAM du Finistère",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Premier accueil gratuit, puis accompagnement surtout collectif par des formations, des visites et des échanges. L’annuaire InPACT mentionne aussi les stages découverte et la formation de dix jours « de l’idée du projet ».",
+      "accessUrl": "https://www.civam29.org/installation/",
+      "sources": [
+        {
+          "url": "https://www.civam29.org/installation/",
+          "title": "Installation - CIVAM du Finistère",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Le premier contact (collectif/individuel) est gratuit.",
+            "Les projets doivent cependant avoir un lien avec la terre",
+            "s'inscrire à Premier accueil projet Installation",
+            "l'accompagnement, dans la durée, se déroule très principalement en collectif",
+            "Les formations ont ensuite des tarifs directement mentionnés sur le catalogue.",
+            "Tél : 02 98 81 43 94"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": ["accueil individuel des porteurs de projet, stages découverte, formation « de l’idée du projet » sur 10 jours"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs d’un projet agricole ayant un lien avec le foncier ou la production agricole.",
+      "howToAccess": "S’inscrire à « Premier accueil projet Installation » dans le catalogue de formations.",
+      "generatorId": "chatgpt-4",
+      "accessCostType": "FEE_REQUIRED",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "CIVAM du Finistère",
+          "value": "02 98 81 43 94",
+          "sourceUrl": "https://www.civam29.org/installation/"
+        }
+      ]
+    },
+    {
+      "id": "bretagne-finistere-civam-atelier-dja",
+      "name": "CIVAM du Finistère — atelier de dépôt du dossier DJA",
+      "metaTitle": "CIVAM du Finistère : atelier dossier DJA — Bretagne (29)",
+      "metaDescription": "Un atelier collectif du CIVAM du Finistère pour préparer et déposer vous-même votre dossier DJA, avec l’appui d’une personne accompagnatrice.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Finistère"
+      },
+      "operator": "CIVAM du Finistère",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Atelier collectif avec une personne accompagnatrice et des échanges entre pairs pour permettre au candidat de déposer lui-même son dossier de DJA.",
+      "accessUrl": "https://www.civam29.org/installation/",
+      "sources": [
+        {
+          "url": "https://www.civam29.org/installation/",
+          "title": "Installation - CIVAM du Finistère",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "L'accompagnement au dépôt de Dossier DJA",
+            "Cet atelier, en groupe et avec l’appui de l’accompagnateur-ice",
+            "un dépôt de dossier en autonomie et un regard des pairs sur votre projet pour le consolider.",
+            "Le dépôt du dossier sur la plateforme de la région (qui est à réaliser par la personne elle-même).",
+            "Paiement : 500 euros à l’inscription et 500 euros en fin d’accompagnement, c’est à dire à la rédaction de la partie point de vigilance.",
+            "Tél : 02 98 81 43 94"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet qui préparent une demande de Dotation Jeune Agriculteur.",
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Préparer son dossier avec les autres participants et l’accompagnateur, puis le déposer soi-même sur la plateforme de la Région.",
+      "accessCostType": "FEE_REQUIRED",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "CIVAM du Finistère",
+          "value": "02 98 81 43 94",
+          "sourceUrl": "https://www.civam29.org/installation/"
+        }
+      ]
+    },
+    {
+      "id": "bretagne-inpact-annuaire-departemental",
+      "name": "InPACT Bretagne — accompagnement par département",
+      "metaDescription": "Trouvez des interlocuteurs pour vous installer, transmettre une ferme ou accéder à des terres grâce à l’annuaire d’InPACT Bretagne, par département.",
+      "kind": "OTHER",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Collectif InPACT Bretagne",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Annuaire des accompagnements à l’installation, à la transmission et à l’accès au foncier, classés par département.",
+      "accessUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+      "sources": [
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Accompagnement par département", "Côtes d’Armor", "Ille et Vilaine", "La formation paysan créatif"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet et cédants en Bretagne.",
+      "howToAccess": "Dans la page, consulter la rubrique du département concerné.",
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "bretagne-cotes-armor-cedapa-installation",
+      "name": "Cedapa — accompagnement à l’installation",
+      "metaTitle": "Cedapa : installation, Côtes-d’Armor (22) — Bretagne",
+      "metaDescription": "Le Cedapa organise des cafés et accompagne les candidats à l’installation dans les Côtes-d’Armor pour examiner la viabilité économique de leur projet.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Côtes-d’Armor"
+      },
+      "operator": "Cedapa",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Cafés sur l’installation et la transmission, et accompagnement individuel pour examiner la viabilité économique du projet.",
+      "accessUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Accompagnement à l’installation : cafés installation-transmission, accompagnement individuel pour étudier la viabilité économique du projet d’installation",
+            "Contact : 02 96 74 75 50 – cedapa@orange.fr – www.cedapa.com",
+            "02 96 74 75 50"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs d’un projet d’installation agricole dans les Côtes-d’Armor.",
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Appeler le Cedapa pour se renseigner sur les cafés installation-transmission ou l’accompagnement individuel.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Cedapa",
+          "value": "02 96 74 75 50",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ]
+    },
+    {
+      "id": "bretagne-cotes-armor-agriculture-paysanne-installation",
+      "name": "Agriculture paysanne 22 — accompagnement à l’installation",
+      "metaTitle": "Agriculture paysanne 22 : installation — Bretagne",
+      "metaDescription": "Dans les Côtes-d’Armor, passez de l’idée au projet agricole grâce à un premier accueil, des stages de découverte et une formation de dix jours.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Côtes-d’Armor"
+      },
+      "operator": "Agriculture paysanne 22",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Accueil individuel ou collectif, stages de découverte et formation sur dix jours pour passer de l’idée au projet. L’association accompagne aussi les premières années.",
+      "accessUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+      "sources": [
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "accueil individuel et collectif des porteurs de projet, stages découverte",
+            "formation « de l’idée du projet » sur 10 jours",
+            "accompagnement les premières années d’installation",
+            "Agriculture paysanne 22"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.agriculturepaysanne.org/Accueil-des-porteurs-de-projet",
+          "title": "Accueil des porteurs de projet",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Chaque année nous accueillons et accompagnons environ 200 porteurs de projet agricole.",
+            "Infos et inscriptions, nous contacter : 02 96 78 95 41 / agriculturepaysanne22@gmail.com",
+            "Nous tenons également des rdv individuels gratuits et confidentiels sur la transmission et l’installation agricole"
           ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-4",
+      "whoCanUseIt": "Les personnes qui portent un projet agricole.",
+      "howToAccess": "Contacter Agriculture paysanne 22 au 02 96 78 95 41 ou à agriculturepaysanne22@gmail.com pour se renseigner et s’inscrire.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Agriculture paysanne 22",
+          "value": "agriculturepaysanne22@gmail.com",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Accueil-des-porteurs-de-projet"
+        }
+      ],
+      "accessCostType": "FREE"
+    },
+    {
+      "id": "bretagne-cotes-armor-agriculture-paysanne-transmission",
+      "name": "Agriculture paysanne 22 — accompagnement à la transmission",
+      "metaTitle": "Agriculture paysanne 22 : transmission — Bretagne",
+      "metaDescription": "Dans les Côtes-d’Armor, les futurs cédants peuvent préparer la transmission grâce à un diagnostic individuel, des rencontres et une formation.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Côtes-d’Armor"
+      },
+      "operator": "Agriculture paysanne 22",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Accueil collectif, rallye et forum de la transmission, diagnostic individuel de la ferme et formation de quatre jours.",
+      "accessUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "rallye transmission, forum transmission, diagnostic individuel des fermes à transmettre",
+            "formation « se préparer à transmettre » sur 4 jours",
+            "Agriculture paysanne 22",
+            "Contact : 02 96 78 95 41",
+            "02 96 78 95 41"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Agriculteurs préparant la transmission de leur ferme dans les Côtes-d’Armor.",
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Contacter Agriculture paysanne 22 pour s’informer sur l’accueil collectif, le diagnostic individuel ou les formations.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Agriculture paysanne 22",
+          "value": "02 96 78 95 41",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ]
+    },
+    {
+      "id": "bretagne-ille-et-vilaine-ciap-paysan-creatif",
+      "name": "CIAP 35 — Paysan Créatif",
+      "metaTitle": "Paysan Créatif, CIAP 35 — Ille-et-Vilaine, Bretagne",
+      "metaDescription": "Une formation d’un an en Ille-et-Vilaine pour les porteurs de projet agricole qui veulent approfondir leur projet et se tester avant de s’installer.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Ille-et-Vilaine"
+      },
+      "operator": "CIAP 35",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Formation d’un an pour approfondir un projet agricole et se tester avant de se lancer.",
+      "accessUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+      "notPublished": [
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        },
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Formation « Paysan Créatif en Ille-et-Vilaine » sur un an, pour approfondir son projet et se tester avant de se lancer",
+            "CIAP 35 (Coopérative d’Installation en Agriculture Paysanne)",
+            "Contact : 06.64.93.45.23"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet en Ille-et-Vilaine.",
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Appeler la CIAP 35 pour se renseigner sur la formation Paysan Créatif."
+    },
+    {
+      "id": "bretagne-finistere-civam-transmission",
+      "name": "CIVAM du Finistère — accompagnement à la transmission",
+      "metaTitle": "CIVAM du Finistère : transmission — Bretagne (29)",
+      "metaDescription": "Vous comptez transmettre votre ferme dans le Finistère ? Le CIVAM propose un rendez-vous individuel et une formation pour anticiper la cession.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Finistère"
+      },
+      "operator": "CIVAM du Finistère",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Rendez-vous individuel au sujet de la ferme à transmettre et formation pour anticiper la transmission.",
+      "accessUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Accompagnement à la transmission (RDV individuel des fermes à transmettre, formation « anticiper a transmission »)",
+            "Contact : 02 98 81 43 94",
+            "02 98 81 43 94"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Cédants du Finistère.",
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Appeler le CIVAM du Finistère pour demander un rendez-vous individuel en vue de transmettre sa ferme.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "CIVAM du Finistère",
+          "value": "02 98 81 43 94",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ]
+    },
+    {
+      "id": "bretagne-finistere-ciap-paysan-creatif",
+      "name": "CIAP 29 — Paysan Créatif",
+      "metaTitle": "Paysan Créatif, CIAP 29 — Finistère, Bretagne",
+      "metaDescription": "Une année pour tester votre projet agricole dans le Finistère, apprendre le métier auprès d’un agriculteur et vous former à la création d’activité.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Finistère"
+      },
+      "operator": "CIAP 29",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Une année de test avec formation technique chez un agriculteur et formation à la création d’activité agricole.",
+      "accessUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "La formation paysan créatif, une année de test avec une formation technique chez un.e paysan.ne et un parcours de formation sur la création d’activité en agriculture",
+            "des porteurs de projets à l’installation en agriculture biologique et paysanne",
+            "CIAP 29 (Coopérative d’Installation en Agriculture Paysanne)",
+            "coordination@ciap29.infini.fr",
+            "une année de test avec une formation technique chez un.e paysan.ne et un parcours de formation sur la création d’activité en agriculture"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet d’installation en agriculture biologique et paysanne dans le Finistère.",
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Écrire à la CIAP 29 pour obtenir des renseignements sur le parcours Paysan Créatif.",
+      "trainingFormats": ["IN_PERSON"]
+    },
+    {
+      "id": "bretagne-finistere-ciap-espaces-test",
+      "name": "CIAP 29 — espaces tests agricoles",
+      "metaTitle": "Espaces tests agricoles, CIAP 29 — Finistère, Bretagne",
+      "metaDescription": "Vous préparez une installation agricole dans le Finistère ? La CIAP 29 permet de tester votre activité en conditions réelles pendant un an.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Finistère"
+      },
+      "operator": "CIAP 29",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Expérimentation agricole en conditions réelles pendant un an.",
+      "accessUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+      "notPublished": [
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        },
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Les espaces tests : 1 an de test, expérimentation grandeur réelle",
+            "des porteurs de projets à l’installation en agriculture biologique et paysanne",
+            "CIAP 29 (Coopérative d’Installation en Agriculture Paysanne)",
+            "coordination@ciap29.infini.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet d’installation en agriculture biologique et paysanne dans le Finistère.",
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Écrire à la CIAP 29 pour demander les conditions d’accès à un espace test."
+    },
+    {
+      "id": "bretagne-finistere-ciap-portage-activite",
+      "name": "CIAP 29 — portage d’activité agricole",
+      "metaTitle": "Portage d’activité agricole, CIAP 29 — Finistère, Bretagne",
+      "metaDescription": "La CIAP 29 propose aux porteurs de projet un hébergement juridique, fiscal et comptable pour mettre à l’essai leur activité agricole dans le Finistère.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Finistère"
+      },
+      "operator": "CIAP 29",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Hébergement juridique, fiscal et comptable de l’activité.",
+      "accessUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Le portage d’activité : hébergement juridique, fiscal et comptable",
+            "des porteurs de projets à l’installation en agriculture biologique et paysanne",
+            "CIAP 29 (Coopérative d’Installation en Agriculture Paysanne)",
+            "coordination@ciap29.infini.fr"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet d’installation en agriculture biologique et paysanne dans le Finistère.",
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Écrire à la CIAP 29 pour se renseigner sur le portage d’activité.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "CIAP 29",
+          "value": "coordination@ciap29.infini.fr",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ]
+    },
+    {
+      "id": "bretagne-morbihan-la-marmite-installation",
+      "name": "La Marmite — accompagnement à l’installation",
+      "metaTitle": "La Marmite : s’installer en Morbihan (56) — Bretagne",
+      "metaDescription": "La Marmite accompagne les projets d’installation ou d’association agricole dans le Morbihan avec des cafés, des stages de découverte et des formations.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Morbihan"
+      },
+      "operator": "La Marmite",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Cafés installation, stages découverte et formations pour préparer son projet d’installation ou d’association.",
+      "accessUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
+          "title": "Accompagnement par département – Collectif InPACT Bretagne",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Accompagnement à l’installation : rencontres collectives des porteurs de projet",
+            "les Cho-Bouillons",
+            "stages découverte, formations",
+            "Contact : 02 97 67 28 06",
+            "02 97 67 28 06"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Porteurs de projet agricole dans le Morbihan.",
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Appeler La Marmite pour se renseigner sur les rencontres, stages découverte et formations.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "La Marmite",
+          "value": "02 97 67 28 06",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ]
     }
   ],
   "news": [],

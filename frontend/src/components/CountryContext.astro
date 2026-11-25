@@ -1,0 +1,139 @@
+---
+/**
+ * "Farming in figures": three comparable national observations, each with its year, its Eurostat status
+ * and a link to the table a reader can open.
+ *
+ * The age of farm managers is the one that speaks to succession, so it is drawn: the country beside the
+ * EU-27 for each age band, on one scale from zero shared by every country page, with every value written
+ * out so the bars are never the only way to read it (ChatGPT review, founder 19 Nov 2026). The figures say
+ * who ran farms in the survey year; they are not a score and the page does not turn them into one.
+ *
+ * The Eurostat API queries stay in the data, and on each figure as `data-source`, for anybody auditing the
+ * number; the link a reader follows opens the same table in Eurostat's data browser.
+ */
+import type { CountryContext } from "../../../src/types/edition.ts";
+import { dateIn } from "../lib/language.ts";
+import { words } from "../lib/words.ts";
+
+type Props = { context: CountryContext; language: string; locale: string; name: string };
+const { context, language, locale, name } = Astro.props;
+const { land, economy, succession } = context;
+const text = words(language);
+const labels = text.countryContext;
+const percent = new Intl.NumberFormat(locale, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const hectares = new Intl.NumberFormat(locale, { style: "unit", unit: "hectare", unitDisplay: "short" });
+
+type Ages = { holdings: number; under25: number; from25To34: number; from35To39: number; atLeast65: number };
+const older = (table: Ages) => table.atLeast65 / table.holdings;
+const younger = (table: Ages) => (table.under25 + table.from25To34 + table.from35To39) / table.holdings;
+
+/** One scale for every country page, so a bar on /pt/ and a bar on /at/ can be compared by eye. */
+const SCALE = 0.6;
+const width = (share: number) => Math.min(100, (share / SCALE) * 100).toFixed(1);
+
+/** Eurostat's data browser speaks English, French and German; every other page opens the English table. */
+const browserLanguage = ["fr", "de"].includes(language) ? language : "en";
+const tableOf = (apiUrl: string) => {
+  const code = new URL(apiUrl).pathname.split("/").pop();
+  return `https://ec.europa.eu/eurostat/databrowser/view/${code}/default/table?lang=${browserLanguage}`;
+};
+const flagged = (flag?: string) => (flag === "IMPUTED" ? labels.imputed : flag === "PROVISIONAL" ? labels.provisional : undefined);
+
+const europe = succession.europe;
+const bands = [
+  { label: labels.olderBar, share: older },
+  { label: labels.youngerBar, share: younger },
+].map(({ label, share }) => ({
+  label,
+  rows: [
+    { who: name, value: share(succession), country: true, flag: flagged(succession.flag) },
+    ...(europe ? [{ who: labels.europe, value: share(europe), country: false, flag: flagged(europe.flag) }] : []),
+  ],
+}));
+/** The scale written under each pair of bars, so their length can be read without the figures (ChatGPT P0). */
+const tick = new Intl.NumberFormat(locale, { style: "percent", maximumFractionDigits: 0 });
+const ticks = [0, SCALE / 2, SCALE].map((value) => tick.format(value));
+---
+
+<section class="wrap border-t border-line py-8" aria-labelledby="country-context" data-pagefind-ignore>
+  <h2 id="country-context" class="scroll-mt-6 text-2xl font-bold" tabindex="-1">
+    {labels.title}
+  </h2>
+  <dl class="mt-4 grid gap-3 lg:grid-cols-3">
+    <div class="card min-w-0 p-4 lg:col-span-3" data-source={succession.sourceUrl}>
+      <dt class="font-bold">{labels.succession}</dt>
+      {/* Name and figure on one line, the bar under them at the full width of its band: every bar has the same
+          track, so the same share is drawn the same length for the country and for the EU-27 (ChatGPT P0). */}
+      <dd class="mt-3 grid gap-6 sm:grid-cols-2">
+        {bands.map(({ label, rows }) => (
+          <div>
+            <p class="font-bold">{label}</p>
+            <ul class="mt-2 grid gap-3">
+              {rows.map(({ who, value, country, flag }) => (
+                <li>
+                  <span class="flex items-baseline justify-between gap-3">
+                    <span class="min-w-0">
+                      {who}
+                      {flag && <span class="text-muted"> · {flag}</span>}
+                    </span>
+                    <strong class="tabular-nums">{percent.format(value)}</strong>
+                  </span>
+                  {/* An SVG sets its width as an attribute: the site's content policy allows no inline style. */}
+                  <svg class="mt-1 block h-4 w-full" viewBox="0 0 100 4" preserveAspectRatio="none" aria-hidden="true">
+                    <rect width="100" height="4" rx="0.5" class="fill-page" />
+                    <rect width={width(value)} height="4" rx="0.5" class:list={[country ? "fill-brand" : "fill-reference"]} />
+                  </svg>
+                </li>
+              ))}
+            </ul>
+            <p class="mt-1 flex justify-between text-muted tabular-nums" aria-hidden="true">
+              {ticks.map((value) => (
+                <span>{value}</span>
+              ))}
+            </p>
+          </div>
+        ))}
+      </dd>
+      <dd class="mt-3" data-year={succession.year}>
+        {succession.year}
+      </dd>
+      <dd>
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(succession.sourceUrl)}>
+          {labels.successionSource}
+        </a>
+      </dd>
+    </div>
+    <div class="card min-w-0 p-4" data-source={land.sourceUrl}>
+      <dt class="font-bold">{labels.land}</dt>
+      <dd class="mt-2 text-2xl font-bold text-brand">{hectares.format(land.hectares)}</dd>
+      <dd data-year={land.year}>
+        {land.year}
+        {flagged(land.flag) && ` · ${flagged(land.flag)}`}
+      </dd>
+      <dd>
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(land.sourceUrl)}>
+          {labels.landSource}
+        </a>
+      </dd>
+    </div>
+    <div class="card min-w-0 p-4 lg:col-span-2" data-source={`${economy.sectorSourceUrl} ${economy.gdpSourceUrl}`}>
+      <dt class="font-bold">{labels.economy}</dt>
+      <dd class="mt-2 text-2xl font-bold text-brand">{percent.format(economy.sectorValueAdded / economy.gdp)}</dd>
+      <dd data-year={economy.year}>
+        {economy.year}
+        {flagged(economy.flag) && ` · ${flagged(economy.flag)}`}
+      </dd>
+      <dd class="flex flex-wrap gap-x-4">
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(economy.sectorSourceUrl)}>
+          {labels.economySource}
+        </a>
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(economy.gdpSourceUrl)}>
+          {labels.gdpSource}
+        </a>
+      </dd>
+    </div>
+  </dl>
+  <p class="mt-2 text-muted">
+    Eurostat · {text.recordedOn} <time datetime={context.consultedOn}>{dateIn(context.consultedOn, locale)}</time>
+  </p>
+</section>

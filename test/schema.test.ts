@@ -137,7 +137,6 @@ const snapshot = (scope: Record<string, unknown>, resourceExtra: Record<string, 
   published: "2026-10-01",
   summary: "Resumen de lo que ofrece el territorio para la sucesion agraria.",
   coverage: { status: "PARTIAL", note: "Revisados los portales principales.", methods: [] },
-  review: { status: "DRAFT" },
   metadata: { language: "gl", sourcePolicy: "PUBLIC_SOURCES_ONLY", generatedBy: [{ id: "person-1", tool: "PERSON" }] },
   resources: [resource(scope, resourceExtra)],
   news: [],
@@ -181,29 +180,60 @@ test("a field that describes one kind of resource cannot appear on another", () 
   assert.ok(!accepts({ qualifiesForEstablishmentAid: false }), "only a course can satisfy a training requirement for establishment aid");
 });
 
-const withReview = (review: Record<string, unknown>): Record<string, unknown> => ({
-  ...snapshot({ level: "REGIONAL" }),
-  review,
+const withVerification = (verification: unknown): Record<string, unknown> => {
+  const base = snapshot({ level: "REGIONAL" }) as { resources: Array<{ sources: Array<Record<string, unknown>> }> };
+  const copy = structuredClone(base);
+  copy.resources[0]!.sources[0]!.verification = verification;
+  return copy;
+};
+
+test("a verified source says when and how its quotes were found again, and nothing else", () => {
+  const validate = compile("edition.schema.json");
+  assert.ok(
+    validate(withVerification({ checkedOn: "2026-10-01", method: "FETCH" })),
+    `a dated fetch verification is valid: ${JSON.stringify(validate.errors)}`,
+  );
+  assert.ok(validate(withVerification({ checkedOn: "2026-10-01", method: "BROWSER" })), "a browser verification is valid");
+  assert.ok(!validate(withVerification({ method: "FETCH" })), "a verification with no date cannot be told from a stale one");
+  assert.ok(!validate(withVerification({ checkedOn: "2026-10-01" })), "a verification has to say how the page was read");
+  assert.ok(!validate(withVerification({ checkedOn: "2026-10-01", method: "PERSON" })), "only the two reading methods exist");
+  assert.ok(
+    !validate(withVerification({ checkedOn: "2026-10-01", method: "FETCH", reviewedBy: "Someone" })),
+    "a verification carries no reviewer: it is a check of the quotes, not a sign-off",
+  );
 });
 
-test("a claimed review names who did it and when, and a draft claims neither", () => {
+const withExtra = (extra: Record<string, unknown>): Record<string, unknown> => snapshot({ level: "REGIONAL" }, extra);
+
+test("intervention codes are literal and plural, and an act names its title", () => {
   const validate = compile("edition.schema.json");
-  assert.ok(validate(withReview({ status: "DRAFT" })), "a plain draft is valid");
+  const page = "https://example.test/page";
   assert.ok(
-    validate(withReview({ status: "REVIEWED", reviewedBy: "José Antonio Cano", reviewedOn: "2026-10-01" })),
-    `a signed and dated review is valid: ${JSON.stringify(validate.errors)}`,
+    validate(
+      withExtra({
+        interventionCodes: [
+          { code: "C.2.2.1", sourceUrl: page },
+          { code: "C.2.2.2", sourceUrl: page },
+        ],
+      }),
+    ),
+    `one application under two interventions lists both codes: ${JSON.stringify(validate.errors)}`,
   );
   assert.ok(
-    !validate(withReview({ status: "REVIEWED" })),
-    "REVIEWED with no reviewer and no date would let a file claim a review nobody performed",
+    !validate(withExtra({ interventionCodes: [{ code: "SRE01", type: "INSTAL", sourceUrl: page }] })),
+    "no EU type is attached here: sources print the plan's code, not the regulation's family",
   );
+  assert.ok(!validate(withExtra({ interventionCodes: [{ code: "SRE01" }] })), "the source that gives the code is required");
+  assert.ok(validate(withExtra({ legalBasis: [{ title: "Ley 5/2019", provisions: ["artículo 32"], sourceUrl: page }] })));
+  assert.ok(!validate(withExtra({ legalBasis: [] })), "an empty list is an omission written down; leave the field out");
+  assert.ok(!validate(withExtra({ legalBasis: [{ provisions: ["artículo 32"], sourceUrl: page }] })), "an act needs its title");
+});
+
+test("no file claims a person's review", () => {
+  const validate = compile("edition.schema.json");
   assert.ok(
-    !validate(withReview({ status: "REVIEWED", reviewedBy: "José Antonio Cano" })),
-    "a review with no date cannot be told from a stale one",
-  );
-  assert.ok(
-    !validate(withReview({ status: "DRAFT", reviewedBy: "José Antonio Cano" })),
-    "a draft carrying a reviewer is a half-filled review that reads as a finished one",
+    !validate({ ...snapshot({ level: "REGIONAL" }), review: { status: "DRAFT" } }),
+    "the per-file review state is gone: what a reader is told is when each source was verified",
   );
 });
 

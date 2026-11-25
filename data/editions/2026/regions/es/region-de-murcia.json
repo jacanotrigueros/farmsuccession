@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "ES",
   "region": "region-de-murcia",
+  "metaTitle": "Ayudas, formación y bancos de tierras en Murcia",
+  "metaDescription": "Consulta la ayuda a la primera instalación de jóvenes, la formación de los CIFEA y las vías municipales para buscar tierras en la Región de Murcia.",
   "officialName": "Región de Murcia",
-  "published": "2026-09-30",
+  "published": "2026-11-25",
   "summary": "La Región de Murcia mantiene ayudas a la creación de empresas agrarias por jóvenes, con una convocatoria 2026 ya cerrada, y dispone de formación agraria pública a través de los CIFEA. No se ha verificado un banco de tierras regional, pero siguen operativos bancos de tierras municipales en Murcia y Molina de Segura.",
   "coverage": {
     "status": "PARTIAL",
@@ -41,9 +43,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -66,6 +65,8 @@
     {
       "id": "murcia-creacion-empresas-jovenes-agricultores",
       "name": "Ayudas a la creación de empresas agrarias por jóvenes agricultores",
+      "metaTitle": "Ayudas a jóvenes agricultores en la Región de Murcia",
+      "metaDescription": "Prima para jóvenes que se instalan por primera vez en Murcia. La convocatoria cerrada de 2026 fijó 27.500 euros de base y un máximo de 67.000 euros.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -88,7 +89,6 @@
           "sourceUrl": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288"
         }
       ],
-      "accessCostType": "FREE",
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "metrics": [
@@ -110,6 +110,12 @@
         }
       ],
       "lastEvidenceDate": "2026-05-28",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288"
+        }
+      ],
       "sources": [
         {
           "url": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288",
@@ -123,7 +129,11 @@
             "no cumplir los 41 años en el año natural de presentación de la solicitud",
             "con anterioridad a los 30 meses previos a la solicitud de ayuda",
             "Tener entre 18 años y 40 años de edad inclusive, en el momento de presentar la solicitud de ayuda"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"
@@ -131,6 +141,7 @@
     {
       "id": "murcia-banco-tierras-huerta",
       "name": "Banco de Tierras para la Huerta de Murcia",
+      "metaDescription": "Registro municipal para arrendar parcelas en la Huerta de Murcia. Consulta los formularios para propietarios y demandantes y la documentación contractual.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -143,7 +154,6 @@
       "whoCanUseIt": "Propietarios de terrenos no cultivados de la Huerta de Murcia y personas interesadas en arrendarlos para cultivarlos.",
       "howToAccess": "Utilizar los modelos de alta de arrendador o arrendatario y el encargo de intermediación publicados en el portal municipal.",
       "accessUrl": "https://www.murcia.es/web/urbanismo/banco-de-tierras",
-      "accessCostType": "FREE",
       "assetTypes": ["PLOTS"],
       "sectors": ["AGRICULTURE"],
       "languages": ["es"],
@@ -157,21 +167,40 @@
             "Banco de Tierras para la Huerta de Murcia",
             "Modelo 1a - Alta de arrendador",
             "Modelo 1b - Alta de arrendatario",
-            "Modelo 3 - Encargo de intermediación"
-          ]
+            "Modelo 3 - Encargo de intermediación",
+            "Para cualquier duda puede contactar en el siguiente correo: huertademurcia@ayto-murcia.es"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://huertademurcia.murcia.es/huertamurcia/banco-de-tierras/",
           "title": "Banco de Tierras - Huerta de Murcia",
           "consultedOn": "2026-09-28",
-          "quotes": ["con el fin de buscar posibles arrendatarios que estén dispuestos a cultivar sus tierras"]
+          "quotes": ["con el fin de buscar posibles arrendatarios que estén dispuestos a cultivar sus tierras"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ayuntamiento de Murcia · Banco de Tierras",
+          "value": "huertademurcia@ayto-murcia.es",
+          "sourceUrl": "https://www.murcia.es/web/urbanismo/banco-de-tierras"
+        }
+      ]
     },
     {
       "id": "molina-de-segura-banco-tierras",
       "name": "Banco de Tierras de Molina de Segura",
+      "metaTitle": "Banco de Tierras de Molina de Segura",
+      "metaDescription": "Registro municipal que conecta a propietarios de parcelas cultivables con quienes buscan tierras en Molina de Segura. Consulta el contacto municipal.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -184,7 +213,6 @@
       "whoCanUseIt": "Propietarios de parcelas cultivables del municipio y personas interesadas en acceder a tierra para cultivo.",
       "howToAccess": "Los propietarios pueden solicitar la inscripción de parcelas y las personas interesadas pueden solicitar consultar el registro; el Ayuntamiento comunica las solicitudes a los propietarios para facilitar el contacto directo.",
       "accessUrl": "https://medioambiente.molinadesegura.es/banco-de-tierras/",
-      "accessCostType": "FREE",
       "assetTypes": ["PLOTS"],
       "sectors": ["AGRICULTURE"],
       "languages": ["es"],
@@ -200,14 +228,34 @@
             "se configura a modo de registro administrativo de carácter público",
             "se solicitará por cualquier persona interesada en cultivo de parcela",
             "el Ayuntamiento comunicará las solicitudes formalizadas por terceros interesados sobre parcela/s, a los correspondientes propietarios"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://medioambiente.molinadesegura.es/contacto/",
+          "title": "Contacto - Concejalía de Medio Ambiente",
+          "consultedOn": "2026-11-24",
+          "quotes": ["medioambiente@molinadesegura.es"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Concejalía de Medio Ambiente de Molina de Segura",
+          "value": "medioambiente@molinadesegura.es",
+          "sourceUrl": "https://medioambiente.molinadesegura.es/contacto/"
+        }
+      ]
     },
     {
       "id": "murcia-cifea-formacion-incorporacion",
       "name": "Centros Integrados de Formación y Experiencias Agrarias (CIFEA)",
+      "metaTitle": "CIFEA: centros de formación agraria de la Región de Murcia",
+      "metaDescription": "Red pública de FP y formación agroalimentaria para jóvenes agricultores y otros nuevos perfiles. Consulta la oferta de los centros CIFEA en Murcia.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -230,11 +278,17 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "Desarrollar acciones formativas orientadas a la incorporación, al sector agrario",
-            "en especial de los agricultores jóvenes"
-          ]
+            "en especial de los agricultores jóvenes",
+            "es gratuita y con posibilidad de becas del estado para su alumnado"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "accessCostType": "FREE"
     }
   ],
   "news": [
@@ -250,7 +304,11 @@
           "url": "https://sede.carm.es/web/pagina?IDCONTENIDO=3125&IDTIPO=240&RASTRO=c%24m40288",
           "title": "Ayudas a la creación de empresas agrarias por jóvenes agricultores",
           "consultedOn": "2026-09-28",
-          "quotes": ["Fuera de plazo: 08-03-2026"]
+          "quotes": ["Fuera de plazo: 08-03-2026"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1"

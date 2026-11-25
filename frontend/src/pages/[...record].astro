@@ -21,7 +21,7 @@ import { Icon } from "astro-icon/components";
 import ApplyNow from "../components/ApplyNow.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CallWindows from "../components/CallWindows.astro";
-import DraftNotice from "../components/DraftNotice.astro";
+import CountryCards from "../components/CountryCards.astro";
 import Evidence from "../components/Evidence.astro";
 import FactList from "../components/FactList.astro";
 import KindTag from "../components/KindTag.astro";
@@ -30,10 +30,12 @@ import SourceRef from "../components/SourceRef.astro";
 import PageIndex from "../components/PageIndex.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
+  subdivisionsOf,
   currentEdition,
+  EUROPE_PAGE,
   href,
+  pageOf,
   placeOf,
-  isDraft,
   languageOf,
   localeOf,
   newsAbout,
@@ -43,17 +45,25 @@ import {
   view,
   leafLayers,
   type RecordedResource,
+  implementationsOf,
+  recordById,
+  type Resource,
+  type Territory,
 } from "../lib/corpus.ts";
 import { goalOf } from "../lib/goals.ts";
-import { namesPlace } from "../lib/place-name.ts";
-import { ICON, PRACTICAL_ICON } from "../lib/icons.ts";
-import { dateIn } from "../lib/language.ts";
+import { namesPlace, shortTitleTail } from "../lib/place-name.ts";
+import { snippet } from "../lib/snippet.ts";
+import { codesInBrackets, recordSubdivisions, titleWithCodes } from "../lib/subdivision.ts";
+import { flagOf, ICON, PRACTICAL_ICON } from "../lib/icons.ts";
+import { euCardIn } from "../lib/eu-presentation.ts";
+import { countryNameIn, dateIn } from "../lib/language.ts";
 import {
   assetLabel,
   channelLabel,
   costLabel,
   formatLabel,
   instrumentLabel,
+  kindLabel,
   languageName,
   newsTypeLabel,
   profileLabel,
@@ -87,8 +97,20 @@ const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure
 
 /** How much evidence there is, which is what the way down to it says rather than naming the section. */
 const quotes = resource.sources.reduce((total, source) => total + source.quotes.length, 0);
-const place = placeOf(territory, text.euName);
-const servedPlace = resourcePlaceParts(place, resource.scope.area, text.reachRow, text.labelSeparator);
+const place = placeOf(territory, text.euName, language);
+/**
+ * The codes readers type for the record's place ("safer 29"): after the region for a record of the whole
+ * region, after the area for one of a département. They are written on the page, where search reads them,
+ * and after the title when they fit.
+ */
+const codes = recordSubdivisions(resource.scope, resource.name, subdivisionsOf(territory));
+const codesText = codes.length > 0 ? ` ${codesInBrackets(codes)}` : "";
+const servedPlace = resourcePlaceParts(
+  resource.scope.area ? place : place + codesText,
+  resource.scope.area ? resource.scope.area + codesText : resource.scope.area,
+  text.reachRow,
+  text.labelSeparator,
+);
 
 /**
  * The title is the line a result shows, and somebody looking for an instrument looks for it where they
@@ -102,9 +124,18 @@ const belowCountry = territory.layer.level === "REGION" || territory.layer.level
 const placed = belowCountry && !namesPlace(resource.name, territory.data.officialName);
 const titlePlace = territory.data.officialName.split(" — ")[0] ?? territory.data.officialName;
 const hasNamesake = records().some(({ resource: other }) => other.id !== resource.id && other.name === resource.name);
-const pageTitle = placed
+const baseTitle = placed
   ? text.recordPageTitleInPlace.replace("{place}", titlePlace).replace("{name}", resource.name)
   : resource.name + (hasNamesake ? ` — ${territory.data.officialName}` : "");
+/**
+ * A short name — "Hofübergabe", "Agrar-Bürgschaft" — makes a result that says nothing about where it
+ * applies or who runs it, and gives a search engine almost nothing to match. Under 30 characters the
+ * title takes the country, or the operator when it already names the country.
+ */
+const countryName = view(territory).layers.find(({ layer }) => layer.level === "COUNTRY")?.data.officialName;
+/** A search title written from how people search for the record replaces the one built from its name. */
+const codedTitle = titleWithCodes(baseTitle, codes);
+const pageTitle = resource.metaTitle ?? shortTitleTail(codedTitle, countryName, resource.operator);
 
 /**
  * The line a result shows, which is the only place this site competes.
@@ -123,13 +154,18 @@ const pageTitle = placed
  *
  * The page itself still carries the whole summary. This is the line a result shows, and nowhere else.
  */
-const SNIPPET = 155;
 
 const callYear = (call: { name: string; opens?: string; closes?: string }): string =>
   (call.closes ?? call.opens ?? /\b20\d{2}\b/u.exec(call.name)?.[0] ?? "").slice(0, 4);
 
-/** The latest call the record documents: the one a reader searching this year is looking for. */
-const documentedCall = (resource.calls ?? []).toSorted((a, b) => callYear(a).localeCompare(callYear(b))).at(-1);
+/**
+ * The latest call the record documents: the one a reader searching this year is looking for. A call the
+ * source does not publish has no name or year a reader would type, so it never leads the result.
+ */
+const documentedCall = (resource.calls ?? [])
+  .filter(({ state }) => state !== "NOT_PUBLISHED")
+  .toSorted((a, b) => callYear(a).localeCompare(callYear(b)))
+  .at(-1);
 
 /**
  * A call is named the way its source names it. The longest name in this edition is 69 characters, which
@@ -143,15 +179,7 @@ const callNamed = !documentedCall
     ? documentedCall.name
     : (/\b20\d{2}\b/u.exec(documentedCall.name)?.[0] ?? callYear(documentedCall));
 
-const pageDescription = ((): string => {
-  const lead = callNamed ? `${callNamed} · ` : "";
-  const room = SNIPPET - lead.length;
-  const summary = resource.whatItOffers;
-  if (summary.length <= room) return lead + summary;
-  const cut = summary.slice(0, room - 1);
-  const atWord = cut.includes(" ") ? cut.slice(0, cut.lastIndexOf(" ")) : cut;
-  return `${lead}${atWord.replace(/[\s,;:·—-]+$/u, "")}…`;
-})();
+const pageDescription = resource.metaDescription ?? snippet(resource.whatItOffers, callNamed ? `${callNamed} · ` : "");
 
 /** Corrections start with the page the reader was looking at; they should not have to identify it again. */
 const reportCountry = territory.layer.level === "EU" ? "" : territory.layer.country.toLowerCase();
@@ -171,6 +199,32 @@ const feedbackQuery = new URLSearchParams({
 
 /** Actionable comments use the shared intake; no click pretends to record a vote. */
 const contact = "contact@farmsuccession.eu";
+
+/** The higher measures this record applies, as its own sources name them. */
+const applies = (resource.implements ?? []).flatMap(({ resourceId }) => recordById(resourceId) ?? []);
+
+/**
+ * The records that apply this one, grouped by the territory a reader would look under: the country for a
+ * European measure — its national record first, then the regions under it, which apply the national
+ * record rather than this one — and the region for a national measure.
+ */
+type Applied = { resource: Resource; territory: Territory };
+const below = implementationsOf(resource.id);
+const appliedGroups: Array<{ key: string; title: string; flag?: string; items: Array<Applied & { under?: Applied[] }> }> = [];
+for (const item of below) {
+  const country = item.territory.layer.level === "EU" ? "" : item.territory.layer.country;
+  const key = territory.layer.level === "EU" ? country : item.territory.data.officialName;
+  let group = appliedGroups.find((candidate) => candidate.key === key);
+  if (!group) {
+    group =
+      territory.layer.level === "EU"
+        ? { key, title: countryNameIn(country, language), flag: flagOf(country), items: [] }
+        : { key, title: item.territory.data.officialName, items: [] };
+    appliedGroups.push(group);
+  }
+  group.items.push({ ...item, under: territory.layer.level === "EU" ? implementationsOf(item.resource.id) : undefined });
+}
+appliedGroups.sort((a, b) => a.title.localeCompare(b.title, locale));
 
 const facts: Array<{ label: string; value: string; icon: string; datetime?: string; href?: string }> = [
   { label: text.territoryRow, value: place, icon: ICON.territory, href: href(territory.layer) },
@@ -241,7 +295,54 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
         },
       ]
     : []),
+  // The plan's own code, as its managing authority writes it: what a reader types to find the call.
+  ...(resource.interventionCodes
+    ? [{ label: text.planCodeRow, value: resource.interventionCodes.map(({ code }) => code).join(" · "), icon: ICON.planCode }]
+    : []),
+  ...applies.map(({ resource: measure, territory: where }) => ({
+    label: text.appliesRow,
+    value: (where.layer.level === "EU" ? euCardIn(measure.id, measure.whatItOffers, language)?.name : undefined) ?? measure.name,
+    icon: ICON.applies,
+    href: recordHref(measure.id, where),
+  })),
+  /*
+    A question the source was read for and does not answer says so, in the row a reader looks in: "not
+    published by the official source" is an answer they can act on, where a missing row is not.
+  */
+  ...(resource.notPublished ?? []).map(({ question }) => ({
+    label: {
+      WHO_CAN_USE: text.whoTitle,
+      HOW_TO_ACCESS: text.accessTitle,
+      AMOUNT_PER_BENEFICIARY: text.amountRow,
+      CONTACT_CHANNEL: text.contactTitle,
+      ACCESS_COST: text.costRow,
+      TRAINING_FORMAT: text.taughtRow,
+      LAND_HANDLED: text.handlesRow,
+    }[question],
+    value: text.notPublishedValue,
+    icon: {
+      WHO_CAN_USE: ICON.profile,
+      HOW_TO_ACCESS: ICON.chevron,
+      AMOUNT_PER_BENEFICIARY: PRACTICAL_ICON.instrumentType!,
+      CONTACT_CHANNEL: ICON.operator,
+      ACCESS_COST: PRACTICAL_ICON.accessCostType!,
+      TRAINING_FORMAT: PRACTICAL_ICON.trainingFormats!,
+      LAND_HANDLED: PRACTICAL_ICON.assetTypes!,
+    }[question],
+  })),
   { label: text.runByRow, value: resource.operator, icon: ICON.operator },
+  ...(resource.legalBasis
+    ? [
+        {
+          label: text.legalBasisRow,
+          icon: ICON.law,
+          value: resource.legalBasis
+            .map(({ title, provisions }) => (provisions ? `${title}, ${provisions.join(", ")}` : title))
+            .join(" · "),
+          ...(resource.legalBasis.length === 1 && resource.legalBasis[0]!.actUrl ? { href: resource.legalBasis[0]!.actUrl } : {}),
+        },
+      ]
+    : []),
   { label: text.stateRow, value: stateLabel(resource.status, language), icon: ICON.status },
   ...(resource.lastEvidenceDate
     ? [
@@ -261,17 +362,69 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
   },
 ];
 
+/** The steps of reading a record that come before its facts; many records have none of them. */
+const readingSteps = new Set(["who", "access", "figures", "dates", "contacts", "applied"]);
 const sections = [
   ...(resource.whoCanUseIt ? [{ id: "who", label: text.whoTitle }] : []),
-  { id: "access", label: text.accessTitle },
+  ...(resource.howToAccess ? [{ id: "access", label: text.accessTitle }] : []),
   ...(forYou.length + otherFigures.length > 0 ? [{ id: "figures", label: text.figuresTitle }] : []),
   ...(resource.calls && resource.calls.length > 0 ? [{ id: "dates", label: text.navPeriods }] : []),
   ...(resource.contactPoints ? [{ id: "contacts", label: text.contactTitle }] : []),
+  ...(appliedGroups.length > 0
+    ? [
+        {
+          id: "applied",
+          label: territory.layer.level === "EU" ? text.appliedTitle : text.appliedTitleIn.replace("{where}", territory.data.officialName),
+        },
+      ]
+    : []),
   { id: "facts", label: text.factsTitle },
+  ...(territory.layer.level === "EU" ? [{ id: "countries", label: text.euCountriesTitle }] : []),
   { id: "evidence", label: text.evidenceTitle },
 ];
+/**
+ * With no step of reading to sit beside, the facts panel is the body of the page: it takes the main
+ * column instead of standing at the right of an empty one, where a reader on a wide screen saw only
+ * white space under the summary and took the record to have no facts.
+ */
+const hasReadingSteps = sections.some(({ id }) => readingSteps.has(id));
 
-const trail = view(territory).layers;
+/**
+ * The trail is how a reader moves, not how measures are inherited: it starts at the overview of every
+ * country, and Europe's page is a step only on a European record. A national record does not pass
+ * through Europe's page, though Europe's measures apply to it.
+ */
+const isEuropean = territory.layer.level === "EU";
+
+/**
+ * A European record is written in English and applies in every country, so a reader searching in their own
+ * language would find it only by luck. Its kind, who it is for and "European Union" are the site's own
+ * translated vocabulary, never the record's text, and they are given to the search index in all seven
+ * languages as an attribute: the search can match them, nothing on the page shows them, and no search
+ * engine reads them as text of the page (founder, 17 Nov 2026).
+ */
+const SEARCH_LANGUAGES = ["en", "es", "de", "fr", "it", "pt", "nl"] as const;
+const searchTerms = isEuropean
+  ? [
+      ...new Set(
+        SEARCH_LANGUAGES.flatMap((other) => [
+          kindLabel(resource.kind, other),
+          ...(resource.targetProfiles ?? []).filter((profile) => profile !== "GENERAL").map((profile) => profileLabel(profile, other)),
+          words(other).euName,
+        ]),
+      ),
+    ].join(" · ")
+  : "";
+const trail = [
+  { label: text.allCountries, href: "/" },
+  ...view(territory)
+    .layers.filter((above) => isEuropean || above.layer.level !== "EU")
+    .map((above) =>
+      above.layer.level === "EU"
+        ? { label: text.euName, href: EUROPE_PAGE }
+        : { label: above.data.officialName, href: pageOf(above.layer) },
+    ),
+];
 
 /** The country the record belongs to, and every region it reaches — the two things a search filters by. */
 const country = territory.layer.level === "EU" ? "" : territory.layer.country;
@@ -286,7 +439,7 @@ const browseHere = searchUrl("/", {
 });
 ---
 
-<SiteLayout title={pageTitle} description={pageDescription} language={language} current={href(territory.layer)}>
+<SiteLayout title={pageTitle} description={pageDescription} language={language} current={pageOf(territory.layer)}>
   {/*
    * This page is the unit the search index is built from, and the only one: the territory pages list the
    * same records, and indexing them too would return a reader the same record several times over, once
@@ -305,6 +458,7 @@ const browseHere = searchUrl("/", {
     {countryFilters(country || "EU", reaches).map((code) => (
       <span hidden data-pagefind-filter={`country:${code}`}></span>
     ))}
+    {searchTerms && <span hidden data-pagefind-index-attrs="data-terms" data-terms={searchTerms}></span>}
     <span hidden data-pagefind-filter={`kind:${resource.kind}`} data-pagefind-meta={`kind:${resource.kind}`}></span>
     <span hidden data-pagefind-filter={`status:${resource.status}`} data-pagefind-meta={`status:${resource.status}`}></span>
     <span hidden data-pagefind-filter={`scope:${resource.scope.level}`}></span>
@@ -317,18 +471,12 @@ const browseHere = searchUrl("/", {
 
     <header class="border-b border-line bg-card" data-kind={resource.kind} data-status={resource.status}>
       <div class="wrap py-10">
-        <Breadcrumbs
-          items={trail.map((above) => ({
-            label: above.layer.level === "EU" ? text.europe : above.data.officialName,
-            href: href(above.layer),
-          }))}
-          current={resource.name}
-          showCurrent={false}
-          label={text.whereYouAre}
-        />
+        <Breadcrumbs items={trail} current={resource.name} showCurrent={false} label={text.whereYouAre} />
         {/* The tags carry this page's own words; the index carries the codes, in the hidden spans above,
           so a result can be described in the language of whichever page found it. */}
-        <p class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+        {/* Kept out of the indexed text (its filter still counts): a result excerpt that opens on the tags
+          read "resource." before anything the record says. */}
+        <p class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2" data-pagefind-ignore>
           <span data-pagefind-filter={`situation:${goalOf(resource.kind)}`}>
             <KindTag kind={resource.kind} language={language} />
           </span>
@@ -336,10 +484,13 @@ const browseHere = searchUrl("/", {
             <StatusTag status={resource.status} language={language} />
           </span>
         </p>
-        <p class="meta mt-2 max-w-3xl" data-pagefind-ignore>
-          {text.statusExplained}
-        </p>
-        <h1 class="page-title mt-4 max-w-5xl text-3xl text-balance sm:text-4xl" data-pagefind-meta="title">
+        {/* The note explains what "active" does not promise; beside any other status it contradicts the badge. */}
+        {resource.status === "ACTIVE" && (
+          <p class="meta mt-2 max-w-3xl" data-pagefind-ignore>
+            {text.statusExplained}
+          </p>
+        )}
+        <h1 class="page-title mt-4 text-3xl sm:text-4xl" data-pagefind-meta="title">
           {resource.name}
         </h1>
         <p class="mt-4 flex flex-wrap items-start gap-x-5 gap-y-2 text-muted">
@@ -350,20 +501,18 @@ const browseHere = searchUrl("/", {
               {servedPlace.area}
             </span>
           </span>
+          {/* A real space: without it the extracted text ran the place into the operator. */}{" "}
           <span class="inline-flex min-w-0 items-start gap-1.5" data-pagefind-meta="operator">
             <Icon name={ICON.operator} aria-hidden="true" class="mt-0.5 size-5 shrink-0" />
             <span>{resource.operator}</span>
           </span>
         </p>
-        <h2 class="eyebrow mt-8">{text.offersTitle}</h2>
-        <p class="mt-2 max-w-3xl text-lg" data-pagefind-meta="summary">
+        <h2 class="eyebrow mt-8" data-pagefind-ignore>
+          {text.offersTitle}
+        </h2>
+        <p class="mt-2 max-w-5xl text-lg" data-pagefind-meta="summary">
           {resource.whatItOffers}
         </p>
-        {isDraft(territory) && (
-          <div class="mt-5" data-pagefind-ignore>
-            <DraftNotice language={language} />
-          </div>
-        )}
         <span hidden data-pagefind-meta={`area:${resource.scope.area ?? ""}`}></span>
         <p class="mt-8 flex flex-wrap gap-3" data-pagefind-ignore>
           <a href={resource.accessUrl} rel="noopener" class="btn btn-primary">
@@ -382,172 +531,238 @@ const browseHere = searchUrl("/", {
 
     <PageIndex sections={sections} language={language} />
 
-    <div class="wrap grid gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_20rem]">
-      <div class="grid content-start gap-10">
-        {resource.whoCanUseIt && (
-          <section aria-labelledby="who">
-            <h2 id="who" class="scroll-mt-6 text-2xl font-bold">
-              {text.whoTitle}
-            </h2>
-            <p class="mt-3 max-w-3xl">{resource.whoCanUseIt}</p>
-          </section>
-        )}
-
-        <section aria-labelledby="access">
-          <h2 id="access" class="scroll-mt-6 text-2xl font-bold">
-            {text.accessTitle}
-          </h2>
-          {resource.howToAccess ? (
-            <p class="mt-3 max-w-3xl">{resource.howToAccess}</p>
-          ) : (
-            <a href={resource.accessUrl} rel="noopener" class="mt-3 inline-flex min-h-(--spacing-target) items-center font-bold underline">
-              {text.officialPage}
-              <span class="sr-only"> ({text.externalSite})</span>
-            </a>
-          )}
-        </section>
-
-        {resource.notes && (
-          <section class="notice" aria-labelledby="notes">
-            <Icon name={ICON.note} aria-hidden="true" class="mt-1 size-5 shrink-0 text-accent" />
-            <div>
-              <h2 id="notes" class="scroll-mt-6 text-xl font-bold">
-                {text.notesTitle}
+    <div class:list={["wrap grid gap-10 py-12", hasReadingSteps && "lg:grid-cols-[minmax(0,1fr)_20rem]"]}>
+      {hasReadingSteps && (
+        <div class="grid content-start gap-10">
+          {resource.whoCanUseIt && (
+            <section aria-labelledby="who">
+              <h2 id="who" class="scroll-mt-6 text-2xl font-bold">
+                {text.whoTitle}
               </h2>
-              <p class="mt-2">{resource.notes}</p>
-            </div>
-          </section>
-        )}
+              <p class="mt-3 max-w-3xl">{resource.whoCanUseIt}</p>
+            </section>
+          )}
 
-        {/*
+          {/* Without steps of its own the section only repeated the button at the top of the page. */}
+          {resource.howToAccess && (
+            <section aria-labelledby="access">
+              <h2 id="access" class="scroll-mt-6 text-2xl font-bold">
+                {text.accessTitle}
+              </h2>
+              <p class="mt-3 max-w-3xl">{resource.howToAccess}</p>
+            </section>
+          )}
+
+          {resource.notes && (
+            <section class="notice" aria-labelledby="notes">
+              <Icon name={ICON.note} aria-hidden="true" class="mt-1 size-5 shrink-0 text-accent" />
+              <div>
+                <h2 id="notes" class="scroll-mt-6 text-xl font-bold">
+                  {text.notesTitle}
+                </h2>
+                <p class="mt-2">{resource.notes}</p>
+              </div>
+            </section>
+          )}
+
+          {/*
           Published per-beneficiary figures lead, as cards: they are the amounts a reader came for. A reader
           who finds "48.000 €" first knows in one second whether to keep reading. A total budget, a
           number of plots or of hours trained is about the instrument rather than about them, so it
           follows in a list, quieter. Each figure says the day it was published and which source said so,
           because a figure without a date is a rumour.
         */}
-        {forYou.length > 0 && (
-          <section aria-labelledby="figures">
-            <h2 id="figures" class="scroll-mt-6 text-2xl font-bold">
-              {text.howMuchTitle}
-            </h2>
-            <ul class="mt-5 grid gap-4 sm:grid-cols-2">
-              {forYou.map((metric) => {
-                const cited = sourceNumber.get(metric.sourceUrl);
-                return (
-                  <li class="rounded-r-lg border-s-4 border-accent bg-accent-tint p-5">
-                    <span class="block text-2xl font-bold text-ink tabular-nums">{quantity(metric.value, metric.unit, locale)}</span>
-                    <span class="mt-1 block">{metric.label}</span>
-                    <span class="meta mt-1 block">
-                      {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, locale)}</time>{" "}
-                      {cited && <SourceRef number={cited} language={language} />}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
-        )}
-
-        {otherFigures.length > 0 && (
-          <section aria-labelledby={forYou.length > 0 ? "other-figures" : "figures"}>
-            <h2 id={forYou.length > 0 ? "other-figures" : "figures"} class="scroll-mt-6 text-2xl font-bold">
-              {forYou.length > 0 ? text.otherFiguresTitle : text.figuresTitle}
-            </h2>
-            <ul class="mt-4 divide-y divide-line border-y border-line">
-              {otherFigures.map((metric) => {
-                const cited = sourceNumber.get(metric.sourceUrl);
-                return (
-                  <li class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
-                    <span class="shrink-0 text-lg font-bold text-ink tabular-nums sm:w-44">
-                      {quantity(metric.value, metric.unit, locale)}
-                    </span>
-                    <span>
-                      {metric.label}
-                      <span class="meta block">
+          {forYou.length > 0 && (
+            <section aria-labelledby="figures">
+              <h2 id="figures" class="scroll-mt-6 text-2xl font-bold">
+                {text.howMuchTitle}
+              </h2>
+              <ul class="mt-5 grid gap-4 sm:grid-cols-2">
+                {forYou.map((metric) => {
+                  const cited = sourceNumber.get(metric.sourceUrl);
+                  return (
+                    <li class="rounded-r-lg border-s-4 border-accent bg-accent-tint p-5">
+                      <span class="block text-2xl font-bold text-ink tabular-nums">{quantity(metric.value, metric.unit, locale)}</span>
+                      <span class="mt-1 block">{metric.label}</span>
+                      <span class="meta mt-1 block">
                         {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, locale)}</time>{" "}
                         {cited && <SourceRef number={cited} language={language} />}
                       </span>
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
-        )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          )}
 
-        {resource.calls && resource.calls.length > 0 && (
-          <section aria-labelledby="dates">
-            <h2 id="dates" class="scroll-mt-6 text-2xl font-bold">
-              {text.periodsTitle}
-            </h2>
-            <div class="mt-4">
-              <CallWindows calls={resource.calls} sources={resource.sources} language={language} locale={locale} />
-            </div>
-          </section>
-        )}
+          {otherFigures.length > 0 && (
+            <section aria-labelledby={forYou.length > 0 ? "other-figures" : "figures"}>
+              <h2 id={forYou.length > 0 ? "other-figures" : "figures"} class="scroll-mt-6 text-2xl font-bold">
+                {forYou.length > 0 ? text.otherFiguresTitle : text.figuresTitle}
+              </h2>
+              <ul class="mt-4 divide-y divide-line border-y border-line">
+                {otherFigures.map((metric) => {
+                  const cited = sourceNumber.get(metric.sourceUrl);
+                  return (
+                    <li class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
+                      <span class="shrink-0 text-lg font-bold text-ink tabular-nums sm:w-44">
+                        {quantity(metric.value, metric.unit, locale)}
+                      </span>
+                      <span>
+                        {metric.label}
+                        <span class="meta block">
+                          {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, locale)}</time>{" "}
+                          {cited && <SourceRef number={cited} language={language} />}
+                        </span>
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          )}
 
-        {resource.contactPoints && (
-          <section aria-labelledby="contacts">
-            <h2 id="contacts" class="scroll-mt-6 text-2xl font-bold">
-              {text.contactTitle}
-            </h2>
-            <ul class="mt-5 grid gap-4">
-              {resource.contactPoints.map((contact) => (
-                <li class="card p-5 [overflow-wrap:anywhere]">
-                  <p class="font-bold">{contact.label}</p>
-                  <p class="meta">{channelLabel(contact.channel, language)}</p>
-                  <p class="flex min-h-(--spacing-target) flex-wrap items-center gap-x-2">
-                    {contact.channel === "EMAIL" && <a href={`mailto:${contact.value}`}>{contact.value}</a>}
-                    {contact.channel === "PHONE" && <a href={`tel:${contact.value.replace(/\s/gu, "")}`}>{contact.value}</a>}
-                    {contact.channel === "FORM" && (
-                      <a href={contact.value} rel="noopener">
-                        {text.openContactForm}
-                      </a>
+          {resource.calls && resource.calls.length > 0 && (
+            <section aria-labelledby="dates">
+              <h2 id="dates" class="scroll-mt-6 text-2xl font-bold">
+                {text.periodsTitle}
+              </h2>
+              <div class="mt-4">
+                <CallWindows calls={resource.calls} sources={resource.sources} language={language} locale={locale} />
+              </div>
+            </section>
+          )}
+
+          {resource.contactPoints && (
+            <section aria-labelledby="contacts">
+              <h2 id="contacts" class="scroll-mt-6 text-2xl font-bold">
+                {text.contactTitle}
+              </h2>
+              <ul class="mt-5 grid gap-4">
+                {resource.contactPoints.map((contact) => (
+                  <li class="card p-5 [overflow-wrap:anywhere]">
+                    <p class="font-bold">{contact.label}</p>
+                    <p class="meta">{channelLabel(contact.channel, language)}</p>
+                    {contact.areas && (
+                      <p class="meta flex items-center gap-1.5">
+                        <Icon name={ICON.area} aria-hidden="true" class="size-4 shrink-0" />
+                        {text.servesArea}: {contact.areas.join(" · ")}
+                      </p>
                     )}
-                    {contact.channel === "OFFICE" && <span>{contact.value}</span>}
-                  </p>
-                  <p>
-                    <a href={contact.sourceUrl} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center underline">
-                      {text.sourceShort}
-                    </a>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {news.length > 0 && (
-          <section aria-labelledby="news">
-            <h2 id="news" class="scroll-mt-6 text-2xl font-bold">
-              {text.newsTitle}
-            </h2>
-            <ul class="mt-4 space-y-5">
-              {news.map((item) => (
-                <li>
-                  <p class="meta">
-                    <time datetime={item.date}>{dateIn(item.date, locale)}</time> · {newsTypeLabel(item.type, language)}
-                  </p>
-                  <p class="font-semibold">{item.headline}</p>
-                  <p class="max-w-3xl">{item.summary}</p>
-                  <ul class="mt-1">
-                    {item.sources.map((source) => (
-                      <li class="meta">
-                        <a href={source.url} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center break-words">
-                          {source.title}
+                    <p class="flex min-h-(--spacing-target) flex-wrap items-center gap-x-2">
+                      {contact.channel === "EMAIL" && (
+                        <a href={`mailto:${contact.value}`} class="inline-flex min-h-(--spacing-target) items-center">
+                          {contact.value}
                         </a>
-                        {", "}
-                        {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, locale)}</time>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-      </div>
+                      )}
+                      {contact.channel === "PHONE" && (
+                        <a href={`tel:${contact.value.replace(/\s/gu, "")}`} class="inline-flex min-h-(--spacing-target) items-center">
+                          {contact.value}
+                        </a>
+                      )}
+                      {contact.channel === "FORM" && (
+                        <a href={contact.value} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center">
+                          {text.openContactForm}
+                        </a>
+                      )}
+                      {contact.channel === "OFFICE" && <span>{contact.value}</span>}
+                    </p>
+                    <p>
+                      <a href={contact.sourceUrl} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center underline">
+                        {text.sourceShort}
+                      </a>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {news.length > 0 && (
+            <section aria-labelledby="news">
+              <h2 id="news" class="scroll-mt-6 text-2xl font-bold">
+                {text.newsTitle}
+              </h2>
+              <ul class="mt-4 space-y-5">
+                {news.map((item) => (
+                  <li>
+                    <p class="meta">
+                      <time datetime={item.date}>{dateIn(item.date, locale)}</time> · {newsTypeLabel(item.type, language)}
+                    </p>
+                    <p class="font-semibold">{item.headline}</p>
+                    <p class="max-w-3xl">{item.summary}</p>
+                    <ul class="mt-1">
+                      {item.sources.map((source) => (
+                        <li class="meta">
+                          <a href={source.url} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center break-words">
+                            {source.title}
+                          </a>
+                          {", "}
+                          {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, locale)}</time>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/*
+          A framework record says what it is; the records under it say what a reader can actually ask for
+          where they live. Each link is the lower record's own claim, quoted from its source, so the list
+          says plainly that other applications may not be documented yet.
+        */}
+          {appliedGroups.length > 0 && (
+            <section aria-labelledby="applied">
+              <h2 id="applied" class="scroll-mt-6 text-2xl font-bold">
+                {territory.layer.level === "EU" ? text.appliedTitle : text.appliedTitleIn.replace("{where}", territory.data.officialName)}
+              </h2>
+              <p class="mt-2 max-w-3xl">{text.appliedLead}</p>
+              <div class="mt-5 grid gap-6 sm:grid-cols-2">
+                {appliedGroups.map((group) => (
+                  <div>
+                    <h3 class="flex items-center gap-2 font-bold">
+                      {group.flag && <img src={group.flag} alt="" width="24" height="16" class="h-4 w-6 shrink-0 rounded-xs" />}
+                      {group.title}
+                    </h3>
+                    <ul class="mt-2 grid gap-1">
+                      {group.items.map(({ resource: item, territory: where, under }) => (
+                        <li>
+                          <a
+                            href={recordHref(item.id, where)}
+                            lang={languageOf(where)}
+                            class="inline-flex min-h-(--spacing-target) items-center underline"
+                          >
+                            {territory.layer.level === "EU" && (where.layer.level === "REGION" || where.layer.level === "HUB")
+                              ? `${where.data.officialName}: ${item.name}`
+                              : item.name}
+                          </a>
+                          {under && under.length > 0 && (
+                            <ul class="ms-4 grid gap-1 border-s-2 border-line ps-3">
+                              {under.map(({ resource: leaf, territory: at }) => (
+                                <li>
+                                  <a
+                                    href={recordHref(leaf.id, at)}
+                                    lang={languageOf(at)}
+                                    class="inline-flex min-h-(--spacing-target) items-center underline"
+                                  >
+                                    {`${at.data.officialName}: ${leaf.name}`}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      )}
 
       {/* The facts are a panel rather than a section: they are what the record is, not a step of reading
         it, and beside the text they stay available while a reader works down the page. */}
@@ -555,9 +770,26 @@ const browseHere = searchUrl("/", {
         <h2 id="facts-title" class="scroll-mt-6 text-xl font-bold">
           {text.factsTitle}
         </h2>
-        <FactList rows={facts} />
+        <FactList rows={facts} wide={!hasReadingSteps} />
       </aside>
     </div>
+
+    {/*
+      A European measure is applied by each country in its own way (founder, 17 Nov 2026), so a European
+      record leads on to the countries, where what each one documents is listed — the same cards as Europe's
+      page, so the two can never count differently.
+    */}
+    {isEuropean && (
+      <section class="border-t border-line bg-brand-tint" aria-labelledby="countries" data-pagefind-ignore>
+        <div class="wrap py-12">
+          <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
+            {text.euCountriesTitle}
+          </h2>
+          <p class="mt-2">{text.euCountriesLead}</p>
+          <CountryCards language={language} />
+        </div>
+      </section>
+    )}
 
     <section class="border-t border-line bg-card" aria-labelledby="evidence">
       <div class="wrap py-12">
@@ -573,14 +805,14 @@ const browseHere = searchUrl("/", {
 
     <section class="wrap py-8" aria-labelledby="helpful" data-pagefind-ignore>
       <p class="mb-6">
-        <a href={browseHere} class="btn btn-quiet">
-          {text.browseAll.replace("{where}", territory.data.officialName)}
+        <a href={isEuropean ? `${EUROPE_PAGE}#own` : browseHere} class="btn btn-quiet">
+          {isEuropean ? text.browseEurope : text.browseAll.replace("{where}", territory.data.officialName)}
         </a>
       </p>
       <p id="helpful" class="font-bold">
         {text.helpfulQuestion}
       </p>
-      <p class="mt-2 max-w-3xl">{text.helpfulFeedbackLead}</p>
+      <p class="mt-2 max-w-5xl">{text.helpfulFeedbackLead}</p>
       <div class="mt-4 flex flex-wrap gap-3">
         <a class="btn btn-primary" data-record-feedback rel="nofollow" href={`${reportPath}?${feedbackQuery}`}>
           {text.helpfulFeedbackAction}
@@ -589,7 +821,7 @@ const browseHere = searchUrl("/", {
           {text.reportChangeForm}
         </a>
       </div>
-      <p class="mt-3 max-w-3xl">
+      <p class="mt-3 max-w-5xl">
         {text.helpfulWriteIn}{" "}
         <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`mailto:${contact}`}>
           {contact}

@@ -1,5 +1,9 @@
 ---
-/** Divided rows reduce the visual weight of long regional lists; two columns retain a readable measure. */
+/**
+ * Territorial records, each with its full description. On a wide screen they flow down two columns, so
+ * ten national records are five rows to scan rather than ten lines of text a page wide; below that width
+ * a column would be cramped, and they take the full width.
+ */
 import ResourceCard from "./ResourceCard.astro";
 import type { Resource, Territory } from "../lib/corpus.ts";
 
@@ -7,19 +11,14 @@ type Props = {
   items: readonly { resource: Resource; recordedIn: Territory }[];
   language: string;
   level?: "h2" | "h3" | "h4";
+  /** The country of the page, so a European card can lead to what that country made of it. */
+  country?: string;
 };
-const { items, language, level = "h3" } = Astro.props;
+const { items, language, level = "h3", country } = Astro.props;
 ---
 
-<ul data-records class="territory-records grid gap-x-8 md:grid-cols-2">
+<ul data-records class="territory-records gap-3 lg:columns-2 [&>li]:mb-3 [&>li]:break-inside-avoid">
   {items.map(({ resource, recordedIn }) => (
-    <ResourceCard resource={resource} recordedIn={recordedIn} language={language} level={level} compact />
+    <ResourceCard resource={resource} recordedIn={recordedIn} language={language} level={level} country={country} compact showFullSummary />
   ))}
 </ul>
-
-<style>
-  /* A grid has two first-row items: the first item must not inherit a list-only padding exception. */
-  .territory-records > :global(.result-row:first-child) {
-    padding-top: 1.25rem;
-  }
-</style>

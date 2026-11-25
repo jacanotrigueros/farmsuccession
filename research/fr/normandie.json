@@ -1,12 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "territory": { "level": "REGION", "country": "FR", "region": "normandie" },
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "normandie"
+  },
   "language": "fr",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-11-21",
   "context": [
     "Le site installer-transmettre-normandie.fr est le guichet régional commun, financé par la Région dans un contrat d’objectifs avec six partenaires agricoles.",
     "La Région publie par ailleurs des fiches d’aides au démarrage de l’installation sur normandie.fr, non citées dans cette passe.",
-    "Les services agricoles de l’État lancent chaque année un appel à projets régional pour l’accompagnement installation-transmission."
+    "Les services agricoles de l’État lancent chaque année un appel à projets régional pour l’accompagnement installation-transmission.",
+    "La rubrique de recherche d’un repreneur présente plusieurs outils et partenaires ; leurs services propres restent à vérifier sur leurs pages opérateurs avant toute admission distincte.",
+    "La rubrique foncière présente le RDI et le dispositif régional de portage foncier ; leurs modalités propres restent à vérifier sur les pages des opérateurs avant toute admission distincte."
   ],
   "portals": [
     {
@@ -27,7 +33,11 @@
       "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
       "query": "Région Normandie aide installation jeunes agriculteurs 2026 transmission dispositif agriculture"
     },
-    { "id": "nor-safer", "kinds": ["LAND_BANK"], "query": "Safer de Normandie s’installer transmettre foncier agricole" }
+    {
+      "id": "nor-safer",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer de Normandie s’installer transmettre foncier agricole"
+    }
   ],
   "leads": [
     {
@@ -71,6 +81,33 @@
       "reason": "Appel annuel de l’État aux structures d’accompagnement ; à vérifier lors d’une prochaine passe.",
       "foundBy": "nor-installation",
       "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "nor-transmission-se-faire-accompagner",
+      "name": "Se faire accompagner - Installation/Transmission Agriculture Normandie",
+      "url": "https://www.installer-transmettre-normandie.fr/je-transmets-mon-exploitation-agricole/se-faire-accompagner/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "normandie-installer-transmettre",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "nor-transmission-trouver-repreneur",
+      "name": "Rechercher et trouver un repreneur/associé d'exploitation agricole - Installation/Transmission Agriculture Normandie",
+      "url": "https://www.installer-transmettre-normandie.fr/je-transmets-mon-exploitation-agricole/trouver-un-repreneur/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "normandie-installer-transmettre",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "nor-installation-trouver-ferme-foncier",
+      "name": "Trouver sa ferme et son foncier",
+      "url": "https://www.installer-transmettre-normandie.fr/s-installer-en-agriculture-en-normandie/trouver-son-installation/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "normandie-installer-transmettre",
+      "checkedOn": "2026-11-21"
     }
   ],
   "instrumentChecks": [
@@ -80,8 +117,18 @@
       "reason": "La fiche de l’aide régionale au démarrage n’a pas été citée dans cette passe.",
       "checkedOn": "2026-09-20"
     },
-    { "expectedId": "fr-transmission-accompagnement", "status": "FOUND", "leadId": "nor-installer-transmettre", "checkedOn": "2026-09-20" },
-    { "expectedId": "fr-safer-foncier", "status": "FOUND", "leadId": "nor-safer-normandie", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "nor-installer-transmettre",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "nor-safer-normandie",
+      "checkedOn": "2026-09-20"
+    },
     {
       "expectedId": "fr-associations-installation",
       "status": "NOT_FOUND",
@@ -94,6 +141,26 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Première passe avec la liste de contrôle nationale : guichet régional installation-transmission et Safer de Normandie admis ; aides régionales à vérifier."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La page conserve les secteurs départementaux et l’accès au conseiller foncier ; la citation signalée assemblait des libellés avec des séparateurs absents du texte. Je la remplace par des extraits littéraux suffisamment longs, sans modifier les autres sources ni les informations de la fiche ; les contrôles techniques n’ont pas été exécutés dans cette passe."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La page précise les modalités d’accompagnement à la transmission déjà couvertes par la fiche régionale : diagnostic individuel, aide à la mise en relation et formations collectives. J’enrichis cette fiche et ajoute cette source, sans créer de doublon ni modifier ses autres sources."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "Cette page complète le parcours régional déjà publié en précisant les aides à la recherche d’un repreneur et l’accompagnement du binôme cédant-repreneur. Je l’ajoute à la fiche existante, sans créer de fiches distinctes pour les outils et organismes qu’elle présente ni modifier les autres sources."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La rubrique « Trouver sa ferme et son foncier » complète le parcours régional déjà publié par des informations sur la recherche foncière, le portage et l’autorisation d’exploiter. Je l’ajoute à la fiche existante, sans créer de ressources distinctes pour les dispositifs et plateformes qu’elle présente."
     }
   ]
 }

@@ -1,0 +1,1133 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "country-snapshot",
+  "edition": "2026",
+  "country": "NL",
+  "metaDescription": "Vind per provincie steun voor jonge landbouwers, hulp bij het overnemen van een landbouwbedrijf en informatie over provinciale pachtgrond in Nederland.",
+  "officialName": "Nederland",
+  "published": "2026-11-25",
+  "summary": "Vind de regelingen voor jonge landbouwers, zoals de extra betaling en de vestigingssubsidie, en hulp bij bedrijfsovername. Per provincie ziet u waar provinciale landbouwgrond wordt verpacht.",
+  "countryContext": {
+    "consultedOn": "2026-11-19",
+    "land": {
+      "year": 2023,
+      "hectares": 1806130,
+      "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_lus?lang=en&time=2023&so_eur=TOTAL&crops=UAA&unit=HA&geo=NL",
+      "europe": {
+        "year": 2023,
+        "hectares": 156217050,
+        "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_lus?lang=en&time=2023&so_eur=TOTAL&crops=UAA&unit=HA&geo=EU27_2020",
+        "flag": "IMPUTED"
+      }
+    },
+    "economy": {
+      "year": 2024,
+      "sectorValueAdded": 19029,
+      "gdp": 1115252,
+      "sectorSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a64?lang=en&time=2024&unit=CP_MEUR&nace_r2=A01&na_item=B1G&geo=NL",
+      "gdpSourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?lang=en&time=2024&unit=CP_MEUR&na_item=B1GQ&geo=NL"
+    },
+    "succession": {
+      "year": 2023,
+      "holdings": 50560,
+      "under25": 200,
+      "from25To34": 2380,
+      "from35To39": 2580,
+      "atLeast65": 12060,
+      "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_agesex?lang=en&time=2023&so_eur=TOTAL&sex=T&unit=HLD&age=TOTAL&age=Y_LT25&age=Y25-34&age=Y35-39&age=Y_GE65&geo=NL",
+      "europe": {
+        "year": 2023,
+        "holdings": 8771680,
+        "under25": 49740,
+        "from25To34": 437990,
+        "from35To39": 446920,
+        "atLeast65": 3064730,
+        "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ef_fsi_agesex?lang=en&time=2023&so_eur=TOTAL&sex=T&unit=HLD&age=TOTAL&age=Y_LT25&age=Y25-34&age=Y35-39&age=Y_GE65&geo=EU27_2020",
+        "flag": "IMPUTED"
+      }
+    }
+  },
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Tot nu toe zijn alleen afzonderlijke bronnen onderzocht. Een volledige zoektocht moet nog worden uitgevoerd.",
+    "methods": [
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://landgilde.nl/onze-diensten/hulp-van-landgilde/toegang-tot-grond/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.grondvanbestaan.nl/faq/ondernemer-en-bedrijf"
+      }
+    ]
+  },
+  "metadata": {
+    "language": "nl",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "claude-1",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5-5",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-16"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-24"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "nl-landgilde-toegang-tot-grond",
+      "name": "Toegang tot grond",
+      "metaTitle": "Toegang tot grond voor startende boeren – Landgilde",
+      "metaDescription": "Wil je starten met boeren? Lees over koop, pacht, erfpacht en bruikleen. Landgilde verwijst naar een brochure met voorbeelden van grondgebruik zonder koop.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Landgilde",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Informatie over grond verwerven of gebruiken bij bedrijfsstart: overname, koop, pacht, erfpacht en bruikleen. De pagina verwijst naar de eigen brochure Toegang tot land voor duurzame landbouwbedrijven met praktische voorbeelden van landgebruik zonder aankoop, en beschrijft starten met een eigen teelt of bedrijfstak binnen een bestaand bedrijf.",
+      "howToAccess": "Lees de informatie op de pagina en volg daar de verwijzing naar de brochure Toegang tot land voor duurzame landbouwbedrijven.",
+      "accessUrl": "https://landgilde.nl/onze-diensten/hulp-van-landgilde/toegang-tot-grond/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://landgilde.nl/onze-diensten/hulp-van-landgilde/toegang-tot-grond/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://landgilde.nl/onze-diensten/hulp-van-landgilde/toegang-tot-grond/",
+          "title": "Toegang tot grond – Landgilde",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Welke mogelijkheden heb je om jouw plannen, bedrijfsstart of bedrijfsgroei mogelijk te maken?",
+            "Je kan grond overnemen van een bestaand bedrijf (fiscaal gunstige koop). Je kan grond kopen. Je kan grond pachten of in erfpacht nemen. En soms ook in bruikleen krijgen om niet.",
+            "In onze brochure Toegang tot land voor duurzame landbouwbedrijven meer informatie over succesvolle manieren om land te gebruiken zonder het te kopen.",
+            "Met praktische voorbeelden van boeren en tuinders die je voorgingen.",
+            "Leer-onderneming of deel-onderneming: je eigen teelt of tak binnen een bestaand bedrijf",
+            "Je kan ook op een bestaand bedrijf starten met ondernemen.",
+            "Duurzame land- en tuinbouwbedrijven hebben grond nodig. Naast grond heb je vaak ook gebouwen nodig. Grond is in Nederland is schreeuwend duur. Welke mogelijkheden heb je om jouw plannen, bedrijfsstart of bedrijfsgroei mogelijk te maken?"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://landgilde.nl/contact/",
+          "title": "Contact – Landgilde",
+          "consultedOn": "2026-11-25",
+          "quotes": ["info@landgilde.nl"]
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "whoCanUseIt": "De informatie is bedoeld voor duurzame land- en tuinbouwbedrijven die grond zoeken voor hun plannen, bedrijfsstart of bedrijfsgroei.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Landgilde",
+          "value": "info@landgilde.nl",
+          "sourceUrl": "https://landgilde.nl/contact/"
+        }
+      ]
+    },
+    {
+      "id": "nl-grond-van-bestaan",
+      "name": "Grond van Bestaan",
+      "metaTitle": "Grond van Bestaan: overdracht van landbouwbedrijven",
+      "metaDescription": "Voor natuurvriendelijke boeren en tuinders die willen overdragen. Lees hoe gedeeld eigenaarschap werkt en wanneer de stichting kan bemiddelen.",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Stichting Grond van Bestaan",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Een werkwijze met drievoudig eigenaarschap om natuurvriendelijke landbouw over generaties voort te zetten. De grondwaarde belast de bedrijfsvoering niet meer, waardoor overdracht gemakkelijker wordt. De gemeenschap en de zittende ondernemer organiseren de opvolging in onderling overleg. Bij conflicten kan Grond van Bestaan op verzoek bemiddelen.",
+      "whoCanUseIt": "Ondernemers bij natuurvriendelijke landbouw en tuinderijen die hun bedrijf of grond aan nieuwe gebruikers willen overdragen.",
+      "accessUrl": "https://www.grondvanbestaan.nl/faq/ondernemer-en-bedrijf",
+      "notes": "Bij de eerste stap moet de grond met hulp van de gemeenschap nog eenmaal worden vrijgekocht. Ook het bedrijf zelf moet op termijn onverhandelbaar worden. Grond van Bestaan borgt de natuurvriendelijke uitgangspunten via een bruikleenovereenkomst en geeft geen inhoudelijk advies, maar kan doorverwijzen.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.grondvanbestaan.nl/voor-initiatieven"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.grondvanbestaan.nl/faq/ondernemer-en-bedrijf",
+          "title": "Ondernemer en bedrijf | FAQ",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Stichting Grond van Bestaan",
+            "Het is onze doelstelling om natuurvriendelijke landbouw mogelijk te maken over de generaties heen.",
+            "Kunnen jullie helpen bedrijfsovername mogelijk te maken van een goed lopende tuinderij?",
+            "Kunnen jullie helpen ons natuurvriendelijk beheerde land over te dragen aan nieuwe gebruikers?",
+            "De exploitatie van de bedrijfsvoering is niet meer belast met de grondwaarde en is daarmee gemakkelijker overdraagbaar naar een volgende generatie.",
+            "Echter degenen die de eerste stap maken zullen met hulp van hun gemeenschap de grond nog één keer vrij moeten kopen.",
+            "In onze werkwijze met het drievoudig eigenaarschap, wordt de opvolging georganiseerd door de gemeenschap en de zittende ondernemer in goed onderling overleg.",
+            "Bij conflicten kan Grond van Bestaan op verzoek bemiddelen.",
+            "Daarom stelt Grond van Bestaan dat ook het bedrijf zelf onverhandelbaar moet zijn zodat nieuwe tuinders/boeren gemakkelijk kunnen instappen.",
+            "Wij zijn een grondbeheerder die de natuurvriendelijke uitgangspunten borgt via de bruikleenovereenkomst. We geven geen inhoudelijk advies.",
+            "We kunnen wel doorverwijzen naar adviseurs die ook bekend zijn met ons gedachtegoed."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.grondvanbestaan.nl/voor-initiatieven",
+          "title": "Voor initiatieven - Stichting Grond van Bestaan",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "De initiatiefnemer zorgt zelf voor de financiering via bijvoorbeeld certificaten , leningen en crowdfunding. Ervaringen van andere deelnemers kunnen daarbij helpen. Wij verbinden jullie graag aan elkaar. In een intake verkennen we of de uitgangspunten van het initiatief overeenstemmen met de onze. Als aan bovenstaande voorwaarden is voldaan, of als daar naar toe gewerkt wordt, schrijft Grond van Bestaan een intentieovereenkomst op maat waarin we onze gemeenschappelijke intentie en de weg er naartoe met elkaar vastleggen."
+          ]
+        },
+        {
+          "url": "https://www.grondvanbestaan.nl/contact",
+          "title": "Contact - Stichting Grond van Bestaan",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Voor aanmelden van je initiatief, vragen of tips?"]
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "howToAccess": "Als initiatiefnemer regelt u eerst de financiering. In een intake beoordeelt Grond van Bestaan of de uitgangspunten overeenkomen. Als aan de voorwaarden is voldaan of daarnaartoe wordt gewerkt, stelt de stichting een intentieovereenkomst op maat op.",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Stichting Grond van Bestaan",
+          "value": "https://www.grondvanbestaan.nl/contact",
+          "sourceUrl": "https://www.grondvanbestaan.nl/contact"
+        }
+      ]
+    },
+    {
+      "id": "nl-rvo-agrarische-bedrijfsoverdrachten",
+      "name": "Agrarische bedrijfsoverdrachten",
+      "metaDescription": "Voor overdragers en overnemers: bekijk het stappenplan om een agrarische bedrijfsoverdracht te melden, eerst bij KVK en daarna samen bij RVO.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Rijksdienst voor Ondernemend Nederland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Stappenplan en toegang tot de melding van een agrarische bedrijfsoverdracht bij RVO. De pagina legt uit hoe overdrager en overnemer hun registratie, relatienummer, machtigingen en ondertekening regelen, ook bij samenvoeging, splitsing of wijziging van de rechtsvorm.",
+      "whoCanUseIt": "Overdragers en overnemers van een agrarisch bedrijf, en bedrijven waarvan de rechtsvorm verandert.",
+      "howToAccess": "Geef de wijziging eerst door aan KVK. Meld de overdracht vervolgens samen met de overnemende partij op Mijn RVO met het formulier Melding overdracht of beëindiging agrarisch bedrijf, binnen 30 dagen na de wijziging. Bedrijven gebruiken eHerkenning met minimaal niveau 2+ en machtiging RVO diensten op niveau eH2+; particulieren gebruiken DigiD. De overnemende partij krijgt per e-mail het verzoek de melding te ondertekenen. Wie niet digitaal kan melden, kan telefonisch een papieren formulier aanvragen.",
+      "accessUrl": "https://www.rvo.nl/onderwerpen/agrarische-registratie/bedrijfsoverdrachten",
+      "targetProfiles": ["SUCCESSOR", "TRANSFEROR"],
+      "lastEvidenceDate": "2026-08-17",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "RVO: papieren formulier aanvragen",
+          "value": "088 042 42 42",
+          "sourceUrl": "https://www.rvo.nl/onderwerpen/agrarische-registratie/bedrijfsoverdrachten"
+        },
+        {
+          "channel": "PHONE",
+          "label": "RVO: papieren formulier voor particulieren",
+          "value": "088 042 47 47",
+          "sourceUrl": "https://www.rvo.nl/onderwerpen/agrarische-registratie/bedrijfsoverdrachten"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.rvo.nl/onderwerpen/agrarische-registratie/bedrijfsoverdrachten",
+          "title": "Agrarische bedrijfsoverdrachten | RVO.nl",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Rijksdienst voor Ondernemend Nederland",
+            "De inhoud van deze pagina is gecontroleerd op 17 augustus 2026",
+            "Verandert het eigendom of de rechtsvorm van uw bedrijf? Bijvoorbeeld door een overdracht, samenvoeging of splitsing?",
+            "Volg het stappenplan om alles goed te regelen.",
+            "Draagt u het hele bedrijf over aan een andere partij? Of wijzigt de rechtsvorm van uw bedrijf? Dan noemen wij dat een bedrijfsoverdracht.",
+            "U geeft uw wijziging door op Mijn RVO. Dit doet u met het formulier Melding overdracht of beëindiging agrarisch bedrijf.",
+            "Bedrijven loggen in met eHerkenning, minimaal niveau 2+ en machtiging RVO diensten op niveau eH2+.",
+            "Bent u particulier? Dan logt u in met DigiD.",
+            "Vul het formulier samen met de overnemende partij in.",
+            "1. Geef de wijziging door aan KVK",
+            "U geeft de overdracht binnen 30 dagen nadat de wijziging heeft plaatsgevonden aan ons door.",
+            "Is er een overnemende partij? Dan krijgt die een e-mail met de vraag om de melding van de bedrijfsoverdracht te ondertekenen.",
+            "Wij kunnen u een papieren formulier Melding overdracht of beëindiging agrarisch bedrijf sturen.",
+            "Neem hiervoor telefonisch contact met ons op via 088 042 42 42. Bent u particulier, dan belt u 088 042 47 47.",
+            "3. Regel een (nieuw) relatienummer",
+            "9. Regel nieuwe machtigingen bij ons"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "nl-rvo-bedrijfsoverdracht-glb",
+      "name": "Bedrijfsoverdracht en GLB 2026",
+      "metaDescription": "Draag je een landbouwbedrijf over of neem je er een over? Bekijk bij RVO hoe je de overdracht meldt en wat beide partijen regelen voor GLB-subsidies.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Rijksdienst voor Ondernemend Nederland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Stappenplannen voor het melden van een bedrijfsoverdracht en het overdragen of overnemen van GLB-subsidies. De pagina beschrijft de digitale ondertekening door beide partijen, het kopiëren van gegevens uit de Gecombineerde opgave en de gevolgen van de overdrachtsdatum.",
+      "whoCanUseIt": "Overdragers en overnemers van een agrarisch bedrijf die GLB-subsidies overdragen of overnemen.",
+      "howToAccess": "De overdrager meldt de bedrijfsoverdracht eerst bij KVK en daarna via het formulier Melding overdracht of beëindiging agrarisch bedrijf in Mijn RVO. Beide partijen hebben eHerkenning op minimaal niveau 2+ en machtiging RVO diensten op niveau eH2+ nodig en ondertekenen digitaal. De overnemer vraagt de GLB-subsidies zelf aan; bij bepaalde typen overdracht moet deze eerst wachten op bericht van RVO.",
+      "accessUrl": "https://www.rvo.nl/onderwerpen/glb-2026/bedrijfsoverdracht-en-glb-2026",
+      "targetProfiles": ["SUCCESSOR", "TRANSFEROR"],
+      "notes": "De pagina betreft GLB-subsidies voor 2026. De genoemde uiterste aanvraagdatum voor de overnemer, 15 oktober 2026, is verstreken; de pagina toont daarmee geen open aanvraagperiode.",
+      "sources": [
+        {
+          "url": "https://www.rvo.nl/onderwerpen/glb-2026/bedrijfsoverdracht-en-glb-2026",
+          "title": "Bedrijfsoverdracht en GLB 2026 | RVO.nl",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Rijksdienst voor Ondernemend Nederland",
+            "De inhoud van deze pagina is gecontroleerd op 18 mei 2026",
+            "Lees wat de overdracht betekent voor uw GLB-subsidie(s). En hoe u deze overdraagt.",
+            "Heeft u als overdrager GLB-subsidies en draagt u deze over aan de overnemer? Of neemt u juist de subsidies over?",
+            "U meldt dit eerst bij KVK. Daarna bij ons. Alleen dan kunnen wij uw GLB- subsidies overzetten.",
+            "Log in op Mijn RVO en gebruik het formulier Melding overdracht of beëindiging agrarisch bedrijf.",
+            "Voor het inloggen heeft u eHerkenning op minimaal niveau 2+ en machtiging RVO diensten op niveau eH2+ nodig.",
+            "Wanneer de overnemer ook digitaal heeft getekend, verwerken wij de bedrijfsoverdracht.",
+            "De overnemer doet zelf de aanvraag voor alle GLB-subsidies of een deel van de GLB-subsidies.",
+            "De overnemer wacht daarmee tot hij bericht ontvangt van ons wanneer hij dat kan doen.",
+            "Stap 4: geef akkoord op het kopiëren van (een deel) uw gegevens uit de Gecombineerde opgave",
+            "Het moment waarop de overnemer het formulier over uw bedrijfsoverdracht bij ons indient is belangrijk.",
+            "Verstuur deze zo snel mogelijk, maar uiterlijk 15 oktober 2026."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "nl-nationale-grondbank",
+      "name": "Nationale Grondbank",
+      "metaTitle": "Nationale Grondbank: grond verkopen bij bedrijfsstop",
+      "metaDescription": "Stop je met boeren via een beëindigingsregeling? Lees hoe je grond aan de Nationale Grondbank kunt aanbieden en waar je het contactformulier vindt.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Rijksdienst voor Ondernemend Nederland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Koopt grond van stoppende landbouwbedrijven tegen een marktconforme prijs. De grond wordt betrokken bij provinciale gebiedsprocessen en later verkocht aan een nieuwe eigenaar, bijvoorbeeld voor verplaatsing, extensivering, omschakeling of kavelruil.",
+      "whoCanUseIt": "Landbouwbedrijven die deelnemen aan een beëindigingsregeling, bijvoorbeeld de Landelijke beëindigingsregeling veehouderijlocaties (Lbv) of de Landelijke beëindigingsregeling veehouderijlocaties met piekbelasting (Lbv-plus), kunnen grond verkopen.",
+      "howToAccess": "Vul het contactformulier op de pagina in; een deskundige van de Nationale Grondbank neemt contact op. Wie al weet welke percelen worden aangeboden, vult ook het aanvraagformulier Grondverkoop Nationale Grondbank in en stuurt dit als bijlage mee met het contactformulier.",
+      "accessUrl": "https://www.rvo.nl/onderwerpen/nationale-grondbank",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "lastEvidenceDate": "2026-03-17",
+      "notes": "De provincie bepaalt voor welk gebruik en onder welke voorwaarden de grond wordt verkocht. De snelheid van doorverkoop hangt af van het provinciale gebiedsproces. Over tijdelijk voortgezet eigen gebruik kunnen afspraken worden gemaakt; anders komt de grond tijdelijk bij een ander in kortlopende pacht. Volgens de parlementaire toelichting van 2024 kan de provincie het ministerie verzoeken de Grondbank in te zetten. Na aankoop beheert het Rijksvastgoedbedrijf de grond tijdelijk. De daaropvolgende uitgifte of verkoop verloopt via een openbare procedure.",
+      "sources": [
+        {
+          "url": "https://www.rvo.nl/onderwerpen/nationale-grondbank",
+          "title": "Nationale Grondbank | RVO.nl",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Rijksdienst voor Ondernemend Nederland",
+            "De inhoud van deze pagina is gecontroleerd op 17 maart 2026",
+            "Als landbouwbedrijf kunt u grond verkopen aan de Nationale Grondbank. Dit kan als u meedoet aan een beëindigingsregeling.",
+            "Bijvoorbeeld de Landelijke beëindigingsregeling veehouderijlocaties (Lbv) of de Landelijke beëindigingsregeling veehouderijlocaties met piekbelasting (Lbv-plus).",
+            "De Nationale Grondbank koopt uw grond tegen een prijs die past bij de markt (marktconform).",
+            "Als u uw grond verkoopt, neemt de overheid deze mee in de gebiedsprocessen van de provincies.",
+            "Uw grond kan bijvoorbeeld een ander landbouwbedrijf helpen om te verplaatsen, extensiveren of omschakelen.",
+            "Uw grond kan ook worden gebruikt voor kavelruil.",
+            "De Nationale Grondbank verkoopt uw grond aan een nieuwe eigenaar.",
+            "Hoe snel dit kan, hangt af van hoe snel het gebiedsproces van uw provincie gaat.",
+            "De provincie bepaalt voor welk gebruik en onder welke voorwaarden de grond verkocht wordt.",
+            "Als u de grond in de tussentijd zelf wilt blijven gebruiken, dan kunnen we hier afspraken over maken.",
+            "Dan komt de grond tijdelijk in beheer van iemand anders. Dit heet kortlopende pacht.",
+            "Vul dan uw gegevens in op het contactformulier hieronder.",
+            "Een deskundige van de Nationale Grondbank neemt dan contact met u op.",
+            "Weet u al welke percelen u wilt verkopen? Vul dan ook het aanvraagformulier Grondverkoop Nationale Grondbank in.",
+            "Stuur het ingevulde document als bijlage mee met het contactformulier.",
+            "Contactformulier Nationale Grondbank"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://zoek.officielebekendmakingen.nl/kst-36613-XIV-3.html",
+          "title": "Kamerstuk 36613-XIV, nr. 3 | Overheid.nl > Officiële bekendmakingen",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "De provincie kan bij het Ministerie van LVVN een verzoek indienen om de Nationale Grondbank in te zetten.",
+            "Uitgifte of verkoop verloopt via een openbare en transparante procedure.",
+            "Na aankoop worden de gronden door het Rijksvastgoedbedrijf in tijdelijk beheer genomen",
+            "Vastgesteld 30 september 2024"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Nationale Grondbank",
+          "value": "https://www.rvo.nl/onderwerpen/nationale-grondbank",
+          "sourceUrl": "https://www.rvo.nl/onderwerpen/nationale-grondbank"
+        }
+      ]
+    },
+    {
+      "id": "nl-rvo-pachten-en-pachtovereenkomsten",
+      "name": "Alles over pachten en pachtovereenkomsten",
+      "metaDescription": "Voor pachters en verpachters: lees over pachtprijzen en voorwaarden en bekijk hoe je een pachtovereenkomst bij de grondkamer laat toetsen of wijzigen.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Rijksdienst voor Ondernemend Nederland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Toegang tot informatie en procedures voor het laten toetsen van pachtovereenkomsten, pachtvoorwaarden, maximale pachtprijzen, het berekenen van de pachtprijs van los land, voorkeursrecht en taxatie, en het wijzigen van pachtovereenkomsten.",
+      "whoCanUseIt": "Pachters en verpachters met een verzoek voor de grondkamer.",
+      "howToAccess": "Kies op de pagina de betreffende pachtprocedure of het pachtverzoek. De pagina verwijst ook naar registratie en Mijn dossier bij RVO en naar tarieven van pachtverzoeken.",
+      "accessUrl": "https://www.rvo.nl/onderwerpen/pachten-en-pachtovereenkomsten",
+      "lastEvidenceDate": "2026-11-03",
+      "sources": [
+        {
+          "url": "https://www.rvo.nl/onderwerpen/pachten-en-pachtovereenkomsten",
+          "title": "Alles over pachten en pachtovereenkomsten | RVO.nl",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Rijksdienst voor Ondernemend Nederland",
+            "Alles over pachten en pachtovereenkomsten",
+            "De inhoud van deze pagina is gecontroleerd op 3 november 2026",
+            "Bent u pachter of verpachter? En heeft u een verzoek voor de grondkamer? U vindt hier alle informatie over pachten, pachtprijzen en het toetsen van een pachtovereenkomst.",
+            "Pachtovereenkomst laten toetsen",
+            "Voorwaarden reguliere pacht Voorwaarden geliberaliseerde pacht Voorwaarden teeltpacht",
+            "Maximale pachtprijzen Berekenen pachtprijs los land Voorkeursrecht en taxatie pacht Wijzigen pachtovereenkomst en andere verzoeken",
+            "Pacht bij RVO: registratie en Mijn dossier",
+            "Tarieven van pachtverzoeken"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "nl-blv",
+      "name": "Borgstellingskrediet voor de Landbouw en Visserij (BLV)",
+      "metaDescription": "RVO-borgstelling voor landbouwers met te weinig onderpand: maximaal € 2,5 miljoen aan lening met 70% borg. Aanvragen loopt via je financier.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Rijksdienst voor Ondernemend Nederland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Borgstelling voor ondernemers die onvoldoende onderpand hebben voor een investeringslening. De lening met borgstelling bedraagt maximaal € 2,5 miljoen; de overheid staat voor 70% borg. Starters en ondernemers die een bedrijf willen overnemen komen in aanmerking voor de lagere eenmalige provisie van 1% over het leningsbedrag met BLV.",
+      "whoCanUseIt": "Landbouw-, tuinbouw-, visserij- en aquacultuurondernemers die willen investeren maar onvoldoende zekerheid hebben om een lening te krijgen. De lagere provisie geldt voor starters en ondernemers die van plan zijn een bedrijf over te nemen.",
+      "howToAccess": "Vraag een lening met borgstelling aan bij uw bank of financier. U vraagt het BLV niet zelf bij RVO aan: uw bank of financier doet dit. De pagina verwijst naar Meedoen als landbouw-, tuinbouw-, visserij- of aquacultuurondernemer voor het aanvraagproces en de voorwaarden.",
+      "accessUrl": "https://www.rvo.nl/subsidies-financiering/blv",
+      "instrumentType": "GUARANTEE",
+      "purposes": ["INVESTMENT"],
+      "accessCostType": "FEE_REQUIRED",
+      "lastEvidenceDate": "2026-03-19",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/blv"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.rvo.nl/subsidies-financiering/blv",
+          "title": "Borgstellingskrediet voor de Landbouw en Visserij (BLV) | RVO.nl",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Rijksdienst voor Ondernemend Nederland",
+            "Open voor aanvragen",
+            "De inhoud van deze pagina is gecontroleerd op 19 maart 2026",
+            "Wilt u investeren in uw bedrijf, maar heeft u niet genoeg zekerheid (onderpand) om een lening te krijgen?",
+            "Dan kunt u bij uw bank of financier een lening met borgstelling aanvragen van maximaal € 2,5 miljoen.",
+            "BLV € 2,5 miljoen 70% 1% of 3%",
+            "U kunt aanvragen als landbouw-, tuinbouw-, visserij- of aquacultuurondernemer, als bank of financier.",
+            "U vraagt het BLV niet zelf aan, dit doet uw bank of financier.",
+            "Lees meer over het aanvraagproces en de voorwaarden op de pagina Meedoen als landbouw-, tuinbouw-, visserij- of aquacultuurondernemer.",
+            "Bent u starter of van plan een bedrijf over te nemen? Dan komt u in aanmerking voor de lagere (éénmalige) provisie van 1% over het leningsbedrag met BLV."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "metrics": [
+        {
+          "measure": "LOAN_PER_BENEFICIARY_MAX",
+          "label": "Maximale lening met borgstelling",
+          "value": 2500000,
+          "unit": "EUR",
+          "asOf": "2026-03-19",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/blv"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Borgstellingskrediet voor de Landbouw en Visserij (BLV)",
+          "state": "OPEN",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/blv"
+        }
+      ]
+    },
+    {
+      "id": "nl-extra-betaling-jonge-landbouwers",
+      "name": "Extra betaling jonge landbouwers 2026",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Rijksdienst voor Ondernemend Nederland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Subsidie bovenop de basispremie voor de resterende jaren van de eerdere extra betaling jonge landbouwers. Het subsidiebedrag voor 2026 is nog niet bekend.",
+      "whoCanUseIt": "Jonge landbouwers die in 2022 voor het eerst de extra betaling ontvingen en de termijn van 5 jaar nog niet hadden volgemaakt. Zij moeten nog aan de voorwaarden voldoen: daadwerkelijke langdurige, ten minste blokkerende zeggenschap en medeverantwoordelijkheid voor de dagelijkse bedrijfsvoering. Het bedrijf moet tijdig de basispremie en extra betaling aanvragen en de conditionaliteiten naleven. Nieuwe of andere jonge landbouwers binnen het bedrijf kunnen deze betaling niet overnemen.",
+      "howToAccess": "De aanvraagperiode bij RVO is gesloten. Raadpleeg de pagina voor de voorwaarden en afhandeling van ingediende aanvragen.",
+      "accessUrl": "https://www.rvo.nl/subsidies-financiering/glb-2026/extra-betaling-jonge-landbouwers",
+      "instrumentType": "GRANT",
+      "targetProfiles": ["YOUNG_FARMER"],
+      "calls": [
+        {
+          "name": "Extra betaling jonge landbouwers 2026",
+          "state": "CLOSED",
+          "opens": "2026-03-01",
+          "closes": "2026-05-18",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/glb-2026/extra-betaling-jonge-landbouwers"
+        }
+      ],
+      "lastEvidenceDate": "2026-10-16",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "GLB",
+          "sourceUrl": "https://www.toekomstglb.nl/regelingen-en-instrumenten/jonge-boeren-en-tuinders"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/glb-2026/extra-betaling-jonge-landbouwers"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/glb-2026/extra-betaling-jonge-landbouwers"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.rvo.nl/subsidies-financiering/glb-2026/extra-betaling-jonge-landbouwers",
+          "title": "Extra betaling jonge landbouwers 2026 | RVO.nl",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Rijksdienst voor Ondernemend Nederland",
+            "Gesloten voor aanvragen",
+            "De inhoud van deze pagina is gecontroleerd op 16 oktober 2026",
+            "Dan kunt u subsidie aanvragen als u de termijn van 5 jaar nog niet had volgemaakt.",
+            "De subsidie komt bovenop de basispremie.",
+            "Het subsidiebedrag voor 2026 is nog niet bekend.",
+            "Startdatum: zondag 1 maart 2026 Einddatum: maandag 18 mei 2026",
+            "Kreeg u in 2022 voor het eerst de extra betaling? Dan is 2026 het laatste jaar waarin u nog in aanmerking kunt komen voor de betaling.",
+            "U kunt de extra betaling dus niet meer aanvragen voor een nieuwe of andere jonge landbouwer in uw bedrijf.",
+            "U heeft daadwerkelijke langdurige zeggenschap in het bedrijf. Dat betekent dat u tenminste een blokkerende zeggenschap heeft. En u bent (ook) verantwoordelijk voorde dagelijkse bedrijfsvoering.",
+            "Uw bedrijf vraagt op tijd de basispremie aan.",
+            "Uw bedrijf vraagt op tijd de extra betaling jonge landbouwers aan.",
+            "Daarom moet u zich ook aan de conditionaliteiten houden.",
+            "U ontvangt onze definitieve beslissing tussen 1 december 2026 en 30 juni 2027.",
+            "In opdracht van: Ministerie van Landbouw, Visserij, Voedselzekerheid en Natuur",
+            "Bent u jonge landbouwer? En kreeg u in het Gemeenschappelijk landbouwbeleid (GLB) tot en met 2022 de extra betaling jonge landbouwers?"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.toekomstglb.nl/regelingen-en-instrumenten/jonge-boeren-en-tuinders",
+          "title": "Jonge boeren en tuinders | Toekomst GLB",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "in deze GLB-periode uitgefaseerd worden op basis van aanvragen die nog zijn gedaan in de vorige GLB-periode",
+            "waarvan de vijfjaarsperiode nog niet volledig is benut."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "notes": "De beleidstoelichting beschrijft een uitfasering tijdens deze GLB-periode voor nog lopende aanvragen uit de vorige GLB-periode binnen hun vijfjaarstermijn.",
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "nl-eip-generatievernieuwing",
+      "name": "Samenwerken aan innovatie (EIP) generatievernieuwing",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Rijksdienst voor Ondernemend Nederland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Subsidie van € 25.000 tot € 125.000 per samenwerkingsverband voor innovatieve, breed toepasbare projecten die (potentiële) jonge en nieuwe landbouwers aantrekken en behouden. Ondersteuning is mogelijk voor voorbereiding, uitvoering, kennisoverdracht en investeringen. Het GLB-NSP noemt als voorbeelden van samenwerking het verbinden van grondeigenaren en zij-instromers, nieuwe pachtvormen en alternatieve financiering voor grond.",
+      "whoCanUseIt": "Samenwerkingsverbanden van minstens 2 leden, met ten minste één potentiële jonge landbouwer, jonge landbouwer of nieuwe landbouwer. Potentiële jonge en jonge landbouwers moeten op 31 december 2026 jonger dan 40 jaar zijn. Voor deze landbouwers en voor nieuwe landbouwers geldt een afgeronde officiële landbouw-, tuinbouw- of vergelijkbare opleiding, of bewijs van minstens 2 jaar ervaring in land- of tuinbouwproductie, gerekend vanaf het zestiende jaar. Jonge en nieuwe landbouwers moeten bij de aanvraag bedrijfshoofd zijn en aan de voorwaarden voor eigendom, zeggenschap en bedrijfsvoering voldoen. Nieuwe landbouwers moeten voor het eerst bedrijfshoofd in de landbouw zijn en dit onderbouwen.",
+      "howToAccess": "De aanvraagperiode is gesloten. De penvoerder schrijft het projectplan en vraagt namens het samenwerkingsverband de subsidie aan bij RVO. Elke deelnemer machtigt de penvoerder door de samenwerkingsovereenkomst te ondertekenen. Bestaande aanvragers kunnen via de pagina hun aanvraag beheren en de informatie over het vervolg raadplegen.",
+      "accessUrl": "https://www.rvo.nl/subsidies-financiering/samenwerken-aan-innovatie-eip/generatievernieuwing",
+      "instrumentType": "GRANT",
+      "calls": [
+        {
+          "name": "Openstelling 2026",
+          "state": "CLOSED",
+          "opens": "2026-05-19",
+          "closes": "2026-06-30",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/samenwerken-aan-innovatie-eip/generatievernieuwing"
+        }
+      ],
+      "lastEvidenceDate": "2026-06-30",
+      "notes": "Het project moet uiterlijk 31 december 2028 klaar zijn. De subsidie wordt via selectiecriteria verdeeld; het voldoen aan de voorwaarden garandeert geen toekenning.",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/samenwerken-aan-innovatie-eip/generatievernieuwing"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.rvo.nl/subsidies-financiering/samenwerken-aan-innovatie-eip/generatievernieuwing",
+          "title": "Samenwerken aan innovatie (EIP) generatievernieuwing | RVO.nl",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Rijksdienst voor Ondernemend Nederland",
+            "Gesloten voor aanvragen",
+            "De inhoud van deze pagina is gecontroleerd op 30 juni 2026",
+            "U wilt in een samenwerkingsverband een project uitvoeren om (potentiële) jonge en nieuwe landbouwers (zij-instromers) aan te trekken en te behouden. Hiervoor kunt u subsidie aanvragen.",
+            "Een innovatieve aanpak met een brede impact is belangrijk.",
+            "Per samenwerkingsverband ontvangt u: Vanaf € 25.000 tot € 125.000",
+            "Startdatum: dinsdag 19 mei 2026 09:00 Einddatum: dinsdag 30 juni 2026 17:00",
+            "Het samenwerkingsverband bestaat minstens uit 2 leden.",
+            "In het samenwerkingsverband zit in ieder geval één (potentiële) jonge landbouwer of nieuwe landbouwer.",
+            "Op 31 december 2026 bent u jonger dan 40 jaar.",
+            "U heeft een officiële opleiding landbouw, tuinbouw of een andere vergelijkbare opleiding afgerond. Of u heeft een bewijs dat u minstens 2 jaar ervaring heeft in land- of tuinbouwproductie. Dit rekenen we vanaf uw 16e op het moment van de subsidieaanvraag.",
+            "U bent op het moment dat u subsidie aanvraagt bedrijfshoofd volgens deze voorwaarden:",
+            "U bent (mede-)eigenaar van een landbouwbedrijf.",
+            "U doet alleen of met de andere bedrijfshoofden de dagelijkse bedrijfsvoering.",
+            "U heeft individueel langdurige zeggenschap.",
+            "U bent voor het eerst bedrijfshoofd in de landbouw.",
+            "U onderbouwt met een curriculum vitae waarin u uw arbeidsverleden toelicht. Daarnaast verklaart u in de samenwerkingsovereenkomst dat u voor het eerst bedrijfshoofd bent.",
+            "De penvoerder schrijft het projectplan en doet de subsidieaanvraag.",
+            "De penvoerder vraagt subsidie aan namens het samenwerkingsverband.",
+            "Elke deelnemer machtigt de penvoerder door de samenwerkingsovereenkomst te ondertekenen.",
+            "onderhoudt het contact met RVO namens het samenwerkingsverband;",
+            "Uw aanvraag beheren",
+            "Op EIP: Na uw aanvraag leest u wat u moet doen.",
+            "Voorbereidingskosten zijn subsidiabel voordat u uw aanvraag doet.",
+            "activiteiten die te maken hebben met de uitvoering van het project;",
+            "activiteiten die te maken hebben met kennisoverdracht.",
+            "Doet u een investering? Dan krijgt u ook subsidie voor:",
+            "Het project is uiterlijk 31 december 2028 klaar.",
+            "Het budget verdelen we onder de aanvragers die hier het hoogst op scoren."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.toekomstglb.nl/regelingen-en-instrumenten/jonge-boeren-en-tuinders",
+          "title": "Jonge boeren en tuinders | Toekomst GLB",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "het in contact brengen van landeigenaren en zij-instromers.",
+            "nieuwe pachtsystemen waardoor de toegang tot grond voor jonge landbouwers verbetert.",
+            "alternatieve financieringsbronnen voor de aankoop of pacht van grond."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "Minimale subsidie per samenwerkingsverband",
+          "value": 25000,
+          "unit": "EUR",
+          "asOf": "2026-01-01",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/samenwerken-aan-innovatie-eip/generatievernieuwing"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Maximale subsidie per samenwerkingsverband",
+          "value": 125000,
+          "unit": "EUR",
+          "asOf": "2026-01-01",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/samenwerken-aan-innovatie-eip/generatievernieuwing"
+        }
+      ]
+    },
+    {
+      "id": "nl-vestiging-jonge-landbouwers",
+      "name": "Subsidie voor de vestiging van jonge landbouwers 2024",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Rijksdienst voor Ondernemend Nederland",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Subsidie van maximaal € 80.000 voor jonge landbouwers die een landbouwbedrijf starten of overnemen.",
+      "whoCanUseIt": "Voor deze openstelling moest u op 31 december 2024 tussen de 16 en 39 jaar zijn, bedrijfshoofd zijn en het bedrijf op of na 1 januari 2023 hebben gestart of overgenomen. Een afgeronde passende opleiding of ten minste 2 jaar aantoonbare werkervaring met land- en tuinbouwproductie was vereist; ervaring telt vanaf 16 jaar. Het bedrijf moet bij KVK zijn ingeschreven, voldoen aan de voorwaarden voor landbouwactiviteiten, een standaardverdiencapaciteit van minimaal € 15.000 hebben en minimaal 5 jaar door u in stand worden gehouden.",
+      "howToAccess": "Nieuwe aanvragen voor deze openstelling zijn gesloten. Een ingediende aanvraag vindt u onder Documenten in Mijn dossier op Mijn RVO. In de toelichting bij het GLB-NSP staat dat bij de aanvraag een bedrijfsplan vereist is en dat de beoordeling daarvan mede bepalend is.",
+      "accessUrl": "https://www.rvo.nl/subsidies-financiering/vestiging-jonge-landbouwers",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT", "TRANSFER"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "lastEvidenceDate": "2025-04-03",
+      "notes": "Bedrijfshoofd bent u bij uitvoering van een landbouwbedrijf in eigen naam, of bij langdurige blokkerende zeggenschap, deelname met meer dan 50% van het eigen vermogen of de aandelen en minimaal 1225 uur werk per jaar in het bedrijf. Meerdere jonge landbouwers kunnen samen aan de voorwaarden voldoen, maar ieder moet aan het urencriterium voldoen. Een bedrijf kan deze subsidie één keer ontvangen.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-strategic-plans",
+          "named": "Gemeenschappelijk landbouwbeleid (GLB)",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/glb-2026/subsidie-voor-de-vestiging-van-jonge-landbouwers-2026"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/glb-2026/subsidie-voor-de-vestiging-van-jonge-landbouwers-2026"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.rvo.nl/subsidies-financiering/vestiging-jonge-landbouwers",
+          "title": "Subsidie voor de vestiging van jonge landbouwers 2024 | RVO.nl",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Rijksdienst voor Ondernemend Nederland",
+            "Subsidie voor de vestiging van jonge landbouwers 2024",
+            "Gesloten voor aanvragen",
+            "De inhoud van deze pagina is gecontroleerd op 3 april 2025",
+            "Bent u een jonge landbouwer en neemt u vanaf 2023 een bedrijf helemaal of voor een deel over? Of start u een bedrijf op? U kunt dan financiële steun krijgen.",
+            "Maximaal € 80.000",
+            "U bent op 31 december 2024 tussen de 16 en 39 jaar.",
+            "U bent bedrijfshoofd volgens de voorwaarden.",
+            "U heeft een officiële opleiding landbouw, tuinbouw of een andere opleiding die onder deze opleidingen valt afgerond. Of u heeft ten minste 2 jaar aantoonbare werkervaring met land- en tuinbouwproductie. Ervaring tellen we vanaf 16 jaar.",
+            "U heeft het bedrijf op of na 1 januari 2023 gestart of overgenomen.",
+            "Het landbouwbedrijf heeft een standaardverdiencapaciteit (SVC) van minimaal € 15.000.",
+            "Het landbouwbedrijf wordt minimaal 5 jaar door u in stand gehouden.",
+            "Het landbouwbedrijf staat ingeschreven bij KVK.",
+            "De code die bij de inschrijving hoort van de Standaardbedrijfsindeling (SBI) begint met 011 tot en met 016. Of met 1051.",
+            "U voldoet aan de eisen van bedrijfshoofd wanneer u een landbouwbedrijf in eigen naam uitvoert.",
+            "daadwerkelijk langdurige zeggenschap (blokkerende zeggenschap) heeft in het bedrijf;",
+            "met meer dan 50% van het eigen vermogen deelneemt in de maatschap of vennootschap onder firma (vof). Of meer dan 50% van aandelen heeft bij de naamloze vennootschap (nv) of besloten vennootschap (bv);",
+            "minimaal 1225 uur per jaar in het bedrijf werkt.",
+            "Zijn er meerdere jonge landbouwers in een bedrijf? Dan kunt u samen aan deze voorwaarden voldoen.",
+            "Dit betekent dat iedere jonge landbouwer minimaal 1225 uren per jaar werkt in het bedrijf.",
+            "Een bedrijf kan één keer subsidie voor de vestiging van jonge landbouwers ontvangen.",
+            "Uw aanvraag staat onder het kopje Documenten in Mijn dossier op Mijn RVO."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.toekomstglb.nl/regelingen-en-instrumenten/jonge-boeren-en-tuinders",
+          "title": "Jonge boeren en tuinders | Toekomst GLB",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Bij de aanvraag is een bedrijfsplan vereist.",
+            "de score die behaald wordt na beoordeling van een bedrijfsplan voor één bedrijf."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.rvo.nl/subsidies-financiering/glb-2026/subsidie-voor-de-vestiging-van-jonge-landbouwers-2026",
+          "title": "Subsidie voor de vestiging van jonge landbouwers 2026 | RVO.nl",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Wij betalen € 80.000 per goedgekeurde aanvraag.",
+            "Startdatum: maandag 2 maart 2026 09:00 Einddatum: vrijdag 1 mei 2026 17:00",
+            "U kunt dan misschien subsidie krijgen uit het Gemeenschappelijk landbouwbeleid (GLB)."
+          ]
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Subsidie per goedgekeurde aanvraag in 2026",
+          "value": 80000,
+          "unit": "EUR",
+          "asOf": "2026-01-01",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/glb-2026/subsidie-voor-de-vestiging-van-jonge-landbouwers-2026"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Subsidie voor de vestiging van jonge landbouwers 2026",
+          "state": "CLOSED",
+          "opens": "2026-03-02",
+          "closes": "2026-05-01",
+          "sourceUrl": "https://www.rvo.nl/subsidies-financiering/glb-2026/subsidie-voor-de-vestiging-van-jonge-landbouwers-2026"
+        }
+      ]
+    },
+    {
+      "id": "nl-zorgboer-vraag-en-aanbod",
+      "name": "Zorgboer vraag en aanbod",
+      "metaTitle": "Zorgboer vraag en aanbod: opvolging en overname",
+      "metaDescription": "Voor zorgboeren en mensen die een zorgboerderij willen overnemen. Bekijk oproepen voor opvolging of vraag de Federatie om er zelf een te plaatsen.",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Federatie Landbouw en Zorg",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Een vraag-en-aanbodrubriek met onder meer oproepen van zorgboeren die opvolgers zoeken en nieuwkomers die een zorgboerderij willen overnemen. Zorgboeren kunnen via de Federatie een eigen oproep laten plaatsen. De rubriek bevat daarnaast vacatures en andere advertenties.",
+      "whoCanUseIt": "Zorgboeren die hun werk willen laten voortzetten wanneer zij stoppen, en nieuwkomers die een zorgboerderij willen overnemen.",
+      "howToAccess": "Lees de oproepen op de website. Neem contact op met de Federatie om zelf een oproep op deze website te plaatsen.",
+      "accessUrl": "https://www.zorgboeren.nl/over-zorglandbouw/info-voor-zorgboeren/zorgboer-vraag-en-aanbod",
+      "targetProfiles": ["TRANSFEROR", "NEW_ENTRANT", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.zorgboeren.nl/over-zorglandbouw/info-voor-zorgboeren/zorgboer-vraag-en-aanbod"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.zorgboeren.nl/over-zorglandbouw/info-voor-zorgboeren/zorgboer-vraag-en-aanbod",
+          "title": "Zorgboer vraag en aanbod",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Omdat er allerlei wegen zijn om aan bijvoorbeeld personeel of tweedehands spullen te komen of om opvolgers te vinden, hadden we eerst geen vraag & aanbod rubriek meer.",
+            "Toch zijn er zorgboeren die het liefst eerst in eigen kring werven. Vandaar deze rubriek.",
+            "Als een zorgboer(in) gaat stoppen i.v.m leeftijd of andere reden, wil hij of zij soms graag dat het werk wordt voorgezet. Daarom zijn nieuwkomers zeer welkom.",
+            "Wil je op deze website van de Federatie (zorgboeren.nl) een oproep doen, neem dan contact op.",
+            "Zorgboerderij gezocht ter overname of voor beheer",
+            "Kleinschalige zorginstelling Overijssel op zoek naar bedrijfsopvolgers",
+            "© Copyright 2026 Federatie Landbouw en Zorg"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.zorgboeren.nl/over-ons/contact",
+          "title": "Contact",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Het beste kun je het contactformulier onderaan de pagina invullen of mailen naar federatie@zorgboeren.nl."]
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Federatie Landbouw en Zorg",
+          "value": "federatie@zorgboeren.nl",
+          "sourceUrl": "https://www.zorgboeren.nl/over-ons/contact"
+        }
+      ]
+    },
+    {
+      "id": "nl-boer-zoekt-boer",
+      "name": "Boer zoekt Boer",
+      "metaTitle": "Boer Zoekt Boer: opvolger of boerenbedrijf vinden",
+      "metaDescription": "Platform van NAJK voor boeren zonder opvolger en opvolgers zonder bedrijf. Vind elkaar voor bedrijfsovername buiten de familie. Deelname: € 75 per jaar.",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "NAJK, samen met Rabobank, LLTB, ZLTO en LTO Noord",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Een platform waar overdragers en potentiële opvolgers met elkaar in contact kunnen komen voor buitenfamiliaire bedrijfsovername. Het programma biedt beide partijen kennis en informatie en op verzoek ondersteuning bij diverse stappen in de overname.",
+      "whoCanUseIt": "Geïnteresseerde boeren zonder bedrijfsopvolger en potentiële bedrijfsopvolgers zonder bedrijf.",
+      "howToAccess": "Ga via de verwijzing Inloggen BoerzoektBoer op de pagina naar het platform. De jaarlijkse bijdrage is €75,00. Deelname wordt automatisch verlengd, maar kan op elk moment worden opgezegd.",
+      "accessUrl": "https://www.najk.nl/boerzoektboer/",
+      "accessCostType": "FEE_REQUIRED",
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "sources": [
+        {
+          "url": "https://www.najk.nl/boerzoektboer/",
+          "title": "Boer zoekt Boer – NAJK",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Via Boer zoekt Boer heeft NAJK, samen met Rabobank, LLTB, ZLTO en LTO Noord de handen ineen geslagen om goede begeleiding te bieden bij buiten familiaire bedrijfsovername.",
+            "Voor dit initiatief is een programma ontwikkeld voor geïnteresseerde boeren zonder bedrijfsopvolger en voor potentiële bedrijfsopvolgers zonder bedrijf.",
+            "Binnen dit programma worden beide partijen voorzien van kennis en informatie en kan gevraagd worden om ondersteuning bij diverse stappen in de buiten familiaire bedrijfsovername.",
+            "Inloggen BoerzoektBoer",
+            "Het nieuwe platform van Boer zoekt Boer staat live waarin overdragers en potentiële opvolgers met elkaar in contact kunnen komen.",
+            "De jaarlijkse bijdrage is €75,00.",
+            "Deelname wordt automatisch verlengd, maar u kunt op elk moment opzeggen."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.najk.nl/contact/",
+          "title": "Contact – NAJK",
+          "consultedOn": "2026-11-25",
+          "quotes": ["info@najk.nl"]
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Nederlands Agrarisch Jongeren Kontakt",
+          "value": "info@najk.nl",
+          "sourceUrl": "https://www.najk.nl/contact/"
+        }
+      ]
+    },
+    {
+      "id": "nl-openstellingskalender-glb",
+      "name": "Openstellingskalender GLB",
+      "metaTitle": "Openstellingskalender GLB: subsidies per provincie",
+      "metaDescription": "Bekijk landelijke en provinciale GLB-openstellingen voor onder meer jonge boeren. Volg de link naar de uitvoerder voor de precieze aanvraagdata.",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Netwerk Platteland",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Kalender met komende landelijke en provinciale openstellingen van GLB-subsidies en regelingen, met verwijzingen naar de uitvoerende organisaties. Bevat onder meer vestigingssteun bij het starten of overnemen van een landbouwbedrijf, investeringsregelingen voor jonge landbouwers en samenwerking voor generatievernieuwing.",
+      "howToAccess": "Open de uitklapbox van de betreffende regeling en volg de link naar de uitvoerende organisatie. Controleer de precieze aanvraagdata op de websites van RVO, Stimulus en SNN; de kalender waarschuwt dat data kunnen afwijken.",
+      "accessUrl": "https://www.netwerkplatteland.nl/subsidies-en-openstellingen/openstellingskalender",
+      "lastEvidenceDate": "2026-10-01",
+      "sources": [
+        {
+          "url": "https://www.netwerkplatteland.nl/subsidies-en-openstellingen/openstellingskalender",
+          "title": "Openstellingskalender GLB | Netwerk Platteland",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Openstellingskalender GLB | Netwerk Platteland",
+            "In deze openstellingskalender vind je de komende openstellingen van GLB-subsidies en regelingen.",
+            "Klik dan via de uitklapbox op de regeling die voor jou van toepassing is.",
+            "Bij elke regeling staat een link naar de organisatie die deze uitvoert.",
+            "Desondanks kunnen data voor openstellingen afwijken.",
+            "Kijk voor de precieze data van de openstellingen op de websites van de RVO, Stimulus en SNN.",
+            "Laatste update: 1 oktober 2026",
+            "De interventie vestigingssteun voor jonge landbouwers bestaat uit het verstrekken van subsidie aan jonge landbouwers bij het overnemen of starten van een landbouwbedrijf.",
+            "Investeringen op landbouwbedrijven voor modernisatie door jonge landbouwers (I.73.1c)",
+            "Met deze interventie worden projecten ondersteund die bijdragen aan het aantrekken van jonge landbouwers om te kiezen voor het agrarisch ondernemerschap.",
+            "Tabel met landelijke openstellingen 'Samenwerking generatievernieuwing'"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "nl-landgilde-begeleiding-en-advies",
+      "name": "Begeleiding en Advies",
+      "metaTitle": "Bedrijfsovername: Begeleiding en Advies van Landgilde",
+      "metaDescription": "Landgilde begeleidt boeren en hun beoogde opvolgers bij de overname. Lees hoe je contact opneemt. Een gesprek kost circa € 250 excl. btw.",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Landgilde",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Begeleiding bij bedrijfsovername met de routekaart bedrijfsovername. Na afzonderlijke gesprekken met overdragers en overnemers volgen gezamenlijke gesprekken, gericht op een samenwerkingsovereenkomst of een overnameovereenkomst op hoofdlijnen. Landgilde biedt daarnaast toegang tot een netwerk van zakelijke specialisten.",
+      "whoCanUseIt": "Overdragers die een potentiële opvolger hebben gevonden en overnemers die een plek hebben om te starten of over te nemen.",
+      "howToAccess": "Kies een begeleider op de pagina of mail naar info@landgilde.nl om een passende begeleider te vinden. De begeleider maakt een kosteninschatting; de richtprijs is circa 250 euro exclusief 21% BTW per gesprek.",
+      "accessUrl": "https://landgilde.nl/onze-diensten/begeleiding-en-advies/",
+      "accessCostType": "FEE_REQUIRED",
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Landgilde: passende begeleider vinden",
+          "value": "info@landgilde.nl",
+          "sourceUrl": "https://landgilde.nl/onze-diensten/begeleiding-en-advies/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://landgilde.nl/onze-diensten/begeleiding-en-advies/",
+          "title": "Begeleiding en Advies – Landgilde",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Denk je dat je een potentiele opvolger gevonden hebt? Of heb je een plek om te starten of over te nemen?",
+            "Landgilde begeleiders werken met de routekaart bedrijfsovername.",
+            "We starten met een gesprek met de overdrager(s). En met een gesprek met de overnemer(s).",
+            "Vervolgens voeren we gezamenlijke gesprekken en werken we toe naar een samenwerkings-overeenkomst of een overname-overeenkomst op hoofdlijnen.",
+            "De begeleider maakt een kosten-inschatting voor je.",
+            "Denk voor de gesprekken aan een prijs van circa 250 euro exclusief 21% BTW per gesprek.",
+            "Vindt hieronder zelf een passende begeleider, of neem contact op via info@landgilde.nl om te kijken welke begeleider het beste bij je past.",
+            "Naast onze begeleiders hebben we een breed netwerk van specialisten zoals accountants, notarissen en accountmanagers bij banken.",
+            "Regio: Heel Nederland"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "nl-land-van-ons",
+      "name": "Land van Ons",
+      "metaTitle": "Land van Ons: pacht voor natuurvriendelijke landbouw",
+      "metaDescription": "Zoek je pachtgrond voor natuurvriendelijke landbouw? Lees hoe Land van Ons pachters selecteert en hoe je een eigen perceel kunt aandragen.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Land van Ons",
+      "operatorType": "UNKNOWN",
+      "whatItOffers": "Koopt landbouwpercelen en verpacht deze tegen een volgens de coöperatie schappelijke prijs aan boeren voor de transitie naar natuurvriendelijke landbouw. Na aankoop wordt een pachter geselecteerd op basis van vooraf geformuleerde criteria. Ook kan iemand een perceel aandragen dat die zelf wil pachten.",
+      "whoCanUseIt": "Boeren die een stuk of extra stuk pachtgrond zoeken. Bestaande boeren kunnen ook grond aan Land van Ons verkopen.",
+      "howToAccess": "De eerdere algemene aanmelding voor pachtgrond via de website is niet meer beschikbaar. Wie zelf een perceel aandraagt om te pachten, wordt eerst beoordeeld op passendheid bij Land van Ons; alleen bij een positieve beoordeling wordt het perceel verder onderzocht.",
+      "accessUrl": "https://landvanons.nl/veel-gestelde-vragen/",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "LIVESTOCK"],
+      "targetProfiles": ["LAND_SEEKER", "LANDOWNER"],
+      "sources": [
+        {
+          "url": "https://landvanons.nl/veel-gestelde-vragen/",
+          "title": "Vragen over boeren en pachters",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Gespreid over Nederland",
+            "Voor professionele agrarische bedrijven, zowel veeteelt als akkerbouw",
+            "We kopen een perceel en gaan daarna op zoek naar een pachter. Een selectieproces op basis van vooraf geformuleerde criteria is hier onderdeel van.",
+            "Een andere mogelijkheid is dat een perceel bij ons aangemeld wordt door een persoon die het perceel zelf wil pachten.",
+            "Als wij het perceel interessant vinden, gaan we eerst in gesprek met de beoogd pachter om te bepalen of we vinden dat deze persoon past bij Land van Ons.",
+            "Als dat zo is, onderzoeken we het perceel verder; zo niet, dan kopen we het perceel niet.",
+            "we verpachten onze gronden tegen een zeer schappelijke prijs aan boeren. Zo helpen we hen in de transitie naar natuurvriendelijke landbouw.",
+            "Kunnen bestaande boeren ook (een deel van) hun grond aan Land van Ons verkopen? Ja, dat kan.",
+            "Boeren die op zoek zijn naar een (extra) stuk pachtgrond konden zich tot voor kort aanmelden bij Land van Ons via de website, maar inmiddels hebben wij meer dan 150 belangstellenden voor de vier tot zes percelen die wij per jaar aankopen."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://landvanons.nl/contact/",
+          "title": "Contact - Land van Ons",
+          "consultedOn": "2026-11-25",
+          "quotes": ["info@landvanons.nl"]
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Land van Ons",
+          "value": "info@landvanons.nl",
+          "sourceUrl": "https://landvanons.nl/contact/"
+        }
+      ]
+    },
+    {
+      "id": "nl-glb-extra-investeringssteun-jonge-landbouwers",
+      "name": "GLB-NSP — extra investeringssteun voor jonge landbouwers",
+      "metaDescription": "Lees hoe het GLB-NSP provinciale investeringssteun beschrijft voor jonge landbouwers die investeren nadat ze een bedrijf starten of overnemen.",
+      "kind": "POLICY",
+      "status": "UNKNOWN",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Nederlandse provincies / GLB Nationaal Strategisch Plan",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Het GLB-NSP beschrijft provinciale investeringssteun voor jonge landbouwers, eventueel als een hoger subsidiepercentage binnen een algemene investeringsregeling.",
+      "accessUrl": "https://www.toekomstglb.nl/regelingen-en-instrumenten/jonge-boeren-en-tuinders",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "GLB-NSP",
+          "sourceUrl": "https://www.toekomstglb.nl/regelingen-en-instrumenten/jonge-boeren-en-tuinders"
+        },
+        {
+          "resourceId": "eu-cap-strategic-plans",
+          "named": "GLB-NSP",
+          "sourceUrl": "https://www.toekomstglb.nl/regelingen-en-instrumenten/jonge-boeren-en-tuinders"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "HOW_TO_ACCESS",
+          "sourceUrl": "https://www.toekomstglb.nl/regelingen-en-instrumenten/jonge-boeren-en-tuinders"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.toekomstglb.nl/regelingen-en-instrumenten/jonge-boeren-en-tuinders",
+          "title": "Jonge boeren en tuinders | Toekomst GLB",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "In het GLB-NSP wordt deze steun opnieuw via provincies gegeven.",
+            "Het is mogelijk dat de steun geïntegreerd wordt in algemene investeringsregelingen",
+            "in de vorm van een hoger subsidiepercentage."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "whoCanUseIt": "Jonge landbouwers die na een bedrijfsovername of bedrijfsstart investeren.",
+      "generatorId": "chatgpt-3"
+    }
+  ],
+  "news": [],
+  "limitations": []
+}

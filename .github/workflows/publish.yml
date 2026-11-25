@@ -41,7 +41,11 @@ jobs:
           echo "This publishes master; this run asked for ${{ github.ref_name }}." >&2
           exit 1
 
+      # The whole history, because a retired edition is rebuilt from the release tag that published it
+      # (decisions/038), and a shallow checkout has no tags.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -62,6 +66,11 @@ jobs:
       - name: Build the site, its search bundles and its sitemap
         run: npm run build --prefix frontend
 
+      # Every edition listed in frontend/archives.json, frozen under /<edition>/ as it was published.
+      # With none listed this prints one line and changes nothing.
+      - name: Keep earlier editions readable
+        run: npm run build:archives --prefix frontend
+
       - name: Name the domain, when there is one
         if: vars.SITE_DOMAIN != ''
         run: echo "${{ vars.SITE_DOMAIN }}" > frontend/dist/CNAME
@@ -81,3 +90,20 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Once the pages are live, tell the engines that take IndexNow which ones the publication declares, from
+  # the sitemap that was just deployed. A failure here is shown and changes nothing already published.
+  announce:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Tell IndexNow what was published
+        run: node scripts/indexnow.ts

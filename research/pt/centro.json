@@ -6,7 +6,7 @@
     "region": "centro"
   },
   "language": "pt",
-  "updatedOn": "2026-10-30",
+  "updatedOn": "2026-11-24",
   "context": [
     "Os apoios PEPAC e a Bolsa Nacional de Terras já pertencem à camada nacional e não devem ser duplicados no Centro.",
     "A página própria https://www.cm-figfoz.pt/pages/644 descreve formulário e acesso SIG; não se confirmou inventário nem candidaturas atuais.",
@@ -15,7 +15,10 @@
     "Passagem com a lista de verificação nacional sobre um ficheiro existente: faltavam apenas os instrumentos esperados.",
     "A Figueira da Foz e a COAPE têm serviços próprios com inscrição; distinguir a antiga Bolsa Nacional, cuja lei de 2012 foi revogada.",
     "O banco para pastores da COAPE tem formulários próprios para proprietários e pastores e serve a área social da cooperativa, mas não publica uma lista atual de terrenos na página verificada.",
-    "A página de serviços da COAPE documenta apoio técnico à instalação e à elaboração do projeto e oferece um formulário. As referências antigas a RPU, ProDeR e montantes de ajudas não devem ser reutilizadas como condições atuais."
+    "A página de serviços da COAPE documenta apoio técnico à instalação e à elaboração do projeto e oferece um formulário. As referências antigas a RPU, ProDeR e montantes de ajudas não devem ser reutilizadas como condições atuais.",
+    "O regulamento da Bolsa de Terras de Penela identifica o GADRU como responsável pelo inventário e pelas candidaturas; falta verificar uma oferta ou via de atendimento atualmente operacional.",
+    "O regulamento municipal inclui um modelo de requerimento e condições de adesão, mas não apresenta uma data de publicação própria nem comprova a operação atual da bolsa.",
+    "Consultar os avisos de abertura e o regulamento ligados na página de Mortágua para verificar prazos, condições de inscrição e disponibilidade de terrenos."
   ],
   "portals": [
     {
@@ -123,9 +126,47 @@
       "name": "Banco de Terras de Mortágua",
       "url": "https://www.cm-mortagua.pt/p/banco-de-terras",
       "kind": "LAND_BANK",
-      "status": "TO_CHECK",
+      "status": "ADMITTED",
       "reason": "Regulamento e atas de anos anteriores existem, mas a página de acesso não pôde ser aberta para verificar ofertas ou inscrição atual.",
-      "foundBy": "centro-mortagua-banco"
+      "foundBy": "centro-mortagua-banco",
+      "resourceId": "centro-mortagua-banco-terras",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "centro-penela-bolsa-terras",
+      "name": "Bolsa de Terras Municipal",
+      "url": "https://www.cm-penela.pt/artigo-62-0",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "centro-penela-bolsa-terras",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "centro-figueira-foz-bolsa-terras-regulamento",
+      "name": "Regulamento da Bolsa de Terras Agroflorestais da Figueira da Foz",
+      "url": "https://www.cm-figfoz.pt/cmfigueiradafoz/uploads/document/file/1719/regulamento_de_bolsa_de_terras_agroflorestais_da_figueira_da_foz__btaff_.pdf",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "centro-figueira-foz-bolsa-terras",
+      "checkedOn": "2026-11-20"
+    },
+    {
+      "id": "centro-fundao-bolsa-terras-source",
+      "name": "Regulamento da Bolsa e do Banco de Terras do Fundão — Diário da República, 8 de novembro de 2022",
+      "url": "https://files.dre.pt/2s/2022/11/215000000/0027300281.pdf",
+      "kind": "OTHER",
+      "status": "ADMITTED",
+      "resourceId": "centro-fundao-banco-terras",
+      "checkedOn": "2026-11-24"
+    },
+    {
+      "name": "Bolsa de Terras do Fundão",
+      "url": "https://files.dre.pt/2s/2022/11/215000000/0027300281.pdf",
+      "kind": "LAND_BANK",
+      "id": "centro-fundao-bolsa-terras",
+      "status": "ADMITTED",
+      "resourceId": "centro-fundao-bolsa-terras",
+      "checkedOn": "2026-11-24"
     }
   ],
   "instrumentChecks": [
@@ -174,6 +215,36 @@
       "date": "2026-10-30",
       "by": "CHATGPT (Codex)",
       "summary": "Admitido o apoio técnico à instalação agrícola da COAPE com base na página de serviços e no formulário próprio. As referências e quantias de regimes antigos foram excluídas da ficha."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "O regulamento estabelece uma Bolsa de Terras própria do Município de Penela, com intermediação pelo GADRU e procedimento de candidatura, distinta da antiga bolsa nacional. Propõe-se a sua inclusão como recurso local, sem dar por confirmada a operação atual apenas com este regulamento sem data."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "O regulamento documenta a mesma bolsa municipal já publicada e acrescenta a gratuitidade da adesão, os documentos exigidos e a entrega do requerimento na Câmara Municipal. Acrescentei esta fonte e esses elementos à ficha existente, mantendo a situação operacional por confirmar, pois o regulamento não comprova funcionamento atual."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "A página municipal documenta um banco próprio que arrenda prédios rústicos aos proprietários e os subarrenda a interessados em instalar ou ampliar atividades agrícolas e florestais em Mortágua. Propõe-se a sua admissão como recurso local, sem afirmar a abertura de candidaturas ou a disponibilidade atual de terrenos, que dependem da consulta dos avisos ligados."
+    },
+    {
+      "date": "2026-11-20",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "A página municipal documenta uma bolsa própria de Penela, com intermediação entre proprietários e pessoas sem terrenos para cultivar e um procedimento de adesão nos serviços municipais. Propõe-se a sua inclusão como recurso local distinto da antiga bolsa nacional, sem dar por confirmada a disponibilidade atual de terrenos."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol)",
+      "summary": "O regulamento de 8 de novembro de 2022 define separadamente a Bolsa e o Banco de Terras do Fundão."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol)",
+      "summary": "O regulamento de 8 de novembro de 2022 define separadamente a Bolsa e o Banco de Terras do Fundão."
     }
   ]
 }

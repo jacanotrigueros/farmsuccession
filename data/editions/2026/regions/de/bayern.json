@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "bayern",
+  "metaTitle": "Hofnachfolge in Bayern: Beratung und Seminare",
+  "metaDescription": "In Bayern finden Übergebende und Nachfolgende Beratungsstellen zur Hofübergabe, Seminare und landwirtschaftliche Familienberatung mit Hinweisen zum Zugang.",
   "officialName": "Bayern",
-  "published": "2026-10-29",
+  "published": "2026-11-25",
   "summary": "In Bayern sind Beratung zur Generationenfolge, Seminare zur Hofübergabe und landwirtschaftliche Familienberatung mit konkreten Zugangswegen belegt. Dazu gehört die kostenfreie und vertrauliche Beratung in der Diözese Würzburg. Eine eigene Niederlassungsprämie des Landes oder eine bayerische Hofbörse wurde nicht nachgewiesen.",
   "coverage": {
     "status": "PARTIAL",
@@ -77,9 +79,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -103,6 +102,13 @@
         "model": "GPT-5",
         "promptVersion": "1.9.0",
         "processedAt": "2026-10-29"
+      },
+      {
+        "id": "chatgpt-4",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -110,6 +116,8 @@
     {
       "id": "bayern-bbv-hofuebergabe-beratung",
       "name": "Generationenfolgeberatung und Hofübergabe des Bayerischen Bauernverbands",
+      "metaTitle": "Hofübergabe in Bayern: Generationenfolgeberatung des BBV",
+      "metaDescription": "Der Bayerische Bauernverband berät zur Hofnachfolge auch außerhalb der Familie. Der Online-Leitfaden „10 Fragen zur Hofübergabe“ hilft beim Einstieg.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -117,25 +125,74 @@
       },
       "operator": "Bayerischer Bauernverband",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Individuelle Beratung zur Hofnachfolge unter familiären, betrieblichen und rechtlichen Gesichtspunkten; auch für Betriebe ohne Nachfolge innerhalb der Familie.",
+      "whatItOffers": "Individuelle Beratung zur Hofnachfolge unter familiären, betrieblichen und rechtlichen Gesichtspunkten; auch für Betriebe ohne Nachfolge innerhalb der Familie. Ergänzend bietet der Online-Leitfaden „10 Fragen zur Hofübergabe“ Orientierung zu Vorbereitung, Familiengesprächen, Absicherung der Übergebenden und Gestaltung der Übergabe.",
       "whoCanUseIt": "Landwirtinnen und Landwirte, die ihren Hof an die nächste Generation übergeben möchten oder keine familieninterne Nachfolge haben.",
       "howToAccess": "Die zuständige BBV-Geschäftsstelle über die verlinkte Suche auf der Angebotsseite kontaktieren. Ein möglicher Beratungspreis ist dort nicht beziffert.",
       "accessUrl": "https://www.bayerischerbauernverband.de/hofuebergabe",
       "languages": ["de"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "lastEvidenceDate": "2026-10-02",
+      "notes": "Für die konkrete Vorbereitung empfiehlt der Leitfaden mindestens ein Jahr Vorlauf; erste Informationen und Beratungen können bereits drei bis fünf Jahre vor dem geplanten Übergabedatum beginnen.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.bayerischerbauernverband.de/hofuebergabe"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bayerischerbauernverband.de/hofuebergabe",
           "title": "Hofübergabe und Generationenfolge | Bayerischer Bauernverband",
           "consultedOn": "2026-09-29",
-          "quotes": ["an Ihrer BBV-Geschäftsstelle", "für alle Landwirte/Innen", "Außerfamiliäre Hofnachfolge", "die ihr Geld wert ist!"]
+          "quotes": [
+            "an Ihrer BBV-Geschäftsstelle",
+            "für alle Landwirte/Innen",
+            "Außerfamiliäre Hofnachfolge",
+            "die ihr Geld wert ist!",
+            "Für weitere Informationen wenden Sie sich an Ihre Geschäftsstelle: >> zu Ihrer Geschäftsstelle",
+            "Wie funktioniert die „Generationenfolgeberatung - Hofübergabe“?"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.bayerischerbauernverband.de/themen/betrieb-entwicklung/10-fragen-zur-hofuebergabe-24470",
+          "title": "10 Fragen zur Hofübergabe | Bayerischer Bauernverband",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "17.08.2026 (Aktualisiert am 02.10.2026)",
+            "Die folgenden zehn Fragen geben Ihnen eine erste Orientierung und helfen dabei, die Hofübergabe frühzeitig und strukturiert anzugehen.",
+            "Unsere Generationenfolgeberater betrachten gemeinsam mit Ihnen Ihre familiäre, betriebliche und rechtliche Situation und unterstützen Sie dabei, eine Lösung zu entwickeln, die zu Ihnen, Ihrer Familie und Ihrem Betrieb passt.",
+            "Lassen Sie sich frühzeitig von den Generationenfolgeberatern Ihrer BBV-Geschäftsstelle begleiten.",
+            "Der wichtigste Schritt ist deshalb eine frühzeitige und offene Kommunikation.",
+            "Um die Übergeber auch danach angemessen abzusichern, können verschiedene Austragsleistungen vereinbart werden.",
+            "Um die Hofübergabe konkret anzugehen, empfehlen wir mindestens ein Jahr Vorlauf.",
+            "Erste Vorüberlegungen und Beratungen können jedoch schon deutlich früher beginnen.",
+            "Warum nicht bereits drei bis fünf Jahre vor dem geplanten Übergabedatum erste Informationen einholen?"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "BBV-Geschäftsstelle",
+          "value": "Ihre Geschäftsstelle",
+          "sourceUrl": "https://www.bayerischerbauernverband.de/hofuebergabe"
+        }
+      ]
     },
     {
       "id": "bayern-bbv-hofuebergabe-seminare",
       "name": "Seminare des Bayerischen Bauernverbands zur Hofübergabe",
+      "metaTitle": "Hofübergabe in Bayern: Seminare des Bauernverbands",
+      "metaDescription": "Die Seminare richten sich an Übergebende, Übernehmende und Familien mit ungeklärter Hofnachfolge. Die Angebotsseite nennt eine Online-Reihe für 2026.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -150,12 +207,22 @@
       "trainingFormats": ["ONLINE"],
       "languages": ["de"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.bayerischerbauernverband.de/hofuebergabe-seminare"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bayerischerbauernverband.de/hofuebergabe-seminare",
           "title": "Seminar-Angebote zur Hofübergabe – gleich anmelden! | Bayerischer Bauernverband",
           "consultedOn": "2026-09-29",
-          "quotes": ["für Hofübergeber, Hofübernehmer", "Online Reihe im Herbst 2026", "zum Anmeldelink"]
+          "quotes": ["für Hofübergeber, Hofübernehmer", "Online Reihe im Herbst 2026", "zum Anmeldelink"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-1",
@@ -164,38 +231,82 @@
     {
       "id": "bayern-evangelische-landwirtschaftliche-familienberatung",
       "name": "Landwirtschaftliche Familienberatung der Evangelischen Kirche in Bayern",
+      "metaTitle": "Landwirtschaftliche Familienberatung in Bayern (evangelisch)",
+      "metaDescription": "Die Evangelische Kirche in Bayern berät Familien bei ungeklärter Hofnachfolge, Erbschaft und Konflikten rund um Hof und Familie. Sitz ist Gerolfingen.",
       "kind": "ADVICE",
-      "status": "UNKNOWN",
+      "status": "ACTIVE",
       "scope": {
         "level": "REGIONAL"
       },
       "operator": "Evangelisch-Lutherische Kirche in Bayern",
       "operatorType": "NONPROFIT",
-      "whatItOffers": "Landwirtschaftliche Familienberatung der evangelischen Kirche mit Sitz in Gerolfingen. Die Einrichtungen der Bundesarbeitsgemeinschaft beraten unter anderem, wenn die Betriebsübergabe oder -aufgabe ansteht.",
-      "howToAccess": "Die Beratungsstelle über die Kontaktdaten im Verzeichnis der Bundesarbeitsgemeinschaft erreichen. Die frühere eigene Website des Dienstes ist nicht mehr erreichbar; Kosten und räumliche Zuständigkeit vorab erfragen.",
-      "accessUrl": "https://landwirtschaftliche-familienberatung.de/einrichtungen/ihre-region/bayern",
+      "whatItOffers": "Landwirtschaftliche Familienberatung der evangelischen Kirche mit Sitz in Gerolfingen. Die eigene Kontaktseite nennt Unsicherheit bei Hofnachfolge und Erbschaftsangelegenheiten ausdrücklich als Beratungsanlass, daneben Streit und Fragen rund um Familie und Betrieb. Die Einrichtungen der Bundesarbeitsgemeinschaft beraten unter anderem, wenn die Betriebsübergabe oder -aufgabe ansteht.",
+      "whoCanUseIt": "Menschen mit Unsicherheit bei Hofnachfolge oder Erbschaftsangelegenheiten sowie mit weiteren Sorgen oder Fragen rund um Familie und Betrieb.",
+      "howToAccess": "Die Beratungsstelle über die auf ihrer eigenen Kontaktseite veröffentlichten Kontaktdaten anrufen. Kosten und genaue räumliche Zuständigkeit vorab erfragen.",
+      "accessUrl": "https://www.lfb-bauernnotruf.de/kontakt/",
       "languages": ["de"],
-      "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "GENERAL"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.lfb-bauernnotruf.de/kontakt/"
+        }
+      ],
       "sources": [
         {
           "url": "https://landwirtschaftliche-familienberatung.de/einrichtungen/ihre-region/bayern",
           "title": "Kontakt | Landwirtschaftliche Familienberatung",
           "consultedOn": "2026-09-30",
-          "quotes": ["Landwirtschaftliche Familienberatung der Evangelischen Kirche in Bayern", "Hesselbergstr. 26 91726 Gerolfingen"]
+          "quotes": ["Landwirtschaftliche Familienberatung der Evangelischen Kirche in Bayern", "Hesselbergstr. 26 91726 Gerolfingen"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://landwirtschaftliche-familienberatung.de/einrichtungen/",
           "title": "Einrichtungen | Bundesarbeitsgemeinschaft der Landwirtschaftlichen Familienberatungen und Sorgentelefone",
           "quotes": ["die Betriebsübergabe oder -aufgabe steht an"],
-          "consultedOn": "2026-09-30"
+          "consultedOn": "2026-09-30",
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.lfb-bauernnotruf.de/kontakt/",
+          "title": "Kontakt - bauernnotrufs Webseite!",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Rufen Sie an, wenn:",
+            "Sie unsicher sind mit der Hofnachfolge und in Erbschaftsangelegenheiten.",
+            "Streit Sie belastet.",
+            "Bei allen weiteren Sorgen oder Fragen rund um Familie und Betrieb können Sie sich ebenfalls gerne an uns wenden:",
+            "Eine Einrichtung der Evangelisch-Lutherischen Kirche mit Sitz im EBZ Hesselberg",
+            "LANDWIRTSCHAFTLICHE FAMILIENBERATUNG der Evang.-Luth. Kirche in Bayern",
+            "lfb@ebz-hesselberg.de"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1",
-      "notes": "Der aktuelle Betrieb ist nicht durch eine eigene Seite des Dienstes belegt, nur durch den Eintrag im Verzeichnis der Bundesarbeitsgemeinschaft; daher ist der Status nicht bestätigt."
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Landwirtschaftliche Familienberatung",
+          "value": "lfb@ebz-hesselberg.de",
+          "sourceUrl": "https://www.lfb-bauernnotruf.de/kontakt/"
+        }
+      ]
     },
     {
       "id": "bayern-passau-laendliche-familienberatung",
       "name": "Ländliche Familienberatung im Bistum Passau",
+      "metaTitle": "Ländliche Familienberatung im Bistum Passau (Bayern)",
+      "metaDescription": "Familien im Bistum Passau können sich bei Hofübergabe, Betriebsaufgabe und Konflikten kostenfrei beraten lassen. Erster Kontakt per Telefon oder E-Mail.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -216,21 +327,45 @@
           "url": "https://www.bistum-passau.de/beratung-seelsorge/familie-kinder/laendliche-familienberatung",
           "title": "Ländliche Familienberatung | Bistum Passau",
           "consultedOn": "2026-09-29",
-          "quotes": ["Übergänge zu meistern", "sind für Sie kostenfrei", "mit der Beratungsstelle Kontakt"]
+          "quotes": ["Übergänge zu meistern", "sind für Sie kostenfrei", "mit der Beratungsstelle Kontakt"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.stmelf.bayern.de/landwirtschaft/hilfsangebote-fuer-schwierige-lebenssituationen",
           "title": "Hilfsangebote für schwierige Lebenssituationen | StMELF",
           "consultedOn": "2026-09-29",
-          "quotes": ["die Betriebsübergabe oder -aufgabe ansteht"]
+          "quotes": ["die Betriebsübergabe oder -aufgabe ansteht"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://landwirtschaftliche-familienberatung.de/einrichtungen/ihre-region/bayern",
+          "title": "Bayern",
+          "consultedOn": "2026-11-25",
+          "quotes": ["E-Mail: lfb@bistum-passau.de"]
         }
       ],
       "generatorId": "chatgpt-1",
-      "notes": "Eigenständige Beratungsstelle des Bistums Passau, nicht lediglich eine örtliche Weiterleitung zur evangelischen Familienberatung."
+      "notes": "Eigenständige Beratungsstelle des Bistums Passau, nicht lediglich eine örtliche Weiterleitung zur evangelischen Familienberatung.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ländliche Familienberatung im Bistum Passau",
+          "value": "lfb@bistum-passau.de",
+          "sourceUrl": "https://landwirtschaftliche-familienberatung.de/einrichtungen/ihre-region/bayern"
+        }
+      ]
     },
     {
       "id": "bayern-wuerzburg-laendliche-familienberatung",
       "name": "Ländliche Familienberatung für Landwirtschaft, Weinbau und Gartenbau in der Diözese Würzburg",
+      "metaTitle": "Ländliche Familienberatung in Würzburg (Bayern)",
+      "metaDescription": "Familien aus Landwirtschaft, Weinbau und Gartenbau in der Diözese Würzburg finden kostenfreie Beratung zu Hofübergabe und Konflikten. Kontakt per Telefon.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -257,7 +392,11 @@
             "es Schwierigkeiten bei der Hofübergabe gibt",
             "Die Beratung ist im eigenen Betrieb oder an einem neutralen Ort möglich.",
             "Die Beratung ist kostenfrei und vertraulich."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.stmelf.bayern.de/landwirtschaft/hilfsangebote-fuer-schwierige-lebenssituationen",
@@ -266,10 +405,236 @@
           "quotes": [
             "die Betriebsübergabe oder -aufgabe ansteht",
             "Ländliche Familienberatung für Landwirtschaft, Weinbau und Gartenbau der KLB in Würzburg"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://landwirtschaftliche-familienberatung.de/einrichtungen/ihre-region/bayern",
+          "title": "Bayern",
+          "consultedOn": "2026-11-25",
+          "quotes": ["E-Mail: info@lfb-wuerzburg.de"]
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ländliche Familienberatung in der Diözese Würzburg",
+          "value": "info@lfb-wuerzburg.de",
+          "sourceUrl": "https://landwirtschaftliche-familienberatung.de/einrichtungen/ihre-region/bayern"
+        }
+      ]
+    },
+    {
+      "id": "bayern-bbv-kaufinteressentenliste",
+      "name": "Erwerb land- oder forstwirtschaftlicher Flächen",
+      "metaTitle": "Flächen kaufen in Bayern: Kaufinteressentenliste des BBV",
+      "metaDescription": "Wer als Land- oder Forstwirt in Bayern Flächen kaufen möchte, kann sich beim Bayerischen Bauernverband in eine Interessentenliste eintragen lassen.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Bayerischer Bauernverband",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Kaufinteressentenliste für land- und forstwirtschaftliche Flächen. Die Vormerkung erleichtert dem Anbieter im Veräußerungsfall die Suche nach Kaufinteressenten.",
+      "whoCanUseIt": "Land- und Forstwirte, die Interesse am Erwerb land- oder forstwirtschaftlicher Flächen haben.",
+      "howToAccess": "Bei einer Geschäftsstelle des Bayerischen Bauernverbandes einen Termin vereinbaren und sich in der Kaufinteressentenliste vormerken lassen. Nähere Auskünfte erteilt jede Geschäftsstelle.",
+      "accessUrl": "https://www.bayerischerbauernverband.de/LandSiedlung",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE", "FORESTRY"],
+      "targetProfiles": ["LAND_SEEKER"],
+      "sources": [
+        {
+          "url": "https://www.bayerischerbauernverband.de/LandSiedlung",
+          "title": "Investitionsbetreuung | Bayerischer Bauernverband",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Erwerb land- oder forstwirtschaftlicher Flächen",
+            "Land- und Forstwirte, die Interesse am Erwerb land- oder forstwirtschaftlicher Flächen haben, können sich an Geschäftsstellen des Bayerischen Bauernverbandes in einer Kaufinteressentenliste vormerken lassen.",
+            "Um uns im Veräußerungsfall die Suche nach Kaufinteressenten zu erleichtern, bitten wir Sie, von der Möglichkeit der Vormerkung Gebrauch zu machen.",
+            "Nähere Auskünfte erhalten Sie an jeder Geschäftsstelle des Bayerischen Bauernverbandes.",
+            "Machen Sie gleich einen Termin bei Ihrer Geschäftsstelle aus!"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Bayerischer Bauernverband",
+          "value": "Geschäftsstelle des Bayerischen Bauernverbandes",
+          "sourceUrl": "https://www.bayerischerbauernverband.de/LandSiedlung"
+        }
+      ]
+    },
+    {
+      "id": "bayern-famber",
+      "name": "Richtlinie zur Förderung der landwirtschaftlichen Familienberatung in Bayern (FamBeR)",
+      "metaTitle": "Landwirtschaftliche Familienberatung in Bayern: FamBeR",
+      "metaDescription": "Die FamBeR regelt günstigere Beratung für Familienbetriebe bei Hofübergabe und Konflikten. Für Beratungsstellen sieht sie bis zu 60 Euro je Stunde vor.",
+      "kind": "POLICY",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Bayerisches Staatsministerium für Ernährung, Landwirtschaft und Forsten",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Förderrahmen für verbilligte Beratung zu innerfamiliären, betriebsbezogenen Konflikten, insbesondere Hofnachfolge, Hofübergabe und Generationskonflikten. Der Zuschuss wird den Beratungsstellen gewährt und vollständig als verbilligte Dienstleistung weitergegeben, nicht als Geldzahlung an den Betrieb. Die Förderpauschale beträgt bis zu 60 Euro je Beratungsstunde und kann bei unzureichenden Haushaltsmitteln reduziert werden.",
+      "whoCanUseIt": "Begünstigt sind bäuerliche Familienbetriebe einschließlich ruhender, verpachteter Betriebe, die als Kleinst-, kleine oder mittlere Unternehmen gelten und eine Betriebsstätte in Bayern haben. Unternehmen in Schwierigkeiten und Unternehmen mit nicht erfüllter beihilferechtlicher Rückforderungsanordnung sind ausgeschlossen. Religionszugehörigkeit oder Mitgliedschaft dürfen den Zugang nicht beschränken.",
+      "howToAccess": "Die Beratungsleistung vor Beratungsbeginn schriftlich bei einer der in der Richtlinie genannten Familienberatungsstellen beantragen; ausgenommen ist der telefonische Erstkontakt. Die Beratungsstelle prüft die Voraussetzungen und entscheidet über die Teilnahme. Für eine Förderung muss der Beratungsfall mindestens zwei Stunden umfassen.",
+      "accessUrl": "https://www.gesetze-bayern.de/Content/Document/BayVV_787_L_13591/true",
+      "notes": "Die Richtlinie gilt bis zum Ablauf des 31. Dezember 2027. Eine Förderung erfolgt freiwillig im Rahmen verfügbarer Haushaltsmittel, ohne Rechtsanspruch. Die rechtliche Geltung allein belegt weder die aktuelle Verfügbarkeit von Fördermitteln noch freie Beratungskapazitäten.",
+      "sources": [
+        {
+          "url": "https://www.gesetze-bayern.de/Content/Document/BayVV_787_L_13591/true",
+          "title": "FamBeR: Richtlinie zur Förderung der landwirtschaftlichen Familienberatung in Bayern - Bürgerservice",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Richtlinie zur Förderung der landwirtschaftlichen Familienberatung in Bayern (FamBeR)",
+            "Bekanntmachung des Bayerischen Staatsministeriums für Ernährung, Landwirtschaft und Forsten",
+            "Familienkonflikte (z. B. Hofnachfolge, Hofüber-/aufgabe, Generationskonflikte)",
+            "Zuwendungsfähig sind Beratungsleistungen für bäuerliche Familienbetriebe, einschließlich derzeit ruhende (verpachtete) landwirtschaftliche Betriebe.",
+            "Begünstigt sind bäuerliche Familienbetriebe unbeschadet der gewählten Rechtsform, die im Sinn von Anhang 1 der Verordnung (EU) 2022/2472 Kleinst-, kleine oder mittlere Unternehmen (KMU) sind und eine Betriebsstätte in Bayern haben.",
+            "Unternehmen in Schwierigkeiten (UiS) im Sinn von Art. 2 Nr. 59 der Verordnung (EU) 2022/2472",
+            "Unternehmen, die einer Rückforderungsanordnung aufgrund eines früheren Beschlusses der Kommission zur Feststellung der Unzulässigkeit einer Beihilfe und ihrer Unvereinbarkeit mit dem Binnenmarkt nicht nachgekommen sind.",
+            "die Beratung allen landwirtschaftlichen Unternehmen in Bayern, unabhängig von der Religionszugehörigkeit bzw. einer Mitgliedschaft angeboten",
+            "Zuwendungsempfänger sind die acht Landwirtschaftlichen/Bäuerlichen Familienberatungsstellen, namentlich:",
+            "Die Zuwendung verbilligt die Kosten der Beratungsleistung für den Begünstigten und ist in voller Höhe in Form einer verbilligten Dienstleistung an den Begünstigten weiterzugeben.",
+            "Die Förderpauschale erfolgt anteilig je Zeiteinheit und beträgt bis zu 60 Euro je Beratungsstunde.",
+            "Sollte insgesamt der mögliche Zuwendungsbetrag aller Zuwendungsempfänger die verfügbaren Haushaltsmittel übersteigen, so wird die Höhe der Förderpauschale entsprechend reduziert.",
+            "Der Begünstigte hat die Beratungsleistung bei einer Familienberatungsstelle vor Beratungsbeginn schriftlich zu beantragen (mit Ausnahme telefonischer Erstkontakt).",
+            "Der Zuwendungsempfänger prüft die Zuwendungsvoraussetzungen und entscheidet über die Teilnahme des Begünstigten an der Maßnahme.",
+            "Die Beratungsleistung je Beratungsfall muss für die Inanspruchnahme der Förderung mindestens zwei Stunden Dauer umfassen.",
+            "Der Freistaat Bayern gewährt Zuwendungen als freiwillige Leistung ohne Rechtspflicht im Rahmen der verfügbaren Haushaltsmittel.",
+            "Sie tritt mit Ablauf des 31. Dezember 2027 außer Kraft."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4"
+    },
+    {
+      "id": "bayern-bbv-soziooekonomische-beratung",
+      "name": "Sozioökonomische Beratung",
+      "metaTitle": "Hofnachfolge in Bayern: Sozioökonomische Beratung des BBV",
+      "metaDescription": "Der Bayerische Bauernverband berät Familien vertraulich bei betrieblichen und persönlichen Belastungen, auch zur Zukunft eines Hofs ohne Nachfolge.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Bayerischer Bauernverband",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Individuelle und vertrauliche Beratung zur Zukunft von Familie und Betrieb durch spezialisierte BBV-Beraterinnen und Berater. Dazu gehören die Planung des Generationswechsels und Zukunftskonzepte bei ungeklärter Hofnachfolge. Nach Prüfung der versicherungsrechtlichen Voraussetzungen kann die SVLFG im Rahmen einer Präventionsleistung bis zu 10 Beratungsstunden bezuschussen.",
+      "whoCanUseIt": "Landwirtinnen und Landwirte mit betrieblichen, finanziellen oder persönlichen Belastungen und ungeklärten Zukunftsfragen, darunter die Frage, wer den Hof weiterführt oder wie er ohne Hofnachfolger weiterlaufen kann.",
+      "howToAccess": "Weitere Informationen zur Beratung und zur möglichen Bezuschussung bei der eigenen BBV-Geschäftsstelle erfragen. Die Beratung ist in der Regel kostenpflichtig.",
+      "accessUrl": "https://www.bayerischerbauernverband.de/Zukunftsplanung",
+      "notes": "Der BBV beschreibt das Angebot als Teil seiner Kooperation mit der SVLFG im Pilotprojekt zur präventiven Gesundheitsförderung in Bayern. Ein konkreter Beratungspreis wird nicht genannt.",
+      "sources": [
+        {
+          "url": "https://www.bayerischerbauernverband.de/Zukunftsplanung",
+          "title": "Sozioökonomische Beratung | Bayerischer Bauernverband",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Speziell ausgebildete Beraterinnen und Berater des BBV gewährleisten eine vertrauliche und umfassende sowie auf die jeweilige persönliche und betriebliche Situation angepasste Beratung und Begleitung.",
+            "Für Landwirtinnen und Landwirte, die sich in folgenden Situationen befinden:",
+            "Finanzielle, betriebliche und persönliche Mangelsituationen bestimmen den Alltag",
+            "Wer führt den Hof weiter? Wie kann der Hof überhaupt weiterlaufen, wenn ich keinen Hofnachfolger finde?",
+            "Planung des Generationswechsels",
+            "Die sozioökonomische Beratung ist i.d.R. eine kostenpflichtige Dienstleistung.",
+            "Das Beratungsangebot kann jedoch im Rahmen einer Präventionsleistung durch die SVLFG nach Prüfung der versicherungsrechtlichen Voraussetzungen mit bis zu 10 Stunden bezuschusst werden.",
+            "Weitere Informationen erhalten Sie an Ihrer Geschäftsstelle",
+            "Der Bayerische Bauernverband ist Kooperationspartner der SVLFG beim Pilotprojekt zur präventiven Gesundheitsförderung mit den Dienstleistungsangeboten sozioökonomischen Beratung und Mediation in Bayern."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-4",
+      "accessCostType": "FEE_REQUIRED",
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "BBV-Geschäftsstelle",
+          "value": "Ihrer Geschäftsstelle",
+          "sourceUrl": "https://www.bayerischerbauernverband.de/Zukunftsplanung"
+        }
+      ]
+    },
+    {
+      "id": "bayern-neuland-infobaustein-hofuebergabe",
+      "name": "Infobaustein: Hofübergabe",
+      "metaTitle": "Hofübergabe in Bayern: Infobaustein zur Vorbereitung",
+      "metaDescription": "Der Leitfaden hilft Familien, die Hofübergabe vorzubereiten. Er erklärt die Phasen, die wirtschaftliche Planung, den Vertrag und die Versorgung im Alter.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Bayerische Landesanstalt für Landwirtschaft mit dem Gründerzentrum NEU.LAND.",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Online-Leitfaden zur Vorbereitung der Hofübergabe: Phasen des Übergabeprozesses, Abstimmung in der Familie, wirtschaftliche Planung, Versorgung der Übergebenden, Wohn- und Pflegefragen sowie Inhalte des Übergabevertrags. Ergänzt wird er durch Hinweise auf Checklisten, weiterführende Informationen und Beratungsangebote.",
+      "howToAccess": "Den Infobaustein direkt online lesen und die dort aufgeführten weiterführenden Informationen nutzen. Für konkrete betriebliche oder rechtliche Fragen verweist die Seite an die entsprechenden staatlichen Stellen oder die genannten Ansprechpartner.",
+      "accessUrl": "https://www.gruenderzentrum.lfl.bayern.de/390023/index.php",
+      "notes": "Das Gründerzentrum bietet keine einzelfallbezogene betriebliche Beratung und erteilt keine Auskünfte zu rechtlichen Fragestellungen. Die Informationen sind nicht rechtlich bindend.",
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.gruenderzentrum.lfl.bayern.de/390023/index.php"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.gruenderzentrum.lfl.bayern.de/390023/index.php",
+          "title": "Infobaustein: Hofübergabe",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Infobaustein: Hofübergabe",
+            "Daher finden Sie hier einen Überblick zur Gestaltung der Hofübergabe und Hinweise auf fundierte Informationen und bewährte Beratungsangebote.",
+            "Aber die Phasen helfen allen Beteiligten, zu verstehen wie die verschiedenen Schritte ineinandergreifen:",
+            "Finanzielle und wirtschaftliche Aspekte",
+            "Wohn- und Pflegefragen",
+            "Der Hofübergabevertrag – zentrale Inhalte",
+            "Checkliste zur Hofübergabe",
+            "Die bayerische Landesanstalt für Landwirtschaft mit dem Gründerzentrum NEU.LAND. bietet keine einzelfallbezogene betriebliche Beratung und erteilt keine Auskünfte zu rechtlichen Fragestellungen.",
+            "Für konkrete Fragen oder Auskünfte wenden Sie sich bitte an die entsprechenden staatlichen Stellen oder die genannten Ansprechpartner.",
+            "Kosten: 12 € + Versandkosten"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.gruenderzentrum.lfl.bayern.de/314686/index.php",
+          "title": "Kontakt",
+          "consultedOn": "2026-11-25",
+          "quotes": ["E-MAIL: NEULAND@lfl.bayern.de"]
+        }
+      ],
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Gründerzentrum NEU.LAND.",
+          "value": "NEULAND@lfl.bayern.de",
+          "sourceUrl": "https://www.gruenderzentrum.lfl.bayern.de/314686/index.php"
+        }
+      ],
+      "accessCostType": "FEE_REQUIRED"
     }
   ],
   "news": [],

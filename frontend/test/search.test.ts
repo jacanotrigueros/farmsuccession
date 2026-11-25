@@ -189,7 +189,7 @@ test("every record is in exactly one language bundle, and the manifest says whic
   }
 
   // Every language a record is written in has a bundle, including the one the European layer uses.
-  for (const snapshot of all) {
+  for (const snapshot of all.filter(({ resources }) => resources.length > 0)) {
     assert.ok(
       manifest.languages[snapshot.metadata.language],
       `nothing indexes ${snapshot.metadata.language}, so its records cannot be found by typing in it`,

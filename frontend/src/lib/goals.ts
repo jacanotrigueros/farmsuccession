@@ -33,3 +33,9 @@ export const goalOf = (kind: Resource["kind"]): GoalId => {
   if (goal === undefined) throw new Error(`no situation covers the record kind ${kind}: add it to goals.ts before publishing one`);
   return goal;
 };
+
+/** Only a documented first-establishment grant gets the prominent territory link. */
+export const isFirstEstablishmentAid = (resource: Resource): boolean =>
+  resource.kind === "FINANCIAL_SUPPORT" &&
+  resource.instrumentType === "GRANT" &&
+  ((resource.purposes ?? []) as readonly string[]).includes("FIRST_ESTABLISHMENT");

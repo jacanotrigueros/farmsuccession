@@ -54,9 +54,8 @@ shown finding something is indistinguishable from a broken one.
 
 1. **025 stands.** A rule adopted on three days of evidence, to fix nothing that has
    happened, is a rule nobody can defend later.
-2. **The objection is kept, not dropped.** It is in
-   [`research/memos/M14-recency.md`](../research/memos/M14-recency.md) with its costs
-   on both sides, so the next person starts from the measurement.
+2. **The objection is kept, not dropped.** It was weighed with its costs on both
+   sides, and the measurement below is where the next person starts.
 3. **`npm run measure:recency` is the trigger.** The day it reports a cited page with
    two answered failure days after its last PASS, this decision is reopened with a real
    case in hand.

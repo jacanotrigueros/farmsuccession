@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "IT",
   "region": "toscana",
+  "metaTitle": "Primo insediamento e Banca della Terra in Toscana",
+  "metaDescription": "In Toscana, consulta il premio SRE01 per chi si insedia, la Banca della Terra per chi cerca terreni e la scuola per aspiranti pastori.",
   "officialName": "Toscana",
-  "published": "2026-10-08",
+  "published": "2026-11-25",
   "summary": "In Toscana sono documentati il premio SRE01 per il primo insediamento, la Banca della Terra, una scuola per nuovi pastori e un contributo camerale per nuove imprese e passaggi generazionali nelle province di Livorno e Grosseto. Il bando SRE01 2026 e le iscrizioni alla scuola sono chiusi; il bando camerale risulta aperto.",
   "coverage": {
     "status": "PARTIAL",
@@ -49,9 +51,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -67,6 +66,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -74,6 +80,8 @@
     {
       "id": "toscana-sre01-insediamento-giovani",
       "name": "Insediamento giovani agricoltori (intervento SRE01)",
+      "metaTitle": "SRE01 Toscana 2026: insediamento giovani agricoltori",
+      "metaDescription": "SRE01 Toscana 2026: 100.000 euro per giovani al primo insediamento. Consulta i recapiti e l’elenco delle domande potenzialmente finanziabili.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -81,10 +89,24 @@
       },
       "operator": "Regione Toscana",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Premio in conto capitale di 100.000 euro per il primo insediamento come capo di un'azienda agricola.",
-      "whoCanUseIt": "Giovani dai 18 ai 40 anni che si insediano per la prima volta e presentano un Piano di Sviluppo Aziendale; la formazione o competenza professionale e la qualifica IAP possono essere conseguite entro la conclusione del piano secondo il bando.",
-      "howToAccess": "Per il bando 2026 occorreva disporre dei terreni, creare il fascicolo aziendale e presentare domanda e piano tramite la piattaforma ARTEA entro il 22 giugno 2026, ore 13. La finestra è chiusa.",
+      "whatItOffers": "Premio in conto capitale di 100.000 euro per il primo insediamento come capo di un'azienda agricola. Se nella stessa azienda si insediano più giovani agricoltori, sono erogati al massimo due premi con un unico piano aziendale.",
+      "whoCanUseIt": "Giovani dai 18 ai 40 anni insediati per la prima volta come capo azienda entro il periodo precedente alla domanda previsto dal bando, che presentano un Piano di Sviluppo Aziendale. La formazione o competenza professionale e la qualifica di imprenditore agricolo professionale possono essere conseguite entro la conclusione del piano secondo il bando. Sono richiesti anche il conseguimento della condizione di agricoltore in attività entro i termini dell'avviso e l'iscrizione all'INPS nella gestione agricola entro la conclusione del piano.",
+      "howToAccess": "Per il bando 2026 occorreva disporre dei terreni, creare il fascicolo aziendale e presentare domanda e piano tramite la piattaforma ARTEA entro il 22 giugno 2026, ore 13. La finestra è chiusa e la pagina Giovanisì rinvia all'elenco delle domande potenzialmente finanziabili.",
       "accessUrl": "https://www.regione.toscana.it/-/giovani-agricoltori-premi-per-l-avviamento-dell-impresa-agricola-il-bando-2026",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Ufficio Giovanisì – Regione Toscana",
+          "value": "800 098 719",
+          "sourceUrl": "https://giovanisi.it/bando/insediamento-giovani-agricoltori-2026/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Ufficio Giovanisì – Regione Toscana",
+          "value": "info@giovanisi.it",
+          "sourceUrl": "https://giovanisi.it/bando/insediamento-giovani-agricoltori-2026/"
+        }
+      ],
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
       "calls": [
@@ -134,14 +156,60 @@
             "Le risorse disponibili passano da 28.364.000 euro a 31.700.000 euro",
             "decreto dirigenziale 15659 del 13 luglio 2026",
             "Aggiornato al: 16.07.2026"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://giovanisi.it/bando/insediamento-giovani-agricoltori-2026/",
+          "title": "Insediamento giovani agricoltori 2026 - Giovanisì",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Stato: In Graduatoria Scaduto il: 22/06/2026 13:00",
+            "Il bando dà la possibilità, ai giovani under 41, di ottenere un premio di 100.000 euro per l’avviamento dell’attività agricola in Toscana.",
+            "In caso di insediamento di più giovani agricoltori nella stessa azienda sono erogati fino ad un massimo di due premi con la presentazione di un unico piano aziendale.",
+            "Possono presentare domanda i giovani agricoltori under 41 (dai 18 ai 40 anni)",
+            "presentare un Piano di Sviluppo aziendale;",
+            "possedere entro la data di conclusione del Piano di Sviluppo Aziendale, un’adeguata formazione o competenza professionale;",
+            "diventare “Agricoltore in attività” entro i termini definiti dall’avviso;",
+            "diventare imprenditore agricolo professionale entro la data di conclusione del Piano di Sviluppo Aziendale;",
+            "iscrizione all’inps – gestione agricola entro la data di conclusione del Piano di Sviluppo aziendale;",
+            "essere insediati per la prima volta in qualità di capo azienda nei 30mesi precedenti alla presentazione della domanda di aiuto.",
+            "La domanda di sostegno deve essere presentata online sulla piattaforma gestionale dell’Anagrafe regionale delle aziende agricole sul sito di ARTEA (soggetto gestore), secondo le modalità indicate dall’art.5 del bando.",
+            "Ufficio Giovanisì – Regione Toscana Numero verde 800 098 719 info@giovanisi.it",
+            "Vai all’elenco delle domande potenzialmente finanziabili (Decreto n.15659 del 13-07-2026)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.regione.toscana.it/-/insediamento-giovani-agricoltori-sre01",
+          "title": "Insediamento giovani agricoltori SRE01 - Regione Toscana",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "Prevede la concessione di un sostegno ai giovani imprenditori agricoli, dai 18 ai 41 anni (non compiuti), che si insediano per la prima volta in un’azienda agricola in qualità di capo dell’azienda.",
+            "Il sostegno è previsto fino a un massimo di 100.000 euro.",
+            "Al momento della presentazione della domanda i beneficiari devono presentare un piano aziendale per lo sviluppo dell’attività agricola.",
+            "Aggiornato al: 16.01.2024"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La pagina conserva l'etichetta generale «Stato: In corso», ma la scadenza de­lle domande, prorogata al 22 giugno 2026, è trascorsa. Il bando limita determinati trasferimenti familiari e tra coniugi: consultare i requisiti completi prima di planificare un subentro."
+      "notes": "La pagina regionale conserva l'etichetta generale «Stato: In corso», ma la scadenza delle domande, prorogata al 22 giugno 2026, è trascorsa. Il bando limita determinati trasferimenti familiari e tra coniugi: consultare i requisiti completi prima di planificare un subentro.",
+      "generatorId": "chatgpt-3"
     },
     {
       "id": "toscana-banca-della-terra",
       "name": "Banca della Terra",
+      "metaTitle": "Banca della Terra Toscana: terreni e aziende agricole",
+      "metaDescription": "Chi cerca terreni, aziende o fabbricati agricoli in Toscana può consultare l’inventario ARTEA e gli avvisi per l’affitto o la concessione.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -149,15 +217,15 @@
       },
       "operator": "Ente Terre Regionali Toscane",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Inventario de terreni e aziende agricole pubblici e privati messi a disposizione tramite affitto o concessione. I bandi e gli avvisi dei singoli beni definiscono le modalità di richiesta.",
-      "whoCanUseIt": "Chi cerca terreni o aziende agricole; per alcuni beni pubblici e terreni abbandonati, la valutazione di domande concorrenti tiene conto dell'età e della qualifica professionale.",
-      "howToAccess": "Consultare la Banca della Terra ospitata da ARTEA e leggere il bando o l'avviso del bene interessato. Il lotto ARTEA verificato in questa passata aveva scadenza il 24 luglio 2026; non è confermata la disponibilità attuale di altri lotti.",
+      "whatItOffers": "Inventario di terreni, aziende agricole e fabbricati ad uso agricolo-forestale pubblici e privati messi a disposizione tramite affitto o concessione, compresi terreni abbandonati. I bandi e gli avvisi dei singoli beni definiscono le modalità di richiesta.",
+      "whoCanUseIt": "Chiunque cerchi terreni o aziende agricole, senza limitazioni di età o professionalità. Per alcuni beni pubblici e terreni abbandonati, la valutazione di domande concorrenti tiene conto dell'età e della qualifica professionale. La pagina regionale descrive una priorità, in caso di pluralità di domande, per i giovani sotto i 40 anni che lavorano a tempo pieno in agricoltura come IAP o intendono farlo entro i due anni successivi come IAP provvisori.",
+      "howToAccess": "Consultare la Banca della Terra ospitata da ARTEA e leggere tutta la documentazione del bando o dell'avviso del bene interessato, che stabilisce modalità e termini della domanda. Per i beni pubblici occorre rispettare la scadenza del bando; per i terreni privati l'accordo dipende dalla trattativa fra le parti. Il lotto ARTEA verificato aveva scadenza il 24 luglio 2026; non è confermata la disponibilità attuale di altri lotti.",
       "accessUrl": "https://www.terreregionali.toscana.it/it-it/funzioni-/servizi/banca-della-terra",
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "sectors": ["AGRICULTURE", "FORESTRY"],
       "languages": ["it"],
-      "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER", "LANDOWNER"],
-      "lastEvidenceDate": "2026-08-07",
+      "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER", "LANDOWNER", "GENERAL"],
+      "lastEvidenceDate": "2026-11-16",
       "sources": [
         {
           "url": "https://www.terreregionali.toscana.it/it-it/funzioni-/servizi/banca-della-terra",
@@ -168,18 +236,27 @@
             "tramite operazioni di affitto o di concessione",
             "favorire l’imprenditoria giovanile nel settore agricolo e forestale",
             "sono disciplinate nei bandi (per i beni di proprietà pubblica) e negli avvisi (per i beni di proprietà privata)",
-            "di valutare l’età (maggiore o minore di quaranta anni) e l’eventuale qualifica professionale"
-          ]
+            "di valutare l’età (maggiore o minore di quaranta anni) e l’eventuale qualifica professionale",
+            "Email: info@terreregionali.toscana.it"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.toscana.it/-/ente-terre-regionali-toscane-ex-azienda-agricola-di-alberese-anno-2026",
-          "title": "Ente Terre regionali toscane, anno 2026 - Regione Toscana",
-          "consultedOn": "2026-09-28",
+          "title": "Ente Terre regionali toscane ex azienda agricola di Alberese, anno 2026 - Regione Toscana",
+          "consultedOn": "2026-11-24",
           "quotes": [
             "gestisce la banca della terra",
             "inserendo i bandi pubblici nella sezione dedicata della Banca della Terra",
-            "Aggiornato al: 07.08.2026"
-          ]
+            "Aggiornato al: 16.11.2026"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www1.artea.toscana.it/sezioni/Evidenza/Testi/TerreToscaneIntro.aspx?idbando=313",
@@ -189,13 +266,46 @@
             "Data scadenza: 24/07/2026",
             "Il Portale “BANCA DELLA TERRA” è ospitato da ARTEA sul proprio sito web",
             "la sua gestione è sotto la responsabilità esclusiva dell’Ente “Terre Regionali Toscane”."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.regione.toscana.it/-/la-banca-della-terra",
+          "title": "La banca della terra - Regione Toscana",
+          "consultedOn": "2026-11-21",
+          "quotes": [
+            "La Banca della Terra è gestita da Ente Terre Regionali Toscane",
+            "La banca della terra è un inventario completo e aggiornato di terreni, aziende agricole, fabbricati ad uso agricolo-forestale, sia di proprietà pubblica che privata, messi a disposizione di terzi, tramite operazioni di affitto o di concessione compresi i cosiddetti terreni abbandonati.",
+            "chiunque può partecipare ai bandi e agli avvisi per la selezione dei conduttori dei terreni e delle aziende, senza alcuna limitazione di età o di professionalità.",
+            "Per questo motivo, in caso di pluralità di domande, viene operata una selezione basata anche sulla tipologia di soggetto, dando la priorità ai giovani (sotto i 40 anni di età) che lavorano a tempo pieno in agricoltura (IAP) o che hanno intenzione di farlo entro i due anni successivi (IAP provvisorio).",
+            "stabilisce i modi ed i tempi per la presentazione delle domande.",
+            "Nel caso di beni di proprietà pubblica il bando definisce il termine ultimo per la presentazione delle domande, elemento fondamentale in quanto non possono essere ammesse richieste pervenute in data successiva a quella stabilita; nel caso di terreni di proprietà privata tale termine non è presente, in quanto l'eventuale accordo dipende dalla trattativa in corso fra le parti.",
+            "Aggiornato al: 11.03.2020"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ente Terre Regionali Toscane",
+          "value": "info@terreregionali.toscana.it",
+          "sourceUrl": "https://www.terreregionali.toscana.it/it-it/funzioni-/servizi/banca-della-terra"
         }
       ]
     },
     {
       "id": "toscana-shepherdschool-casentino",
       "name": "ShepherdSchool LIFE ShepForBio",
+      "metaTitle": "ShepherdSchool in Toscana: scuola per aspiranti pastori",
+      "metaDescription": "ShepherdSchool LIFE ShepForBio in Toscana forma aspiranti pastori e nuovi allevatori con lezioni, visite e stage. Consulta il ciclo 2026.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -206,8 +316,8 @@
       "operatorType": "MIXED",
       "whatItOffers": "Percorso di formazione per aspiranti pastori e allevatori con lezioni, visite ad aziende e stage pratico presso allevamenti.",
       "whoCanUseIt": "Aspiranti pastori e nuovi allevatori selezionati per la scuola; la pagina non indica un limite generale di età.",
-      "howToAccess": "La pagina del progetto pubblica le informazioni e il collegamento all'iscrizione. Le iscrizioni per il ciclo 2026 terminavano il 15 febbraio 2026; non è pubblicata in queste fonti una nuova finestra.",
-      "accessUrl": "https://dream-italia-euprj.eu/life/lifeshepforbio/sheperdschool/",
+      "howToAccess": "Consultare la pagina del Parco Nazionale delle Foreste Casentinesi. Le iscrizioni per il ciclo 2026 si sono chiuse il 15 febbraio 2026.",
+      "accessUrl": "https://www.parcoforestecasentinesi.it/it/news/riparte-la-shepherdschool",
       "trainingFormats": ["IN_PERSON"],
       "sectors": ["LIVESTOCK"],
       "calls": [
@@ -215,7 +325,7 @@
           "name": "Iscrizioni ShepherdSchool 2026",
           "state": "CLOSED",
           "closes": "2026-02-15",
-          "sourceUrl": "https://dream-italia-euprj.eu/life/lifeshepforbio/sheperdschool/"
+          "sourceUrl": "https://www.parcoforestecasentinesi.it/it/news/riparte-la-shepherdschool"
         }
       ],
       "accessCostType": "FREE",
@@ -224,35 +334,30 @@
       "lastEvidenceDate": "2026-02-15",
       "sources": [
         {
-          "url": "https://dream-italia-euprj.eu/life/lifeshepforbio/sheperdschool/",
-          "title": "ShepherdSchool - LIFE ShepForBio",
-          "consultedOn": "2026-09-28",
-          "quotes": [
-            "una scuola di formazione per nuovi pastori e allevatori",
-            "Iscrizioni aperte fino al il 15/02/2026.",
-            "La parte di formazione teorica si terrà nel 2026 in Casentino",
-            "L’iscrizione alla Scuola è gratuita.",
-            "I discenti vedranno riconosciuto il proprio percorso formativo nell’ambito del Sistema della formazione e dell’orientamento della Regione Toscana"
-          ]
-        },
-        {
           "url": "https://www.parcoforestecasentinesi.it/it/news/riparte-la-shepherdschool",
-          "title": "Riparte la ShepherdSchool - Parco Nazionale Foreste Casentinesi",
-          "consultedOn": "2026-09-28",
+          "title": "Riparte la ShepherdSchool | Parco Nazionale Foreste Casentinesi",
+          "consultedOn": "2026-11-24",
           "quotes": [
             "Il 2026 è il quarto anno della Scuola per pastori e allevatori",
             "una prima parte teorica, della durata di 28 giorni",
             "una parte di stage pratico di 30 giorni",
             "Le lezioni si terranno presso il Centro di Formazione di Officine di Capodarno a Pratovecchio Stia",
-            "La partecipazione alla scuola è completamente gratuita."
-          ]
+            "La partecipazione alla scuola è completamente gratuita.",
+            "Le iscrizioni rimarranno aperte fino all’15 febbraio."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         }
       ],
-      "notes": "Il programma svolge lezioni anche in Romagna e un modulo in Abruzzo; questa voce documenta la sede formativa nel Casentino. Il riconoscimento formativo citato dall'operatore non dimostra che il corso soddisfi il requisito professionale del bando SRE01."
+      "notes": "La scheda documenta la sede formativa di Pratovecchio Stia nel Casentino. L’annuncio descrive anche un modulo a Calascio, in Abruzzo."
     },
     {
       "id": "toscana-maremma-tirreno-creazione-impresa-2026",
       "name": "Bando camerale a sostegno della creazione d'impresa 2026",
+      "metaTitle": "Bando creazione d’impresa 2026: Livorno e Grosseto, Toscana",
+      "metaDescription": "Bando camerale 2026: fino a 5.000 euro per piccole imprese nuove di Livorno e Grosseto, anche dopo un passaggio generazionale. Consulta i requisiti.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -263,17 +368,17 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Contributo a fondo perduto per spese di avvio di nuove imprese, comprese quelle derivanti da un passaggio generazionale; il bando dichiara l'accesso a tutti i settori economici.",
       "whoCanUseIt": "Micro, piccole e medie imprese iscritte e attive dal 1° gennaio 2026, con sede legale e operativa a Livorno o Grosseto. Per il passaggio generazionale sono richiesti requisiti ulteriori relativi all'impresa originaria e a chi prosegue l'attività.",
-      "howToAccess": "Partecipare prima all'evento formativo obbligatorio della Camera e presentare la domanda con SPID, CIE o CNS tramite ReStart, con le spese già sostenute e la documentazione richiesta. La scadenza indicata è il 10 novembre 2026, salvo chiusura anticipata per esaurimento delle risorse.",
+      "howToAccess": "Il bando 2026 è chiuso. Per questa edizione era necessario partecipare all’evento formativo della Camera e presentare la domanda con SPID, CIE o CNS tramite ReStart, con le spese già sostenute e la documentazione richiesta.",
       "accessUrl": "https://www.lg.camcom.it/bandi/bando-sostegno-creazione-impresa-2026",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT", "TRANSFER"],
       "calls": [
         {
           "name": "Bando creazione d'impresa 2026",
-          "state": "OPEN",
+          "state": "CLOSED",
           "opens": "2026-03-25",
           "closes": "2026-11-10",
-          "sourceUrl": "https://www.lg.camcom.it/sites/default/files/contenuto_redazione/bandi/allegati/2026-03-24/Bando%20Creazione%20impresa%202026%20CCIAA%20MarTir.pdf"
+          "sourceUrl": "https://www.lg.camcom.it/bandi/bando-sostegno-creazione-impresa-2026"
         }
       ],
       "languages": ["it"],
@@ -299,16 +404,19 @@
       "sources": [
         {
           "url": "https://www.lg.camcom.it/bandi/bando-sostegno-creazione-impresa-2026",
-          "title": "Bando a sostegno della creazione d'impresa - Anno 2026",
-          "consultedOn": "2026-09-30",
+          "title": "Bando a sostegno della creazione d'impresa - Anno 2026 | Camera di Commercio Maremma e Tirreno",
+          "consultedOn": "2026-11-24",
           "quotes": [
-            "Anno 2026 Aperto Scade 10/11/2026",
-            "10/11/2026 salvo chiusura anticipata per esaurimento risorse",
             "Saranno incentivati anche i percorsi di creazione di impresa frutto di un passaggio generazionale",
             "La dotazione finanziaria a disposizione dei soggetti beneficiari ammonta a € 200.000.",
             "Le domande di partecipazione devono essere presentate esclusivamente tramite la piattaforma ReStart accedendo con SPID, CIE o CNS.",
-            "Ultima modifica"
-          ]
+            "Ultima modifica",
+            "Chiuso Mer 25 Mar, 2026"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
         },
         {
           "url": "https://www.lg.camcom.it/sites/default/files/contenuto_redazione/bandi/allegati/2026-03-24/Bando%20Creazione%20impresa%202026%20CCIAA%20MarTir.pdf",
@@ -321,11 +429,24 @@
             "La percentuale di contributo è elevata al 70%, per le neoimprese",
             "importo massimo di contributo pari a € 5.000,00.",
             "I richiedenti il contributo sono tenuti a partecipare ad un evento formativo",
-            "10 del 25 marzo 2026 e fino alle ore 23:59 del 10 novembre 2026"
-          ]
+            "10 del 25 marzo 2026 e fino alle ore 23:59 del 10 novembre 2026",
+            "Servizio di promozione e Sviluppo economico Email: promozione@lg.camcom.it"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La misura è multisettoriale, ma il testo ammette imprese di tutti i settori e incentiva espressamente il passaggio generazionale. Le condizioni complete e l'eventuale chiusura anticipata devono verificarsi prima della domanda. Le risorse residue sono pubblicate dalla Camera in un prospetto che viene sostituito a ogni aggiornamento, quindi non vengono riportate qui."
+      "notes": "La misura è multisettoriale, ma il testo ammette imprese di tutti i settori e incentiva espressamente il passaggio generazionale. Le condizioni complete e l'eventuale chiusura anticipata devono verificarsi prima della domanda. Le risorse residue sono pubblicate dalla Camera in un prospetto che viene sostituito a ogni aggiornamento, quindi non vengono riportate qui.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Servizio di promozione e Sviluppo economico – Camera di Commercio della Maremma e del Tirreno",
+          "value": "promozione@lg.camcom.it",
+          "sourceUrl": "https://www.lg.camcom.it/sites/default/files/contenuto_redazione/bandi/allegati/2026-03-24/Bando%20Creazione%20impresa%202026%20CCIAA%20MarTir.pdf"
+        }
+      ]
     }
   ],
   "news": [
@@ -345,7 +466,11 @@
             "decreto dirigenziale 15659 del 13 luglio 2026",
             "Le risorse disponibili passano da 28.364.000 euro a 31.700.000 euro",
             "Data di scadenza presentazione domande: 22.06.2026 13:00"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     }

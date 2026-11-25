@@ -21,8 +21,6 @@ const CODES = [
   "TO_CHECK",
   "ADMITTED",
   "REJECTED",
-  "DRAFT",
-  "REVIEWED",
   "qualifiesForEstablishmentAid",
   "lastEvidenceDate",
   "accessUrl",

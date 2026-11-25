@@ -11,7 +11,8 @@
  * language as the page they came from, and complete before anything is typed.
  */
 import { Icon } from "astro-icon/components";
-import { countryTerritories, euTerritory, href } from "../lib/corpus.ts";
+import { countryTerritories, euTerritory, EUROPE_PAGE, href, languageOf } from "../lib/corpus.ts";
+import { countryNameIn } from "../lib/language.ts";
 import { flagOf, ICON } from "../lib/icons.ts";
 import { words } from "../lib/words.ts";
 import { searchPath } from "../../public/search-scope.js";
@@ -22,18 +23,40 @@ const text = words(language);
 
 const europe = euTerritory();
 /** The country a page belongs to, which is also the scope its search button leads to. */
-const countryOf = (place: string): string | undefined => (place === "/" ? undefined : place.slice(1, -1).toUpperCase());
+const countryOf = (place: string): string | undefined => (place === "/" || place === "/eu/" ? undefined : place.slice(1, -1).toUpperCase());
 
-const places = [
-  { href: "/", label: text.europe, flag: flagOf("EU") },
-  ...countryTerritories().map((territory) => ({
-    href: href(territory.layer),
-    label: territory.data.officialName,
-    flag: flagOf(territory.layer.level === "EU" ? "EU" : territory.layer.country),
-  })),
+/**
+ * Europe leads to the European layer's own page, so choosing it shows Europe's instruments, not every
+ * country's. Each country is named in the page's language, and, where its own name differs, that name
+ * follows on a quieter line: a reader looking for their own country recognises "Nederland" before they
+ * translate it.
+ */
+const places: { href: string; label: string; own?: string; ownLanguage?: string; flag: string }[] = [
+  { href: europe ? EUROPE_PAGE : "/", label: text.europe, flag: flagOf("EU") },
+  ...countryTerritories()
+    .flatMap((territory) => {
+      if (territory.layer.level === "EU") return [];
+      const label = countryNameIn(territory.layer.country, language);
+      const own = territory.data.officialName;
+      return [
+        {
+          href: href(territory.layer),
+          label,
+          own: own === label ? undefined : own,
+          ownLanguage: languageOf(territory),
+          flag: flagOf(territory.layer.country),
+        },
+      ];
+    })
+    .toSorted((a, b) => a.label.localeCompare(b.label, language)),
 ];
-/** The place a page belongs to is the longest one its path starts with: a region is inside its country. */
-const here = places.filter((place) => current.startsWith(place.href)).toSorted((a, b) => b.href.length - a.href.length)[0] ?? places[0];
+/**
+ * The place a page belongs to is the longest one its path starts with: a region is inside its country.
+ * A page that belongs to no place — the home page, which is the overview of every country, or a page
+ * about the project — selects nothing and asks the reader to choose, rather than claiming Europe
+ * (founder, 16 Nov 2026).
+ */
+const here = places.filter((place) => current.startsWith(place.href)).toSorted((a, b) => b.href.length - a.href.length)[0];
 ---
 
 <header class="border-b border-line bg-card">
@@ -50,8 +73,12 @@ const here = places.filter((place) => current.startsWith(place.href)).toSorted((
         <details class="territory-picker relative">
           <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center justify-between gap-2 rounded-lg border border-line-strong bg-card px-3 font-bold text-brand-strong hover:border-brand">
             <span class="flex min-w-0 items-center gap-2">
-              <img src={here?.flag} alt="" width="24" height="18" class="h-4.5 w-6 shrink-0 rounded-xs border border-line object-cover" />
-              <span class="min-w-0 truncate">{here?.label}</span>
+              {here ? (
+                <img src={here.flag} alt="" width="24" height="18" class="h-4.5 w-6 shrink-0 rounded-xs border border-line object-cover" />
+              ) : (
+                <Icon name={ICON.europe} aria-hidden="true" class="size-5 shrink-0 text-brand" />
+              )}
+              <span class="min-w-0 truncate">{here?.label ?? text.chooseScope}</span>
             </span>
             <Icon name="lucide:chevron-down" aria-hidden="true" class="territory-chevron size-4 shrink-0" />
           </summary>
@@ -71,7 +98,14 @@ const here = places.filter((place) => current.startsWith(place.href)).toSorted((
                       height="18"
                       class="h-4.5 w-6 shrink-0 rounded-xs border border-line object-cover"
                     />
-                    {place.label}
+                    <span class="flex flex-col py-1 leading-tight">
+                      {place.label}
+                      {place.own && (
+                        <span lang={place.ownLanguage} class="meta font-normal">
+                          {place.own}
+                        </span>
+                      )}
+                    </span>
                   </span>
                   {place.href === here?.href && <Icon name="lucide:check" aria-hidden="true" class="size-4 shrink-0" />}
                 </a>

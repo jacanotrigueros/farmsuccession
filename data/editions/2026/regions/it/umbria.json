@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "IT",
   "region": "umbria",
+  "metaTitle": "Primo insediamento in Umbria: bando SRE01 2026",
+  "metaDescription": "Consulta il bando SRE01 2026 per i giovani al primo insediamento in Umbria e i requisiti per diventare capo di un’azienda agricola.",
   "officialName": "Umbria",
-  "published": "2026-09-28",
+  "published": "2026-11-25",
   "summary": "L'Umbria ha pubblicato nel 2026 un bando SRE01 da 9 milioni di euro per il primo insediamento dei giovani agricoltori, con domande chiuse il 2 settembre. Il Banco della Terra regionale è documentato, ma la disponibilità attuale dei suoi beni non è confermata.",
   "coverage": {
     "status": "PARTIAL",
@@ -61,9 +63,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -79,6 +78,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -86,6 +92,8 @@
     {
       "id": "umbria-insediamento-giovani-agricoltori",
       "name": "Insediamento giovani agricoltori, intervento SRE01",
+      "metaTitle": "SRE01 Umbria 2026: insediamento giovani agricoltori",
+      "metaDescription": "Il bando SRE01 2026 in Umbria prevedeva 70.000 euro per giovani al primo insediamento. Consulta requisiti, piano aziendale e procedura SIAN.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -129,6 +137,13 @@
           "sourceUrl": "https://www.regione.umbria.it/notizie/-/asset_publisher/54m7RxsCDsHr/content/agricoltura-?read_more=true"
         }
       ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://www.regione.umbria.it/notizie/-/asset_publisher/54m7RxsCDsHr/content/agricoltura-?read_more=true"
+        }
+      ],
       "sources": [
         {
           "url": "https://applicazioni.regione.umbria.it/widget/bandi1?_bandi_WAR_bandiportlet_codBando=2026-002-6802&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio&p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_mode=view&p_p_state=maximized",
@@ -139,7 +154,11 @@
             "Avviso pubblico per la concessione di un premio per il sostegno al primo insediamento da parte di giovani agricoltori",
             "BANDO SCADUTO",
             "D.D n. 8340 del 18/08/2026 - Bur n. 38"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.umbria.it/notizie/-/asset_publisher/54m7RxsCDsHr/content/agricoltura-?read_more=true",
@@ -151,14 +170,24 @@
             "tramite il portale SIAN",
             "Il sostegno è concesso sotto forma di premio pari a 70mila euro per ciascun giovane agricoltore insediato",
             "di età compresa tra 18 anni compiuti e 41 anni non compiuti",
-            "Per accedere all’aiuto è necessario presentare un Piano Aziendale"
-          ]
+            "Per accedere all’aiuto è necessario presentare un Piano Aziendale",
+            "inviare quesiti all’indirizzo sezione-giovani@regione.umbria.it.",
+            "l’intervento SRE01 “Insediamento Giovani Agricoltori”, previsto dal CSR Umbria 2023-2027"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.umbria.it/csrumbria",
           "title": "CSR Umbria 2023-2027 - Regione Umbria",
           "consultedOn": "2026-09-28",
-          "quotes": ["SRE01 - |FAQ - DOC|"]
+          "quotes": ["SRE01 - |FAQ - DOC|"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.umbria.it/documents/18/25769528/FAQ+SRE01_agg_24_08/d1d65fed-2480-4088-a654-c404c2522165",
@@ -168,14 +197,33 @@
             "FAQ - SRE01 - Insediamento Giovani Agricoltori",
             "Aggiornamento alla data 24/08/2026",
             "attestato di frequenza ad almeno un corso di formazione di almeno 150 ore, con superamento dell’esame finale"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "notes": "La notizia regionale del 7 luglio e il riepilogo di agosto riportavano il termine originario del 24 agosto. Il portale del bando mostra la successiva DD 8340 del 18 agosto e la scadenza aggiornata al 2 settembre; prevale quest'ultima. L'allegato scaricabile dell'atto non è stato leggibile con lo strumento usato."
+      "notes": "La notizia regionale del 7 luglio e il riepilogo di agosto riportavano il termine originario del 24 agosto. Il portale del bando mostra la successiva DD 8340 del 18 agosto e la scadenza aggiornata al 2 settembre; prevale quest'ultima. L'allegato scaricabile dell'atto non è stato leggibile con lo strumento usato.",
+      "interventionCodes": [
+        {
+          "code": "SRE01",
+          "sourceUrl": "https://www.regione.umbria.it/csrumbria"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Sezione Giovani – Regione Umbria",
+          "value": "sezione-giovani@regione.umbria.it",
+          "sourceUrl": "https://www.regione.umbria.it/notizie/-/asset_publisher/54m7RxsCDsHr/content/agricoltura-?read_more=true"
+        }
+      ]
     },
     {
       "id": "umbria-banco-della-terra",
       "name": "Banco della Terra dell'Umbria",
+      "metaDescription": "Il Banco della Terra dell’Umbria riguarda terreni e aziende agricole in affitto o concessione. Consulta gli avvisi AFOR e i requisiti di assegnazione.",
       "kind": "LAND_BANK",
       "status": "UNKNOWN",
       "scope": {
@@ -183,14 +231,14 @@
       },
       "operator": "Agenzia Forestale Regionale dell'Umbria",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Strumento regionale per l'assegnazione in concessione di terreni del patrimonio agroforestale pubblico mediante avvisi.",
-      "whoCanUseIt": "Chi possiede i requisiti dell'avviso relativo ai beni offerti; il programma regionale dichiara l'obiettivo di favorire l'accesso dei giovani alla terra.",
-      "howToAccess": "Verificare gli avvisi di AFOR e seguire la procedura del singolo bando. Il quarto avviso del Banco della Terra, pubblicato nel 2022, è archiviato; non è stata confermata una nuova finestra del Banco.",
+      "whatItOffers": "Elenco regionale di terreni agricoli, a vocazione agricola e agroforestali e di aziende agricole, di proprietà pubblica o privata, disponibili per la locazione o la concessione. Gli avvisi AFOR documentati riguardano l'assegnazione in concessione di terreni del patrimonio agroforestale pubblico.",
+      "whoCanUseIt": "Chi possiede i requisiti dell'avviso relativo ai beni offerti; il programma regionale dichiara l'obiettivo di favorire l'accesso dei giovani alla terra. I proprietari privati possono chiedere l'iscrizione dei propri beni secondo l'avviso previsto dal regolamento e previa convenzione con l'Agenzia forestale regionale.",
+      "howToAccess": "Verificare gli avvisi di AFOR e seguire la procedura del singolo bando. Per l'assegnazione il regolamento richiede una domanda corredata da un progetto di impiego, con scheda tecnico-economica delle attività e bilancio di previsione. Per iscrivere beni privati, il regolamento prevede un avviso annuale dell'Agenzia forestale regionale e una richiesta del proprietario entro trenta giorni dalla pubblicazione. Il quarto avviso del Banco della Terra, pubblicato nel 2022, è archiviato; non è stata confermata una nuova finestra del Banco.",
       "accessUrl": "https://afor.umbria.it/bandieavvisi/4-avviso-banco-della-terra-assegnazione-in-concessione-beni-appartenenti-al-patrimonio-agro-forestale-regionale-indisponibile/",
-      "assetTypes": ["PLOTS"],
+      "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "sectors": ["AGRICULTURE", "FORESTRY"],
       "languages": ["it"],
-      "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER"],
+      "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER", "LANDOWNER"],
       "sources": [
         {
           "url": "https://afor.umbria.it/bandieavvisi/4-avviso-banco-della-terra-assegnazione-in-concessione-beni-appartenenti-al-patrimonio-agro-forestale-regionale-indisponibile/",
@@ -201,7 +249,11 @@
             "19 Ottobre 2022",
             "Assegnazione in concessione beni appartenenti al patrimonio agro-forestale regionale indisponibile",
             "2022 - ALL. 3) DOMANDA DI PARTECIPAZIONE"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.regione.umbria.it/notizie/-/asset_publisher/54m7RxsCDsHr/content/banco-della-terra-pubblicato-il-bando-per-la-concessione-di-beni-regionali?read_more=true",
@@ -210,16 +262,58 @@
           "quotes": [
             "concessione pluriennale di terreni inseriti nel programma \"Banco della Terra\"",
             "favorendo, in particolare l'accesso dei giovani all'agricoltura"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://consiglio.regione.umbria.it/sites/default/files/2026-03/DG_0006005_2026.pdf",
           "title": "Programma delle attività 2026 - Agenzia Forestale Regionale dell'Umbria",
           "consultedOn": "2026-09-28",
-          "quotes": ["come accaduto per il IV Avviso del “Banco della Terra”.", "Si ritiene che tale strumento debba essere ottimizzato"]
+          "quotes": ["come accaduto per il IV Avviso del “Banco della Terra”.", "Si ritiene che tale strumento debba essere ottimizzato"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://leggi.alumbria.it/mostra_atto_stampabile.php?file=reg2015-010.xml",
+          "title": "REGOLAMENTO REGIONALE n.10 del 4 maggio 2015",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Il Banco della Terra consiste in un elenco dei terreni agricoli ed a vocazione agricola, dei terreni agro-forestali [ ... ] [3] e delle aziende agricole[4] , di proprietà pubblica o privata, idonei e disponibili ad essere concessi in locazione o in concessione.",
+            "è gestito dall'Agenzia forestale regionale",
+            "L'Agenzia forestale regionale, entro il 30 novembre di ogni anno, pubblica nel proprio sito internet istituzionale un avviso ai fini dell'iscrizione dei beni di proprietà privata nel Banco della Terra.",
+            "I proprietari possono, entro trenta giorni dalla data dell'avviso di cui al medesimo comma 4",
+            "I beni di proprietà di soggetti privati sono iscritti nel Banco della Terra previa stipulazione di apposita convenzione tra tali soggetti e [ ... ] [21] l'Agenzia forestale regionale[22] .",
+            "devono presentare domanda di assegnazione corredata anche [ ... ] [36] da un progetto di impiego",
+            "una scheda tecnico-economica relativa alle attività previste",
+            "il bilancio di previsione"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://afor.umbria.it/ente/contatti/",
+          "title": "Contatti – AFOR Umbria",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Casella PEC: agenziaregionaleforestaleumbra@legalmail.it"]
         }
       ],
-      "notes": "Il programma AFOR per il 2026 riferisce che il quarto avviso è andato deserto e propone migliorare lo strumento. AFOR ha pubblicato altre concessioni di terreni nel 2026, ma le pagine esaminate non le identificano come nuovi avvisi del Banco della Terra. La loro esistenza non basta a cambiarne lo stato in «Attivo»."
+      "notes": "Il programma AFOR per il 2026 riferisce che il quarto avviso è andato deserto e propone migliorare lo strumento. AFOR ha pubblicato altre concessioni di terreni nel 2026, ma le pagine esaminate non le identificano come nuovi avvisi del Banco della Terra. La loro esistenza non basta a cambiarne lo stato in «Attivo».",
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Agenzia Forestale Regionale dell’Umbria",
+          "value": "agenziaregionaleforestaleumbra@legalmail.it",
+          "sourceUrl": "https://afor.umbria.it/ente/contatti/"
+        }
+      ]
     }
   ],
   "news": [
@@ -235,7 +329,11 @@
           "url": "https://applicazioni.regione.umbria.it/widget/bandi1?_bandi_WAR_bandiportlet_codBando=2026-002-6802&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio&p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_mode=view&p_p_state=maximized",
           "title": "Portale bandi della Regione Umbria - intervento SRE01 2026",
           "consultedOn": "2026-09-28",
-          "quotes": ["Dal 08/07/2026 Al 02/09/2026", "D.D n. 8340 del 18/08/2026 - Bur n. 38", "BANDO SCADUTO"]
+          "quotes": ["Dal 08/07/2026 Al 02/09/2026", "D.D n. 8340 del 18/08/2026 - Bur n. 38", "BANDO SCADUTO"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     }

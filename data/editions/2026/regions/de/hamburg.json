@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "hamburg",
+  "metaTitle": "Hofnachfolge und Existenzgründung in Hamburg",
+  "metaDescription": "FarmStarter Hamburg erforscht, wie sich Gründungen im Land- und Gartenbau fördern und landwirtschaftliche Betriebe langfristig sichern lassen.",
   "officialName": "Hamburg",
-  "published": "2026-09-20",
+  "published": "2026-11-25",
   "summary": "In Hamburg arbeitet die Landwirtschaftskammer im Forschungsprojekt FarmStarter an neuen Wegen, Existenzgründungen im Land- und Gartenbau zu fördern und Betriebe mit und ohne Nachfolge langfristig zu sichern.",
   "coverage": {
     "status": "PARTIAL",
@@ -21,9 +23,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -33,6 +32,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -40,6 +46,8 @@
     {
       "id": "hamburg-farmstarter",
       "name": "FarmStarter Hamburg der Landwirtschaftskammer",
+      "metaTitle": "Existenzgründung und Hofnachfolge: FarmStarter Hamburg",
+      "metaDescription": "Das Forschungsprojekt der Landwirtschaftskammer Hamburg entwickelt Wege, um Gründungen im Land- und Gartenbau zu fördern und Höfe langfristig zu sichern.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -53,19 +61,90 @@
       "accessUrl": "https://lwk-hamburg.de/2026/05/11/farmstarter-hamburg-gestartet-zukunft-fuer-hofnachfolge-und-gruendungen-in-der-landwirtschaft/",
       "languages": ["de"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://lwk-hamburg.de/wp-content/uploads/2026/05/2026_Vorstellung_FarmStarter-Hamburg.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://lwk-hamburg.de/2026/05/11/farmstarter-hamburg-gestartet-zukunft-fuer-hofnachfolge-und-gruendungen-in-der-landwirtschaft/",
-          "title": "FarmStarter Hamburg gestartet - Landwirtschaftskammer Hamburg",
-          "consultedOn": "2026-09-20",
+          "title": "FarmStarter Hamburg gestartet – Zukunft für Hofnachfolge und Gründungen in der Landwirtschaft - Landwirtschaftskammer Hamburg",
+          "consultedOn": "2026-11-24",
           "quotes": [
             "FarmStarter Hamburg gestartet – Zukunft für Hofnachfolge und Gründungen in der Landwirtschaft",
-            "Im Forschungsprojekt FarmStarter Hamburg werden neue Wege entwickelt, um Existenzgründungen im Land- und Gartenbau zu fördern und Betriebe mit und ohne Nachfolge langfristig zu sich",
-            "Beratung Gartenbauberatung Obstbau Landwirtschaft Wasserschutzgebiete Sozioökonomie Förderung"
-          ]
+            "Im Forschungsprojekt FarmStarter Hamburg werden neue Wege entwickelt, um Existenzgründungen im Land- und Gartenbau zu fördern und Betriebe mit und ohne Nachfolge langfristig zu sich"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://lwk-hamburg.de/wp-content/uploads/2026/05/2026_Vorstellung_FarmStarter-Hamburg.pdf",
+          "title": "Vorstellung FarmStarter Hamburg 2026 (PDF, Landwirtschaftskammer Hamburg)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Melden Sie sich unter: farmstarter@listen.fh-swf.de"]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "FarmStarter Hamburg",
+          "value": "farmstarter@listen.fh-swf.de",
+          "sourceUrl": "https://lwk-hamburg.de/wp-content/uploads/2026/05/2026_Vorstellung_FarmStarter-Hamburg.pdf"
+        }
+      ]
+    },
+    {
+      "id": "hamburg-soziooekonomische-beratung",
+      "name": "Sozioökonomische Beratung",
+      "metaTitle": "Hofübergabe in Hamburg: Sozioökonomische Beratung",
+      "metaDescription": "Die Landwirtschaftskammer Hamburg hilft Betrieben bei Fragen zur Höfeordnung, fehlender Hofnachfolge und familiären Konflikten. Sie nennt den Kontakt.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Landwirtschaftskammer Hamburg",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Unterstützung bei Fragen der Hofübergabe nach der Höfeordnung sowie für Betriebe ohne direkten Hofnachfolger mit dem Ziel einer stabilen Betriebsfortführung. Hinzu kommen Unterstützung bei persönlichen oder familiären Konflikten und die Entwicklung langfristig stabiler Lösungen für Familie und Betrieb.",
+      "whoCanUseIt": "Mitgliedsunternehmen der Kammer; die Beratung richtet sich an landwirtschaftliche Betriebe und Familien, die wegen finanzieller, persönlicher, familiärer oder gesundheitlicher Probleme in einer schwierigen betrieblichen Situation sind.",
+      "howToAccess": "Den auf der Beratungsseite genannten Ansprechpartner der Landwirtschaftskammer Hamburg kontaktieren.",
+      "accessUrl": "https://lwk-hamburg.de/beratung/soziooekonomie/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://lwk-hamburg.de/beratung/soziooekonomie/"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://lwk-hamburg.de/beratung/soziooekonomie/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://lwk-hamburg.de/beratung/soziooekonomie/",
+          "title": "Sozioökonomie - Landwirtschaftskammer Hamburg",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Die sozioökonomische Beratung richtet sich an landwirtschaftliche Betriebe und landwirtschaftliche Familien, die aufgrund finanzieller, persönlicher, familiärer oder gesundheitlicher Probleme unter Druck stehen und sich dadurch in einer schwierigen betrieblichen Situation befinden.",
+            "Unterstützung bei Fragen der Hofübergabe nach der Höfeordnung sowie von Betrieben ohne direkten Hofnachfolger mit dem Ziel einer effektiven und stabilen Fortführung des Betriebes",
+            "Überprüfung auf Ressourcen und Anpassungsmöglichkeiten innerhalb der Familie bzw. des Betriebes zur Entwicklung langfristig stabiler Lösungen",
+            "Unterstützung bei der Klärung persönlicher / familiärer Konflikte / Krisen",
+            "Sozioökonomie - Landwirtschaftskammer Hamburg",
+            "SOZIO­ÖKONOMISCHE BERATUNG",
+            "Auch in schwierigen Situationen stehen wir unseren Mitglieds­unternehmen beratend zur Seite."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-2"
     }
   ],
   "news": [],

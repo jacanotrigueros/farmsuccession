@@ -4,8 +4,9 @@
   "edition": "2026",
   "country": "IT",
   "region": "puglia",
+  "metaTitle": "Primo insediamento in Puglia: SRE01 e SRD01.06",
   "officialName": "Puglia",
-  "published": "2026-10-30",
+  "published": "2026-11-25",
   "summary": "La Puglia ha approvato nel 2026 gli avvisi SRE01 per il primo insediamento e SRD01.06 per gli investimenti dei giovani già insediati con la precedente misura 6.1. Il portale regionale indica entrambi in prossima apertura. Un corso online di 150 ore per giovani agricoltori è documentato con le iscrizioni 2026 già chiuse.",
   "coverage": {
     "status": "PARTIAL",
@@ -33,9 +34,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "it",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -51,6 +49,13 @@
         "tool": "CHATGPT",
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -58,6 +63,8 @@
     {
       "id": "puglia-insediamento-giovani-agricoltori",
       "name": "SRE01 - Insediamento giovani agricoltori in Puglia",
+      "metaTitle": "SRE01 Puglia 2026: insediamento giovani agricoltori",
+      "metaDescription": "L’avviso SRE01 2026 in Puglia prevede 60.000 o 65.000 euro per giovani sotto i 41 anni al primo insediamento, con un piano aziendale.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ANNOUNCED_NOT_OPERATING",
       "scope": {
@@ -100,6 +107,13 @@
         }
       ],
       "notes": "La DAG 53/2026 subordina l'attuazione dell'avviso all'approvazione dell'emendamento 8 del PS-PAC e alla relativa decisione della Commissione europea. La dotazione complessiva dell'intervento e quella dell'avviso sono grandezze distinte; nessuna è stata presentata come premio individuale.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://csr.regione.puglia.it/sre01-insediamento-giovani-agricoltori"
+        }
+      ],
       "sources": [
         {
           "url": "https://csr.regione.puglia.it/sre01-insediamento-giovani-agricoltori",
@@ -108,8 +122,14 @@
           "quotes": [
             "fino a quarantuno anni non compiuti che si insediano per la prima volta",
             "dietro presentazione di un piano aziendale",
-            "Prossima apertura"
-          ]
+            "Prossima apertura",
+            "sre01.csr.regione@pec.rupar.puglia.it",
+            "SRE01 - Insediamento giovani agricoltori"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://csr.regione.puglia.it/web/guest/intervento-sre01-insediamento-giovani-agricoltori-approvato-l-avviso-pubblico-per-la-presentazione-delle-dds",
@@ -119,7 +139,11 @@
             "Pubblicato il 29/07/2026",
             "saranno definite con apposito provvedimento",
             "con Determinazione dell'Autorità di Gestione n. 53 del 28.07.2026, è stato approvato l'avviso pubblico"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://csr.regione.puglia.it/documents/20117/105268/DAG%2Bn.%2B53%2Bdel%2B28.07.2026.pdf/d544405a-900a-8bf9-36a9-e519a68e342a?t=1788171441329&version=1.2",
@@ -131,13 +155,26 @@
             "€ 65.000,00",
             "l’attuazione del presente Avviso è subordinata",
             "Età compresa tra 18 anni compiuti e 41 anni non ancora compiuti alla data di rilascio della DdS nel portale SIAN."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Intervento SRE01 – CSR Puglia",
+          "value": "sre01.csr.regione@pec.rupar.puglia.it",
+          "sourceUrl": "https://csr.regione.puglia.it/sre01-insediamento-giovani-agricoltori"
         }
       ]
     },
     {
       "id": "puglia-srd01-06-investimenti-giovani",
       "name": "SRD01.06 - Investimenti produttivi per giovani agricoltori",
+      "metaTitle": "SRD01.06 Puglia 2026: investimenti giovani agricoltori",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ANNOUNCED_NOT_OPERATING",
       "scope": {
@@ -162,6 +199,12 @@
       "targetProfiles": ["YOUNG_FARMER"],
       "lastEvidenceDate": "2026-07-28",
       "notes": "Strumento distinto da SRE01 e riservato ai giovani già insediati con lo specifico avviso 2025 della sottomisura 6.1. La DAG 51/2026 stabilisce una spesa ammissibile superiore a 30.000 euro e un massimo di 150.000 euro per giovane, elevato a 300.000 euro per società con insediamenti plurimi. Questi importi sono limiti di spesa ammissibile, non contributi individuali.",
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://csr.regione.puglia.it/documents/20117/161474/DAG%2Bn.%2B51%2Bdel%2B28.07.2026.pdf/8a5d4674-6524-bc1e-254e-0f504c439dfe?t=1788170966421&version=1.2"
+        }
+      ],
       "sources": [
         {
           "url": "https://csr.regione.puglia.it/web/guest/investimenti-produttivi-agricoli-per-la-competitivit%C3%A0-delle-aziende-agricole-giovani-agricoltori",
@@ -169,14 +212,23 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "giovani agricoltori insediati ai sensi della Sottomisura 6.1 del PSR PUGLIA 2014/2022",
-            "qualificazione e l’ammodernamento delle strutture aziendali"
-          ]
+            "qualificazione e l’ammodernamento delle strutture aziendali",
+            "srd01.06.csr.regione@pec.rupar.puglia.it"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://csr.regione.puglia.it/bandi",
           "title": "Bandi e Avvisi - CSR Puglia",
           "consultedOn": "2026-10-30",
-          "quotes": ["Prossima apertura"]
+          "quotes": ["Prossima apertura"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://csr.regione.puglia.it/web/guest/srd01.06-approvato-l-avviso-pubblico-per-la-presentazione-delle-domande-di-sostegno",
@@ -186,7 +238,11 @@
             "Pubblicato il 28/07/2026",
             "saranno definite con apposito provvedimento",
             "con Determinazione dell'Autorità di Gestione n. 51 del 28.07.2026, è stato approvato l'avviso pubblico"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://csr.regione.puglia.it/documents/20117/161474/DAG%2Bn.%2B51%2Bdel%2B28.07.2026.pdf/8a5d4674-6524-bc1e-254e-0f504c439dfe?t=1788170966421&version=1.2",
@@ -199,13 +255,26 @@
             "È concesso un sostegno sotto forma di sovvenzione in conto capitale.",
             "L’intensità dell’aiuto è fissata nella misura massima dell’80% rispetto al valore degli investimenti riconosciuti ammissibili.",
             "le scadenze e il dettaglio delle procedure operative per la presentazione delle domande di sostegno saranno definite con successivo provvedimento."
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Intervento SRD01.06 – CSR Puglia",
+          "value": "srd01.06.csr.regione@pec.rupar.puglia.it",
+          "sourceUrl": "https://csr.regione.puglia.it/web/guest/investimenti-produttivi-agricoli-per-la-competitivit%C3%A0-delle-aziende-agricole-giovani-agricoltori"
         }
       ]
     },
     {
       "id": "puglia-corso-giovani-nuovi-agricoltori-2026",
       "name": "Corso online «Giovani e Nuovi agricoltori» 2026",
+      "metaDescription": "Corso online di 150 ore in Puglia per giovani agricoltori senza formazione agraria. Consulta i requisiti e i recapiti dell’edizione 2026.",
       "kind": "TRAINING",
       "status": "HISTORICAL",
       "scope": {
@@ -236,6 +305,12 @@
       "languages": ["it"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-09-04",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.confagricolturabari.it/aperte-le-iscrizioni-per-il-corso-giovani-e-nuovi-agricoltori-3/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.confagricolturabari.it/aperte-le-iscrizioni-per-il-corso-giovani-e-nuovi-agricoltori-3/",
@@ -248,10 +323,163 @@
             "L’attività è organizzata in collaborazione con Confagricoltura Bari-Bat e con il GAL Ponte Lama",
             "E’ possibile iscriversi entro venerdì 4 settembre 2026.",
             "coopirsea@gmail.com"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "notes": "La pagina pubblica ancora il corso ma la scadenza d'iscrizione è trascorsa; per questo la risorsa è storica e non presume una nuova edizione. Il riconoscimento riportato è quello dichiarato dall'organizzatore.",
+      "trainingFormats": ["ONLINE"]
+    },
+    {
+      "id": "puglia-banca-terra-quadro-normativo",
+      "name": "Legge regionale 29 maggio 2017, n. 15 — Istituzione della Banca della Terra di Puglia",
+      "metaTitle": "Banca della Terra di Puglia: legge regionale 15/2017",
+      "metaDescription": "La legge pugliese istituisce la Banca della Terra e stabilisce come assegnare i terreni, con priorità per i giovani al primo insediamento.",
+      "kind": "POLICY",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Puglia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Quadro normativo che istituisce presso il Dipartimento Agricoltura la Banca della Terra di Puglia: un elenco informatico pubblico di terreni pubblici, terreni privati disponibili all’assegnazione e terreni privati censiti come incolti o abbandonati. Prevede assegnazioni in concessione, locazione o comodato e include tra i criteri di priorità i giovani al primo insediamento.",
+      "whoCanUseIt": "Le assegnazioni previste si rivolgono a chiunque, in forma singola o associata, voglia esercitare attività agricola; tra i criteri di priorità figurano le istanze di giovani al primo insediamento.",
+      "howToAccess": "La legge prevede bandi regionali con modalità e termini delle istanze, corredate da un piano di coltivazione; i comuni possono assegnare autonomamente i propri beni mediante bandi pubblici. Il testo legislativo non costituisce un bando aperto.",
+      "accessUrl": "https://burp.regione.puglia.it/documents/20135/1080750/LEGGE15.pdf/6cd281d8-8b94-db68-ea1d-545e41d74553?t=1622809587498&version=1.0",
+      "lastEvidenceDate": "2017-05-31",
+      "notes": "La fonte documenta l’istituzione e le procedure previste dalla legge, non l’operatività attuale della banca o una finestra di presentazione delle domande.",
+      "sources": [
+        {
+          "url": "https://burp.regione.puglia.it/documents/20135/1080750/LEGGE15.pdf/6cd281d8-8b94-db68-ea1d-545e41d74553?t=1622809587498&version=1.0",
+          "title": "LEGGE REGIONALE 29 maggio 2017, n. 15",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Bollettino Ufficiale della Regione Puglia - n. 63 del 31-5-2017",
+            "LEGGE REGIONALE 29 maggio 2017, n. 15",
+            "Disposizioni per favorire l’accesso dei giovani all’agricoltura e contrastare l’abbandono e il consumo dei suoli agricoli. Istituzione della Banca della Terra di Puglia",
+            "istituisce presso il Dipartimento Agricoltura la Banca della Terra di Puglia.",
+            "La Banca della Terra di Puglia consiste in un elenco informatico accessibile al pubblico",
+            "beni di proprietà pubblica di cui all’articolo 2;",
+            "beni di proprietà privata censiti come incolti o abbandonati dai comuni",
+            "ai fini dell’assegnazione in concessione, locazione o comodato a chiunque, in forma singola o associata, voglia esercitare attività agricola.",
+            "e) istanza di giovani al primo insediamento;",
+            "la Regione predispone bandi contenenti le modalità e i termini per la presentazione delle istanze di assegnazione in concessione, locazione o comodato",
+            "Le istanze di assegnazione devono essere corredate da un piano di coltivazione",
+            "In ogni caso i comuni possono procedere autonomamente alla loro assegnazione con propri bandi pubblici."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
+    },
+    {
+      "id": "puglia-regolamento-banca-terra",
+      "name": "Regolamento regionale 31 ottobre 2018, n. 16",
+      "metaTitle": "Banca della Terra di Puglia: regolamento 16/2018",
+      "metaDescription": "Il regolamento pugliese spiega come censire i terreni della Banca della Terra e presentare le richieste di assegnazione con un piano di coltivazione.",
+      "kind": "POLICY",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Regione Puglia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Quadro normativo della Banca della Terra di Puglia: disciplina il censimento dei terreni, l'inserimento dei beni privati, la pubblicità degli elenchi, i piani di coltivazione e la valutazione delle richieste di assegnazione.",
+      "howToAccess": "Il regolamento prevede avvisi pubblici regionali o comunali per l'assegnazione dei terreni. Per i beni privati dei quali non sia stata acquisita la disponibilità all'assegnazione, la richiesta va presentata al proprietario o avente titolo, corredata dal piano di coltivazione.",
+      "accessUrl": "https://burp.regione.puglia.it/documents/20135/1193214/RR_16_2018.pdf/90e6bfdf-34a7-9bc0-9989-63fa68897132?t=1622819550590&version=1.0",
+      "lastEvidenceDate": "2018-11-09",
+      "notes": "Il testo documenta la disciplina normativa, non l'operatività attuale della banca, un inventario consultabile o una finestra di assegnazione aperta.",
+      "sources": [
+        {
+          "url": "https://burp.regione.puglia.it/documents/20135/1193214/RR_16_2018.pdf/90e6bfdf-34a7-9bc0-9989-63fa68897132?t=1622819550590&version=1.0",
+          "title": "REGOLAMENTO REGIONALE 31 ottobre 2018, n. 16",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Bollettino Ufficiale della Regione Puglia - n. 144 del 9-11-2018",
+            "REGOLAMENTO REGIONALE 31 ottobre 2018, n. 16",
+            "Disposizioni per favorire l’accesso dei giovani all’agricoltura e contrastare l’abbandono e il consumo dei suoli agricoli",
+            "le modalità e le forme per assicurare adeguata pubblicità agli elenchi contenuti nella Banca della Terra di Puglia;",
+            "i criteri di valutazione delle richieste di assegnazione;",
+            "l’assessorato regionale all’agricoltura approva avvisi pubblici",
+            "il Comune può attivare le procedure di evidenza pubblica per l’assegnazione in concessione, locazione o comodato dei terreni, procedendo autonomamente alla loro assegnazione.",
+            "Chiunque intenda ottenere l’assegnazione dei suddetti terreni presenta al proprietario o avente titolo, identificato attraverso gli estremi pubblicati sulla Banca della Terra di Puglia, una richiesta corredata dal piano di coltivazione di cui all’art. 7.",
+            "le procedure per l’aggiornamento della Banca della Terra di Puglia;",
+            "le modalità per la presentazione della richiesta di inserimento nella Banca della Terra di Puglia di beni di proprietà privata",
+            "le norme tecniche e le procedure per l’effettuazione del censimento dei beni",
+            "i criteri per la redazione e approvazione del piano di coltivazione",
+            "da chiunque intenda ottenere l’affidamento in concessione, locazione o comodato dei terreni, in forma singola o associata, per l’esercizio su di essi dell’attività agricola"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3",
+      "whoCanUseIt": "Chiunque intenda ottenere terreni in concessione, locazione o comodato, in forma singola o associata, per esercitarvi l’attività agricola."
+    },
+    {
+      "id": "puglia-banca-della-terra",
+      "name": "Banca della Terra di Puglia",
+      "metaDescription": "La Banca della Terra di Puglia riguarda terreni da recuperare con concessione o affitto. Consulta l’elenco provvisorio e le modalità previste.",
+      "kind": "LAND_BANK",
+      "status": "ANNOUNCED_NOT_OPERATING",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Dipartimento Agricoltura della Regione Puglia",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Elenco informatico previsto per pubblicizzare terreni pubblici e privati da recuperare all'uso agricolo mediante concessione o locazione. La deliberazione istitutiva approva un elenco provvisorio di terreni regionali e degli enti controllati; non documenta un inventario attualmente utilizzabile per presentare richieste.",
+      "whoCanUseIt": "Chiunque, in forma singola o associata, voglia esercitare attività agricola; le finalità comprendono il ricambio generazionale e l'imprenditorialità agricola giovanile.",
+      "accessUrl": "https://burp.regione.puglia.it/documents/20135/1377125/DEL_262_2020.pdf/45197cb6-519b-8028-69b0-a6518e5d113c?t=1623059500007",
+      "assetTypes": ["PLOTS"],
+      "sectors": ["AGRICULTURE"],
+      "targetProfiles": ["GENERAL", "YOUNG_FARMER"],
+      "lastEvidenceDate": "2020-03-27",
+      "notes": "La fonte è l'atto istitutivo con l'elenco provvisorio allegato, non una procedura corrente di assegnazione. L'istituzione giuridica non dimostra che il servizio sia oggi operativo.",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://burp.regione.puglia.it/documents/20135/1377125/DEL_262_2020.pdf/45197cb6-519b-8028-69b0-a6518e5d113c?t=1623059500007"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://burp.regione.puglia.it/documents/20135/1377125/DEL_262_2020.pdf/45197cb6-519b-8028-69b0-a6518e5d113c?t=1623059500007",
+          "title": "DELIBERAZIONE DELLA GIUNTA REGIONALE 2 marzo 2020, n. 262",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Bollettino Ufficiale della Regione Puglia - n. 43 del 27-3-2020",
+            "istituire, presso il Dipartimento Agricoltura, la “Banca della Terra di Puglia”, ai sensi dell’art. 4 l.r. 15/2017, consistente in un elenco informatico accessibile al pubblico",
+            "approvare l’elenco provvisorio dei terreni agricoli di proprietà della Regione e degli Enti da essa controllati, idonei per l’affidamento in concessione o locazione",
+            "a) beni di proprietà pubblica;",
+            "b) beni di proprietà privata di cui sia stata acquisita la disponibilità all’assegnazione dai rispettivi proprietari o aventi titolo;",
+            "c) beni di proprietà privata censiti come incolti o abbandonati dai comuni.",
+            "a chiunque, in forma singola o associata, voglia esercitare attività agricola",
+            "a sostenere il recupero produttivo e il ricambio generazionale in agricoltura, nonché ad incoraggiare l’imprenditorialità agricola giovanile"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://burp.regione.puglia.it/documents/20135/1193214/RR_16_2018.pdf/90e6bfdf-34a7-9bc0-9989-63fa68897132?t=1622819550590&version=1.0",
+          "title": "Regolamento regionale n. 16 del 2018 (PDF, Bollettino ufficiale della Regione Puglia)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Il Piano di coltivazione è presentato, nei modi e nei termini previsti dagli avvisi di cui all’art. 5, unitamente all’istanza"
           ]
         }
       ],
-      "notes": "La pagina pubblica ancora il corso ma la scadenza d'iscrizione è trascorsa; per questo la risorsa è storica e non presume una nuova edizione. Il riconoscimento riportato è quello dichiarato dall'organizzatore."
+      "generatorId": "chatgpt-3",
+      "howToAccess": "Presentare il piano di coltivazione unitamente all’istanza, nei modi e nei termini previsti dall’avviso."
     }
   ],
   "news": [
@@ -267,7 +495,11 @@
           "url": "https://csr.regione.puglia.it/web/guest/intervento-sre01-insediamento-giovani-agricoltori-approvato-l-avviso-pubblico-per-la-presentazione-delle-dds",
           "title": "Intervento SRE01: approvato l'Avviso pubblico - CSR Puglia",
           "consultedOn": "2026-09-28",
-          "quotes": ["Pubblicato il 29/07/2026", "è stato approvato l'avviso pubblico", "saranno definite con apposito provvedimento"]
+          "quotes": ["Pubblicato il 29/07/2026", "è stato approvato l'avviso pubblico", "saranno definite con apposito provvedimento"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     },
@@ -283,7 +515,11 @@
           "url": "https://csr.regione.puglia.it/web/guest/srd01.06-approvato-l-avviso-pubblico-per-la-presentazione-delle-domande-di-sostegno",
           "title": "SRD01.06: approvato l'Avviso pubblico - CSR Puglia",
           "consultedOn": "2026-09-28",
-          "quotes": ["Pubblicato il 28/07/2026", "è stato approvato l'avviso pubblico", "saranno definite con apposito provvedimento"]
+          "quotes": ["Pubblicato il 28/07/2026", "è stato approvato l'avviso pubblico", "saranno definite con apposito provvedimento"],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ]
     }

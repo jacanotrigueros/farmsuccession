@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "thueringen",
+  "metaTitle": "Hofnachfolge in Thüringen: Förderung für Junglandwirte",
+  "metaDescription": "Junge Landwirtinnen und Landwirte finden Infos zur Förderung in Thüringen, wenn sie erstmals einen landwirtschaftlichen Betrieb gründen oder übernehmen.",
   "officialName": "Thüringen",
-  "published": "2026-09-14",
+  "published": "2026-11-25",
   "summary": "Thüringen fördert die erstmalige Gründung oder Übernahme landwirtschaftlicher Betriebe durch Junglandwirte. Das Programm ist aktuell dokumentiert, die jährliche Antragsfrist 2026 ist jedoch geschlossen.",
   "coverage": {
     "status": "PARTIAL",
@@ -29,9 +31,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "de",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -47,6 +46,13 @@
         "tool": "CLAUDE",
         "model": "claude-opus-5",
         "promptVersion": "1.9.0"
+      },
+      {
+        "id": "chatgpt-3",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -54,6 +60,8 @@
     {
       "id": "thueringen-niederlassung-junglandwirte",
       "name": "ELER — Förderung zur Niederlassung von Junglandwirten",
+      "metaTitle": "Förderung zur Niederlassung von Junglandwirten in Thüringen",
+      "metaDescription": "Für das Antragsjahr 2026 sind Zuschüsse zwischen 35.000 und 70.000 Euro für Junglandwirte dokumentiert, die erstmals einen Betrieb in Thüringen leiten.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -95,6 +103,13 @@
           "sourceUrl": "https://www.aw-landesverwaltungsamt.thueringen.de/foerderung/foerderung-a-z/eler-junglandwirtefoerderung"
         }
       ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "GAP- Strategieplans",
+          "sourceUrl": "https://www.aw-landesverwaltungsamt.thueringen.de/foerderung/foerderung-a-z/eler-junglandwirtefoerderung"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.aw-landesverwaltungsamt.thueringen.de/foerderung/foerderung-a-z/eler-junglandwirtefoerderung",
@@ -104,8 +119,14 @@
             "Die nächste Antragstellung ist bis zum 31.01.2026 möglich.",
             "die außerfamiliäre Übernahme/Übergabe einschließlich dem Kauf von bestehenden landwirtschaftlichen Betrieben",
             "Die Höhe der Zuwendung beträgt mindestens 35.000 Euro und maximal 70.000 Euro.",
-            "Als Junglandwirt gilt, wer zum Zeitpunkt der Antragstellung höchstens 40 Jahre alt ist"
-          ]
+            "Als Junglandwirt gilt, wer zum Zeitpunkt der Antragstellung höchstens 40 Jahre alt ist",
+            "Kontakt: ELER-Junglandwirte@tlvwa.thueringen.de",
+            "Deshalb soll die Niederlassung von Junglandwirten durch eine Förderung im Rahmen des genehmigten GAP- Strategieplans der Bundesrepublik Deutschland 2023 bis 2027 erleichtert werden."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.aw-landesverwaltungsamt.thueringen.de/foerderung/eler",
@@ -114,11 +135,73 @@
           "quotes": [
             "Der Freistaat Thüringen fördert über das Thüringer Landesverwaltungsamt (TLVwA) Unternehmen und Existenzgründer:innen in der Landwirtschaft",
             "ELER - Förderung zur Niederlassung von Junglandwirten"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
       "notes": "„Aktiv“ beschreibt das bestehende Programm. Die konkrete Antragsrunde 2026 ist geschlossen; eine nächste Runde darf erst nach Veröffentlichung als offen oder bevorstehend bezeichnet werden.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Thüringer Landesverwaltungsamt – Niederlassungsförderung",
+          "value": "ELER-Junglandwirte@tlvwa.thueringen.de",
+          "sourceUrl": "https://www.aw-landesverwaltungsamt.thueringen.de/foerderung/foerderung-a-z/eler-junglandwirtefoerderung"
+        }
+      ]
+    },
+    {
+      "id": "thueringen-tbv-sozialberatung",
+      "name": "Sozialberatung",
+      "metaTitle": "Hofabgabe und Hofübergabe in Thüringen: Sozialberatung",
+      "metaDescription": "Versicherte sowie Menschen vor Gründung oder Übernahme finden kostenfreie Hilfe bei Fragen zur landwirtschaftlichen Sozialversicherung und zu Anträgen.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Thüringer Bauernverband e.V.",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Kostenfreie und unabhängige Beratung zur landwirtschaftlichen Sozialversicherung, ausdrücklich auch zu Hofabgaben und Hofübergaben. Die Beratungsstellen unterstützen bei Versicherungs-, Beitrags- und Leistungsangelegenheiten sowie beim Ausfüllen von Anträgen und Meldungen an die SVLFG.",
+      "whoCanUseIt": "Alle Versicherten der SVLFG sowie Interessierte, die ein landwirtschaftliches oder forstwirtschaftliches Unternehmen im Haupt- oder Nebenerwerb gründen oder übernehmen wollen.",
+      "howToAccess": "Einen Beratungstermin mit einer der auf der Seite aufgeführten Beratungsstellen in Thüringen vereinbaren. Für die Sozialberatung ist auch die E-Mail-Adresse sozialberatung@tbv-erfurt.de veröffentlicht.",
+      "accessUrl": "https://www.tbv-erfurt.de/service/sozialberatung",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "TBV Sozialberatung",
+          "value": "sozialberatung@tbv-erfurt.de",
+          "sourceUrl": "https://www.tbv-erfurt.de/service/sozialberatung"
+        }
+      ],
+      "sectors": ["AGRICULTURE", "FORESTRY"],
+      "accessCostType": "FREE",
+      "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR"],
+      "sources": [
+        {
+          "url": "https://www.tbv-erfurt.de/service/sozialberatung",
+          "title": "Sozialberatung - Beratung und Betreuung bei Versicherungs-, Beitrags- und Leistungsangelegenheiten",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "Der Thüringer Bauernverband (TBV) leistet eine umfassende Unterstützung zur landwirtschaftlichen Sozialversicherung in Thüringen.",
+            "In den Beratungsstellen des TBV, die im Auftrag der SVLFG tätig sind, erhalten alle Versicherte der SVLFG und Interessierte, die ein landwirtschaftliches oder forstwirtschaftliches Unternehmen im Haupt- oder Nebenerwerb gründen oder übernehmen wollen, eine kostenfreie und unabhängige Auskunft und Beratung",
+            "Das Aufgabengebiet der Beratungsstellen umfasst die Auskunft, Beratung und Betreuung in allen Versicherungs-, Beitrags- und Leistungsangelegenheiten",
+            "Beratung zu Hofabgaben und Hofübergaben",
+            "Mithilfe beim Ausfüllen von Anträgen (auch sämtliche Rentenanträge) und Meldungen an die SVLFG",
+            "Die Sozialberaterinnen und -berater des Thüringer Bauernverbandes unterstützen und helfen – vereinbaren Sie einfach einen Beratungstermin.",
+            "oder sozialberatung@tbv-erfurt.de",
+            "Thüringer Bauernverband e.V."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-3"
     }
   ],
   "news": [],

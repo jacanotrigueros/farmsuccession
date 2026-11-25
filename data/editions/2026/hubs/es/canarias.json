@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "ES",
   "hub": "canarias",
+  "metaTitle": "Ayudas a jóvenes agricultores y formación en Canarias",
+  "metaDescription": "Consulta el procedimiento autonómico para la primera instalación de jóvenes, los cursos de las Escuelas de Capacitación Agraria y los recursos por isla.",
   "officialName": "Canarias",
-  "published": "2026-09-28",
+  "published": "2026-11-24",
   "summary": "En Canarias, el Gobierno de Canarias mantiene un procedimiento común para el establecimiento de personas jóvenes agricultoras en todas las islas; la convocatoria 2026 estuvo abierta del 1 al 28 de febrero. Las Escuelas de Capacitación Agraria comparten además una programación de cursos con inscripción común y formación en línea accesible desde cualquier isla.",
   "coverage": {
     "status": "PARTIAL",
@@ -25,9 +27,6 @@
       }
     ]
   },
-  "review": {
-    "status": "DRAFT"
-  },
   "metadata": {
     "language": "es",
     "sourcePolicy": "PUBLIC_SOURCES_ONLY",
@@ -38,6 +37,13 @@
         "model": "GPT-5.6 Sol",
         "promptVersion": "1.9.0",
         "processedAt": "2026-09-28"
+      },
+      {
+        "id": "chatgpt-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-20"
       }
     ]
   },
@@ -45,6 +51,8 @@
     {
       "id": "canarias-establecimiento-jovenes-agricultoras",
       "name": "Subvenciones para el establecimiento de personas jóvenes agricultoras (Gobierno de Canarias)",
+      "metaTitle": "Ayudas a jóvenes agricultores en Canarias",
+      "metaDescription": "Ayuda a jóvenes que se instalan como titulares o cotitulares en Canarias. El procedimiento de 2026, ya cerrado, fijó una prima de 50.000 a 100.000 euros.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -81,7 +89,11 @@
             "Fecha Inicio: 1/2/2026 0:0",
             "Fecha Fin: 28/2/2026 23:59",
             "Fuera de plazo"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.gobiernodecanarias.org/boc/archivo/2026/084/pda/1424.html",
@@ -91,14 +103,61 @@
             "EXTRACTO de la Orden de 21 de abril de 2026, por la que se incrementan los créditos asignados al procedimiento de selección 2026",
             "BDNS (Identif.): 767402.",
             "por la que se convocan para el periodo 2024 a 2028 las subvenciones destinadas al establecimiento de personas jóvenes agricultoras"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.gobiernodecanarias.org/boc/2024/256/4335.html",
+          "title": "BOC - 2024/256. Lunes 23 de diciembre de 2024 - 4335",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Una cuantía mínima que será de 50.000 euros en concepto de prima básica",
+            "La cuantía máxima de la subvención a conceder por todos los conceptos será de 100.000 euros por persona beneficiaria."
           ]
+        },
+        {
+          "url": "https://sede.gobiernodecanarias.org/sede/formulario_contacto",
+          "title": "Sede electrónica del Gobierno de Canarias",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Formulario de Ayuda Sede Electrónica"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "Prima básica mínima",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2024-12-23",
+          "sourceUrl": "https://www.gobiernodecanarias.org/boc/2024/256/4335.html"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Ayuda máxima por persona beneficiaria",
+          "value": 100000,
+          "unit": "EUR",
+          "asOf": "2024-12-23",
+          "sourceUrl": "https://www.gobiernodecanarias.org/boc/2024/256/4335.html"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Ayuda de la Sede electrónica del Gobierno de Canarias",
+          "value": "https://sede.gobiernodecanarias.org/sede/formulario_contacto",
+          "sourceUrl": "https://sede.gobiernodecanarias.org/sede/formulario_contacto"
+        }
+      ]
     },
     {
       "id": "canarias-formacion-escuelas-capacitacion-agraria",
       "name": "Programación común de cursos de las Escuelas de Capacitación Agraria de Canarias",
+      "metaTitle": "Cursos de las Escuelas de Capacitación Agraria de Canarias",
+      "metaDescription": "Consulta la programación común de cursos profesionales de las tres Escuelas de Capacitación Agraria para quienes quieren incorporarse al sector.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -123,7 +182,11 @@
             "El objetivo de estos Cursos es formar a personas que se quieran incorporar a la empresa agraria en las mejores condiciones técnico-prácticas y de capacidad empresarial",
             "Podrás solicitar los cursos a partir del 7 de enero de 2026",
             "Curso Conocimientos Básicos para el establecimiento de personas jóvenes agricultoras"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://sede.gobiernodecanarias.org/sede/procedimientos_servicios/tramites/6726",
@@ -133,8 +196,13 @@
             "Solicitar el alta, por primera vez, en la Secretaría Virtual para la inscripción en los cursos de formación ocupacional impartidos por las Escuelas de Capacitación Agraria",
             "¿Los cursos on-line se pueden realizar desde cualquier isla? Sí",
             "No se exigen",
-            "Todo el año"
-          ]
+            "Todo el año",
+            "¿Son gratuitos los cursos? Sí"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://sede.gobiernodecanarias.org/sede/procedimientos_servicios/tramites/9378",
@@ -143,7 +211,11 @@
           "quotes": [
             "Solicitar la inscripción en el curso de conocimientos básicos para el establecimiento de personas jóvenes agricultoras como titulares de una explotación agraria",
             "Todo el año"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         },
         {
           "url": "https://www.gobiernodecanarias.org/agpsa/formacion/temas/centros/",
@@ -151,10 +223,123 @@
           "consultedOn": "2026-09-21",
           "quotes": [
             "tres Escuelas de Capacitación Agraria (ECAs), ubicadas en Los Llanos de Aridane (La Palma), Tacoronte (Tenerife) y en Arucas (Gran Canaria)"
-          ]
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "accessCostType": "FREE"
+    },
+    {
+      "id": "canarias-establecimiento-jovenes-ganaderas",
+      "name": "Subvenciones destinadas al establecimiento de personas jóvenes ganaderas",
+      "metaTitle": "Ayudas a jóvenes ganaderos en Canarias",
+      "metaDescription": "Ayuda a la primera instalación de jóvenes en la ganadería canaria mediante un plan empresarial. El siguiente periodo está previsto para febrero de 2027.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Gobierno de Canarias, Servicio de Producción, Mejora y Comercialización Ganadera",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Subvenciones para el establecimiento de personas jóvenes ganaderas mediante un plan empresarial, con el fin de mejorar y modernizar las explotaciones tanto en el momento de la instalación como posteriormente. La convocatoria prevé periodos anuales hasta 2028.",
+      "whoCanUseIt": "Personas físicas jóvenes que se instalen por primera vez como titulares o cotitulares de una explotación agraria prioritaria, o que alcance esa condición al finalizar el plan empresarial, y residan en la misma isla. La sección de beneficiarios indica 18 años o más y no más de 40 en el año de solicitud, aunque los requisitos previos dicen mayor de 18; conviene confirmar este extremo con el órgano tramitador. Deben presentar un plan empresarial viable y contar con capacidad, formación, competencia o experiencia agraria, o comprometerse a adquirirla dentro del plazo establecido. La actividad debe comenzar después de solicitar la ayuda; si combina agricultura y ganadería, esta última debe representar al menos el 50% de las unidades de trabajo agrario asignadas.",
+      "howToAccess": "Solicitud por la sede electrónica del Gobierno de Canarias; tramita el Servicio de Producción, Mejora y Comercialización Ganadera. Actualmente la gestión telemática está desactivada por encontrarse fuera de plazo. El periodo de 2026 cerró el 28 de febrero y el siguiente está previsto del 1 al 28 de febrero de 2027. Se exige presentar y ejecutar un plan empresarial y exponer oralmente su viabilidad ante el Comité de Valoración, con resultado apto.",
+      "accessUrl": "https://sede.gobiernodecanarias.org/sede/tramites/9346",
+      "sectors": ["LIVESTOCK"],
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "targetProfiles": ["YOUNG_FARMER"],
+      "calls": [
+        {
+          "name": "Para el ejercicio 2026",
+          "state": "CLOSED",
+          "opens": "2026-02-01",
+          "closes": "2026-02-28",
+          "sourceUrl": "https://sede.gobiernodecanarias.org/sede/tramites/9346"
+        },
+        {
+          "name": "Para el ejercicio 2027",
+          "state": "UPCOMING",
+          "opens": "2027-02-01",
+          "closes": "2027-02-28",
+          "sourceUrl": "https://sede.gobiernodecanarias.org/sede/tramites/9346"
+        }
+      ],
+      "lastEvidenceDate": "2026-11-03",
+      "sources": [
+        {
+          "url": "https://sede.gobiernodecanarias.org/sede/tramites/9346",
+          "title": "Subvenciones destinadas al establecimiento de personas jóvenes ganaderas - Sede electrónica del Gobierno de Canarias",
+          "consultedOn": "2026-11-20",
+          "quotes": [
+            "El establecimiento de personas jóvenes ganaderas, mediante la concesión de subvenciones con el fin de contribuir a la mejora estructural y a la modernización de las explotaciones, tanto en el momento de su instalación como con posterioridad a ella. (Convocatoria 2024 - 2028).",
+            "Podrán ser beneficiarios de estas subvenciones las personas físicas con 18 años o más, y que no tengan más de 40 años de edad en el año de presentación de la solicitud de ayuda",
+            "Ser jóven, mayor de 18 y no más de 40 en el año de presentación de la solicitud de ayuda, y residir en la misma isla donde pretende instalarse.",
+            "Acceder por 1ª vez como titular o cotitular de una explotación agraria prioritaria, o alcancen tal consideración al finalizar el plan empresarial.",
+            "La fecha de inicio de la actividad ha de ser posterior a la presentación de la solicitud.",
+            "Presentar y ejecutar un plan empresarial viable técnica y económicamente.",
+            "Si el plan empresarial prevé actividad agrícola y ganadera, la actividad ganadera deberá alcanzar una dimensión igual o mayor al 50% de las UTAS asignadas.",
+            "Las personas solicitantes deberán contar con la capacidad, formación y/o competencia o experiencia en materia agraria, de acuerdo con la orientación productiva de la explotación, para desarrollar la actividad objeto de subvención.",
+            "En caso de no tenerla, se comprometerán adquirirla a más tardar con la finalización de ejecución del plan empresarial y dentro del plazo que se establezca para la realización de la actividad aprobada en la última anualidad de la subvención concedida.",
+            "Realizar una exposición oral, clara y estructurada del Plan Empresarial presentado sobre su viabilidad tanto técnica como económica ante el Comité de Valoración y ser valorado como apto.",
+            "La gestión telemática de esta actuación administrativa está desactivada porque se encuentra Fuera de Plazo.",
+            "Fecha Inicio: 1/2/2026 0:0 Fecha Fin: 28/2/2026 23:59 Condición: Para el ejercicio 2026",
+            "Fecha Inicio: 1/2/2027 0:0 Fecha Fin: 28/2/2027 23:59 Condición: Para el ejercicio 2027",
+            "Órgano que tramita: Servicio de Producción, Mejora y Comercialización Ganadera",
+            "Actualizado 03/11/2026"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-24",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.gobiernodecanarias.org/boc/2024/256/4335.html",
+          "title": "BOC - 2024/256. Lunes 23 de diciembre de 2024 - 4335",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Una cuantía mínima que será de 50.000 euros en concepto de prima básica",
+            "La cuantía máxima de la subvención a conceder por todos los conceptos será de 100.000 euros por persona beneficiaria."
+          ]
+        },
+        {
+          "url": "https://sede.gobiernodecanarias.org/sede/formulario_contacto",
+          "title": "Sede electrónica del Gobierno de Canarias",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Formulario de Ayuda Sede Electrónica"]
+        }
+      ],
+      "generatorId": "chatgpt-2",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "Prima básica mínima",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2024-12-23",
+          "sourceUrl": "https://www.gobiernodecanarias.org/boc/2024/256/4335.html"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Ayuda máxima por persona beneficiaria",
+          "value": 100000,
+          "unit": "EUR",
+          "asOf": "2024-12-23",
+          "sourceUrl": "https://www.gobiernodecanarias.org/boc/2024/256/4335.html"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Ayuda de la Sede electrónica del Gobierno de Canarias",
+          "value": "https://sede.gobiernodecanarias.org/sede/formulario_contacto",
+          "sourceUrl": "https://sede.gobiernodecanarias.org/sede/formulario_contacto"
+        }
+      ]
     }
   ],
   "news": [],

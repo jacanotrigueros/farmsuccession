@@ -1,12 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "territory": { "level": "REGION", "country": "FR", "region": "ile-de-france" },
+  "territory": {
+    "level": "REGION",
+    "country": "FR",
+    "region": "ile-de-france"
+  },
   "language": "fr",
-  "updatedOn": "2026-09-20",
+  "updatedOn": "2026-11-24",
   "context": [
     "iledefrance.fr renvoie un accès refusé (403) aux outils automatiques : chercher les dispositifs régionaux sur des sources officielles tierces ou vérifier à la main.",
     "Le dispositif « Île-de-France, terre d’installation agricole » associe Île-de-France Nature et la Safer régionale pour acquérir temporairement du foncier.",
-    "La Région a voté des aides à l’installation et à l’accompagnement du cédant dont les montants circulent dans la presse spécialisée."
+    "La Région a voté des aides à l’installation et à l’accompagnement du cédant dont les montants circulent dans la presse spécialisée.",
+    "La fiche régionale d’aide à l’installation est lisible dans le texte fourni ; la notice liée reste à examiner pour préciser l’ensemble des critères et pièces du dossier.",
+    "Les pages liées sur le parcours à l’installation et l’accompagnement francilien restent à lire pour établir leurs modalités concrètes ; la rubrique seule ne permet pas de les préciser."
   ],
   "portals": [
     {
@@ -27,7 +33,11 @@
       "kinds": ["FINANCIAL_SUPPORT", "SUCCESSION_SERVICE"],
       "query": "Région Île-de-France aide installation agriculteurs 2026 dispositif transmission agriculture"
     },
-    { "id": "idf-foncier", "kinds": ["LAND_BANK"], "query": "Safer Île-de-France s’installer transmettre foncier agricole site" }
+    {
+      "id": "idf-foncier",
+      "kinds": ["LAND_BANK"],
+      "query": "Safer Île-de-France s’installer transmettre foncier agricole site"
+    }
   ],
   "leads": [
     {
@@ -54,13 +64,14 @@
     },
     {
       "id": "idf-feader-installation",
-      "name": "FEADER - Aide à l’installation du jeune agriculteur (Région Île-de-France)",
+      "name": "FEADER - Aide à l'installation du jeune agriculteur",
       "url": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "TO_CHECK",
+      "status": "ADMITTED",
       "reason": "Fiche d’aide régionale renvoyant un accès refusé (403) : à vérifier à la main.",
       "foundBy": "idf-aides",
-      "checkedOn": "2026-09-20"
+      "checkedOn": "2026-11-21",
+      "resourceId": "ile-de-france-feader-installation-jeune-agriculteur"
     },
     {
       "id": "idf-aide-cedant",
@@ -70,6 +81,51 @@
       "reason": "Dispositif voté par la Région pour les cédants qui accompagnent leur repreneur ; seule la presse le décrit pour l’instant.",
       "foundBy": "idf-aides",
       "checkedOn": "2026-09-20"
+    },
+    {
+      "id": "idf-gab-transmettre-sa-ferme",
+      "name": "Transmettre sa ferme",
+      "url": "https://www.bioiledefrance.fr/transmettre-sa-ferme",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "ile-de-france-gab-idf-transmettre-sa-ferme",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "idf-safer-devenir-agriculteur",
+      "name": "Devenir agriculteur - La Safer de l'Ile-de-France",
+      "url": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/devenir-agriculteur/",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ADMITTED",
+      "resourceId": "ile-de-france-safer-idf-transmission",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "idf-nature-terres-agricoles-actions",
+      "name": "Terres agricoles - Île-de-France Nature",
+      "url": "https://www.iledefrance-nature.fr/terres-agricoles/",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "resourceId": "ile-de-france-nature-terres-agricoles",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "idf-driaaf-renouvellement-generations",
+      "name": "Renouvellement des générations",
+      "url": "https://driaaf.ile-de-france.agriculture.gouv.fr/renouvellement-des-generations-r101.html",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "ile-de-france-driaaf-renouvellement-generations",
+      "checkedOn": "2026-11-21"
+    },
+    {
+      "id": "ile-de-france-driaaf-renouvellement-generations",
+      "name": "Renouvellement des générations",
+      "url": "https://driaaf.ile-de-france.agriculture.gouv.fr/les-structures-d-accompagnement-a-l-installation-pai-ceppp-stage-collectif-21-a1305.html",
+      "kind": "OFFICIAL_PORTAL",
+      "status": "ADMITTED",
+      "resourceId": "ile-de-france-driaaf-renouvellement-generations",
+      "checkedOn": "2026-11-24"
     }
   ],
   "instrumentChecks": [
@@ -79,8 +135,18 @@
       "reason": "La fiche d’aide à l’installation de la Région renvoie un accès refusé aux outils automatiques.",
       "checkedOn": "2026-09-20"
     },
-    { "expectedId": "fr-transmission-accompagnement", "status": "FOUND", "leadId": "idf-safer-transmission", "checkedOn": "2026-09-20" },
-    { "expectedId": "fr-safer-foncier", "status": "FOUND", "leadId": "idf-nature-terres", "checkedOn": "2026-09-20" },
+    {
+      "expectedId": "fr-transmission-accompagnement",
+      "status": "FOUND",
+      "leadId": "idf-safer-transmission",
+      "checkedOn": "2026-09-20"
+    },
+    {
+      "expectedId": "fr-safer-foncier",
+      "status": "FOUND",
+      "leadId": "idf-nature-terres",
+      "checkedOn": "2026-09-20"
+    },
     {
       "expectedId": "fr-associations-installation",
       "status": "NOT_FOUND",
@@ -93,6 +159,36 @@
       "date": "2026-09-20",
       "by": "CLAUDE (claude-opus-5)",
       "summary": "Première passe avec la liste de contrôle nationale : Safer francilienne et Île-de-France Nature admises ; aides régionales bloquées par un accès refusé."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La page du GAB IdF décrit un accompagnement individuel des cédants et des candidats à la reprise ou à l’installation, avec mise en relation, diagnostic et médiation. Je propose une ressource régionale distincte des instruments déjà publiés ; les coordonnées personnelles du contact ne sont pas reprises."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La page décrit l’accompagnement foncier des candidats à la création ou à la reprise d’une exploitation en Île-de-France, avec dépôt de candidature et suivi jusqu’à la signature de l’acte. Je complète la ressource Safer existante pour couvrir aussi le parcours des repreneurs et nouveaux installés, en conservant ses sources et ses informations sur la transmission."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La page de l’opérateur précise les baux de 9 ou 18 ans et distingue la location dans les Périmètres régionaux d’intervention foncière du portage suivi d’une revente dans l’ensemble de la région. Je complète la ressource existante avec ces modalités et cette source, en conservant sa page d’accès et ses informations antérieures."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La fiche officielle décrit une aide régionale à la première installation, ses montants et son dépôt en ligne. Je propose une ressource distincte des cadres européens hérités, sans lui attribuer de période de candidature."
+    },
+    {
+      "date": "2026-11-21",
+      "by": "CHATGPT (gpt-6.1-sol)",
+      "summary": "La rubrique « Renouvellement des générations » de la DRIAAF donne accès aux pages du parcours et de l’accompagnement à l’installation en Île-de-France, ainsi qu’à celles de l’AITA et de France services agriculture. Je propose ce point d’entrée officiel régional, sans créer de nouvelles fiches pour les dispositifs simplement cités."
+    },
+    {
+      "date": "2026-11-24",
+      "by": "CHATGPT (gpt-6.2-sol)",
+      "summary": "La fiche de la DRIAAF détaille les étapes d’un même parcours d’installation, depuis le PAI jusqu’au stage intégré au PPP. Elle complète ile-de-france-driaaf-renouvellement-generations en datant le descriptif."
     }
   ]
 }
