@@ -79,7 +79,7 @@ test("every reference to an element on the page reaches one", () => {
 
 test("nothing a reader has to use is set at the metadata size", () => {
   const offenders = pages.flatMap(({ file, html }) =>
-    [...html.matchAll(/<(?:a|button|summary)\b[^>]*\bclass="[^"]*\btext-meta\b[^"]*"[^>]*>/giu)].map(
+    [...html.matchAll(/<(?:a|button|summary)\b[^>]*\bclass="(?:[^"]*\s)?(?:text-)?meta(?:\s[^"]*)?"[^>]*>/giu)].map(
       ([tag]) => `${file}: ${tag.replace(/\s+(?:href|aria-label|data-[\w-]+)="[^"]*"/giu, "").slice(0, 150)}`,
     ),
   );
@@ -87,6 +87,26 @@ test("nothing a reader has to use is set at the metadata size", () => {
     offenders.slice(0, 3),
     [],
     `${offenders.length} control(s) set at the metadata size. The scale's floor is stated where the scale is: metadata 15px, nothing functional below 16px. A link, a button or a disclosure is functional however small its job, so it takes text-control. A control that inherits its size from a run of metadata is already carried by the rule in global.css; this is the one that writes the smaller size onto itself.`,
+  );
+});
+
+test("a contact link is as tall as a finger, not as tall as its text", () => {
+  // An email address or a phone number is the control an older reader on a phone most needs to hit. Set
+  // in a row that is tall enough, the link itself stayed the height of one line of text (27px), so the
+  // row looked right and the target was still too small.
+  const offenders = pages.flatMap(({ file, html }) =>
+    [
+      ...html.matchAll(/<a\b(?=[^>]*\bhref="(?:mailto|tel):)[^>]*>/giu),
+      ...html.matchAll(/<p class="flex min-h-\(--spacing-target\)[^"]*">\s*(<a\b[^>]*>)/giu),
+    ]
+      .map((match) => match[1] ?? match[0])
+      .filter((tag) => !/\bclass="[^"]*\bmin-h-\(--spacing-target\)/u.test(tag))
+      .map((tag) => `${file}: ${tag.slice(0, 120)}`),
+  );
+  assert.deepEqual(
+    offenders.slice(0, 3),
+    [],
+    `${offenders.length} contact link(s) shorter than the 44px target: give the link itself min-h-(--spacing-target), not only the row around it`,
   );
 });
 

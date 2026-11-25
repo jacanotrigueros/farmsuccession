@@ -3039,7 +3039,7 @@ const SITUATIONS = {
     land: { title: "Land finden", hint: "Bodenbörsen und verfügbare Flächen zum Bewirtschaften." },
     money: { title: "Finanzierung finden", hint: "Zuschüsse, Darlehen und finanzielle Unterstützung für die Landwirtschaft." },
     learn: { title: "Mich weiterbilden", hint: "Kurse und Qualifizierung für Landwirtschaft und Nachfolge." },
-    context: { title: "Die Regeln dahinter", hint: "Rechtsrahmen, Netzwerke und die amtlichen Portale, auf denen sie stehen" },
+    context: { title: "Die Regeln dahinter", hint: "Regeln und Strategien, Netzwerke und die amtlichen Portale, auf denen sie stehen" },
   },
   fr: {
     handover: { title: "Transmettre mon exploitation", hint: "Un accompagnement pour préparer une transmission." },
@@ -3053,7 +3053,7 @@ const SITUATIONS = {
     land: { title: "Trovare terreni", hint: "Banche della terra e terreni disponibili da coltivare." },
     money: { title: "Trovare finanziamenti", hint: "Aiuti, prestiti e sostegno finanziario per l’attività agricola." },
     learn: { title: "Formarmi", hint: "Corsi e competenze per l’agricoltura e il ricambio." },
-    context: { title: "Le norme dietro a tutto questo", hint: "Quadri normativi, reti e i portali ufficiali dove si trovano" },
+    context: { title: "Le norme dietro a tutto questo", hint: "Norme e strategie, reti e i portali ufficiali dove si trovano" },
   },
   pt: {
     handover: { title: "Transmitir a minha exploração", hint: "Apoio para planear uma transmissão ou cedência." },
