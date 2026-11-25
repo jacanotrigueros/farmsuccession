@@ -603,9 +603,21 @@ test("a territory page says in its title what the page is about", () => {
   });
   assert.ok(territories.length > 0, "no territory page was built: this check would pass without checking anything");
 
+  // A region or hub may carry a search title of its own, written from how people there search for it
+  // ("Ayudas, tierras y formación agraria en Andalucía"); that title is its subject.
+  const ownTitles = new Set(
+    readdirSync(path.join(REPOSITORY, "data", "editions"), { recursive: true, encoding: "utf8" })
+      .filter((file) => /(regions|hubs)[\\/].+\.json$/u.test(file))
+      .map(
+        (file) => (JSON.parse(readFileSync(path.join(REPOSITORY, "data", "editions", file), "utf8")) as { metaTitle?: string }).metaTitle,
+      )
+      .filter((title): title is string => title !== undefined),
+  );
+  assert.ok(ownTitles.size > 0, "no region carries its own search title: that path is not exercised");
   for (const { file, html } of territories) {
     const language = /<html lang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const title = /<title>([^<]*)<\/title>/u.exec(html)?.[1] ?? "";
+    if (ownTitles.has(decodeHTML(title))) continue;
     // Europe's page has a search title of its own, which names the subject in full.
     const about =
       file === path.join("eu", "index.html") ? words(language).euMetaTitle : words(language).territoryTitle.replace("{where}", "").trim();

@@ -110,9 +110,9 @@ const EN = {
   chooseScope: "Choose a place",
   euEyebrow: "EU framework",
   euTitle: "Farm succession in the European Union",
-  euMetaTitle: "EU farm succession and young farmer support",
+  euMetaTitle: "EU generational renewal: farm succession and young farmers",
   euMetaDescription:
-    "EU policy on farm succession, CAP support for young farmers and access to land, with links to the national and regional resources of each country.",
+    "The EU Strategy for Generational Renewal, CAP support for young farmers and every country's CAP Strategic Plan, with the aid each country documents.",
   euAppliesIn: ["{count} from the European Union that applies in {where}", "{count} from the European Union that apply in {where}"],
   euAppliesLead: "European Union instruments that also cover this country. Each is documented once, on the European page.",
   euCountriesTitle: "Find what applies in your country",

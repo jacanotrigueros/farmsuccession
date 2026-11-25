@@ -160,16 +160,21 @@ const pageTitle = isEurope ? text.euTitle : (isCountry ? text.countryTitle : tex
  * Europe's page is found by people searching for EU policy and CAP support for young farmers, so its
  * search title and snippet say that; its long introduction stays on the page, where it is read.
  */
+const ownMetaTitle = territory.data.schemaId === "eu-snapshot" ? undefined : territory.data.metaTitle;
+/**
+ * A region's or hub's own search title, written from how people there search for it, already fits a result
+ * on its own; only the title the site builds is followed by the site's name.
+ */
 const metaTitle = isEurope
   ? text.euMetaTitle
   : territory.data.schemaId === "country-snapshot"
-    ? (territory.data.metaTitle ?? text.countryMetaTitle.replace("{where}", name))
-    : pageTitle;
+    ? (ownMetaTitle ?? text.countryMetaTitle.replace("{where}", name))
+    : (ownMetaTitle ?? `${pageTitle} · ${text.siteName}`);
 const metaDescription = isEurope
   ? text.euMetaDescription
-  : territory.data.schemaId === "country-snapshot"
-    ? (territory.data.metaDescription ?? territory.data.summary)
-    : territory.data.summary;
+  : territory.data.schemaId === "eu-snapshot"
+    ? territory.data.summary
+    : (territory.data.metaDescription ?? territory.data.summary);
 /** A country inherits only from the European layer, so its heading can name it instead of "other scopes". */
 const inheritedForms = isCountry ? text.euAppliesIn : text.alsoApplies;
 const territoriesTitle = showsInstall ? text.installTerritoriesTitle : text.territoriesTitle;
@@ -281,7 +286,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 ---
 
 <SiteLayout
-  title={isCountry ? metaTitle : `${metaTitle} · ${text.siteName}`}
+  title={isEurope ? `${metaTitle} · ${text.siteName}` : metaTitle}
   description={metaDescription}
   language={language}
   current={pageOf(territory.layer)}

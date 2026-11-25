@@ -7,7 +7,7 @@ import { decodeHTML } from "entities";
 
 import type { EditionSnapshot } from "../../src/types/edition.ts";
 import { recordSlug } from "../public/search-scope.js";
-import { namesPlace } from "../src/lib/place-name.ts";
+import { namesPlace, SHORT_TITLE, shortTitleTail } from "../src/lib/place-name.ts";
 import { words } from "../src/lib/words.ts";
 
 const ROOT = path.join(import.meta.dirname, "..", "..");
@@ -27,6 +27,10 @@ assert.ok(edition, "no edition: a record-title regression would prove nothing");
 const entries = snapshots(path.join(editions, edition)).flatMap((snapshot) =>
   snapshot.resources.map((resource) => ({ snapshot, resource })),
 );
+/** The official name of each country, as its own snapshot gives it. */
+const countryOf = (code: string): string | undefined =>
+  entries.find(({ snapshot }) => snapshot.schemaId === "country-snapshot" && snapshot.country.toLowerCase() === code)?.snapshot
+    .officialName;
 const frequency = new Map<string, number>();
 for (const { resource } of entries) frequency.set(resource.name, (frequency.get(resource.name) ?? 0) + 1);
 
@@ -58,6 +62,7 @@ test("a record title keeps its full source name and names the territory below it
   );
   const titles = new Set<string>();
   let placed = 0;
+  let overridden = 0;
   for (const { snapshot, resource } of entries) {
     const country = "country" in snapshot ? snapshot.country.toLowerCase() : "";
     const route = `${country ? `${country}/` : ""}${recordSlug(country.toUpperCase())}/${resource.id}/`;
@@ -68,12 +73,36 @@ test("a record title keeps its full source name and names the territory below it
     const opens = below && !namesPlace(resource.name, snapshot.officialName);
     // A territory that pairs two forms with " — " opens a title with the first; the breadcrumb carries both.
     const place = snapshot.officialName.split(" — ")[0] ?? snapshot.officialName;
-    const expected = opens
+    const base = opens
       ? text.recordPageTitleInPlace.replace("{place}", place).replace("{name}", resource.name)
       : resource.name + (frequency.get(resource.name)! > 1 ? ` — ${snapshot.officialName}` : "");
+    const countryName = snapshot.schemaId === "eu-snapshot" ? undefined : countryOf(country);
+    if (resource.metaTitle !== undefined) {
+      // A search title written from how people search replaces the built one, so the name and territory
+      // rules below do not hold for it; it still has to say where, fit a result and identify one record.
+      assert.equal(actual, resource.metaTitle, `${route}: the record's own search title was not used`);
+      // It may name a nearer place than the region — "Banco de Tierras del Bierzo", "COAG Almería" — but it
+      // never drops the region when the record's own name gives it.
+      assert.ok(
+        !below || !namesPlace(resource.name, snapshot.officialName) || namesPlace(actual, snapshot.officialName),
+        `${route}: "${actual}" drops ${snapshot.officialName}, which the record's own name gives`,
+      );
+      assert.ok(actual.length <= 60, `${route}: the search title runs to ${actual.length} characters, past what a result shows`);
+      assert.ok(!titles.has(actual), `${route}: this search title already identifies another record`);
+      titles.add(actual);
+      overridden += 1;
+      continue;
+    }
+    const expected = shortTitleTail(base, countryName, resource.operator);
+    if (countryName !== undefined) {
+      assert.ok(
+        actual.length >= SHORT_TITLE || namesPlace(actual, countryName),
+        `${route}: "${actual}" is ${actual.length} characters and says neither where it applies nor who runs it`,
+      );
+    }
     if (opens) placed += 1;
     assert.ok(
-      !opens || actual.length - resource.name.length <= 40,
+      !opens || base.length - resource.name.length <= 40,
       `${route}: the territory adds ${actual.length - resource.name.length} characters in front of the name; the full trail once made a title 161 characters`,
     );
 
@@ -97,7 +126,10 @@ test("a record title keeps its full source name and names the territory below it
     );
     titles.add(actual);
   }
-  assert.ok(placed > 100, `only ${placed} titles were opened by their territory; most regional records do not name it`);
+  assert.ok(
+    placed + overridden > 100,
+    `only ${placed + overridden} titles were opened by their territory or written for search; most regional records do not name it`,
+  );
 });
 
 /**
@@ -128,8 +160,13 @@ test("a record that documents a call says which one, before a result runs out of
       ...(call.closes ? [call.closes.slice(0, 4)] : []),
       ...(call.opens ? [call.opens.slice(0, 4)] : []),
     ]);
+    // A description written from how people search may carry the call's year later in its sentence, but
+    // carries it whenever the call has one.
     assert.ok(
-      opens.some((named) => description.startsWith(named)),
+      resource.metaDescription === undefined
+        ? opens.some((named) => description.startsWith(named))
+        : !opens.some((named) => /^20\d{2}$/u.test(named)) ||
+            opens.some((named) => /^20\d{2}$/u.test(named) && description.includes(named)),
       `${route}: the description opens "${description.slice(0, 50)}…" and not with the call this record documents, so no result carries the year somebody typed`,
     );
     assert.ok(
