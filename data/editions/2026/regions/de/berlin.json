@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "berlin",
+  "metaTitle": "Hofnachfolge in Berlin: Niederlassungsbeihilfe",
+  "metaDescription": "Junge Landwirtinnen und Landwirte finden Infos zur gemeinsamen Niederlassungsbeihilfe von Brandenburg und Berlin für Betriebe mit Standort in Berlin.",
   "officialName": "Berlin",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Landwirtschaftliche Betriebe in Berlin können die gemeinsame Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte in Brandenburg und Berlin beantragen. Für eine eigene Berliner Hofbörse oder einen ausdrücklich für Berliner Betriebe angebotenen Hofübergabe-Beratungsdienst wurde in dieser Runde kein gesonderter Zugang belegt.",
   "coverage": {
     "status": "PARTIAL",
@@ -72,6 +74,8 @@
     {
       "id": "berlin-niederlassungsbeihilfe-junglandwirte",
       "name": "Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte in Berlin",
+      "metaTitle": "Niederlassungsbeihilfe für Junglandwirte in Berlin",
+      "metaDescription": "Die Junglandwirte-Richtlinie von Brandenburg und Berlin fördert die erste Niederlassung junger Landwirte mit Hauptwohnsitz und Betriebsstätte in Berlin.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -87,6 +91,19 @@
       "purposes": ["FIRST_ESTABLISHMENT", "TRANSFER"],
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-strategic-plans",
+          "named": "EL-0501-02",
+          "sourceUrl": "https://mleuv.brandenburg.de/sixcms/media.php/9/RL-Niederlassungsbeihilfe-JLW.pdf"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://mleuv.brandenburg.de/mleuv/de/service/foerderung/landwirtschaft/niederlassungsbeihilfe-junglandwirte/"
+        }
+      ],
       "sources": [
         {
           "url": "https://mleuv.brandenburg.de/mleuv/de/service/foerderung/landwirtschaft/niederlassungsbeihilfe-junglandwirte/",
@@ -96,16 +113,44 @@
             "im Land Brandenburg oder Berlin liegen.",
             "Eine kontinuierliche Antragstellung ist möglich.",
             "Der Zuschuss beträgt 75.000 Euro pro Zuwendungsempfangenden",
-            "bei der Erstniederlassung"
+            "bei der Erstniederlassung",
+            "Richtlinie über die Gewährung von Niederlassungsbeihilfen für Junglandwirtinnen und Junglandwirte im Land Brandenburg und Berlin (Junglandwirte-Richtlinie)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://mleuv.brandenburg.de/sixcms/media.php/9/RL-Niederlassungsbeihilfe-JLW.pdf",
+          "title": "Richtlinie Niederlassungsbeihilfe Junglandwirte (PDF, MLEUV Brandenburg)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "dem GAP-Strategieplan für die Bundesrepublik Deutschland (Interventionscode EL-0501-02)",
+            "Der Zuschuss beträgt 75.000 Euro pro Zuwendungsempfangenden und wird in drei gleichgroßen Tranchen (25.000 Euro) innerhalb von drei Jahren ab dem Zeitpunkt der Bewilligung ausgezahlt.",
+            "Eine kontinuierliche Antragstellung ist möglich."
+          ]
         }
       ],
       "notes": "Brandenburg und Berlin fördern die Niederlassung über eine gemeinsame Richtlinie; Informationsseite und Antragsweg sind dieselben wie in Brandenburg. Der nächste planmäßige Auswahlstichtag ist keine Antragsfrist.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Niederlassungsbeihilfe je Zuwendungsempfangenden",
+          "value": 75000,
+          "unit": "EUR",
+          "asOf": "2023-08-22",
+          "sourceUrl": "https://mleuv.brandenburg.de/sixcms/media.php/9/RL-Niederlassungsbeihilfe-JLW.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Niederlassungsbeihilfen für Junglandwirtinnen und Junglandwirte",
+          "state": "OPEN",
+          "sourceUrl": "https://mleuv.brandenburg.de/sixcms/media.php/9/RL-Niederlassungsbeihilfe-JLW.pdf"
+        }
+      ]
     }
   ],
   "news": [],

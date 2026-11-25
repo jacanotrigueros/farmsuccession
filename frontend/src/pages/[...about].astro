@@ -27,6 +27,7 @@ import {
 import { counted, editionNamed, words } from "../lib/words.ts";
 import { asLanguage, dateIn } from "../lib/language.ts";
 import { founderStory } from "../lib/founder-story.ts";
+import { snippet } from "../lib/snippet.ts";
 
 export function getStaticPaths() {
   const europe = euTerritory();
@@ -76,7 +77,7 @@ const historyPath = territory.layer.level === "EU" ? `/${text.historySlug}/` : `
 
 <SiteLayout
   title={`${text.aboutTitle} · ${text.siteName}`}
-  description={text.aboutIntro}
+  description={snippet(text.aboutIntro)}
   language={language}
   current={home}
   documentKind="about"

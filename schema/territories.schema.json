@@ -200,6 +200,29 @@
           "minLength": 2,
           "maxLength": 300
         },
+        "subdivisions": {
+          "description": "The official subdivisions inside this region that readers name by a public code, each with its name and that code, as the jurisdiction's statistical office publishes them — France's départements and their numbers from Insee's Code officiel géographique. A reader types the code (\"safer 29\"); a record that leaves it out is missing how its reader names the territory.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "code"],
+            "properties": {
+              "name": {
+                "description": "The subdivision's official name, as the statistical office writes it.",
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 100
+              },
+              "code": {
+                "description": "Its official public code, as readers type it: a French département number such as 29 or 2A.",
+                "type": "string",
+                "pattern": "^[0-9A-Z]{1,4}$"
+              }
+            }
+          }
+        },
         "note": {
           "description": "Anything a researcher or reader needs to know about this region that no other field holds, such as why its boundary differs from the administrative one.",
           "type": "string",

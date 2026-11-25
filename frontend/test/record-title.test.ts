@@ -8,9 +8,18 @@ import { decodeHTML } from "entities";
 import type { EditionSnapshot } from "../../src/types/edition.ts";
 import { recordSlug } from "../public/search-scope.js";
 import { namesPlace, SHORT_TITLE, shortTitleTail } from "../src/lib/place-name.ts";
+import { recordSubdivisions, titleWithCodes, TITLE_ROOM } from "../src/lib/subdivision.ts";
 import { words } from "../src/lib/words.ts";
 
 const ROOT = path.join(import.meta.dirname, "..", "..");
+/** The official subdivision codes the territory catalogue gives each region. */
+const catalogue = JSON.parse(readFileSync(path.join(ROOT, "data", "territories.json"), "utf8")) as {
+  jurisdictions: Record<string, { regions?: { slug: string; subdivisions?: { name: string; code: string }[] }[] }>;
+};
+const subdivisionsIn = (snapshot: EditionSnapshot): { name: string; code: string }[] =>
+  snapshot.schemaId === "regional-snapshot"
+    ? (catalogue.jurisdictions[snapshot.country]?.regions?.find(({ slug }) => slug === snapshot.region)?.subdivisions ?? [])
+    : [];
 function snapshots(dir: string): EditionSnapshot[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const file = path.join(dir, entry.name);
@@ -93,7 +102,14 @@ test("a record title keeps its full source name and names the territory below it
       overridden += 1;
       continue;
     }
-    const expected = shortTitleTail(base, countryName, resource.operator);
+    // The codes readers type for the place ("safer 29") follow the title when they fit.
+    const codes = recordSubdivisions(resource.scope, resource.name, subdivisionsIn(snapshot));
+    const coded = titleWithCodes(base, codes);
+    assert.ok(
+      coded === base || coded.length <= TITLE_ROOM,
+      `${route}: the codes take the title to ${coded.length} characters, so a result cuts them off`,
+    );
+    const expected = shortTitleTail(coded, countryName, resource.operator);
     if (countryName !== undefined) {
       assert.ok(
         actual.length >= SHORT_TITLE || namesPlace(actual, countryName),
@@ -144,7 +160,8 @@ test("a record that documents a call says which one, before a result runs out of
   const SNIPPET = 155;
   let checked = 0;
   for (const { snapshot, resource } of entries) {
-    const calls = resource.calls ?? [];
+    // A call the source does not publish carries nothing a reader types, so it does not lead the result.
+    const calls = (resource.calls ?? []).filter(({ state }) => state !== "NOT_PUBLISHED");
     if (calls.length === 0) continue;
     const country = "country" in snapshot ? snapshot.country.toLowerCase() : "";
     const route = `${country ? `${country}/` : ""}${recordSlug(country.toUpperCase())}/${resource.id}/`;
@@ -164,7 +181,9 @@ test("a record that documents a call says which one, before a result runs out of
     // carries it whenever the call has one.
     assert.ok(
       resource.metaDescription === undefined
-        ? opens.some((named) => description.startsWith(named))
+        ? opens.some((named) => description.startsWith(named)) ||
+            // a name too long for a result and carrying no year leaves nothing a reader would type to lead with
+            calls.every(({ name, opens: from, closes }) => name.length > 70 && !/20\d{2}/u.test(name) && !from && !closes)
         : !opens.some((named) => /^20\d{2}$/u.test(named)) ||
             opens.some((named) => /^20\d{2}$/u.test(named) && description.includes(named)),
       `${route}: the description opens "${description.slice(0, 50)}…" and not with the call this record documents, so no result carries the year somebody typed`,

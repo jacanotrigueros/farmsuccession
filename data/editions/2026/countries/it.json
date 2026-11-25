@@ -3,6 +3,7 @@
   "schemaId": "country-snapshot",
   "edition": "2026",
   "country": "IT",
+  "metaDescription": "Bandi regionali SRE01 e misure ISMEA per chi vuole insediarsi, acquistare terreni o subentrare in un’azienda agricola in Italia.",
   "officialName": "Italia",
   "published": "2026-11-25",
   "summary": "Consulta i bandi regionali per il primo insediamento dei giovani agricoltori (SRE01). Trova anche le misure ISMEA per acquistare terreni o subentrare in un’azienda agricola.",
@@ -105,6 +106,7 @@
     {
       "id": "it-legge-36-2024",
       "name": "Legge 36/2024 per l’imprenditoria giovanile agricola",
+      "metaDescription": "La legge 36/2024 definisce l’impresa giovanile agricola e descrive il regime fiscale opzionale e il Fondo per i programmi di primo insediamento.",
       "kind": "POLICY",
       "status": "ACTIVE",
       "scope": {
@@ -128,7 +130,8 @@
           "quotes": [
             "LEGGE 15 marzo 2024, n. 36",
             "Disposizioni per la promozione e lo sviluppo dell'imprenditoria giovanile nel settore agricolo.",
-            "Entrata in vigore del provvedimento: 10/04/2024"
+            "Entrata in vigore del provvedimento: 10/04/2024",
+            "Disposizioni per la promozione e lo sviluppo dell'imprenditoria giovanile nel settore agricolo. (24G00054)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -239,6 +242,7 @@
     {
       "id": "it-banca-terre-agricole",
       "name": "Banca nazionale delle Terre Agricole",
+      "metaTitle": "Banca nazionale delle Terre Agricole – ISMEA Italia",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -337,7 +341,8 @@
           "consultedOn": "2026-10-26",
           "quotes": [
             "L'edizione 2026 mette in vendita 253 terreni, per una superficie complessiva di 8.863 ettari e un valore a base d'asta di oltre 121 milioni di euro.",
-            "A questi si aggiungono 266 terreni appartenenti al lotto permanente, pari a 5.271 ettari, portando così a oltre 14.000 ettari il patrimonio fondiario complessivamente disponibile attraverso la Banca nazionale delle Terre Agricole."
+            "A questi si aggiungono 266 terreni appartenenti al lotto permanente, pari a 5.271 ettari, portando così a oltre 14.000 ettari il patrimonio fondiario complessivamente disponibile attraverso la Banca nazionale delle Terre Agricole.",
+            "L'edizione 2026 mette in vendita 253 terreni, per una superficie complessiva di 8.863 ettari"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -376,11 +381,14 @@
         }
       ],
       "notes": "Per il lotto permanente sono ammesse offerte in ribasso fino al 35% del valore a base d’asta. I giovani imprenditori agricoli aggiudicatari possono chiedere la rateizzazione, subordinata ai criteri ISMEA, fino a un massimo di trenta anni. Il manuale Coldiretti descrive, per l’asta, un deposito cauzionale pari al 10% del valore a base d’asta del lotto. Le condizioni vincolanti si trovano nell’avviso ISMEA applicabile.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "assetTypes": ["PLOTS"]
     },
     {
       "id": "it-generazione-terra",
       "name": "Generazione Terra",
+      "metaTitle": "Generazione Terra 2026 – ISMEA Italia",
+      "metaDescription": "Generazione Terra 2026 finanzia fino al 100% del prezzo dei terreni per giovani imprenditori e aspiranti agricoltori. Consulta requisiti e procedura.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -449,7 +457,8 @@
             "1) 1.500.000 euro, in caso di Giovani imprenditori agricoli e Giovani startupper con esperienza;",
             "2) 500.000 euro, in caso di Giovani startupper con titolo.",
             "Fino a 30 anni di cui al massimo 2 di preammortamento.",
-            "PER ACCEDERE AL PORTALE OCCORRE ESSERE IN POSSESSO DELLE RELATIVE CREDENZIALI"
+            "PER ACCEDERE AL PORTALE OCCORRE ESSERE IN POSSESSO DELLE RELATIVE CREDENZIALI",
+            "Per comunicazioni, richieste e informazioni scrivere scrivere da un indirizzo di posta ordinaria (non certificata) all'indirizzo e-mail: urp@ismea.it"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -473,11 +482,20 @@
         }
       ],
       "notes": "La durata del finanziamento può arrivare a 30 anni, con al massimo 2 anni di preammortamento. Il manuale distingue, tra gli aspiranti imprenditori, la categoria con esperienza agricola e quella priva di esperienza ma in possesso di titolo agrario o di una laurea in discipline affini. Per soglie e condizioni si applica l’avviso ISMEA del periodo.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ufficio Relazioni con il Pubblico ISMEA",
+          "value": "urp@ismea.it",
+          "sourceUrl": "https://www.ismea.it/Startup/GenerazioneTerra"
+        }
+      ]
     },
     {
       "id": "it-piu-impresa",
       "name": "Più Impresa",
+      "metaTitle": "Più Impresa 2025 – ISMEA Italia",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -503,12 +521,12 @@
       "lastEvidenceDate": "2026-05-19",
       "metrics": [
         {
-          "measure": "OTHER",
-          "label": "Investimento massimo del piano",
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Finanziamento massimo, giovani imprenditori agricoli e startupper con esperienza",
           "value": 1500000,
           "unit": "EUR",
-          "asOf": "2025-12-19",
-          "sourceUrl": "https://www.ismea.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/13521"
+          "asOf": "2025-02-25",
+          "sourceUrl": "https://giovanimpresa.coldiretti.it/wp-content/uploads/2025/02/Dallidea-allimpresa-agricola_25.02_DEF.pdf"
         }
       ],
       "sources": [
@@ -526,7 +544,8 @@
             "mutuo agevolato, a tasso zero, per un importo non superiore al 60 per cento delle spese ammissibili, di durata fino a 15 anni;",
             "contributo a fondo perduto, per un importo non superiore al 35 per cento delle spese ammissibili.",
             "i costi per l'acquisto terreni, nella misura massima del 10% del valore complessivo del progetto.",
-            "19/05/2026 Elenco aggiornato delle domande pervenute e stato del procedimento"
+            "19/05/2026 Elenco aggiornato delle domande pervenute e stato del procedimento",
+            "Per comunicazioni, richieste e informazioni scrivere scrivere da un indirizzo di posta ordinaria (non certificata) all'indirizzo e-mail: urp@ismea.it"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -556,7 +575,8 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "subentro alla gestione di un'azienda agricola o nell'ampliamento (sviluppo) di attività",
-            "già avviate da almeno 2 anni."
+            "già avviate da almeno 2 anni.",
+            "1.500.000 euro per Giovani imprenditori agricoli e Giovani startupper con esperienza"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -565,11 +585,21 @@
         }
       ],
       "notes": "Il piano può combinare un mutuo agevolato a tasso zero fino al 60% delle spese ammissibili e un contributo a fondo perduto fino al 35%. La preconvalida della procedura 2025 è rimasta disponibile dal 19 dicembre 2025 al 27 febbraio 2026. Il manuale Coldiretti distingue il subentro nella gestione agricola dall’ampliamento di un’attività già avviata da almeno due anni. Per le condizioni applicabili vale l’avviso ISMEA della relativa finestra.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ufficio Relazioni con il Pubblico ISMEA",
+          "value": "urp@ismea.it",
+          "sourceUrl": "https://www.ismea.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/13521"
+        }
+      ]
     },
     {
       "id": "it-cia-adempimenti-avvio-impresa-agricola",
       "name": "Adempimenti per avvio impresa agricola",
+      "metaTitle": "Avvio impresa agricola in Italia: adempimenti CIA",
+      "metaDescription": "CIA assiste chi avvia un’impresa agricola in Italia con la Comunicazione Unica e l’eventuale SCIA. Scegli la regione per contattare una sede.",
       "kind": "ADVICE",
       "status": "UNKNOWN",
       "scope": {
@@ -581,6 +611,12 @@
       "whoCanUseIt": "Chi intende diventare imprenditore agricolo.",
       "accessUrl": "https://www.cia.it/servizi/adempimenti_per_avvio_impresa_agricola/",
       "targetProfiles": ["NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.cia.it/servizi/adempimenti_per_avvio_impresa_agricola/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.cia.it/servizi/adempimenti_per_avvio_impresa_agricola/",
@@ -625,12 +661,24 @@
       "accessUrl": "https://giovanimpresa.coldiretti.it/tutors/delegati/",
       "id": "it-coldiretti-giovani-impresa-tutor",
       "name": "Rete dei tutor Coldiretti Giovani Impresa",
+      "metaTitle": "Tutor Coldiretti Giovani Impresa in Italia",
+      "metaDescription": "I tutor di Coldiretti Giovani Impresa orientano chi vuole avviare un’azienda agricola. Scegli la regione nella sezione «Chiedi all’esperto».",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "operator": "Coldiretti Giovani Impresa",
       "operatorType": "NONPROFIT",
       "whatItOffers": "Rete di delegati e segretari per l’orientamento di chi vuole avviare un’impresa agricola. Il manuale precisa che i tutor sono giovani imprenditori presenti sul territorio italiano, che mettono a disposizione la propria esperienza per l’avvio e lo sviluppo di un’impresa.",
       "howToAccess": "Aprire la sezione «Chiedi all’esperto» e selezionare la regione per individuare il tutor.",
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://giovanimpresa.coldiretti.it/tutors/delegati/"
+        },
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://giovanimpresa.coldiretti.it/tutors/delegati/"
+        }
+      ],
       "sources": [
         {
           "url": "https://giovanimpresa.coldiretti.it/faq/",
@@ -684,6 +732,8 @@
     {
       "id": "it-coldiretti-guida-dall-idea-impresa-agricola",
       "name": "Dall’idea all’impresa agricola — guida Coldiretti",
+      "metaTitle": "Dall’idea all’impresa agricola: guida Coldiretti Italia",
+      "metaDescription": "La guida Coldiretti presenta dieci passi per chi avvia o sviluppa un’azienda agricola in Italia, con un approfondimento sul ricambio nella PAC.",
       "kind": "OTHER",
       "status": "ACTIVE",
       "scope": {
@@ -718,6 +768,8 @@
     {
       "id": "it-ismea-fondo-innovazione-agricoltura",
       "name": "ISMEA — Fondo per l’Innovazione in Agricoltura",
+      "metaTitle": "Fondo per l’Innovazione in Agricoltura – ISMEA Italia",
+      "metaDescription": "Per le imprese agricole con progetti innovativi: la procedura a sportello ISMEA, l’avviso 2024 chiuso il 23 dicembre e i passaggi online per la domanda.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -749,15 +801,45 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://www.ismea.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/13415",
+          "title": "Fondo innovazione - Avvisi - Ismea",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Si avvisano gli utenti che lo sportello telematico per la convalida delle domande chiuderà Lunedì 23/12 alle ore 12.00."
+          ]
+        },
+        {
+          "url": "https://www.ismea.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/13219?YY=2026",
+          "title": "Fondo Innovazione - Intervento a sostegno della produttività 2024 - Ismea",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Per comunicazioni, richieste e informazioni scrivere scrivere da un indirizzo di posta ordinaria (non certificata) all'indirizzo e-mail: urp@ismea.it"
+          ]
         }
       ],
       "whoCanUseIt": "Imprese agricole che presentano un progetto di investimento ammissibile.",
       "howToAccess": "Accreditarsi sul portale ISMEA, compilare e preconvalidare la domanda e convalidarla nel periodo di presentazione previsto dall’avviso.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "Fondo per l’innovazione in agricoltura – avviso 2024",
+          "state": "CLOSED",
+          "closes": "2024-12-23",
+          "sourceUrl": "https://www.ismea.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/13415"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ufficio Relazioni con il Pubblico ISMEA",
+          "value": "urp@ismea.it",
+          "sourceUrl": "https://www.ismea.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/13219?YY=2026"
+        }
+      ]
     }
   ],
   "news": [],
-  "limitations": ["I premi di primo insediamento sono attuati territorialmente e saranno descritti nei file regionali."],
-  "metaTitle": "Primo insediamento e subentro agricolo in Italia",
-  "metaDescription": "Trova i bandi regionali SRE01 per il primo insediamento e le misure ISMEA per acquistare terreni o subentrare in un’azienda agricola."
+  "limitations": ["I premi di primo insediamento sono attuati territorialmente e saranno descritti nei file regionali."]
 }

@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "PT",
   "region": "grande-lisboa",
+  "metaTitle": "Bancos de terras e terrenos agrícolas na Grande Lisboa",
+  "metaDescription": "Conheça as vias municipais de acesso a terrenos na Grande Lisboa, incluindo a disponibilização de terrenos em Sintra e o Banco de Terras de Cascais.",
   "officialName": "Grande Lisboa",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Os municípios de Sintra e Cascais documentam mecanismos próprios de disponibilização e intermediação de terrenos. A oferta atual e o funcionamento completo das plataformas não foram confirmados.",
   "coverage": {
     "status": "PARTIAL",
@@ -62,6 +64,8 @@
     {
       "id": "pt-sintra-disponibilizacao-terrenos",
       "name": "Programa Municipal de Disponibilização de Terrenos de Sintra",
+      "metaTitle": "Terrenos de Sintra: programa municipal — Grande Lisboa",
+      "metaDescription": "O Programa Municipal de Disponibilização de Terrenos de Sintra liga proprietários e quem procura terrenos para uso agrícola, florestal ou silvopastoril.",
       "kind": "LAND_BANK",
       "status": "UNKNOWN",
       "scope": {
@@ -86,7 +90,9 @@
           "quotes": [
             "O Programa tem duas vertentes: a cedência de terrenos propriedade do Município, através de concurso, e a divulgação de informação sobre terrenos de particulares",
             "O Município apenas facilita o contacto entre os interessados",
-            "As propostas deverão ser entregues de dia 15 de dezembro de 2021 a dia 15 de janeiro de 2022"
+            "As propostas deverão ser entregues de dia 15 de dezembro de 2021 a dia 15 de janeiro de 2022",
+            "A informação sobre o Programa de Disponibilização de Terras está disponível através do email: dgpa@cm-sintra.pt.",
+            "Programa Municipal de Disponibilização de Terrenos (DTS)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -95,11 +101,21 @@
         }
       ],
       "notes": "A última chamada identificada na página é de 2021/2022. A plataforma SIG está ligada, mas não foram confirmadas fichas de terrenos ou candidaturas atuais.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Programa de Disponibilização de Terras",
+          "value": "dgpa@cm-sintra.pt",
+          "sourceUrl": "https://arquivo2026.cm-sintra.pt/dts"
+        }
+      ]
     },
     {
       "id": "pt-cascais-banco-terras",
       "name": "Banco de Terras de Cascais",
+      "metaTitle": "Banco de Terras de Cascais — Grande Lisboa",
+      "metaDescription": "Plataforma do concelho de Cascais para proprietários e pessoas à procura de terrenos para cultivar. Saiba onde consultar e como se registar no MyCascais.",
       "kind": "LAND_BANK",
       "status": "UNKNOWN",
       "scope": {
@@ -121,7 +137,7 @@
           "url": "https://ambiente.cascais.pt/pt/terrasdecascais/banco-terras",
           "title": "Banco de Terras | Cascais Ambiente",
           "consultedOn": "2026-09-28",
-          "quotes": ["se procura terra para cultivar, então este projeto é para si."],
+          "quotes": ["se procura terra para cultivar, então este projeto é para si.", "atendimento.municipal@cm-cascais.pt"],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
@@ -142,7 +158,15 @@
         }
       ],
       "notes": "A via municipal de registo está descrita, mas não foi comprovado o inventário atual nem concluído o fluxo de inscrição.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Câmara Municipal de Cascais, atendimento",
+          "value": "atendimento.municipal@cm-cascais.pt",
+          "sourceUrl": "https://ambiente.cascais.pt/pt/terrasdecascais/banco-terras"
+        }
+      ]
     },
     {
       "scope": {
@@ -152,6 +176,8 @@
       "accessUrl": "https://www.cm-mafra.pt/cmmafra/uploads/writer_file/document/793/normasdefuncionamentodabolsadeterras.pdf",
       "id": "pt-mafra-bolsa-terras",
       "name": "Bolsa de Terras do Concelho de Mafra",
+      "metaTitle": "Bolsa de Terras do Concelho de Mafra — Grande Lisboa",
+      "metaDescription": "Bolsa para interessados em comprar ou arrendar prédios rústicos em Mafra. Saiba onde consultar anúncios e as normas de apoio ao arrendamento.",
       "kind": "LAND_BANK",
       "status": "UNKNOWN",
       "operator": "Associação de Agricultores do Concelho de Mafra",
@@ -168,7 +194,9 @@
             "regulando o seu funcionamento, condições de adesão e os deveres e direitos",
             "a listagem de parcelas disponíveis aos interessados em arrendar/comprar;",
             "Conceder apoio à celebração de contratos de arrendamento",
-            "os anúncios públicos referentes a prédios rústicos/parcelas de terreno"
+            "os anúncios públicos referentes a prédios rústicos/parcelas de terreno",
+            "os anúncios públicos referentes a prédios rústicos/parcelas de terreno, disponibilizados na BTM",
+            "com sede na Rua Serpa Pinto nº 34-D, Mafra"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -176,7 +204,16 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "assetTypes": ["PLOTS"],
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Associação de Agricultores do Concelho de Mafra",
+          "value": "Rua Serpa Pinto nº 34-D, Mafra",
+          "sourceUrl": "https://www.cm-mafra.pt/cmmafra/uploads/writer_file/document/793/normasdefuncionamentodabolsadeterras.pdf"
+        }
+      ]
     }
   ],
   "news": [],

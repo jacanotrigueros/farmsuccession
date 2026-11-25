@@ -30,6 +30,7 @@ import SourceRef from "../components/SourceRef.astro";
 import PageIndex from "../components/PageIndex.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
+  subdivisionsOf,
   currentEdition,
   EUROPE_PAGE,
   href,
@@ -51,6 +52,8 @@ import {
 } from "../lib/corpus.ts";
 import { goalOf } from "../lib/goals.ts";
 import { namesPlace, shortTitleTail } from "../lib/place-name.ts";
+import { snippet } from "../lib/snippet.ts";
+import { codesInBrackets, recordSubdivisions, titleWithCodes } from "../lib/subdivision.ts";
 import { flagOf, ICON, PRACTICAL_ICON } from "../lib/icons.ts";
 import { euCardIn } from "../lib/eu-presentation.ts";
 import { countryNameIn, dateIn } from "../lib/language.ts";
@@ -95,7 +98,19 @@ const otherFigures = (resource.metrics ?? []).filter((metric) => !metric.measure
 /** How much evidence there is, which is what the way down to it says rather than naming the section. */
 const quotes = resource.sources.reduce((total, source) => total + source.quotes.length, 0);
 const place = placeOf(territory, text.euName, language);
-const servedPlace = resourcePlaceParts(place, resource.scope.area, text.reachRow, text.labelSeparator);
+/**
+ * The codes readers type for the record's place ("safer 29"): after the region for a record of the whole
+ * region, after the area for one of a département. They are written on the page, where search reads them,
+ * and after the title when they fit.
+ */
+const codes = recordSubdivisions(resource.scope, resource.name, subdivisionsOf(territory));
+const codesText = codes.length > 0 ? ` ${codesInBrackets(codes)}` : "";
+const servedPlace = resourcePlaceParts(
+  resource.scope.area ? place : place + codesText,
+  resource.scope.area ? resource.scope.area + codesText : resource.scope.area,
+  text.reachRow,
+  text.labelSeparator,
+);
 
 /**
  * The title is the line a result shows, and somebody looking for an instrument looks for it where they
@@ -119,7 +134,8 @@ const baseTitle = placed
  */
 const countryName = view(territory).layers.find(({ layer }) => layer.level === "COUNTRY")?.data.officialName;
 /** A search title written from how people search for the record replaces the one built from its name. */
-const pageTitle = resource.metaTitle ?? shortTitleTail(baseTitle, countryName, resource.operator);
+const codedTitle = titleWithCodes(baseTitle, codes);
+const pageTitle = resource.metaTitle ?? shortTitleTail(codedTitle, countryName, resource.operator);
 
 /**
  * The line a result shows, which is the only place this site competes.
@@ -138,13 +154,18 @@ const pageTitle = resource.metaTitle ?? shortTitleTail(baseTitle, countryName, r
  *
  * The page itself still carries the whole summary. This is the line a result shows, and nowhere else.
  */
-const SNIPPET = 155;
 
 const callYear = (call: { name: string; opens?: string; closes?: string }): string =>
   (call.closes ?? call.opens ?? /\b20\d{2}\b/u.exec(call.name)?.[0] ?? "").slice(0, 4);
 
-/** The latest call the record documents: the one a reader searching this year is looking for. */
-const documentedCall = (resource.calls ?? []).toSorted((a, b) => callYear(a).localeCompare(callYear(b))).at(-1);
+/**
+ * The latest call the record documents: the one a reader searching this year is looking for. A call the
+ * source does not publish has no name or year a reader would type, so it never leads the result.
+ */
+const documentedCall = (resource.calls ?? [])
+  .filter(({ state }) => state !== "NOT_PUBLISHED")
+  .toSorted((a, b) => callYear(a).localeCompare(callYear(b)))
+  .at(-1);
 
 /**
  * A call is named the way its source names it. The longest name in this edition is 69 characters, which
@@ -158,20 +179,7 @@ const callNamed = !documentedCall
     ? documentedCall.name
     : (/\b20\d{2}\b/u.exec(documentedCall.name)?.[0] ?? callYear(documentedCall));
 
-const pageDescription = ((): string => {
-  if (resource.metaDescription) return resource.metaDescription;
-  const lead = callNamed ? `${callNamed} · ` : "";
-  const room = SNIPPET - lead.length;
-  const summary = resource.whatItOffers;
-  if (summary.length <= room) return lead + summary;
-  // A sentence that ends is better than one cut off: stop at the last full stop, colon or semicolon in the
-  // room when what it leaves is still at least half of it, and only otherwise cut at a word.
-  const clause = /^(.*[.:;])\s/su.exec(summary.slice(0, room + 1))?.[1];
-  if (clause && clause.length >= room / 2) return lead + clause.replace(/[:;]$/u, ".");
-  const cut = summary.slice(0, room - 1);
-  const atWord = cut.includes(" ") ? cut.slice(0, cut.lastIndexOf(" ")) : cut;
-  return `${lead}${atWord.replace(/[\s,;:·—-]+$/u, "")}…`;
-})();
+const pageDescription = resource.metaDescription ?? snippet(resource.whatItOffers, callNamed ? `${callNamed} · ` : "");
 
 /** Corrections start with the page the reader was looking at; they should not have to identify it again. */
 const reportCountry = territory.layer.level === "EU" ? "" : territory.layer.country.toLowerCase();
@@ -476,9 +484,12 @@ const browseHere = searchUrl("/", {
             <StatusTag status={resource.status} language={language} />
           </span>
         </p>
-        <p class="meta mt-2 max-w-3xl" data-pagefind-ignore>
-          {text.statusExplained}
-        </p>
+        {/* The note explains what "active" does not promise; beside any other status it contradicts the badge. */}
+        {resource.status === "ACTIVE" && (
+          <p class="meta mt-2 max-w-3xl" data-pagefind-ignore>
+            {text.statusExplained}
+          </p>
+        )}
         <h1 class="page-title mt-4 text-3xl sm:text-4xl" data-pagefind-meta="title">
           {resource.name}
         </h1>
@@ -639,10 +650,18 @@ const browseHere = searchUrl("/", {
                       </p>
                     )}
                     <p class="flex min-h-(--spacing-target) flex-wrap items-center gap-x-2">
-                      {contact.channel === "EMAIL" && <a href={`mailto:${contact.value}`}>{contact.value}</a>}
-                      {contact.channel === "PHONE" && <a href={`tel:${contact.value.replace(/\s/gu, "")}`}>{contact.value}</a>}
+                      {contact.channel === "EMAIL" && (
+                        <a href={`mailto:${contact.value}`} class="inline-flex min-h-(--spacing-target) items-center">
+                          {contact.value}
+                        </a>
+                      )}
+                      {contact.channel === "PHONE" && (
+                        <a href={`tel:${contact.value.replace(/\s/gu, "")}`} class="inline-flex min-h-(--spacing-target) items-center">
+                          {contact.value}
+                        </a>
+                      )}
                       {contact.channel === "FORM" && (
-                        <a href={contact.value} rel="noopener">
+                        <a href={contact.value} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center">
                           {text.openContactForm}
                         </a>
                       )}

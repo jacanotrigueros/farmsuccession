@@ -40,48 +40,33 @@ than describing what it intends to be.
 | Live checks: cited pages, reachable links, one territory     | `npm run check:sources`, `check:links`, `check:territory`                                                                                             |
 | The research process, with every version of it kept          | `prompts/`, currently 1.14.0                                                                                                                          |
 | The research pipeline: fill a prompt, ingest an answer, diff | `npm run prompt`, `ingest`, `diff`                                                                                                                    |
-| Published data                                               | The 2026 edition of the EU layer and six countries: 111 files, 369 records                                                                            |
-| The site                                                     | Builds from the data: 509 pages, scripts only for search, filtering and the application answer; published to Pages by hand, live at farmsuccession.eu |
+| Published data                                               | The 2026 edition of the EU layer and seven countries: 124 files, 663 records                                                                          |
+| The site                                                     | Builds from the data: 794 pages, scripts only for search, filtering and the application answer; published to Pages by hand, live at farmsuccession.eu |
 
 ## What is published today
 
 The 2026 edition covers the European layer; Spain, with its three multi-island and
 multi-province groupings and its 28 regional territories; Germany, with its 16 Länder;
 France, with its 18 régions; Italy, with its 19 regions and two autonomous provinces;
-Portugal, with its 9; and Austria, with its 9 Länder: **369 records**, each with the page
-it came from, the date that page was read and the words that were on it — 623 sources,
-2,012 quotes, 603 distinct pages — plus 34 dated developments of the year and the 111
-research briefs that say how each territory was searched, including the 253 leads that
-were considered and rejected.
+Portugal, with its 9; Austria, with its 9 Länder; and the Netherlands, with its 12
+provinces. Each record carries the page it came from, the date that page was read and
+the words that were on it, and every territory has a research brief that says how it
+was searched, including the leads that were considered and rejected.
 
 [**What the 2026 research found**](research/findings-2026.md) is the account of that
-work territory by territory: what each pass published, what it looked for and did not
-find, what it considered and left out with the reason, and what it has still to
-settle. It is generated from the data by `npm run report`, and `npm run check` fails
-while the committed copy is stale, so the conclusions cannot drift from the evidence.
-Read on its own it answers the question the records cannot, and the three countries
-answer it differently. In Spain, establishment aid was found in all 28 regional
-territories, a succession or cessation aid in 11, a land bank in 21, an entry course in
-21, and an advisory service of a farmers' organisation in 13. Germany documents nothing
-operative at national level — every one of the 16 Länder carries its own, with
-establishment aid in 9, a handover advisory service in 10, a transfer or matching
-service in 5, a land exchange in 2 and a qualifying course in 1. France leans towards
-land: of its 18 régions, 13 document a land exchange, 12 a transfer or matching service,
-11 establishment aid, 6 advice and 4 a qualifying course, while one — Mayotte —
-documents nothing and says exactly why. Italy leans the other way: establishment aid in
-20 of its 21 territories and a qualifying course in 10, but a transfer or matching
-service in only 2, and nothing operative at national level, where the instruments belong
-to ISMEA and no page specific enough to cite was found. Portugal is the thinnest and the
-most national: four of its 17 records apply to the whole country, no region documents a
-qualifying course, and what the regions do document is advice in 4 of 9 and a land
-exchange in 3.
+work territory by territory, opening with the edition in numbers: what each pass
+published, what it looked for and did not find, what it considered and left out with
+the reason, and what it has still to settle. It is generated from the data by
+`npm run report`, and `npm run check` fails while the committed copy is stale, so its
+figures and conclusions cannot drift from the evidence — which is why they are read
+there and not copied here.
 
-`npm run validate` reports `101 edition file(s) and 101 research brief(s) checked: 0
-error(s), 0 warning(s), 1 for review`. The count is printed on purpose: a check that
-passes over nothing must never read as a clean run. The one for review is a question
-rather than a defect — two records, in Berlin and in Brandenburg, cite the same page,
-because the two Länder fund establishment through one joint directive, and each record
-says so.
+`npm run validate` prints how many edition files and research briefs it checked, and
+how many errors, warnings and items for review it found. The count is printed on
+purpose: a check that passes over nothing must never read as a clean run. A warning or
+an item for review is a question for a person rather than a defect — two records, in
+Berlin and in Brandenburg, cite the same page because the two Länder fund establishment
+through one joint directive, and each record says so.
 
 Every cited page is re-read against the live web, and every run is kept:
 [`reports/checks/`](reports/checks/) holds one file per run, named for the instant it
@@ -276,8 +261,7 @@ runs both gates on a clean checkout.
 Before the first publication, two things that do not belong in a file:
 
 - enable Pages for the repository with **GitHub Actions** as its source. Pages
-  for a private repository needs a paid plan, and Actions minutes are free only
-  while a repository is public, so the usual order is public first;
+  is free for a public repository, as this one is, and so are its Actions minutes;
 - to answer at the project's own domain, point the DNS at GitHub — the four
   apex `A` records it documents for Pages (185.199.108.153 through
   185.199.111.153) and a `CNAME` for `www` — and set the repository variable

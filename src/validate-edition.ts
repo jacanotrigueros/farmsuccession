@@ -85,7 +85,7 @@ function sourcesOf(data: EditionSnapshot): Array<{ at: string; source: Source }>
  *
  * `today` is a parameter rather than the clock, so a test is not tied to the day it runs.
  */
-/** The first edition whose records must answer every reader question of their kind (FS-027 in the core). */
+/** The first edition whose records must answer every reader question of their kind. */
 export const FIRST_EDITION_WITH_ANSWERS = "2027";
 
 export function checkSemantics(file: string, data: EditionSnapshot, territories: Territories, today: string): Report {

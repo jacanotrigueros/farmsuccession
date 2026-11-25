@@ -3,8 +3,9 @@
   "schemaId": "country-snapshot",
   "edition": "2026",
   "country": "AT",
+  "metaDescription": "Wer in Österreich einen Hof übernimmt oder übergibt, findet die Niederlassungsprämie, die Zahlung für Junglandwirte und die Meldepflichten bei der SVS.",
   "officialName": "Österreich",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Informieren Sie sich über die Niederlassungsprämie und die ergänzende Zahlung für Junglandwirtinnen und Junglandwirte. Bei einer Hofübergabe finden Sie auch Hinweise der SVS zu den Meldepflichten.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -107,6 +108,8 @@
     {
       "id": "at-niederlassung-junglandwirte",
       "name": "75-01-BML Förderung der Niederlassung von Junglandwirtinnen und Junglandwirten",
+      "metaTitle": "Niederlassungsprämie (75-01) für Junglandwirte in Österreich",
+      "metaDescription": "3.500 Euro Basisprämie plus mögliche Boni für die erste Niederlassung. Junglandwirtinnen und Junglandwirte finden Voraussetzungen und den AMA-Antrag.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -199,14 +202,42 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://dfp.ama.at/foerderungen-fristen/75-01-bml/merkblaetter-und-unterlagen/merkblaetter-zur-foerdermassnahme/merkblatt-zur-massnahme-75-01-bml",
+          "title": "Merkblatt zur Maßnahme 75-01-BML (AMA)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Die Förderung wird als Basisprämie in Form einer einmaligen Pauschalzahlung von EUR 3.500 gewährt.",
+            "Im Falle eines geblockten Auswahlverfahrens (laufende Antragstellung möglich)"
+          ]
         }
       ],
       "notes": "Laut Quelle können die Basisprämie und die möglichen Zuschläge nur einmal ausgelöst werden.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Einmalige Basisprämie",
+          "value": 3500,
+          "unit": "EUR",
+          "asOf": "2025-01-01",
+          "sourceUrl": "https://dfp.ama.at/foerderungen-fristen/75-01-bml/merkblaetter-und-unterlagen/merkblaetter-zur-foerdermassnahme/merkblatt-zur-massnahme-75-01-bml"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Förderung der Niederlassung von Junglandwirtinnen und Junglandwirten (75-01)",
+          "state": "OPEN",
+          "sourceUrl": "https://dfp.ama.at/foerderungen-fristen/75-01-bml/merkblaetter-und-unterlagen/merkblaetter-zur-foerdermassnahme/merkblatt-zur-massnahme-75-01-bml"
+        }
+      ]
     },
     {
       "id": "at-zahlung-junglandwirte",
       "name": "Ergänzende Einkommensstützung für Junglandwirtinnen und Junglandwirte (Zahlung für Junglandwirtinnen und Junglandwirte)",
+      "metaTitle": "Österreich: Zahlung für Junglandwirtinnen und Junglandwirte",
+      "metaDescription": "Direktzahlung für Junglandwirtinnen und Junglandwirte bis 40: rund 66 Euro je Hektar für bis zu 40 Hektar. Der Antrag läuft über den Mehrfachantrag.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -222,6 +253,12 @@
       "purposes": ["FIRST_ESTABLISHMENT"],
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.bmluk.gv.at/themen/landwirtschaft/gemeinsame-agrarpolitik-foerderungen/nationaler-strategieplan/direktzahlungen-ab-2023/unterstuetzungjunglandwirtinnenundjunglandwirte.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bmluk.gv.at/themen/landwirtschaft/gemeinsame-agrarpolitik-foerderungen/nationaler-strategieplan/direktzahlungen-ab-2023/unterstuetzungjunglandwirtinnenundjunglandwirte.html",
@@ -239,14 +276,43 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.ama.at/fachliche-informationen/direktzahlungen/kontakt",
+          "title": "Kontakt",
+          "consultedOn": "2026-11-25",
+          "quotes": ["gap@ama.gv.at"]
+        },
+        {
+          "url": "https://dfp.ama.at/foerderungen-fristen/75-01-bml/das-wichtigste-im-ueberblick",
+          "title": "Das Wichtigste im Überblick",
+          "consultedOn": "2026-11-25",
+          "quotes": ["mit der Fördermaßnahme „Zahlung für Junglandwirtinnen und Junglandwirte“ (30-01)"]
         }
       ],
       "notes": "Die Zahlung ist jährlich im Mehrfachantrag zu beantragen.",
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Agrarmarkt Austria",
+          "value": "gap@ama.gv.at",
+          "sourceUrl": "https://www.ama.at/fachliche-informationen/direktzahlungen/kontakt"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.bmluk.gv.at/themen/landwirtschaft/gemeinsame-agrarpolitik-foerderungen/nationaler-strategieplan/direktzahlungen-ab-2023/unterstuetzungjunglandwirtinnenundjunglandwirte.html"
+        }
+      ]
     },
     {
       "id": "at-konsolidierung-junglandwirte",
       "name": "Sonderrichtlinie zur Konsolidierung von land- und forstwirtschaftlichen Betrieben, die durch Junglandwirt:innen übernommen werden",
+      "metaTitle": "Sonderrichtlinie Konsolidierung für Junglandwirte (AT)",
+      "metaDescription": "Zinsenzuschuss für Junglandwirtinnen und Junglandwirte, die einen ganzen verschuldeten Betrieb übernehmen. Die Richtlinie nennt Kredithöhe und Antrag.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -263,6 +329,12 @@
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER", "SUCCESSOR"],
       "lastEvidenceDate": "2024-11-22",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.bmluk.gv.at/dam/jcr:b141fe95-b636-4a66-99e1-e81f2b278163/SRL_Konsolidierung_JLW_2._%C3%84nderung.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bmluk.gv.at/themen/landwirtschaft/gemeinsame-agrarpolitik-foerderungen/nationaler-strategieplan/foerderinfo/sonderrichtlinien-2023-2027/sonderrichtlinie-konsolidierung.html",
@@ -310,11 +382,38 @@
         }
       ],
       "notes": "Die Sonderrichtlinie gilt bis 30. Juni 2030. Der Betrieb muss unter Berücksichtigung der Förderung sanierbar sein.",
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "metrics": [
+        {
+          "measure": "LOAN_PER_BENEFICIARY_MIN",
+          "label": "Untergrenze des förderbaren Konsolidierungskredites",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2024-11-22",
+          "sourceUrl": "https://www.bmluk.gv.at/dam/jcr:b141fe95-b636-4a66-99e1-e81f2b278163/SRL_Konsolidierung_JLW_2._%C3%84nderung.pdf"
+        },
+        {
+          "measure": "LOAN_PER_BENEFICIARY_MAX",
+          "label": "Obergrenze des förderbaren Konsolidierungskredites",
+          "value": 150000,
+          "unit": "EUR",
+          "asOf": "2024-11-22",
+          "sourceUrl": "https://www.bmluk.gv.at/dam/jcr:b141fe95-b636-4a66-99e1-e81f2b278163/SRL_Konsolidierung_JLW_2._%C3%84nderung.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.bmluk.gv.at/dam/jcr:b141fe95-b636-4a66-99e1-e81f2b278163/SRL_Konsolidierung_JLW_2._%C3%84nderung.pdf"
+        }
+      ]
     },
     {
       "id": "at-svs-hofuebergabe",
       "name": "Hofübergabe",
+      "metaTitle": "Hofübergabe in Österreich: Meldung bei der SVS",
+      "metaDescription": "Wer einen Hof übergibt oder übernimmt, erfährt, wann die SVS zu informieren ist und wie sich Betriebsführende und mitarbeitende Angehörige anmelden.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -334,7 +433,6 @@
           "sourceUrl": "https://www.svs.at/cdscontent/?contentid=10007.816608&portal=svsportal"
         }
       ],
-      "accessCostType": "FREE",
       "languages": ["de"],
       "targetProfiles": ["SUCCESSOR", "TRANSFEROR"],
       "sources": [
@@ -361,6 +459,8 @@
     {
       "id": "at-agrarfachschulen",
       "name": "Land- und forstwirtschaftliche Fachschulen",
+      "metaTitle": "Land- und forstwirtschaftliche Fachschulen in Österreich",
+      "metaDescription": "Wer einen land- oder forstwirtschaftlichen Beruf erlernen will, findet Fachrichtungen, Abschlüsse und Schulen je Bundesland, auch im zweiten Bildungsweg.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -395,6 +495,7 @@
     {
       "id": "at-hofuebernahme-im-fokus",
       "name": "Hofübernahme im Fokus",
+      "metaDescription": "Wer einen Hof übernehmen will, findet Infos zu Unterstützung und Ausbildung sowie Broschüren zu rechtlichen, steuerlichen und menschlichen Fragen.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -431,6 +532,7 @@
     {
       "id": "at-perspektive-landwirtschaft",
       "name": "Perspektive Landwirtschaft — Perspektiven-Suche",
+      "metaDescription": "Hofsuchende und Betriebe ohne Nachfolge finden Steckbriefe. Wer andere anschreiben will, braucht einen eigenen Steckbrief und eine Mitgliedschaft ab 70 €.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -470,7 +572,8 @@
             "Nach der Registrierung können Sie Ihren Steckbrief erstellen – sobald dieser vollständig ausgefüllt und der Mitgliedsbeitrag einbezahlt wurde, wird der Steckbrief nach Durchsicht des Perspektive Landwirtschaft Teams freigeschaltet.",
             "Dadurch schaffen wir einen geschützten Rahmen, in dem sich nur Mitglieder mit eigenem Steckbrief anschreiben können.",
             "Die Mitgliedschaft beträgt 70 € regulär / 120 € fördernd für ein ganzes Jahr und bietet folgende Vorteile:",
-            "Es gibt für Sie keinen Unterschied zwischen fördernder und regulärer Mitgliedschaft, alle Mitglieder haben dieselben Vorteile."
+            "Es gibt für Sie keinen Unterschied zwischen fördernder und regulärer Mitgliedschaft, alle Mitglieder haben dieselben Vorteile.",
+            "Die Mitgliedschaft beträgt 70 € regulär / 120 € fördernd für ein ganzes Jahr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -500,11 +603,14 @@
           }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "accessCostType": "FEE_REQUIRED"
     },
     {
       "id": "at-perspektive-landwirtschaft-prozess",
       "name": "Übersicht Prozess",
+      "metaTitle": "Außerfamiliäre Hofübergabe: Übersicht Prozess (Österreich)",
+      "metaDescription": "Ein Leitfaden in fünf Phasen für Hofsuchende und Betriebe ohne Nachfolge, von der Orientierung und Suche bis zur Entscheidung und Übergabe.",
       "kind": "ADVICE",
       "status": "UNKNOWN",
       "scope": {
@@ -517,6 +623,12 @@
       "howToAccess": "Die Prozessübersicht aufrufen und die einzelnen Phasen lesen. Zu den Phasen bietet die Seite Verweise „mehr erfahren“.",
       "accessUrl": "https://www.perspektive-landwirtschaft.at/uebersicht-prozess/",
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.perspektive-landwirtschaft.at/uebersicht-prozess/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.perspektive-landwirtschaft.at/uebersicht-prozess/",
@@ -535,7 +647,8 @@
             "In einer Probezeit können Übergebende und Übernehmende einander besser kennenlernen und abschätzen, ob eine gemeinsame Zukunft, leben und arbeiten am Hof möglich ist.",
             "Ist man den Weg ein Stück weit gemeinsam gegangen, festigt sich im besten Fall die Entscheidung für oder gegen eine Hofübergabe in der Phase fünf.",
             "Wird aber die Übergabe konkreter und fällt die gemeinsame Entscheidung für eine Hofübergabe bzw. Hofübernahme, dann wird auch rechtliche Beratung wichtig sein, um die erarbeiteten Lösungen in eine juristische Form zu gießen.",
-            "mehr erfahren"
+            "mehr erfahren",
+            "info@perspektive-landwirtschaft.at"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -576,7 +689,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Perspektive Landwirtschaft",
+          "value": "info@perspektive-landwirtschaft.at",
+          "sourceUrl": "https://www.perspektive-landwirtschaft.at/uebersicht-prozess/"
+        }
+      ]
     },
     {
       "scope": {
@@ -585,6 +706,8 @@
       "accessUrl": "https://www.bmf.gv.at/themen/steuern/immobilien-grundstuecke/grunderwerbsteuer/steuersatz.html",
       "id": "at-grunderwerbsteuer-landwirtschaft-familienverband",
       "name": "Grunderwerbsteuer bei land- und forstwirtschaftlicher Übergabe im Familienverband",
+      "metaTitle": "Grunderwerbsteuer bei Hofübergabe in Österreich",
+      "metaDescription": "Bei der Übergabe land- und forstwirtschaftlicher Grundstücke im Familienverband gelten 2 % des Einheitswerts. Lesen Sie, wer zum Familienverband zählt.",
       "kind": "POLICY",
       "status": "ACTIVE",
       "operator": "Bundesministerium für Finanzen",
@@ -607,9 +730,18 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004531",
+          "title": "RIS - Grunderwerbsteuergesetz 1987 - Bundesrecht konsolidiert, Fassung vom 25.11.2026",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Erwerbsvorgänge, die diesem Bundesgesetz unterliegen, sind bis zum 15. Tag des auf den Kalendermonat, in dem die Steuerschuld entstanden ist, zweitfolgenden Monats beim Finanzamt Österreich mit einer Abgabenerklärung anzuzeigen"
+          ]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "howToAccess": "Der Erwerb ist dem Finanzamt Österreich mit einer Abgabenerklärung bis zum 15. Tag des zweitfolgenden Monats nach Entstehen der Steuerschuld anzuzeigen."
     },
     {
       "scope": {
@@ -618,6 +750,7 @@
       "accessUrl": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001969",
       "id": "at-anerbengesetz",
       "name": "Anerbengesetz – gesetzliche Erbteilung bei Erbhöfen",
+      "metaDescription": "Wer einen Erbhof erbt, erfährt, wann nur ein Anerbe Eigentümer werden kann. Das österreichische Bundesgesetz gilt außerhalb Kärntens und Tirols.",
       "kind": "POLICY",
       "status": "ACTIVE",
       "operator": "Bundesministerium für Justiz",
@@ -632,7 +765,8 @@
           "quotes": [
             "Sind bei der gesetzlichen Erbfolge nach dem Alleineigentümer eines Erbhofs mehrere Miterben berufen, so kann nur einer von ihnen, der Anerbe, Eigentümer des Erbhofs werden.",
             "Dieses Bundesgesetz gilt nicht in den Ländern Kärnten und Tirol.",
-            "Mit der Vollziehung dieses Bundesgesetzes ist das Bundesministerium für Justiz im Einvernehmen mit dem Bundesministerium für Land- und Forstwirtschaft betraut."
+            "Mit der Vollziehung dieses Bundesgesetzes ist das Bundesministerium für Justiz im Einvernehmen mit dem Bundesministerium für Land- und Forstwirtschaft betraut.",
+            "Hat nach den Bestimmungen des Abschnitts II der Anerbe unter mehreren Miterben den Erbhof zu übernehmen, so hat das Verlassenschaftsgericht nach Durchführung einer mündlichen Verhandlung vor der Einantwortung von Amts wegen eine Erbteilung vorzunehmen."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -640,7 +774,8 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "howToAccess": "Übernimmt der Anerbe unter mehreren Miterben den Erbhof, nimmt das Verlassenschaftsgericht die Erbteilung vor der Einantwortung von Amts wegen nach einer mündlichen Verhandlung vor."
     }
   ],
   "news": [],
@@ -648,7 +783,5 @@
     "Beratungs-, Bildungs- und Vermittlungsangebote der Landwirtschaftskammern, der Landjugend und von Vereinen zur Hofübergabe sind in dieser Fassung noch nicht dokumentiert.",
     "Die Antragsfristen der Niederlassungsprämie in den einzelnen Bundesländern konnten nicht vollständig geprüft werden. Die entsprechende Terminseite der AMA wird erst im Browser vollständig angezeigt.",
     "Für jedes Bundesland gibt es eine eigene Übersicht. Dort stehen die landesspezifischen Angebote, soweit sie in dieser Fassung dokumentiert sind."
-  ],
-  "metaTitle": "Hofübergabe und Niederlassungsprämie in Österreich",
-  "metaDescription": "Informieren Sie sich über die Niederlassungsprämie, die Zahlung für Junglandwirte und die Meldepflichten bei der Hofübergabe in Österreich."
+  ]
 }

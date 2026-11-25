@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "brandenburg",
+  "metaTitle": "Hofnachfolge in Brandenburg: Förderung und Flächen",
+  "metaDescription": "Wer in Brandenburg einen Hof gründen oder übernehmen will, findet Infos zur Niederlassungsbeihilfe, zur Flächenvermittlung und zu Landpachtangeboten.",
   "officialName": "Brandenburg",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Brandenburg bietet eine laufend beantragbare Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte, Flächenvermittlung und öffentliche Pachtangebote. Für Gründung und Hofübernahme gibt es zudem Projektbegleitung sowie geförderte Beratung, die auch die Betriebsabgabe umfasst.",
   "coverage": {
     "status": "PARTIAL",
@@ -85,6 +87,7 @@
     {
       "id": "brandenburg-niederlassungsbeihilfe-junglandwirte",
       "name": "Niederlassungsbeihilfe für Junglandwirtinnen und Junglandwirte",
+      "metaTitle": "Niederlassungsbeihilfe für Junglandwirte in Brandenburg",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -107,6 +110,19 @@
       ],
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-strategic-plans",
+          "named": "EL-0501-02",
+          "sourceUrl": "https://mleuv.brandenburg.de/sixcms/media.php/9/RL-Niederlassungsbeihilfe-JLW.pdf"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://mleuv.brandenburg.de/mleuv/de/service/foerderung/landwirtschaft/niederlassungsbeihilfe-junglandwirte/"
+        }
+      ],
       "sources": [
         {
           "url": "https://mleuv.brandenburg.de/mleuv/de/service/foerderung/landwirtschaft/niederlassungsbeihilfe-junglandwirte/",
@@ -118,20 +134,41 @@
             "innerhalb von 36 Monaten",
             "Eine kontinuierliche Antragstellung ist möglich.",
             "über das digitale Antragssystem",
-            "Bewilligungsbehörde ist die Investitionsbank des Landes Brandenburg"
+            "Bewilligungsbehörde ist die Investitionsbank des Landes Brandenburg",
+            "Richtlinie über die Gewährung von Niederlassungsbeihilfen für Junglandwirtinnen und Junglandwirte im Land Brandenburg und Berlin (Junglandwirte-Richtlinie)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://mleuv.brandenburg.de/sixcms/media.php/9/RL-Niederlassungsbeihilfe-JLW.pdf",
+          "title": "Richtlinie Niederlassungsbeihilfe Junglandwirte (PDF, MLEUV Brandenburg)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "dem GAP-Strategieplan für die Bundesrepublik Deutschland (Interventionscode EL-0501-02)",
+            "Der Zuschuss beträgt 75.000 Euro pro Zuwendungsempfangenden und wird in drei gleichgroßen Tranchen (25.000 Euro) innerhalb von drei Jahren ab dem Zeitpunkt der Bewilligung ausgezahlt."
+          ]
         }
       ],
       "notes": "Die Ministeriumsseite bezeichnet die Richtlinie ausdrücklich als gemeinsame Richtlinie für Brandenburg und Berlin. Informationsseite und Antragsweg sind daher dieselben wie in Berlin, wo dieselbe Beihilfe für Berliner Betriebsstätten verzeichnet ist.",
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Niederlassungsbeihilfe je Zuwendungsempfangenden",
+          "value": 75000,
+          "unit": "EUR",
+          "asOf": "2023-08-22",
+          "sourceUrl": "https://mleuv.brandenburg.de/sixcms/media.php/9/RL-Niederlassungsbeihilfe-JLW.pdf"
+        }
+      ]
     },
     {
       "id": "brandenburg-flaechenplattform",
       "name": "Flächenplattform Nachhaltige Landwirtschaft Brandenburg",
+      "metaDescription": "Die Plattform vernetzt Flächeneigentümer mit Suchenden, besonders mit jungen Betrieben. Sie enthält Angebote und Gesuche für Flächen und Agrarimmobilien.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -147,6 +184,12 @@
       "accessCostType": "FREE",
       "languages": ["de"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://flaechenplattform.de/"
+        }
+      ],
       "sources": [
         {
           "url": "https://flaechenplattform.de/",
@@ -223,6 +266,8 @@
     {
       "id": "brandenburg-klimaresiliente-landwirtschaft-gruendungsberatung",
       "name": "Existenzgründungsbegleitung Klimaresiliente Landwirtschaft in Brandenburg",
+      "metaTitle": "Existenzgründung in Brandenburg: Beratung für Agrarbetriebe",
+      "metaDescription": "Wer einen Agrarbetrieb gründen oder übernehmen möchte, erhält Hilfe bei Anträgen und Betriebskonzept sowie Hinweise zu Förderung und Praxiskontakten.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -237,6 +282,12 @@
       "accessCostType": "FREE",
       "languages": ["de"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://junglandwirte-brandenburg.de/existenzgruendung/"
+        }
+      ],
       "sources": [
         {
           "url": "https://junglandwirte-brandenburg.de/existenzgruendung/",
@@ -261,6 +312,7 @@
     {
       "id": "brandenburg-beratungsfoerderung-betriebsuebergabe",
       "name": "Förderung von Beratungsdienstleistungen zur Betriebsübernahme und Betriebsabgabe",
+      "metaTitle": "Betriebsübernahme in Brandenburg: Beratungsförderung",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -284,6 +336,16 @@
       ],
       "languages": ["de"],
       "targetProfiles": ["SUCCESSOR", "TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://mleuv.brandenburg.de/mleuv/de/service/foerderung/landwirtschaft/foerderung-von-beratungsdienstleistungen/"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://mleuv.brandenburg.de/mleuv/de/service/foerderung/landwirtschaft/foerderung-von-beratungsdienstleistungen/"
+        }
+      ],
       "sources": [
         {
           "url": "https://mleuv.brandenburg.de/mleuv/de/service/foerderung/landwirtschaft/foerderung-von-beratungsdienstleistungen/",
@@ -321,6 +383,8 @@
     {
       "id": "brandenburg-bbg-landpacht",
       "name": "Landpachtangebote der Brandenburgischen Boden Gesellschaft",
+      "metaTitle": "Landpacht in Brandenburg: Angebote der BBG",
+      "metaDescription": "Wer in Brandenburg landwirtschaftliche Flächen pachten möchte, findet bei der Brandenburgischen Boden Gesellschaft Angebote nach Landkreisen geordnet.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -335,6 +399,12 @@
       "sectors": ["AGRICULTURE"],
       "languages": ["de"],
       "targetProfiles": ["LAND_SEEKER"],
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://bbg-immo.de/immobilien/landpacht-brandenburg/"
+        }
+      ],
       "sources": [
         {
           "url": "https://bbg-immo.de/immobilien/landpacht-brandenburg/",
@@ -344,7 +414,8 @@
             "Angebote Landpacht in Brandenburg",
             "landwirtschaftliche Nutzung (Landpachtverträge)",
             "Aktuelle Verpachtungsangebote nach Landkreisen",
-            "Drucken Sie das Sie interessierende Angebotsblatt aus."
+            "Drucken Sie das Sie interessierende Angebotsblatt aus.",
+            "kontakt@bbg-immo.de"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -353,7 +424,15 @@
         }
       ],
       "notes": "Diese Ausschreibungsübersicht hat einen eigenen Zugang zu Landesflächen und ist von der gemeinnützigen Flächenplattform verschieden. Nicht jeder Landkreis hat aktuell ein Angebot.",
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Kontakt zur BBG",
+          "value": "kontakt@bbg-immo.de",
+          "sourceUrl": "https://bbg-immo.de/immobilien/landpacht-brandenburg/"
+        }
+      ]
     }
   ],
   "news": [],

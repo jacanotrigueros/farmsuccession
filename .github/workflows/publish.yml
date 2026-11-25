@@ -90,3 +90,20 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Once the pages are live, tell the engines that take IndexNow which ones the publication declares, from
+  # the sitemap that was just deployed. A failure here is shown and changes nothing already published.
+  announce:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Tell IndexNow what was published
+        run: node scripts/indexnow.ts

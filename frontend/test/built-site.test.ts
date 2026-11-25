@@ -1095,3 +1095,53 @@ test("country lists name each country in the page's language", () => {
     );
   }
 });
+
+/**
+ * A territory page's description is what a result shows of it. Its summary is written for the page and ran
+ * to 456 characters in France, so a result cut it mid-sentence; it now ends inside what a result shows.
+ */
+test("a territory page's description ends inside what a search result shows", () => {
+  const territories = pages.filter(({ file }) => {
+    const parts = file.split(path.sep);
+    const iso = parts[0] ?? "";
+    return /^[a-z]{2}$/u.test(iso) && (parts.length === 2 || parts[1] === regionSlug(iso.toUpperCase()));
+  });
+  assert.ok(territories.length > 100, `only ${territories.length} territory pages were checked`);
+  for (const { file, html } of territories) {
+    const description = decodeHTML(/<meta name="description" content="([^"]*)"/u.exec(html)?.[1] ?? "");
+    assert.ok(description.length > 0, `${file} has no description`);
+    assert.ok(description.length <= 160, `${file}: the description runs to ${description.length} characters, past what a result shows`);
+  }
+});
+
+/**
+ * French readers name a département by its number — `safer 29`, `rdi 22`, `commission des structures 59` —
+ * and no French page carried one. The numbers come from the territory catalogue (Insee), and a record of a
+ * whole region or of one département now shows them where search reads them.
+ */
+test("a region's search title fits a result once the site name is set aside", () => {
+  // The site name trails every built title and may be cut; what comes before it is the part a reader
+  // reads. Six French regions without a title of their own reached 104 characters of it.
+  const long = readdirSync(DIST, { recursive: true, encoding: "utf8" })
+    .filter((file) => /(^|\/)(regions|regiones|regioni|regionen|regioes|provincies)\/[^/]+\/index\.html$/u.test(file.replaceAll("\\", "/")))
+    .map(
+      (file) =>
+        [
+          file,
+          decodeHTML(/<title>([^<]*)<\/title>/u.exec(readFileSync(path.join(DIST, file), "utf8"))?.[1] ?? "").replace(
+            / · FarmSuccession$/u,
+            "",
+          ),
+        ] as const,
+    )
+    .filter(([, title]) => title.length > 60);
+  assert.deepEqual(long.slice(0, 3), [], `${long.length} region title(s) run past 60 characters before the site name`);
+});
+
+test("a French record and region page show the département numbers readers type", () => {
+  const page = (route: string): string => readFileSync(path.join(DIST, route, "index.html"), "utf8");
+  const region = page(path.join("fr", "regions", "bretagne"));
+  assert.match(region, /<title>[^<]*\(22, 29, 35, 56\)/u, "the Bretagne page does not carry its département numbers in its title");
+  const regional = decodeHTML(page(path.join("fr", "ressources", "bretagne-safer-bretagne")));
+  assert.ok(regional.includes("(22, 29, 35, 56)"), "the Safer Bretagne record does not show the numbers of the départements it covers");
+});

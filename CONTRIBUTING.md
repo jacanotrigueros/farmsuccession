@@ -93,11 +93,11 @@ visible later.
   anybody's machine in it, and the branch protection will not merge without it.
   It runs on `pull_request`, so a fork's code never sees a secret of this
   repository or a token that can write to it.
-- **It costs nothing while the repository is private.** GitHub-hosted minutes
-  are free and unlimited for a public repository and come out of a monthly
-  allowance for a private one, so the job is skipped while this one is private:
-  a skipped job spends nothing and reports success, and the push hook has run
-  the same gate anyway. Tests fail if a workflow ever reacts to an event without
+- **It costs nothing.** The repository is public, and GitHub-hosted minutes are
+  free and unlimited for a public repository. Were it ever made private again,
+  the job would be skipped rather than bill a monthly allowance: a skipped job
+  spends nothing and reports success, and the push hook has run the same gate
+  anyway. Tests fail if a workflow ever reacts to an event without
   that condition, uses `pull_request_target`, stops saying what it is allowed to
   touch, or runs an action from a branch instead of a released version.
 - **Publishing is a decision.** The publish workflow refuses to run on anything
@@ -145,11 +145,15 @@ settings:
   Google Search Console — verified through a `google-site-verification` TXT record
   in the DNS zone rather than through anything in the site — and a site in Bing
   Webmaster Tools, which imports that verification instead of asking for one of
-  its own. `https://farmsuccession.eu/sitemap.xml` is submitted to both. They
+  its own. `https://farmsuccession.eu/sitemap.xml` is submitted to both, and after
+  every publication the workflow's last job hands the published sitemap's URLs to
+  IndexNow (`scripts/indexnow.ts`, with its public key file at the site root), so
+  Bing and the other engines that take it learn of a new edition without waiting
+  for a crawl. Google does not take IndexNow. They
   report what the search engines see and nothing about a reader, which is the only
   measurement this site accepts; there is no analytics and there will be none.
-- **Pages**: source "GitHub Actions". It needs a paid plan while the repository
-  is private; on the free plan the repository is public first.
+- **Pages**: source "GitHub Actions", on the free plan, which serves a public
+  repository.
 
 ## If you are reading this to see how it is built
 

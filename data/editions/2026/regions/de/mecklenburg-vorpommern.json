@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "mecklenburg-vorpommern",
+  "metaTitle": "Hofnachfolge in Mecklenburg-Vorpommern: Hofbörse",
+  "metaDescription": "Die Hofbörse der Landgesellschaft Mecklenburg-Vorpommern vermittelt bestehende Betriebe und begleitet Gespräche und Besichtigungen bei der Hofnachfolge.",
   "officialName": "Mecklenburg-Vorpommern",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "In Mecklenburg-Vorpommern vermittelt die Landgesellschaft in ihrer Hofbörse bestehende Betriebe, begleitet Gespräche und Besichtigungen und berät bei Übernahme oder Verkauf; im Investitionsprogramm des Landes gibt es zudem einen zusätzlichen Zuschuss für Junglandwirte.",
   "coverage": {
     "status": "PARTIAL",
@@ -37,6 +39,8 @@
     {
       "id": "mecklenburg-vorpommern-junglandwirte-zuschuss-investition",
       "name": "Zusätzlicher Junglandwirte-Zuschuss im Investitionsförderungsprogramm",
+      "metaTitle": "Junglandwirte-Zuschuss im AFP Mecklenburg-Vorpommern",
+      "metaDescription": "Junglandwirte können für förderfähige Agrarinvestitionen zusätzlich 10 Prozent erhalten, höchstens 20.000 Euro je Förderperiode. Der Antrag läuft online.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -52,6 +56,12 @@
       "purposes": ["FIRST_ESTABLISHMENT", "INVESTMENT"],
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.mv-serviceportal.de/leistung/110526170"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.mv-serviceportal.de/leistung/110526170",
@@ -60,7 +70,8 @@
           "quotes": [
             "Junglandwirten (zum Zeitpunkt der Antragstellung höchstens 40 Jahre alt) kann zusätzlich ein Zuschuss in Höhe von 10 % der Bemessungsgrundlage - höchstens 20.000 EUR je Förderperiode - gewährt werden",
             "Niederlassung als Allein- oder Mitunternehmer/in in einem landwirtschaftlichen Betrieb nicht länger als fünf Jahre",
-            "online erledigt werden."
+            "online erledigt werden.",
+            "höchstens 20.000 EUR je Förderperiode"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -68,7 +79,24 @@
           }
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Zuschuss für Junglandwirte, höchstens je Förderperiode",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2022-12-31",
+          "sourceUrl": "https://www.mv-serviceportal.de/leistung/110526170"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.mv-serviceportal.de/leistung/110526170"
+        }
+      ]
     }
   ],
   "news": [],

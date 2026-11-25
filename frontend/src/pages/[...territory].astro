@@ -12,6 +12,8 @@
  * wants to know which page to watch for a change can see it without opening the record.
  */
 import { Icon } from "astro-icon/components";
+import { snippet } from "../lib/snippet.ts";
+import { codesInBrackets, TITLE_CODES } from "../lib/subdivision.ts";
 import AgeComparison from "../components/AgeComparison.astro";
 import CountryContext from "../components/CountryContext.astro";
 import Needs from "../components/Needs.astro";
@@ -25,6 +27,7 @@ import StandaloneNews from "../components/StandaloneNews.astro";
 import SearchBox from "../components/SearchBox.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
+  subdivisionsOf,
   countryTerritories,
   euTerritory,
   currentEdition,
@@ -155,7 +158,11 @@ const inheritedCount = inheritedGroups.reduce((total, { items }) => total + item
  * and keeps the shared header, cards and footer.
  */
 const isEurope = territory.layer.level === "EU";
-const pageTitle = isEurope ? text.euTitle : (isCountry ? text.countryTitle : text.territoryTitle).replace("{where}", name);
+/** A region whose readers name it by codes ("safer 29") carries them after its name: "Bretagne (22, 29, 35, 56)". */
+const subdivisions = subdivisionsOf(territory);
+const codesText = subdivisions.length > 0 ? ` ${codesInBrackets(subdivisions)}` : "";
+const titleWhere = subdivisions.length > 0 && subdivisions.length <= TITLE_CODES ? name + codesText : name;
+const pageTitle = isEurope ? text.euTitle : (isCountry ? text.countryTitle : text.territoryTitle).replace("{where}", titleWhere);
 /**
  * Europe's page is found by people searching for EU policy and CAP support for young farmers, so its
  * search title and snippet say that; its long introduction stays on the page, where it is read.
@@ -170,11 +177,15 @@ const metaTitle = isEurope
   : territory.data.schemaId === "country-snapshot"
     ? (ownMetaTitle ?? text.countryMetaTitle.replace("{where}", name))
     : (ownMetaTitle ?? `${pageTitle} · ${text.siteName}`);
+/**
+ * A territory's summary is written to be read on the page and ran to 456 characters as a description;
+ * without a search description of its own, it is cut to what a result shows, as a record's is.
+ */
 const metaDescription = isEurope
   ? text.euMetaDescription
   : territory.data.schemaId === "eu-snapshot"
-    ? territory.data.summary
-    : (territory.data.metaDescription ?? territory.data.summary);
+    ? snippet(territory.data.summary)
+    : (territory.data.metaDescription ?? snippet(territory.data.summary, codesText ? `${name}${codesText} · ` : ""));
 /** A country inherits only from the European layer, so its heading can name it instead of "other scopes". */
 const inheritedForms = isCountry ? text.euAppliesIn : text.alsoApplies;
 const territoriesTitle = showsInstall ? text.installTerritoriesTitle : text.territoriesTitle;

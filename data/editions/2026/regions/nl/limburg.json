@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "NL",
   "region": "limburg",
+  "metaTitle": "Limburg: bedrijfsopvolging en toegang tot grond",
+  "metaDescription": "Het overzicht over bedrijfsopvolging en toegang tot grond in Limburg is in opbouw. Het aanbod van de Nederlandse provincie wordt nog onderzocht.",
   "officialName": "Limburg",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Het overzicht voor Limburg is in opbouw. Wat de provincie zelf aanbiedt, wordt nog onderzocht; tot dan staan hier de Europese bronnen die ook in Limburg gelden.",
   "coverage": {
     "status": "PARTIAL",
@@ -41,6 +43,8 @@
     {
       "id": "limburg-pacht-en-verhuur",
       "name": "Pacht en verhuur",
+      "metaTitle": "Limburg: Pacht en verhuur van provinciale grond",
+      "metaDescription": "Lees hoe boeren belangstelling melden voor Limburgse pachtgrond en waar de Uitvoeringsnota Pacht en de voorwaarden voor selectie per kavel staan.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -66,7 +70,8 @@
             "Met de uitgifte van pachtgronden wil de Provincie Limburg innovatief, maatschappelijk en toekomstbestendig ondernemen aanjagen.",
             "Hiermee wordt een bijdrage geleverd aan de voedselvoorziening, het stimuleren van regeneratieve, natuurinclusieve en biologische landbouw, en er is ook aandacht voor natuurontwikkeling.",
             "Geïnteresseerden kunnen zich inschrijven als belangstellende na kennisname van de Uitvoeringsnota Pacht en de algemene voorwaarden.",
-            "Na afloop van de inschrijftermijn zijn de aanmeldingen per kavel beoordeeld volgens de selectieprocedure in de Uitvoeringsnota Pacht 2025."
+            "Na afloop van de inschrijftermijn zijn de aanmeldingen per kavel beoordeeld volgens de selectieprocedure in de Uitvoeringsnota Pacht 2025.",
+            "Heeft u een vraag over pacht? Dan kunt u een e-mail sturen naar pachtuitgifte@prvlimburg.nl."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -89,11 +94,21 @@
           }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Pachtuitgifte provincie Limburg",
+          "value": "pachtuitgifte@prvlimburg.nl",
+          "sourceUrl": "https://www.limburg.nl/onderwerpen/omgeving/grond-vastgoed/pacht-verhuur/"
+        }
+      ]
     },
     {
       "id": "limburg-maastricht-landbouwgrond",
       "name": "Landbouwgrond, pacht, huur, koop",
+      "metaTitle": "Landbouwgrond, pacht, huur, koop: Maastricht (Limburg)",
+      "metaDescription": "De gemeente Maastricht biedt soms gemeentelijke landbouwgrond aan voor pacht of huur. Lees waar het aanbod staat en hoe je kunt reageren.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -107,6 +122,12 @@
       "accessUrl": "https://www.gemeentemaastricht.nl/landbouwgrond-pacht-huur-koop",
       "assetTypes": ["PLOTS"],
       "sectors": ["AGRICULTURE"],
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.gemeentemaastricht.nl/landbouwgrond-pacht-huur-koop"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.gemeentemaastricht.nl/landbouwgrond-pacht-huur-koop",
@@ -124,9 +145,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://vastgoed.gemeentemaastricht.nl/contactformulier-vastgoed",
+          "title": "Contactformulier Vastgoed | Vastgoed Gemeente Maastricht",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Contactformulier Vastgoed"]
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Vastgoed gemeente Maastricht",
+          "value": "https://vastgoed.gemeentemaastricht.nl/contactformulier-vastgoed",
+          "sourceUrl": "https://vastgoed.gemeentemaastricht.nl/contactformulier-vastgoed"
+        }
+      ]
     }
   ],
   "news": [],

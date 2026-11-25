@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "bremen",
+  "metaTitle": "Hofnachfolge in Bremen: Seminare zur Hofübergabe",
+  "metaDescription": "Wer in Bremen eine Hofübergabe plant, findet Seminare der Landwirtschaftskammer dazu, wie sich eine Übergabe vorbereiten und praktisch umsetzen lässt.",
   "officialName": "Bremen",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "In Bremen bietet die Landwirtschaftskammer Seminare zur Planung und Umsetzung der Hofübergabe an. Das beschlossene Entwicklungskonzept Landwirtschaft Bremen 2035 sieht für 2024 bis 2027 außerdem den Aufbau von Vernetzungs- und Beratungsangeboten für die externe Hofnachfolge vor.",
   "coverage": {
     "status": "PARTIAL",
@@ -50,6 +52,8 @@
     {
       "id": "bremen-lwk-sozieokonomische-beratung",
       "name": "Beratung zur Hofübergabe der Landwirtschaftskammer Bremen",
+      "metaTitle": "Hofübergabe in Bremen: Seminare der Landwirtschaftskammer",
+      "metaDescription": "Die Landwirtschaftskammer Bremen bietet Seminare für Landwirte und Gärtner an, die eine Hofübergabe vorbereiten und die Umsetzung planen wollen.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -63,6 +67,12 @@
       "accessUrl": "https://www.lwk-bremen.de/beratung/",
       "languages": ["de"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.lwk-bremen.de/beratung/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.lwk-bremen.de/beratung/",
@@ -71,7 +81,8 @@
           "quotes": [
             "Die Landwirtschaftskammer Bremen bietet umfassende Beratung für Landwirte und Gärtner in Bremen.",
             "Beratung zur Hofübergabe: Damit die Betriebsnachfolge reibungslos gelingt, bieten wir gezielte Seminare zur Planung und Umsetzung der Hofübergabe an.",
-            "Kontaktieren Sie uns – wir stehen Ihnen gerne zur Seite!"
+            "Kontaktieren Sie uns – wir stehen Ihnen gerne zur Seite!",
+            "info@lwk-bremen.de"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -79,11 +90,20 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Landwirtschaftskammer Bremen",
+          "value": "info@lwk-bremen.de",
+          "sourceUrl": "https://www.lwk-bremen.de/beratung/"
+        }
+      ]
     },
     {
       "id": "bremen-entwicklungskonzept-landwirtschaft-2035",
       "name": "Entwicklungskonzept Landwirtschaft Bremen 2035",
+      "metaDescription": "Das Entwicklungskonzept Landwirtschaft Bremen 2035 sieht mit Maßnahme NBK2 vor, Vernetzung und Beratung für die außerfamiliäre Hofnachfolge aufzubauen.",
       "kind": "POLICY",
       "status": "ACTIVE",
       "scope": {
@@ -96,6 +116,12 @@
       "accessUrl": "https://umwelt.bremen.de/umwelt/landwirtschaft/landwirtschaft-52770",
       "languages": ["de"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://umwelt.bremen.de/umwelt/landwirtschaft/landwirtschaft-52770"
+        }
+      ],
       "sources": [
         {
           "url": "https://umwelt.bremen.de/umwelt/landwirtschaft/landwirtschaft-52770",
@@ -128,6 +154,8 @@
     {
       "id": "bremen-bremer-agrarnetzwerk",
       "name": "Bremer Agrarnetzwerk",
+      "metaTitle": "Bremer Agrarnetzwerk für Junglandwirte und Hofnachfolgende",
+      "metaDescription": "Das Bremer Agrarnetzwerk ist auch für junge Menschen ohne Hof gedacht. Geplant sind Treffen und Workshops zur Hofnachfolge. Die Website nennt den Kontakt.",
       "kind": "NETWORK",
       "status": "ACTIVE",
       "scope": {

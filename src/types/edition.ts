@@ -470,7 +470,7 @@ export interface Metric {
    */
   unit: "EUR" | "HECTARES" | "PARCELS" | "OFFERS" | "PROPERTIES" | "HOLDINGS" | "PEOPLE" | "HOURS";
   /**
-   * The date the figure refers to, as the page gives it.
+   * The date the figure refers to, as the page gives it; when the page gives none, the day the page was read.
    */
   asOf: string;
   /**

@@ -152,6 +152,14 @@ export function placeOf(territory: Territory, europe: string, language: string):
   return territory.layer.level === "COUNTRY" ? name : `${name} · ${territory.data.officialName}`;
 }
 
+/** The official subdivisions of a region whose readers name places by code, as the catalogue gives them. */
+export function subdivisionsOf(territory: Territory): { name: string; code: string }[] {
+  const { data } = territory;
+  if (data.schemaId !== "regional-snapshot") return [];
+  const { country, region } = data;
+  return territories.jurisdictions[country]?.regions.find(({ slug }) => slug === region)?.subdivisions ?? [];
+}
+
 /** The language a territory's text is written in, which is the language the page is in. */
 export const languageOf = (territory: Territory): string => territory.data.metadata.language;
 

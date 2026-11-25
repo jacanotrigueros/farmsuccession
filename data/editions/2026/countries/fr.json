@@ -3,6 +3,7 @@
   "schemaId": "country-snapshot",
   "edition": "2026",
   "country": "FR",
+  "metaDescription": "Repérez les aides à l’installation agricole par territoire et trouvez des ressources pour accéder à des terres, reprendre une ferme ou la transmettre.",
   "officialName": "France",
   "published": "2026-11-25",
   "summary": "Trouvez les aides à l’installation agricole, dont la dotation jeunes agriculteurs (DJA) lorsqu’elle est recensée. Consultez aussi les ressources pour trouver des terres, reprendre ou transmettre une exploitation.",
@@ -112,6 +113,8 @@
     {
       "id": "fr-inaf-garantie-prets-agricoles",
       "name": "Initiative nationale pour l’agriculture française (INAF)",
+      "metaTitle": "Garantie de prêts agricoles INAF en France",
+      "metaDescription": "La garantie de l’État facilite les prêts aux exploitations et aux candidats à l’installation. La fiche indique les banques qui instruisent les dossiers.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -132,6 +135,10 @@
         {
           "question": "CONTACT_CHANNEL",
           "sourceUrl": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise"
+        },
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise"
         }
       ],
       "sources": [
@@ -147,7 +154,8 @@
             "Le dispositif est accessible aux exploitations agricoles, aux candidats à l’installation en agriculture, aux petites et moyennes entreprises exerçant une activité agricole ou dont à minima 50% du capital est détenu par une société à objet agricole ou aux sociétés holding.",
             "Cette nouvelle enveloppe a pour ambition de proposer des prêts garantis par l’Etat à près de 15 000 agriculteurs au cours des prochaines années (régions métropolitaines et ultramarines), proposés à des conditions préférentielles.",
             "Ces prêts permettent de soutenir le financement d’investissements, corporels et incorporels, du capital d’exploitation (fonds de roulement lié aux investissements financés dans la limite de 30% du montant du projet), du foncier (jusqu’à 20% du montant du projet en cas d’installation et de reprise), de parts sociales et de matériel d’occasion.",
-            "Renforcer le renouvellement des générations et l’installation des jeunes agriculteurs"
+            "Renforcer le renouvellement des générations et l’installation des jeunes agriculteurs",
+            "le dépôt des dossiers est ouvert"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -156,11 +164,19 @@
         }
       ],
       "notes": "Le ministère ne publie pas de date de clôture sur cette page. Les pourcentages indiqués concernent la part maximale de certaines dépenses dans le projet, pas le taux de garantie du prêt.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "calls": [
+        {
+          "name": "INAF — seconde phase",
+          "state": "OPEN",
+          "sourceUrl": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise"
+        }
+      ]
     },
     {
       "id": "fr-feve-portage-foncier",
       "name": "Portage foncier FEVE pour l’installation",
+      "metaDescription": "Vous avez trouvé une ferme ? FEVE peut acheter le foncier et vous le louer. La fiche explique le principe du fermage et à qui il s’adresse.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -220,6 +236,7 @@
     {
       "id": "fr-msa-exoneration-jeune-agriculteur",
       "name": "Exonération MSA du jeune agriculteur",
+      "metaDescription": "Pour les jeunes qui s’installent, la MSA prévoit une exonération partielle et dégressive. Vérifiez les cotisations concernées et les conditions.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -236,6 +253,12 @@
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-03-23",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur",
@@ -247,7 +270,12 @@
             "Être âgé de 18 à 40 ans à la date d'affiliation au régime de protection sociale des non-salariés agricoles.",
             "La limite d'âge peut être reportée d'un an par enfant à charge (pour les bénéficiaires de prestations familiales) ou en cas de service militaire.",
             "Vous bénéficiez d'une exonération partielle et dégressive de vos cotisations sociales durant les cinq années qui suivent votre installation et dans la limite d'un plafond fixé par arrêté ministériel.",
-            "Pour vous aider dans votre parcours d'installation, contactez un conseiller de votre MSA."
+            "Pour vous aider dans votre parcours d'installation, contactez un conseiller de votre MSA.",
+            "1ère année 65 % 4 089 €",
+            "2e année 55 % 3 460 €",
+            "3e année 35 % 2 202 €",
+            "4e année 25 % 1 573 €",
+            "5e (et dernière) année 15 % 944 €"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -269,11 +297,62 @@
         }
       ],
       "notes": "L’exonération porte sur les cotisations personnelles du chef d’exploitation et non sur celles des membres de sa famille ou de salariés.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond d’exonération – année 1",
+          "value": 4089,
+          "unit": "EUR",
+          "asOf": "2026-03-23",
+          "sourceUrl": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond d’exonération – année 2",
+          "value": 3460,
+          "unit": "EUR",
+          "asOf": "2026-03-23",
+          "sourceUrl": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond d’exonération – année 3",
+          "value": 2202,
+          "unit": "EUR",
+          "asOf": "2026-03-23",
+          "sourceUrl": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond d’exonération – année 4",
+          "value": 1573,
+          "unit": "EUR",
+          "asOf": "2026-03-23",
+          "sourceUrl": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond d’exonération – année 5",
+          "value": 944,
+          "unit": "EUR",
+          "asOf": "2026-03-23",
+          "sourceUrl": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.msa.fr/lfp/installation/exoneration-jeune-agriculteur"
+        }
+      ]
     },
     {
       "id": "fr-objectif-terres",
       "name": "Objectif Terres",
+      "metaTitle": "Objectif Terres : les annonces de Terre de Liens",
+      "metaDescription": "Cherchez des terres ou une ferme à reprendre, ou diffusez une offre de foncier sur Objectif Terres, la plateforme d’annonces de Terre de Liens.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -386,6 +465,7 @@
     {
       "id": "fr-france-services-agriculture",
       "name": "France Services Agriculture",
+      "metaDescription": "Le réseau prévoit un premier accueil pour les candidats à l’installation et les futurs cédants. La fiche explique l’orientation et le conseil prévus.",
       "kind": "POLICY",
       "status": "ANNOUNCED_NOT_OPERATING",
       "scope": {
@@ -433,6 +513,8 @@
     {
       "id": "fr-aita",
       "name": "Programme pour l’accompagnement à l’installation et la transmission en agriculture (AITA)",
+      "metaTitle": "Programme AITA : installation et transmission agricoles",
+      "metaDescription": "Consultez le cadre national 2026 de l’AITA pour comprendre comment s’organise l’accompagnement des candidats à l’installation et des futurs cédants.",
       "kind": "POLICY",
       "status": "ACTIVE",
       "scope": {
@@ -443,6 +525,12 @@
       "whatItOffers": "Cadre de gestion et de mise en œuvre du programme pour l’accompagnement à l’installation et la transmission en agriculture (AITA) pour l’année 2026, fixé par l’instruction technique DGPE/SDC/2026-54.",
       "accessUrl": "https://info.agriculture.gouv.fr/boagri/instruction-2026-54",
       "lastEvidenceDate": "2026-06-25",
+      "notPublished": [
+        {
+          "question": "HOW_TO_ACCESS",
+          "sourceUrl": "https://info.agriculture.gouv.fr/boagri/instruction-2026-54"
+        }
+      ],
       "sources": [
         {
           "url": "https://info.agriculture.gouv.fr/boagri/instruction-2026-54",
@@ -467,7 +555,8 @@
           "title": "L'Accompagnement à l'Installation-Transmission en Agriculture | DRAAF Occitanie",
           "consultedOn": "2026-11-24",
           "quotes": [
-            "Ce programme d’action actuellement encadré par l’instruction technique AITA basculera au 1er janvier 2027 vers France Service Agriculture (FSA)"
+            "Ce programme d’action actuellement encadré par l’instruction technique AITA basculera au 1er janvier 2027 vers France Service Agriculture (FSA)",
+            "favoriser l’installation des jeunes agriculteurs et la transmission des exploitations des futurs cédants"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -476,11 +565,13 @@
         }
       ],
       "notes": "La notice donne accès au PDF de l’instruction ; elle ne constitue pas un guichet de demande d’accompagnement ou d’aide. La DRAAF Occitanie annonce le passage du programme à France services agriculture au 1er janvier 2027.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "whoCanUseIt": "Jeunes agriculteurs qui s’installent et futurs cédants qui transmettent leur exploitation."
     },
     {
       "id": "fr-aides-agri",
       "name": "Aides Agri",
+      "metaDescription": "Consultez le catalogue des aides publiques aux agriculteurs pour repérer les dispositifs qui concernent l’installation et la transmission d’une ferme.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -520,6 +611,7 @@
     {
       "id": "fr-transmettre-elevage-caprin",
       "name": "Transmettre en élevage caprin",
+      "metaDescription": "Vous préparez la cession d’un élevage caprin ? Ce guide aide à anticiper le départ, à échanger avec l’entourage et à chercher un repreneur.",
       "kind": "ADVICE",
       "status": "UNKNOWN",
       "scope": {
@@ -533,6 +625,12 @@
       "accessUrl": "https://fnec.fr/IMG/pdf/TRANSMETTRE_EN_ELEVAGE_CAPRIN.pdf",
       "sectors": ["LIVESTOCK"],
       "targetProfiles": ["TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://fnec.fr/IMG/pdf/TRANSMETTRE_EN_ELEVAGE_CAPRIN.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://fnec.fr/IMG/pdf/TRANSMETTRE_EN_ELEVAGE_CAPRIN.pdf",
@@ -570,6 +668,8 @@
     {
       "id": "fr-service-public-annonce-cession-rdi",
       "name": "Déposer une annonce de cession d’une entreprise agricole ou rurale dans le Répertoire Départ Installation (RDI)",
+      "metaTitle": "Déposer une annonce de cession au RDI",
+      "metaDescription": "Vous cédez une entreprise agricole ou rurale ? Accédez au service des Chambres d’agriculture pour déposer une annonce au Répertoire Départ Installation.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -604,6 +704,8 @@
     {
       "id": "fr-la-transmission-des-fermes-outils-methodes",
       "name": "La transmission des fermes - outils et méthodes pour une transmission réussie",
+      "metaTitle": "Transmission des fermes : outils et méthodes",
+      "metaDescription": "Ce guide aide les cédants et ceux qui les accompagnent à préparer une transmission de ferme, avec des méthodes illustrées par des exemples européens.",
       "kind": "ADVICE",
       "status": "UNKNOWN",
       "scope": {
@@ -614,6 +716,12 @@
       "whatItOffers": "Guide présentant des outils et méthodes pour réussir une transmission de ferme, avec des exemples venant de France, d’Autriche, de Belgique et des Pays-Bas.",
       "howToAccess": "Utiliser le lien « Télécharger la ressource » sur le Centre de Ressources Terre de Liens.",
       "accessUrl": "https://ressources.terredeliens.org/les-ressources/la-transmission-des-fermes-outils-et-methodes-pour-une-transmission-reussie",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://ressources.terredeliens.org/les-ressources/la-transmission-des-fermes-outils-et-methodes-pour-une-transmission-reussie"
+        }
+      ],
       "sources": [
         {
           "url": "https://ressources.terredeliens.org/les-ressources/la-transmission-des-fermes-outils-et-methodes-pour-une-transmission-reussie",
@@ -637,17 +745,28 @@
           "title": "La transmission des fermes : outils et méthodes (PDF, InterAFOCG)",
           "consultedOn": "2026-11-25",
           "quotes": [
-            "aux conseillers agricoles, aux accompagnateurs et aux autres personnes dans l’entourage de l’agriculteur – ainsi qu’aux agriculteurs eux-mêmes –"
+            "aux conseillers agricoles, aux accompagnateurs et aux autres personnes dans l’entourage de l’agriculteur – ainsi qu’aux agriculteurs eux-mêmes –",
+            "Pour en savoir plus : accueil@civam-bretagne.org"
           ]
         }
       ],
       "notes": "Guide publié en octobre 2016 ; la notice ne permet pas de confirmer l’actualité des démarches éventuellement décrites dans le document.",
       "generatorId": "chatgpt-2",
-      "whoCanUseIt": "Les conseillers agricoles, les accompagnateurs et les autres personnes dans l’entourage de l’agriculteur, ainsi que les agriculteurs eux-mêmes."
+      "whoCanUseIt": "Les conseillers agricoles, les accompagnateurs et les autres personnes dans l’entourage de l’agriculteur, ainsi que les agriculteurs eux-mêmes.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "CIVAM Bretagne",
+          "value": "accueil@civam-bretagne.org",
+          "sourceUrl": "https://interafocg.org/medias/files/Farm_Succession_2016_FR.pdf"
+        }
+      ]
     },
     {
       "id": "fr-chambres-agriculture-parcours-installation",
       "name": "Chambres d’agriculture — préparer son installation",
+      "metaTitle": "Préparer son installation avec les Chambres d’agriculture",
+      "metaDescription": "Trouvez votre premier accueil local et consultez les démarches et aides régionales pour préparer un projet de première installation agricole.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -680,6 +799,7 @@
     {
       "id": "fr-terre-de-liens-parcours-transmission",
       "name": "Terre de Liens — Je transmets mes terres ou ma ferme",
+      "metaDescription": "Terre de Liens propose aux propriétaires et aux cédants des ressources pour préparer puis réaliser une transmission, selon l’avancement du projet.",
       "kind": "OTHER",
       "status": "ACTIVE",
       "scope": {
@@ -711,6 +831,8 @@
     {
       "id": "fr-fondation-terre-de-liens-donation-ferme",
       "name": "Fondation Terre de Liens — donations et legs de terres et de fermes",
+      "metaTitle": "Fondation Terre de Liens : donner ou léguer une ferme",
+      "metaDescription": "Vous souhaitez donner ou léguer des terres ou une ferme ? La fiche présente le rôle de la Fondation Terre de Liens et les conditions d’usage possibles.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -720,6 +842,16 @@
       "operatorType": "NONPROFIT",
       "whatItOffers": "La Fondation reçoit des donations et legs de terres ou de fermes. Une donation peut être assortie de conditions d’usage à respecter.",
       "accessUrl": "https://ressources.terredeliens.org/cedant-e-s",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://ressources.terredeliens.org/cedant-e-s"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://ressources.terredeliens.org/cedant-e-s"
+        }
+      ],
       "sources": [
         {
           "url": "https://ressources.terredeliens.org/cedant-e-s",
@@ -727,7 +859,8 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "Il vous est possible de nous donner votre terre et assortir ce geste de conditions d’utilisation qui s’imposeront à Terre de Liens.",
-            "la Fondation Terre de Liens est habilitée à recevoir des donations et legs de terres et de fermes."
+            "la Fondation Terre de Liens est habilitée à recevoir des donations et legs de terres et de fermes.",
+            "Contactez l’association Terre de Liens de votre région à travers la plateforme Objectif Terres pour un accompagnement sur le volet foncier."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -736,14 +869,13 @@
         }
       ],
       "whoCanUseIt": "Agriculteurs qui souhaitent confier leurs terres ou leur ferme à la Fondation.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "howToAccess": "Contacter l’association Terre de Liens de sa région par la plateforme Objectif Terres, qui accompagne le volet foncier."
     }
   ],
   "news": [],
   "limitations": [
     "Le Répertoire Départ Installation, les Safer et les points d'accueil ont été identifiés, mais leurs portées et pages nationales d'accès doivent encore être consolidées. Objectif Terres est documenté séparément comme plateforme nationale et porte d’entrée vers les associations territoriales de Terre de Liens.",
     "La garantie INAF et l’exonération nationale de cotisations MSA sont documentées ; les autres aides financières sont principalement publiées sur les pages des régions."
-  ],
-  "metaTitle": "Aides à l’installation et transmission agricoles en France",
-  "metaDescription": "Consultez les aides à l’installation agricole par territoire et les ressources pour trouver des terres, reprendre ou transmettre une exploitation."
+  ]
 }

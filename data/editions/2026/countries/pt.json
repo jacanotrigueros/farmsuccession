@@ -3,8 +3,9 @@
   "schemaId": "country-snapshot",
   "edition": "2026",
   "country": "PT",
+  "metaDescription": "Consulte os apoios à primeira instalação de jovens agricultores no continente, nos Açores e na Madeira e os recursos de acompanhamento técnico.",
   "officialName": "Portugal",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Consulta o prémio à instalação de jovens agricultores do PEPAC no continente e os apoios à primeira instalação nos Açores e na Madeira. Encontra também recursos de acompanhamento técnico.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -111,6 +112,7 @@
     {
       "id": "pt-bolsa-nacional-terras",
       "name": "Bolsa Nacional de Terras (regime histórico)",
+      "metaDescription": "Conheça a antiga Bolsa Nacional de Terras em Portugal e o regime que previa o arrendamento, a venda ou a cedência de terrenos. Consulte a fonte oficial.",
       "kind": "LAND_BANK",
       "status": "HISTORICAL",
       "scope": {
@@ -119,10 +121,17 @@
       "operator": "Direção-Geral de Agricultura e Desenvolvimento Rural",
       "operatorType": "PUBLIC",
       "whatItOffers": "Reunia terrenos para arrendamento, venda ou cedência sob regime anterior, posteriormente revogado. A estrutura foi substituída por Banco e Bolsa de Terras sob regulamentação posterior.",
+      "whoCanUseIt": "Proprietários de prédios com aptidão agrícola, florestal ou silvopastoril, que os podiam disponibilizar, e todos os interessados em arrendar, comprar ou obter terras; a consulta dos prédios disponibilizados era pública.",
       "howToAccess": "Consultar a página histórica; não foi verificado acesso operacional ao novo sistema de Banco e Bolsa de Terras.",
       "accessUrl": "https://agricultura.gov.pt/portal/reg-notif-bolsa-nacional-de-terras",
       "languages": ["pt"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://agricultura.gov.pt/portal/reg-notif-bolsa-nacional-de-terras"
+        }
+      ],
       "sources": [
         {
           "url": "https://agricultura.gov.pt/portal/reg-notif-bolsa-nacional-de-terras",
@@ -137,14 +146,27 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://diariodarepublica.pt/dr/detalhe/portaria/197-2013-513599",
+          "title": "Portaria n.º 197/2013 (Diário da República)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "informação sobre os prédios e os terrenos baldios disponibilizados na bolsa de terras",
+            "O proprietário pode disponibilizar os seus prédios com aptidão agrícola, florestal ou silvopastoril na bolsa de terras",
+            "Garantir o acesso à bolsa de terras a todos os interessados",
+            "Público, quando esteja em causa a consulta da informação respeitante a prédios ou a terrenos baldios disponibilizados na bolsa de terras"
+          ]
         }
       ],
       "notes": "A página consultada descreve a gestão histórica sob DGADR. Legislação posterior revogou esse regime e criou uma estrutura distinta. Não foi verificada operacionalidade do novo sistema de Banco e Bolsa de Terras.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "assetTypes": ["PLOTS"]
     },
     {
       "id": "pt-premio-instalacao-jovens",
       "name": "Prémio instalação Jovens Agricultores",
+      "metaTitle": "Prémio Instalação Jovens Agricultores — PEPAC Continente",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -159,6 +181,13 @@
       "purposes": ["FIRST_ESTABLISHMENT"],
       "languages": ["pt"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "C.2.2.1",
+          "sourceUrl": "https://pepacc.pt/concursos/premio-instalacao-jovens-agricultores-1o-concurso-4o-periodo/"
+        }
+      ],
       "sources": [
         {
           "url": "https://pepacc.pt/concursos/premio-instalacao-jovens-agricultores-1o-concurso-4o-periodo/",
@@ -166,7 +195,9 @@
           "consultedOn": "2026-09-14",
           "quotes": [
             "Prémio instalação jovens agricultores",
-            "O candidato singular ou coletivo cumpre este critério desde que não tenha registo de início de atividade com CAE agrícola"
+            "O candidato singular ou coletivo cumpre este critério desde que não tenha registo de início de atividade com CAE agrícola",
+            "Candidaturas abertas de 5 de setembro a 30 de dezembro de 2025",
+            "Aviso de Abertura de Candidaturas à Intervenção C.2.2.1 – Prémio Instalação Jovens Agricultores"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -251,6 +282,20 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://pepacc.pt/wp-content/uploads/2025/09/AVISO_Candidatura_221_05092025_4periodo.pdf",
+          "title": "Aviso de abertura de candidaturas n.º 221, 4.º período (PDF, PEPAC Continente)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "O apoio a conceder no âmbito do presente capítulo assume a forma de montante fixo no valor de 25.000 euros, acrescido dos seguintes montantes:"
+          ]
+        },
+        {
+          "url": "https://fundosparaagricultura.pt/ecc/novo",
+          "title": "PEPAC em Contacto Consigo - Novo Contacto",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Prémio instalação jovens agricultores"]
         }
       ],
       "notes": "A página de concurso anteriormente consultada documenta a medida e os critérios, mas não mostra um período aberto na data da consulta. A primeira instalação exige inscrição no Organismo Pagador, titularidade da exploração e inscrição fiscal com atividade agrícola. A ficha exclui ajudas anteriores ao investimento agrícola ou prémio de primeira instalação e admite ajudas do pedido único e inscrição fiscal agrícola apenas nos dois anos anteriores ao ano da candidatura. As orientações de 4 de junho e 5 de setembro de 2025 indicam que, quando as duas componentes eram pedidas em conjunto, obter menos de dez pontos numa delas implicava o indeferimento do prémio de instalação e do investimento.",
@@ -262,17 +307,39 @@
           "sourceUrl": "https://pepacc.pt/wp-content/uploads/2025/06/OT_222_-Investimento_04junho2025_pesquisavel.pdf"
         }
       ],
-      "implements": [
+      "metrics": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "C.2.2.1",
-          "sourceUrl": "https://pepacc.pt/wp-content/uploads/2025/06/OT_222_-Investimento_04junho2025_pesquisavel.pdf"
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Montante fixo do prémio à instalação",
+          "value": 25000,
+          "unit": "EUR",
+          "asOf": "2025-09-05",
+          "sourceUrl": "https://pepacc.pt/wp-content/uploads/2025/09/AVISO_Candidatura_221_05092025_4periodo.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Prémio instalação jovens agricultores (1º Concurso | 4º período)",
+          "state": "CLOSED",
+          "opens": "2025-09-05",
+          "closes": "2025-12-30",
+          "sourceUrl": "https://pepacc.pt/concursos/premio-instalacao-jovens-agricultores-1o-concurso-4o-periodo/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Balcão dos Fundos da Agricultura",
+          "value": "https://fundosparaagricultura.pt/ecc/novo",
+          "sourceUrl": "https://fundosparaagricultura.pt/ecc/novo"
         }
       ]
     },
     {
       "id": "pt-acompanhamento-tecnico-jovens",
       "name": "Acompanhamento técnico especializado para jovens agricultores",
+      "metaTitle": "Acompanhamento técnico a jovens agricultores — Continente",
+      "metaDescription": "Apoio técnico gratuito até três anos para jovens agricultores com projeto aprovado no PEPAC Continente. Veja a lista de prestadores e como aderir.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -287,6 +354,12 @@
       "languages": ["pt"],
       "targetProfiles": ["YOUNG_FARMER"],
       "lastEvidenceDate": "2026-01-29",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://pepacc.pt/acompanhamento-tecnico-especializado-para-jovens-agricultores/"
+        }
+      ],
       "sources": [
         {
           "url": "https://pepacc.pt/acompanhamento-tecnico-especializado-para-jovens-agricultores/",
@@ -347,14 +420,30 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://fundosparaagricultura.pt/ecc/novo",
+          "title": "PEPAC em Contacto Consigo - Novo Contacto",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Acompanhamento técnico especializado – Intercâmbio de conhecimento"]
         }
       ],
       "notes": "A candidatura de acompanhamento financia entidades prestadoras; o jovem adere mediante contrato. Aplica-se ao PEPAC no Continente, não aos programas regionais dos Açores e da Madeira.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Balcão dos Fundos da Agricultura",
+          "value": "https://fundosparaagricultura.pt/ecc/novo",
+          "sourceUrl": "https://fundosparaagricultura.pt/ecc/novo"
+        }
+      ]
     },
     {
       "id": "pt-novos-produtores-pecuarios-2026",
       "name": "Apoio à instalação de novos produtores pecuários",
+      "metaTitle": "Apoio à instalação de novos produtores pecuários — Portugal",
+      "metaDescription": "Prémio de 30 000 € e apoio à compra de animais para a primeira instalação em pastorícia extensiva. Candidaturas de 2026 encerradas; regras no IFAP.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -407,14 +496,49 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.ifap.pt/portal/novos-prod-pec-candidatura",
+          "title": "Candidatura e Pagamento - IFAP",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "decorrem desde as 10h00 de 2 de junho de 2026 até às 18h00 de 30 de junho de 2026, ou até ao limite do montante da respetiva dotação"
+          ]
+        },
+        {
+          "url": "https://www.ifap.pt/portal/informacoes-form",
+          "title": "Pedido de Informação - IFAP",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Este formulário destina-se a pedidos de informações e/ou esclarecimentos a respeito de ajudas e apoios concedidos pelo IFAP."
+          ]
         }
       ],
       "notes": "Programa de 2026 com elegibilidade territorial restrita às freguesias da norma; dotação esgotada. A inclusão na camada Portugal não significa elegibilidade em todo o país ou nas regiões autónomas.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "calls": [
+        {
+          "name": "Apoio à Instalação de Novos Produtores Pecuários",
+          "state": "CLOSED",
+          "opens": "2026-06-02",
+          "closes": "2026-06-30",
+          "sourceUrl": "https://www.ifap.pt/portal/novos-prod-pec-candidatura"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Contact Center do IFAP",
+          "value": "https://www.ifap.pt/portal/informacoes-form",
+          "sourceUrl": "https://www.ifap.pt/portal/informacoes-form"
+        }
+      ]
     },
     {
       "id": "pt-pepac-portarias-intervencao",
       "name": "Portarias por intervenção",
+      "metaTitle": "Portarias por intervenção — PEPAC Continente",
+      "metaDescription": "Consulte as portarias originais e consolidadas do PEPAC Continente para o prémio à instalação e o investimento jovem e o apoio por instrumento financeiro.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -452,6 +576,7 @@
     {
       "id": "pt-investimento-produtivo-jovens-agricultores",
       "name": "Investimento produtivo Jovens Agricultores",
+      "metaTitle": "Investimento Produtivo Jovens Agricultores — Continente",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -467,6 +592,13 @@
       "sectors": ["AGRICULTURE"],
       "targetProfiles": ["YOUNG_FARMER"],
       "lastEvidenceDate": "2026-10-29",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "C.2.2.2",
+          "sourceUrl": "https://pepacc.pt/concursos/investimento-produtivo-jovens-agricultores-1o-concurso-4o-periodo/"
+        }
+      ],
       "sources": [
         {
           "url": "https://pepacc.pt/sobre-nos/o-que-esperar-do-pepac-continente/como-o-programa-se-organiza/investimento-produtivo-jovens-agricultores/",
@@ -512,6 +644,27 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://pepacc.pt/concursos/investimento-produtivo-jovens-agricultores-1o-concurso-4o-periodo/",
+          "title": "Investimento produtivo jovens agricultores (1º Concurso | 4º Período) - PEPAC no Continente",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Candidaturas abertas de 5 de setembro a 30 de dezembro de 2025",
+            "Aviso de Abertura de Candidaturas à Intervenção C.2.2.2 – Investimento produtivo Jovens Agricultores"
+          ]
+        },
+        {
+          "url": "https://fundosparaagricultura.pt/ecc/novo",
+          "title": "PEPAC em Contacto Consigo - Novo Contacto",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Investimento produtivo jovens agricultores"]
+        },
+        {
+          "url": "https://diariodarepublica.pt/dr/detalhe/portaria/303-a-2024-898014969",
+          "title": "Portaria n.º 303-A/2024 (Diário da República)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Até 500 000 euros 60 % 400 000 euros"]
         }
       ],
       "notes": "A página apresenta os objetivos e os investimentos abrangidos, mas não permite confirmar a disponibilidade atual de candidaturas, os montantes ou as condições detalhadas de acesso. Nas orientações do terceiro e quarto períodos, de 4 de junho e 5 de setembro de 2025, obter menos de dez pontos numa candidatura conjunta às tipologias C.2.2.1 e C.2.2.2 implicava o indeferimento de ambas as componentes.",
@@ -522,17 +675,38 @@
           "sourceUrl": "https://pepacc.pt/sobre-nos/o-que-esperar-do-pepac-continente/como-o-programa-se-organiza/investimento-produtivo-jovens-agricultores/"
         }
       ],
-      "implements": [
+      "calls": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "C.2.2.2",
-          "sourceUrl": "https://pepacc.pt/sobre-nos/o-que-esperar-do-pepac-continente/como-o-programa-se-organiza/investimento-produtivo-jovens-agricultores/"
+          "name": "Investimento produtivo jovens agricultores (1º Concurso | 4º Período)",
+          "state": "CLOSED",
+          "opens": "2025-09-05",
+          "closes": "2025-12-30",
+          "sourceUrl": "https://pepacc.pt/concursos/investimento-produtivo-jovens-agricultores-1o-concurso-4o-periodo/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Balcão dos Fundos da Agricultura",
+          "value": "https://fundosparaagricultura.pt/ecc/novo",
+          "sourceUrl": "https://fundosparaagricultura.pt/ecc/novo"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Limite de apoio ao investimento produtivo de jovens agricultores",
+          "value": 400000,
+          "unit": "EUR",
+          "asOf": "2024-11-26",
+          "sourceUrl": "https://diariodarepublica.pt/dr/detalhe/portaria/303-a-2024-898014969"
         }
       ]
     },
     {
       "id": "pt-e-formar-jovens-agricultores",
       "name": "e-Formar Jovens Agricultores",
+      "metaDescription": "Consulte os manuais do projeto e-Formar para jovens agricultores, sobre agricultura sustentável, aplicação de fitofármacos e gestão da empresa agrícola.",
       "kind": "TRAINING",
       "status": "HISTORICAL",
       "scope": {
@@ -545,6 +719,16 @@
       "howToAccess": "Consultar a secção Publicações da página do projeto, onde estão apresentados os manuais de formação.",
       "accessUrl": "https://inovacao.rederural.gov.pt/projetos/projetos-rrn?catid=37%3Aprojetos-rrn&id=1159%3Ae-formar-jovens-agricultores&view=article",
       "targetProfiles": ["YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://inovacao.rederural.gov.pt/projetos/projetos-rrn?catid=37%3Aprojetos-rrn&id=1159%3Ae-formar-jovens-agricultores&view=article"
+        },
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://inovacao.rederural.gov.pt/projetos/projetos-rrn?catid=37%3Aprojetos-rrn&id=1159%3Ae-formar-jovens-agricultores&view=article"
+        }
+      ],
       "sources": [
         {
           "url": "https://inovacao.rederural.gov.pt/projetos/projetos-rrn?catid=37%3Aprojetos-rrn&id=1159%3Ae-formar-jovens-agricultores&view=article",
@@ -556,7 +740,8 @@
             "Maior facilidade de acesso a conteúdos técnicos de formação qualificante adequada ao sucesso da instalação, ao bom desempenho dos planos empresariais, sustentabilidade das explorações dos jovens agricultores",
             "Produzir e-manuais que permitam apoiar a formação em e-learning, de modo a contribuir para melhorar a qualidade e eficácia da formação.",
             "Encontram-se concluídas todas atividades previstas no plano de ação do projeto.",
-            "Publicações: Manual de Formação - Agricultura Sustentável Manual de Formação - Aplicação de produtos Fitofarmaceuticos Manual de Formação - Gestão da Empresa Agrícola"
+            "Publicações: Manual de Formação - Agricultura Sustentável Manual de Formação - Aplicação de produtos Fitofarmaceuticos Manual de Formação - Gestão da Empresa Agrícola",
+            "Divulgar em ambiente web os e-manuais de forma a permitir o livre acesso."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -570,6 +755,8 @@
     {
       "id": "pt-ajap-jovem-agricultor",
       "name": "Jovem Agricultor",
+      "metaTitle": "Jovem Agricultor AJAP: apoio a candidaturas em Portugal",
+      "metaDescription": "A AJAP ajuda jovens agricultores a preparar projetos de primeira instalação e investimento, a avaliar a sua viabilidade e a submeter candidaturas.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -581,6 +768,12 @@
       "whoCanUseIt": "Jovens agricultores e agricultores com propostas para as suas explorações.",
       "howToAccess": "Consultar a página Jovem Agricultor da AJAP, que se disponibiliza para ajudar na submissão da candidatura.",
       "accessUrl": "https://ajap.pt/jovem-agricultor/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://ajap.pt/jovem-agricultor/"
+        }
+      ],
       "sources": [
         {
           "url": "https://ajap.pt/jovem-agricultor/",
@@ -596,9 +789,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://ajap.pt/contactos/",
+          "title": "Contactos – AJAP",
+          "consultedOn": "2026-11-25",
+          "quotes": ["ajap@ajap.pt"]
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Associação dos Jovens Agricultores de Portugal",
+          "value": "ajap@ajap.pt",
+          "sourceUrl": "https://ajap.pt/contactos/"
+        }
+      ]
     }
   ],
   "news": [],
@@ -606,7 +813,5 @@
     "A antiga Bolsa Nacional de Terras foi revogada; não se confirmou o inventário nem o acesso ao novo Banco, Bolsa ou respetivo Sistema de Informação.",
     "O prémio de instalação e o acompanhamento técnico aplicam-se ao PEPAC no Continente; Açores e Madeira têm programas próprios.",
     "A ajuda a novos produtores pecuários esgotou a dotação e limita-se às freguesias elegíveis indicadas na regulamentação específica."
-  ],
-  "metaTitle": "Apoios a jovens agricultores e sucessão agrícola em Portugal",
-  "metaDescription": "Consulta os apoios à primeira instalação de jovens agricultores no continente, nos Açores e na Madeira, e os recursos de acompanhamento técnico."
+  ]
 }
