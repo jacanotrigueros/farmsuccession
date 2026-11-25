@@ -17,9 +17,8 @@ type Props = {
   language: string;
   resources: readonly Resource[];
   featured?: boolean;
-  preview?: boolean;
 };
-const { place, language, resources, featured = false, preview = false } = Astro.props;
+const { place, language, resources, featured = false } = Astro.props;
 const text = words(language);
 const recordLanguage = languageOf(place);
 ---
@@ -38,7 +37,7 @@ const recordLanguage = languageOf(place);
             class="flex min-h-(--spacing-target) w-full items-start gap-2 px-4 py-2 text-brand-strong [overflow-wrap:anywhere]"
           >
             <Icon name={kindIcon(resource.kind)} aria-hidden="true" class="mt-0.5 size-5 shrink-0 text-brand" />
-            <span lang={recordLanguage} class:list={["underline", preview && "line-clamp-2"]}>
+            <span lang={recordLanguage} class="underline">
               {resource.name}
             </span>
           </a>

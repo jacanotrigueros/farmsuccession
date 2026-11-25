@@ -3,7 +3,8 @@
  * One territory on its country's page: one box, a row a finger can hit that leads to the territory, and
  * underneath it, on a country page, the territory's own records behind one disclosure.
  *
- * One establishment grant can be previewed. Further resources expand in place with their own territory.
+ * Every grant to set up for the first time is shown at once, with its whole name: it is what most readers of a
+ * country page came for, and the name is what tells two grants apart. Further resources expand in place.
  */
 import { Icon } from "astro-icon/components";
 import RecordLinks from "./RecordLinks.astro";
@@ -18,8 +19,8 @@ const text = words(language);
 const number = new Intl.NumberFormat(localeOf(child));
 
 const resources = withRecords ? child.data.resources : [];
-const featured = resources.filter(isFirstEstablishmentAid).toSorted((a, b) => a.name.localeCompare(b.name, language))[0];
-const rest = resources.filter((resource) => resource !== featured);
+const aid = resources.filter(isFirstEstablishmentAid);
+const rest = resources.filter((resource) => !isFirstEstablishmentAid(resource));
 const hasInheritedOnly = withRecords && resources.length === 0;
 ---
 
@@ -30,14 +31,14 @@ const hasInheritedOnly = withRecords && resources.length === 0;
       <span class="meta mt-auto pt-1">{grouping ? text.inheritedFromGroup.replace("{where}", grouping) : text.seeApplicable}</span>
     )}
   </a>
-  {featured && <RecordLinks place={child} language={language} resources={[featured]} featured preview />}
+  {aid.length > 0 && <RecordLinks place={child} language={language} resources={aid} featured />}
   {rest.length > 0 && (
     <details class="regional-resources mt-auto border-t border-line">
       <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 px-4 text-brand-strong">
-        {(featured ? text.moreRecords : text.showRecords)
+        {(aid.length > 0 ? text.moreRecords : text.showRecords)
           .replace("{where}", child.data.officialName)
           .replace("{n}", number.format(rest.length))}
-        {featured && <span class="sr-only"> · {child.data.officialName}</span>}
+        {aid.length > 0 && <span class="sr-only"> · {child.data.officialName}</span>}
         <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
       </summary>
       <RecordLinks place={child} language={language} resources={rest} />
