@@ -36,10 +36,10 @@ const label = (own: number): string =>
   own === 0 ? text.onlyEu.replace("{n}", String(european)) : counted(own + european, text.statRecords, language);
 ---
 
-<ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+<ul data-country-cards class="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
   {countries.map((country) => (
     <li>
-      <a href={country.href} class="card card-link flex min-h-full items-center gap-3 p-5 no-underline">
+      <a href={country.href} class="card card-link flex h-full items-center gap-3 p-5 no-underline">
         <img src={country.flag} alt="" width="36" height="27" class="h-7 w-9 shrink-0 rounded-xs border border-line object-cover" />
         <span class="flex min-w-0 flex-1 flex-col">
           <span class="text-lg font-bold text-ink">{country.name}</span>

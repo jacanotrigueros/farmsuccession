@@ -1076,7 +1076,7 @@ test("country lists name each country in the page's language", () => {
   const html = decodeHTML(home.html);
   const start = html.indexOf("territory-options");
   const picker = html.slice(start, html.indexOf("</ul>", start));
-  const cards = html.slice(html.lastIndexOf("grid gap-4 sm:grid-cols-2 lg:grid-cols-4"));
+  const cards = html.match(/<ul\b[^>]*\bdata-country-cards\b[^>]*>[\s\S]*?<\/ul>/u)?.[0] ?? "";
   const english = new Intl.DisplayNames(["en"], { type: "region" });
   const published = Object.entries(catalogueJurisdictions as Record<string, { name: string; lang: string }>).filter(
     ([iso]) => iso !== "EU" && cards.includes(`href="/${iso.toLowerCase()}/"`),

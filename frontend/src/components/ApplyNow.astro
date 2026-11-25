@@ -72,14 +72,14 @@ const entries = (resource.calls?.length ? resource.calls : [undefined]).map((cal
 ---
 
 {entries.some(({ key }) => key) && (
-  <div class:list={["mt-6", entries.length > 1 && "grid items-start gap-4 md:grid-cols-2"]}>
+  <div class:list={["mt-6", entries.length > 1 && "grid gap-4 md:grid-cols-2"]}>
     {entries.map(
       ({ call, key, answer, answers, checked, titleId, nameId }) =>
         key &&
         answer && (
           <section
             aria-labelledby={call ? `${titleId} ${nameId}` : titleId}
-            class="apply rounded-lg border border-line-strong bg-page p-5"
+            class="apply flex min-w-0 flex-col rounded-lg border border-line-strong bg-page p-5"
             data-tone={APPLY_TONE[key as keyof typeof APPLY_TONE]}
             data-apply-call={call ? JSON.stringify(call) : undefined}
             data-apply-status={resource.status}
@@ -169,7 +169,7 @@ const entries = (resource.calls?.length ? resource.calls : [undefined]).map((cal
                 )}
               </dl>
             )}
-            <p class="meta mt-3">
+            <p class="meta mt-auto pt-3">
               {checked && (
                 <>
                   {checkedBefore}

@@ -441,7 +441,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         {territoriesTitle}
       </h2>
       <p class="mt-2 max-w-5xl text-muted">{showsInstall ? text.installTerritoriesLead : text.territoriesLead}</p>
-      <ul class="territory-list mt-6 gap-2 md:columns-2 md:[&>li]:mb-2 md:[&>li]:break-inside-avoid">
+      <ul class="territory-list mt-6 grid grid-cols-1 gap-2 md:grid-cols-2">
         {under.map(({ hub, members }) => {
           if (!hub) {
             return members.map((child) => <TerritoryCard child={child} language={language} withRecords={isCountry} />);
@@ -450,7 +450,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
           const rest = hub.data.resources.filter((resource) => !isFirstEstablishmentAid(resource));
           const groupName = hub.data.officialName;
           return (
-            <li class="card p-4 md:[column-span:all]">
+            <li class="card min-w-0 p-4 md:col-span-2">
               <h3 class="text-lg font-bold">
                 <a class="inline-flex min-h-(--spacing-target) items-center underline" href={href(hub.layer)}>
                   {groupName}
@@ -474,7 +474,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
                   <RecordLinks place={hub} language={language} resources={rest} />
                 </details>
               )}
-              <ul class="territory-list mt-3 gap-2 md:columns-2 md:[&>li]:mb-2 md:[&>li]:break-inside-avoid">
+              <ul class="territory-list mt-3 grid grid-cols-1 gap-2 md:grid-cols-2">
                 {members.map((child) => (
                   <TerritoryCard child={child} language={language} withRecords={isCountry} grouping={groupName} />
                 ))}
@@ -605,11 +605,8 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
 <style>
   /*
-    From a tablet up, the territories flow down two columns, so a short card sits under the one above it
-    rather than beside a long one: a grid's rows left a hole as tall as the longest card next to every
-    short one. A grouping spans both columns and starts below them.
-
-    On a phone, twenty-eight boxes are twenty-eight screens: the same list, as divided rows.
+    Regions follow reading order across the grid. Groupings span the full width, and their
+    disclosures expand in place. On a phone the territories read as a divided list.
   */
   @media (max-width: 599px) {
     .territory-list {
