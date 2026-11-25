@@ -23,6 +23,13 @@ after the version was closed and is not a part of it.
   country file's `euCounterparts` is removed. **Breaking** for anyone validating the open data with the
   earlier `edition.schema.json`; `schemaVersion` stays `1.0.0`
   ([decision 041](decisions/041-a-measure-links-the-records-that-apply-it.md)).
+- A record can say that its official source was read and does not publish what a reader asks (who
+  can use it, how to access it, the amount, a contact, the cost, the training format, the land), and
+  the page says so in that row. 138 of the 168 Spanish records now answer every question a reader of
+  their kind brings, or say the source is silent, up from 30. From the 2027 edition the validator
+  rejects a record that leaves one of those questions open.
+- Icons for every fact of a record are drawn in the site's two-tone style, and long lists of
+  territories and records on a country page flow in two columns without gaps.
 
 ## 1.9.0 — 2026-11-08
 
