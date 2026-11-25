@@ -114,14 +114,10 @@ const groupings =
  * the rows around it and leaves half-empty lines above and below itself.
  */
 const hubOf = (child: Territory): Territory | undefined => view(child).layers.find(({ layer }) => layer.level === "HUB");
-const under = [
-  ...children
-    .filter((child) => territory.layer.level !== "COUNTRY" || hubOf(child) === undefined)
-    .map((child) => ({ hub: undefined, members: [child] })),
-  ...groupings
-    .map((hub) => ({ hub, members: children.filter((child) => hubOf(child) === hub) }))
-    .filter(({ members }) => members.length > 0),
-];
+const ungrouped = children.filter((child) => !isCountry || hubOf(child) === undefined);
+const groups = groupings
+  .map((hub) => ({ hub, members: children.filter((child) => hubOf(child) === hub) }))
+  .filter(({ members }) => members.length > 0);
 
 /**
  * Aid to set up for the first time is what most readers of a country page came for, and in most countries it
@@ -441,16 +437,20 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         {territoriesTitle}
       </h2>
       <p class="mt-2 max-w-5xl text-muted">{showsInstall ? text.installTerritoriesLead : text.territoriesLead}</p>
-      <ul class="territory-list mt-6 grid grid-cols-1 gap-2 md:grid-cols-2">
-        {under.map(({ hub, members }) => {
-          if (!hub) {
-            return members.map((child) => <TerritoryCard child={child} language={language} withRecords={isCountry} />);
-          }
+      <div class="mt-6 grid gap-4">
+        {ungrouped.length > 0 && (
+          <ul class="territory-list grid grid-cols-1 gap-2 md:grid-cols-2">
+            {ungrouped.map((child) => (
+              <TerritoryCard child={child} language={language} withRecords={isCountry} />
+            ))}
+          </ul>
+        )}
+        {groups.map(({ hub, members }) => {
           const aid = hub.data.resources.filter(isFirstEstablishmentAid);
           const rest = hub.data.resources.filter((resource) => !isFirstEstablishmentAid(resource));
           const groupName = hub.data.officialName;
           return (
-            <li class="card min-w-0 p-4 md:col-span-2">
+            <section class="card min-w-0 p-4">
               <h3 class="text-lg font-bold">
                 <a class="inline-flex min-h-(--spacing-target) items-center underline" href={href(hub.layer)}>
                   {groupName}
@@ -479,10 +479,10 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
                   <TerritoryCard child={child} language={language} withRecords={isCountry} grouping={groupName} />
                 ))}
               </ul>
-            </li>
+            </section>
           );
         })}
-      </ul>
+      </div>
     </section>
   )}
 
@@ -605,9 +605,15 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
 <style>
   /*
-    Regions follow reading order across the grid. Groupings span the full width, and their
-    disclosures expand in place. On a phone the territories read as a divided list.
+    Closed territory cards share a row height within their list. An open disclosure can
+    grow its own row without giving that height to every other row.
   */
+  .territory-list {
+    grid-auto-rows: 1fr;
+  }
+  .territory-list:has(> :global(li.territory) > :global(details[open])) {
+    grid-auto-rows: auto;
+  }
   @media (max-width: 599px) {
     .territory-list {
       gap: 0;

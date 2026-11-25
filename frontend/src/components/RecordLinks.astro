@@ -6,6 +6,7 @@
  */
 import { Icon } from "astro-icon/components";
 import { languageOf, localeOf, recordHref, type Resource, type Territory } from "../lib/corpus.ts";
+import { isFirstEstablishmentAid } from "../lib/goals.ts";
 import { kindIcon } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
 import { callStateLabel } from "../lib/vocabulary.ts";
@@ -16,8 +17,9 @@ type Props = {
   language: string;
   resources: readonly Resource[];
   featured?: boolean;
+  preview?: boolean;
 };
-const { place, language, resources, featured = false } = Astro.props;
+const { place, language, resources, featured = false, preview = false } = Astro.props;
 const text = words(language);
 const recordLanguage = languageOf(place);
 ---
@@ -27,7 +29,7 @@ const recordLanguage = languageOf(place);
     .toSorted((a, b) => a.name.localeCompare(b.name, language))
     .map((resource) => {
       // Show a dated closure when the record documents a single call. Several calls need the full context of the record page.
-      const call = featured && resource.calls?.length === 1 ? resource.calls[0] : undefined;
+      const call = isFirstEstablishmentAid(resource) && resource.calls?.length === 1 ? resource.calls[0] : undefined;
       const closedOn = call?.state === "CLOSED" ? resource.sources.find(({ url }) => url === call.sourceUrl)?.consultedOn : undefined;
       return (
         <li>
@@ -36,7 +38,7 @@ const recordLanguage = languageOf(place);
             class="flex min-h-(--spacing-target) w-full items-start gap-2 px-4 py-2 text-brand-strong [overflow-wrap:anywhere]"
           >
             <Icon name={kindIcon(resource.kind)} aria-hidden="true" class="mt-0.5 size-5 shrink-0 text-brand" />
-            <span lang={recordLanguage} class="underline">
+            <span lang={recordLanguage} class:list={["underline", preview && "line-clamp-2"]}>
               {resource.name}
             </span>
           </a>

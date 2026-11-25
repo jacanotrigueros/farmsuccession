@@ -3,7 +3,7 @@
  * One territory on its country's page: one box, a row a finger can hit that leads to the territory, and
  * underneath it, on a country page, the territory's own records behind one disclosure.
  *
- * The disclosure stays inside the card, so its links expand in place with their own territory.
+ * One establishment grant can be previewed. Further resources expand in place with their own territory.
  */
 import { Icon } from "astro-icon/components";
 import RecordLinks from "./RecordLinks.astro";
@@ -17,26 +17,27 @@ const { child, language, withRecords, grouping } = Astro.props;
 const text = words(language);
 const number = new Intl.NumberFormat(localeOf(child));
 
-/** On a country page the aid to set up is shown at once; everything else the territory holds is one click away. */
-const aid = withRecords ? child.data.resources.filter(isFirstEstablishmentAid) : [];
-const rest = withRecords ? child.data.resources.filter((resource) => !isFirstEstablishmentAid(resource)) : [];
+const resources = withRecords ? child.data.resources : [];
+const featured = resources.filter(isFirstEstablishmentAid).toSorted((a, b) => a.name.localeCompare(b.name, language))[0];
+const rest = resources.filter((resource) => resource !== featured);
+const hasInheritedOnly = withRecords && resources.length === 0;
 ---
 
-<li class="territory card min-w-0">
-  <a href={href(child.layer)} class="territory-link">
+<li class="territory card flex min-w-0 flex-col">
+  <a href={href(child.layer)} class:list={["territory-link", hasInheritedOnly && "grow"]}>
     <span class="font-bold text-ink">{child.data.officialName}</span>
-    {withRecords && child.data.resources.length === 0 && (
-      <span>{grouping ? text.inheritedFromGroup.replace("{where}", grouping) : text.seeApplicable}</span>
+    {hasInheritedOnly && (
+      <span class="meta mt-auto pt-1">{grouping ? text.inheritedFromGroup.replace("{where}", grouping) : text.seeApplicable}</span>
     )}
   </a>
-  {aid.length > 0 && <RecordLinks place={child} language={language} resources={aid} featured />}
+  {featured && <RecordLinks place={child} language={language} resources={[featured]} featured preview />}
   {rest.length > 0 && (
-    <details class="regional-resources border-t border-line">
+    <details class="regional-resources mt-auto border-t border-line">
       <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 px-4 text-brand-strong">
-        {(aid.length > 0 ? text.moreRecords : text.showRecords)
+        {(featured ? text.moreRecords : text.showRecords)
           .replace("{where}", child.data.officialName)
           .replace("{n}", number.format(rest.length))}
-        {aid.length > 0 && <span class="sr-only"> · {child.data.officialName}</span>}
+        {featured && <span class="sr-only"> · {child.data.officialName}</span>}
         <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
       </summary>
       <RecordLinks place={child} language={language} resources={rest} />
@@ -51,7 +52,7 @@ const rest = withRecords ? child.data.resources.filter((resource) => !isFirstEst
     display: flex;
     min-height: var(--spacing-target);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.125rem;
     padding: 0.5rem 2.5rem 0.5rem 1rem;
     text-decoration: none;
@@ -61,7 +62,7 @@ const rest = withRecords ? child.data.resources.filter((resource) => !isFirstEst
   .territory-link::after {
     content: "";
     position: absolute;
-    top: calc(50% - 0.25rem);
+    top: calc(var(--spacing-target) / 2 - 0.25rem);
     right: 1rem;
     width: 0.5rem;
     height: 0.5rem;
