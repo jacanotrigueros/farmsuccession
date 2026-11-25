@@ -10,6 +10,7 @@ import { errorMessage } from "./errors.ts";
 import { unsupportedFileFigures, unsupportedResourceFigures } from "./figures.ts";
 import { ancestorLayers, layerKey, snapshotLayer } from "./layers.ts";
 import { internalReferencesInText, schemaCodesInText } from "./reader-text.ts";
+import { questionsOf } from "./reader-questions.ts";
 import { jurisdiction } from "./territories.ts";
 import { textProblems } from "./text-hygiene.ts";
 import type { EditionSnapshot, Metric, Resource, Source } from "./types/edition.ts";
@@ -84,6 +85,9 @@ function sourcesOf(data: EditionSnapshot): Array<{ at: string; source: Source }>
  *
  * `today` is a parameter rather than the clock, so a test is not tied to the day it runs.
  */
+/** The first edition whose records must answer every reader question of their kind (FS-027 in the core). */
+export const FIRST_EDITION_WITH_ANSWERS = "2027";
+
 export function checkSemantics(file: string, data: EditionSnapshot, territories: Territories, today: string): Report {
   const found = collect();
   checkIdentity(file, data, territories, found);
@@ -293,6 +297,46 @@ function checkResource(data: EditionSnapshot, resource: Resource, today: string,
     }
   }
 
+  // Applying a higher measure is claimed the same way: the cited source names that measure, its plan or
+  // its code. Which record it points at is checked across the edition, where the higher files are.
+  for (const { resourceId, named, sourceUrl } of resource.implements ?? []) {
+    const label = `${at}: implements "${resourceId}"`;
+    const source = sourceAt(sourceUrl);
+    if (resourceId === resource.id) found.error(`${label}: a resource cannot implement itself`);
+    if (!source) found.error(`${label} cites ${sourceUrl}, which is not one of its sources`);
+    else if (!quoted(source, named)) found.error(`${label}: "${named}" is not present in the cited source quotes`);
+  }
+
+  // "The source does not publish it" is a finding about a source, so it names one, and it can never sit
+  // beside the field that answers the same question: the record would say two opposite things.
+  const answered: Record<NonNullable<Resource["notPublished"]>[number]["question"], boolean> = {
+    WHO_CAN_USE: resource.whoCanUseIt !== undefined,
+    HOW_TO_ACCESS: resource.howToAccess !== undefined,
+    AMOUNT_PER_BENEFICIARY: (resource.metrics ?? []).some(({ measure }) => /_PER_BENEFICIARY_/u.test(measure)),
+    CONTACT_CHANNEL: (resource.contactPoints ?? []).length > 0,
+    ACCESS_COST: resource.accessCostType !== undefined && resource.accessCostType !== "UNKNOWN",
+    TRAINING_FORMAT: (resource.trainingFormats ?? []).length > 0,
+    LAND_HANDLED: (resource.assetTypes ?? []).length > 0,
+  };
+  const silent = new Set<string>();
+  for (const { question, sourceUrl } of resource.notPublished ?? []) {
+    const label = `${at}: not published ${question}`;
+    if (silent.has(question)) found.error(`${label} is listed twice`);
+    silent.add(question);
+    if (!sourceAt(sourceUrl)) found.error(`${label} cites ${sourceUrl}, which is not one of its sources`);
+    if (answered[question]) found.error(`${label}, yet the record answers it`);
+  }
+
+  // From the 2027 edition on, a record goes out only when it answers every question a reader of its kind
+  // brings, or says the source is silent: an empty answer is a record the reader still has to research.
+  // The 2026 edition predates the rule and is being completed in place.
+  if (data.edition >= FIRST_EDITION_WITH_ANSWERS) {
+    const { open } = questionsOf(resource);
+    if (open.length > 0) {
+      found.error(`${at}: leaves ${open.join(", ")} open; answer each from a source or record it in notPublished`);
+    }
+  }
+
   checkCalls(at, resource, found);
   checkEvidenceDate(at, data, resource, today, found);
 
@@ -410,6 +454,8 @@ const LAYER_ORDER = { "eu-snapshot": 0, "country-snapshot": 1, "hub-snapshot": 2
  * - a figure in the file's own voice — its summary, its limitations, its news — is supported by the
  *   evidence of that same view, because a lower layer never repeats what it inherits;
  * - reader-facing text names no resource id, territory slug or repository path;
+ * - a resource implements only a resource of a file it inherits, so the measure it applies is always one
+ *   its reader sees above it, never a sibling region's or another country's;
  * - a resource whose access page already belongs to a resource in a higher layer, or in a sibling file
  *   of the same country at the same level, is listed for review.
  */
@@ -458,6 +504,15 @@ export function checkEdition(snapshots: readonly LoadedSnapshot[], territories: 
       const sibling = siblingPages.get(key);
       if (!sibling) siblingPages.set(key, { file, id: resource.id });
       else if (sibling.file !== file) reviews.push({ file, message: sharedPage(resource.id, resource.accessUrl, sibling) });
+    }
+
+    const inheritedIds = new Set(higher.flatMap(({ data: upper }) => upper.resources.map(({ id }) => id)));
+    for (const resource of data.resources) {
+      for (const { resourceId } of resource.implements ?? []) {
+        if (!inheritedIds.has(resourceId)) {
+          errors.push({ file, message: `${resource.id} implements "${resourceId}", which is not a resource of a file it inherits` });
+        }
+      }
     }
 
     const visible = new Set([...data.resources, ...higher.flatMap(({ data: above }) => above.resources)].map((resource) => resource.id));

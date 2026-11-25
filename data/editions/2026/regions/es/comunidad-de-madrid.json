@@ -181,9 +181,25 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2025/11/19/BOCM-20251119-36.PDF",
+          "title": "BOCM de 19 de noviembre de 2025",
+          "consultedOn": "2026-11-24",
+          "quotes": ["La ayuda máxima será de 50.000 euros por beneficiario."]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Ayuda máxima por beneficiario",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2025-11-19",
+          "sourceUrl": "https://www.bocm.es/boletin/CM_Orden_BOCM/2025/11/19/BOCM-20251119-36.PDF"
+        }
+      ]
     },
     {
       "id": "madrid-incorporacion-jovenes-agricultores",
@@ -363,6 +379,12 @@
           "sourceUrl": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/plan-dinamizacion-sector-primario-comunidad-madrid"
         }
       ],
+      "notPublished": [
+        {
+          "question": "HOW_TO_ACCESS",
+          "sourceUrl": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/plan-dinamizacion-sector-primario-comunidad-madrid"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.comunidad.madrid/agricultura-ganaderia-medio-rural/plan-dinamizacion-sector-primario-comunidad-madrid",
@@ -373,7 +395,8 @@
             "EJE 2: Relevo generacional",
             "Portal del Suelo Agrario",
             "asciende a 148.335.372€",
-            "Última actualización: 10 febrero 2026"
+            "Última actualización: 10 febrero 2026",
+            "Plan de acción de la Comunidad de Madrid para impulsar el sector agrario de la región."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -382,7 +405,8 @@
         }
       ],
       "notes": "El plan enumera medidas, pero no se ha verificado una página operativa del Portal del Suelo Agrario ni del registro de jóvenes agricultores preferentes. No se confunden esas medidas con el servicio municipal Barrios Productores del Ayuntamiento de Madrid.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "whoCanUseIt": "El plan se dirige al sector agrario de la Comunidad de Madrid."
     },
     {
       "id": "madrid-barrios-productores-vivero-agricola",
@@ -432,7 +456,8 @@
           "quotes": [
             "formación técnica en agroecología y emprendimiento",
             "asesoramiento personalizado para la elaboración de proyectos para la explotación agrícola de las parcelas",
-            "acompañamiento en el desarrollo y puesta en ejecución de las explotaciones"
+            "acompañamiento en el desarrollo y puesta en ejecución de las explotaciones",
+            "También podrá concertarse una cita fuera de ese horario, y solicitar información a través del siguiente enlace info@barriosproductores.es"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -441,7 +466,15 @@
         }
       ],
       "notes": "La convocatoria también prevé una Bolsa de Proyectos en Espera. La disponibilidad de parcelas depende de las adjudicaciones.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Oficina técnica de Barrios Productores y del Vivero de Emprendimiento en Agricultura Urbana",
+          "value": "info@barriosproductores.es",
+          "sourceUrl": "https://www.madrid.es/portales/munimadrid/es/Inicio/Vivienda-urbanismo-y-obras/Urbanismo/Se-abre-la-oficina-tecnica-de-atencion-al-publico-del-proyecto-Barrios-Productores-y-del-Vivero-de-Emprendimiento-en-Agricultura-Urbana/?vgnextchannel=2af331d3b28fe410VgnVCM1000000b205a0aRCRD&vgnextoid=ab35edb90b1b3810VgnVCM1000001d4a900aRCRD"
+        }
+      ]
     },
     {
       "id": "madrid-curso-incorporacion-empresa-agraria-inalocal",

@@ -106,7 +106,9 @@
             "Hasta 13/07/2026",
             "Obtener ayudas destinadas a atraer y apoyar a laspersonasjóvenes y a los nuevos agricultores yganaderos a la actividadagraria",
             "no cumplir los 41 años en el año natural depresentación de la solicitud",
-            "Haber cumplido los 18 años al formalizar la solicitud"
+            "Haber cumplido los 18 años al formalizar la solicitud",
+            "Prima básica: 50.000€ (compromiso de una UTA) o 25.000€ (compromiso de media UTA).",
+            "Llámanos al 985 27 91 00 o al 012"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -124,7 +126,33 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima básica con compromiso de media unidad de trabajo agrario",
+          "value": 25000,
+          "unit": "EUR",
+          "asOf": "2026-05-27",
+          "sourceUrl": "https://miprincipado.asturias.es/ast/-/dboid-6269000216071719207573"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima básica con compromiso de una unidad de trabajo agrario",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2026-05-27",
+          "sourceUrl": "https://miprincipado.asturias.es/ast/-/dboid-6269000216071719207573"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Servicio de Atención Ciudadana de miPrincipado",
+          "value": "985 27 91 00",
+          "sourceUrl": "https://miprincipado.asturias.es/ast/-/dboid-6269000216071719207573"
+        }
+      ]
     },
     {
       "id": "asturias-cooperacion-sucesion-explotaciones",
@@ -163,7 +191,8 @@
             "Desde 09/01/2026",
             "Hasta 15/05/2026",
             "Ayuda destinada al apoyo a agricultores o ganaderos que deseen cesar su actividad para ceder su explotación a otros del mismo sector",
-            "Personas físicas, jefes de explotación, que estén en situación de jubilación en el momento de realizar la transmisión"
+            "Personas físicas, jefes de explotación, que estén en situación de jubilación en el momento de realizar la transmisión",
+            "En todo caso la ayuda total en euros no podrá superar los 65.000€."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -182,9 +211,33 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.asturias.es/ast/banco-de-tierras-de-asturias",
+          "title": "Banco de tierras - Principado de Asturias",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Correu electrónicu: bancodetierras@asturias.org"]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Ayuda máxima total en cinco años",
+          "value": 65000,
+          "unit": "EUR",
+          "asOf": "2026-01-08",
+          "sourceUrl": "https://miprincipado.asturias.es/ast/-/dboid-6269000173263536107573"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Comisión Regional del Banco de Tierras",
+          "value": "bancodetierras@asturias.org",
+          "sourceUrl": "https://www.asturias.es/ast/banco-de-tierras-de-asturias"
+        }
+      ]
     },
     {
       "id": "asturias-banco-tierras-arrendalia",
@@ -285,9 +338,23 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://www.asturias.es/ast/banco-de-tierras-de-asturias",
+          "title": "Banco de tierras - Principado de Asturias",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Correu electrónicu: bancodetierras@asturias.org"]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Comisión Regional del Banco de Tierras",
+          "value": "bancodetierras@asturias.org",
+          "sourceUrl": "https://www.asturias.es/ast/banco-de-tierras-de-asturias"
+        }
+      ]
     },
     {
       "id": "asturias-cualificacion-curso-incorporacion",
@@ -335,6 +402,13 @@
       },
       "operator": "Principado de Asturias, Servicio de Modernización Agroganadera",
       "operatorType": "PUBLIC",
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "Ayudas directas PAC",
+          "sourceUrl": "https://miprincipado.asturias.es/ast/-/dboid-6269000015838602007573"
+        }
+      ],
       "whatItOffers": "Complemento a la ayuda básica a la renta para favorecer la incorporación y el relevo generacional durante los primeros años de actividad. Se concede durante un máximo de 5 años consecutivos y su importe es igual al valor medio regional de la región donde se ubique la superficie de la explotación. Las mujeres jóvenes reciben un 15 % adicional del importe calculado para el pago joven.",
       "whoCanUseIt": "Personas con derecho a la ayuda básica a la renta que no hayan cumplido más de 40 años en el año natural de su primera solicitud subvencionable. Deben instalarse por primera vez como jefas de explotación, o haberse instalado en los cinco años naturales anteriores a la primera solicitud de ayuda básica; debe ser su primera incorporación como responsables de explotación en toda su vida laboral. Se exige alta en SETA o RETA por la actividad agraria y formación o capacitación agraria suficiente, o una ayuda de incorporación de jóvenes aprobada por un programa de desarrollo rural. Los requisitos deben cumplirse al finalizar el plazo de modificación de la solicitud única.",
       "howToAccess": "Solicitar el complemento mediante la solicitud única en la ficha AYUD0007T11 de miPrincipado. La presentación electrónica se realiza mediante la aplicación SGA enlazada en la ficha, con certificado digital o a través de entidades habilitadas utilizando la clave personal facilitada en las oficinas comarcales. La ficha contempla presentación en papel en los supuestos excepcionales indicados. La convocatoria 2026 está cerrada.",
@@ -345,6 +419,12 @@
         {
           "name": "Campaña 2026",
           "state": "CLOSED",
+          "sourceUrl": "https://miprincipado.asturias.es/ast/-/dboid-6269000015838602007573"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
           "sourceUrl": "https://miprincipado.asturias.es/ast/-/dboid-6269000015838602007573"
         }
       ],
@@ -371,7 +451,8 @@
             "Plazu zarráu",
             "Ayudas directas PAC 2026 BOPA 16 de marzo de 2026.",
             "Dicha presentación por medios electrónicos se realizará mediante la aplicación web SGA (https://sga.asturias.es/)",
-            "habilitada al efecto en esta misma página a través del enlace \"Tramitación Telemática\", bien con certificado digital o a través de las entidades habilitadas"
+            "habilitada al efecto en esta misma página a través del enlace \"Tramitación Telemática\", bien con certificado digital o a través de las entidades habilitadas",
+            "Llámanos al 985 27 91 00 o al 012"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -379,7 +460,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Servicio de Atención Ciudadana de miPrincipado",
+          "value": "985 27 91 00",
+          "sourceUrl": "https://miprincipado.asturias.es/ast/-/dboid-6269000015838602007573"
+        }
+      ]
     }
   ],
   "news": [],

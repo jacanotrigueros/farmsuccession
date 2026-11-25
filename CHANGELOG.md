@@ -18,6 +18,18 @@ after the version was closed and is not a part of it.
 - A record shows the code of its CAP plan intervention (38 records) and the act it rests on (3),
   each quoted from its source; contact points may name the areas they serve
   ([decision 040](decisions/040-a-plan-code-is-quoted-never-inferred.md)).
+- A record that applies a European or national measure links to it, and the measure's page lists the
+  records that apply it, by country and region (44 records, each named so by its own source). The
+  country file's `euCounterparts` is removed. **Breaking** for anyone validating the open data with the
+  earlier `edition.schema.json`; `schemaVersion` stays `1.0.0`
+  ([decision 041](decisions/041-a-measure-links-the-records-that-apply-it.md)).
+- A record can say that its official source was read and does not publish what a reader asks (who
+  can use it, how to access it, the amount, a contact, the cost, the training format, the land), and
+  the page says so in that row. 138 of the 168 Spanish records now answer every question a reader of
+  their kind brings, or say the source is silent, up from 30. From the 2027 edition the validator
+  rejects a record that leaves one of those questions open.
+- Icons for every fact of a record are drawn in the site's two-tone style, and long lists of
+  territories and records on a country page flow in two columns without gaps.
 
 ## 1.9.0 — 2026-11-08
 

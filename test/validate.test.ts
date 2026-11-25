@@ -77,6 +77,33 @@ test("news may link only what a reader of that file can see", () => {
   );
 });
 
+/** The whole edition, with North Isle's land bank claiming to apply the resource `id`. */
+const applying = (id: string): Array<{ file: string; data: EditionSnapshot }> => {
+  const north = fakeEdition();
+  const [bank, ...rest] = north.resources;
+  return edition(
+    [FAKE_COUNTRY_FILE, fakeCountryEdition()],
+    [SOUTH_ISLE_FILE, southIsle()],
+    [
+      FAKE_EDITION_FILE,
+      fakeEdition({ resources: [{ ...bank!, implements: [{ resourceId: id, named: "Plan", sourceUrl: bank!.accessUrl }] }, ...rest] }),
+    ],
+  );
+};
+
+test("a resource implements only a measure of a file it inherits", () => {
+  assert.equal(messages(checkEdition(applying("terra-nostra-establishment-aid"), territories).errors), "", "the country's measure");
+  assert.match(
+    messages(checkEdition(applying("south-isle-land-bank"), territories).errors),
+    /north-isle-land-bank implements "south-isle-land-bank", which is not a resource of a file it inherits/u,
+    "a sibling region's record is not the measure a region applies",
+  );
+  assert.match(
+    messages(checkEdition(applying("nowhere-at-all"), territories).errors),
+    /implements "nowhere-at-all", which is not a resource of a file it inherits/u,
+  );
+});
+
 test("a file may describe a figure of a layer it inherits, and only of a layer it inherits", () => {
   // The country's aid, quoted in the country's file. A region may not copy that fact into its own file,
   // so checking its summary against its own file alone would leave it nothing true to say.

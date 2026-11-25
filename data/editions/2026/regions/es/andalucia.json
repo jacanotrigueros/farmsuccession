@@ -156,6 +156,12 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.juntadeandalucia.es/boja/2024/197/1",
+          "title": "BOJA n.º 197 de 2024: convocatoria de las ayudas al establecimiento de jóvenes agricultores",
+          "consultedOn": "2026-11-24",
+          "quotes": ["La prima base por primera instalación será de 30.000 euros.", "La cuantía máxima de la ayuda será de 80.000 euros."]
         }
       ],
       "generatorId": "chatgpt-1",
@@ -163,6 +169,31 @@
         {
           "code": "6961.1",
           "sourceUrl": "https://www.juntadeandalucia.es/organismos/agriculturapescaaguaydesarrollorural/areas/infraestructuras-agrarias/modernizacion/paginas/establecimiento-jovenes-agricultores-2024-2027.html"
+        }
+      ],
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "6961.1",
+          "sourceUrl": "https://www.juntadeandalucia.es/organismos/agriculturapescaaguaydesarrollorural/areas/infraestructuras-agrarias/modernizacion/paginas/establecimiento-jovenes-agricultores-2024-2027.html"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Prima base por primera instalación",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2024-10-09",
+          "sourceUrl": "https://www.juntadeandalucia.es/boja/2024/197/1"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Cuantía máxima de la ayuda",
+          "value": 80000,
+          "unit": "EUR",
+          "asOf": "2024-10-09",
+          "sourceUrl": "https://www.juntadeandalucia.es/boja/2024/197/1"
         }
       ]
     },
@@ -244,6 +275,12 @@
       "accessUrl": "https://www.juntadeandalucia.es/agriculturaypesca/ifapa/web/formacion-y-transferencia/programa-incorporacion-empresa-agraria-andalucia",
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.juntadeandalucia.es/agriculturaypesca/ifapa/web/formacion-y-transferencia/programa-incorporacion-empresa-agraria-andalucia"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.juntadeandalucia.es/agriculturaypesca/ifapa/web/formacion-y-transferencia/programa-incorporacion-empresa-agraria-andalucia",
@@ -263,13 +300,22 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.juntadeandalucia.es/agriculturaypesca/ifapa/cursosyjornadas/es/curso/2026-s-z-d-1-2",
+          "title": "Actividades de formación y transferencia | IFAPA",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Los cursos que se realizan en la plataforma de Teleformación del IFAPA combinan el trabajo a distancia, la asistencia a sesiones presenciales prácticas y el apoyo permanente de las tutorías."
+          ]
         }
       ],
       "whoCanUseIt": "Personas que solicitan ayudas de primera instalación, la calificación de explotación prioritaria u otros procedimientos que exigen capacitación agraria.",
       "howToAccess": "Elegir el sector productivo y consultar las convocatorias en el Portal de Actividades de Formación y Transferencia del IFAPA. Se admite solicitud por el portal, en el centro IFAPA, en oficinas de registro o por registro electrónico. Consultar con la Oficina Comarcal Agraria o Delegación Territorial si se duda sobre el sector que corresponde.",
       "qualifiesForEstablishmentAid": true,
       "notes": "El programa completo permite acreditar capacitación para las ayudas de primera instalación; no equivale a obtener la ayuda. La duración depende del sector (240 o 270 horas); se requiere completar los módulos y, con las excepciones autorizadas, al menos el 90% de asistencia para certificar cada módulo. No se ha verificado el coste.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "trainingFormats": ["HYBRID"]
     },
     {
       "id": "andalucia-asesoramiento-jovenes-agricultores",
@@ -304,6 +350,12 @@
         }
       ],
       "notes": "El plazo cerrado de la convocatoria 2026 corresponde a las entidades, no a una nueva incorporación de jóvenes. El periodo financiable comienza el 10 de octubre de 2024 y termina con la publicación de la resolución de la convocatoria de establecimiento de 2024. La disponibilidad actual del servicio queda como «Estado no confirmado»: la convocatoria, por sí sola, no acredita atención abierta a nuevos usuarios.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.juntadeandalucia.es/boja/2026/33/1"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.juntadeandalucia.es/boja/2026/33/1",
@@ -335,6 +387,13 @@
           "code": "7202.06",
           "sourceUrl": "https://www.juntadeandalucia.es/boja/2026/33/1"
         }
+      ],
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "7202.06",
+          "sourceUrl": "https://www.juntadeandalucia.es/boja/2026/33/1"
+        }
       ]
     },
     {
@@ -363,6 +422,12 @@
         }
       ],
       "notes": "Servicio propio de acompañamiento, no una ayuda económica nueva ni una repetición de CULTIVA. La página no publica tarifas ni confirma acceso sin afiliación.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://coagalmeria.com/que-ofrecemos/"
+        }
+      ],
       "sources": [
         {
           "url": "https://coagalmeria.com/que-ofrecemos/",
@@ -429,6 +494,12 @@
         }
       ],
       "notes": "Se incorpora por el apoyo específico a la entrada en la actividad agraria, no por la tramitación genérica de la PAC. No se han verificado tarifas.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://upacordoba.es/ayudas-pac/"
+        }
+      ],
       "sources": [
         {
           "url": "https://upacordoba.es/ayudas-pac/",
@@ -473,12 +544,23 @@
         }
       ],
       "notes": "La referencia de edad de la web del proveedor no se convierte en un requisito de la ayuda autonómica: deben consultarse sus bases. Tarifas y obligación de afiliación no verificadas. Servicio provincial distinto del instrumento regional que tramita.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://upagranada.com/"
+        }
+      ],
       "sources": [
         {
           "url": "https://upagranada.com/",
           "title": "Servicios de UPA Granada",
           "consultedOn": "2026-09-27",
-          "quotes": ["Solicitud primera instalación jóvenes", "Gestionamos las ayudas de primera instalación", "en Granada"],
+          "quotes": [
+            "Solicitud primera instalación jóvenes",
+            "Gestionamos las ayudas de primera instalación",
+            "en Granada",
+            "Gestionamos las ayudas de primera instalación para fomentar la incorporación de menores de 40 años a la actividad agraria y ganadera en su propia explotación."
+          ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
@@ -495,7 +577,8 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "whoCanUseIt": "Personas menores de 40 años que quieren incorporarse a la actividad agraria y ganadera en su propia explotación."
     },
     {
       "id": "andalucia-escuela-pastores",
@@ -610,9 +693,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.bollullospardelcondado.es/ayuntamiento/ordenanzas/ordenanzas-urbanisticas-y-uso-del-suelo",
+          "title": "Ordenanzas Urbanisticas y uso del suelo",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Teléfono 959 87 80 01"]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Ayuntamiento de Bollullos Par del Condado",
+          "value": "959 87 80 01",
+          "sourceUrl": "https://www.bollullospardelcondado.es/ayuntamiento/ordenanzas/ordenanzas-urbanisticas-y-uso-del-suelo"
+        }
+      ]
     },
     {
       "id": "andalucia-ifapa-formacion-transferencia",

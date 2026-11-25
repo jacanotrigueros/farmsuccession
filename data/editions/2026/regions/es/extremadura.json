@@ -149,7 +149,8 @@
           "quotes": [
             "Desde: 22/01/2025 Hasta: 31/12/2026",
             "La cuantía de la prima básica se establece en 20.000 €.",
-            "resultando un máximo de 70.000 € de ayuda"
+            "resultando un máximo de 70.000 € de ayuda",
+            "Servicio de Ayudas Estructurales (DIR3: A11030486) Avenida Luis Ramallo, 06800, Mérida"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -157,7 +158,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Servicio de Ayudas Estructurales, Junta de Extremadura",
+          "value": "Avenida Luis Ramallo, 06800, Mérida",
+          "sourceUrl": "https://www.juntaex.es/w/3632"
+        }
+      ]
     },
     {
       "id": "extremadura-bolsa-tierras-regadio-botrex",
@@ -201,9 +210,23 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://bolsatierrasregadio.juntaex.es/contacto",
+          "title": "Contacto - Bolsa de Tierras de Regadío de Extremadura",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Teléfono 924 00 23 35"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Bolsa de Tierras de Regadío de Extremadura",
+          "value": "924 00 23 35",
+          "sourceUrl": "https://bolsatierrasregadio.juntaex.es/contacto"
+        }
+      ]
     },
     {
       "id": "extremadura-banco-tierras-pinofranqueado",
@@ -286,6 +309,16 @@
           "sourceUrl": "https://www.juntaex.es/es/w/20260609-manzano-recrimina-al-psoe-que-su-enmienda-es-una-confirmacion-a-la-totalidad-del-presupuesto-de-2026"
         }
       ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.juntaex.es/w/20260528-el-consejo-de-gobierno-aprueba-el-proyecto-de-ley-de-presupuestos-para-2026-que-ascienden-a-8.854-millones-de-euros"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.juntaex.es/w/20260528-el-consejo-de-gobierno-aprueba-el-proyecto-de-ley-de-presupuestos-para-2026-que-ascienden-a-8.854-millones-de-euros"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.juntaex.es/w/20260528-el-consejo-de-gobierno-aprueba-el-proyecto-de-ley-de-presupuestos-para-2026-que-ascienden-a-8.854-millones-de-euros",
@@ -333,6 +366,16 @@
       "accessCostType": "UNKNOWN",
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://www.apagextremaduraasaja.es/formacion-cursos-agrarios.html"
+        },
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.apagextremaduraasaja.es/formacion-cursos-agrarios.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.apagextremaduraasaja.es/formacion-cursos-agrarios.html",
@@ -387,6 +430,12 @@
       "accessCostType": "UNKNOWN",
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.apagextremaduraasaja.es/tramitacion-ayudas-agricolas-extremadura.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.apagextremaduraasaja.es/tramitacion-ayudas-agricolas-extremadura.html",
@@ -397,9 +446,25 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.apagextremaduraasaja.es/contactar.html",
+          "title": "Contactar con Apag Extremadura Asaja - Teléfono Asaja",
+          "consultedOn": "2026-11-24",
+          "quotes": [
+            "Puede contactar con APAG EXTREMADURA ASAJA directamente en su sede central Avda. de Portugal (P.I. CEPANSA) 06800 MÉRIDA (Badajoz), en el teléfono 924 389 386 o en el resto de la red de oficinas."
+          ]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "APAG Extremadura ASAJA, sede central",
+          "value": "924 389 386",
+          "sourceUrl": "https://www.apagextremaduraasaja.es/contactar.html"
+        }
+      ]
     },
     {
       "id": "extremadura-escuela-pastores-cooprado",
@@ -425,6 +490,16 @@
       ],
       "sectors": ["LIVESTOCK"],
       "trainingFormats": ["IN_PERSON"],
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://fundacion.cooprado.es/proyectos/escuela_pastores/"
+        },
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://fundacion.cooprado.es/proyectos/escuela_pastores/"
+        }
+      ],
       "sources": [
         {
           "url": "https://fundacion.cooprado.es/proyectos/escuela_pastores/",

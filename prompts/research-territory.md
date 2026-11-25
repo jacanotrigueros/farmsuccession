@@ -194,6 +194,27 @@ itself establishes an instrument of the families above.
      the resource only mentions (a procedure law, a definition of zones). When
      the quoted source is a guide, the act's official text may go in `actUrl`,
      which must also be one of the record's sources.
+   - `implements`: the higher-layer record this resource applies in its
+     territory — the European record, or the country's record for a regional
+     resource — with the words its own source uses for that measure, its plan
+     or its code in that plan ("PEPAC", "SRE01", "AITA"), quoted. Point at the
+     country's record when there is one, otherwise at the European record.
+     Mentioning a measure is not applying it: an advice service that helps
+     with CAP applications, or a portal that lists every call, gets none.
+   - Answer every question a reader of the resource's kind brings, while the
+     page is open. Financial support: who can use it, how to access it, the
+     amount one beneficiary gets (minimum, base and maximum when given; a total
+     budget is not one), the call dates, a contact. Land bank: who, how, the
+     land it handles, a contact. Succession service and advice: who, how, the
+     cost, a contact. Training: who, how, the format, the cost. Policy,
+     network and other: who, how. Official portal: how. Each answer is quoted.
+     When the page and the documents it links (its bases, its call) were read
+     and do not give an answer, record the question in `notPublished` with the
+     source read; for dates, a call with state NOT_PUBLISHED. A page that did
+     not load is not silent: record nothing for it and say so in the file's
+     notes. Never infer an answer (an activity on a plot does not make a course
+     in person), and never take it from another territory or year. From the
+     2027 edition the validator rejects a record that leaves a question open.
    - Fill the closed decision facets only when the source states them:
      `assetTypes` distinguishes plots from whole holdings; `sectors` records
      agriculture, livestock or forestry without inference; financial support

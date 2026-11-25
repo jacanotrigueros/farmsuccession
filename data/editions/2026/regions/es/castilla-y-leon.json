@@ -133,7 +133,8 @@
           "quotes": [
             "Esta ayuda tiene por objeto promover el establecimiento de personas jóvenes agricultores",
             "Serán beneficiarios los agricultores jóvenes que realicen su primer establecimiento y no hayan recibido ayuda de primera instalación.",
-            "Tener entre 18 y 40 años en el año de presentación de la solicitud de ayuda"
+            "Tener entre 18 y 40 años en el año de presentación de la solicitud de ayuda",
+            "Correo electrónico para consultas: modernizacion.jovenes.agdr@jcyl.es"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -172,6 +173,21 @@
         {
           "code": "6961.1",
           "sourceUrl": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1251181077965/Ayuda012/1285537308333/Propuesta"
+        }
+      ],
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "6961.1",
+          "sourceUrl": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/Plantilla100Detalle/1251181077965/Ayuda012/1285537308333/Propuesta"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Consultas de incorporación y modernización de explotaciones, Junta de Castilla y León",
+          "value": "modernizacion.jovenes.agdr@jcyl.es",
+          "sourceUrl": "https://agriculturaganaderia.jcyl.es/web/es/desarrollo-rural/ayudas-incorporacion.html"
         }
       ]
     },
@@ -220,7 +236,8 @@
           "consultedOn": "2026-09-27",
           "quotes": [
             "subvenciones dirigidas a promover la cooperación para la sucesión de explotaciones agrarias con el objetivo de favorecer el relevo generacional",
-            "que cedan su explotación agraria a otra persona física o jurídica que quiera sucederle"
+            "que cedan su explotación agraria a otra persona física o jurídica que quiera sucederle",
+            "Correo electrónico para consultas: ayuda.sucesionexplotaciones@jcyl.es"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -242,7 +259,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Consultas sobre ayudas a la sucesión de explotaciones agrarias",
+          "value": "ayuda.sucesionexplotaciones@jcyl.es",
+          "sourceUrl": "https://agriculturaganaderia.jcyl.es/web/es/ayudas-para-cooperacion-sucesion.html"
+        }
+      ]
     },
     {
       "id": "castilla-y-leon-banco-tierras-bierzo",
@@ -387,6 +412,12 @@
           "sourceUrl": "https://www.asajacyl.com/formacion/proximos-cursos"
         }
       ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://agriculturaganaderia.jcyl.es/web/es/formacion-agraria/cursos-incorporacion-empresa-agraria.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://agriculturaganaderia.jcyl.es/web/es/formacion-agraria/cursos-incorporacion-empresa-agraria.html",
@@ -496,9 +527,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/PlantillaSimpleDetalle/1251181050732/Ayuda012/1142233489060/DirectorioPadre?plantillaObligatoria=PlantillaContenidoDirectorio",
+          "title": "Servicio de Gestión de Derechos y Asesoramiento a Explotaciones | Sede Electrónica | Junta de Castilla y León",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Teléfono: 983 419 712"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Servicio de Gestión de Derechos y Asesoramiento a Explotaciones",
+          "value": "983 419 712",
+          "sourceUrl": "https://www.tramitacastillayleon.jcyl.es/web/jcyl/AdministracionElectronica/es/PlantillaSimpleDetalle/1251181050732/Ayuda012/1142233489060/DirectorioPadre?plantillaObligatoria=PlantillaContenidoDirectorio"
+        }
+      ]
     },
     {
       "id": "castilla-y-leon-asaja-asesoramiento-explotaciones",
@@ -518,6 +563,12 @@
       "languages": ["es"],
       "targetProfiles": ["GENERAL"],
       "notes": "La página de ASAJA describe el servicio, pero no identifica en la propia página la resolución de selección de ASAJA para la campaña vigente; por prudencia se conserva como «Estado no confirmado».",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.asajacyl.com/servicios-socio/asesoramiento-explotaciones/asesoramiento-las-explotaciones-agrarias-forestales-pymes-del-medio-rural"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.asajacyl.com/servicios-socio/asesoramiento-explotaciones/asesoramiento-las-explotaciones-agrarias-forestales-pymes-del-medio-rural",
@@ -526,7 +577,8 @@
           "quotes": [
             "ASAJA Castilla y León viene siendo entidad seleccionada para prestar el asesoramiento desde la primera convocatoria",
             "El servicio se presta en las siguientes oficinas:",
-            "sobre los requisitos, condiciones y compromisos establecidos en el Plan Estratégico de la PAC"
+            "sobre los requisitos, condiciones y compromisos establecidos en el Plan Estratégico de la PAC",
+            "info@asajacyl.com"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -534,7 +586,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ASAJA Castilla y León",
+          "value": "info@asajacyl.com",
+          "sourceUrl": "https://www.asajacyl.com/servicios-socio/asesoramiento-explotaciones/asesoramiento-las-explotaciones-agrarias-forestales-pymes-del-medio-rural"
+        }
+      ]
     },
     {
       "id": "castilla-y-leon-banco-tierras-san-esteban-del-valle",
@@ -584,9 +644,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.sanestebandelvalle.es/ayuntamiento.html",
+          "title": "San Esteban del Valle - Ayuntamiento",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Tel.: 920 38 33 21"]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Oficinas del Ayuntamiento de San Esteban del Valle",
+          "value": "920 38 33 21",
+          "sourceUrl": "https://www.sanestebandelvalle.es/ayuntamiento.html"
+        }
+      ]
     },
     {
       "id": "castilla-y-leon-banco-tierras-santa-maria-del-paramo",

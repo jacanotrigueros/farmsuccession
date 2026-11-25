@@ -419,9 +419,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.callosadesegura.es/el-ayuntamiento/concejalias/fomento-y-empleo-2/formulario-de-contacto-adl/",
+          "title": "Formulario de contacto ADL – Ayuntamiento",
+          "consultedOn": "2026-11-24",
+          "quotes": ["para gestionar la solicitud que realizas en este formulario de contacto."]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Agencia de Desarrollo Local del Ayuntamiento de Callosa de Segura",
+          "value": "https://www.callosadesegura.es/el-ayuntamiento/concejalias/fomento-y-empleo-2/formulario-de-contacto-adl/",
+          "sourceUrl": "https://www.callosadesegura.es/el-ayuntamiento/concejalias/fomento-y-empleo-2/formulario-de-contacto-adl/"
+        }
+      ]
     },
     {
       "id": "comunitat-valenciana-banco-tierras-pedreguer",
@@ -469,9 +483,23 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://pedreguer.es/es/contacte",
+          "title": "Contacto - Ajuntament de Pedreguer - Ajuntament de Pedreguer",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Regidoria de Medi Ambient"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Regidoria de Medi Ambient, Ajuntament de Pedreguer",
+          "value": "https://pedreguer.es/es/contacte",
+          "sourceUrl": "https://pedreguer.es/es/contacte"
+        }
+      ]
     },
     {
       "id": "comunitat-valenciana-curso-incorporacion-empresa-agraria",
@@ -508,7 +536,8 @@
           "quotes": [
             "El objetivo de este curso de 150 horas es capacitar a jóvenes agricultores para su incorporación profesional al sector agrario.",
             "Curso también aceptado por la Consellería de Agricultura de la Comunitat Valenciana",
-            "necesitan acreditar capacitación y competencia profesional según la Orden 7/2015"
+            "necesitan acreditar capacitación y competencia profesional según la Orden 7/2015",
+            "La matrícula queda confirmada con el pago"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -529,7 +558,8 @@
         }
       ],
       "notes": "La oferta formativa es actual y accionable, pero la página del proveedor sigue citando como referencia principal la Orden 7/2015. La convocatoria de ayudas vigente se rige por bases posteriores, por lo que la aceptación concreta del certificado bajo la normativa actual no se ha verificado de forma independiente en una lista oficial de cursos; por prudencia el estado es «Estado no confirmado».",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "accessCostType": "FEE_REQUIRED"
     },
     {
       "id": "comunitat-valenciana-la-unio-asesoramiento-primera-instalacion",
@@ -647,10 +677,24 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.eslida.es/es/contact",
+          "title": "Contacto | Ayuntamiento de Eslida",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Atender y gestionar las consultas, quejas, sugerencias y agradecimientos remitidos a través de este formulario."]
         }
       ],
       "notes": "La publicación acredita la aprobación definitiva de la ordenanza y describe el procedimiento previsto, pero no demuestra que el registro esté actualmente operativo ni que haya parcelas disponibles. Los acuerdos entre las partes serán libres y voluntarios y la cesión deberá destinarse a uso agrícola.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Ayuntamiento de Eslida, consultas municipales",
+          "value": "https://www.eslida.es/es/contact",
+          "sourceUrl": "https://www.eslida.es/es/contact"
+        }
+      ]
     },
     {
       "id": "comunitat-valenciana-banc-terres-chilches-xilxes",
@@ -690,10 +734,24 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://administracion.gob.es/espanaadmon/quienesquien/entidades-locales-ayuntamientos-estructuras-y-directorios?idProvincia=12&idUniOrganica=L01120537&idioma=gl",
+          "title": "Punto de Acceso General | Entidades Locales - Directorio y organigramas - España y su administración - Inicio",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Emails: ajuntament@xilxes.es"]
         }
       ],
       "notes": "La fuente es el reglamento municipal publicado en el boletín provincial. No acredita que actualmente existan parcelas disponibles ni que el servicio continúe atendiendo solicitudes.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ayuntamiento de Xilxes",
+          "value": "ajuntament@xilxes.es",
+          "sourceUrl": "https://administracion.gob.es/espanaadmon/quienesquien/entidades-locales-ayuntamientos-estructuras-y-directorios?idProvincia=12&idUniOrganica=L01120537&idioma=gl"
+        }
+      ]
     },
     {
       "id": "comunitat-valenciana-banco-tierras-vinaros",
@@ -713,6 +771,12 @@
       "sectors": ["AGRICULTURE"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER"],
       "lastEvidenceDate": "2016-06-18",
+      "notPublished": [
+        {
+          "question": "HOW_TO_ACCESS",
+          "sourceUrl": "https://www.vinaros.es/sites/default/files/2019-11/03237-2016.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.vinaros.es/sites/default/files/2019-11/03237-2016.pdf",
@@ -729,10 +793,24 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://agricultura.vinaros.es/",
+          "title": "Agricultura | Ajuntament de Vinaròs",
+          "consultedOn": "2026-11-24",
+          "quotes": ["Llamando al 964407700"]
         }
       ],
       "notes": "La fuente acredita la creación del fichero administrativo, pero no demuestra el funcionamiento actual del banco ni proporciona una vía de solicitud de parcelas. La oficina citada en el documento atiende derechos de protección de datos, no se identifica como punto de acceso al banco.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Ajuntament de Vinaròs",
+          "value": "964407700",
+          "sourceUrl": "https://agricultura.vinaros.es/"
+        }
+      ]
     },
     {
       "id": "comunitat-valenciana-red-tierras",

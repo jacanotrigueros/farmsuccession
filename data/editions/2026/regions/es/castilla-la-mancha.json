@@ -178,6 +178,13 @@
           "code": "6961.1",
           "sourceUrl": "https://docm.jccm.es/docm/verArchivoHtml.do?ruta=2025%2F12%2F26%2Fhtml%2F2025_9950.html&tipo=rutaDocm"
         }
+      ],
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "6961.1",
+          "sourceUrl": "https://docm.jccm.es/docm/verArchivoHtml.do?ruta=2025%2F12%2F26%2Fhtml%2F2025_9950.html&tipo=rutaDocm"
+        }
       ]
     },
     {
@@ -196,6 +203,16 @@
       "languages": ["es"],
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "YOUNG_FARMER", "NEW_ENTRANT"],
       "notes": "La ley crea el registro, pero hasta el 28 de septiembre de 2026 no se ha localizado una página de servicio con inventario consultable, inscripción de parcelas o solicitud de acceso. Se mantiene como «Anunciado, todavía no operativo» para separar existencia legal de disponibilidad real.",
+      "notPublished": [
+        {
+          "question": "HOW_TO_ACCESS",
+          "sourceUrl": "https://docm.jccm.es/portaldocm/verArchivoHtml.do?ruta=2023%2F04%2F17%2Fhtml%2F2023_3386.html&tipo=rutaDocm"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://docm.jccm.es/portaldocm/verArchivoHtml.do?ruta=2023%2F04%2F17%2Fhtml%2F2023_3386.html&tipo=rutaDocm"
+        }
+      ],
       "sources": [
         {
           "url": "https://docm.jccm.es/portaldocm/verArchivoHtml.do?ruta=2023%2F04%2F17%2Fhtml%2F2023_3386.html&tipo=rutaDocm",
@@ -203,7 +220,8 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "la creación de un Banco de Tierras Disponibles en Castilla-La Mancha",
-            "que facilite la puesta en contacto entre la oferta y la demanda de parcelas agrarias"
+            "que facilite la puesta en contacto entre la oferta y la demanda de parcelas agrarias",
+            "la puesta en contacto entre la oferta y la demanda de parcelas agrarias, cultivadas o cultivables, ubicadas en la Comunidad Autónoma de Castilla-La Mancha."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -211,7 +229,8 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "whoCanUseIt": "Quienes ofrecen y quienes buscan parcelas agrarias, cultivadas o cultivables, en Castilla-La Mancha."
     },
     {
       "id": "clm-capacitacion-incorporacion-empresa-agraria",
@@ -231,6 +250,12 @@
       "languages": ["es"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-03-04",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://pepac.castillalamancha.es/desarrollo-rural/programas-e-intervenciones/jovenes"
+        }
+      ],
       "sources": [
         {
           "url": "https://pepac.castillalamancha.es/desarrollo-rural/programas-e-intervenciones/jovenes",
@@ -252,7 +277,8 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "PROGRAMACIÓN 2026 ACTUACIONES DE TRANSFERENCIA DE CONOCIMIENTOS, FORMACIÓN E INFORMACIÓN",
-            "La solicitud de asistencia para participar en las acciones formativas puede descargarse desde el área de descarga de más abajo"
+            "La solicitud de asistencia para participar en las acciones formativas puede descargarse desde el área de descarga de más abajo",
+            "Las modalidades de impartición de las docencias podrán ser: 1. Presencial. 2. Teleformación. 3. Telepresencial."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -261,7 +287,8 @@
         }
       ],
       "notes": "Se registra la ruta regional de capacitación, que puede cursarse mediante la oferta de la Consejería o mediante formación homóloga.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "trainingFormats": ["IN_PERSON", "ONLINE"]
     },
     {
       "id": "clm-escuela-pastores",
@@ -350,6 +377,12 @@
       "accessUrl": "https://agroalimentariasclm.coop/consultoria/",
       "languages": ["es"],
       "targetProfiles": ["GENERAL", "YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://agroalimentariasclm.coop/consultoria/"
+        }
+      ],
       "sources": [
         {
           "url": "https://agroalimentariasclm.coop/consultoria/",
@@ -358,7 +391,8 @@
           "quotes": [
             "SERVICIO DE ASESORAMIENTO A EXPLOTACIONES (SAE).",
             "llevamos a cabo asesoramiento individualizado a cerca de 1.000 explotaciones de la región.",
-            "disponemos de aplicaciones informáticas sencillas y prácticas en Web para la gestión del servicio de asesoramiento"
+            "disponemos de aplicaciones informáticas sencillas y prácticas en Web para la gestión del servicio de asesoramiento",
+            "cooperativas@agroalimentariasclm.coop"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -367,7 +401,15 @@
         }
       ],
       "notes": "La página de servicio continúa publicada, pero no se ha localizado una ventana de ejecución fechada posterior a la del proyecto ya iniciado. Por ello la disponibilidad se mantiene como «Estado no confirmado» y no se presenta como una convocatoria abierta.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Cooperativas Agro-alimentarias Castilla-La Mancha",
+          "value": "cooperativas@agroalimentariasclm.coop",
+          "sourceUrl": "https://agroalimentariasclm.coop/consultoria/"
+        }
+      ]
     }
   ],
   "news": [

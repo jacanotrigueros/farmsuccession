@@ -178,6 +178,18 @@ export type RecordedResource = { resource: Resource; territory: Territory };
 export const records = (edition = currentEdition): RecordedResource[] =>
   territoriesOf(edition).flatMap((territory) => territory.data.resources.map((resource) => ({ resource, territory })));
 
+/** One record of the edition by its id, with the territory that recorded it. */
+export const recordById = (id: string, edition = currentEdition): RecordedResource | undefined =>
+  records(edition).find(({ resource }) => resource.id === id);
+
+/**
+ * The records that apply the measure `id` in their territory, each as its own source says (the record's
+ * `implements`). A region applying a national measure is found under that national record, not again
+ * under the European one: the chain is read one step at a time.
+ */
+export const implementationsOf = (id: string, edition = currentEdition): RecordedResource[] =>
+  records(edition).filter(({ resource }) => resource.implements?.some(({ resourceId }) => resourceId === id));
+
 /**
  * Where a record lives: one address, naming the record and nothing else.
  *

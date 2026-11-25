@@ -44,11 +44,16 @@ import {
   view,
   leafLayers,
   type RecordedResource,
+  implementationsOf,
+  recordById,
+  type Resource,
+  type Territory,
 } from "../lib/corpus.ts";
 import { goalOf } from "../lib/goals.ts";
 import { namesPlace } from "../lib/place-name.ts";
-import { ICON, PRACTICAL_ICON } from "../lib/icons.ts";
-import { dateIn } from "../lib/language.ts";
+import { flagOf, ICON, PRACTICAL_ICON } from "../lib/icons.ts";
+import { euCardIn } from "../lib/eu-presentation.ts";
+import { countryNameIn, dateIn } from "../lib/language.ts";
 import {
   assetLabel,
   channelLabel,
@@ -178,6 +183,32 @@ const feedbackQuery = new URLSearchParams({
 /** Actionable comments use the shared intake; no click pretends to record a vote. */
 const contact = "contact@farmsuccession.eu";
 
+/** The higher measures this record applies, as its own sources name them. */
+const applies = (resource.implements ?? []).flatMap(({ resourceId }) => recordById(resourceId) ?? []);
+
+/**
+ * The records that apply this one, grouped by the territory a reader would look under: the country for a
+ * European measure — its national record first, then the regions under it, which apply the national
+ * record rather than this one — and the region for a national measure.
+ */
+type Applied = { resource: Resource; territory: Territory };
+const below = implementationsOf(resource.id);
+const appliedGroups: Array<{ key: string; title: string; flag?: string; items: Array<Applied & { under?: Applied[] }> }> = [];
+for (const item of below) {
+  const country = item.territory.layer.level === "EU" ? "" : item.territory.layer.country;
+  const key = territory.layer.level === "EU" ? country : item.territory.data.officialName;
+  let group = appliedGroups.find((candidate) => candidate.key === key);
+  if (!group) {
+    group =
+      territory.layer.level === "EU"
+        ? { key, title: countryNameIn(country, language), flag: flagOf(country), items: [] }
+        : { key, title: item.territory.data.officialName, items: [] };
+    appliedGroups.push(group);
+  }
+  group.items.push({ ...item, under: territory.layer.level === "EU" ? implementationsOf(item.resource.id) : undefined });
+}
+appliedGroups.sort((a, b) => a.title.localeCompare(b.title, locale));
+
 const facts: Array<{ label: string; value: string; icon: string; datetime?: string; href?: string }> = [
   { label: text.territoryRow, value: place, icon: ICON.territory, href: href(territory.layer) },
   {
@@ -251,6 +282,37 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
   ...(resource.interventionCodes
     ? [{ label: text.planCodeRow, value: resource.interventionCodes.map(({ code }) => code).join(" · "), icon: ICON.planCode }]
     : []),
+  ...applies.map(({ resource: measure, territory: where }) => ({
+    label: text.appliesRow,
+    value: (where.layer.level === "EU" ? euCardIn(measure.id, measure.whatItOffers, language)?.name : undefined) ?? measure.name,
+    icon: ICON.applies,
+    href: recordHref(measure.id, where),
+  })),
+  /*
+    A question the source was read for and does not answer says so, in the row a reader looks in: "not
+    published by the official source" is an answer they can act on, where a missing row is not.
+  */
+  ...(resource.notPublished ?? []).map(({ question }) => ({
+    label: {
+      WHO_CAN_USE: text.whoTitle,
+      HOW_TO_ACCESS: text.accessTitle,
+      AMOUNT_PER_BENEFICIARY: text.amountRow,
+      CONTACT_CHANNEL: text.contactTitle,
+      ACCESS_COST: text.costRow,
+      TRAINING_FORMAT: text.taughtRow,
+      LAND_HANDLED: text.handlesRow,
+    }[question],
+    value: text.notPublishedValue,
+    icon: {
+      WHO_CAN_USE: ICON.profile,
+      HOW_TO_ACCESS: ICON.chevron,
+      AMOUNT_PER_BENEFICIARY: PRACTICAL_ICON.instrumentType!,
+      CONTACT_CHANNEL: ICON.operator,
+      ACCESS_COST: PRACTICAL_ICON.accessCostType!,
+      TRAINING_FORMAT: PRACTICAL_ICON.trainingFormats!,
+      LAND_HANDLED: PRACTICAL_ICON.assetTypes!,
+    }[question],
+  })),
   { label: text.runByRow, value: resource.operator, icon: ICON.operator },
   ...(resource.legalBasis
     ? [
@@ -283,16 +345,32 @@ const facts: Array<{ label: string; value: string; icon: string; datetime?: stri
   },
 ];
 
+/** The steps of reading a record that come before its facts; many records have none of them. */
+const readingSteps = new Set(["who", "access", "figures", "dates", "contacts", "applied"]);
 const sections = [
   ...(resource.whoCanUseIt ? [{ id: "who", label: text.whoTitle }] : []),
   ...(resource.howToAccess ? [{ id: "access", label: text.accessTitle }] : []),
   ...(forYou.length + otherFigures.length > 0 ? [{ id: "figures", label: text.figuresTitle }] : []),
   ...(resource.calls && resource.calls.length > 0 ? [{ id: "dates", label: text.navPeriods }] : []),
   ...(resource.contactPoints ? [{ id: "contacts", label: text.contactTitle }] : []),
+  ...(appliedGroups.length > 0
+    ? [
+        {
+          id: "applied",
+          label: territory.layer.level === "EU" ? text.appliedTitle : text.appliedTitleIn.replace("{where}", territory.data.officialName),
+        },
+      ]
+    : []),
   { id: "facts", label: text.factsTitle },
   ...(territory.layer.level === "EU" ? [{ id: "countries", label: text.euCountriesTitle }] : []),
   { id: "evidence", label: text.evidenceTitle },
 ];
+/**
+ * With no step of reading to sit beside, the facts panel is the body of the page: it takes the main
+ * column instead of standing at the right of an empty one, where a reader on a wide screen saw only
+ * white space under the summary and took the record to have no facts.
+ */
+const hasReadingSteps = sections.some(({ id }) => readingSteps.has(id));
 
 /**
  * The trail is how a reader moves, not how measures are inherited: it starts at the overview of every
@@ -433,174 +511,230 @@ const browseHere = searchUrl("/", {
 
     <PageIndex sections={sections} language={language} />
 
-    <div class="wrap grid gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_20rem]">
-      <div class="grid content-start gap-10">
-        {resource.whoCanUseIt && (
-          <section aria-labelledby="who">
-            <h2 id="who" class="scroll-mt-6 text-2xl font-bold">
-              {text.whoTitle}
-            </h2>
-            <p class="mt-3 max-w-3xl">{resource.whoCanUseIt}</p>
-          </section>
-        )}
-
-        {/* Without steps of its own the section only repeated the button at the top of the page. */}
-        {resource.howToAccess && (
-          <section aria-labelledby="access">
-            <h2 id="access" class="scroll-mt-6 text-2xl font-bold">
-              {text.accessTitle}
-            </h2>
-            <p class="mt-3 max-w-3xl">{resource.howToAccess}</p>
-          </section>
-        )}
-
-        {resource.notes && (
-          <section class="notice" aria-labelledby="notes">
-            <Icon name={ICON.note} aria-hidden="true" class="mt-1 size-5 shrink-0 text-accent" />
-            <div>
-              <h2 id="notes" class="scroll-mt-6 text-xl font-bold">
-                {text.notesTitle}
+    <div class:list={["wrap grid gap-10 py-12", hasReadingSteps && "lg:grid-cols-[minmax(0,1fr)_20rem]"]}>
+      {hasReadingSteps && (
+        <div class="grid content-start gap-10">
+          {resource.whoCanUseIt && (
+            <section aria-labelledby="who">
+              <h2 id="who" class="scroll-mt-6 text-2xl font-bold">
+                {text.whoTitle}
               </h2>
-              <p class="mt-2">{resource.notes}</p>
-            </div>
-          </section>
-        )}
+              <p class="mt-3 max-w-3xl">{resource.whoCanUseIt}</p>
+            </section>
+          )}
 
-        {/*
+          {/* Without steps of its own the section only repeated the button at the top of the page. */}
+          {resource.howToAccess && (
+            <section aria-labelledby="access">
+              <h2 id="access" class="scroll-mt-6 text-2xl font-bold">
+                {text.accessTitle}
+              </h2>
+              <p class="mt-3 max-w-3xl">{resource.howToAccess}</p>
+            </section>
+          )}
+
+          {resource.notes && (
+            <section class="notice" aria-labelledby="notes">
+              <Icon name={ICON.note} aria-hidden="true" class="mt-1 size-5 shrink-0 text-accent" />
+              <div>
+                <h2 id="notes" class="scroll-mt-6 text-xl font-bold">
+                  {text.notesTitle}
+                </h2>
+                <p class="mt-2">{resource.notes}</p>
+              </div>
+            </section>
+          )}
+
+          {/*
           Published per-beneficiary figures lead, as cards: they are the amounts a reader came for. A reader
           who finds "48.000 €" first knows in one second whether to keep reading. A total budget, a
           number of plots or of hours trained is about the instrument rather than about them, so it
           follows in a list, quieter. Each figure says the day it was published and which source said so,
           because a figure without a date is a rumour.
         */}
-        {forYou.length > 0 && (
-          <section aria-labelledby="figures">
-            <h2 id="figures" class="scroll-mt-6 text-2xl font-bold">
-              {text.howMuchTitle}
-            </h2>
-            <ul class="mt-5 grid gap-4 sm:grid-cols-2">
-              {forYou.map((metric) => {
-                const cited = sourceNumber.get(metric.sourceUrl);
-                return (
-                  <li class="rounded-r-lg border-s-4 border-accent bg-accent-tint p-5">
-                    <span class="block text-2xl font-bold text-ink tabular-nums">{quantity(metric.value, metric.unit, locale)}</span>
-                    <span class="mt-1 block">{metric.label}</span>
-                    <span class="meta mt-1 block">
-                      {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, locale)}</time>{" "}
-                      {cited && <SourceRef number={cited} language={language} />}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
-        )}
-
-        {otherFigures.length > 0 && (
-          <section aria-labelledby={forYou.length > 0 ? "other-figures" : "figures"}>
-            <h2 id={forYou.length > 0 ? "other-figures" : "figures"} class="scroll-mt-6 text-2xl font-bold">
-              {forYou.length > 0 ? text.otherFiguresTitle : text.figuresTitle}
-            </h2>
-            <ul class="mt-4 divide-y divide-line border-y border-line">
-              {otherFigures.map((metric) => {
-                const cited = sourceNumber.get(metric.sourceUrl);
-                return (
-                  <li class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
-                    <span class="shrink-0 text-lg font-bold text-ink tabular-nums sm:w-44">
-                      {quantity(metric.value, metric.unit, locale)}
-                    </span>
-                    <span>
-                      {metric.label}
-                      <span class="meta block">
+          {forYou.length > 0 && (
+            <section aria-labelledby="figures">
+              <h2 id="figures" class="scroll-mt-6 text-2xl font-bold">
+                {text.howMuchTitle}
+              </h2>
+              <ul class="mt-5 grid gap-4 sm:grid-cols-2">
+                {forYou.map((metric) => {
+                  const cited = sourceNumber.get(metric.sourceUrl);
+                  return (
+                    <li class="rounded-r-lg border-s-4 border-accent bg-accent-tint p-5">
+                      <span class="block text-2xl font-bold text-ink tabular-nums">{quantity(metric.value, metric.unit, locale)}</span>
+                      <span class="mt-1 block">{metric.label}</span>
+                      <span class="meta mt-1 block">
                         {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, locale)}</time>{" "}
                         {cited && <SourceRef number={cited} language={language} />}
                       </span>
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
-        )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          )}
 
-        {resource.calls && resource.calls.length > 0 && (
-          <section aria-labelledby="dates">
-            <h2 id="dates" class="scroll-mt-6 text-2xl font-bold">
-              {text.periodsTitle}
-            </h2>
-            <div class="mt-4">
-              <CallWindows calls={resource.calls} sources={resource.sources} language={language} locale={locale} />
-            </div>
-          </section>
-        )}
+          {otherFigures.length > 0 && (
+            <section aria-labelledby={forYou.length > 0 ? "other-figures" : "figures"}>
+              <h2 id={forYou.length > 0 ? "other-figures" : "figures"} class="scroll-mt-6 text-2xl font-bold">
+                {forYou.length > 0 ? text.otherFiguresTitle : text.figuresTitle}
+              </h2>
+              <ul class="mt-4 divide-y divide-line border-y border-line">
+                {otherFigures.map((metric) => {
+                  const cited = sourceNumber.get(metric.sourceUrl);
+                  return (
+                    <li class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
+                      <span class="shrink-0 text-lg font-bold text-ink tabular-nums sm:w-44">
+                        {quantity(metric.value, metric.unit, locale)}
+                      </span>
+                      <span>
+                        {metric.label}
+                        <span class="meta block">
+                          {text.asOf} <time datetime={metric.asOf}>{dateIn(metric.asOf, locale)}</time>{" "}
+                          {cited && <SourceRef number={cited} language={language} />}
+                        </span>
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          )}
 
-        {resource.contactPoints && (
-          <section aria-labelledby="contacts">
-            <h2 id="contacts" class="scroll-mt-6 text-2xl font-bold">
-              {text.contactTitle}
-            </h2>
-            <ul class="mt-5 grid gap-4">
-              {resource.contactPoints.map((contact) => (
-                <li class="card p-5 [overflow-wrap:anywhere]">
-                  <p class="font-bold">{contact.label}</p>
-                  <p class="meta">{channelLabel(contact.channel, language)}</p>
-                  {contact.areas && (
-                    <p class="meta flex items-center gap-1.5">
-                      <Icon name={ICON.area} aria-hidden="true" class="size-4 shrink-0" />
-                      {text.servesArea}: {contact.areas.join(" · ")}
-                    </p>
-                  )}
-                  <p class="flex min-h-(--spacing-target) flex-wrap items-center gap-x-2">
-                    {contact.channel === "EMAIL" && <a href={`mailto:${contact.value}`}>{contact.value}</a>}
-                    {contact.channel === "PHONE" && <a href={`tel:${contact.value.replace(/\s/gu, "")}`}>{contact.value}</a>}
-                    {contact.channel === "FORM" && (
-                      <a href={contact.value} rel="noopener">
-                        {text.openContactForm}
-                      </a>
+          {resource.calls && resource.calls.length > 0 && (
+            <section aria-labelledby="dates">
+              <h2 id="dates" class="scroll-mt-6 text-2xl font-bold">
+                {text.periodsTitle}
+              </h2>
+              <div class="mt-4">
+                <CallWindows calls={resource.calls} sources={resource.sources} language={language} locale={locale} />
+              </div>
+            </section>
+          )}
+
+          {resource.contactPoints && (
+            <section aria-labelledby="contacts">
+              <h2 id="contacts" class="scroll-mt-6 text-2xl font-bold">
+                {text.contactTitle}
+              </h2>
+              <ul class="mt-5 grid gap-4">
+                {resource.contactPoints.map((contact) => (
+                  <li class="card p-5 [overflow-wrap:anywhere]">
+                    <p class="font-bold">{contact.label}</p>
+                    <p class="meta">{channelLabel(contact.channel, language)}</p>
+                    {contact.areas && (
+                      <p class="meta flex items-center gap-1.5">
+                        <Icon name={ICON.area} aria-hidden="true" class="size-4 shrink-0" />
+                        {text.servesArea}: {contact.areas.join(" · ")}
+                      </p>
                     )}
-                    {contact.channel === "OFFICE" && <span>{contact.value}</span>}
-                  </p>
-                  <p>
-                    <a href={contact.sourceUrl} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center underline">
-                      {text.sourceShort}
-                    </a>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {news.length > 0 && (
-          <section aria-labelledby="news">
-            <h2 id="news" class="scroll-mt-6 text-2xl font-bold">
-              {text.newsTitle}
-            </h2>
-            <ul class="mt-4 space-y-5">
-              {news.map((item) => (
-                <li>
-                  <p class="meta">
-                    <time datetime={item.date}>{dateIn(item.date, locale)}</time> · {newsTypeLabel(item.type, language)}
-                  </p>
-                  <p class="font-semibold">{item.headline}</p>
-                  <p class="max-w-3xl">{item.summary}</p>
-                  <ul class="mt-1">
-                    {item.sources.map((source) => (
-                      <li class="meta">
-                        <a href={source.url} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center break-words">
-                          {source.title}
+                    <p class="flex min-h-(--spacing-target) flex-wrap items-center gap-x-2">
+                      {contact.channel === "EMAIL" && <a href={`mailto:${contact.value}`}>{contact.value}</a>}
+                      {contact.channel === "PHONE" && <a href={`tel:${contact.value.replace(/\s/gu, "")}`}>{contact.value}</a>}
+                      {contact.channel === "FORM" && (
+                        <a href={contact.value} rel="noopener">
+                          {text.openContactForm}
                         </a>
-                        {", "}
-                        {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, locale)}</time>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-      </div>
+                      )}
+                      {contact.channel === "OFFICE" && <span>{contact.value}</span>}
+                    </p>
+                    <p>
+                      <a href={contact.sourceUrl} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center underline">
+                        {text.sourceShort}
+                      </a>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {news.length > 0 && (
+            <section aria-labelledby="news">
+              <h2 id="news" class="scroll-mt-6 text-2xl font-bold">
+                {text.newsTitle}
+              </h2>
+              <ul class="mt-4 space-y-5">
+                {news.map((item) => (
+                  <li>
+                    <p class="meta">
+                      <time datetime={item.date}>{dateIn(item.date, locale)}</time> · {newsTypeLabel(item.type, language)}
+                    </p>
+                    <p class="font-semibold">{item.headline}</p>
+                    <p class="max-w-3xl">{item.summary}</p>
+                    <ul class="mt-1">
+                      {item.sources.map((source) => (
+                        <li class="meta">
+                          <a href={source.url} rel="noopener" class="inline-flex min-h-(--spacing-target) items-center break-words">
+                            {source.title}
+                          </a>
+                          {", "}
+                          {text.recordedOn} <time datetime={source.consultedOn}>{dateIn(source.consultedOn, locale)}</time>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/*
+          A framework record says what it is; the records under it say what a reader can actually ask for
+          where they live. Each link is the lower record's own claim, quoted from its source, so the list
+          says plainly that other applications may not be documented yet.
+        */}
+          {appliedGroups.length > 0 && (
+            <section aria-labelledby="applied">
+              <h2 id="applied" class="scroll-mt-6 text-2xl font-bold">
+                {territory.layer.level === "EU" ? text.appliedTitle : text.appliedTitleIn.replace("{where}", territory.data.officialName)}
+              </h2>
+              <p class="mt-2 max-w-3xl">{text.appliedLead}</p>
+              <div class="mt-5 grid gap-6 sm:grid-cols-2">
+                {appliedGroups.map((group) => (
+                  <div>
+                    <h3 class="flex items-center gap-2 font-bold">
+                      {group.flag && <img src={group.flag} alt="" width="24" height="16" class="h-4 w-6 shrink-0 rounded-xs" />}
+                      {group.title}
+                    </h3>
+                    <ul class="mt-2 grid gap-1">
+                      {group.items.map(({ resource: item, territory: where, under }) => (
+                        <li>
+                          <a
+                            href={recordHref(item.id, where)}
+                            lang={languageOf(where)}
+                            class="inline-flex min-h-(--spacing-target) items-center underline"
+                          >
+                            {territory.layer.level === "EU" && (where.layer.level === "REGION" || where.layer.level === "HUB")
+                              ? `${where.data.officialName}: ${item.name}`
+                              : item.name}
+                          </a>
+                          {under && under.length > 0 && (
+                            <ul class="ms-4 grid gap-1 border-s-2 border-line ps-3">
+                              {under.map(({ resource: leaf, territory: at }) => (
+                                <li>
+                                  <a
+                                    href={recordHref(leaf.id, at)}
+                                    lang={languageOf(at)}
+                                    class="inline-flex min-h-(--spacing-target) items-center underline"
+                                  >
+                                    {`${at.data.officialName}: ${leaf.name}`}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      )}
 
       {/* The facts are a panel rather than a section: they are what the record is, not a step of reading
         it, and beside the text they stay available while a reader works down the page. */}
@@ -608,7 +742,7 @@ const browseHere = searchUrl("/", {
         <h2 id="facts-title" class="scroll-mt-6 text-xl font-bold">
           {text.factsTitle}
         </h2>
-        <FactList rows={facts} />
+        <FactList rows={facts} wide={!hasReadingSteps} />
       </aside>
     </div>
 

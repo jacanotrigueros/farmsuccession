@@ -184,4 +184,7 @@ told.
 Current version. Each source records when its quotes were last found on the live page and how it was
 read. The per-file review state is removed. A record may give its plan's
 intervention codes, the acts it rests on and the areas each channel serves, each
-quoted (FS-025).
+quoted (FS-025), and the higher measure it applies, named as its source names it
+(decision 041). Every record answers the questions a reader of its kind brings, or says
+the source does not publish the answer; from 2027 a record with an open question is
+rejected.

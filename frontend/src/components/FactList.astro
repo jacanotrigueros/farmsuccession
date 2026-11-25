@@ -12,20 +12,24 @@
  * row by its mark before reading a word of it. A fact the record does not have is not shown — a label
  * with "unknown" beside it adds a line without adding an answer, and the record already says what it
  * does not know in its own words.
+ *
+ * `wide` is for a record with no text sections, where the panel is the whole body of the page: the
+ * rows then flow into two or three columns, because one narrow column left most of a wide screen
+ * empty and made a short record look long.
  */
 import { Icon } from "astro-icon/components";
 
 type Row = { label: string; value: string; icon: string; datetime?: string; href?: string };
 
-type Props = { rows: readonly Row[] };
-const { rows } = Astro.props;
+type Props = { rows: readonly Row[]; wide?: boolean };
+const { rows, wide = false } = Astro.props;
 ---
 
-<dl class="mt-5 divide-y divide-line">
+<dl class:list={["mt-5", wide ? "grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3" : "divide-y divide-line"]}>
   {rows.map(({ label, value, icon, datetime, href }) => (
-    <div class="py-3 first:pt-0 last:pb-0">
+    <div class:list={[wide ? "border-t border-line py-3" : "py-3 first:pt-0 last:pb-0"]}>
       <dt class="meta flex items-center gap-1.5 font-bold">
-        <Icon name={icon} aria-hidden="true" class="size-4 shrink-0" />
+        <Icon name={icon} aria-hidden="true" class="size-5 shrink-0" />
         {label}
       </dt>
       <dd class="mt-1">

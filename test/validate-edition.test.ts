@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 import { compileDefinition } from "../src/schema.ts";
-import type { Call, EditionSnapshot, Metric, NewsItem, Resource } from "../src/types/edition.ts";
+import type { NotPublished, Call, EditionSnapshot, Metric, NewsItem, Resource } from "../src/types/edition.ts";
 import { checkSemantics } from "../src/validate-edition.ts";
 import { FAKE_EDITION_FILE, fakeCountryEdition, fakeEdition, fakeResource, fakeSource, fakeTerritories } from "./fixtures.ts";
 
@@ -193,6 +193,65 @@ test("an office's areas, an intervention code and an act are quoted from the sou
   assert.match(
     errorsOf(withResource({ sources: [said], legalBasis: [{ ...act, title: "Land Act 5/2021" }] })),
     /legal act "Land Act 5\/2021" is not named in the cited source quotes/u,
+  );
+});
+
+test("a record applies a higher measure only where its source names it", () => {
+  const page = "https://example.test/land-bank";
+  const said = fakeSource({ quotes: ["Installation aid under intervention SRE01 of the national CAP plan."] });
+  const link = { resourceId: "terra-nostra-establishment-aid", named: "SRE01", sourceUrl: page } as const;
+  assert.equal(errorsOf(withResource({ sources: [said], implements: [link] })), "");
+  assert.match(
+    errorsOf(withResource({ sources: [said], implements: [{ ...link, named: "PEPAC" }] })),
+    /implements "terra-nostra-establishment-aid": "PEPAC" is not present in the cited source quotes/u,
+    "a link to a measure is never inferred from a resemblance",
+  );
+  assert.match(
+    errorsOf(withResource({ sources: [said], implements: [{ ...link, sourceUrl: "https://example.test/elsewhere" }] })),
+    /implements "terra-nostra-establishment-aid" cites https:\/\/example.test\/elsewhere, which is not one of its sources/u,
+  );
+});
+
+test("from 2027 a record goes out only when it answers its reader's questions or says the source is silent", () => {
+  const page = "https://example.test/land-bank";
+  const open = fakeResource({ kind: "OFFICIAL_PORTAL" });
+  const in2026 = fakeEdition({ resources: [open] });
+  assert.doesNotMatch(errorsOf(in2026), /leaves HOW_TO_ACCESS open/u, "the 2026 edition is completed in place, not blocked");
+  const in2027 = { ...in2026, edition: "2027" };
+  assert.match(
+    errorsOf(in2027),
+    /leaves HOW_TO_ACCESS open/u,
+    "a 2027 record that answers nothing is a link the reader still has to research",
+  );
+  const declared = {
+    ...in2027,
+    resources: [{ ...open, notPublished: [{ question: "HOW_TO_ACCESS", sourceUrl: page }] as [NotPublished] }],
+  };
+  assert.doesNotMatch(errorsOf(declared), /leaves HOW_TO_ACCESS open/u);
+});
+
+test("a record says a source is silent only about what it does not answer", () => {
+  const page = "https://example.test/land-bank";
+  assert.equal(errorsOf(withResource({ notPublished: [{ question: "CONTACT_CHANNEL", sourceUrl: page }] })), "");
+  assert.match(
+    errorsOf(withResource({ notPublished: [{ question: "CONTACT_CHANNEL", sourceUrl: "https://example.test/elsewhere" }] })),
+    /not published CONTACT_CHANNEL cites https:\/\/example.test\/elsewhere, which is not one of its sources/u,
+  );
+  assert.match(
+    errorsOf(withResource({ whoCanUseIt: "Anyone farming on the island.", notPublished: [{ question: "WHO_CAN_USE", sourceUrl: page }] })),
+    /not published WHO_CAN_USE, yet the record answers it/u,
+    "a record cannot say both who it is for and that the source does not say",
+  );
+  assert.match(
+    errorsOf(
+      withResource({
+        notPublished: [
+          { question: "ACCESS_COST", sourceUrl: page },
+          { question: "ACCESS_COST", sourceUrl: page },
+        ],
+      }),
+    ),
+    /not published ACCESS_COST is listed twice/u,
   );
 });
 

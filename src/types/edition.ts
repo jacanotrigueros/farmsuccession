@@ -242,9 +242,21 @@ export interface Resource {
    */
   legalBasis?: [LegalAct, ...LegalAct[]];
   /**
+   * The higher-layer resources — European, or national for a regional record — that this resource applies in its territory, where its own source names that measure, its plan or its code in that plan. A regional first-establishment aid run under a country's CAP plan implements the country's record of that plan, or the European record when the country has none. Mentioning a measure is not applying it: an advice service that helps with CAP applications implements nothing. Omit rather than infer one.
+   *
+   * @minItems 1
+   */
+  implements?: [Implementation, ...Implementation[]];
+  /**
    * Every application period documented for this resource, past and future. Keeping them here is what stops a closed call from making the programme itself look gone.
    */
   calls?: Call[];
+  /**
+   * Answers a reader needs that the resource's sources were read for and do not give: who can use it, how to access it, the amount one beneficiary gets, a contact, the cost, the training format, or the land it handles. Saying so tells the reader the record was checked and the official page is silent, which an empty field cannot. The dates of a call use a call with state NOT_PUBLISHED instead. Never set beside the field that answers the same question.
+   *
+   * @minItems 1
+   */
+  notPublished?: [NotPublished, ...NotPublished[]];
   /**
    * Whether using the resource costs the reader anything. NOT_APPLICABLE for something that is not accessed at all, such as a policy framework.
    */
@@ -362,6 +374,23 @@ export interface LegalAct {
   actUrl?: string;
 }
 /**
+ * One higher-layer resource this resource applies, with the words its source uses for it.
+ */
+export interface Implementation {
+  /**
+   * The id of the resource applied. It belongs to a file this one inherits: the European file, or the country's file for a region.
+   */
+  resourceId: string;
+  /**
+   * How the cited source names the measure, its plan or its code in that plan, exactly as written, for example "PEPAC", "SRE01" or "AITA". It appears in a quote of the cited source.
+   */
+  named: string;
+  /**
+   * The one source of this resource whose quotes name the measure.
+   */
+  sourceUrl: string;
+}
+/**
  * One application period. The programme stays a single resource and its calls are listed here, so a closed call never makes the programme itself look gone.
  */
 export interface Call {
@@ -377,6 +406,26 @@ export interface Call {
   closes?: IsoDate;
   /**
    * The one source of this resource that shows the period.
+   */
+  sourceUrl: string;
+}
+/**
+ * One reader question the cited source was read for and does not answer.
+ */
+export interface NotPublished {
+  /**
+   * WHO_CAN_USE: who can use it. HOW_TO_ACCESS: how to access it. AMOUNT_PER_BENEFICIARY: what one beneficiary gets. CONTACT_CHANNEL: a public channel. ACCESS_COST: what using it costs. TRAINING_FORMAT: how training is delivered. LAND_HANDLED: what land or holdings it handles.
+   */
+  question:
+    | "WHO_CAN_USE"
+    | "HOW_TO_ACCESS"
+    | "AMOUNT_PER_BENEFICIARY"
+    | "CONTACT_CHANNEL"
+    | "ACCESS_COST"
+    | "TRAINING_FORMAT"
+    | "LAND_HANDLED";
+  /**
+   * The source read for the answer, whose consultation date says when it was silent. It is the resource's main page for the question, usually its accessUrl.
    */
   sourceUrl: string;
 }
@@ -520,15 +569,6 @@ export interface CountryIdentity {
    * Optional short search description of the country page, in its language. The public summary is used when this is absent.
    */
   metaDescription?: string;
-  /**
-   * Optional cross-references from European resource IDs to national resource IDs in this snapshot that explain their implementation.
-   */
-  euCounterparts?: {
-    /**
-     * @minItems 1
-     */
-    [k: string]: [Slug, ...Slug[]];
-  };
   countryContext?: CountryContext;
 }
 /**
