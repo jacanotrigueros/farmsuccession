@@ -144,7 +144,8 @@ test("a record that documents a call says which one, before a result runs out of
   const SNIPPET = 155;
   let checked = 0;
   for (const { snapshot, resource } of entries) {
-    const calls = resource.calls ?? [];
+    // A call the source does not publish carries nothing a reader types, so it does not lead the result.
+    const calls = (resource.calls ?? []).filter(({ state }) => state !== "NOT_PUBLISHED");
     if (calls.length === 0) continue;
     const country = "country" in snapshot ? snapshot.country.toLowerCase() : "";
     const route = `${country ? `${country}/` : ""}${recordSlug(country.toUpperCase())}/${resource.id}/`;

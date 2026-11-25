@@ -143,8 +143,14 @@ const SNIPPET = 155;
 const callYear = (call: { name: string; opens?: string; closes?: string }): string =>
   (call.closes ?? call.opens ?? /\b20\d{2}\b/u.exec(call.name)?.[0] ?? "").slice(0, 4);
 
-/** The latest call the record documents: the one a reader searching this year is looking for. */
-const documentedCall = (resource.calls ?? []).toSorted((a, b) => callYear(a).localeCompare(callYear(b))).at(-1);
+/**
+ * The latest call the record documents: the one a reader searching this year is looking for. A call the
+ * source does not publish has no name or year a reader would type, so it never leads the result.
+ */
+const documentedCall = (resource.calls ?? [])
+  .filter(({ state }) => state !== "NOT_PUBLISHED")
+  .toSorted((a, b) => callYear(a).localeCompare(callYear(b)))
+  .at(-1);
 
 /**
  * A call is named the way its source names it. The longest name in this edition is 69 characters, which
