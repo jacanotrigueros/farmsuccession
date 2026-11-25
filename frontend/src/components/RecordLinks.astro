@@ -6,6 +6,7 @@
  */
 import { Icon } from "astro-icon/components";
 import { languageOf, localeOf, recordHref, type Resource, type Territory } from "../lib/corpus.ts";
+import { isFirstEstablishmentAid } from "../lib/goals.ts";
 import { kindIcon } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
 import { callStateLabel } from "../lib/vocabulary.ts";
@@ -27,7 +28,7 @@ const recordLanguage = languageOf(place);
     .toSorted((a, b) => a.name.localeCompare(b.name, language))
     .map((resource) => {
       // Show a dated closure when the record documents a single call. Several calls need the full context of the record page.
-      const call = featured && resource.calls?.length === 1 ? resource.calls[0] : undefined;
+      const call = isFirstEstablishmentAid(resource) && resource.calls?.length === 1 ? resource.calls[0] : undefined;
       const closedOn = call?.state === "CLOSED" ? resource.sources.find(({ url }) => url === call.sourceUrl)?.consultedOn : undefined;
       return (
         <li>

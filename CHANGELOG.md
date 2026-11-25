@@ -10,6 +10,22 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.0.1 — 2026-11-25
+
+Cards and lists line up across the site, so a page reads in order instead of as boxes of every
+height. No data changes, so only the last digit moves.
+
+- A country's territories read in rows: two territories side by side share one height, and their
+  "other resources" line sits at the same level. Each row takes the height of its own cards, so a
+  territory with only its name is no longer as tall as one with three grants.
+- Every grant to set up for the first time is shown under its territory with its whole name, as
+  before; the names that tell two grants apart (young farmers or young livestock farmers, part-time
+  or professional) are not cut short.
+- Record cards on territory pages, country and topic cards, search results and the list shown
+  without JavaScript keep one height per list, with their territory and operator on the last line;
+  titles and summaries are shortened to a few lines and the record page keeps them whole.
+- Application panels of a record with several calls align their checked date and source link.
+
 ## 2.0.0 — 2026-11-25
 
 A record now answers what a reader of its kind asks, or says that its official source does not
