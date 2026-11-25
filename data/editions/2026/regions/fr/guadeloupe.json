@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "guadeloupe",
   "officialName": "Guadeloupe",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "En Guadeloupe, la Région gère une aide FEADER à l'installation des jeunes agriculteurs. La Safer accompagne l'accès au foncier et la transmission de biens, mais ne présente actuellement aucun appel à candidatures ouvert. Guadeloupe AgroCampus propose un stage de préinstallation de 21 heures.",
   "coverage": {
     "status": "PARTIAL",
@@ -105,6 +105,13 @@
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "notes": "La fiche distingue les installations à titre principal et secondaire. Le plafond affiché pour une installation principale est de 100 000 € ; les modulations et les conditions de versement figurent dans la notice.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "FEADER 75.01",
+          "sourceUrl": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_aides-a-linstallation-en-agriculture/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_aides-a-linstallation-en-agriculture/",
@@ -114,7 +121,9 @@
             "L’intervention stratégique régionale FEADER 75.01, gérée par la Région Guadeloupe",
             "Limite d’âge maximale fixée à 40 ans",
             "Un montant plafond de 100 000 €",
-            "Dépôt des demandes de financement en continu"
+            "Dépôt des demandes de financement en continu",
+            "projets-feader-feamp@regionguadeloupe.fr",
+            "L’intervention stratégique régionale FEADER 75.01, gérée par la Région Guadeloupe, vise à aider l’installation de jeunes agriculteurs"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -142,10 +151,18 @@
           "sourceUrl": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_aides-a-linstallation-en-agriculture/"
         }
       ],
-      "implements": [
+      "calls": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "75.01",
+          "name": "Aides à l'installation en agriculture — intervention FEADER 75.01",
+          "state": "OPEN",
+          "sourceUrl": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_aides-a-linstallation-en-agriculture/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Région Guadeloupe – Direction instruction FEADER-FEAMPA",
+          "value": "projets-feader-feamp@regionguadeloupe.fr",
           "sourceUrl": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_aides-a-linstallation-en-agriculture/"
         }
       ]
@@ -325,6 +342,16 @@
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
       "notes": "La page relie explicitement le CEPPP et le stage à la préinstallation. Elle ne précise ni la prochaine date ni le coût.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://guadeloupeagrocampus.fr/cfppa/autres-formations/ceppp-et-stage-21-heures"
+        },
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://guadeloupeagrocampus.fr/cfppa/autres-formations/ceppp-et-stage-21-heures"
+        }
+      ],
       "sources": [
         {
           "url": "https://guadeloupeagrocampus.fr/cfppa/autres-formations/ceppp-et-stage-21-heures",
@@ -400,6 +427,13 @@
         }
       ],
       "notes": "Le financement est destiné aux structures de conseil et non à un versement direct aux jeunes agriculteurs. Un plafond par conseil ou par conseiller pourra être précisé dans les appels à projets.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-strategic-plans",
+          "named": "FEADER 78.01",
+          "sourceUrl": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_conseils-echanges-de-connaissance/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_conseils-echanges-de-connaissance/",
@@ -424,12 +458,19 @@
             "Un montant maximal par conseil ou par conseiller pourra être précisé dans le cadre des appels à projets",
             "Direction instruction FEADER-FEAMPA",
             "projets-feader-feamp@regionguadeloupe.fr",
-            "Le Plan stratégique d’intervention régional Guadeloupe FEADER 2023-2027 (version avril 2026)"
+            "Le Plan stratégique d’intervention régional Guadeloupe FEADER 2023-2027 (version avril 2026)",
+            "L’intervention stratégique régionale FEADER 78.01, gérée par la Région Guadeloupe, vise à améliorer la diffusion de connaissances"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.europe-guadeloupe.fr/wp-content/uploads/2025/06/AAP1_RDR4_78_01_modif2_mai25.pdf",
+          "title": "Appel à projets FEADER 78.01 (PDF, Europe en Guadeloupe)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Date d’ouverture : 17 décembre 2024 Date de clôture : 6 juin 2025"]
         }
       ],
       "generatorId": "chatgpt-3",
@@ -437,6 +478,15 @@
         {
           "code": "78.01",
           "sourceUrl": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_conseils-echanges-de-connaissance/"
+        }
+      ],
+      "calls": [
+        {
+          "name": "APPEL A PROJET n°1 : Accès à la formation, au conseil, actions de diffusion et échanges de connaissances et d’informations",
+          "state": "CLOSED",
+          "opens": "2024-12-17",
+          "closes": "2025-06-06",
+          "sourceUrl": "https://www.europe-guadeloupe.fr/wp-content/uploads/2025/06/AAP1_RDR4_78_01_modif2_mai25.pdf"
         }
       ]
     },
@@ -464,6 +514,13 @@
         }
       ],
       "notes": "Le coût total minimal du projet est de 5 000 € HT pour les plantations pérennes et de 15 000 € HT pour les autres opérations. Les taux d’aide varient selon les bénéficiaires et les investissements, avec des règles spécifiques pour l’irrigation.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-strategic-plans",
+          "named": "FEADER 73.01",
+          "sourceUrl": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_investissements-exploitations-agricoles/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.europe-guadeloupe.fr/financement/feader-region-guadeloupe_investissements-exploitations-agricoles/",
@@ -486,7 +543,8 @@
             "Votre projet est prêt ? Rendez- vous dans la rubrique Faire une demande d’aide",
             "Direction instruction FEADER-FEAMPA",
             "projets-feader-feamp@regionguadeloupe.fr",
-            "Le Plan stratégique d’intervention régional Guadeloupe FEADER 2023-2027 (version avril 2026)"
+            "Le Plan stratégique d’intervention régional Guadeloupe FEADER 2023-2027 (version avril 2026)",
+            "L’intervention stratégique régionale FEADER 73.01, gérée par la Région Guadeloupe, vise à encourager le développement, la modernisation et la diversification"
           ],
           "verification": {
             "checkedOn": "2026-11-24",

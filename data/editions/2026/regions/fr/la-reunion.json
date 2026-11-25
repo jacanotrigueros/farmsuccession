@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "la-reunion",
   "officialName": "La Réunion",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "À La Réunion, la Safer publie des avis d’appel à candidature pour rétrocéder des terres agricoles, des exploitations et des propriétés rurales, et accompagne les candidats jusqu’à la signature de l’acte ; l’aide à l’installation des jeunes agriculteurs n’a pas pu être citée sur une source lisible.",
   "coverage": {
     "status": "PARTIAL",
@@ -96,9 +96,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.safer-reunion.fr/",
+          "title": "SAFER Réunion | Aménagement & développement de l'espace rural | Saint-Denis",
+          "consultedOn": "2026-11-25",
+          "quotes": ["contact@safer-reunion.fr"]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Safer Réunion",
+          "value": "contact@safer-reunion.fr",
+          "sourceUrl": "https://www.safer-reunion.fr/"
+        }
+      ]
     },
     {
       "id": "la-reunion-terres-incultes",
@@ -124,7 +138,9 @@
             "besoins en installation des nouveaux agriculteurs, besoins en agrandissement des actifs, protection du foncier agricole par la reconquête de terres agricoles en friche",
             "Les recensements s’opèrent sur la base d’inventaires réalisés par la cellule Terres Incultes.",
             "Vous souhaitez nous informer d'une parcelle en friche",
-            "Terrain en friche Pour nous informer, veuillez prendre le temps de remplir les informations ci-dessous."
+            "Terrain en friche Pour nous informer, veuillez prendre le temps de remplir les informations ci-dessous.",
+            "besoins en installation des nouveaux agriculteurs, besoins en agrandissement des actifs",
+            "Pour nous informer, veuillez prendre le temps de remplir les informations ci-dessous."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -145,7 +161,16 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "whoCanUseIt": "Nouveaux agriculteurs qui cherchent à s’installer et agriculteurs en activité qui cherchent à agrandir leur exploitation. La Safer propose aussi un formulaire pour signaler une parcelle en friche.",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Safer Réunion – signalement d’une parcelle en friche",
+          "value": "https://www.safer-reunion.fr/terres-en-friche",
+          "sourceUrl": "https://www.safer-reunion.fr/terres-en-friche"
+        }
+      ]
     },
     {
       "id": "la-reunion-safer-transmission",
@@ -162,6 +187,12 @@
       "howToAccess": "Remplir le formulaire de la page : un conseiller foncier prend contact pour étudier le projet et proposer les services adaptés. Une évaluation peut faire l’objet d’un devis sur simple demande.",
       "accessUrl": "https://www.safer-reunion.fr/vendre-et-transmettre",
       "targetProfiles": ["LANDOWNER", "TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.safer-reunion.fr/vendre-et-transmettre"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.safer-reunion.fr/vendre-et-transmettre",
@@ -202,7 +233,9 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "Le Répertoire Départ Installation (RDI) géré par la Chambre d’Agriculture de La Réunion.",
-            "mettre en relation des propiétaires de fonciers avec des candidats à l’installation."
+            "mettre en relation des propiétaires de fonciers avec des candidats à l’installation.",
+            "Répertoire Départ Installation (RDI) Chambre d’agriculture Antenne de Trois-Bassins",
+            "Tél : 0262 24 82 88"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -211,7 +244,16 @@
         }
       ],
       "whoCanUseIt": "Propriétaires qui proposent du foncier et personnes à la recherche d’une terre ou d’une exploitation.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "howToAccess": "Pour rechercher du foncier via le RDI, s’adresser à l’antenne de Trois-Bassins de la Chambre d’agriculture.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "RDI – Chambre d’agriculture, antenne de Trois-Bassins",
+          "value": "0262 24 82 88",
+          "sourceUrl": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf"
+        }
+      ]
     },
     {
       "id": "la-reunion-point-accueil-installation",
@@ -233,7 +275,8 @@
           "quotes": [
             "Le Point Accueil Installation est la porte d’entrée de votre installation, labellisé par l’Etat.",
             "le PAI vous accueille, informe, conseille, et oriente durant votre première phase d’installation.",
-            "aide également au remplissage de votre autodiagnostic."
+            "aide également au remplissage de votre autodiagnostic.",
+            "pai@reunion.chambagri.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -243,7 +286,15 @@
       ],
       "whoCanUseIt": "Personnes qui préparent une installation agricole à La Réunion.",
       "howToAccess": "S’adresser au Point Accueil Installation de la Chambre d’agriculture avant les premières démarches.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Point Accueil Installation – Chambre d’agriculture de La Réunion",
+          "value": "pai@reunion.chambagri.fr",
+          "sourceUrl": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf"
+        }
+      ]
     },
     {
       "id": "la-reunion-dotation-jeune-agriculteur",
@@ -257,6 +308,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide de la Chambre d’agriculture de 2023 présente la DJA parmi les aides à l’installation. Le guide FEADER 2023–2027 fixe pour la TI 75.011 un montant de base de 30 000 €, modulable jusqu’à 100 000 €, et prévoit un plan d’entreprise.",
       "accessUrl": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "TI 75.011",
+          "sourceUrl": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf",
@@ -265,7 +323,9 @@
           "quotes": [
             "Certaines demandes d’aides telles que la DJA doivent être demandées AVANT d’effectuer les",
             "démarches administratives d’installation.",
-            "Point Accueil Installation."
+            "Point Accueil Installation.",
+            "La DJA est une aide en trésorerie de 30 000 € minimum à 99 000 € maximum.",
+            "instructionfeader@cg974.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -302,11 +362,30 @@
           "sourceUrl": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf"
         }
       ],
-      "implements": [
+      "metrics": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "TI 75.011",
-          "sourceUrl": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf"
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "DJA – minimum",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2023-01-01",
+          "sourceUrl": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "DJA – maximum",
+          "value": 99000,
+          "unit": "EUR",
+          "asOf": "2023-01-01",
+          "sourceUrl": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Département de La Réunion – Service Instruction FEADER",
+          "value": "instructionfeader@cg974.fr",
+          "sourceUrl": "https://daaf.reunion.agriculture.gouv.fr/IMG/pdf/guide_installation_2023_vdef.pdf"
         }
       ]
     },
@@ -322,6 +401,19 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Pour le programme FEADER 2023–2027, le guide indique un financement à 80 % des travaux et frais généraux éligibles. L’aménagement vise notamment à faciliter la mécanisation, la diversification et le renouvellement des générations.",
       "accessUrl": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf",
+      "implements": [
+        {
+          "resourceId": "eu-cap-strategic-plans",
+          "named": "TI 73.018",
+          "sourceUrl": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf",
@@ -335,7 +427,9 @@
             "Sociétés agricoles",
             "www.europac.cd974.re",
             "AIDES FEADER LIÉES AU PLAN STRATÉGIQUE NATIONAL (PSN) 2023-2027",
-            "Aide aux travaux d’aménagement foncier et territoires prioritaires (TI 73.018)"
+            "Aide aux travaux d’aménagement foncier et territoires prioritaires (TI 73.018)",
+            "instructionfeader@cg974.fr",
+            "AIDE AUX TRAVAUX D’AMÉNAGEMENT FONCIER ET TERRITOIRES PRIORITAIRES (TI 73.018)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -349,6 +443,14 @@
       "interventionCodes": [
         {
           "code": "TI 73.018",
+          "sourceUrl": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Département de La Réunion – Instruction FEADER",
+          "value": "instructionfeader@cg974.fr",
           "sourceUrl": "https://departement974.fr/sites/default/files/guide_des_aides_agricoles_feader_-_23-27.pdf"
         }
       ]

@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "ile-de-france",
   "officialName": "Île-de-France",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "En Île-de-France, l’accès à la terre passe par deux opérateurs vérifiables : Île-de-France Nature, qui loue ses terres agricoles et porte du foncier pour installer des agriculteurs en zone périurbaine avec la Safer, et la Safer de l’Île-de-France, qui accompagne les cédants dans la transmission de leur exploitation.",
   "coverage": {
     "status": "PARTIAL",
@@ -69,6 +69,12 @@
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "languages": ["fr"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "LANDOWNER", "NEW_ENTRANT", "LAND_SEEKER", "YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/transmettre-une-exploitation-agricole/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.saferidf.fr/la-safer-accompagne-les-agriculteurs/transmettre-une-exploitation-agricole/",
@@ -93,7 +99,8 @@
             "Secteurs Nord Seine et Marne, Seine-Saint-Denis",
             "Secteur Yvelines",
             "Secteur Val-d’Oise",
-            "Secteur Essonne/Val-de-Marne"
+            "Secteur Essonne/Val-de-Marne",
+            "safer@safer-idf.com"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -134,7 +141,15 @@
         }
       ],
       "notes": "Les secteurs publiés pour les conseillers fonciers couvrent la Seine-et-Marne, la Seine-Saint-Denis, l’Essonne, le Val-de-Marne, les Yvelines et le Val-d’Oise. Le site de l’opérateur indique par ailleurs qu’il intervient sur toute la région Île-de-France.",
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Safer de l’Île-de-France",
+          "value": "safer@safer-idf.com",
+          "sourceUrl": "https://www.saferidf.fr/contact/"
+        }
+      ]
     },
     {
       "id": "ile-de-france-nature-terres-agricoles",
@@ -162,7 +177,8 @@
             "favorise l’installation d’agriculteurs en zone périurbaine, dont les activités sont économiquement viables et compatibles avec les enjeux du territoire",
             "en louant ses terres agricoles à des porteurs de projets agricoles, notamment à travers des baux ruraux",
             "en assurant, si nécessaire, le portage du foncier",
-            "dans le cadre du dispositif « Île-de-France, terre d’installation agricole » mené en partenariat avec la SAFER de l’Île-de-France"
+            "dans le cadre du dispositif « Île-de-France, terre d’installation agricole » mené en partenariat avec la SAFER de l’Île-de-France",
+            "merci de contacter la mission agriculture : agriculture@iledefrance-nature.fr."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -186,7 +202,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Île-de-France Nature – mission agriculture",
+          "value": "agriculture@iledefrance-nature.fr",
+          "sourceUrl": "https://www.iledefrance-nature.fr/offres-et-accompagnement/je-souhaite-minstaller-sur-des-terres-agricoles/"
+        }
+      ]
     },
     {
       "id": "ile-de-france-gab-idf-transmettre-sa-ferme",
@@ -203,6 +227,12 @@
       "howToAccess": "Solliciter le GAB IdF par le contact indiqué sur la page « Transmettre sa ferme ».",
       "accessUrl": "https://www.bioiledefrance.fr/transmettre-sa-ferme",
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.bioiledefrance.fr/transmettre-sa-ferme"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bioiledefrance.fr/transmettre-sa-ferme",
@@ -219,9 +249,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.bioiledefrance.fr/formulaire-de-contact",
+          "title": "Formulaire de contact - le GAB IDF",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Objet de votre message"]
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Bio Île-de-France",
+          "value": "https://www.bioiledefrance.fr/formulaire-de-contact",
+          "sourceUrl": "https://www.bioiledefrance.fr/formulaire-de-contact"
+        }
+      ]
     },
     {
       "id": "ile-de-france-feader-installation-jeune-agriculteur",
@@ -233,13 +277,6 @@
       },
       "operator": "Région Île-de-France",
       "operatorType": "PUBLIC",
-      "implements": [
-        {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "FEADER",
-          "sourceUrl": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur"
-        }
-      ],
       "whatItOffers": "Dotation en capital pour la trésorerie, d’un montant de base de 22.000€. Bonifications possibles : agriculture biologique, 22.000€ ; valeur ajoutée, 20.000€ ; investissements importants, de 10.000€ à 40.000€ selon le montant des investissements. Les bonifications agriculture biologique et valeur ajoutée ne sont pas cumulables. Pour une installation à titre secondaire, les montants sont divisés par deux. Versement en plusieurs fois pendant la réalisation du plan d’entreprise et à sa fin.",
       "whoCanUseIt": "Personnes de 18 à moins de 40 ans s’installant pour la première fois comme chefs d’exploitation agricole en Île-de-France, à titre principal, secondaire ou progressif.",
       "howToAccess": "Déposer un dossier sur mesdemarches.iledefrance.fr, dans le dispositif « FEADER - Aide à l'installation du jeune agriculteur ». Le document à télécharger lors du dépôt précise les critères à remplir et le contenu du dossier. Pour les questions sur le dispositif, contacter le service pré-instructeur de la Chambre d’agriculture d’Île-de-France.",
@@ -255,6 +292,13 @@
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "FEADER",
+          "sourceUrl": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur",
@@ -271,7 +315,8 @@
             "Cette dotation en capital est versée en plusieurs fois au cours de la réalisation du plan d’entreprise et à sa fin",
             "Pour bénéficier de cette aide, vous devez déposer un dossier sur la plateforme en ligne mesdemarches.iledefrance.fr (dispositif « FEADER - Aide à l'installation du jeune agriculteur »).",
             "Le document à télécharger lors du dépôt de dossier reprend l'ensemble des critères à remplir et le contenu du dossier de demande d'aide.",
-            "Pour toute demande liée au dispositif, vous pouvez contacter le service pré-instructeur de la Chambre d’agriculture d’Île-de-France : installation-transmission@idf.chambagri.fr"
+            "Pour toute demande liée au dispositif, vous pouvez contacter le service pré-instructeur de la Chambre d’agriculture d’Île-de-France : installation-transmission@idf.chambagri.fr",
+            "FEADER - Aide à l'installation du jeune agriculteur"
           ],
           "verification": {
             "checkedOn": "2026-11-24",

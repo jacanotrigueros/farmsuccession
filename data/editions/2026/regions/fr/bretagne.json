@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "bretagne",
   "officialName": "Bretagne",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "La Bretagne combine AGRI Install pour la première installation, AGRI Transmission pour préparer les exploitations à céder, le RDI et la Safer pour la mise en relation et le foncier, ainsi que Terre de Liens et les CIVAM pour l'accompagnement installation-transmission.",
   "coverage": {
     "status": "SEARCHED",
@@ -99,6 +99,13 @@
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
       "lastEvidenceDate": "2025-11-03",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "FEADER",
+          "sourceUrl": "https://www.bretagne.bzh/aides/fiches/agri-install/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bretagne.bzh/aides/fiches/agri-install/",
@@ -109,7 +116,8 @@
             "Aide disponible",
             "Cette aide vise à soutenir l’installation en agriculture et à faciliter l’accès au foncier agricole.",
             "AGRI Install se décline en 2 aides à la trésorerie pour tout nouvel installé, sous forme de subvention",
-            "A compter du 3 novembre 2025, de nouvelles modalités entrent en vigueur."
+            "A compter du 3 novembre 2025, de nouvelles modalités entrent en vigueur.",
+            "2023-2027 (FEADER uniquement)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -252,7 +260,7 @@
           "url": "https://www.safer-bretagne.fr/nous-contacter/contacts/",
           "title": "Contacts régionaux et départementaux - Safer Bretagne",
           "consultedOn": "2026-10-25",
-          "quotes": ["Ille-et-Vilaine (35)", "Finistère (29)", "Morbihan (56)", "Côte d'Armor (22)"],
+          "quotes": ["Ille-et-Vilaine (35)", "Finistère (29)", "Morbihan (56)", "Côte d'Armor (22)", "Téléphone : 02 96 94 05 95"],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
@@ -278,7 +286,15 @@
         }
       ],
       "notes": "La Safer Bretagne intervient dans l’Ille-et-Vilaine (35), le Finistère (29), le Morbihan (56) et les Côtes-d’Armor (22).",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Safer Bretagne – siège",
+          "value": "02 96 94 05 95",
+          "sourceUrl": "https://www.safer-bretagne.fr/nous-contacter/contacts/"
+        }
+      ]
     },
     {
       "id": "bretagne-terre-de-liens",
@@ -297,6 +313,12 @@
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR", "SUCCESSOR", "LANDOWNER"],
       "lastEvidenceDate": "2026-09-17",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/bretagne/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/bretagne/",
@@ -305,7 +327,8 @@
           "quotes": [
             "Accompagnement des porteur·euse·s de projet d’installations agricoles et des transmetteu·euse·s sur le volet foncier.",
             "Accompagnement à l’acquisition citoyenne de fermes.",
-            "Formation transmission en lien avec les CIVAM"
+            "Formation transmission en lien avec les CIVAM",
+            "Contactez-nous : bretagne@terredeliens.org"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -327,7 +350,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Terre de Liens Bretagne",
+          "value": "bretagne@terredeliens.org",
+          "sourceUrl": "https://terredeliens.org/bretagne/"
+        }
+      ]
     },
     {
       "id": "bretagne-frcivam-installation-transmission",
@@ -674,7 +705,14 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.finistere.fr/aides-et-services/economie-attractivite/agriculture-et-alimentation/aide-pour-linstallation-en-agriculture/"
+        }
+      ]
     },
     {
       "id": "bretagne-finistere-prepare-installation",
@@ -752,7 +790,9 @@
             "Le premier contact (collectif/individuel) est gratuit.",
             "Les projets doivent cependant avoir un lien avec la terre",
             "s'inscrire à Premier accueil projet Installation",
-            "l'accompagnement, dans la durée, se déroule très principalement en collectif"
+            "l'accompagnement, dans la durée, se déroule très principalement en collectif",
+            "Les formations ont ensuite des tarifs directement mentionnés sur le catalogue.",
+            "Tél : 02 98 81 43 94"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -772,7 +812,16 @@
       ],
       "whoCanUseIt": "Porteurs d’un projet agricole ayant un lien avec le foncier ou la production agricole.",
       "howToAccess": "S’inscrire à « Premier accueil projet Installation » dans le catalogue de formations.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "accessCostType": "FEE_REQUIRED",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "CIVAM du Finistère",
+          "value": "02 98 81 43 94",
+          "sourceUrl": "https://www.civam29.org/installation/"
+        }
+      ]
     },
     {
       "id": "bretagne-finistere-civam-atelier-dja",
@@ -795,7 +844,10 @@
           "quotes": [
             "L'accompagnement au dépôt de Dossier DJA",
             "Cet atelier, en groupe et avec l’appui de l’accompagnateur-ice",
-            "un dépôt de dossier en autonomie et un regard des pairs sur votre projet pour le consolider."
+            "un dépôt de dossier en autonomie et un regard des pairs sur votre projet pour le consolider.",
+            "Le dépôt du dossier sur la plateforme de la région (qui est à réaliser par la personne elle-même).",
+            "Paiement : 500 euros à l’inscription et 500 euros en fin d’accompagnement, c’est à dire à la rédaction de la partie point de vigilance.",
+            "Tél : 02 98 81 43 94"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -804,7 +856,17 @@
         }
       ],
       "whoCanUseIt": "Porteurs de projet qui préparent une demande de Dotation Jeune Agriculteur.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Préparer son dossier avec les autres participants et l’accompagnateur, puis le déposer soi-même sur la plateforme de la Région.",
+      "accessCostType": "FEE_REQUIRED",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "CIVAM du Finistère",
+          "value": "02 98 81 43 94",
+          "sourceUrl": "https://www.civam29.org/installation/"
+        }
+      ]
     },
     {
       "id": "bretagne-inpact-annuaire-departemental",
@@ -853,7 +915,9 @@
           "title": "Accompagnement par département – Collectif InPACT Bretagne",
           "consultedOn": "2026-11-24",
           "quotes": [
-            "Accompagnement à l’installation : cafés installation-transmission, accompagnement individuel pour étudier la viabilité économique du projet d’installation"
+            "Accompagnement à l’installation : cafés installation-transmission, accompagnement individuel pour étudier la viabilité économique du projet d’installation",
+            "Contact : 02 96 74 75 50 – cedapa@orange.fr – www.cedapa.com",
+            "02 96 74 75 50"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -862,7 +926,16 @@
         }
       ],
       "whoCanUseIt": "Porteurs d’un projet d’installation agricole dans les Côtes-d’Armor.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Appeler le Cedapa pour se renseigner sur les cafés installation-transmission ou l’accompagnement individuel.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Cedapa",
+          "value": "02 96 74 75 50",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ]
     },
     {
       "id": "bretagne-cotes-armor-agriculture-paysanne-installation",
@@ -892,9 +965,28 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.agriculturepaysanne.org/Accueil-des-porteurs-de-projet",
+          "title": "Accueil des porteurs de projet",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Chaque année nous accueillons et accompagnons environ 200 porteurs de projet agricole.",
+            "Infos et inscriptions, nous contacter : 02 96 78 95 41 / agriculturepaysanne22@gmail.com"
+          ]
         }
       ],
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "whoCanUseIt": "Les personnes qui portent un projet agricole.",
+      "howToAccess": "Contacter Agriculture paysanne 22 au 02 96 78 95 41 ou à agriculturepaysanne22@gmail.com pour se renseigner et s’inscrire.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Agriculture paysanne 22",
+          "value": "agriculturepaysanne22@gmail.com",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Accueil-des-porteurs-de-projet"
+        }
+      ]
     },
     {
       "id": "bretagne-cotes-armor-agriculture-paysanne-transmission",
@@ -917,7 +1009,9 @@
           "quotes": [
             "rallye transmission, forum transmission, diagnostic individuel des fermes à transmettre",
             "formation « se préparer à transmettre » sur 4 jours",
-            "Agriculture paysanne 22"
+            "Agriculture paysanne 22",
+            "Contact : 02 96 78 95 41",
+            "02 96 78 95 41"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -926,7 +1020,16 @@
         }
       ],
       "whoCanUseIt": "Agriculteurs préparant la transmission de leur ferme dans les Côtes-d’Armor.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Contacter Agriculture paysanne 22 pour s’informer sur l’accueil collectif, le diagnostic individuel ou les formations.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Agriculture paysanne 22",
+          "value": "02 96 78 95 41",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ]
     },
     {
       "id": "bretagne-ille-et-vilaine-ciap-paysan-creatif",
@@ -948,7 +1051,8 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "Formation « Paysan Créatif en Ille-et-Vilaine » sur un an, pour approfondir son projet et se tester avant de se lancer",
-            "CIAP 35 (Coopérative d’Installation en Agriculture Paysanne)"
+            "CIAP 35 (Coopérative d’Installation en Agriculture Paysanne)",
+            "Contact : 06.64.93.45.23"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -957,7 +1061,8 @@
         }
       ],
       "whoCanUseIt": "Porteurs de projet en Ille-et-Vilaine.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Appeler la CIAP 35 pour se renseigner sur la formation Paysan Créatif."
     },
     {
       "id": "bretagne-finistere-civam-transmission",
@@ -977,7 +1082,11 @@
           "url": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/",
           "title": "Accompagnement par département – Collectif InPACT Bretagne",
           "consultedOn": "2026-11-24",
-          "quotes": ["Accompagnement à la transmission (RDV individuel des fermes à transmettre, formation « anticiper a transmission »)"],
+          "quotes": [
+            "Accompagnement à la transmission (RDV individuel des fermes à transmettre, formation « anticiper a transmission »)",
+            "Contact : 02 98 81 43 94",
+            "02 98 81 43 94"
+          ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
@@ -985,7 +1094,16 @@
         }
       ],
       "whoCanUseIt": "Cédants du Finistère.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Appeler le CIVAM du Finistère pour demander un rendez-vous individuel en vue de transmettre sa ferme.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "CIVAM du Finistère",
+          "value": "02 98 81 43 94",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ]
     },
     {
       "id": "bretagne-finistere-ciap-paysan-creatif",
@@ -1008,7 +1126,8 @@
           "quotes": [
             "La formation paysan créatif, une année de test avec une formation technique chez un.e paysan.ne et un parcours de formation sur la création d’activité en agriculture",
             "des porteurs de projets à l’installation en agriculture biologique et paysanne",
-            "CIAP 29 (Coopérative d’Installation en Agriculture Paysanne)"
+            "CIAP 29 (Coopérative d’Installation en Agriculture Paysanne)",
+            "coordination@ciap29.infini.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -1017,7 +1136,8 @@
         }
       ],
       "whoCanUseIt": "Porteurs de projet d’installation en agriculture biologique et paysanne dans le Finistère.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Écrire à la CIAP 29 pour obtenir des renseignements sur le parcours Paysan Créatif."
     },
     {
       "id": "bretagne-finistere-ciap-espaces-test",
@@ -1040,7 +1160,8 @@
           "quotes": [
             "Les espaces tests : 1 an de test, expérimentation grandeur réelle",
             "des porteurs de projets à l’installation en agriculture biologique et paysanne",
-            "CIAP 29 (Coopérative d’Installation en Agriculture Paysanne)"
+            "CIAP 29 (Coopérative d’Installation en Agriculture Paysanne)",
+            "coordination@ciap29.infini.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -1049,7 +1170,8 @@
         }
       ],
       "whoCanUseIt": "Porteurs de projet d’installation en agriculture biologique et paysanne dans le Finistère.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Écrire à la CIAP 29 pour demander les conditions d’accès à un espace test."
     },
     {
       "id": "bretagne-finistere-ciap-portage-activite",
@@ -1072,7 +1194,8 @@
           "quotes": [
             "Le portage d’activité : hébergement juridique, fiscal et comptable",
             "des porteurs de projets à l’installation en agriculture biologique et paysanne",
-            "CIAP 29 (Coopérative d’Installation en Agriculture Paysanne)"
+            "CIAP 29 (Coopérative d’Installation en Agriculture Paysanne)",
+            "coordination@ciap29.infini.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -1081,7 +1204,16 @@
         }
       ],
       "whoCanUseIt": "Porteurs de projet d’installation en agriculture biologique et paysanne dans le Finistère.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Écrire à la CIAP 29 pour se renseigner sur le portage d’activité.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "CIAP 29",
+          "value": "coordination@ciap29.infini.fr",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ]
     },
     {
       "id": "bretagne-morbihan-la-marmite-installation",
@@ -1104,7 +1236,9 @@
           "quotes": [
             "Accompagnement à l’installation : rencontres collectives des porteurs de projet",
             "les Cho-Bouillons",
-            "stages découverte, formations"
+            "stages découverte, formations",
+            "Contact : 02 97 67 28 06",
+            "02 97 67 28 06"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -1113,7 +1247,16 @@
         }
       ],
       "whoCanUseIt": "Porteurs de projet agricole dans le Morbihan.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Appeler La Marmite pour se renseigner sur les rencontres, stages découverte et formations.",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "La Marmite",
+          "value": "02 97 67 28 06",
+          "sourceUrl": "https://www.installation-transmission-paysanne.bzh/accompagnement-par-departement/"
+        }
+      ]
     }
   ],
   "news": [],

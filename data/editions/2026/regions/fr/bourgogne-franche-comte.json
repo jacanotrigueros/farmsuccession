@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "bourgogne-franche-comte",
   "officialName": "Bourgogne-Franche-Comté",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Bourgogne-Franche-Comté combine une DJA régionale revalorisée en 2026, un programme de formation permettant de tester une reprise agricole hors cadre familial, la Safer régionale pour le foncier et la transmission, et Terre de Liens Bourgogne-Franche-Comté pour l'accès à la terre et l'accompagnement installation-transmission.",
   "coverage": {
     "status": "PARTIAL",
@@ -100,6 +100,13 @@
           "sourceUrl": "https://www.bourgognefranchecomte.fr/index.php/la-region-muscle-la-dotation-jeunes-agriculteurs-pour-attirer-une-nouvelle-generation"
         }
       ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "75.01",
+          "sourceUrl": "https://www.bourgognefranchecomte.fr/node/4207"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bourgognefranchecomte.fr/node/4207",
@@ -109,7 +116,8 @@
             "La dotation Jeunes Agriculteurs a pour objectif de soutenir l'installation de jeunes agriculteurs",
             "être âgé de 20 ans minimum et strictement moins de 41 ans",
             "La dotation jeune agriculteur permet de soutenir les installations comme chef d’exploitation.",
-            "Date(s) limite(s) de dépôt 5 décembre 2025"
+            "Date(s) limite(s) de dépôt 5 décembre 2025",
+            "Cet appel à projets est proposé au titre de l’intervention 75.01 du Plan Stratégique National français en Bourgogne-Franche-Comté."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -129,9 +137,32 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.europe-bfc.eu/nos-aides/dotation-jeunes-agriculteurs-2026",
+          "title": "Dotation Jeunes Agriculteurs 2026 | Europe en Bourgogne-Franche-Comté",
+          "consultedOn": "2026-11-25",
+          "quotes": ["16 novembre 2026 au 03 décembre 2026.", "feader.dja@bourgognefranchecomte.fr"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "calls": [
+        {
+          "name": "Dotation Jeunes Agriculteurs 2026",
+          "state": "OPEN",
+          "opens": "2026-11-16",
+          "closes": "2026-12-03",
+          "sourceUrl": "https://www.europe-bfc.eu/nos-aides/dotation-jeunes-agriculteurs-2026"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Région Bourgogne-Franche-Comté – service instructeur DJA",
+          "value": "feader.dja@bourgognefranchecomte.fr",
+          "sourceUrl": "https://www.europe-bfc.eu/nos-aides/dotation-jeunes-agriculteurs-2026"
+        }
+      ]
     },
     {
       "id": "bourgogne-franche-comte-formation-reprise-exploitation",
@@ -213,7 +244,8 @@
           "quotes": [
             "Installation, transmission, consolidation",
             "La Safer Bourgogne-Franche-Comté vous accompagne dans la réalisation de tous vos projets.",
-            "Consulter les dernières annonces légales publiées par la Safer BFC."
+            "Consulter les dernières annonces légales publiées par la Safer BFC.",
+            "safer@saferbfc.com"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -250,7 +282,15 @@
         }
       ],
       "notes": "La Safer Bourgogne-Franche-Comté intervient en Côte-d’Or (21), dans le Doubs (25), le Jura (39), la Nièvre (58), la Haute-Saône (70), la Saône-et-Loire (71), l’Yonne (89) et le Territoire de Belfort (90). Elle est issue de la fusion des Safer Bourgogne et Franche-Comté.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Safer Bourgogne-Franche-Comté",
+          "value": "safer@saferbfc.com",
+          "sourceUrl": "https://www.saferbfc.com/"
+        }
+      ]
     },
     {
       "id": "bourgogne-franche-comte-terre-de-liens",
@@ -268,6 +308,12 @@
       "accessUrl": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/",
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT", "LAND_SEEKER", "TRANSFEROR", "SUCCESSOR", "LANDOWNER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/",
@@ -282,9 +328,23 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/contact/",
+          "title": "CONTACT — Terre de Liens",
+          "consultedOn": "2026-11-25",
+          "quotes": ["bfc@terredeliens.org"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Terre de Liens Bourgogne-Franche-Comté",
+          "value": "bfc@terredeliens.org",
+          "sourceUrl": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/contact/"
+        }
+      ]
     },
     {
       "id": "bourgogne-franche-comte-portail-aides-nouveaux-agriculteurs",

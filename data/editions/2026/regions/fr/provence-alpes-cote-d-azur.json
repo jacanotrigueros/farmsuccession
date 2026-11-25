@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "provence-alpes-cote-d-azur",
   "officialName": "Provence-Alpes-Côte d’Azur",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "En Provence-Alpes-Côte d'Azur, la Région publie la Dotation Jeunes Agriculteurs et un prêt d'honneur agricole est proposé par Initiative Sud. Le programme AITA finance aussi des étapes de l'installation et de la transmission. La Safer donne accès à ses appels fonciers, tandis que les Points Accueil Installation, Terre de Liens et les ADEAR proposent des accompagnements. Des services plus locaux complètent cet ensemble.",
   "coverage": {
     "status": "PARTIAL",
@@ -770,6 +770,12 @@
       "operatorType": "MIXED",
       "whatItOffers": "Gestion locative de terres pour une durée d’un à six ans, renouvelable une fois. La Safer garantit le paiement du loyer et la restitution du bien en fin de contrat.",
       "accessUrl": "https://www.safer-paca.com/espace-porteurs-de-projets/",
+      "notPublished": [
+        {
+          "question": "HOW_TO_ACCESS",
+          "sourceUrl": "https://www.safer-paca.com/espace-porteurs-de-projets/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.safer-paca.com/espace-porteurs-de-projets/",
@@ -779,16 +785,32 @@
             "La Convention de Mise à Disposition (CMD) permet à un propriétaire de confier à la SAFER PACA la gestion locative de ses terres agricoles",
             "de 1 à 6 ans, renouvelable une fois",
             "le paiement d’un loyer",
-            "la libération du bien en fin de contrat"
+            "la libération du bien en fin de contrat",
+            "Avec ce dispositif, la SAFER garantit, l’entretien, la mise en valeur des parcelles et le paiement d’un loyer,"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.safer-paca.com/contactez-nous/",
+          "title": "CONTACTEZ-NOUS – SAFER PACA",
+          "consultedOn": "2026-11-25",
+          "quotes": ["safer@safer-paca.com"]
         }
       ],
       "whoCanUseIt": "Propriétaires de terres agricoles qui attendent une vente ou un bail à ferme.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "assetTypes": ["PLOTS"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Siège de la SAFER PACA",
+          "value": "safer@safer-paca.com",
+          "sourceUrl": "https://www.safer-paca.com/contactez-nous/"
+        }
+      ]
     },
     {
       "id": "provence-alpes-cote-d-azur-safer-reserve-installation",

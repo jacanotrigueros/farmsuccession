@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "guyane",
   "officialName": "Guyane",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "En Guyane, trois dotations FEADER visent des profils distincts de nouveaux agriculteurs. La Safer propose un accès au foncier et un accompagnement à la transmission. Une intervention de coopération pour la transmission est décrite, mais aucun appel ouvert n'a été vérifié.",
   "coverage": {
     "status": "PARTIAL",
@@ -93,6 +93,13 @@
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "notes": "Non cumulable avec les dotations DPA et DNA. La fiche comporte un lien de dépôt, sans dates d'appel propres à ce dispositif.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "75.01",
+          "sourceUrl": "https://www.europe-guyane.fr/75-01-aide-a-linstallation-en-agriculture-dja/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.europe-guyane.fr/75-01-aide-a-linstallation-en-agriculture-dja/",
@@ -103,12 +110,20 @@
             "Justifier au dépôt de la demande d'aide de la capacité professionnelle agricole (CPA)",
             "Je dépose mon dossier",
             "75.01 Aide à l’installation en agriculture (DJA)",
-            "la limite d’âge maximale afin d’être reconnu jeune agriculteur est fixée à 40 ans"
+            "la limite d’âge maximale afin d’être reconnu jeune agriculteur est fixée à 40 ans",
+            "Modalités de dépôt des projets En continu",
+            "75.01 – Aide à l'installation en agriculture (DJA)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.europe-guyane.fr/nous-contacter/",
+          "title": "Nous contacter - PAEI Guyane",
+          "consultedOn": "2026-11-25",
+          "quotes": ["fonds-europeens@ctguyane.fr"]
         }
       ],
       "generatorId": "claude-1",
@@ -118,11 +133,19 @@
           "sourceUrl": "https://www.europe-guyane.fr/75-01-aide-a-linstallation-en-agriculture-dja/"
         }
       ],
-      "implements": [
+      "calls": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "75.01",
+          "name": "Aide à l'installation en agriculture 75.01 (DJA)",
+          "state": "OPEN",
           "sourceUrl": "https://www.europe-guyane.fr/75-01-aide-a-linstallation-en-agriculture-dja/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Collectivité territoriale de Guyane – Point d’accueil des fonds européens",
+          "value": "fonds-europeens@ctguyane.fr",
+          "sourceUrl": "https://www.europe-guyane.fr/nous-contacter/"
         }
       ]
     },
@@ -154,12 +177,19 @@
             "Dotation individuelle de 10 000 € versée en 2 fois",
             "Dispositif non cumulable avec DJA ou DNA",
             "En continu",
-            "75.02 Aide à la petite exploitation agricole (DPA)"
+            "75.02 Aide à la petite exploitation agricole (DPA)",
+            "Modalités de dépôt des projets En continu"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.europe-guyane.fr/nous-contacter/",
+          "title": "Nous contacter - PAEI Guyane",
+          "consultedOn": "2026-11-25",
+          "quotes": ["fonds-europeens@ctguyane.fr"]
         }
       ],
       "generatorId": "chatgpt-1",
@@ -167,6 +197,21 @@
         {
           "code": "75.02",
           "sourceUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-02-aide-a-la-petite-exploitation-agricole-dpa/"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Aide à la petite exploitation agricole 75.02 (DPA)",
+          "state": "OPEN",
+          "sourceUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-02-aide-a-la-petite-exploitation-agricole-dpa/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Collectivité territoriale de Guyane – Point d’accueil des fonds européens",
+          "value": "fonds-europeens@ctguyane.fr",
+          "sourceUrl": "https://www.europe-guyane.fr/nous-contacter/"
         }
       ]
     },
@@ -198,12 +243,19 @@
             "Dotation individuelle comprise entre 30 000 et 40 000 €",
             "Être âgé de 41 ans ou plus",
             "Dispositif non cumulable avec DJA ou DPA",
-            "75.05 Dotation Nouvel Installé (DNA)"
+            "75.05 Dotation Nouvel Installé (DNA)",
+            "Modalités de dépôt des projets En continu"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.europe-guyane.fr/nous-contacter/",
+          "title": "Nous contacter - PAEI Guyane",
+          "consultedOn": "2026-11-25",
+          "quotes": ["fonds-europeens@ctguyane.fr"]
         }
       ],
       "generatorId": "chatgpt-1",
@@ -211,6 +263,21 @@
         {
           "code": "75.05",
           "sourceUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-05-dotation-nouvel-installe-dna/"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Dotation Nouvel Installé 75.05 (DNA)",
+          "state": "OPEN",
+          "sourceUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/installation/75-05-dotation-nouvel-installe-dna/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Collectivité territoriale de Guyane – Point d’accueil des fonds européens",
+          "value": "fonds-europeens@ctguyane.fr",
+          "sourceUrl": "https://www.europe-guyane.fr/nous-contacter/"
         }
       ]
     },
@@ -233,6 +300,13 @@
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER"],
       "notes": "La fiche annonce un taux d'aide publique de 50 % à 80 %. L'obtention de la DJA est une condition distincte.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "73.17",
+          "sourceUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/investissement/73-17-investissements-jeunes-agriculteurs-ja/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/investissement/73-17-investissements-jeunes-agriculteurs-ja/",
@@ -243,12 +317,19 @@
             "Taux d’aide publique : entre 50% et 80%",
             "Je dépose mon dossier",
             "73.17 Investissements Jeunes agriculteurs (JA)",
-            "la limite d’âge maximale afin d’être reconnu jeune agriculteur est fixée à 40 ans"
+            "la limite d’âge maximale afin d’être reconnu jeune agriculteur est fixée à 40 ans",
+            "Modalités de dépôt des projets En continu"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.europe-guyane.fr/nous-contacter/",
+          "title": "Nous contacter - PAEI Guyane",
+          "consultedOn": "2026-11-25",
+          "quotes": ["fonds-europeens@ctguyane.fr"]
         }
       ],
       "generatorId": "chatgpt-1",
@@ -258,11 +339,19 @@
           "sourceUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/investissement/73-17-investissements-jeunes-agriculteurs-ja/"
         }
       ],
-      "implements": [
+      "calls": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "73.17",
+          "name": "Investissements Jeunes agriculteurs 73.17",
+          "state": "OPEN",
           "sourceUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/investissement/73-17-investissements-jeunes-agriculteurs-ja/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Collectivité territoriale de Guyane – Point d’accueil des fonds européens",
+          "value": "fonds-europeens@ctguyane.fr",
+          "sourceUrl": "https://www.europe-guyane.fr/nous-contacter/"
         }
       ]
     },
@@ -285,6 +374,13 @@
       "languages": ["fr"],
       "targetProfiles": ["TRANSFEROR", "NEW_ENTRANT"],
       "notes": "La fiche de programmation ne démontre pas qu'un appel à projets est actuellement ouvert.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "77.04",
+          "sourceUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/cooperation/77-04-renouvellement-des-generations-en-agriculture/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.europe-guyane.fr/programmes/feader/agriculture/cooperation/77-04-renouvellement-des-generations-en-agriculture/",
@@ -300,6 +396,12 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.europe-guyane.fr/nous-contacter/",
+          "title": "Nous contacter - PAEI Guyane",
+          "consultedOn": "2026-11-25",
+          "quotes": ["fonds-europeens@ctguyane.fr"]
         }
       ],
       "generatorId": "chatgpt-1",
@@ -309,11 +411,12 @@
           "sourceUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/cooperation/77-04-renouvellement-des-generations-en-agriculture/"
         }
       ],
-      "implements": [
+      "contactPoints": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "77.04",
-          "sourceUrl": "https://www.europe-guyane.fr/programmes/feader/agriculture/cooperation/77-04-renouvellement-des-generations-en-agriculture/"
+          "channel": "EMAIL",
+          "label": "Collectivité territoriale de Guyane – Point d’accueil des fonds européens",
+          "value": "fonds-europeens@ctguyane.fr",
+          "sourceUrl": "https://www.europe-guyane.fr/nous-contacter/"
         }
       ]
     },
@@ -416,6 +519,12 @@
       "targetProfiles": ["TRANSFEROR", "LANDOWNER"],
       "notes": "Service distinct de la liste de parcelles destinée aux candidats à l'installation. La page dédiée est datée du 5 novembre 2025 et reste accessible sur le site de l'opérateur. La Safer Guyane intervient sur le territoire de la Guyane.",
       "lastEvidenceDate": "2025-11-05",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://safer-guyane.fr/vous-souhaitez-transmettre-votre-exploitation-agricole-la-safer-guyane-vous-accompagne/"
+        }
+      ],
       "sources": [
         {
           "url": "https://safer-guyane.fr/vous-souhaitez-transmettre-votre-exploitation-agricole-la-safer-guyane-vous-accompagne/",
@@ -424,7 +533,8 @@
           "quotes": [
             "5 novembre 2025",
             "Vous êtes agriculteur et vous souhaitez cesser votre activité et transmettre votre exploitation.",
-            "Une transmission se prépare, n’hésitez pas à nous contacter !"
+            "Une transmission se prépare, n’hésitez pas à nous contacter !",
+            "Tel : 05 94 25 84 67"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -432,7 +542,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Safer Guyane",
+          "value": "05 94 25 84 67",
+          "sourceUrl": "https://safer-guyane.fr/vous-souhaitez-transmettre-votre-exploitation-agricole-la-safer-guyane-vous-accompagne/"
+        }
+      ]
     },
     {
       "id": "guyane-portail-foncier-agricole-etat",
