@@ -14,11 +14,12 @@ import { statusIcon } from "../lib/icons.ts";
 import type { Resource } from "../lib/corpus.ts";
 import { stateLabel } from "../lib/vocabulary.ts";
 
-type Props = { status: Resource["status"]; language: string };
-const { status, language } = Astro.props;
+/** Quiet when the record's own calls answer "can I apply?" beside it, so the green does not read as a yes. */
+type Props = { status: Resource["status"]; language: string; quiet?: boolean };
+const { status, language, quiet = false } = Astro.props;
 ---
 
-<span class="tag tag-status" data-status={status}>
+<span class:list={["tag tag-status", quiet && "tag-quiet"]} data-status={status}>
   <Icon name={statusIcon(status)} aria-hidden="true" class="size-4 shrink-0" />
   {stateLabel(status, language)}
 </span>

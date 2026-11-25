@@ -11,7 +11,8 @@
  */
 import SearchView from "../components/SearchView.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
-import { countryTerritories, euTerritory, hubTerritories, languageOf, regionTerritories } from "../lib/corpus.ts";
+import { bundleLanguages, catalogueOrder } from "../lib/catalogue-order.ts";
+import { euTerritory, languageOf } from "../lib/corpus.ts";
 import { facetsFor, type Listed } from "../lib/facets.ts";
 import { words } from "../lib/words.ts";
 
@@ -21,13 +22,14 @@ if (!europe) throw new Error("no European layer: there is nothing to search");
 const language = languageOf(europe);
 const text = words(language);
 
-const everywhere = [europe, ...countryTerritories(), ...hubTerritories(), ...regionTerritories()];
+/** Country by country, as the empty search lists them (lib/catalogue-order.ts). */
+const everywhere = catalogueOrder();
 const listed: Listed[] = everywhere.flatMap((from) =>
   from.data.resources.map((resource) => ({ resource, from, inherited: from !== europe })),
 );
 
 /** The bundles this scope has to load: one per language any of its records is written in. */
-const languages = [...new Set(everywhere.map((territory) => languageOf(territory)))].toSorted();
+const languages = bundleLanguages(everywhere, languageOf);
 ---
 
 <SiteLayout title={`${text.searchEverywhere} — ${text.siteName}`} description={text.browseHint} language={language} current="/" noindex>
