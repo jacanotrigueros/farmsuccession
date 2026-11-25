@@ -19,6 +19,7 @@ import {
   countryTerritories,
   currentEdition,
   euTerritory,
+  EUROPE_PAGE,
   hubTerritories,
   languageOf,
   regionTerritories,
@@ -82,6 +83,9 @@ const figures = [
           button={text.searchAction}
           examples={text.searchExamples}
         />
+        <a class="mt-4 inline-flex min-h-(--spacing-target) items-center font-bold underline" href={`${EUROPE_PAGE}#own`}>
+          {text.browseEurope}
+        </a>
       </div>
     </div>
   </section>

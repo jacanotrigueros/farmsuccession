@@ -509,30 +509,9 @@ test("a region that documented nothing of its own is not offered as a page to in
   }
 });
 
-/**
- * A date in a sitemap is a claim about freshness, which is the one claim this project is not allowed to
- * invent. So every lastmod has to be the day a territory's own file says its evidence was published.
- */
-test("every date in the sitemap is a date the data gives", () => {
+test("the sitemap omits dates without a material modification history for the individual pages", () => {
   const xml = readFileSync(path.join(DIST, "sitemap.xml"), "utf8");
-  const editions = path.join(REPOSITORY, "data", "editions");
-  const dates = new Set(
-    (function walk(dir: string): string[] {
-      return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-        const full = path.join(dir, entry.name);
-        if (entry.isDirectory()) return walk(full);
-        const data = JSON.parse(readFileSync(full, "utf8")) as { published?: string };
-        return data.published ? [data.published] : [];
-      });
-    })(editions),
-  );
-  assert.ok(dates.size > 0, "no published date in the data: this check would pass without checking anything");
-
-  const stated = [...xml.matchAll(/<lastmod>([^<]*)<\/lastmod>/gu)].map(([, date]) => date ?? "");
-  assert.ok(stated.length > 0, "the sitemap carries no dates at all");
-  for (const date of stated) {
-    assert.ok(dates.has(date), `the sitemap says a page changed on ${date}, which no edition file says about anything`);
-  }
+  assert.doesNotMatch(xml, /<lastmod\b/u, "Rebuilding or publishing a territory file cannot establish when each page changed materially");
 });
 
 /**

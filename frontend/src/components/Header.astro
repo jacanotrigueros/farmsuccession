@@ -26,13 +26,12 @@ const europe = euTerritory();
 const countryOf = (place: string): string | undefined => (place === "/" || place === "/eu/" ? undefined : place.slice(1, -1).toUpperCase());
 
 /**
- * Europe leads to the European layer's own page, so choosing it shows Europe's instruments, not every
- * country's. Each country is named in the page's language, and, where its own name differs, that name
+ * The European Union option leads to the EU layer's own page. Each country is named in the page's language, and, where its own name differs, that name
  * follows on a quieter line: a reader looking for their own country recognises "Nederland" before they
  * translate it.
  */
 const places: { href: string; label: string; own?: string; ownLanguage?: string; flag: string }[] = [
-  { href: europe ? EUROPE_PAGE : "/", label: text.europe, flag: flagOf("EU") },
+  { href: europe ? EUROPE_PAGE : "/", label: text.euName, flag: flagOf("EU") },
   ...countryTerritories()
     .flatMap((territory) => {
       if (territory.layer.level === "EU") return [];

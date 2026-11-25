@@ -92,3 +92,4 @@ on the way in, which is the only honest reason for a measurement to move.
 | [040](040-a-plan-code-is-quoted-never-inferred.md)                | A plan code, an act and an office area are quoted, never inferred |
 | [041](041-a-measure-links-the-records-that-apply-it.md)           | A measure links the records that apply it, as their sources say   |
 | [042](042-answer-can-i-apply-under-the-title.md)                  | Answer "can I apply?" under the title, open periods first         |
+| [043](043-applicable-resources-first.md)                          | Show applicable resources before empty local coverage             |

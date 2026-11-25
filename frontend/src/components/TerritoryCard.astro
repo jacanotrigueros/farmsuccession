@@ -28,7 +28,9 @@ const hasInheritedOnly = withRecords && resources.length === 0;
   <a href={href(child.layer)} class:list={["territory-link", hasInheritedOnly && "grow"]}>
     <span class="font-bold text-ink">{child.data.officialName}</span>
     {hasInheritedOnly && (
-      <span class="meta mt-auto pt-1">{grouping ? text.inheritedFromGroup.replace("{where}", grouping) : text.seeApplicable}</span>
+      <span class="territory-coverage mt-auto pt-1 text-muted">
+        {grouping ? text.inheritedFromGroup.replace("{where}", grouping) : text.inheritedResources}
+      </span>
     )}
   </a>
   {aid.length > 0 && <RecordLinks place={child} language={language} resources={aid} featured />}
@@ -59,6 +61,10 @@ const hasInheritedOnly = withRecords && resources.length === 0;
     text-decoration: none;
     overflow-wrap: anywhere;
     border-radius: inherit;
+  }
+  .territory-coverage {
+    font-size: var(--text-control);
+    line-height: calc(var(--text-meta) * var(--text-meta--line-height));
   }
   .territory-link::after {
     content: "";
