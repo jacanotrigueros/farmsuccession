@@ -118,7 +118,8 @@ const baseTitle = placed
  * title takes the country, or the operator when it already names the country.
  */
 const countryName = view(territory).layers.find(({ layer }) => layer.level === "COUNTRY")?.data.officialName;
-const pageTitle = shortTitleTail(baseTitle, countryName, resource.operator);
+/** A search title written from how people search for the record replaces the one built from its name. */
+const pageTitle = resource.metaTitle ?? shortTitleTail(baseTitle, countryName, resource.operator);
 
 /**
  * The line a result shows, which is the only place this site competes.
@@ -158,6 +159,7 @@ const callNamed = !documentedCall
     : (/\b20\d{2}\b/u.exec(documentedCall.name)?.[0] ?? callYear(documentedCall));
 
 const pageDescription = ((): string => {
+  if (resource.metaDescription) return resource.metaDescription;
   const lead = callNamed ? `${callNamed} · ` : "";
   const room = SNIPPET - lead.length;
   const summary = resource.whatItOffers;

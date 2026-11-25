@@ -160,6 +160,14 @@ export interface Resource {
    * The resource's name as its operator gives it.
    */
   name: string;
+  /**
+   * Optional search title of the record page, in its language, when the one the site builds says less than people search for. The record's own name, placed in its territory, is used when this is absent.
+   */
+  metaTitle?: string;
+  /**
+   * Optional short search description of the record page, in its language, saying only what the page already says. The start of whatItOffers is used when this is absent.
+   */
+  metaDescription?: string;
   kind: ResourceKind;
   /**
    * Existence is not availability. ACTIVE: the page shows current operation. ANNOUNCED_NOT_OPERATING: announced or in law, with no operation shown. HISTORICAL: ran in the past. DISCONTINUED: shown as ended. UNKNOWN: the sources do not say.
@@ -714,6 +722,14 @@ export interface HubIdentity {
    * Hub slug exactly as the territory catalogue gives it. The hub must group more than one region.
    */
   hub: string;
+  /**
+   * Optional search title of the hub page, in its language, when the one the site builds says less than people search for. The site's localised territory title is used when this is absent.
+   */
+  metaTitle?: string;
+  /**
+   * Optional short search description of the hub page, in its language, saying only what the page already says. The public summary is used when this is absent.
+   */
+  metaDescription?: string;
 }
 export interface RegionalIdentity {
   schemaId: "regional-snapshot";
@@ -725,4 +741,12 @@ export interface RegionalIdentity {
    * Region slug exactly as the territory catalogue gives it.
    */
   region: string;
+  /**
+   * Optional search title of the region page, in its language, when the one the site builds says less than people search for. The site's localised territory title is used when this is absent.
+   */
+  metaTitle?: string;
+  /**
+   * Optional short search description of the region page, in its language, saying only what the page already says. The public summary is used when this is absent.
+   */
+  metaDescription?: string;
 }
