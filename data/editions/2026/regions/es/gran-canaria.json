@@ -104,9 +104,16 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://sede.gobiernodecanarias.org/sede/procedimientos_servicios/tramites/6726",
+          "title": "Solicitud de alta en la Secretaría Virtual para la inscripción en los cursos de formación ocupacional impartidos por las Escuelas de Capacitación Agraria - Sede electrónica del Gobierno de Canarias",
+          "consultedOn": "2026-11-24",
+          "quotes": ["¿Son gratuitos los cursos? Sí"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "accessCostType": "FREE"
     },
     {
       "id": "gran-canaria-banco-tierras",
@@ -207,6 +214,12 @@
       "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
       "lastEvidenceDate": "2026-04-17",
       "notes": "La medida no fija una edad máxima; prioriza, entre otros criterios, a quienes no recibieron la ayuda autonómica de creación de empresas por jóvenes ganaderos. El presupuesto máximo aprobado para gastos de funcionamiento es de 3.000 euros y el porcentaje ordinario de subvención es del 60%, sujeto a las reglas de la convocatoria.",
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.boplaspalmas.net/boletines/2026/17-4-26/17-4-26.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.boplaspalmas.net/boletines/2026/17-4-26/17-4-26.pdf",
@@ -237,9 +250,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://cabildo.grancanaria.com/w/servicio-de-agricultura-ganaderia-y-pesca",
+          "title": "Servicio de Agricultura, Ganaderia y Pesca - Portal Institucional - Cabildo de Gran Canaria - Cabildo de Gran Canaria",
+          "consultedOn": "2026-11-24",
+          "quotes": ["T: 928219620"]
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Servicio de Agricultura, Ganadería y Pesca del Cabildo de Gran Canaria",
+          "value": "928219620",
+          "sourceUrl": "https://cabildo.grancanaria.com/w/servicio-de-agricultura-ganaderia-y-pesca"
+        }
+      ]
     },
     {
       "id": "gran-canaria-banco-tierras-las-palmas",
@@ -273,7 +300,8 @@
             "Para inscribir o demandar tierras, se ha intentado que el proceso sea muy sencillo: con un sólo clic sobre el botón que quieras INSCRIPCIÓN DE TIERRAS o DEMANDA DE TIERRAS y rellenar el formulario.",
             "Una vez recibida la solicitud nos pondremos en contacto con el solicitante y haremos reuniones informativas con todos los interesados sobre los tipos de contratos.",
             "Si eres una persona inquieta y quieres colaborar con la dinamización agraria en Las Palmas de Gran Canaria, puedes apuntarte en QUIERO COLABORAR CON EL BANCO DE TIERRAS.",
-            "Demanda de consulta del parcelario"
+            "Demanda de consulta del parcelario",
+            "medioambiente@laspalmasgc.es"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -281,7 +309,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Centro de Recursos Ambientales El Pambaso",
+          "value": "medioambiente@laspalmasgc.es",
+          "sourceUrl": "https://lpgcsostenible.laspalmasgc.es/banco-de-tierras/"
+        }
+      ]
     },
     {
       "id": "gran-canaria-portal-agricultura-ganaderia-pesca",
@@ -313,7 +349,8 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "howToAccess": "Para solicitar atención de Extensión Agraria, usar el enlace «Cita previa en las Agencias de Extensión Agraria»."
     }
   ],
   "news": [],
