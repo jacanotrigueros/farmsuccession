@@ -25,7 +25,8 @@ import {
 } from "../lib/corpus.ts";
 import { GOALS } from "../lib/goals.ts";
 import { ICON } from "../lib/icons.ts";
-import { counted, words } from "../lib/words.ts";
+import { numberIn, pluralIndex } from "../../public/locale.js";
+import { words } from "../lib/words.ts";
 import { searchUrl } from "../../public/search-scope.js";
 
 const europe = euTerritory();
@@ -44,11 +45,18 @@ const everything = [europe, ...countryTerritories(), ...hubTerritories(), ...reg
  * The directory's size, one row under the country heading, each figure with its icon. The
  * source-and-date promise and the licence are not repeated here: every page's footer says them.
  */
+// The figure is printed once, in the reader's number format, and the label carries only its words:
+// "1,103" over "sources cited", never "1103" over "1,103 sources cited".
+const figure = (icon: string, value: number, forms: readonly string[]) => ({
+  icon,
+  value: numberIn(value, language),
+  label: forms[pluralIndex(value, language)],
+});
 const figures = [
-  { icon: ICON.resources, value: stats.records, label: counted(stats.records, text.statRecords, language) },
-  { icon: ICON.europe, value: stats.countries, label: counted(stats.countries, text.statCountries, language) },
-  { icon: ICON.territory, value: stats.territories, label: counted(stats.territories, text.statTerritories, language) },
-  { icon: ICON.sources, value: stats.sources, label: counted(stats.sources, text.statSources, language) },
+  figure(ICON.resources, stats.records, text.statRecords),
+  figure(ICON.europe, stats.countries, text.statCountries),
+  figure(ICON.territory, stats.territories, text.statTerritories),
+  figure(ICON.sources, stats.sources, text.statSources),
 ];
 ---
 
@@ -91,7 +99,7 @@ const figures = [
             <Icon name={figure.icon} aria-hidden="true" class="mt-1 size-5 shrink-0 text-brand" />
             <p class="min-w-0">
               <span class="block text-2xl leading-tight font-bold text-brand tabular-nums">{figure.value}</span>
-              <span class="meta block">{figure.label.replace(`${figure.value} `, "")}</span>
+              <span class="meta block">{figure.label}</span>
             </p>
           </li>
         ))}

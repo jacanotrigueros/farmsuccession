@@ -44,8 +44,12 @@ export async function createEngine({ bundles, languages, importModule = (url) =>
       if (cache.size > 128) cache.delete(cache.keys().next().value);
       // "any", not a bare list: a list asks for a record that carries every value at once.
       const any = Object.fromEntries(Object.entries(filters).map(([facet, values]) => [facet, { any: values }]));
-      const pending = Promise.all(modules.map((pagefind) => pagefind.search(term || null, { filters: any }))).then((all) => ({
-        results: all.flatMap((one) => one.results).toSorted((a, b) => b.score - a.score),
+      // With no words there is no relevance to rank by: every bundle lists its records in catalogue order and
+      // the bundles follow each other in the scope's order, the European layer's first — the same order as
+      // the list the page carries for readers without JavaScript (lib/catalogue-order.ts).
+      const options = term ? { filters: any } : { filters: any, sort: { order: "asc" } };
+      const pending = Promise.all(modules.map((pagefind) => pagefind.search(term || null, options))).then((all) => ({
+        results: term ? all.flatMap((one) => one.results).toSorted((a, b) => b.score - a.score) : all.flatMap((one) => one.results),
         counts: sum(all.map((one) => one.filters)),
       }));
       // A failed search is not remembered: asking again after a dropped connection has to try again.

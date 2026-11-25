@@ -33,6 +33,24 @@ export const APPLY_TONE = {
 };
 
 /**
+ * Where an answer stands among the answers of one record: a period a reader can apply through comes first,
+ * then one that is about to open, then one whose dates nobody published, then the closed ones, then a
+ * record that does not operate. Ties keep the order of the file (decisions/042, amending 029).
+ */
+export const APPLY_RANK = {
+  open: 0,
+  openByDates: 0,
+  upcoming: 1,
+  shouldBeOpen: 1,
+  noDates: 2,
+  unconfirmed: 2,
+  closed: 3,
+  deadlinePassed: 3,
+  announced: 4,
+  historical: 4,
+};
+
+/**
  * @param {{ state: string, opens?: string, closes?: string } | undefined} call one documented application period
  * @param {string} status the record's own status
  * @param {string} today an ISO day
@@ -61,11 +79,13 @@ export function localToday(now = new Date()) {
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
 
-// Every named period carries its own call and answers. Refresh each one independently; array order
-// never chooses which period the reader gets to hear about (decisions/029).
+// Every named period carries its own call and answers. Refresh each one independently; nothing is
+// hidden, and the open periods move first on the reader's day as they did on the build's (decisions/042).
 if (typeof document !== "undefined") {
   const today = localToday();
-  for (const block of document.querySelectorAll("section.apply[data-apply-answers]")) {
+  /** @type {Map<Element, { block: HTMLElement, rank: number, position: number }[]>} */
+  const groups = new Map();
+  for (const [position, block] of document.querySelectorAll("section.apply[data-apply-answers]").entries()) {
     if (!(block instanceof HTMLElement)) continue;
     const call = block.dataset.applyCall ? JSON.parse(block.dataset.applyCall) : undefined;
     const key = applyKey(call, block.dataset.applyStatus ?? "", today);
@@ -77,5 +97,12 @@ if (typeof document !== "undefined") {
     text.textContent = answer.text;
     detail.textContent = answer.detail ?? "";
     detail.hidden = !answer.detail;
+    const parent = block.parentElement;
+    if (parent) groups.set(parent, [...(groups.get(parent) ?? []), { block, rank: APPLY_RANK[key], position }]);
+  }
+  for (const [parent, blocks] of groups) {
+    if (blocks.length < 2) continue;
+    const ordered = blocks.toSorted((a, b) => a.rank - b.rank || a.position - b.position);
+    if (ordered.some((entry, index) => entry !== blocks[index])) parent.append(...ordered.map(({ block }) => block));
   }
 }

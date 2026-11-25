@@ -202,6 +202,13 @@
   background: var(--color-status-active-tint);
   --tw-ring-color: var(--color-status-active-line);
 }
+/* A status beside the record's own call answers: the word stays, the green steps back (decisions/042). */
+.tag-status.tag-quiet,
+[data-status] .tag-status.tag-quiet {
+  color: var(--color-muted);
+  background: transparent;
+  --tw-ring-color: var(--color-line);
+}
 .kind-bar {
   border-top: 4px solid var(--kind, var(--color-line));
 }

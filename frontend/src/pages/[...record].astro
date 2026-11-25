@@ -19,6 +19,7 @@ import { resourcePlaceParts } from "../../public/resource-place.js";
 import { countryFilters, searchUrl } from "../../public/search-scope.js";
 import { Icon } from "astro-icon/components";
 import ApplyNow from "../components/ApplyNow.astro";
+import { catalogueOrderOf } from "../lib/catalogue-order.ts";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CallWindows from "../components/CallWindows.astro";
 import CountryCards from "../components/CountryCards.astro";
@@ -459,6 +460,12 @@ const browseHere = searchUrl("/", {
       <span hidden data-pagefind-filter={`country:${code}`}></span>
     ))}
     {searchTerms && <span hidden data-pagefind-index-attrs="data-terms" data-terms={searchTerms}></span>}
+    {/* The search title is the name readers type ("Niederlassungsprämie"), and the official name often is
+        not. It is given to the index as an attribute, so the site's own search finds the record by it while
+        the page shows only the official name (decisions/042). */}
+    {pageTitle !== resource.name && <span hidden data-pagefind-index-attrs="data-search-title" data-search-title={pageTitle}></span>}
+    {/* Its place in the catalogue, which an empty search is listed by (lib/catalogue-order.ts). */}
+    <span hidden data-pagefind-sort={`order:${catalogueOrderOf(territory, resource.id)}`}></span>
     <span hidden data-pagefind-filter={`kind:${resource.kind}`} data-pagefind-meta={`kind:${resource.kind}`}></span>
     <span hidden data-pagefind-filter={`status:${resource.status}`} data-pagefind-meta={`status:${resource.status}`}></span>
     <span hidden data-pagefind-filter={`scope:${resource.scope.level}`}></span>
@@ -481,7 +488,7 @@ const browseHere = searchUrl("/", {
             <KindTag kind={resource.kind} language={language} />
           </span>
           <span>
-            <StatusTag status={resource.status} language={language} />
+            <StatusTag status={resource.status} language={language} quiet={(resource.calls?.length ?? 0) > 0} />
           </span>
         </p>
         {/* The note explains what "active" does not promise; beside any other status it contradicts the badge. */}
@@ -507,6 +514,9 @@ const browseHere = searchUrl("/", {
             <span>{resource.operator}</span>
           </span>
         </p>
+        {/* Whether a reader can apply is the question they arrive with, so it is answered under the title,
+            before what the resource offers (decisions/042). */}
+        <ApplyNow resource={resource} language={language} locale={locale} />
         <h2 class="eyebrow mt-8" data-pagefind-ignore>
           {text.offersTitle}
         </h2>
@@ -525,7 +535,6 @@ const browseHere = searchUrl("/", {
             {counted(resource.sources.length, text.source, locale)} · {counted(quotes, text.quote, locale)}
           </a>
         </p>
-        <ApplyNow resource={resource} language={language} locale={locale} />
       </div>
     </header>
 
