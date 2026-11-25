@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "hauts-de-france",
   "officialName": "Hauts-de-France",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "En Hauts-de-France, la Safer offre un accès au foncier et un portage pour l'installation. Plusieurs associations accompagnent les nouveaux agriculteurs et les cédants, et deux espaces-test permettent d'essayer une activité agricole. Pévèle Carembault maintient un appel permanent pour une aide à l'immobilier afin de créer ou de reprendre une exploitation. La validité actuelle des deux fiches d'aide régionale incluses auparavant n'a pas pu être vérifiée.",
   "coverage": {
     "status": "PARTIAL",
@@ -100,7 +100,8 @@
           "quotes": [
             "un transfert total ou partiel : transfert des terres, du bâti, du matériel, du cheptel",
             "des solutions de portage du foncier avec nos partenaires",
-            "Vous pouvez candidater en ligne ou envoyer par écrit votre candidature"
+            "Vous pouvez candidater en ligne ou envoyer par écrit votre candidature",
+            "contact@saferhdf.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -118,7 +119,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Safer Hauts-de-France",
+          "value": "contact@saferhdf.fr",
+          "sourceUrl": "https://www.saferhautsdefrance.fr/exploitants-porteurs-de-projet/agricole/m-installer/"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-initiatives-paysannes-installation",
@@ -208,7 +217,8 @@
           "quotes": [
             "aide à la recherche et à la rencontre de repreneurs-neuses potentiels-les",
             "*prise en charge financière possible grâce au soutien du Conseil régional (voir conditions)",
-            "contact@initiatives-paysannes.fr"
+            "contact@initiatives-paysannes.fr",
+            "Notre accompagnement individuel est personnalisé et adapté à votre projet, il est confidentiel et gratuit*."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -216,7 +226,16 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "accessCostType": "FREE",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Initiatives Paysannes",
+          "value": "contact@initiatives-paysannes.fr",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Notre-accompagnement-1588"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-terre-de-liens-accompagnement",
@@ -235,19 +254,38 @@
       "languages": ["fr"],
       "targetProfiles": ["LAND_SEEKER", "NEW_ENTRANT", "TRANSFEROR", "LANDOWNER"],
       "notes": "Il s'agit de l'accompagnement fourni par l'association régionale ; le portail national d'annonces Objectif Terres n'est pas repris comme ressource locale.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/hauts-de-france/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/hauts-de-france/",
           "title": "Hauts-de-France – Terre de Liens",
           "consultedOn": "2026-09-29",
-          "quotes": ["l’accompagnement de porteuses et porteurs de projet", "mais aussi les futur•es cédant•es", "Nous contacter"],
+          "quotes": [
+            "l’accompagnement de porteuses et porteurs de projet",
+            "mais aussi les futur•es cédant•es",
+            "Nous contacter",
+            "03 20 74 43 83"
+          ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Terre de Liens Hauts-de-France",
+          "value": "03 20 74 43 83",
+          "sourceUrl": "https://terredeliens.org/hauts-de-france/"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-germoir-espace-test",
@@ -266,6 +304,12 @@
       "accessUrl": "https://legermoir-ambricourt.fr/les-activites/lespace-test-agricole/",
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://legermoir-ambricourt.fr/les-activites/lespace-test-agricole/"
+        }
+      ],
       "sources": [
         {
           "url": "https://legermoir-ambricourt.fr/les-activites/lespace-test-agricole/",
@@ -274,7 +318,8 @@
           "quotes": [
             "Le Germoir, basé depuis 2005 à Ambricourt (62310), est le premier espace-test agricole en fonctionnement de France.",
             "Le Germoir peut vous accompagner dans l’expérimentation concrète de votre projet agricole.",
-            "E-mail : le-germoir@orange.fr"
+            "E-mail : le-germoir@orange.fr",
+            "Téléphone : 03 21 04 39 69"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -295,7 +340,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Le Germoir d’Ambricourt",
+          "value": "03 21 04 39 69",
+          "sourceUrl": "https://legermoir-ambricourt.fr/les-activites/lespace-test-agricole/"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-a-petits-pas-espace-test",
@@ -425,7 +478,17 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond de l’aide à l’investissement immobilier",
+          "value": 10000,
+          "unit": "EUR",
+          "asOf": "2025-01-01",
+          "sourceUrl": "https://demarches.pevelecarembault.fr/economie/demande-daide-linvestissement-immobilier-pour-exploitation-agricole"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-pevele-complement-arsi",
@@ -456,7 +519,8 @@
           "quotes": [
             "Publié le Mardi 18 mars 2025",
             "une aide forfaitaire de 8 000 € maximum",
-            "vous n'avez besoin de déposer qu'un seul dossier sur plateforme régionale."
+            "vous n'avez besoin de déposer qu'un seul dossier sur plateforme régionale.",
+            "une aide forfaitaire de 8 000 € maximum aux projets d’installation ou de reprise d’activités agricoles."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -464,7 +528,17 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond du complément de Pévèle Carembault",
+          "value": 8000,
+          "unit": "EUR",
+          "asOf": "2025-01-01",
+          "sourceUrl": "https://www.pevelecarembault.fr/actualites/pevele-carembault-accompagne-les-agriculteurs"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-sources-et-vallees-espace-test",
@@ -501,7 +575,8 @@
             "Le dispositif est ouvert à tous (même si l’on n’est pas issu de formation agricole) à condition d’avoir au moins une expérience en maraîchage et un projet d’installation/reprise d’une exploitation ou de diversification/conversion.",
             "Le porteur de projet peut sortir d'études (agricoles), être en reconversion professionnelle, ou encore être déjà installé mais souhaiter se diversifier ou produire en BIO.",
             "Même si le porteur de projet sera accompagné durant la période de test, il devra tout de même être autonome et gérer son activité.",
-            "Les modalité d'inscription sont à télécharger sur le lien suivant : Appel à Candidature, où vous trouverez les critères de sélection, les modalités de sélection des candidats, de mise à disposition du foncier et du matériel, ..."
+            "Les modalité d'inscription sont à télécharger sur le lien suivant : Appel à Candidature, où vous trouverez les critères de sélection, les modalités de sélection des candidats, de mise à disposition du foncier et du matériel, ...",
+            "E-mail : courrier@sourcesetvallees.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -519,7 +594,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Sources et Vallées",
+          "value": "courrier@sourcesetvallees.fr",
+          "sourceUrl": "https://www.sourcesetvallees.fr/rubrique-Espace-test-de-Sources-et-Vallees-40.html"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-arsi",
@@ -557,7 +640,14 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://guide-aides.hautsdefrance.fr/dispositif833"
+        }
+      ]
     },
     {
       "id": "hauts-de-france-picardie-espace-test-douchy",

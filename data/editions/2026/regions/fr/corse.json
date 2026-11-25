@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "corse",
   "officialName": "Corse",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "L'ODARC publie un accompagnement régional des candidats à l'installation et des jeunes agriculteurs. La page restant datée de 2021, son fonctionnement actuel est laissé explicitement inconnu.",
   "coverage": {
     "status": "PARTIAL",
@@ -80,6 +80,12 @@
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
       "lastEvidenceDate": "2021-12-07",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.odarc.corsica/Pour-tous-vos-projets-la-Cellule-JA-_a158.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.odarc.corsica/Pour-tous-vos-projets-la-Cellule-JA-_a158.html",
@@ -88,7 +94,8 @@
           "quotes": [
             "Cette cellule dispose de 5 personnes pour vous accompagner au mieux, de l'idée à sa réalisation.",
             "des conseillers basés territorialement accompagnent les candidats à l’installation ainsi que les JA au cours de leurs premières années d'installation",
-            "Le soutien se veut humain et technique en plus de financier."
+            "Le soutien se veut humain et technique en plus de financier.",
+            "odarc@odarc.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -122,13 +129,21 @@
         }
       ],
       "notes": "La page officielle est toujours accessible, mais elle est datée de décembre 2021 ; la disponibilité 2026 doit être confirmée avant de passer le statut à « Actif ».",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ODARC",
+          "value": "odarc@odarc.fr",
+          "sourceUrl": "https://www.odarc.corsica/Pour-tous-vos-projets-la-Cellule-JA-_a158.html"
+        }
+      ]
     },
     {
       "id": "corse-dotation-jeune-agriculteur",
       "name": "Intervention 75.03 - Dotation Jeune Agriculteur",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "UNKNOWN",
+      "status": "ACTIVE",
       "scope": {
         "level": "REGIONAL"
       },
@@ -139,6 +154,13 @@
       "howToAccess": "Consulter sur la fiche ODARC le dossier complet du dispositif DJA, le formulaire de lettre d’intention et le formulaire de demande.",
       "accessUrl": "https://www.odarc.corsica/Intervention-75-03-Dotation-Jeune-Agriculteur_a385.html",
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "PSN 75.03",
+          "sourceUrl": "https://www.odarc.corsica/attachment/2851376/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.odarc.corsica/Intervention-75-03-Dotation-Jeune-Agriculteur_a385.html",
@@ -153,7 +175,8 @@
             "Formulaire de demande lettre d'intention V2-PSN 2023 2027.pdf",
             "FAP DJA V5 PSN .pdf",
             "Date de clôture du dispositif 31/12/2027",
-            "modifié le Mardi 12 Décembre 2023"
+            "modifié le Mardi 12 Décembre 2023",
+            "odarc@odarc.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -169,6 +192,18 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://www.odarc.corsica/attachment/2851376/",
+          "title": "Document de l’ODARC, Office du développement agricole et rural de Corse",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Montant de base si ATP/AIP 40.000€",
+            "De 40.000€ à 75.000€",
+            "De 20.000€ à 37.500€",
+            "Date de clôture du dispositif 31/12/2027",
+            "Intervention : PSN 75.03"
+          ]
         }
       ],
       "notes": "La fiche indique une clôture du dispositif au 31 décembre 2027, mais sa date de modification affichée reste en décembre 2023. L’ouverture actuelle des demandes et les conditions détaillées doivent être confirmées dans les documents et décisions associés. Le guide du précédent PDRC présentait déjà la DJA comme une aide au premier établissement comme chef d’exploitation, à titre individuel ou en société. Les conditions de la fiche actuelle s’appliquent au dispositif en vigueur.",
@@ -179,10 +214,53 @@
           "sourceUrl": "https://www.odarc.corsica/Intervention-75-03-Dotation-Jeune-Agriculteur_a385.html"
         }
       ],
-      "implements": [
+      "metrics": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "75.03",
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "DJA de base – installation à titre principal ou à titre progressif",
+          "value": 40000,
+          "unit": "EUR",
+          "asOf": "2026-02-24",
+          "sourceUrl": "https://www.odarc.corsica/attachment/2851376/"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Maximum à titre principal",
+          "value": 75000,
+          "unit": "EUR",
+          "asOf": "2026-02-24",
+          "sourceUrl": "https://www.odarc.corsica/attachment/2851376/"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "Minimum à titre secondaire",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2026-02-24",
+          "sourceUrl": "https://www.odarc.corsica/attachment/2851376/"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Maximum à titre secondaire",
+          "value": 37500,
+          "unit": "EUR",
+          "asOf": "2026-02-24",
+          "sourceUrl": "https://www.odarc.corsica/attachment/2851376/"
+        }
+      ],
+      "calls": [
+        {
+          "name": "75.03 - Dotation Jeune Agriculteur",
+          "state": "OPEN",
+          "closes": "2027-12-31",
+          "sourceUrl": "https://www.odarc.corsica/attachment/2851376/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ODARC",
+          "value": "odarc@odarc.fr",
           "sourceUrl": "https://www.odarc.corsica/Intervention-75-03-Dotation-Jeune-Agriculteur_a385.html"
         }
       ]
@@ -261,11 +339,25 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://www.odarc.corsica/Pour-tous-vos-projets-la-Cellule-JA-_a158.html",
+          "title": "Odarc - Office du Développement Agricole et Rural de Corse",
+          "consultedOn": "2026-11-25",
+          "quotes": ["odarc@odarc.fr"]
         }
       ],
       "whoCanUseIt": "Candidats à l’installation, cédants et exploitations recherchant un associé.",
       "howToAccess": "Le conseiller RDI aide à préciser la recherche. Les offres inscrites sont consultables dans le répertoire national indiqué dans le guide.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ODARC",
+          "value": "odarc@odarc.fr",
+          "sourceUrl": "https://www.odarc.corsica/Pour-tous-vos-projets-la-Cellule-JA-_a158.html"
+        }
+      ]
     },
     {
       "id": "corse-points-accueil-transmission",
@@ -286,7 +378,8 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "Les conseillers PAT permettent d’étudier les formalités et les étapes clefs de la transmission",
-            "accompagnent tous les agriculteurs sans ou avec successeur qui souhaitent transmettre leur exploitation."
+            "accompagnent tous les agriculteurs sans ou avec successeur qui souhaitent transmettre leur exploitation.",
+            "Les conseillers PAT permettent d’étudier les formalités et les étapes clefs de la transmission, à venir."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -295,7 +388,8 @@
         }
       ],
       "whoCanUseIt": "Agriculteurs désireux de transmettre leur exploitation, avec ou sans successeur.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "S’adresser au conseiller du Point Accueil Transmission pour étudier les formalités et les étapes de la transmission."
     },
     {
       "id": "corse-aita-diagnostic-ceder",
@@ -370,6 +464,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide du précédent PDRC décrit la rémunération du stagiaire pour une période passée sur une exploitation ou un espace test.",
       "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
@@ -378,7 +479,9 @@
           "quotes": [
             "AIDE AU PARRAINAGE – RÉMUNÉRATION DU STAGIAIRE",
             "Période passée sur une exploitation agricole ou sur un espace test",
-            "une installation sociétaire, en tant qu’associé supplémentaire"
+            "une installation sociétaire, en tant qu’associé supplémentaire",
+            "DRAAF // 04 95 51 86 63 ou 73",
+            "LES AIDES D’ACCOMPAGNEMENT À L’INSTALLATION ET À LA TRANSMISSION EN AGRICULTURE (AITA)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -387,7 +490,22 @@
         }
       ],
       "whoCanUseIt": "Candidats qui s’installent pour remplacer un exploitant ou un associé, ou qui rejoignent une société dans le cadre d’une transformation sociétaire.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "DRAAF de Corse",
+          "value": "04 95 51 86 63",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ]
     },
     {
       "id": "corse-aita-conseil-amont-transmission",
@@ -401,6 +519,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide du précédent PDRC décrit une prestation de conseil pour faire l’état des lieux de l’exploitation et préparer les étapes et investissements de la transmission à moyen terme.",
       "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
@@ -408,7 +533,10 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "PRISE EN CHARGE DU CONSEIL D’ACCOMPAGNEMENT EN AMONT À LA TRANSMISSION",
-            "les étapes à conduire et les investissements à réaliser"
+            "les étapes à conduire et les investissements à réaliser",
+            "DRAAF // 04 95 51 86 63 ou 73",
+            "Le montant est de 80% de la dépense engagée à hauteur de 1500€ (tous les financements confondus).",
+            "LES AIDES D’ACCOMPAGNEMENT À L’INSTALLATION ET À LA TRANSMISSION EN AGRICULTURE (AITA)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -417,7 +545,16 @@
         }
       ],
       "whoCanUseIt": "Exploitants qui préparent une transmission.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "DRAAF de Corse",
+          "value": "04 95 51 86 63",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
+      "accessCostType": "FEE_REQUIRED"
     },
     {
       "id": "corse-aita-incitation-inscription-rdi",
@@ -431,6 +568,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide du précédent PDRC décrit une aide forfaitaire de 4 000 € liée à l’inscription du cédant au répertoire avant une cession hors cadre familial.",
       "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
@@ -440,7 +584,9 @@
             "Son montant forfaitaire est de 4000€ d’aides publiques",
             "une inscription du cédant au répertoire 1 an minimum avant la transmission",
             "s’effectue à la faveur d’un candidat âgé de moins de 40 ans.",
-            "Le plafond de cette aide est de 4 000 €"
+            "Le plafond de cette aide est de 4 000 €",
+            "DRAAF // 04 95 51 86 63 ou 73",
+            "LES AIDES D’ACCOMPAGNEMENT À L’INSTALLATION ET À LA TRANSMISSION EN AGRICULTURE (AITA)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -450,7 +596,22 @@
       ],
       "whoCanUseIt": "Le guide décrit une cession pour un candidat de moins de 40 ans et une inscription du cédant au répertoire au moins un an avant la transmission, sous réserve d’une dérogation prévue.",
       "howToAccess": "Inscrire l’exploitation au RDI en amont de la cession.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "DRAAF de Corse",
+          "value": "04 95 51 86 63",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ]
     },
     {
       "id": "corse-aita-transmission-globale-foncier",
@@ -464,6 +625,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide du précédent PDRC présente une aide à la transmission hors cadre familial pour encourager un bail à ferme ou à long terme et préserver l’intégrité foncière de la ferme.",
       "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
@@ -472,7 +640,9 @@
           "quotes": [
             "AIDE À LA TRANSMISSION GLOBALE DU FONCIER",
             "dans le cadre d’une cession hors cadre familial",
-            "Encourage la conclusion d’un bail à ferme ou à long terme au profit d’un candidat à l’installation."
+            "Encourage la conclusion d’un bail à ferme ou à long terme au profit d’un candidat à l’installation.",
+            "DRAAF // 04 95 51 86 63 ou 73",
+            "LES AIDES D’ACCOMPAGNEMENT À L’INSTALLATION ET À LA TRANSMISSION EN AGRICULTURE (AITA)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -481,7 +651,22 @@
         }
       ],
       "whoCanUseIt": "Cédants impliqués auprès des propriétaires pour transmettre l’exploitation à une personne qui s’installe hors cadre familial.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "DRAAF de Corse",
+          "value": "04 95 51 86 63",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ]
     },
     {
       "id": "corse-aita-aide-proprietaires-bailleurs",
@@ -495,6 +680,19 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide du précédent PDRC décrit une aide à l’hectare pour inciter les propriétaires à conclure des baux avec de jeunes agriculteurs.",
       "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
@@ -502,7 +700,9 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "Cette aide vise à inciter les propriétaires fonciers à conclure des baux avec des JA.",
-            "Le montant de l’aide est définie à l’hectare avec un seuil minimum."
+            "Le montant de l’aide est définie à l’hectare avec un seuil minimum.",
+            "DRAAF // 04 95 51 86 63 ou 73",
+            "LES AIDES D’ACCOMPAGNEMENT À L’INSTALLATION ET À LA TRANSMISSION EN AGRICULTURE (AITA)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -511,7 +711,22 @@
         }
       ],
       "whoCanUseIt": "Propriétaires concluant un bail avec un jeune agriculteur.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "DRAAF de Corse",
+          "value": "04 95 51 86 63",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ]
     },
     {
       "id": "corse-aita-bourse-stage-application",
@@ -525,6 +740,19 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Bourse pour un stage agricole d’un à six mois présentée dans le guide du précédent PDRC.",
       "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
@@ -533,7 +761,9 @@
           "quotes": [
             "BOURSE DE STAGE D’APPLICATION EN EXPLOITATION AGRICOLE",
             "Stage d’une durée de 1 à 6 mois.",
-            "Convention tripartite entre le stagiaire, le maitre de stage et le CEPPP."
+            "Convention tripartite entre le stagiaire, le maitre de stage et le CEPPP.",
+            "DRAAF // 04 95 51 86 63 ou 73",
+            "LES AIDES D’ACCOMPAGNEMENT À L’INSTALLATION ET À LA TRANSMISSION EN AGRICULTURE (AITA)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -543,7 +773,22 @@
       ],
       "whoCanUseIt": "Stagiaires effectuant un stage en exploitation agricole dans ce cadre.",
       "howToAccess": "Établir une convention entre le stagiaire, le maître de stage et le CEPPP, selon les termes du guide.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "DRAAF de Corse",
+          "value": "04 95 51 86 63",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ]
     },
     {
       "id": "corse-aita-conseil-technico-economique",
@@ -557,6 +802,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide du précédent PDRC décrit un suivi ou un conseil unitaire sur les aspects juridiques, fiscaux ou organisationnels après l’installation.",
       "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
@@ -565,7 +817,10 @@
           "quotes": [
             "CONSEIL TECHNICO-ÉCONOMIQUE (juridique, fiscal ou organisationnel)",
             "Sous forme de suivi formalisé ou de conseil unitaire.",
-            "Ne concerne uniquement que le nouvel installé ayant perçu des aides à l’installation."
+            "Ne concerne uniquement que le nouvel installé ayant perçu des aides à l’installation.",
+            "DRAAF // 04 95 51 86 63 ou 73",
+            "L’organisme réalisant le suivi perçoit 80% de la dépense engagée, à hauteur de 1 500€ max.",
+            "LES AIDES D’ACCOMPAGNEMENT À L’INSTALLATION ET À LA TRANSMISSION EN AGRICULTURE (AITA)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -574,7 +829,16 @@
         }
       ],
       "whoCanUseIt": "Nouveaux installés ayant perçu des aides à l’installation.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "DRAAF de Corse",
+          "value": "04 95 51 86 63",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
+      "accessCostType": "FEE_REQUIRED"
     },
     {
       "id": "corse-aita-location-habitation-batiments",
@@ -588,6 +852,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide du précédent PDRC décrit une incitation par cédant pour encourager la location du logement ou de bâtiments agricoles lors de la transmission des terres.",
       "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
@@ -596,7 +867,9 @@
           "quotes": [
             "INCITATION À LA LOCATION DE LA MAISON D’HABITATION ET/OU DE BÂTIMENTS",
             "en transmettant ses terres à un jeune",
-            "Ne concerne que la collectivité territoriale pour un montant de 5000 € par cédant."
+            "Ne concerne que la collectivité territoriale pour un montant de 5000 € par cédant.",
+            "DRAAF // 04 95 51 86 63 ou 73",
+            "LES AIDES D’ACCOMPAGNEMENT À L’INSTALLATION ET À LA TRANSMISSION EN AGRICULTURE (AITA)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -605,7 +878,22 @@
         }
       ],
       "whoCanUseIt": "Agriculteurs qui cessent leur activité, transmettent leurs terres à un jeune et lui louent aussi le logement ou les bâtiments agricoles.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "DRAAF de Corse",
+          "value": "04 95 51 86 63",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ]
     },
     {
       "id": "corse-aita-contrat-generation",
@@ -619,6 +907,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide du précédent PDRC décrit un dispositif historique d’embauche d’un salarié ou d’accueil d’un stagiaire en vue de lui céder l’exploitation.",
       "accessUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf",
@@ -627,7 +922,9 @@
           "quotes": [
             "LE DISPOSITIF RELATIF AU CONTRAT DE GÉNÉRATION",
             "embauche d’un salarié ou d’un stagiaire en vue de lui céder son exploitation.",
-            "Stagiaire ou salarié de moins de 30 ans, en CDI ou avec convention de stage."
+            "Stagiaire ou salarié de moins de 30 ans, en CDI ou avec convention de stage.",
+            "DRAAF // 04 95 51 86 63 ou 73",
+            "LES AIDES D’ACCOMPAGNEMENT À L’INSTALLATION ET À LA TRANSMISSION EN AGRICULTURE (AITA)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -636,7 +933,15 @@
         }
       ],
       "whoCanUseIt": "Le guide visait des salariés ou stagiaires de moins de 30 ans avec un CDI ou une convention de stage.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "DRAAF de Corse",
+          "value": "04 95 51 86 63",
+          "sourceUrl": "https://draaf.corse.agriculture.gouv.fr/IMG/pdf/Guide_Regional_d_installation_et_de_transmission_en_agriculture_1_cle0f9d6f.pdf"
+        }
+      ]
     }
   ],
   "news": [],

@@ -5,7 +5,7 @@
   "country": "FR",
   "region": "grand-est",
   "officialName": "Grand Est",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Le Grand Est complète les aides nationales par une aide régionale à l'installation des nouveaux agriculteurs de plus de quarante ans, et les Chambres d'agriculture y animent un guichet gratuit et des aides du programme AITA pour préparer la transmission des exploitations.",
   "coverage": {
     "status": "PARTIAL",
@@ -324,9 +324,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://biograndest.org/wp-content/uploads/2025/11/plaquetteit-bgev2025.pdf",
+          "title": "Plaquette installation-transmission 2025 (PDF, Bio en Grand Est)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["contact@biograndest.org"]
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Bio en Grand Est",
+          "value": "contact@biograndest.org",
+          "sourceUrl": "https://biograndest.org/wp-content/uploads/2025/11/plaquetteit-bgev2025.pdf"
+        }
+      ]
     },
     {
       "id": "grand-est-structures-accompagnement-installation",
@@ -438,17 +452,33 @@
           "quotes": [
             "L’ARDEAR Grand Est est engagée dans la transmission des fermes de la région.",
             "L’ARDEAR peut vous aider à affiner votre projet et vos envies grâce à de l’échange entre pairs",
-            "Nous pouvons vous accompagner dans votre réflexion. Contactez-nous"
+            "Nous pouvons vous accompagner dans votre réflexion. Contactez-nous",
+            "contact@ardeargrandest.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.agriculturepaysanne.org/IMG/pdf/brochure_presentation_transmission.pdf",
+          "title": "Brochure de présentation de la transmission (PDF, Agriculture paysanne)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["* prestation payante sur devis"]
         }
       ],
       "whoCanUseIt": "Agriculteurs préparant la transmission de leur ferme.",
       "howToAccess": "Contacter l’ARDEAR Grand Est pour échanger sur son projet.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "accessCostType": "FEE_REQUIRED",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ARDEAR Grand Est",
+          "value": "contact@ardeargrandest.fr",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Transmettre-244"
+        }
+      ]
     },
     {
       "id": "grand-est-ardear-annonces-paysannes",
@@ -462,6 +492,12 @@
       "operatorType": "NONPROFIT",
       "whatItOffers": "Diffusion trimestrielle d’annonces, dont les fermes à transmettre et les recherches d’associés.",
       "accessUrl": "https://www.agriculturepaysanne.org/Transmettre-244",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Transmettre-244"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.agriculturepaysanne.org/Transmettre-244",
@@ -469,7 +505,8 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "Chaque trimestre, nous centralisons et partageons à notre liste de diffusion les Annonces Paysannes",
-            "d’associé.e, de matériel, les annonces de fermes à transmettre"
+            "d’associé.e, de matériel, les annonces de fermes à transmettre",
+            "il vous suffit de nous en faire la demande à l’adresse suivante : contact@ardeargrandest.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -478,7 +515,16 @@
         }
       ],
       "whoCanUseIt": "Personnes cherchant à transmettre une ferme ou à trouver des associés dans le réseau paysan du Grand Est.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Écrire à contact@ardeargrandest.fr pour s’inscrire à la liste de diffusion ou diffuser une annonce.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Annonces Paysannes – ARDEAR Grand Est",
+          "value": "contact@ardeargrandest.fr",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Transmettre-244"
+        }
+      ]
     },
     {
       "id": "grand-est-stage-parrainage-ardear",
@@ -530,6 +576,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "La notice régionale du 11 décembre 2024 décrit le financement d’un diagnostic par exploitation, pour analyser sa situation économique et estimer la valeur de la reprise.",
       "accessUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf",
@@ -541,7 +594,8 @@
             "ne doit pas avoir identifié de repreneur dans le cadre familial.",
             "doit avoir le statut de chef d’exploitation.",
             "Le bénéficiaire sollicite un organisme prestataire agréé.",
-            "Il dépose le dossier complet auprès de la DDT"
+            "Il dépose le dossier complet auprès de la DDT",
+            "Notice explicative des actions du programme régional AITA Grand Est"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -551,7 +605,14 @@
       ],
       "whoCanUseIt": "Futurs cédants ayant le statut de chef d’exploitation, sans repreneur identifié dans le cadre familial. La notice requiert une déclaration de cessation et l’inscription au RDI avant le paiement.",
       "howToAccess": "Solliciter un prestataire agréé, qui dépose le dossier auprès de la DDT.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ]
     },
     {
       "id": "grand-est-aita-transmission-rdi",
@@ -565,6 +626,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "La notice décrit une aide à la transmission d’une exploitation inscrite au RDI depuis au moins douze mois, avec diagnostic préalable.",
       "accessUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf",
@@ -575,7 +643,9 @@
             "12 mois. La vérification de cette durée",
             "Le bénéficiaire doit avoir réalisé préalablement un diagnostic",
             "auprès de la DDT de son siège",
-            "en lien avec la chambre d’agriculture en charge du RDI."
+            "en lien avec la chambre d’agriculture en charge du RDI.",
+            "Le plafond d’aide publique est de 4 000 €.",
+            "Notice explicative des actions du programme régional AITA Grand Est"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -585,7 +655,24 @@
       ],
       "whoCanUseIt": "Chefs d’exploitation qui cessent leur activité pour retraite ou reconversion et transmettent hors cadre familial à un ou plusieurs nouveaux agriculteurs aidés.",
       "howToAccess": "Déposer la demande auprès de la DDT du siège de l’exploitation, en lien avec la chambre d’agriculture chargée du RDI.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond de l’aide publique à la transmission d’une exploitation inscrite au RDI",
+          "value": 4000,
+          "unit": "EUR",
+          "asOf": "2024-12-11",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ]
     },
     {
       "id": "grand-est-aita-transmission-globale-foncier",
@@ -599,6 +686,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "La notice décrit une aide au cédant pour faciliter le bail à ferme ou à long terme et transmettre le foncier avec l’exploitation.",
       "accessUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf",
@@ -608,7 +702,8 @@
             "5-3 Aide à la transmission globale du foncier",
             "encourager la conclusion d’un (ou plusieurs) bail à ferme ou à long terme",
             "Le bénéficiaire de l’aide est le porteur de projet à la transmission, futur cédant.",
-            "Le bénéficiaire constitue une demande d’aide et la dépose auprès de la DDT"
+            "Le bénéficiaire constitue une demande d’aide et la dépose auprès de la DDT",
+            "Notice explicative des actions du programme régional AITA Grand Est"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -618,7 +713,14 @@
       ],
       "whoCanUseIt": "Futurs cédants chefs d’exploitation qui transmettent hors cadre familial. La notice précise les conditions tenant au repreneur et à l’inscription du cédant au RDI.",
       "howToAccess": "Déposer une demande d’aide à la DDT du département du siège d’exploitation.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ]
     },
     {
       "id": "grand-est-aita-conseil-amont-transmission",
@@ -632,6 +734,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "La notice décrit un conseil au futur cédant, avec état des lieux et plan d’action pour préparer la transmission.",
       "accessUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf",
@@ -642,7 +751,9 @@
             "Le prestataire établit un état des lieux de l’exploitation agricole et compose un plan d’action",
             "chef d’exploitation sans condition d’âge",
             "sans repreneur identifié ou avec repreneur hors cadre familial.",
-            "Le bénéficiaire sollicite un organisme prestataire agréé."
+            "Le bénéficiaire sollicite un organisme prestataire agréé.",
+            "la copie de la facture acquittée par le bénéficiaire pour le montant restant à charge le cas échéant.",
+            "Notice explicative des actions du programme régional AITA Grand Est"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -652,7 +763,8 @@
       ],
       "whoCanUseIt": "Chefs d’exploitation sans condition d’âge, sans repreneur identifié ou avec un repreneur hors cadre familial.",
       "howToAccess": "Solliciter un prestataire agréé, qui constitue la demande et la dépose à la DDT.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "accessCostType": "FEE_REQUIRED"
     }
   ],
   "news": [],

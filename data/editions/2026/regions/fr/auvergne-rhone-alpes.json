@@ -198,6 +198,12 @@
       "accessUrl": "https://terredeliens.org/rhone-alpes/nous-contacter/",
       "languages": ["fr"],
       "targetProfiles": ["NEW_ENTRANT", "TRANSFEROR", "SUCCESSOR", "LAND_SEEKER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://terredeliens.org/rhone-alpes/nous-contacter/"
+        }
+      ],
       "sources": [
         {
           "url": "https://terredeliens.org/rhone-alpes/nous-contacter/",
@@ -206,7 +212,8 @@
           "quotes": [
             "Vous avez un projet d'installation, de transmission ou de cession d'une ferme",
             "merci de remplir une demande d'accompagnement sur le site Objectif Terres.",
-            "Pour faciliter la mise en relation avec les bénévoles Terre de Liens de votre territoire"
+            "Pour faciliter la mise en relation avec les bénévoles Terre de Liens de votre territoire",
+            "ra@terredeliens.org"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -214,7 +221,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Terre de Liens Rhône-Alpes",
+          "value": "ra@terredeliens.org",
+          "sourceUrl": "https://terredeliens.org/rhone-alpes/nous-contacter/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-ajis",
@@ -233,6 +248,12 @@
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT", "LAND_ACQUISITION"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://safer-aura.fr/solliciter-aide-ajis/"
+        }
+      ],
       "sources": [
         {
           "url": "https://safer-aura.fr/solliciter-aide-ajis/",
@@ -263,7 +284,14 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://safer-aura.fr/solliciter-aide-ajis/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-boite-a-essais",
@@ -290,6 +318,12 @@
       ],
       "sectors": ["AGRICULTURE"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://saintmarcellin-vercors-isere.fr/boite-a-essais.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://saintmarcellin-vercors-isere.fr/boite-a-essais.html",
@@ -416,7 +450,14 @@
           }
         }
       ],
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/IMG/pdf/fiche_diagnostic_cle411813.pdf"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-incitation-transmission-rdi",
@@ -464,7 +505,14 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/IMG/pdf/fiche_RDI_cle87fc54.pdf"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-draaf-portail-installation-transmission",
@@ -515,6 +563,13 @@
       "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
       "lastEvidenceDate": "2025-08-05",
       "notes": "La page ne confirme pas la disponibilité du financement pour l’année 2026 ; la vérifier avant d’engager le suivi.",
+      "implements": [
+        {
+          "resourceId": "fr-aita",
+          "named": "AITA",
+          "sourceUrl": "https://www.isere.gouv.fr/Actions-de-l-Etat/Agriculture/Creation-et-suivi-des-exploitations/Installation-et-transmission/Les-aides-AITA-installation-et-transmission-en-agriculture"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.isere.gouv.fr/Actions-de-l-Etat/Agriculture/Creation-et-suivi-des-exploitations/Installation-et-transmission/Les-aides-AITA-installation-et-transmission-en-agriculture",
@@ -534,7 +589,9 @@
             "ADABIO 95 route des Soudanières",
             "AFOCG des Alpes",
             "CERFRANCE Isère",
-            "CHAMBRE DÉPARTEMENTALE D’AGRICULTURE"
+            "CHAMBRE DÉPARTEMENTALE D’AGRICULTURE",
+            "accueil@isere.chambagri.fr",
+            "Les aides AITA (installation et transmission en agriculture)"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -542,7 +599,25 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond de prise en charge versée au prestataire",
+          "value": 1000,
+          "unit": "EUR",
+          "asOf": "2025-08-05",
+          "sourceUrl": "https://www.isere.gouv.fr/Actions-de-l-Etat/Agriculture/Creation-et-suivi-des-exploitations/Installation-et-transmission/Les-aides-AITA-installation-et-transmission-en-agriculture"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Chambre départementale d’agriculture de l’Isère",
+          "value": "accueil@isere.chambagri.fr",
+          "sourceUrl": "https://www.isere.gouv.fr/Actions-de-l-Etat/Agriculture/Creation-et-suivi-des-exploitations/Installation-et-transmission/Les-aides-AITA-installation-et-transmission-en-agriculture"
+        }
+      ]
     },
     {
       "scope": {
@@ -598,6 +673,12 @@
       "operatorType": "NONPROFIT",
       "whatItOffers": "Premier échange technique sur la production envisagée et information sur les visites, cafés et rencontres liés à l’installation.",
       "accessUrl": "https://adabio.com/nos-accompagnements/agriculteurs/installation-transmission-conversion/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://adabio.com/nos-accompagnements/agriculteurs/installation-transmission-conversion/"
+        }
+      ],
       "sources": [
         {
           "url": "https://adabio.com/nos-accompagnements/agriculteurs/installation-transmission-conversion/",
@@ -606,7 +687,8 @@
           "quotes": [
             "Vous portez un projet d’installation en agriculture biologique ?",
             "contacter la conseillère technique en charge de votre future production principale",
-            "visites de ferme, cafés-installation et forums de l’installation"
+            "visites de ferme, cafés-installation et forums de l’installation",
+            "contact@adabio.com"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -616,7 +698,15 @@
       ],
       "whoCanUseIt": "Porteurs de projet d’installation en agriculture biologique.",
       "howToAccess": "Contacter la conseillère technique de la future production principale.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ADABio",
+          "value": "contact@adabio.com",
+          "sourceUrl": "https://adabio.com/nos-accompagnements/agriculteurs/installation-transmission-conversion/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-adabio-suivi-dja",
@@ -639,7 +729,9 @@
             "Dispositifs de suivi post-installation dans le cadre de la DJA et hors DJA",
             "Ce suivi doit être initié avant la fin de la deuxième année",
             "La première visite s’intéresse au projet dans sa globalité à travers une analyse technico-économique.",
-            "soit la somme de 500€ TTC."
+            "soit la somme de 500€ TTC.",
+            "Le reste à charge du/de la producteur.rice correspond à 20% de la prestation HT (250€) ainsi que le montant total de la TVA (250€), soit la somme de 500€ TTC.",
+            "contact@adabio.com"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -649,7 +741,16 @@
       ],
       "whoCanUseIt": "Personnes récemment installées dans le cadre de la DJA.",
       "howToAccess": "Engager le suivi avant la fin de la deuxième année d’installation.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "accessCostType": "FEE_REQUIRED",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ADABio",
+          "value": "contact@adabio.com",
+          "sourceUrl": "https://adabio.com/nos-accompagnements/agriculteurs/installation-transmission-conversion/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-adabio-suivi-hors-dja",
@@ -672,7 +773,9 @@
             "Dispositifs de suivi post-installation dans le cadre de la DJA et hors DJA",
             "Accompagner l’agriculteur.rice sur des aspects techniques éligibles (voir ci-dessous) ou en lien avec la commercialisation.",
             "visites au cours des deux années faisant suite à la demande.",
-            "soit la somme de 500€ TTC."
+            "soit la somme de 500€ TTC.",
+            "Le reste à charge du/de la producteur.rice correspond à 20% de la prestation HT (250€) ainsi que le montant total de la TVA (250€), soit la somme de 500€ TTC.",
+            "contact@adabio.com"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -681,7 +784,16 @@
         }
       ],
       "whoCanUseIt": "Agriculteurs récemment installés hors DJA dont le projet porte sur un sujet technique éligible ou la commercialisation.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "accessCostType": "FEE_REQUIRED",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ADABio",
+          "value": "contact@adabio.com",
+          "sourceUrl": "https://adabio.com/nos-accompagnements/agriculteurs/installation-transmission-conversion/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-adabio-transmission",
@@ -695,6 +807,12 @@
       "operatorType": "NONPROFIT",
       "whatItOffers": "Peut relayer un projet de transmission auprès de partenaires en contact avec des candidats à l’installation.",
       "accessUrl": "https://adabio.com/nos-accompagnements/agriculteurs/installation-transmission-conversion/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://adabio.com/nos-accompagnements/agriculteurs/installation-transmission-conversion/"
+        }
+      ],
       "sources": [
         {
           "url": "https://adabio.com/nos-accompagnements/agriculteurs/installation-transmission-conversion/",
@@ -702,7 +820,8 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "faire part de vos démarches de transmission à votre conseillère technique habituelle ou à l’animatrice de votre territoire.",
-            "Nous pourrons partager votre projet à nos partenaires en lien avec des porteurs.ses de projet candidat.es à l’installation"
+            "Nous pourrons partager votre projet à nos partenaires en lien avec des porteurs.ses de projet candidat.es à l’installation",
+            "contact@adabio.com"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -712,7 +831,15 @@
       ],
       "whoCanUseIt": "Personnes qui préparent la transmission de leur exploitation.",
       "howToAccess": "Parler du projet à sa conseillère technique habituelle ou à l’animatrice de son territoire.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "ADABio",
+          "value": "contact@adabio.com",
+          "sourceUrl": "https://adabio.com/nos-accompagnements/agriculteurs/installation-transmission-conversion/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-ain-afocg-etude-faisabilite",
@@ -735,7 +862,8 @@
           "quotes": [
             "en installation aidée ou pas, pour concrétiser leur étude de faisabilité sur un laps de temps de 6 mois maximum.",
             "Les porteurs de projet doivent réaliser un diagnostic global pour lequel l’ADDEAR 01 bénéficie d’un agrément",
-            "Un passage des porteurs de projet en formation chiffrage organisée par l’ADDEAR 01 est préconisé"
+            "Un passage des porteurs de projet en formation chiffrage organisée par l’ADDEAR 01 est préconisé",
+            "afocg01@interafocg.org"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -745,7 +873,15 @@
       ],
       "whoCanUseIt": "Porteurs de projet d’installation dans l’Ain, avec ou sans aide.",
       "howToAccess": "Effectuer d’abord le diagnostic global de l’ADDEAR 01. La formation de chiffrage de l’ADDEAR 01 est recommandée.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "AFOCG 01",
+          "value": "afocg01@interafocg.org",
+          "sourceUrl": "https://afocg01.fr/index.php/pole-installation-transmission-en-agriculture/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-ain-afocg-appui-dja",
@@ -769,7 +905,9 @@
             "Pour les porteurs de projet qui souhaitent s’installer en sollicitant la DJA",
             "la mise en œuvre de l’outil de chiffrage du PE",
             "la saisie des informations synthétiques sur le portail de la région AURA",
-            "La petite histoire de l'AFOCG 01"
+            "La petite histoire de l'AFOCG 01",
+            "la mise en œuvre de l’outil de chiffrage du PE, la recherche de cohérence du projet et des documents, la saisie des informations synthétiques sur le portail de la région AURA",
+            "afocg01@interafocg.org"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -778,7 +916,16 @@
         }
       ],
       "whoCanUseIt": "Porteurs de projet sollicitant la DJA.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Poursuivre le parcours avec l’AFOCG 01 et l’ADDEAR 01 pour préparer et chiffrer le plan d’entreprise et saisir les informations sur le portail de la Région.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "AFOCG 01",
+          "value": "afocg01@interafocg.org",
+          "sourceUrl": "https://afocg01.fr/index.php/pole-installation-transmission-en-agriculture/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-ain-afocg-suivi-installation",
@@ -801,7 +948,8 @@
           "quotes": [
             "L’AFOCG 01 dispose de deux agréments pour accompagner les jeunes installés dans leur suivi post-installation",
             "L’accès à chaque agrément répond à des conditions particulières",
-            "Une analyse des résultats technico-économiques globaux de l’exploitation"
+            "Une analyse des résultats technico-économiques globaux de l’exploitation",
+            "afocg01@interafocg.org"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -810,7 +958,15 @@
         }
       ],
       "whoCanUseIt": "Jeunes installés, sous réserve des conditions propres à chacun des deux agréments.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "AFOCG 01",
+          "value": "afocg01@interafocg.org",
+          "sourceUrl": "https://afocg01.fr/index.php/pole-installation-transmission-en-agriculture/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-ain-addear-afocg-formations-installation",
@@ -833,7 +989,8 @@
           "quotes": [
             "L’AFOCG 01 intervient dans deux formations organisées par l’ADDEAR 01 à destination des porteurs de projet",
             "Trouver des statuts adaptés à son projet : 2 jours",
-            "Chiffrer son projet : 4 jours espacés, permet aux porteurs de projets de maturer leur prévisionnel économique"
+            "Chiffrer son projet : 4 jours espacés, permet aux porteurs de projets de maturer leur prévisionnel économique",
+            "Pour accéder au catalogue formation — Cliquer ici"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -842,7 +999,8 @@
         }
       ],
       "whoCanUseIt": "Porteurs de projet d’installation dans l’Ain.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Consulter le catalogue de formations accessible depuis la page du pôle installation-transmission."
     },
     {
       "id": "auvergne-rhone-alpes-sancy-guide-transmettre",
@@ -865,7 +1023,8 @@
           "quotes": [
             "Les partenaires conseillant les agriculteurs",
             "dans leur projet de transmission",
-            "Les solutions de portage sur le territoire du Sancy"
+            "Les solutions de portage sur le territoire du Sancy",
+            "Transmettre ma ferme"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -874,7 +1033,8 @@
         }
       ],
       "whoCanUseIt": "Agriculteurs du Massif du Sancy préparant la transmission de leur ferme.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Consulter le guide « Transmettre ma ferme » de la Communauté de Communes du Massif du Sancy."
     },
     {
       "id": "auvergne-rhone-alpes-sancy-coupons-transmission",
@@ -889,6 +1049,12 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide décrit un carnet de coupons de conseil de 1 500 € pour transmettre une ferme ou de 1 000 € pour rechercher un associé lors d’un départ.",
       "accessUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
@@ -910,7 +1076,14 @@
       ],
       "whoCanUseIt": "Exploitants de plus de 55 ans à titre principal ou secondaire, avec un siège dans le Sancy ou plus de 50 % des terres sur le territoire, sous les conditions de transmission du guide.",
       "howToAccess": "Contacter l’animation du Projet Alimentaire Territorial du Massif du Sancy pour un premier rendez-vous, puis signer une convention avec la communauté de communes.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "calls": [
+        {
+          "name": "Convocatoria",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-sancy-portage-conservatoire",
@@ -925,6 +1098,12 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide présente une mise en réserve du foncier agricole non bâti par la collectivité. Le porteur sélectionné devient locataire du bien.",
       "accessUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
@@ -970,7 +1149,8 @@
             "achat de 5 ans pour un coût maximum du",
             "Il peut exploiter les biens pendant cette",
             "son achat grâce au Crédit Agricole",
-            "service départemental du Puy-de-Dôme"
+            "service départemental du Puy-de-Dôme",
+            "04.73.31.90.20"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -980,7 +1160,15 @@
       ],
       "whoCanUseIt": "Porteurs de projet finançant l’achat avec le Crédit Agricole.",
       "howToAccess": "Contacter le service départemental du Puy-de-Dôme de la Safer.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "SAFER Auvergne-Rhône-Alpes – service départemental du Puy-de-Dôme",
+          "value": "04.73.31.90.20",
+          "sourceUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-terre-de-liens-auvergne-portage",
@@ -995,6 +1183,12 @@
       "operatorType": "NONPROFIT",
       "whatItOffers": "Le guide du Massif du Sancy décrit l’achat de biens agricoles par l’épargne citoyenne, puis leur mise à disposition par bail rural environnemental.",
       "accessUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
@@ -1029,6 +1223,16 @@
       "operatorType": "NONPROFIT",
       "whatItOffers": "Formation collective de cinq jours répartis sur deux à trois mois pour échanger sur la transmission, avec l’apport de formateurs experts.",
       "accessUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
+      "notPublished": [
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf"
+        },
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
@@ -1063,6 +1267,12 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Le guide présente une visite sur l’exploitation et des accompagnements personnalisés pour préparer la cessation d’activité ou un projet de transmission viable.",
       "accessUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf",
@@ -1072,7 +1282,8 @@
             "Au Point Accueil Transmission",
             "avec un accompagnement personnalisé",
             "avec un conseiller sur votre exploitation.",
-            "pour définir un projet"
+            "pour définir un projet",
+            "04 73 44 45 98"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -1082,7 +1293,15 @@
       ],
       "whoCanUseIt": "Agriculteurs du Puy-de-Dôme qui envisagent de cesser leur activité ou de transmettre l’exploitation.",
       "howToAccess": "S’informer auprès du Point Accueil Transmission de la Chambre, puis mobiliser un conseiller.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Point Accueil Transmission – Chambre d’agriculture du Puy-de-Dôme",
+          "value": "04 73 44 45 98",
+          "sourceUrl": "https://cc-massifdusancy.fr/wp-content/uploads/2025/05/Guide-Transmettre-ma-ferme.pdf"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-puy-de-dome-aide-tresorerie-installation",
@@ -1113,11 +1332,56 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.puy-de-dome.fr/subventions/guide-des-aides-departementales/accompagner-des-installations-agricoles-et-forestieres-economiquement-viables-et-aux-benefices-de-filieres-locales.html",
+          "title": "Accompagner des installations agricoles et forestières économiquement viables et aux bénéfices de filières locales",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Dotation de base pour les porteurs de projets agricoles éligibles à la DJA (mesure FEADER 101) : 3 000 €",
+            "Dotation de base pour les porteurs de projets agricoles non éligibles à la DJA (mesure FEADER 101) : 6 000 €",
+            "Dotation de base pour les porteurs de projets forestiers : 10 000 €",
+            "0473422390 (7116)"
+          ]
         }
       ],
       "whoCanUseIt": "Premières installations avec une activité de diversification, transformation, vente directe ou agritourisme.",
       "howToAccess": "Se renseigner auprès du Conseil départemental du Puy-de-Dôme.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Dotation de base – porteurs de projets agricoles éligibles à la DJA",
+          "value": 3000,
+          "unit": "EUR",
+          "asOf": "2022-12-13",
+          "sourceUrl": "https://www.puy-de-dome.fr/subventions/guide-des-aides-departementales/accompagner-des-installations-agricoles-et-forestieres-economiquement-viables-et-aux-benefices-de-filieres-locales.html"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Dotation de base – porteurs de projets agricoles non éligibles à la DJA",
+          "value": 6000,
+          "unit": "EUR",
+          "asOf": "2022-12-13",
+          "sourceUrl": "https://www.puy-de-dome.fr/subventions/guide-des-aides-departementales/accompagner-des-installations-agricoles-et-forestieres-economiquement-viables-et-aux-benefices-de-filieres-locales.html"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Dotation de base – porteurs de projets forestiers",
+          "value": 10000,
+          "unit": "EUR",
+          "asOf": "2022-12-13",
+          "sourceUrl": "https://www.puy-de-dome.fr/subventions/guide-des-aides-departementales/accompagner-des-installations-agricoles-et-forestieres-economiquement-viables-et-aux-benefices-de-filieres-locales.html"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Conseil départemental du Puy-de-Dôme – Service Agriculture et Forêt",
+          "value": "0473422390 (7116)",
+          "sourceUrl": "https://www.puy-de-dome.fr/subventions/guide-des-aides-departementales/accompagner-des-installations-agricoles-et-forestieres-economiquement-viables-et-aux-benefices-de-filieres-locales.html"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-puy-de-dome-equipements-installation",
@@ -1242,11 +1506,25 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.cc-montsdulyonnais.fr/contact/",
+          "title": "Contact | Communauté de communes des Monts du Lyonnais",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Contactez la Communauté de communes des Monts du Lyonnais"]
         }
       ],
       "whoCanUseIt": "Agriculteurs des Monts du Lyonnais qui s’inscrivent au RDI et réalisent un premier diagnostic de transmission.",
       "howToAccess": "S’inscrire au RDI et faire réaliser le premier diagnostic décrit dans la rubrique transmission.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Communauté de communes des Monts du Lyonnais",
+          "value": "https://www.cc-montsdulyonnais.fr/contact/",
+          "sourceUrl": "https://www.cc-montsdulyonnais.fr/contact/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-monts-lyonnais-aap-preparer-transmission",
@@ -1450,7 +1728,9 @@
           "quotes": [
             "Le Point Accueil Installation accueille, informe et oriente gratuitement toutes les personnes qui ont un projet d’installation en agriculture",
             "quel que soit leur âge, leur niveau de formation, la nature ou l’avancement de leur projet.",
-            "les conseillers du PAI vous accueillent en session collective ou en rendez-vous individuel."
+            "les conseillers du PAI vous accueillent en session collective ou en rendez-vous individuel.",
+            "Le Point Accueil Installation accueille, informe et oriente gratuitement toutes les personnes qui ont un projet d’installation en agriculture, quel que soit leur âge, leur niveau de formation, la nature ou l’avancement de leur projet.",
+            "04 78 19 61 39"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -1460,7 +1740,16 @@
       ],
       "whoCanUseIt": "Tout porteur de projet d’installation agricole, quel que soit son âge ou l’état d’avancement du projet.",
       "howToAccess": "Le PAI propose une session collective ou un rendez-vous individuel selon le projet.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "accessCostType": "FREE",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Point Accueil Installation du Rhône",
+          "value": "04 78 19 61 39",
+          "sourceUrl": "https://jarhone.fr/devenir-agriculteur/"
+        }
+      ]
     },
     {
       "id": "auvergne-rhone-alpes-stage-test-installation-transmission",

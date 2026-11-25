@@ -128,6 +128,12 @@
       "languages": ["fr"],
       "targetProfiles": ["GENERAL", "NEW_ENTRANT", "YOUNG_FARMER", "SUCCESSOR"],
       "lastEvidenceDate": "2026-01-23",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise"
+        }
+      ],
       "sources": [
         {
           "url": "https://agriculture.gouv.fr/deploiement-operationnel-de-la-seconde-phase-de-linitiative-nationale-pour-lagriculture-francaise",
@@ -192,10 +198,24 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.feve.co/contactez-nous",
+          "title": "Contactez-nous pour toute question sur FEVE",
+          "consultedOn": "2026-11-25",
+          "quotes": ["bonjour@feve.co"]
         }
       ],
       "notes": "Le dispositif porte une ferme déjà identifiée ; ce n’est pas un inventaire libre de parcelles. Le matériel, l’équipement et le cheptel ne sont pas financés par la foncière.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "FEVE",
+          "value": "bonjour@feve.co",
+          "sourceUrl": "https://www.feve.co/contactez-nous"
+        }
+      ]
     },
     {
       "id": "fr-msa-exoneration-jeune-agriculteur",
@@ -387,7 +407,8 @@
             "Une nouveauté : France Services Agriculture",
             "La loi d’orientation pour la souveraineté alimentaire et le renouvellement des générations en agriculture (LOSARGA) du 24 mars 2025 prévoit la mise en œuvre et le déploiement opérationnel du réseau France Services Agriculture (FSA) à compter du 1er janvier 2027.",
             "Ce réseau s'articule autour de deux niveaux de service.",
-            "Ouvert à toute personne ayant un projet d’installation ou de transmission de son activité agricole"
+            "Ouvert à toute personne ayant un projet d’installation ou de transmission de son activité agricole",
+            "Ce service est assuré par le point d’accueil départemental unique (PADU) mis en place par les chambres départementales d’agriculture dans le cadre de leur mission de service public relative à la politique d’installation et de transmission."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -406,7 +427,8 @@
         }
       ],
       "notes": "Le ministère présente encore ce réseau comme une nouveauté à déployer ; aucune voie d'accès opérationnelle propre n'est publiée sur la page. Le portail national des Chambres d’agriculture annonce le lancement du dispositif au 1er janvier 2027.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "howToAccess": "À partir du 1er janvier 2027, s’adresser au point d’accueil départemental unique (PADU) de sa chambre départementale d’agriculture pour obtenir un accueil et une orientation."
     },
     {
       "id": "fr-aita",
@@ -525,7 +547,8 @@
             "BÂTIR SON PROJET DE TRANSMISSION",
             "A CHAQUE QUESTION, DES INTERLOCUTEURS PRIVILÉGIÉS",
             "Document édité par l'Institut de l'Elevage",
-            "Janvier 2020"
+            "Janvier 2020",
+            "01 49 70 71 07"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -534,7 +557,15 @@
         }
       ],
       "notes": "Publication de janvier 2020 : les démarches administratives, les aides et les coordonnées présentées doivent être vérifiées auprès des organismes concernés avant utilisation.",
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Fédération Nationale des Eleveurs de Chèvres",
+          "value": "01 49 70 71 07",
+          "sourceUrl": "https://fnec.fr/IMG/pdf/TRANSMETTRE_EN_ELEVAGE_CAPRIN.pdf"
+        }
+      ]
     },
     {
       "id": "fr-service-public-annonce-cession-rdi",
