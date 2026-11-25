@@ -4,6 +4,8 @@
   "edition": "2026",
   "country": "FR",
   "region": "ile-de-france",
+  "metaTitle": "Installation agricole et foncier en Île-de-France",
+  "metaDescription": "Repérez l’aide FEADER à l’installation et les services de la Safer et d’Île-de-France Nature pour accéder au foncier ou transmettre une exploitation.",
   "officialName": "Île-de-France",
   "published": "2026-11-25",
   "summary": "En Île-de-France, l’accès à la terre passe par deux opérateurs vérifiables : Île-de-France Nature, qui loue ses terres agricoles et porte du foncier pour installer des agriculteurs en zone périurbaine avec la Safer, et la Safer de l’Île-de-France, qui accompagne les cédants dans la transmission de leur exploitation.",
@@ -55,6 +57,8 @@
     {
       "id": "ile-de-france-safer-idf-transmission",
       "name": "Safer de l’Île-de-France, accompagnement à l’installation et à la transmission",
+      "metaTitle": "Safer de l’Île-de-France : installation et transmission",
+      "metaDescription": "La Safer francilienne aide à préparer une cession ou une reprise. La fiche indique où consulter les biens en vente et comment joindre le conseiller.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -154,6 +158,8 @@
     {
       "id": "ile-de-france-nature-terres-agricoles",
       "name": "Île-de-France Nature, location de terres agricoles et portage foncier",
+      "metaTitle": "Île-de-France Nature : louer des terres agricoles",
+      "metaDescription": "Vous cherchez des terres pour vous installer en Île-de-France ? La fiche explique les acquisitions de l’agence et ses baux ruraux de 9 ou 18 ans.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -215,6 +221,8 @@
     {
       "id": "ile-de-france-gab-idf-transmettre-sa-ferme",
       "name": "Transmettre sa ferme",
+      "metaTitle": "Transmettre sa ferme : accompagnement en Île-de-France",
+      "metaDescription": "En Île-de-France, les cédants peuvent être accompagnés pour diagnostiquer leur ferme, diffuser une annonce et organiser les échanges avec un repreneur.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -270,6 +278,8 @@
     {
       "id": "ile-de-france-feader-installation-jeune-agriculteur",
       "name": "FEADER - Aide à l'installation du jeune agriculteur",
+      "metaTitle": "Aide à l’installation du jeune agriculteur — Île-de-France",
+      "metaDescription": "La dotation FEADER soutient les jeunes installés franciliens. La fiche présente le montant de base de 22 000 € et les bonifications possibles.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -299,6 +309,16 @@
           "sourceUrl": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur"
         }
       ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Montant de base à titre principal",
+          "value": 22000,
+          "unit": "EUR",
+          "asOf": "2026-11-21",
+          "sourceUrl": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur",
@@ -324,11 +344,20 @@
           }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-aide-linstallation-du-jeune-agriculteur"
+        }
+      ]
     },
     {
       "id": "ile-de-france-driaaf-renouvellement-generations",
       "name": "Renouvellement des générations",
+      "metaTitle": "Renouvellement des générations agricoles — Île-de-France",
+      "metaDescription": "La rubrique de la DRAAF présente le parcours à l’installation en Île-de-France et oriente vers l’accompagnement régional, l’AITA et les structures agréées.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {

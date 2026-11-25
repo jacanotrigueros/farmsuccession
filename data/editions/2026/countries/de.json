@@ -3,8 +3,9 @@
   "schemaId": "country-snapshot",
   "edition": "2026",
   "country": "DE",
+  "metaDescription": "Finden Sie nach Bundesland Beratung für die Hofnachfolge, Hofbörsen für die Hofsuche und Niederlassungsbeihilfen für junge Landwirtinnen und Landwirte.",
   "officialName": "Deutschland",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Finden Sie Beratung zur Hofübergabe, Hofbörsen und Angebote für den Einstieg in die Landwirtschaft. Die Übersicht nach Bundesland zeigt, wo Niederlassungsbeihilfen für Junglandwirtinnen und Junglandwirte dokumentiert sind.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -97,6 +98,8 @@
     {
       "id": "de-svlfg-betriebsuebergabe",
       "name": "Betriebsübergabe – ein Gesundheitsthema",
+      "metaTitle": "Betriebsübergabe – ein Gesundheitsthema: SVLFG-Seminare",
+      "metaDescription": "Versicherte der SVLFG finden ein viertägiges Seminar zu Gesundheit und Konflikten vor oder nach der Betriebsübergabe. Anmeldung online oder per Telefon.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -159,6 +162,8 @@
     {
       "id": "de-bioboden",
       "name": "BioBoden — Unterstützung beim Flächen- und Betriebserwerb",
+      "metaTitle": "BioBoden: Flächen und Höfe für Ökobetriebe in Deutschland",
+      "metaDescription": "Die BioBoden Genossenschaft kauft Flächen und Höfe für den Ökolandbau. Wer einen Hof abgeben oder langfristig pachten will, findet einen Kontakt.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -186,6 +191,12 @@
       ],
       "assetTypes": ["PLOTS", "WHOLE_HOLDINGS"],
       "targetProfiles": ["TRANSFEROR", "LANDOWNER", "LAND_SEEKER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://bioboden.de/eng/fuer-landwirte"
+        }
+      ],
       "sources": [
         {
           "url": "https://bioboden.de/eng/fuer-landwirte",
@@ -309,11 +320,23 @@
         }
       ],
       "notes": "Die Prüfung erfolgt nach Eingangsdatum und vorbehaltlich verfügbarer Fördermittel; aus der Antragstellung folgt kein automatischer Zuschuss. Erstattungsfähig sind nur von der SVLFG zugelassene oder vertraglich gebundene Coaches. Gleichgerichtete staatliche Hilfen schließen die Teilnahme aus. Die SVLFG behält Änderungen und eine vorzeitige Beendigung des Projekts vor.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Höchsterstattungsbetrag je Antragstellerin",
+          "value": 1800,
+          "unit": "EUR",
+          "asOf": "2024-09-15",
+          "sourceUrl": "https://www.svlfg.de/frauen-coaching"
+        }
+      ]
     },
     {
       "id": "de-rentenbank-hofnachfolgerinnen",
       "name": "LR-Förderkredite für Hofnachfolgerinnen und Existenzgründerinnen",
+      "metaTitle": "Förderkredite für Hofnachfolgerinnen bei der Rentenbank",
+      "metaDescription": "Hofnachfolgerinnen und Gründerinnen können bei ihrer Hausbank Förderkredite zu LR-Premium-Konditionen für Flächen, Hofkauf und Investitionen beantragen.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -344,6 +367,12 @@
       "languages": ["de"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
       "lastEvidenceDate": "2026-02-20",
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.rentenbank.de/foerderkredite/land-forstwirtschaft/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.rentenbank.de/foerderkredite/land-forstwirtschaft/",
@@ -384,11 +413,20 @@
         }
       ],
       "notes": "Die laufende Programmseite nennt keine gesonderte Antragsfrist. Sie weist LR-Premium für Hofnachfolgerinnen aus, veröffentlicht dort aber keine eigenständige Definition dieser Kategorie; die konkrete Einstufung und Kreditentscheidung bleiben beim Finanzierungspartner. Bis zu 100 Prozent der förderfähigen Kosten können finanziert werden, vorbehaltlich Kredit-, Beihilfe- und Bonitätsprüfung. Es handelt sich nicht um einen Zuschuss.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.rentenbank.de/foerderkredite/land-forstwirtschaft/"
+        }
+      ]
     },
     {
       "id": "de-blg-hofstellenboersen",
       "name": "Hof(stellen)börsen / Landwirtschaftliche Immobilienbörsen",
+      "metaTitle": "Hofstellenbörsen der Landgesellschaften in Deutschland",
+      "metaDescription": "Das Verzeichnis führt zu regionalen Hofstellenbörsen für Menschen, die einen Betrieb gründen, Flächen aufstocken oder ihren Betrieb abgeben möchten.",
       "kind": "OFFICIAL_PORTAL",
       "status": "UNKNOWN",
       "scope": {
@@ -424,6 +462,8 @@
     {
       "id": "de-agrar-buergschaft",
       "name": "Agrar-Bürgschaft",
+      "metaTitle": "Agrar-Bürgschaft in Deutschland für Gründung und Übernahme",
+      "metaDescription": "Kleine und mittlere Agrarbetriebe können Kredite für Gründung, Übernahme oder Investitionen absichern. Die Bürgschaft beträgt bis zu 750.000 Euro.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -438,6 +478,16 @@
       "instrumentType": "GUARANTEE",
       "purposes": ["FIRST_ESTABLISHMENT", "INVESTMENT", "LAND_ACQUISITION", "TRANSFER", "OTHER"],
       "accessCostType": "FEE_REQUIRED",
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://agrar.ermoeglicher.de/de/produkt/"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://agrar.ermoeglicher.de/de/produkt/"
+        }
+      ],
       "sources": [
         {
           "url": "https://agrar.ermoeglicher.de/de/produkt/",
@@ -465,11 +515,19 @@
         }
       ],
       "notes": "Die Bürgschaft läuft höchstens 10 Jahre, auch bei längerer Kreditlaufzeit. Die laufende Provision beträgt bei 50 % Bürgschaft 0,6 % bis 2,4 % und bei 70 % Bürgschaft 0,7 % bis 3,2 % jährlich des Kreditbetrages; maßgeblich ist die Bonitätseinschätzung der Hausbank. Hinzu kommt ein einmaliges Bearbeitungsentgelt von 1,0 % des verbürgten Kreditbetrages, mindestens 400,00 Euro.",
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://agrar.ermoeglicher.de/de/produkt/"
+        }
+      ]
     },
     {
       "id": "de-fibl-erfolgreiche-hofnachfolge",
       "name": "Unterrichtsmodul „erfolgreiche Hofnachfolge“",
+      "metaDescription": "Das Unterrichtsmaterial bereitet Berufs- und Fachschüler mit Fallbeispielen und Rollenspielen auf die Hofnachfolge in oder außerhalb der Familie vor.",
       "kind": "TRAINING",
       "status": "UNKNOWN",
       "scope": {
@@ -481,6 +539,16 @@
       "whoCanUseIt": "Für den Einsatz im Unterricht mit Berufs- und Fachschüler*innen, die sich mit einer möglichen Hofübernahme beschäftigen, einschließlich potenzieller Nachfolger*innen aus Familienbetrieben und Schüler*innen ohne eigenen Familienbetrieb.",
       "howToAccess": "Das Unterrichtsmodul ist als PDF über den angegebenen Zugang abrufbar.",
       "accessUrl": "https://www.fibl.org/fileadmin/documents/shop/1668-erfolgreiche-hofnachfolge.pdf",
+      "notPublished": [
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://www.fibl.org/fileadmin/documents/shop/1668-erfolgreiche-hofnachfolge.pdf"
+        },
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.fibl.org/fileadmin/documents/shop/1668-erfolgreiche-hofnachfolge.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.fibl.org/fileadmin/documents/shop/1668-erfolgreiche-hofnachfolge.pdf",
@@ -510,6 +578,8 @@
     {
       "id": "de-newbie-toolkit",
       "name": "NEWBIE Toolkit",
+      "metaTitle": "Direktvermarktung auf dem Hof: NEWBIE Toolkit",
+      "metaDescription": "Wer in die landwirtschaftliche Direktvermarktung einsteigen will, findet im NEWBIE Toolkit Infos zu Preisen, Absatz und Recht sowie Beispielvideos.",
       "kind": "ADVICE",
       "status": "UNKNOWN",
       "scope": {
@@ -521,6 +591,16 @@
       "whoCanUseIt": "Alle, die überlegen, in die landwirtschaftliche Direktvermarktung einzusteigen. Die Seite behandelt dabei die Herausforderungen von Neueinsteiger:innen beim Aufbau einer landwirtschaftlichen Existenz, von der familiären Hofnachfolge bis zum Neueinstieg in den Agrarsektor.",
       "howToAccess": "Über die BDL-Angebotsseite zur dort genannten Website www.newbie-direktvermarktung.de wechseln.",
       "accessUrl": "https://www.landjugend.de/newbie-toolkit/",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.landjugend.de/newbie-toolkit/"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.landjugend.de/newbie-toolkit/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.landjugend.de/newbie-toolkit/",
@@ -545,6 +625,8 @@
     {
       "id": "de-dvs-junglandwirte",
       "name": "Junglandwirte: Unternehmensnachfolge und Existenzgründung in der Landwirtschaft",
+      "metaTitle": "Förderung für Junglandwirte: Übersicht nach Bundesland",
+      "metaDescription": "Die DVS-Themenseite führt Junglandwirte nach Bundesland zu Investitionsförderung und Niederlassungsbeihilfen und verweist auf Gründungsprojekte.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -583,7 +665,5 @@
   "limitations": [
     "Nationale Informationsseiten wurden nicht als operative Angebote veröffentlicht, wenn Antrag, Vermittlung oder Beratung auf Länderebene erfolgt.",
     "Jedes Bundesland hat seine eigene Seite, und was dort jeweils noch fehlt, nennt diese Seite selbst."
-  ],
-  "metaTitle": "Hofnachfolge und Förderung für Junglandwirte in Deutschland",
-  "metaDescription": "Finden Sie Beratung zur Hofnachfolge, Hofbörsen und Niederlassungsbeihilfen für Junglandwirte nach Bundesland."
+  ]
 }

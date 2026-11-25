@@ -4,6 +4,8 @@
   "edition": "2026",
   "country": "FR",
   "region": "occitanie",
+  "metaTitle": "Installation, reprise et aides agricoles en Occitanie",
+  "metaDescription": "Comparez les dotations DJA et DNA et repérez le stage CEFI et le portage foncier pour préparer une installation ou une reprise agricole en Occitanie.",
   "officialName": "Occitanie",
   "published": "2026-11-25",
   "summary": "L'Occitanie propose deux dotations d'installation, un stage de reprise, un portage foncier et des accompagnements à l'installation et à la transmission. La Safer et des associations disposent également de services territoriaux.",
@@ -107,6 +109,8 @@
       "id": "occitanie-accompagnement-installation",
       "generatorId": "chatgpt-1",
       "name": "Accompagnement à l'installation en agriculture",
+      "metaTitle": "Accompagnement à l’installation en agriculture — Occitanie",
+      "metaDescription": "Des structures labellisées en Occitanie conseillent les porteurs de projet à la création d’une ferme et assurent un suivi après l’installation.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -153,6 +157,8 @@
       "id": "occitanie-accompagnement-pretransmission",
       "generatorId": "chatgpt-1",
       "name": "Accompagnement pré-transmission des exploitations",
+      "metaTitle": "Accompagnement pré-transmission des fermes — Occitanie",
+      "metaDescription": "Vous préparez la cession d’une exploitation en Occitanie ? La fiche présente l’appui au diagnostic, au plan d’action et au suivi de la transmission.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -199,6 +205,8 @@
       "id": "occitanie-europac",
       "generatorId": "chatgpt-1",
       "name": "Portail Euro-pac",
+      "metaTitle": "Portail Euro-pac : demandes FEADER en Occitanie",
+      "metaDescription": "Vous déposez une demande d’aide FEADER en Occitanie ? Accédez au portail Euro-pac utilisé pour transmettre votre demande en ligne à la Région.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -227,6 +235,8 @@
     {
       "id": "occitanie-dja",
       "name": "Dotation Jeune Agriculteur",
+      "metaTitle": "Dotation Jeune Agriculteur (DJA) — Occitanie",
+      "metaDescription": "La DJA 2026 soutient la trésorerie des jeunes qui démarrent une activité agricole en Occitanie. Consultez les conditions et les modalités de la demande.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -248,6 +258,12 @@
         }
       ],
       "targetProfiles": ["YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.europe-en-occitanie.eu/Dotation-Jeune-Agriculteur-FEADER-23-27"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.europe-en-occitanie.eu/Dotation-Jeune-Agriculteur-FEADER-23-27",
@@ -308,6 +324,8 @@
     {
       "id": "occitanie-dna",
       "name": "Dotation Nouvel Agriculteur",
+      "metaTitle": "Dotation Nouvel Agriculteur (DNA) — Occitanie",
+      "metaDescription": "La DNA 2026 soutient le démarrage des nouveaux agriculteurs en Occitanie, notamment après 40 ans. Retrouvez les conditions et la procédure de demande.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -329,6 +347,12 @@
         }
       ],
       "targetProfiles": ["NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.europe-en-occitanie.eu/Dotation-Nouvel-Agriculteur-FEADER-23-27"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.europe-en-occitanie.eu/Dotation-Nouvel-Agriculteur-FEADER-23-27",
@@ -389,6 +413,8 @@
     {
       "id": "occitanie-safer-foncier",
       "name": "Accès au foncier et accompagnement par la Safer Occitanie",
+      "metaTitle": "Safer Occitanie : foncier, candidatures et transmission",
+      "metaDescription": "La Safer Occitanie aide les candidats à trouver des terres et les cédants à évaluer leur bien. Retrouvez les appels à candidatures et les démarches.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -491,6 +517,8 @@
       "id": "occitanie-fonciere-agricole",
       "generatorId": "chatgpt-1",
       "name": "Foncière Agricole d'Occitanie",
+      "metaTitle": "Foncière Agricole d’Occitanie : portage de terres",
+      "metaDescription": "La Foncière Agricole d’Occitanie peut acheter les terres nécessaires à une installation, les louer au candidat et lui permettre de les racheter ensuite.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -539,6 +567,8 @@
     {
       "id": "occitanie-cefi",
       "name": "CEFI – Contrat Emploi Formation Installation",
+      "metaTitle": "CEFI : Contrat Emploi Formation Installation — Occitanie",
+      "metaDescription": "Testez une première reprise hors cadre familial ou une association en Occitanie grâce à un stage rémunéré de 3 à 12 mois dans l’exploitation.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -561,6 +591,12 @@
       "trainingFormats": ["IN_PERSON"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR"],
       "lastEvidenceDate": "2026-02-06",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://hautegaronne.chambres-agriculture.fr/etre-accompagne-1/agriculteurs/detail-de-la-prestation/cefi-contrat-emploi-formation-installation"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.laregion.fr/Agriculture-Viticulture-Alimentation",
@@ -617,6 +653,8 @@
       "id": "occitanie-terre-de-liens-languedoc-roussillon",
       "generatorId": "chatgpt-1",
       "name": "Accompagnement foncier de Terre de Liens Languedoc-Roussillon",
+      "metaTitle": "Terre de Liens Languedoc-Roussillon — Occitanie",
+      "metaDescription": "Terre de Liens accueille et oriente sur le foncier les personnes qui préparent une installation ou une transmission en Languedoc-Roussillon.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -669,6 +707,8 @@
       "id": "occitanie-addearg-transmission",
       "generatorId": "chatgpt-1",
       "name": "Accompagnement à la transmission par l'ADDEARG",
+      "metaTitle": "ADDEARG : transmettre sa ferme dans le Gard — Occitanie (30)",
+      "metaDescription": "L’ADDEARG accompagne les cédants du Gard (30), les met en relation avec des candidats et aide le binôme à préparer la reprise de la ferme.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -718,6 +758,8 @@
       "id": "occitanie-adear-lot-carte-transmission",
       "generatorId": "chatgpt-1",
       "name": "Carte des fermes en transmission de l'ADEAR du Lot",
+      "metaTitle": "Carte des fermes à reprendre dans le Lot (46) — Occitanie",
+      "metaDescription": "La carte de l’ADEAR du Lot permet de repérer les fermes engagées dans une démarche de transmission avant d’envisager une reprise ou une association.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -761,6 +803,8 @@
     {
       "id": "occitanie-ardear-installer",
       "name": "S’installer",
+      "metaTitle": "S’installer en agriculture paysanne — Occitanie",
+      "metaDescription": "Le réseau oriente les porteurs de projet vers les associations départementales qui les aident à préparer leur installation en agriculture paysanne.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -819,6 +863,7 @@
     {
       "id": "occitanie-pyrenees-orientales-installation-ppp",
       "name": "Installation (AITA - volet 3)",
+      "metaDescription": "Dans les Pyrénées-Orientales (66), retrouvez les contacts et les démarches pour préparer, faire agréer et valider votre plan de professionnalisation.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -877,6 +922,8 @@
     {
       "id": "occitanie-adear-ariege-accompagnement-individuel",
       "name": "L’accompagnement individuel",
+      "metaTitle": "Ariège (09) : accompagnement à l’installation — Occitanie",
+      "metaDescription": "Un appui individuel pour les candidats ariégeois : chiffrage, foncier, démarches administratives et choix de la stratégie d’installation agricole.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -926,6 +973,8 @@
     {
       "id": "occitanie-aude-point-accueil-transmission",
       "name": "Point Accueil Transmission (PAT)",
+      "metaTitle": "Point Accueil Transmission (PAT), Aude (11) — Occitanie",
+      "metaDescription": "Prenez contact avec le PAT de l’Aude pour préparer la cession de votre ferme. Le conseiller présente les étapes et les possibilités d’accompagnement.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -987,6 +1036,8 @@
       "accessUrl": "https://terredeliens.org/midi-pyrenees/",
       "id": "occitanie-terre-de-liens-midi-pyrenees",
       "name": "Terre de Liens Midi-Pyrénées — accueil et accompagnement foncier",
+      "metaTitle": "Terre de Liens Midi-Pyrénées — Occitanie",
+      "metaDescription": "Terre de Liens accueille les personnes qui préparent une installation ou une transmission en Midi-Pyrénées et accompagne les projets d’achat de terres.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "operator": "Terre de Liens Midi-Pyrénées",

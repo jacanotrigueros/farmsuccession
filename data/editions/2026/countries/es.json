@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "ES",
   "officialName": "España",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Si quieres empezar en el campo, consulta las ayudas de primera instalación de tu comunidad autónoma. También puedes buscar tierra, formación y asesoramiento, o encontrar recursos para traspasar tu explotación.",
   "metaDescription": "Consulta ayudas de primera instalación por comunidad autónoma, bancos de tierras y recursos para traspasar una explotación agraria en España.",
   "countryContext": {
@@ -366,7 +366,8 @@
           "quotes": [
             "Las estancias formativas irán dirigidas a jóvenes profesionales de la agricultura y la ganadería menores de 41 años e instalados como titulares de una explotación agraria o agroalimentaria en territorio nacional",
             "Las estancias formativas serán gratuitas para las personas participantes",
-            "así como a los profesionales de la agricultura y la ganadería que aun teniendo 41 años o más se hayan instalado por primera vez como titulares de una explotación agraria o agroalimentaria en territorio nacional en el año en curso de la correspondiente convocatoria o en los cinco años naturales inmediatamente anteriores y que tuvieran una edad menor de 41 en la fecha de la primera instalación."
+            "así como a los profesionales de la agricultura y la ganadería que aun teniendo 41 años o más se hayan instalado por primera vez como titulares de una explotación agraria o agroalimentaria en territorio nacional en el año en curso de la correspondiente convocatoria o en los cinco años naturales inmediatamente anteriores y que tuvieran una edad menor de 41 en la fecha de la primera instalación.",
+            "se podrán complementar con formación presencial impartida por la entidad beneficiaria"
           ]
         }
       ],
@@ -381,7 +382,8 @@
       "lastEvidenceDate": "2026-09-22",
       "notes": "El plazo de solicitudes de jóvenes se amplió hasta el 20 de septiembre de 2026 y está cerrado a la fecha de consulta. El programa continúa en tramitación; esto no equivale a una nueva ventana de solicitud. La página consultada no acredita por sí sola todos los costes de participación.",
       "generatorId": "chatgpt-1",
-      "whoCanUseIt": "Profesionales de la agricultura o la ganadería menores de 41 años, titulares de una explotación agraria o agroalimentaria en España. También pueden participar quienes tengan 41 años o más si se instalaron por primera vez como titulares en el año de la convocatoria o en los cinco años naturales anteriores y tenían menos de 41 años cuando se instalaron."
+      "whoCanUseIt": "Profesionales de la agricultura o la ganadería menores de 41 años, titulares de una explotación agraria o agroalimentaria en España. También pueden participar quienes tengan 41 años o más si se instalaron por primera vez como titulares en el año de la convocatoria o en los cinco años naturales anteriores y tenían menos de 41 años cuando se instalaron.",
+      "trainingFormats": ["IN_PERSON"]
     },
     {
       "id": "es-guia-tierra-firme",
@@ -396,9 +398,18 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Guía de orientación del Ministerio para quienes quieren dedicarse profesionalmente a la agricultura o la ganadería y crear su proyecto.",
       "accessUrl": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/guia-incorporacion-sector-agrario",
-      "accessCostType": "FREE",
       "languages": ["es"],
       "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/guia-incorporacion-sector-agrario"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/guia-incorporacion-sector-agrario"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/guia-incorporacion-sector-agrario",
@@ -433,7 +444,6 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Portal del Ministerio que reúne la guía de incorporación al sector, el programa CULTIVA, información sobre acceso a la tierra, las medidas PAC de relevo generacional y datos sobre juventud agraria.",
       "accessUrl": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/",
-      "accessCostType": "FREE",
       "languages": ["es"],
       "targetProfiles": ["GENERAL"],
       "sources": [
@@ -441,14 +451,19 @@
           "url": "https://www.mapa.gob.es/es/desarrollo-rural/temas/relevo-generacional/",
           "title": "Relevo Generacional en el Sector Agrario",
           "consultedOn": "2026-09-14",
-          "quotes": ["Relevo Generacional en el Sector Agrario", "Tierra Firme - Guía para empezar en el sector agrario"],
+          "quotes": [
+            "Relevo Generacional en el Sector Agrario",
+            "Tierra Firme - Guía para empezar en el sector agrario",
+            "Estancias Formativas de Jóvenes Agricultores en Explotaciones Modelo"
+          ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "howToAccess": "Entrar en el portal y elegir el tema: el programa CULTIVA de estancias formativas, la guía Tierra Firme para empezar, el acceso a la tierra o las medidas de la PAC."
     },
     {
       "id": "es-linea-ico-mapa-saeca-jovenes",
@@ -594,7 +609,6 @@
       "whatItOffers": "Mapa nacional para localizar espacios test agrarios, consultar su ficha y distinguir si están en diseño, en preparación o con personas téster activas o recientemente seleccionadas.",
       "howToAccess": "Abrir el mapa, filtrar por fase y consultar la ficha del espacio de interés. Después hay que comprobar con su operador si existe una convocatoria o vía de incorporación disponible.",
       "accessUrl": "https://espaciostestagrarios.org/intranet/observatorio",
-      "accessCostType": "FREE",
       "languages": ["es"],
       "targetProfiles": ["NEW_ENTRANT", "YOUNG_FARMER"],
       "notPublished": [

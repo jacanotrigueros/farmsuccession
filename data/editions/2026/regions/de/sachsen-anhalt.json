@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "sachsen-anhalt",
+  "metaTitle": "Hofnachfolge in Sachsen-Anhalt: Hofbörse und Förderung",
+  "metaDescription": "Sachsen-Anhalt bündelt Infos zur Niederlassungsbeihilfe, zur Hofvermittlung der Landgesellschaft und zu Kontakten im Netzwerk Junglandwirte.",
   "officialName": "Sachsen-Anhalt",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Sachsen-Anhalt verbindet die Niederlassungsbeihilfe und die Hofvermittlung der Landgesellschaft mit dem Netzwerk Junglandwirte. Das Netzwerk bündelt Kontakte, Orientierung und Austausch und hilft jungen Menschen, passende Ansprechpersonen, Unternehmen und andere Menschen in ähnlichen Situationen zu finden.",
   "coverage": {
     "status": "PARTIAL",
@@ -58,6 +60,7 @@
     {
       "id": "sachsen-anhalt-niederlassungsbeihilfe-junglandwirte",
       "name": "Niederlassungsbeihilfe für Junglandwirte in Sachsen-Anhalt",
+      "metaDescription": "Wer bis 40 Jahre alt ist und in Sachsen-Anhalt erstmals selbstständig einen Agrarbetrieb leitet, kann bis zu 100.000 Euro in drei Raten erhalten.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -73,6 +76,13 @@
       "purposes": ["FIRST_ESTABLISHMENT"],
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "EL-0501-02",
+          "sourceUrl": "https://www.inet17.sachsen-anhalt.de/webClient_ST_P/public?disposition=inline&resource=8501_26_MB_v2.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://alff.sachsen-anhalt.de/alff-sued/landwirtschaft/niederlassungsbeihilfe-fuer-junglandwirte",
@@ -111,14 +121,51 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://www.inet17.sachsen-anhalt.de/webClient_ST_P/public?disposition=inline&resource=8501_26_MB_v2.pdf",
+          "title": "Merkblatt 8501/26 (PDF, Land Sachsen-Anhalt)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Eine fortlaufende Antragsannahme der Bewilligungsbehörden ist zugelassen.",
+            "Anträge sind bei der Bewilligungsbehörde, dem Amt für Landwirtschaft, Flurneuordnung und Forsten, einzureichen, in dessen Zuständigkeitsbereich sich der Betriebssitz des Unternehmens befindet.",
+            "„Niederlassungsbeihilfe Junglandwirte“ des GAP-Strategieplanes (Teilintervention EL-0501-02) umgesetzt.",
+            "Der Zuschuss beträgt maximal 100 000 Euro je Junglandwirt und wird für einen Zeitraum von bis zu fünf Jahren unter Berücksichtigung von einer Arbeitskrafteinheit in nachfolgender Höhe gewährt"
+          ]
         }
       ],
       "notes": "Vor der Antragstellung sind insbesondere der Zeitpunkt der erstmaligen Niederlassung, die berufliche Qualifikation sowie Unter- und Obergrenzen bei Standardoutput, Prosperität und Tierbestand zu klären. Maßgeblich sind die gültige Richtlinie und die aktuellen Programmunterlagen.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "Antragsaufruf Niederlassungsbeihilfe Junglandwirte",
+          "state": "OPEN",
+          "sourceUrl": "https://www.inet17.sachsen-anhalt.de/webClient_ST_P/public?disposition=inline&resource=8501_26_MB_v2.pdf"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Zuständige Bewilligungsbehörde",
+          "value": "Amt für Landwirtschaft, Flurneuordnung und Forsten",
+          "sourceUrl": "https://www.inet17.sachsen-anhalt.de/webClient_ST_P/public?disposition=inline&resource=8501_26_MB_v2.pdf"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Höchstzuschuss je Junglandwirt",
+          "value": 100000,
+          "unit": "EUR",
+          "asOf": "2026-07-16",
+          "sourceUrl": "https://www.inet17.sachsen-anhalt.de/webClient_ST_P/public?disposition=inline&resource=8501_26_MB_v2.pdf"
+        }
+      ]
     },
     {
       "id": "sachsen-anhalt-netzwerk-junglandwirte",
       "name": "Netzwerk Junglandwirte Sachsen-Anhalt",
+      "metaDescription": "Das Netzwerk hilft jungen Menschen in Sachsen-Anhalt beim Einstieg, bei der Hofsuche oder Übernahme und verweist auf passende Kontakte und Anlaufstellen.",
       "kind": "NETWORK",
       "status": "ACTIVE",
       "scope": {
@@ -155,6 +202,8 @@
     {
       "id": "sachsen-anhalt-lgsa-hofvermittlung-beratung",
       "name": "Existenzgründung und Hofvermittlung der Landgesellschaft Sachsen-Anhalt",
+      "metaTitle": "Hofvermittlung und Hofbörse in Sachsen-Anhalt",
+      "metaDescription": "Die Landgesellschaft Sachsen-Anhalt berät Junglandwirte und Betriebe ohne Nachfolge in der Familie. Ihre Hofbörse bündelt Angebote und Gesuche.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -168,6 +217,12 @@
       "accessUrl": "https://www.lgsa.de/de/landwirtschaft/junglandwirte-existenzgruender/",
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT", "SUCCESSOR", "TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.lgsa.de/de/landwirtschaft/junglandwirte-existenzgruender/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.lgsa.de/de/landwirtschaft/junglandwirte-existenzgruender/",
@@ -183,9 +238,23 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.lgsa.de/de/kontakt/",
+          "title": "Kontakt / Landgesellschaft Sachsen-Anhalt mbH",
+          "consultedOn": "2026-11-25",
+          "quotes": ["info@lgsa.de"]
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Landgesellschaft Sachsen-Anhalt mbH",
+          "value": "info@lgsa.de",
+          "sourceUrl": "https://www.lgsa.de/de/kontakt/"
+        }
+      ]
     }
   ],
   "news": [],

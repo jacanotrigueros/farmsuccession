@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "schleswig-holstein",
+  "metaTitle": "Hofnachfolge in Schleswig-Holstein: Beratung zur Hofübergabe",
+  "metaDescription": "Die Landwirtschaftskammer berät Übergebende und Nachfolgende in Schleswig-Holstein zu wirtschaftlichen Voraussetzungen, Vertrag und Ablauf der Hofübergabe.",
   "officialName": "Schleswig-Holstein",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "In Schleswig-Holstein führt die Landwirtschaftskammer durch die Hofübergabe — von den wirtschaftlichen Voraussetzungen über den Übergabevertrag bis zur Frage, ob eine außerfamiliäre Übergabe in Betracht kommt —, während die Landgesellschaft Flächen aus ihrem Bodenfonds an Betriebe abgibt.",
   "coverage": {
     "status": "PARTIAL",
@@ -48,6 +50,8 @@
     {
       "id": "schleswig-holstein-lksh-beratung-hofuebergabe",
       "name": "Beratung zur Hofübergabe der Landwirtschaftskammer Schleswig-Holstein",
+      "metaTitle": "Hofübergabe in Schleswig-Holstein: Beratung der Kammer",
+      "metaDescription": "Die Landwirtschaftskammer berät Übergebende und Nachfolgende zu Wirtschaftlichkeit, Übergabevertrag und Altenteil. Die Übersicht nennt den Kontakt.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -66,6 +70,12 @@
           "channel": "PHONE",
           "value": "+49 4331 9453-0",
           "label": "Landwirtschaftskammer Schleswig-Holstein",
+          "sourceUrl": "https://www.lksh.de/beratung/beratung-zur-hofuebergabe"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
           "sourceUrl": "https://www.lksh.de/beratung/beratung-zur-hofuebergabe"
         }
       ],
@@ -102,6 +112,8 @@
     {
       "id": "schleswig-holstein-lgsh-bodenfonds-agrarstruktur",
       "name": "Flächen aus dem Bodenfonds der Landgesellschaft Schleswig-Holstein",
+      "metaTitle": "Landgesellschaft Schleswig-Holstein: Flächen aus Bodenfonds",
+      "metaDescription": "Agrarbetriebe in Schleswig-Holstein können Flächen aus dem Bodenfonds erwerben, um ihren Betrieb zu vergrößern, Flächen zusammenzulegen oder zu tauschen.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -140,7 +152,8 @@
             "Der revolvierende Bodenfonds in Größe von etwa 4.000 ha schafft die Voraussetzung für Aufstockungen, Arrondierungen und Umsiedlungen landwirtschaftlicher Betriebe.",
             "Grundlage für den Bodenfonds ist der kontinuierliche Erwerb von landwirtschaftlichen Flächen, die zur Erreichung der vielfältigen Anforderungen im ländlichen Raum bereitgestellt werden.",
             "Solange diese Flächen im Eigentum der Landgesellschaft sind, werden sie durch Landwirte auf der Basis kurzfristiger Pachtverträge bewirtschaftet.",
-            "Sie wünschen Beratung zu diesem Thema? Finden Sie die richtigen Ansprechpartner."
+            "Sie wünschen Beratung zu diesem Thema? Finden Sie die richtigen Ansprechpartner.",
+            "info@lgsh.de"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -148,11 +161,21 @@
           }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Landgesellschaft Schleswig-Holstein",
+          "value": "info@lgsh.de",
+          "sourceUrl": "https://www.lgsh.de/flaechenmanagement/bodenfonds/"
+        }
+      ]
     },
     {
       "id": "schleswig-holstein-lksh-soziooekonomische-beratung",
       "name": "Sozioökonomische Beratung",
+      "metaTitle": "Hofnachfolge in Schleswig-Holstein: Sozioökonomie",
+      "metaDescription": "Familienbetriebe in schwieriger Lage finden Hilfe bei Höfeordnung, Konflikten und fehlender Hofnachfolge. Die Kammer nennt Kontakte zur Beratung.",
       "kind": "ADVICE",
       "status": "UNKNOWN",
       "scope": {
@@ -194,9 +217,16 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.lksh.de/fileadmin/PDF_Downloadcenter/Flyer_Broschueren/Beratung/Flyer_Soziooekonomische_Beratung_Wiegeht_es_mit_dem_Betrieb_weiter.pdf",
+          "title": "Sozioökonomische Beratung: Wie geht es mit dem Betrieb weiter? (PDF, Landwirtschaftskammer Schleswig-Holstein)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Die Beratung ist gebührenpflichtig."]
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "accessCostType": "FEE_REQUIRED"
     }
   ],
   "news": [],

@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "IT",
   "region": "umbria",
+  "metaTitle": "Primo insediamento in Umbria: bando SRE01 2026",
+  "metaDescription": "Consulta il bando SRE01 2026 per i giovani al primo insediamento in Umbria e i requisiti per diventare capo di un’azienda agricola.",
   "officialName": "Umbria",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "L'Umbria ha pubblicato nel 2026 un bando SRE01 da 9 milioni di euro per il primo insediamento dei giovani agricoltori, con domande chiuse il 2 settembre. Il Banco della Terra regionale è documentato, ma la disponibilità attuale dei suoi beni non è confermata.",
   "coverage": {
     "status": "PARTIAL",
@@ -90,6 +92,8 @@
     {
       "id": "umbria-insediamento-giovani-agricoltori",
       "name": "Insediamento giovani agricoltori, intervento SRE01",
+      "metaTitle": "SRE01 Umbria 2026: insediamento giovani agricoltori",
+      "metaDescription": "Il bando SRE01 2026 in Umbria prevedeva 70.000 euro per giovani al primo insediamento. Consulta requisiti, piano aziendale e procedura SIAN.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -133,6 +137,13 @@
           "sourceUrl": "https://www.regione.umbria.it/notizie/-/asset_publisher/54m7RxsCDsHr/content/agricoltura-?read_more=true"
         }
       ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://www.regione.umbria.it/notizie/-/asset_publisher/54m7RxsCDsHr/content/agricoltura-?read_more=true"
+        }
+      ],
       "sources": [
         {
           "url": "https://applicazioni.regione.umbria.it/widget/bandi1?_bandi_WAR_bandiportlet_codBando=2026-002-6802&_bandi_WAR_bandiportlet_javax.portlet.action=viewDettaglio&p_p_id=bandi_WAR_bandiportlet&p_p_lifecycle=1&p_p_mode=view&p_p_state=maximized",
@@ -159,7 +170,9 @@
             "tramite il portale SIAN",
             "Il sostegno è concesso sotto forma di premio pari a 70mila euro per ciascun giovane agricoltore insediato",
             "di età compresa tra 18 anni compiuti e 41 anni non compiuti",
-            "Per accedere all’aiuto è necessario presentare un Piano Aziendale"
+            "Per accedere all’aiuto è necessario presentare un Piano Aziendale",
+            "inviare quesiti all’indirizzo sezione-giovani@regione.umbria.it.",
+            "l’intervento SRE01 “Insediamento Giovani Agricoltori”, previsto dal CSR Umbria 2023-2027"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -198,17 +211,19 @@
           "sourceUrl": "https://www.regione.umbria.it/csrumbria"
         }
       ],
-      "implements": [
+      "contactPoints": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "SRE01",
-          "sourceUrl": "https://www.regione.umbria.it/csrumbria"
+          "channel": "EMAIL",
+          "label": "Sezione Giovani – Regione Umbria",
+          "value": "sezione-giovani@regione.umbria.it",
+          "sourceUrl": "https://www.regione.umbria.it/notizie/-/asset_publisher/54m7RxsCDsHr/content/agricoltura-?read_more=true"
         }
       ]
     },
     {
       "id": "umbria-banco-della-terra",
       "name": "Banco della Terra dell'Umbria",
+      "metaDescription": "Il Banco della Terra dell’Umbria riguarda terreni e aziende agricole in affitto o concessione. Consulta gli avvisi AFOR e i requisiti di assegnazione.",
       "kind": "LAND_BANK",
       "status": "UNKNOWN",
       "scope": {
@@ -281,10 +296,24 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://afor.umbria.it/ente/contatti/",
+          "title": "Contatti – AFOR Umbria",
+          "consultedOn": "2026-11-25",
+          "quotes": ["Casella PEC: agenziaregionaleforestaleumbra@legalmail.it"]
         }
       ],
       "notes": "Il programma AFOR per il 2026 riferisce che il quarto avviso è andato deserto e propone migliorare lo strumento. AFOR ha pubblicato altre concessioni di terreni nel 2026, ma le pagine esaminate non le identificano come nuovi avvisi del Banco della Terra. La loro esistenza non basta a cambiarne lo stato in «Attivo».",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Agenzia Forestale Regionale dell’Umbria",
+          "value": "agenziaregionaleforestaleumbra@legalmail.it",
+          "sourceUrl": "https://afor.umbria.it/ente/contatti/"
+        }
+      ]
     }
   ],
   "news": [

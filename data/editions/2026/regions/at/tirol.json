@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "AT",
   "region": "tirol",
+  "metaTitle": "Hofübergabe und Hofnachfolge in Tirol",
+  "metaDescription": "Wer in Tirol einen Hof übernimmt, findet das Höfegesetz für die Erbteilung, Regeln zum Grundverkehr und Konsolidierungskredite des Landeskulturfonds.",
   "officialName": "Tirol",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Die Übersicht für Tirol enthält auch die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte sowie den Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs. Ein eigenes Angebot des Landes ist in dieser Fassung noch nicht dokumentiert.",
   "coverage": {
     "status": "PARTIAL",
@@ -48,6 +50,8 @@
     {
       "id": "tirol-landeskulturfonds-konsolidierung",
       "name": "Konsolidierungskredite",
+      "metaTitle": "Konsolidierungskredite bei Hofübernahme in Tirol",
+      "metaDescription": "Wer in Tirol einen verschuldeten Hof übernimmt, findet Voraussetzungen für einen zinsgestützten Kredit und die Anschrift des Landeskulturfonds.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -70,6 +74,12 @@
       "instrumentType": "LOAN",
       "purposes": ["TRANSFER"],
       "targetProfiles": ["YOUNG_FARMER", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://landeskulturfonds.tirol/at/themen/132-konsolidierungskredite"
+        }
+      ],
       "sources": [
         {
           "url": "https://landeskulturfonds.tirol/at/themen/132-konsolidierungskredite",
@@ -91,11 +101,20 @@
           }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://landeskulturfonds.tirol/at/themen/132-konsolidierungskredite"
+        }
+      ]
     },
     {
       "id": "tirol-hoefegesetz",
       "name": "Gesetz betreffend die besonderen Rechtsverhältnisse geschlossener Höfe (Tiroler Höfegesetz - THG)",
+      "metaTitle": "Tiroler Höfegesetz (THG): Erbteilung bei geschlossenen Höfen",
+      "metaDescription": "Wer einen geschlossenen Hof in Tirol erbt, erfährt, wer den Hof übernehmen kann und wie das Gericht bei Streit über Teilung oder Übernahmswert vorgeht.",
       "kind": "POLICY",
       "status": "ACTIVE",
       "scope": {
@@ -124,7 +143,8 @@
           }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "whoCanUseIt": "Die Regelung zur gesetzlichen Erbfolge betrifft mehrere Miterben nach dem Alleineigentümer eines geschlossenen Hofes. Einer von ihnen übernimmt den Hof als Anerbe."
     },
     {
       "scope": {
@@ -133,6 +153,7 @@
       "accessUrl": "https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=LrT&Gesetzesnummer=20000005",
       "id": "tirol-grundverkehrsgesetz",
       "name": "Tiroler Grundverkehrsgesetz 1996",
+      "metaDescription": "Wer in Tirol einen Hof oder Agrarflächen kaufen und erst danach bewirtschaften will, findet Vorgaben zu Praxis, Ausbildung und Betriebskonzept.",
       "kind": "POLICY",
       "status": "ACTIVE",
       "operator": "Land Tirol",

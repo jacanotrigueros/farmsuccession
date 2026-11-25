@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "nordrhein-westfalen",
+  "metaTitle": "Hofnachfolge in Nordrhein-Westfalen: Vermittlung",
+  "metaDescription": "Nordrhein-Westfalen bietet vertrauliche Vermittlung für die außerfamiliäre Hofnachfolge und Beratung der Landwirtschaftskammer für Gründungsinteressierte.",
   "officialName": "Nordrhein-Westfalen",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Nordrhein-Westfalen bietet eine aktive, vertrauliche Vermittlung für außerfamiliäre Hofnachfolge und eine öffentliche Gründungsberatung der Landwirtschaftskammer.",
   "coverage": {
     "status": "PARTIAL",
@@ -58,6 +60,8 @@
     {
       "id": "nordrhein-westfalen-ausserfamiliaere-hofnachfolge",
       "name": "NRW-Initiative außerfamiliäre Hofnachfolge",
+      "metaTitle": "Außerfamiliäre Hofnachfolge: NRW-Initiative",
+      "metaDescription": "Die Vertrauensstelle erfasst Hof- und Suchprofile vertraulich und vermittelt passende Kontakte. Die Übersicht nennt Kontaktwege und Hinweise zu Gebühren.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -115,6 +119,8 @@
     {
       "id": "nordrhein-westfalen-existenzgruendungsberatung-landwirtschaft",
       "name": "Existenzgründungsberatung Landwirtschaft",
+      "metaTitle": "Existenzgründungsberatung Landwirtschaft in NRW",
+      "metaDescription": "Die Landwirtschaftskammer Nordrhein-Westfalen begleitet Menschen bei Gründung oder Übernahme eines Agrar- oder Gartenbaubetriebs und berät zur Förderung.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -130,6 +136,12 @@
       "accessCostType": "UNKNOWN",
       "languages": ["de"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.landwirtschaftskammer.de/landwirtschaft/beratung/existenz/index.htm"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.landwirtschaftskammer.de/landwirtschaft/beratung/existenz/index.htm",
@@ -139,7 +151,8 @@
             "Hier finden Sie Informationen zur Hofnachfolge, zur Hofübernahme und zur Existenzgründung von landwirtschaftlichen und gartenbaulichen Betrieben.",
             "Die Landwirtschaftskammer Nordrhein-Westfalen begleitet den Start in die Selbständigkeit durch folgende Phasen der Gründung:",
             "Projektbegleitung",
-            "Beratung an den Kreisstellen"
+            "Beratung an den Kreisstellen",
+            "E-Mail: landservice@lwk.nrw.de"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -148,11 +161,20 @@
         }
       ],
       "notes": "Die Fachseite veröffentlicht nur namentlich zugeordnete Direktkontakte. Sie werden hier nicht als Kontakt aufgeführt; der regionale Zugang erfolgt über die verlinkten Kreisstellen.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Landservice",
+          "value": "landservice@lwk.nrw.de",
+          "sourceUrl": "https://www.landwirtschaftskammer.de/landwirtschaft/beratung/existenz/index.htm"
+        }
+      ]
     },
     {
       "id": "nordrhein-westfalen-einkommensstuetzung-junglandwirte",
       "name": "Einkommensstützung für Junglandwirte",
+      "metaTitle": "Einkommensstützung für Junglandwirte in Nordrhein-Westfalen",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -166,6 +188,23 @@
       "accessUrl": "https://www.landwirtschaftskammer.de/foerderung/direktzahlungen/junglandwirte.htm",
       "targetProfiles": ["YOUNG_FARMER"],
       "lastEvidenceDate": "2026-02-20",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "Einkommensstützung für Junglandwirte",
+          "sourceUrl": "https://www.landwirtschaftskammer.de/foerderung/direktzahlungen/junglandwirte.htm"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.landwirtschaftskammer.de/foerderung/direktzahlungen/junglandwirte.htm"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.landwirtschaftskammer.de/foerderung/direktzahlungen/junglandwirte.htm"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.landwirtschaftskammer.de/foerderung/direktzahlungen/junglandwirte.htm",
@@ -190,16 +229,35 @@
             "eine über mindestens zwei Jahre erfolgte Tätigkeit in einem oder mehreren landwirtschaftlichen Betrieben mit einer in einem Arbeitsvertrag vereinbarten regelmäßigen wöchentlichen Arbeitszeit von mindestens 15 Stunden",
             "als Gesellschafter eines landwirtschaftlichen Betriebsinhabers mit einer im Rahmen des Gesellschaftervertrags vereinbarten regelmäßigen wöchentlichen Leistung von Diensten im Umfang von mindestens 15 Stunden.",
             "Die Erfüllung dieser Voraussetzungen zum Antragszeitpunkt ist durch die Vorlage geeigneter Belege, wie zum Beispiel von Abschlusszeugnissen, Teilnahmebescheinigungen, Gesellschaftsverträgen, Belegen über sozialversicherungspflichtige Beschäftigungsverhältnisse im familiären Betrieb oder Arbeitsverträge, nachzuweisen.",
-            "Stand: 20.02.2026"
+            "Stand: 20.02.2026",
+            "Für Junglandwirte ist es möglich, eine gesonderte Förderung im Rahmen der Direktzahlungen zu beantragen. Diese Einkommensstützung für Junglandwirte wird für maximal 120 Hektar gewährt und beträgt voraussichtlich ca. 134 Euro je Hektar.",
+            "Wurde bereits vor 2023 die Junglandwirteprämie bezogen"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.landwirtschaftskammer.de/foerderung/elan/index.htm",
+          "title": "ELAN-NRW - Elektronische Antragstellung für Landwirte - Landwirtschaftskammer Nordrhein-Westfalen",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Bei Problemen steht Ihnen im Antragszeitraum vom 16.03. bis zum 15.05.2026 eine zentrale Hotline der EU-Zahlstelle für Fragen zur ELAN-Anwendung zur Verfügung."
+          ]
         }
       ],
       "notes": "Für bereits vor 2023 bezogene Junglandwirteprämien beschreibt die Seite Übergangsregelungen ohne neuen Qualifikationsnachweis. Die Zahlung ist auf den Betrieb der erstmaligen Niederlassung beschränkt; bei Gesellschaften gelten zusätzliche Nachweise und Anforderungen an die kontinuierliche Betriebskontrolle.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "calls": [
+        {
+          "name": "Sammelantrag 2026 (ELAN-NRW)",
+          "state": "CLOSED",
+          "opens": "2026-03-16",
+          "closes": "2026-05-15",
+          "sourceUrl": "https://www.landwirtschaftskammer.de/foerderung/elan/index.htm"
+        }
+      ]
     }
   ],
   "news": [],

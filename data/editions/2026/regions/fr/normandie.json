@@ -4,6 +4,8 @@
   "edition": "2026",
   "country": "FR",
   "region": "normandie",
+  "metaTitle": "Installation agricole en Normandie (14, 27, 50, 61, 76)",
+  "metaDescription": "Repérez le parcours régional pour les candidats et les cédants, ainsi que les services de la Safer pour accéder au foncier ou transmettre une ferme.",
   "officialName": "Normandie",
   "published": "2026-11-25",
   "summary": "La Normandie dispose d’un service régional dédié à l’installation et à la transmission, financé par la Région et animé par six partenaires agricoles, avec prise de rendez-vous et agenda d’événements ; la Safer de Normandie accompagne le volet foncier de l’installation et de la transmission.",
@@ -48,6 +50,7 @@
     {
       "id": "normandie-installer-transmettre",
       "name": "Installation et transmission en agriculture en Normandie",
+      "metaDescription": "Un service pour les candidats à l’installation et les cédants normands. Retrouvez les étapes du parcours, un carnet d’adresses et les événements.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -70,7 +73,8 @@
             "La Région Normandie finance, à travers un contrat d’objectifs, des actions visant à promouvoir l’installation de nouveaux agriculteurs sur le territoire normand et accompagner les exploitants dits cédants dans la transmission de leurs outils de production agricole.",
             "Ce contrat d’objectif regroupe 6 partenaires : Les Chambres d’agriculture de Normandie, les Jeunes agriculteurs, le réseau des CIVAMs, Terre de liens, l’ARDEAR, Bio en Normandie.",
             "Je m'installe en agriculture Les aides agricoles Je transmets ma ferme Je cesse mon activité Je prends rendez-vous",
-            "Planifiez votre rendez-vous avec notre conseiller en agriculture en Normandie."
+            "Planifiez votre rendez-vous avec notre conseiller en agriculture en Normandie.",
+            "orienter, conseiller et accompagner gratuitement toute personne souhaitant s’installer en agriculture"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -131,13 +135,29 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.installer-transmettre-normandie.fr/carnet-adresses/",
+          "title": "Carnet d'adresse : Contact agricole en Normandie - Installation/Transmission Agriculture Normandie",
+          "consultedOn": "2026-11-25",
+          "quotes": ["installation@normandie.chambagri.fr"]
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Chambres d’agriculture de Normandie – installation",
+          "value": "installation@normandie.chambagri.fr",
+          "sourceUrl": "https://www.installer-transmettre-normandie.fr/carnet-adresses/"
+        }
+      ],
+      "accessCostType": "FREE"
     },
     {
       "id": "normandie-safer-normandie",
       "name": "Safer de Normandie, s’installer et transmettre",
+      "metaDescription": "La Safer de Normandie publie les biens à vendre ou à louer et met les candidats à l’installation ou les cédants en relation avec un conseiller.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {

@@ -4,8 +4,10 @@
   "edition": "2026",
   "country": "DE",
   "region": "baden-wuerttemberg",
+  "metaTitle": "Hofnachfolge in Baden-Württemberg: Hofbörse und Beratung",
+  "metaDescription": "Wer einen Hof sucht oder übergeben möchte, findet in Baden-Württemberg eine landesweite Hofbörse, Beratung und Infos zum Zuschlag für Junglandwirte.",
   "officialName": "Baden-Württemberg",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "In Baden-Württemberg bestehen eine landesweite Hofbörse, ein zusätzlicher Junglandwirte-Zuschuss für geförderte Investitionen sowie Angebote zur außerfamiliären Hofnachfolge und Übergabeberatung. Ein gefördertes Beratungsmodul bezieht die Arbeitsorganisation bei geplanter Betriebsübergabe oder -übernahme ein. Die Zugangswege und Zuständigkeitsgebiete der Angebote unterscheiden sich.",
   "coverage": {
     "status": "PARTIAL",
@@ -82,6 +84,7 @@
     {
       "id": "baden-wuerttemberg-hofboerse-landsiedlung",
       "name": "Hofbörse der Landsiedlung Baden-Württemberg",
+      "metaDescription": "Über die Hofbörse der Landsiedlung finden Interessierte aus Landwirtschaft und Gartenbau Betriebe und Flächen zur Übernahme, zum Kauf oder zur Pacht.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -96,6 +99,12 @@
       "assetTypes": ["WHOLE_HOLDINGS", "PLOTS"],
       "languages": ["de"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "LAND_SEEKER", "LANDOWNER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.landsiedlung.de/marktplatz/hofboerse"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.landsiedlung.de/marktplatz/hofboerse",
@@ -104,20 +113,37 @@
           "quotes": [
             "Hofbörse für landwirtschaftliche Betriebe in Baden-Württemberg.",
             "Wir unterstützen bei der Existenzgründung und Existenzsicherung durch die Vermittlung von Höfen und landwirtschaftlichen Grundstücken.",
-            "Die Website der LSBW steht lediglich unseren Vertragspartnern zur Verfügung."
+            "Die Website der LSBW steht lediglich unseren Vertragspartnern zur Verfügung.",
+            "hofboerse@landsiedlung.de"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.blg-berlin.de/die-gemeinnuetzigen-landgesellschaften/die-taetigkeiten-a-z/hofstellenboersen-landwirtschaftliche-immobilienboersen/",
+          "title": "Hof(stellen)börsen / landwirtschaftliche Immobilienbörsen – Bundesverband der gemeinnützigen Landgesellschaften",
+          "consultedOn": "2026-11-25",
+          "quotes": ["LSBW-Hofbörse"]
         }
       ],
       "notes": "Die Börse enthält auch landwirtschaftlich geprägte Immobilien; nicht jedes Inserat beschreibt einen weiterzuführenden Landwirtschaftsbetrieb.",
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Team der Hofbörse",
+          "value": "hofboerse@landsiedlung.de",
+          "sourceUrl": "https://www.landsiedlung.de/marktplatz/hofboerse"
+        }
+      ]
     },
     {
       "id": "baden-wuerttemberg-afp-junglandwirte",
       "name": "Junglandwirte-Zuschlag im Agrarinvestitionsförderungsprogramm",
+      "metaTitle": "Junglandwirte-Zuschlag im AFP Baden-Württemberg",
+      "metaDescription": "Junge Landwirtinnen und Landwirte können im Agrarinvestitionsförderungsprogramm (AFP) einen Zuschlag für förderfähige Investitionen erhalten.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -133,6 +159,13 @@
       "purposes": ["INVESTMENT"],
       "languages": ["de"],
       "targetProfiles": ["YOUNG_FARMER"],
+      "implements": [
+        {
+          "resourceId": "eu-cap-strategic-plans",
+          "named": "GAP-Strategieplanes",
+          "sourceUrl": "https://foerderung.landwirtschaft-bw.de/,Lde/Startseite/Foerderwegweiser/Agrarinvestitionsfoerderungsprogramm%2B_AFP_%2B-%2BTeil%2BA"
+        }
+      ],
       "sources": [
         {
           "url": "https://foerderung.landwirtschaft-bw.de/,Lde/Startseite/Foerderwegweiser/Agrarinvestitionsfoerderungsprogramm%2B_AFP_%2B-%2BTeil%2BA",
@@ -141,7 +174,9 @@
           "quotes": [
             "Bei Junglandwirten kann zusätzlich ein Zuschuss von bis zu 10 % der Bemessungsgrundlage jedoch max. 20.000 € gewährt werden.",
             "Die Antragstellung erfolgt beim zuständigen Regierungspräsidium, Referat 32 mittels Vordruck",
-            "Stand: 03/2026"
+            "Stand: 03/2026",
+            "Die Antragstellung erfolgt beim zuständigen Regierungspräsidium, Referat 32 mittels Vordruck (ggf. unter Beteiligung eines Betreuers).",
+            "EU-Mittel im Rahmen des GAP-Strategieplanes, Bund, Land"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -150,11 +185,38 @@
         }
       ],
       "notes": "Die Betreiberseite nennt keinen offenen Antragszeitraum für neue Begünstigte. Der veröffentlichte Auswahltermin ist keine belegte Antragsfrist.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Zusätzlicher Zuschuss für Junglandwirte",
+          "value": 20000,
+          "unit": "EUR",
+          "asOf": "2026-03-01",
+          "sourceUrl": "https://foerderung.landwirtschaft-bw.de/,Lde/Startseite/Foerderwegweiser/Agrarinvestitionsfoerderungsprogramm%2B_AFP_%2B-%2BTeil%2BA"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Zuständiges Regierungspräsidium",
+          "value": "Referat 32",
+          "sourceUrl": "https://foerderung.landwirtschaft-bw.de/,Lde/Startseite/Foerderwegweiser/Agrarinvestitionsfoerderungsprogramm%2B_AFP_%2B-%2BTeil%2BA"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://foerderung.landwirtschaft-bw.de/,Lde/Startseite/Foerderwegweiser/Agrarinvestitionsfoerderungsprogramm%2B_AFP_%2B-%2BTeil%2BA"
+        }
+      ]
     },
     {
       "id": "baden-wuerttemberg-lbv-hofuebergabe",
       "name": "Hofübergabeberatung des Landesbauernverbands",
+      "metaTitle": "Hofübergabeberatung des LBV in Baden-Württemberg",
+      "metaDescription": "Der Landesbauernverband berät Mitglieder zur Hofübergabe innerhalb oder außerhalb der Familie und klärt rechtliche, steuerliche und familiäre Fragen.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -168,6 +230,16 @@
       "accessUrl": "https://www.lbv-bw.de/dienstleistungen/hofuebergabe",
       "languages": ["de"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.lbv-bw.de/dienstleistungen/hofuebergabe"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.lbv-bw.de/dienstleistungen/hofuebergabe"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.lbv-bw.de/dienstleistungen/hofuebergabe",
@@ -203,6 +275,8 @@
     {
       "id": "baden-wuerttemberg-blhv-hofuebergabe",
       "name": "Hofübergabeberatung des BLHV",
+      "metaTitle": "Hofübergabe in Baden-Württemberg: Beratung des BLHV",
+      "metaDescription": "Der BLHV berät zur Hofübergabe innerhalb und außerhalb der Familie. Die Beratung umfasst Übergabekonzepte, Verträge und familiäre Konflikte.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -216,12 +290,22 @@
       "accessUrl": "https://www.blhv.de/hofuebergabe/",
       "languages": ["de"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.blhv.de/hofuebergabe/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.blhv.de/hofuebergabe/",
           "title": "Hofübergabe – BLHV",
           "consultedOn": "2026-09-29",
-          "quotes": ["Wir beraten nicht nur bei innerfamiliären Hofübergaben.", "Fragen Sie Ihre regionalen Ansprechpartner*innen."],
+          "quotes": [
+            "Wir beraten nicht nur bei innerfamiliären Hofübergaben.",
+            "Fragen Sie Ihre regionalen Ansprechpartner*innen.",
+            "Das Besondere dabei: Wir beraten nicht nur bei innerfamiliären Hofübergaben. Unsere Berater sind auch umfassend darauf geschult, Hofübergaben an Nicht-Familienmitglieder zu begleiten."
+          ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
@@ -236,14 +320,31 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://www.vertrauensstelle-hofuebergabe.de/kontakt/",
+          "title": "Kontakt – Vertrauensstelle Hofübergabe",
+          "consultedOn": "2026-11-25",
+          "quotes": ["info@vertrauensstelle-hofuebergabe.de"]
         }
       ],
       "notes": "Das allgemeine Beratungsangebot des BLHV ist vom gesonderten Vermittlungsdienst der Vertrauensstelle zu unterscheiden.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "whoCanUseIt": "Die Beratung richtet sich an Übergebende und Übernehmende bei inner- und außerfamiliären Hofübergaben.",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Vertrauensstelle Außerfamiliäre Hofübergabe Südbaden",
+          "value": "info@vertrauensstelle-hofuebergabe.de",
+          "sourceUrl": "https://www.vertrauensstelle-hofuebergabe.de/kontakt/"
+        }
+      ]
     },
     {
       "id": "baden-wuerttemberg-vertrauensstelle-hofuebergabe-suedbaden",
       "name": "Vertrauensstelle Außerfamiliäre Hofübergabe Südbaden",
+      "metaTitle": "Außerfamiliäre Hofübergabe in Südbaden, Baden-Württemberg",
+      "metaDescription": "Die Vertrauensstelle hilft Höfen ohne familiäre Nachfolge und Hofsuchenden in Südbaden. Die Übersicht zeigt, wie beide Seiten Kontakt aufnehmen können.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -259,6 +360,12 @@
       "assetTypes": ["WHOLE_HOLDINGS"],
       "languages": ["de"],
       "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.vertrauensstelle-hofuebergabe.de/so-laeufts/"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.vertrauensstelle-hofuebergabe.de/so-laeufts/",
@@ -282,14 +389,30 @@
             "checkedOn": "2026-11-24",
             "method": "BROWSER"
           }
+        },
+        {
+          "url": "https://www.vertrauensstelle-hofuebergabe.de/kontakt/",
+          "title": "Kontakt – Vertrauensstelle Hofübergabe",
+          "consultedOn": "2026-11-25",
+          "quotes": ["info@vertrauensstelle-hofuebergabe.de"]
         }
       ],
       "notes": "Eigene vertrauliche Vermittlung in Südbaden; keine bloße Wiederveröffentlichung der landesweiten Hofbörse.",
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Vertrauensstelle Außerfamiliäre Hofübergabe Südbaden",
+          "value": "info@vertrauensstelle-hofuebergabe.de",
+          "sourceUrl": "https://www.vertrauensstelle-hofuebergabe.de/kontakt/"
+        }
+      ]
     },
     {
       "id": "baden-wuerttemberg-hohebuch-familienberatung",
       "name": "Landwirtschaftliche Familienberatung des Evangelischen Bauernwerks",
+      "metaTitle": "Hofübergabe: Familienberatung in Württemberg (BW)",
+      "metaDescription": "Das Evangelische Bauernwerk berät Familien in Württemberg vertraulich zu Hofübergabe und Konflikten. Für Beratung vor Ort nennt es einen Stundenbeitrag.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -312,7 +435,8 @@
           "consultedOn": "2026-09-29",
           "quotes": [
             "der Betrieb an die nächste Generation übergeben wird",
-            "Die Gebühr für ein persönliches Gespräch beträgt zwischen 30 € und 120 € pro Stunde."
+            "Die Gebühr für ein persönliches Gespräch beträgt zwischen 30 € und 120 € pro Stunde.",
+            "info@hohebuch.de"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -330,11 +454,21 @@
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Evangelisches Bauernwerk in Württemberg, Hohebuch",
+          "value": "info@hohebuch.de",
+          "sourceUrl": "https://www.hohebuch.de/beratung-hilfe/landwirtschaftliche-familienberatung/"
+        }
+      ]
     },
     {
       "id": "baden-wuerttemberg-bzl-betriebsuebergabe",
       "name": "Geförderte Beratung zu Arbeitsorganisation und Betriebsübergabe",
+      "metaTitle": "Betriebsübergabe in Baden-Württemberg: Beratung.Zukunft.Land",
+      "metaDescription": "Agrarbetriebe in Baden-Württemberg finden zugelassene Beratungsstellen. Modul 202 fördert die Beratung zur Arbeitsorganisation mit bis zu 1.500 Euro.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -407,6 +541,7 @@
     {
       "id": "baden-wuerttemberg-agrar-buergschaft",
       "name": "Agrar-Bürgschaft der Bürgschaftsbank Baden-Württemberg",
+      "metaDescription": "Die Agrar-Bürgschaft sichert Kredite kleiner und mittlerer Agrarbetriebe in Baden-Württemberg ab, auch für Gründung und Betriebsnachfolge.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -422,6 +557,12 @@
       "purposes": ["FIRST_ESTABLISHMENT", "TRANSFER", "INVESTMENT"],
       "languages": ["de"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://bw.ermoeglicher.de/de/ueber-uns/service-downloads/produktliste/agrar-buergschaft/"
+        }
+      ],
       "sources": [
         {
           "url": "https://bw.ermoeglicher.de/de/ueber-uns/service-downloads/produktliste/agrar-buergschaft/",
@@ -439,7 +580,8 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "Bei Darlehen bis zu 2 Millionen Euro werden 50 oder 70 % des Förderdarlehens verbürgt (maximaler Bürgschaftsbetrag: 1 Million Euro).",
-            "Mit den Agrar-Bürgschaften können alle Vorhaben, die in LuF förderfähig sind, verbürgt werden."
+            "Mit den Agrar-Bürgschaften können alle Vorhaben, die in LuF förderfähig sind, verbürgt werden.",
+            "landwirtschaft@l-bank.de"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -448,7 +590,22 @@
         }
       ],
       "notes": "Eine Bürgschaft ist kein Zuschuss. Die Seite nennt Gebühren; deren Höhe und der individuell mögliche Bürgschaftsbetrag sind im Antragsfall zu prüfen. Für LuF-förderfähige Vorhaben nennt die L-Bank eine Absicherung von 50 oder 70 Prozent des Förderdarlehens bei Darlehen bis zu 2 Millionen Euro und einem maximalen Bürgschaftsbetrag von 1 Million Euro. Diese Angaben beziehen sich auf die Kombination mit dem LuF-Darlehen.",
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "L-Bank, Landwirtschaft",
+          "value": "landwirtschaft@l-bank.de",
+          "sourceUrl": "https://www.l-bank.de/produkte/wirtschaftsfoerderung/luf-bw.html"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Aufruf",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://bw.ermoeglicher.de/de/ueber-uns/service-downloads/produktliste/agrar-buergschaft/"
+        }
+      ]
     },
     {
       "id": "baden-wuerttemberg-l-bank-landwirtschaft-nachhaltigkeit",
@@ -468,6 +625,12 @@
       "purposes": ["INVESTMENT", "LAND_ACQUISITION"],
       "languages": ["de"],
       "targetProfiles": ["NEW_ENTRANT", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.l-bank.de/produkte/wirtschaftsfoerderung/eingestellte-produkte/landwirtschaft-nachhaltigkeit.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.l-bank.de/produkte/wirtschaftsfoerderung/eingestellte-produkte/landwirtschaft-nachhaltigkeit.html",
@@ -476,7 +639,8 @@
           "quotes": [
             "Hofnachfolgerinnen und Existenzgründerinnen: Investitionen innerhalb der ersten fünf Jahre",
             "Das Programm wurde zum 31.10.2026 im Zuge der Neuordnung der Landwirtschaftsförderung eingestellt.",
-            "ab 01.11.2026 mit den Darlehen der neuen Land- und Forstwirtschaftsfinanzierung Baden-Württemberg"
+            "ab 01.11.2026 mit den Darlehen der neuen Land- und Forstwirtschaftsfinanzierung Baden-Württemberg",
+            "landwirtschaft@l-bank.de"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -502,11 +666,29 @@
       ],
       "notes": "Das Programm wurde am 31. Oktober 2026 im Zuge der Neuordnung der Landwirtschaftsförderung eingestellt.",
       "generatorId": "chatgpt-4",
-      "lastEvidenceDate": "2026-10-31"
+      "lastEvidenceDate": "2026-10-31",
+      "calls": [
+        {
+          "name": "Landwirtschaft – Nachhaltigkeit",
+          "state": "CLOSED",
+          "closes": "2026-10-31",
+          "sourceUrl": "https://www.l-bank.de/produkte/wirtschaftsfoerderung/eingestellte-produkte/landwirtschaft-nachhaltigkeit.html"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Landwirtschaftsförderung der L-Bank",
+          "value": "landwirtschaft@l-bank.de",
+          "sourceUrl": "https://www.l-bank.de/produkte/wirtschaftsfoerderung/eingestellte-produkte/landwirtschaft-nachhaltigkeit.html"
+        }
+      ]
     },
     {
       "id": "baden-wuerttemberg-lbv-mediation",
       "name": "Mediation – Konflikte lösen, Zukunft gestalten",
+      "metaTitle": "Mediation bei Hofübergabe in Baden-Württemberg",
+      "metaDescription": "Mitglieder des Landesbauernverbands finden einen Kontakt für Mediation bei Hofübergabe, Erbregelung oder Übernahme und können Fachberatung einbeziehen.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -523,6 +705,12 @@
           "channel": "EMAIL",
           "label": "Landesbauernverband in Baden-Württemberg",
           "value": "lbv@lbv-bw.de",
+          "sourceUrl": "https://www.lbv-bw.de/dienstleistungen/mediation"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
           "sourceUrl": "https://www.lbv-bw.de/dienstleistungen/mediation"
         }
       ],

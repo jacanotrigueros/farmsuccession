@@ -4,6 +4,8 @@
   "edition": "2026",
   "country": "FR",
   "region": "provence-alpes-cote-d-azur",
+  "metaTitle": "Installation agricole et foncier en PACA, Région Sud",
+  "metaDescription": "Repérez la DJA en Région Sud, le prêt d’honneur et les appels à candidatures de la Safer pour préparer une installation ou trouver des terres en PACA.",
   "officialName": "Provence-Alpes-Côte d’Azur",
   "published": "2026-11-25",
   "summary": "En Provence-Alpes-Côte d'Azur, la Région publie la Dotation Jeunes Agriculteurs et un prêt d'honneur agricole est proposé par Initiative Sud. Le programme AITA finance aussi des étapes de l'installation et de la transmission. La Safer donne accès à ses appels fonciers, tandis que les Points Accueil Installation, Terre de Liens et les ADEAR proposent des accompagnements. Des services plus locaux complètent cet ensemble.",
@@ -110,6 +112,8 @@
     {
       "id": "provence-alpes-cote-d-azur-aide-installation",
       "name": "Dotation Jeunes Agriculteurs en Région Sud",
+      "metaTitle": "Dotation Jeunes Agriculteurs (DJA) — PACA, Région Sud",
+      "metaDescription": "La DJA soutient une première installation agricole en Provence-Alpes-Côte d’Azur. Retrouvez le montant de base selon la zone et les majorations possibles.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -132,6 +136,12 @@
       ],
       "languages": ["fr"],
       "targetProfiles": ["YOUNG_FARMER", "SUCCESSOR"],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.maregionsud.fr/vos-aides/detail/dotation-jeunes-agriculteurs"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.maregionsud.fr/vos-aides/detail/dotation-jeunes-agriculteurs",
@@ -192,6 +202,8 @@
     {
       "id": "provence-alpes-cote-d-azur-safer-appels-candidatures",
       "name": "Appels à candidatures de la Safer Provence-Alpes-Côte d'Azur",
+      "metaTitle": "Safer Provence-Alpes-Côte d’Azur : appels à candidatures",
+      "metaDescription": "Retrouvez les appels à candidatures de la Safer PACA, notamment dans le Var (83), le Vaucluse (84) et les Alpes-de-Haute-Provence (04).",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -268,6 +280,8 @@
     {
       "id": "provence-alpes-cote-d-azur-terre-de-liens-accompagnement",
       "name": "Accompagnement foncier et à la transmission de Terre de Liens PACA",
+      "metaTitle": "Terre de Liens PACA : foncier et transmission",
+      "metaDescription": "Terre de Liens PACA aide les porteurs de projet à accéder à une ferme et les propriétaires à préparer une transmission, notamment par l’achat de terres.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -319,6 +333,8 @@
     {
       "id": "provence-alpes-cote-d-azur-ardear-transmission",
       "name": "Accompagnement à la transmission du réseau des ADEAR de PACA",
+      "metaTitle": "Transmettre sa ferme avec le réseau des ADEAR de PACA",
+      "metaDescription": "Les ADEAR de PACA accompagnent les cédants pour préparer leur projet, évaluer leur ferme et rencontrer des personnes qui souhaitent s’installer.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -369,6 +385,7 @@
     {
       "id": "provence-alpes-cote-d-azur-ecopaysans",
       "name": "Parcours Ecopaysans",
+      "metaDescription": "Le Parcours Ecopaysans propose une formation collective à temps partiel et un accompagnement aux personnes qui préparent une installation agricole.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -410,6 +427,8 @@
     {
       "id": "provence-alpes-cote-d-azur-pret-honneur-agricole-feader",
       "name": "Prêt d'honneur agricole FEADER d'Initiative Sud",
+      "metaTitle": "Prêt d’honneur agricole FEADER d’Initiative Sud — PACA",
+      "metaDescription": "Ce prêt à taux zéro renforce l’apport personnel des porteurs de projet agricole en Provence-Alpes-Côte d’Azur pour faciliter l’accès au crédit bancaire.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -447,7 +466,8 @@
             "prêt d'honneur agricole régional",
             "à taux zéro",
             "contacter l'association locale Initiative",
-            "Depuis le 1er décembre 2021 le Crédit Agricole Alpes Provence est partenaire du prêt d'honneur agricole régional financé par le FEADER, la Région Sud et BPI."
+            "Depuis le 1er décembre 2021 le Crédit Agricole Alpes Provence est partenaire du prêt d'honneur agricole régional financé par le FEADER, la Région Sud et BPI.",
+            "2A rue de ROME"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -473,11 +493,21 @@
           "state": "NOT_PUBLISHED",
           "sourceUrl": "https://www.initiative-sud.com/pret-dhonneur-agricole-feader.html"
         }
+      ],
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Initiative Sud, chez Cosens, 13001 Marseille",
+          "value": "2A rue de ROME",
+          "sourceUrl": "https://www.initiative-sud.com/pret-dhonneur-agricole-feader.html"
+        }
       ]
     },
     {
       "id": "provence-alpes-cote-d-azur-ardear-chiffrer-projet",
       "name": "Chiffrer son projet de création, de reprise ou de développement en agriculture paysanne",
+      "metaTitle": "Chiffrer son projet en agriculture paysanne — PACA",
+      "metaDescription": "Une formation en présentiel pour préparer une création, une reprise ou un développement agricole. Construisez votre prévisionnel et votre financement.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -518,6 +548,8 @@
     {
       "id": "provence-alpes-cote-d-azur-points-accueil-installation",
       "name": "Points Accueil Installation de Provence-Alpes-Côte d'Azur",
+      "metaTitle": "Points Accueil Installation de Provence-Alpes-Côte d’Azur",
+      "metaDescription": "Trouvez votre Point Accueil Installation dans l’un des six départements de Provence-Alpes-Côte d’Azur pour obtenir un premier conseil sur votre projet.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -573,6 +605,8 @@
     {
       "id": "provence-alpes-cote-d-azur-aita-2026",
       "name": "Programme AITA 2026 — installation et transmission",
+      "metaTitle": "Programme AITA 2026 : installation et transmission — PACA",
+      "metaDescription": "Consultez les prestations soutenues en PACA pour s’installer ou transmettre une ferme, du diagnostic et des stages au suivi des nouveaux exploitants.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -632,6 +666,17 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://draaf.paca.agriculture.gouv.fr/IMG/pdf/arrete_prefectoral_aita_2026_07072026_publie.pdf",
+          "title": "Arrêté préfectoral AITA 2026 (PDF, DRAAF Provence-Alpes-Côte d’Azur)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Le montant de l’aide est plafonné à 80 % de la dépense engagée (HT) sans pouvoir excéder 1.500 € tous financements confondus.",
+            "Le montant de l’aide est plafonné à 80 % de la dépense engagée (HT) sans pouvoir excéder 750 € tous financements confondus.",
+            "Le montant de l’aide est plafonné à 80% de la dépense engagée (HT) dans la limite de 1.500€ tous financements confondus (État et collectivité territoriale).",
+            "Le plafond d’aide publique de l’état est de 4 000 €."
+          ]
         }
       ],
       "generatorId": "chatgpt-1",
@@ -642,11 +687,47 @@
           "state": "NOT_PUBLISHED",
           "sourceUrl": "https://draaf.paca.agriculture.gouv.fr/mise-en-oeuvre-du-programme-pour-l-accompagnement-de-l-installation-et-de-la-a868.html"
         }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Volet 2 – plafond du diagnostic d’exploitation à reprendre",
+          "value": 1500,
+          "unit": "EUR",
+          "asOf": "2026-07-07",
+          "sourceUrl": "https://draaf.paca.agriculture.gouv.fr/IMG/pdf/arrete_prefectoral_aita_2026_07072026_publie.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Volet 4 – plafond du suivi du nouvel exploitant",
+          "value": 750,
+          "unit": "EUR",
+          "asOf": "2026-07-07",
+          "sourceUrl": "https://draaf.paca.agriculture.gouv.fr/IMG/pdf/arrete_prefectoral_aita_2026_07072026_publie.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Volet 5 – plafond du diagnostic d’exploitation à céder",
+          "value": 1500,
+          "unit": "EUR",
+          "asOf": "2026-07-07",
+          "sourceUrl": "https://draaf.paca.agriculture.gouv.fr/IMG/pdf/arrete_prefectoral_aita_2026_07072026_publie.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Volet 5 – plafond de l’aide à la transmission après inscription au RDI",
+          "value": 4000,
+          "unit": "EUR",
+          "asOf": "2026-07-07",
+          "sourceUrl": "https://draaf.paca.agriculture.gouv.fr/IMG/pdf/arrete_prefectoral_aita_2026_07072026_publie.pdf"
+        }
       ]
     },
     {
       "id": "provence-alpes-cote-d-azur-espace-test-carmejane",
       "name": "Espace-test agricole de Carmejane",
+      "metaTitle": "Espace-test agricole de Carmejane (04) — PACA",
+      "metaDescription": "À Carmejane, testez une activité agricole pendant un à trois ans sur un terrain irrigué des Alpes-de-Haute-Provence, avec matériel et accompagnement.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -715,6 +796,8 @@
     {
       "id": "provence-alpes-cote-d-azur-adear13-installation",
       "name": "Accompagnement à l'installation de l'ADEAR 13",
+      "metaTitle": "ADEAR 13 : installation en Bouches-du-Rhône — PACA",
+      "metaDescription": "L’ADEAR 13 accompagne les personnes qui préparent une installation agricole dans les Bouches-du-Rhône et propose un suivi après le démarrage.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -750,7 +833,8 @@
           "quotes": [
             "Terre de Provence Agglomération met à disposition des exploitants et futurs exploitants un ensemble de dispositifs, de permanences et de partenaires spécialisés",
             "ADEAR 13 : Accompagnement à l’installation et suivi post-installation",
-            "contact@adear13.org"
+            "contact@adear13.org",
+            "Terre de Provence Agglomération met à disposition des exploitants et futurs exploitants un ensemble de dispositifs, de permanences et de partenaires spécialisés pour faciliter l’installation, le développement ou la transmission d’une activité agricole."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -759,11 +843,14 @@
         }
       ],
       "generatorId": "chatgpt-1",
-      "notes": "La page propre de l'ADEAR 13 présente encore des liens étrangers au service dans son pied de page ; elle n'est ni la source ni la voie d'accès de cette fiche."
+      "notes": "La page propre de l'ADEAR 13 présente encore des liens étrangers au service dans son pied de page ; elle n'est ni la source ni la voie d'accès de cette fiche.",
+      "whoCanUseIt": "Exploitants et futurs exploitants agricoles de Terre de Provence Agglomération."
     },
     {
       "id": "provence-alpes-cote-d-azur-terre-provence-frais-foncier",
       "name": "Aide aux frais de notaire et d'arpentage de Terre de Provence",
+      "metaTitle": "Frais de notaire et d’arpentage — Terre de Provence, PACA",
+      "metaDescription": "Terre de Provence Agglomération peut couvrir une partie des frais de notaire et d’arpentage liés à un achat de terrain agricole. Consultez les conditions.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -831,6 +918,8 @@
     {
       "id": "provence-alpes-cote-d-azur-aide-installation-agro-ecologique-bouches-du-rhone",
       "name": "Aide à l’installation agro-écologique",
+      "metaTitle": "Aide à l’installation agro-écologique (13) — PACA",
+      "metaDescription": "Dans les Bouches-du-Rhône, cette aide à la trésorerie prévoit 10 000 € pour une installation à titre principal ou 5 000 € à titre secondaire.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -899,11 +988,20 @@
           "value": "52, avenue de Saint-Just 13256 - MARSEILLE Cedex 20",
           "sourceUrl": "https://departement13.fr/sites/default/files/media/downloads/dispositif_daide_a_la_tresorerie_pour_linstallation_de_jeunes_agriculteurs_porteurs_de_projets_agroecologiques_2026_1.pdf"
         }
+      ],
+      "calls": [
+        {
+          "name": "Appel à candidatures",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://departement13.fr/en-actions/agriculture-peche/aide-linstallation-agro-ecologique"
+        }
       ]
     },
     {
       "id": "provence-alpes-cote-d-azur-alpes-maritimes-agribio-installation",
       "name": "AGRIBIO 06 — accompagnement à l’installation en bio",
+      "metaTitle": "AGRIBIO 06 : installation en bio, Alpes-Maritimes — PACA",
+      "metaDescription": "AGRIBIO 06 conseille les candidats à une installation en bio dans les Alpes-Maritimes sur les démarches, la réglementation et les choix techniques.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -960,6 +1058,8 @@
     {
       "id": "provence-alpes-cote-d-azur-alpes-maritimes-agribio-suivi-installation",
       "name": "AGRIBIO 06 — Suivi Nouvel Installé",
+      "metaTitle": "AGRIBIO 06 : Suivi Nouvel Installé, Alpes-Maritimes — PACA",
+      "metaDescription": "La fiche décrit le suivi d’AGRIBIO 06 : un rendez-vous annuel pendant quatre ans pour les jeunes installés concernés par la DJA, et un contact local.",
       "kind": "ADVICE",
       "status": "UNKNOWN",
       "scope": {
@@ -1017,6 +1117,8 @@
     {
       "id": "provence-alpes-cote-d-azur-safer-convention-mise-disposition",
       "name": "Safer PACA — convention de mise à disposition",
+      "metaTitle": "Safer PACA : convention de mise à disposition de terres",
+      "metaDescription": "Les propriétaires peuvent confier leurs terres à la Safer PACA pour une gestion locative pendant un à six ans. Retrouvez la durée et les garanties.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -1071,6 +1173,8 @@
     {
       "id": "provence-alpes-cote-d-azur-safer-reserve-installation",
       "name": "Safer PACA — réserve de biens pour l’installation",
+      "metaTitle": "Safer PACA : réserve de biens pour l’installation",
+      "metaDescription": "La Safer PACA constitue une réserve de biens agricoles pour aider les jeunes à accéder au foncier et préparer des transmissions. Découvrez son rôle.",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {

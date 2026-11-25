@@ -4,6 +4,8 @@
   "edition": "2026",
   "country": "FR",
   "region": "grand-est",
+  "metaTitle": "Installation et transmission agricoles dans le Grand Est",
+  "metaDescription": "Trouvez l’aide à l’installation du nouvel agriculteur, les annonces de la Safer et les interlocuteurs qui accompagnent les cédants dans le Grand Est.",
   "officialName": "Grand Est",
   "published": "2026-11-25",
   "summary": "Le Grand Est complète les aides nationales par une aide régionale à l'installation des nouveaux agriculteurs de plus de quarante ans, et les Chambres d'agriculture y animent un guichet gratuit et des aides du programme AITA pour préparer la transmission des exploitations.",
@@ -65,6 +67,8 @@
     {
       "id": "grand-est-aide-installation-nouvel-agriculteur",
       "name": "Aide à l’installation du nouvel agriculteur (AINA)",
+      "metaTitle": "Aide à l’installation du nouvel agriculteur — Grand Est",
+      "metaDescription": "L’AINA soutient la première installation agricole dès 41 ans dans le Grand Est : 10 000 € de base à titre principal, demandes au fil de l’eau depuis 2023.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -109,7 +113,9 @@
             "S’installer pour la première fois comme chef d’exploitation.",
             "Montant de base 10 000 €",
             "Montant maximum (avec l’ensemble des majorations) 13 000 €",
-            "Le financement des dossiers éligibles à ce dispositif est assuré par les fonds FEADER (60%)"
+            "Le financement des dossiers éligibles à ce dispositif est assuré par les fonds FEADER (60%)",
+            "Les dossiers de demande d’aide sont déposés au fil de l’eau à compter du 16 septembre 2023 via le portail Euro-PAC.",
+            "feader.installation@grandest.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -117,11 +123,30 @@
           }
         }
       ],
-      "generatorId": "claude-1"
+      "generatorId": "claude-1",
+      "howToAccess": "Déposer le dossier de demande sur le portail Euro-PAC.",
+      "calls": [
+        {
+          "name": "Aide à l’installation du nouvel agriculteur (AINA)",
+          "state": "OPEN",
+          "opens": "2023-09-16",
+          "sourceUrl": "https://beeurope.grandest.fr/aides/aide-a-linstallation-du-nouvel-agriculteur-aina/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Région Grand Est – aides à l’installation",
+          "value": "feader.installation@grandest.fr",
+          "sourceUrl": "https://beeurope.grandest.fr/aides/aide-a-linstallation-du-nouvel-agriculteur-aina/"
+        }
+      ]
     },
     {
       "id": "grand-est-point-info-transmission",
       "name": "Point Info Transmission et aides AITA à la transmission",
+      "metaTitle": "Point Info Transmission et aides AITA — Grand Est",
+      "metaDescription": "Un accueil gratuit pour préparer une retraite, une réorientation ou une recherche d’associé. Retrouvez le rôle du conseiller et les aides à la cession.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -146,7 +171,14 @@
             "Le Point Info Transmission (PIT) est un guichet unique et gratuit pour répondre aux questions des exploitants envisageant de prendre leur retraite, se réorienter professionnellement ou à la recherche d’un associé.",
             "Une inscription au Répertoire Départ Installation si vous recherchez un repreneur ou un associé.",
             "Les aides du programme AITA volet 5 sont mises en place pour inciter et favoriser les transmissions Hors Cadre Familial à destination directe des futurs cédants",
-            "Cette aide est destinée à encourager l’audit d’une exploitation à céder pour faciliter la démarche de transmission-installation"
+            "Cette aide est destinée à encourager l’audit d’une exploitation à céder pour faciliter la démarche de transmission-installation",
+            "contact@aube.chambagri.fr",
+            "accueil@haute-marne.chambagri.fr",
+            "accueil-chalons@marne.chambagri.fr",
+            "accueil@meurthe-et-moselle.chambagri.fr",
+            "accueil@meuse.chambagri.fr",
+            "accueil@moselle.chambagri.fr",
+            "contact@vosges.chambagri.fr"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -183,11 +215,63 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Chambre d’agriculture — Ardennes",
+          "value": "contact@aube.chambagri.fr",
+          "sourceUrl": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Chambre d’agriculture — Haute-Marne",
+          "value": "accueil@haute-marne.chambagri.fr",
+          "areas": ["Haute-Marne"],
+          "sourceUrl": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Chambre d’agriculture — Marne",
+          "value": "accueil-chalons@marne.chambagri.fr",
+          "areas": ["Marne"],
+          "sourceUrl": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Chambre d’agriculture — Meurthe-et-Moselle",
+          "value": "accueil@meurthe-et-moselle.chambagri.fr",
+          "areas": ["Meurthe-et-Moselle"],
+          "sourceUrl": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Chambre d’agriculture — Meuse",
+          "value": "accueil@meuse.chambagri.fr",
+          "areas": ["Meuse"],
+          "sourceUrl": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Chambre d’agriculture — Moselle",
+          "value": "accueil@moselle.chambagri.fr",
+          "areas": ["Moselle"],
+          "sourceUrl": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Chambre d’agriculture — Vosges",
+          "value": "contact@vosges.chambagri.fr",
+          "areas": ["Vosges"],
+          "sourceUrl": "https://grandest.chambres-agriculture.fr/etre-accompagne/installation-transmission/je-transmets-mon-exploitation"
+        }
+      ]
     },
     {
       "id": "grand-est-safer-grand-est",
       "name": "Safer Grand Est",
+      "metaTitle": "Safer Grand Est : annonces et transmission",
+      "metaDescription": "Accédez aux annonces de la Safer Grand Est et à l’accompagnement des cédants, notamment en Moselle (57), dans la Marne (51) et dans les Vosges (88).",
       "kind": "LAND_BANK",
       "status": "ACTIVE",
       "scope": {
@@ -289,6 +373,8 @@
     {
       "id": "grand-est-bio-transmettre-sa-ferme",
       "name": "Transmettre sa ferme",
+      "metaTitle": "Transmettre sa ferme avec les Chambres — Grand Est",
+      "metaDescription": "Préparez la cession de votre ferme avec un entretien, un diagnostic et un accompagnement à la recherche d’un repreneur. Retrouvez le service régional.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -302,6 +388,12 @@
       "accessUrl": "https://biograndest.org/transmettre-sa-ferme/",
       "assetTypes": ["WHOLE_HOLDINGS"],
       "targetProfiles": ["TRANSFEROR"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://biograndest.org/transmettre-sa-ferme/"
+        }
+      ],
       "sources": [
         {
           "url": "https://biograndest.org/transmettre-sa-ferme/",
@@ -345,6 +437,8 @@
     {
       "id": "grand-est-structures-accompagnement-installation",
       "name": "Les structures d’accompagnement",
+      "metaTitle": "Points Accueil Installation et conseillers — Grand Est",
+      "metaDescription": "Repérez les Points Accueil Installation et les conseillers du parcours agricole en Grand Est. La fiche présente les listes d’interlocuteurs de la DRAAF.",
       "kind": "OFFICIAL_PORTAL",
       "status": "UNKNOWN",
       "scope": {
@@ -396,6 +490,8 @@
     {
       "id": "grand-est-draaf-transmission-installation",
       "name": "Transmission & Installation",
+      "metaTitle": "Installation et transmission : démarches AITA — Grand Est",
+      "metaDescription": "La rubrique de la DRAAF oriente les futurs cédants et candidats à l’installation vers les volets de l’AITA, les formulaires et les prestataires.",
       "kind": "OFFICIAL_PORTAL",
       "status": "ACTIVE",
       "scope": {
@@ -435,6 +531,7 @@
     {
       "id": "grand-est-ardear-accompagnement-transmission",
       "name": "ARDEAR Grand Est — accompagnement des cédants",
+      "metaDescription": "L’ARDEAR accompagne les personnes qui préparent la transmission de leur ferme par des échanges entre pairs et un appui psychosocial. Retrouvez le contact.",
       "kind": "ADVICE",
       "status": "ACTIVE",
       "scope": {
@@ -483,6 +580,7 @@
     {
       "id": "grand-est-ardear-annonces-paysannes",
       "name": "Annonces Paysannes de l’ARDEAR Grand Est",
+      "metaDescription": "L’ARDEAR Grand Est diffuse des annonces chaque trimestre. Repérez le canal pour proposer une ferme à transmettre ou rechercher des associés agricoles.",
       "kind": "SUCCESSION_SERVICE",
       "status": "ACTIVE",
       "scope": {
@@ -529,6 +627,7 @@
     {
       "id": "grand-est-stage-parrainage-ardear",
       "name": "Stage de parrainage agricole en Grand Est",
+      "metaDescription": "Mettez à l’essai une reprise de ferme ou une association avant de vous installer. Le stage prévoit une rémunération et une couverture sociale.",
       "kind": "TRAINING",
       "status": "ACTIVE",
       "scope": {
@@ -541,6 +640,10 @@
       "notPublished": [
         {
           "question": "ACCESS_COST",
+          "sourceUrl": "https://www.agriculturepaysanne.org/Transmettre-244"
+        },
+        {
+          "question": "TRAINING_FORMAT",
           "sourceUrl": "https://www.agriculturepaysanne.org/Transmettre-244"
         }
       ],
@@ -567,6 +670,8 @@
     {
       "id": "grand-est-aita-diagnostic-exploitation-ceder",
       "name": "AITA Grand Est — diagnostic de l’exploitation à céder",
+      "metaTitle": "AITA Grand Est : diagnostic de l’exploitation à céder",
+      "metaDescription": "La notice régionale présente le financement d’un diagnostic pour aider les futurs cédants à analyser leur exploitation et à estimer sa valeur de reprise.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -583,6 +688,12 @@
           "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
         }
       ],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf",
@@ -595,7 +706,8 @@
             "doit avoir le statut de chef d’exploitation.",
             "Le bénéficiaire sollicite un organisme prestataire agréé.",
             "Il dépose le dossier complet auprès de la DDT",
-            "Notice explicative des actions du programme régional AITA Grand Est"
+            "Notice explicative des actions du programme régional AITA Grand Est",
+            "Le montant de l’aide est plafonné à 80 % de la dépense engagée (HT) dans la limite de 1 500 €, tous financements confondus (État et collectivités territoriales)."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -612,11 +724,23 @@
           "state": "NOT_PUBLISHED",
           "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
         }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Plafond du diagnostic de l’exploitation à céder",
+          "value": 1500,
+          "unit": "EUR",
+          "asOf": "2024-12-11",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
       ]
     },
     {
       "id": "grand-est-aita-transmission-rdi",
       "name": "AITA Grand Est — transmission d’une exploitation inscrite au RDI",
+      "metaTitle": "AITA Grand Est : aide à la transmission via le RDI",
+      "metaDescription": "La notice décrit une aide plafonnée à 4 000 € pour les cédants dont la ferme est inscrite au RDI depuis au moins douze mois, avec diagnostic préalable.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -630,6 +754,12 @@
         {
           "resourceId": "fr-aita",
           "named": "AITA",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
           "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
         }
       ],
@@ -677,6 +807,8 @@
     {
       "id": "grand-est-aita-transmission-globale-foncier",
       "name": "AITA Grand Est — aide à la transmission globale du foncier",
+      "metaTitle": "AITA Grand Est : transmission globale du foncier",
+      "metaDescription": "La notice régionale décrit l’aide aux cédants qui transmettent hors cadre familial et cherchent à louer les terres avec le reste de l’exploitation.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "UNKNOWN",
       "scope": {
@@ -693,6 +825,12 @@
           "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
         }
       ],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf",
@@ -703,7 +841,9 @@
             "encourager la conclusion d’un (ou plusieurs) bail à ferme ou à long terme",
             "Le bénéficiaire de l’aide est le porteur de projet à la transmission, futur cédant.",
             "Le bénéficiaire constitue une demande d’aide et la dépose auprès de la DDT",
-            "Notice explicative des actions du programme régional AITA Grand Est"
+            "Notice explicative des actions du programme régional AITA Grand Est",
+            "Le transfert de 85 % de l'exploitation permet de bénéficier de 1 500 € d'aide.",
+            "Le transfert de 95 % de l'exploitation permet de bénéficier de 3 000 € d'aide."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -720,11 +860,31 @@
           "state": "NOT_PUBLISHED",
           "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
         }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "Transfert de 85 % de l’exploitation",
+          "value": 1500,
+          "unit": "EUR",
+          "asOf": "2024-12-11",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Transfert de 95 % de l’exploitation",
+          "value": 3000,
+          "unit": "EUR",
+          "asOf": "2024-12-11",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
       ]
     },
     {
       "id": "grand-est-aita-conseil-amont-transmission",
       "name": "AITA Grand Est — conseil en amont de la transmission",
+      "metaTitle": "AITA Grand Est : conseil en amont de la transmission",
+      "metaDescription": "La notice décrit un conseil pour les chefs d’exploitation qui préparent la cession de leur ferme : état des lieux et plan d’action avant la transmission.",
       "kind": "ADVICE",
       "status": "UNKNOWN",
       "scope": {
@@ -738,6 +898,12 @@
         {
           "resourceId": "fr-aita",
           "named": "AITA",
+          "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
           "sourceUrl": "https://draaf.grand-est.agriculture.gouv.fr/IMG/pdf/noticeaitavolet5_v11122024.pdf"
         }
       ],
