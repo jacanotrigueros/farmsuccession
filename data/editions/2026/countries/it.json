@@ -4,7 +4,7 @@
   "edition": "2026",
   "country": "IT",
   "officialName": "Italia",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Consulta i bandi regionali per il primo insediamento dei giovani agricoltori (SRE01). Trova anche le misure ISMEA per acquistare terreni o subentrare in un’azienda agricola.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -596,9 +596,27 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://prenotaservizi.cia.it/prenotazione/regione",
+          "title": "Prenotazioni Online - Seleziona la regione",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "seleziona la regione in cui vuoi prendere un appuntamento.",
+            "Seleziona la regione Informazioni: seleziona la regione in cui vuoi prendere un appuntamento."
+          ]
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "howToAccess": "Selezionare la regione in cui si vuole prendere un appuntamento.",
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Prenotazione appuntamento CIA",
+          "value": "https://prenotaservizi.cia.it/prenotazione/regione",
+          "sourceUrl": "https://prenotaservizi.cia.it/prenotazione/regione"
+        }
+      ]
     },
     {
       "scope": {
@@ -630,7 +648,8 @@
           "consultedOn": "2026-11-24",
           "quotes": [
             "I Delegati, insieme ai Segretari, costituiscono la rete dei tutor di Coldiretti Giovani Impresa.",
-            "SELEZIONA LA REGIONE E SCOPRI IL TUTOR CHE PUO ESSERTI UTILE"
+            "SELEZIONA LA REGIONE E SCOPRI IL TUTOR CHE PUO ESSERTI UTILE",
+            "giovanimpresa@coldiretti.it"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -652,7 +671,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Coldiretti Giovani Impresa",
+          "value": "giovanimpresa@coldiretti.it",
+          "sourceUrl": "https://giovanimpresa.coldiretti.it/tutors/delegati/"
+        }
+      ]
     },
     {
       "id": "it-coldiretti-guida-dall-idea-impresa-agricola",
@@ -675,7 +702,8 @@
             "Guida all’avvio ed allo sviluppo dell’azienda",
             "Gli interventi per il ricambio generazionale nella PAC 2023-2027",
             "Coldiretti ripercorre i 10 passi",
-            "un’azienda agricola o a chi, già a capo di un’impresa, ha intenzione di svilupparla."
+            "un’azienda agricola o a chi, già a capo di un’impresa, ha intenzione di svilupparla.",
+            "DALL’IDEA ALL’IMPRESA AGRICOLA Guida all’avvio ed allo sviluppo dell’azienda"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -684,7 +712,8 @@
         }
       ],
       "whoCanUseIt": "Aspiranti imprenditori agricoli e persone che intendono sviluppare un’impresa agricola esistente.",
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "howToAccess": "Consultare il PDF «Dall’idea all’impresa agricola», guida all’avvio e allo sviluppo dell’azienda."
     },
     {
       "id": "it-ismea-fondo-innovazione-agricoltura",
@@ -698,6 +727,12 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Il manuale Coldiretti descrive la procedura valutativa a sportello per l’agevolazione sugli investimenti innovativi, con esame in ordine cronologico.",
       "accessUrl": "https://giovanimpresa.coldiretti.it/wp-content/uploads/2025/02/Dallidea-allimpresa-agricola_25.02_DEF.pdf",
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://giovanimpresa.coldiretti.it/wp-content/uploads/2025/02/Dallidea-allimpresa-agricola_25.02_DEF.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://giovanimpresa.coldiretti.it/wp-content/uploads/2025/02/Dallidea-allimpresa-agricola_25.02_DEF.pdf",

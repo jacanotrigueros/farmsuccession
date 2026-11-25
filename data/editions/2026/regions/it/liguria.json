@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "liguria",
   "officialName": "Liguria",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "La Liguria finanzia il primo insediamento dei giovani agricoltori con un premio dedicato al ricambio generazionale e gestisce la Banca regionale della terra, una base dati dei terreni i cui proprietari si dichiarano disponibili a cederne il possesso o a gestirli in forma associata.",
   "coverage": {
     "status": "PARTIAL",
@@ -82,6 +82,13 @@
           "sourceUrl": "https://www.regione.liguria.it/homepage-giunta/giunta-regionale/comunicati-stampa-della-giunta-regionale/item/46671-fondi-giovani-agricoltori.html"
         }
       ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://www.agriligurianet.it/media/com_publiccompetitions/docs_repository/bando_intervento_sre01_3613.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.regione.liguria.it/homepage-giunta/giunta-regionale/comunicati-stampa-della-giunta-regionale/item/46671-fondi-giovani-agricoltori.html",
@@ -114,19 +121,20 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.agriligurianet.it/media/com_publiccompetitions/docs_repository/bando_intervento_sre01_3613.pdf",
+          "title": "Bando dell'intervento SRE01 (PDF, Regione Liguria – Agriligurianet)",
+          "consultedOn": "2026-11-25",
+          "quotes": [
+            "Bando per la presentazione delle domande di sostegno e di pagamento a valere sull’Intervento “Insediamento giovani agricoltori” (SRE01)"
+          ]
         }
       ],
       "generatorId": "chatgpt-2",
       "interventionCodes": [
         {
           "code": "SRE01",
-          "sourceUrl": "https://www.agriligurianet.it/it/component/publiccompetitions/publiccompetition/730-Intervento%20SRE01.html?id=730%3AIntervento+SRE01&view=publiccompetition"
-        }
-      ],
-      "implements": [
-        {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "SRE01",
           "sourceUrl": "https://www.agriligurianet.it/it/component/publiccompetitions/publiccompetition/730-Intervento%20SRE01.html?id=730%3AIntervento+SRE01&view=publiccompetition"
         }
       ]
@@ -158,7 +166,8 @@
           "quotes": [
             "Al fine di promuovere il recupero produttivo delle superfici agricole e forestali abbandonate, incolte o sottoutilizzate",
             "La Brt consta di una base dati informatizzata in cui sono inserite le coordinate catastali e le ulteriori informazioni riguardanti i terreni situati in Liguria",
-            "i cui proprietari, o aventi causa, si dichiarino disponibili a cedere la detenzione o il possesso a terzi ovvero ad aderire a forme di gestione consorziata o associata dei fondi"
+            "i cui proprietari, o aventi causa, si dichiarino disponibili a cedere la detenzione o il possesso a terzi ovvero ad aderire a forme di gestione consorziata o associata dei fondi",
+            "è possibile inviare un messaggio e-mail all’indirizzo bancadellaterra@regione.liguria.it"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -210,7 +219,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-2"
+      "generatorId": "chatgpt-2",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Banca Regionale della Terra – Regione Liguria",
+          "value": "bancadellaterra@regione.liguria.it",
+          "sourceUrl": "https://www.agriligurianet.it/en/impresa/politiche-di-sviluppo/banca-della-terra.html"
+        }
+      ]
     },
     {
       "id": "liguria-siar-bandi-pubblici",

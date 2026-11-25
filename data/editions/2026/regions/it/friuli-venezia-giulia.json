@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "friuli-venezia-giulia",
   "officialName": "Friuli-Venezia Giulia",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "Nel 2026 è aperto un nuovo bando SRE01 per il primo insediamento dei giovani agricoltori. Il Fondo di rotazione regionale offre inoltre prestiti agevolati per l'acquisto di terreni da parte di giovani agricoltori; CIA FVG offre un primo consulto sul bando.",
   "coverage": {
     "status": "PARTIAL",
@@ -106,6 +106,13 @@
         }
       ],
       "notes": "Il bando ufficiale 2026 conferma la finestra dal 6 agosto alle ore 12 del 29 ottobre, il premio di 70.000 euro per giovane e una dotazione complessiva di 3.080.000 euro.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://europa.regione.fvg.it/media/files/EUROPA/attachment/Allegato_1_Bando_SRE01_2026.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://europa.regione.fvg.it/media/files/EUROPA/attachment/Allegato_1_Bando_SRE01_2026.pdf",
@@ -117,12 +124,22 @@
             "nei 24 mesi precedenti",
             "hanno un’età maggiore di 18 anni e inferiore a 41 anni non compiuti;",
             "Il sostegno è concesso in forma di premio pari a euro 70.000,00",
-            "a far data dal 6 agosto 2026 ed entro le ore 12.00 del 29 ottobre 2026."
+            "a far data dal 6 agosto 2026 ed entro le ore 12.00 del 29 ottobre 2026.",
+            "Ulteriori informazioni relative al presente bando possono essere richieste al seguente indirizzo di posta elettronica: sre01@regione.fvg.it.",
+            "SRE01 - Insediamento giovani agricoltori contenuto nel Complemento per lo sviluppo rurale (CSR) della Regione autonoma Friuli Venezia Giulia al Piano strategico della PAC 2023-2027"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Ufficio attuatore del bando SRE01",
+          "value": "sre01@regione.fvg.it",
+          "sourceUrl": "https://europa.regione.fvg.it/media/files/EUROPA/attachment/Allegato_1_Bando_SRE01_2026.pdf"
         }
       ]
     },
@@ -167,12 +184,45 @@
           "quotes": [
             "08.08.2026 09:48",
             "la Regione ha deciso di concedere prestiti a tasso agevolato a sostegno dell'acquisto di terreni in Friuli Venezia Giulia, da parte di giovani agricoltori, destinati alla produzione di prodotti agricoli.",
-            "La selezione dei destinatari finali, intestatari dei prestiti, avverrà secondo le modalità previste dallo strumento finanziario, attraverso procedure a sportello disposte dal Fondo, previa verifica dell'affidabilità creditizia da parte delle banche convenzionate."
+            "La selezione dei destinatari finali, intestatari dei prestiti, avverrà secondo le modalità previste dallo strumento finanziario, attraverso procedure a sportello disposte dal Fondo, previa verifica dell'affidabilità creditizia da parte delle banche convenzionate.",
+            "L'importo totale dell'aiuto concesso ad una singola impresa non può superare l'importo di 300mila euro per progetto di investimento."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA1/FOGLIA22/",
+          "title": "Regione Autonoma Friuli Venezia Giulia - Fondo di rotazione in agricoltura con il contributo del FEASR (scadenza 31 dicembre 2027)",
+          "consultedOn": "2026-11-25",
+          "quotes": ["email: friagri@regione.fvg.it"]
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Importo massimo dell’aiuto per impresa e progetto di investimento",
+          "value": 300000,
+          "unit": "EUR",
+          "asOf": "2026-08-08",
+          "sourceUrl": "https://www.regione.fvg.it/rafvg/comunicati/comunicato.act?dir=/rafvg/cms/RAFVG/notiziedallagiunta/&nm=20260808094801003"
+        }
+      ],
+      "calls": [
+        {
+          "name": "Fondo di rotazione in agricoltura con il contributo del FEASR",
+          "state": "OPEN",
+          "closes": "2027-12-31",
+          "sourceUrl": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA1/FOGLIA22/modulistica/modulistica.html"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Fondo di rotazione in agricoltura",
+          "value": "friagri@regione.fvg.it",
+          "sourceUrl": "https://www.regione.fvg.it/rafvg/cms/RAFVG/economia-imprese/agricoltura-foreste/FOGLIA1/FOGLIA22/"
         }
       ]
     },
@@ -192,6 +242,12 @@
       "accessUrl": "https://ciafvg.it/primo-insediamento-giovani/",
       "languages": ["it"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://ciafvg.it/primo-insediamento-giovani/"
+        }
+      ],
       "sources": [
         {
           "url": "https://ciafvg.it/primo-insediamento-giovani/",
@@ -207,6 +263,14 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "CIA Agricoltori Italiani FVG",
+          "value": "agrifriuli@cia.it",
+          "sourceUrl": "https://ciafvg.it/primo-insediamento-giovani/"
         }
       ]
     },
@@ -277,7 +341,8 @@
             "(Dismissione di terreni agricoli e a vocazione agricola)",
             "I terreni agricoli e a vocazione agricola, non utilizzabili per altre finalità istituzionali, di proprietà dell'Amministrazione regionale o di suoi organismi strumentali possono essere locati o alienati mediante procedura negoziata senza pubblicazione del bando per gli immobili di valore inferiore a 100.000 euro.",
             "al fine di favorire lo sviluppo dell'imprenditorialità agricola giovanile è riconosciuto il diritto di prelazione ai giovani imprenditori agricoli, così come definiti ai sensi del decreto legislativo 21 aprile 2000, n. 185",
-            "Ai terreni alienati o locati ai sensi del presente articolo non può essere attribuita una destinazione urbanistica diversa da quella agricola prima del decorso di venti anni dalla trascrizione dei relativi contratti nei pubblici registri immobiliari."
+            "Ai terreni alienati o locati ai sensi del presente articolo non può essere attribuita una destinazione urbanistica diversa da quella agricola prima del decorso di venti anni dalla trascrizione dei relativi contratti nei pubblici registri immobiliari.",
+            "possono essere locati o alienati mediante procedura negoziata senza pubblicazione del bando per gli immobili di valore inferiore a 100.000 euro."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -285,7 +350,8 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "howToAccess": "Per gli immobili di valore inferiore a 100.000 euro la locazione o alienazione può avvenire tramite procedura negoziata senza pubblicazione del bando."
     },
     {
       "id": "friuli-venezia-giulia-portale-agricoltura",

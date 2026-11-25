@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "emilia-romagna",
   "officialName": "Emilia-Romagna",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "La Regione Emilia-Romagna ha aperto il bando 2026 SRE01 per il primo insediamento dei giovani agricoltori, con la possibilità di abbinare gli investimenti SRD01. Le domande scadono il 30 ottobre 2026 alle ore 13:00. CIA Emilia Romagna descrive un servizio di assistenza alle domande e di valutazione della dimensione economica aziendale, la cui disponibilità specifica per il bando 2026 resta da confermare.",
   "coverage": {
     "status": "PARTIAL",
@@ -129,6 +129,13 @@
           "sourceUrl": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/bando-2026-giovani-agricoltori"
         }
       ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/bando-2026-giovani-agricoltori"
+        }
+      ],
       "sources": [
         {
           "url": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/bando-2026-giovani-agricoltori",
@@ -144,7 +151,8 @@
             "Determina dirigenziale n. 17607 del 14 settembre 2026: rettifica errore materiale determina 17112/2026",
             "BANDO IN CORSO",
             "10 novembre 2026",
-            "Determina dirigenziale n. 20831 del 28 ottobre 2026: ulteriore proroga termini"
+            "Determina dirigenziale n. 20831 del 28 ottobre 2026: ulteriore proroga termini",
+            "SRE01 Insediamento dei giovani agricoltori e SRD01 Investimenti produttivi agricoli per la competitività delle aziende agricole"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -181,13 +189,6 @@
           "code": "SRE01",
           "sourceUrl": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/bando-2026-giovani-agricoltori"
         }
-      ],
-      "implements": [
-        {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "SRE01",
-          "sourceUrl": "https://agricoltura.regione.emilia-romagna.it/sviluppo-rurale-23-27/opportunita/bandi/2026/bando-2026-giovani-agricoltori"
-        }
       ]
     },
     {
@@ -207,6 +208,12 @@
       "languages": ["it"],
       "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
       "notes": "La disponibilità esplicita dell'ufficio tecnico per le domande di insediamento è attestata da una comunicazione relativa al bando 2025; la pagina generale dei servizi è accessibile, ma non conferma l'assistenza specifica sul bando 2026. Il servizio di assistenza è distinto dal premio regionale che aiuta a richiedere.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://emiliacentro.cia.it/allimpresa/"
+        }
+      ],
       "sources": [
         {
           "url": "https://emiliacentro.cia.it/allimpresa/",
@@ -216,7 +223,8 @@
             "Il CAA-CIA è operativo in maniera capillare su tutto il territorio regionale con numerose sedi territoriali",
             "Consente di avere uno screening puntuale delle dimensioni economiche delle aziende sulla base degli Standard Output che sono uno strumento obbligato dei bandi del PSR: Insediamento Giovani e Piani di Investimento.",
             "Il CAA svolge una funzione di supporto e consulenza nella presentazione della Domanda PSR",
-            "C.I.A. EMILIA ROMAGNA – VIA BIGARI 5/2 – 40128 BOLOGNA BO – TEL. 051 6314311"
+            "C.I.A. EMILIA ROMAGNA – VIA BIGARI 5/2 – 40128 BOLOGNA BO – TEL. 051 6314311",
+            "mail: emiliaromagna@cia.it"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -236,6 +244,14 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "CIA Emilia Romagna",
+          "value": "emiliaromagna@cia.it",
+          "sourceUrl": "https://emiliacentro.cia.it/allimpresa/"
         }
       ]
     }

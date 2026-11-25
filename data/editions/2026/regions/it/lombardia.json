@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "lombardia",
   "officialName": "Lombardia",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "La Lombardia ha pubblicato nel 2026 un premio SRE01 per il primo insediamento dei giovani agricoltori, la cui finestra di domande è chiusa, e un fondo distinto per investimenti delle aziende già beneficiarie di SRE01, aperto fino al 3 novembre dopo una proroga. La Banca della Terra Lombarda pubblica elenchi di terreni disponibili per la rimessa a coltura.",
   "coverage": {
     "status": "PARTIAL",
@@ -116,6 +116,13 @@
         }
       ],
       "notes": "La scheda dell'operatore indica «Chiuso». Il decreto di approvazione delle domande di luglio è una fase di istruttoria e finanziamento, non una riapertura per nuovi richiedenti. Le disposizioni 2026 elencano titoli di studio agricoli o esperienza lavorativa per la competenza professionale; non descrivono un corso di formazione come alternativa per questo bando.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/agricoltura/psn-pac-2023-2027-insediamento-giovani-agricoltori-sviluppo-rurale-bando-2026-RLM12026052310"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/agricoltura/psn-pac-2023-2027-insediamento-giovani-agricoltori-sviluppo-rurale-bando-2026-RLM12026052310",
@@ -125,7 +132,9 @@
             "Sviluppo Rurale/bando 2026 Chiuso",
             "Domande dal: 16/02/2026 , ore 10:00",
             "Scade il: 30/04/2026 , ore 16:00",
-            "€ 50.000,00 in Aree svantaggiate di montagna; - € 40.000,00 in Altre aree"
+            "€ 50.000,00 in Aree svantaggiate di montagna; - € 40.000,00 in Altre aree",
+            "e-mail: sisco.supporto@regione.lombardia.it",
+            "INTERVENTO SRE01. Dotazione finanziaria di € 2.000.000,00."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -169,11 +178,12 @@
           "sourceUrl": "https://psr.regione.lombardia.it/pc2127/psr-2023-2027/interventi/sre-giovani"
         }
       ],
-      "implements": [
+      "contactPoints": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "SRE01",
-          "sourceUrl": "https://psr.regione.lombardia.it/pc2127/psr-2023-2027/interventi/sre-giovani"
+          "channel": "EMAIL",
+          "label": "Supporto tecnico SISCO",
+          "value": "sisco.supporto@regione.lombardia.it",
+          "sourceUrl": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/agricoltura/psn-pac-2023-2027-insediamento-giovani-agricoltori-sviluppo-rurale-bando-2026-RLM12026052310"
         }
       ]
     },
@@ -225,7 +235,8 @@
             "Scade il: 03/11/2026 , ore 12:00",
             "Domande dal 13 ottobre al 3 novembre 2026 (dopo proroga).",
             "Possono presentare domanda le aziende beneficiarie dell’Intervento SRE01",
-            "Possono partecipare i beneficiari dell’Intervento SRE01 della PAC 2023-2027 di Regione Lombardia che non hanno compiuto il 41° anno di età."
+            "Possono partecipare i beneficiari dell’Intervento SRE01 della PAC 2023-2027 di Regione Lombardia che non hanno compiuto il 41° anno di età.",
+            "PEC agricoltura@pec.regione.lombardia.it"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -295,7 +306,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-3"
+      "generatorId": "chatgpt-3",
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Direzione Agricoltura – Regione Lombardia",
+          "value": "agricoltura@pec.regione.lombardia.it",
+          "sourceUrl": "https://www.bandi.regione.lombardia.it/servizi/servizio/catalogo/dettaglio/agricoltura-pesca/politica-agricola-comune-sviluppo-rurale/fondo-l-insediamento-giovani-agricoltori-anno-2026-RLM12026053832"
+        }
+      ]
     },
     {
       "id": "lombardia-banca-della-terra",
@@ -317,6 +336,12 @@
       "targetProfiles": ["LANDOWNER", "LAND_SEEKER", "NEW_ENTRANT"],
       "lastEvidenceDate": "2026-03-17",
       "notes": "La pagina regionale è stata aggiornata il 17 marzo 2026 e distingue la consultazione dei terreni dall'esistenza di bandi pubblici. Il contenuto dello ZIP degli elenchi non è stato aperto; SIGMATER ha risposto senza testo leggibile. Non si afferma che un terreno specifico sia ancora libero.",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.regione.lombardia.it/agricoltura/tutela-del-suolo-agricolo/banca-della-terra"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.regione.lombardia.it/agricoltura/tutela-del-suolo-agricolo/banca-della-terra",
@@ -347,6 +372,12 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Informazioni e assistenza sulla costituzione e sulla gestione tecnico-amministrativa delle associazioni fondiarie, con linee guida e video.",
       "accessUrl": "https://www.regione.lombardia.it/agricoltura/boschi-e-foreste/gestione-del-bosco-associazionismo/associazioni-fondiarie,-di-cosa-si-tratta",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.regione.lombardia.it/agricoltura/boschi-e-foreste/gestione-del-bosco-associazionismo/associazioni-fondiarie,-di-cosa-si-tratta"
+        }
+      ],
       "sources": [
         {
           "url": "https://www.regione.lombardia.it/agricoltura/boschi-e-foreste/gestione-del-bosco-associazionismo/associazioni-fondiarie,-di-cosa-si-tratta",

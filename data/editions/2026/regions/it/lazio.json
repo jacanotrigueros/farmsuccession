@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "lazio",
   "officialName": "Lazio",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "La Banca della Terra regionale comprende terreni agricoli destinati a future procedure di vendita, ma non è stata verificata un'asta attualmente accessibile. Roma Capitale assegna terreni agricoli comunali con bandi distinti; l'ultimo bando verificato è chiuso. Nel Lazio sono stati inoltre attivati corsi di 150 ore per giovani imprenditori agricoli, con iscrizioni già chiuse nelle edizioni esaminate. Non è stato verificato un bando regionale SRE01.",
   "coverage": {
     "status": "PARTIAL",
@@ -100,6 +100,12 @@
       "languages": ["it"],
       "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER"],
       "notes": "La notizia è del 9 dicembre 2024. Un atto regionale del 2025 commissiona perizie su 364 terreni della Banca della Terra, ma riguarda la preparazione delle vendite: non costituisce un'asta aperta agli agricoltori.",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://regione.lazio.it/notizie/banca-terra-elenco-terreni-agricoli"
+        }
+      ],
       "sources": [
         {
           "url": "https://regione.lazio.it/notizie/banca-terra-elenco-terreni-agricoli",
@@ -239,14 +245,18 @@
             "Fine: 30/10/2026",
             "Durata del corso: 150 ore",
             "Aperte fino al 11/07/2026 (ore 12.00) le iscrizioni",
-            "tutti i titolari di imprese agricole localizzate nella Regione Lazio con meno di 41 anni"
+            "tutti i titolari di imprese agricole localizzate nella Regione Lazio con meno di 41 anni",
+            "Il corso si svolgerà in modalità ibrida (50% delle ore in presenza e 50% a distanza in FAD sincrona)",
+            "Il corso è gratuito e sono disponibili complessivamente 15 posti"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
         }
-      ]
+      ],
+      "trainingFormats": ["HYBRID"],
+      "accessCostType": "FREE"
     },
     {
       "id": "lazio-enuip-giovani-per-agricoltura",
@@ -337,6 +347,12 @@
         }
       ],
       "notes": "La notizia indica una finestra nazionale dal 22 aprile al 19 giugno 2026; non conferma la disponibilità dell'assistenza dopo tale periodo.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://unicooplazio.it/agricoltura-opportunita-per-i-giovani-al-via-generazione-terra-con-120-milioni-di-euro/"
+        }
+      ],
       "sources": [
         {
           "url": "https://unicooplazio.it/agricoltura-opportunita-per-i-giovani-al-via-generazione-terra-con-120-milioni-di-euro/",
@@ -383,7 +399,8 @@
             "l'assegnatario sia deceduto senza aver pagato la quindicesima annualità del prezzo di assegnazione e non sia avvenuto un subentro nella assegnazione",
             "il fondo ritorna nella disponibilità dell'ARSIAL.",
             "Gli eredi dell'assegnatario, residenti nel podere ed in possesso della qualifica di cui all'articolo 3, possono divenire concessionari del fondo",
-            "degli articoli 16 e 21, comma 1, del presente regolamento."
+            "degli articoli 16 e 21, comma 1, del presente regolamento.",
+            "L'ARSIAL pubblica sul Bollettino Ufficiale della Regione Lazio, negli Albi Pretori dei comuni interessati e sul proprio sito internet, l'elenco dei beni disponibili per le concessioni di cui al presente articolo, con le relative caratteristiche, nonché l'avviso contenente le modalità ed i termini di presentazione delle domande"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -391,7 +408,8 @@
           }
         }
       ],
-      "generatorId": "chatgpt-4"
+      "generatorId": "chatgpt-4",
+      "howToAccess": "Presentare la domanda di concessione secondo le modalità e i termini dell’avviso pubblicato dall’ARSIAL sul Bollettino Ufficiale della Regione Lazio, negli albi pretori dei comuni interessati e sul sito dell’Agenzia."
     },
     {
       "id": "lazio-diritto-opzione-acquisto-fondo-affitto",
@@ -439,6 +457,13 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Il CSR del Lazio di luglio 2023 prevede un premio per il primo insediamento in agricoltura.",
       "accessUrl": "https://regione.lazio.it/sites/default/files/documentazione/Allegato-2-CSR-10-07-23.pdf",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://regione.lazio.it/sites/default/files/documentazione/Allegato-2-CSR-10-07-23.pdf"
+        }
+      ],
       "sources": [
         {
           "url": "https://regione.lazio.it/sites/default/files/documentazione/Allegato-2-CSR-10-07-23.pdf",
@@ -449,7 +474,9 @@
             "di età fino a quarantuno anni non compiuti",
             "in qualità di capo dell’azienda, dietro presentazione di un piano aziendale per lo sviluppo dell’attività agricola.",
             "Complemento per lo sviluppo rurale (CSR) della regione Lazio per il periodo 2023-2027",
-            "hanno un’età maggiore ai 18 anni e inferiore a 41 anni non compiuti"
+            "hanno un’età maggiore ai 18 anni e inferiore a 41 anni non compiuti",
+            "Per insediamenti in zone svantaggiate montane, zone svantaggiate con vincoli naturali significative diverse dalle zone montane e zone soggette a vincoli specifici. 50.000",
+            "Per insediamento in altre zone 70.000"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -466,10 +493,21 @@
           "sourceUrl": "https://regione.lazio.it/sites/default/files/documentazione/Allegato-2-CSR-10-07-23.pdf"
         }
       ],
-      "implements": [
+      "metrics": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "SRE01",
+          "measure": "AID_PER_BENEFICIARY_MIN",
+          "label": "Premio per insediamenti in zone svantaggiate o soggette a vincoli – scheda 2023",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2023-01-01",
+          "sourceUrl": "https://regione.lazio.it/sites/default/files/documentazione/Allegato-2-CSR-10-07-23.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Premio per insediamento in altre zone – scheda 2023",
+          "value": 70000,
+          "unit": "EUR",
+          "asOf": "2023-01-01",
           "sourceUrl": "https://regione.lazio.it/sites/default/files/documentazione/Allegato-2-CSR-10-07-23.pdf"
         }
       ]

@@ -5,7 +5,7 @@
   "country": "IT",
   "region": "campania",
   "officialName": "Campania",
-  "published": "2026-11-24",
+  "published": "2026-11-25",
   "summary": "In Campania è aperto il bando SRE01 per il primo insediamento dei giovani agricoltori, prorogato al 30 settembre 2026. Il programma SRE02 per nuovi agricoltori ha una convocazione chiusa. La Banca della Terra Campana e il percorso regionale di formazione per il primo insediamento sono documentati, ma la loro disponibilità attuale non è stata confermata.",
   "coverage": {
     "status": "PARTIAL",
@@ -125,6 +125,13 @@
           "sourceUrl": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE01.html"
         }
       ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE01",
+          "sourceUrl": "https://www.regione.campania.it/regione-informa/notizie/crs-campania-20232027-intervento-sre01-insediamento-giovani-agricoltori"
+        }
+      ],
       "sources": [
         {
           "url": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE01.html",
@@ -152,7 +159,9 @@
             "Forma del sostegno Premio (IMPORTI FORFETTARI)",
             "45.000,00 per le macroaree A e B",
             "50.000,00 euro per le macroaree C e D.",
-            "le domande di sostegno potranno essere rilasciate telematicamente sul portale SIAN"
+            "le domande di sostegno potranno essere rilasciate telematicamente sul portale SIAN",
+            "euro 45.000,00 per insediamenti ricadenti nelle macroaree A e B.",
+            "euro 50.000,00 per insediamenti ricadenti nelle macroaree C e D"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -165,7 +174,8 @@
           "consultedOn": "2026-09-28",
           "quotes": [
             "decreto dirigenziale n. 363 del 09/09/2026",
-            "Il nuovo termine di scadenza è fissato alle ore 16:00 del 30 settembre 2026"
+            "Il nuovo termine di scadenza è fissato alle ore 16:00 del 30 settembre 2026",
+            "l'intervento SRE01 (insediamento giovani agricoltori) del CSR Campania 2023/2027."
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -179,11 +189,22 @@
           "sourceUrl": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE01.html"
         }
       ],
-      "implements": [
+      "metrics": [
         {
-          "resourceId": "eu-cap-young-farmers",
-          "named": "SRE01",
-          "sourceUrl": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE01.html"
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Premio per insediamenti nelle macroaree A e B",
+          "value": 45000,
+          "unit": "EUR",
+          "asOf": "2026-07-03",
+          "sourceUrl": "https://agricoltura.regione.campania.it/CSR_2023-2027/pdf/DRD_256-03-07-26.pdf"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Premio per insediamenti nelle macroaree C e D",
+          "value": 50000,
+          "unit": "EUR",
+          "asOf": "2026-07-03",
+          "sourceUrl": "https://agricoltura.regione.campania.it/CSR_2023-2027/pdf/DRD_256-03-07-26.pdf"
         }
       ]
     },
@@ -205,6 +226,12 @@
       "languages": ["it"],
       "targetProfiles": ["LAND_SEEKER", "YOUNG_FARMER", "NEW_ENTRANT"],
       "notes": "L'elenco dei terreni indicato nella pagina è aggiornato a dicembre 2019; non è stata confermata un'assegnazione o una finestra di domanda attuale.",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://agricoltura.regione.campania.it/BTC/BTC.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://agricoltura.regione.campania.it/BTC/BTC.html",
@@ -275,6 +302,13 @@
       "languages": ["it"],
       "targetProfiles": ["NEW_ENTRANT"],
       "notes": "La pagina del programma pubblica una graduatoria definitiva nell'agosto 2026; ciò non riapre la convocazione de 2024.",
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "SRE02",
+          "sourceUrl": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE02.html"
+        }
+      ],
       "sources": [
         {
           "url": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE02.html",
@@ -287,7 +321,9 @@
             "macroaree A e B premio di primo insediamento di 25.000,00 euro.",
             "chiuso 4 novembre 2024 - ore 16.00",
             "10 agosto 2026",
-            "Approvata la graduatoria definitva dell'intervento SRE02"
+            "Approvata la graduatoria definitva dell'intervento SRE02",
+            "Contatti Ufficio agricoltura.investimenti@regione.campania.it",
+            "SRE02 - Insediamento nuovi agricoltori"
           ],
           "verification": {
             "checkedOn": "2026-11-24",
@@ -298,6 +334,32 @@
       "interventionCodes": [
         {
           "code": "SRE02",
+          "sourceUrl": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE02.html"
+        }
+      ],
+      "metrics": [
+        {
+          "measure": "AID_PER_BENEFICIARY_BASE",
+          "label": "Premio di primo insediamento nelle macroaree A e B",
+          "value": 25000,
+          "unit": "EUR",
+          "asOf": "2024-05-31",
+          "sourceUrl": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE02.html"
+        },
+        {
+          "measure": "AID_PER_BENEFICIARY_MAX",
+          "label": "Premio di primo insediamento nelle macroaree C e D",
+          "value": 30000,
+          "unit": "EUR",
+          "asOf": "2024-05-31",
+          "sourceUrl": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE02.html"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Settore 207.01.00 – Ufficio SRE02",
+          "value": "agricoltura.investimenti@regione.campania.it",
           "sourceUrl": "https://agricoltura.regione.campania.it/CSR_2023-2027/SRE02.html"
         }
       ]
