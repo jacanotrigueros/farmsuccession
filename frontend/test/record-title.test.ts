@@ -7,7 +7,7 @@ import { decodeHTML } from "entities";
 
 import type { EditionSnapshot } from "../../src/types/edition.ts";
 import { recordSlug } from "../public/search-scope.js";
-import { namesPlace } from "../src/lib/place-name.ts";
+import { namesPlace, SHORT_TITLE, shortTitleTail } from "../src/lib/place-name.ts";
 import { words } from "../src/lib/words.ts";
 
 const ROOT = path.join(import.meta.dirname, "..", "..");
@@ -27,6 +27,10 @@ assert.ok(edition, "no edition: a record-title regression would prove nothing");
 const entries = snapshots(path.join(editions, edition)).flatMap((snapshot) =>
   snapshot.resources.map((resource) => ({ snapshot, resource })),
 );
+/** The official name of each country, as its own snapshot gives it. */
+const countryOf = (code: string): string | undefined =>
+  entries.find(({ snapshot }) => snapshot.schemaId === "country-snapshot" && snapshot.country.toLowerCase() === code)?.snapshot
+    .officialName;
 const frequency = new Map<string, number>();
 for (const { resource } of entries) frequency.set(resource.name, (frequency.get(resource.name) ?? 0) + 1);
 
@@ -68,12 +72,20 @@ test("a record title keeps its full source name and names the territory below it
     const opens = below && !namesPlace(resource.name, snapshot.officialName);
     // A territory that pairs two forms with " — " opens a title with the first; the breadcrumb carries both.
     const place = snapshot.officialName.split(" — ")[0] ?? snapshot.officialName;
-    const expected = opens
+    const base = opens
       ? text.recordPageTitleInPlace.replace("{place}", place).replace("{name}", resource.name)
       : resource.name + (frequency.get(resource.name)! > 1 ? ` — ${snapshot.officialName}` : "");
+    const countryName = snapshot.schemaId === "eu-snapshot" ? undefined : countryOf(country);
+    const expected = shortTitleTail(base, countryName, resource.operator);
+    if (countryName !== undefined) {
+      assert.ok(
+        actual.length >= SHORT_TITLE || namesPlace(actual, countryName),
+        `${route}: "${actual}" is ${actual.length} characters and says neither where it applies nor who runs it`,
+      );
+    }
     if (opens) placed += 1;
     assert.ok(
-      !opens || actual.length - resource.name.length <= 40,
+      !opens || base.length - resource.name.length <= 40,
       `${route}: the territory adds ${actual.length - resource.name.length} characters in front of the name; the full trail once made a title 161 characters`,
     );
 

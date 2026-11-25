@@ -50,7 +50,7 @@ import {
   type Territory,
 } from "../lib/corpus.ts";
 import { goalOf } from "../lib/goals.ts";
-import { namesPlace } from "../lib/place-name.ts";
+import { namesPlace, shortTitleTail } from "../lib/place-name.ts";
 import { flagOf, ICON, PRACTICAL_ICON } from "../lib/icons.ts";
 import { euCardIn } from "../lib/eu-presentation.ts";
 import { countryNameIn, dateIn } from "../lib/language.ts";
@@ -109,9 +109,16 @@ const belowCountry = territory.layer.level === "REGION" || territory.layer.level
 const placed = belowCountry && !namesPlace(resource.name, territory.data.officialName);
 const titlePlace = territory.data.officialName.split(" — ")[0] ?? territory.data.officialName;
 const hasNamesake = records().some(({ resource: other }) => other.id !== resource.id && other.name === resource.name);
-const pageTitle = placed
+const baseTitle = placed
   ? text.recordPageTitleInPlace.replace("{place}", titlePlace).replace("{name}", resource.name)
   : resource.name + (hasNamesake ? ` — ${territory.data.officialName}` : "");
+/**
+ * A short name — "Hofübergabe", "Agrar-Bürgschaft" — makes a result that says nothing about where it
+ * applies or who runs it, and gives a search engine almost nothing to match. Under 30 characters the
+ * title takes the country, or the operator when it already names the country.
+ */
+const countryName = view(territory).layers.find(({ layer }) => layer.level === "COUNTRY")?.data.officialName;
+const pageTitle = shortTitleTail(baseTitle, countryName, resource.operator);
 
 /**
  * The line a result shows, which is the only place this site competes.
