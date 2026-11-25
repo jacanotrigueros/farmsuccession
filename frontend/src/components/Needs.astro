@@ -56,7 +56,7 @@ const others = [
 </h2>
 {showLead && <p class="mt-2 text-muted">{text.needsLead}</p>}
 
-<ul class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+<ul class="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
   {topics.map((goal) => (
     <li class:list={["card relative flex min-h-full items-start gap-3", compact ? "p-4" : "p-5", goal.found > 0 && "card-link"]}>
       <span
@@ -67,7 +67,7 @@ const others = [
       >
         <Icon name={goal.icon} aria-hidden="true" class:list={[compact ? "size-7" : "size-8"]} />
       </span>
-      <div class="min-w-0 flex-1">
+      <div class="flex min-w-0 flex-1 flex-col self-stretch">
         {goal.found > 0 ? (
           <a href={goal.href} class="font-bold text-ink no-underline after:absolute after:inset-0 hover:underline">
             {goal.title}
@@ -76,7 +76,7 @@ const others = [
           <span class="font-bold text-ink">{goal.title}</span>
         )}
         {!compact && <p class="meta mt-1">{goal.hint}</p>}
-        <p class:list={["mt-2 text-meta font-bold tabular-nums", goal.found > 0 ? "text-brand" : "text-muted"]}>
+        <p class:list={["mt-auto pt-2 text-meta font-bold tabular-nums", goal.found > 0 ? "text-brand" : "text-muted"]}>
           {goal.found > 0 ? counted(goal.found, text.record, language) : text.noResourcesDocumented}
         </p>
       </div>

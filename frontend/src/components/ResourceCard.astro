@@ -8,9 +8,8 @@
  * The whole card is the link. The title carries the underline, and an overlay on it covers the card, so a
  * finger can land anywhere on the box and a screen reader is still read one link with the record's name.
  *
- * `compact` drops the box for a divided row — the search results, which are scanned twenty at a time,
- * where a box is weight a reader does not need. A handful of records on a territory page is a different
- * job: there the box is what separates one record from the next.
+ * `compact` bounds titles and footer metadata for scanning. Territory pages give the description
+ * one more line than search previews.
  *
  * The state is always printed, even when it is the expected one, because "this exists" and "you can apply
  * today" are different claims and this project exists to keep them apart.
@@ -31,11 +30,11 @@ type Props = {
   language: string;
   level?: "h2" | "h3" | "h4";
   compact?: boolean;
-  showFullSummary?: boolean;
+  territoryPreview?: boolean;
   /** The country of the page a European card is shown on. */
   country?: string;
 };
-const { resource, recordedIn, language, level = "h3", compact = false, showFullSummary = false, country } = Astro.props;
+const { resource, recordedIn, language, level = "h3", compact = false, territoryPreview = false, country } = Astro.props;
 const Heading = level;
 const recordLanguage = languageOf(recordedIn);
 const text = words(language);
@@ -46,6 +45,7 @@ const text = words(language);
  */
 const translated = recordedIn.layer.level === "EU" ? euCardIn(resource.id, resource.whatItOffers, language) : undefined;
 const cardLanguage = translated ? language : recordLanguage;
+const name = translated?.name ?? resource.name;
 
 /**
  * On a country's page, a European card names the country's own record of the measure: the national records
@@ -80,17 +80,17 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), res
       lang={cardLanguage}
       class="text-brand-strong underline decoration-1 underline-offset-3 after:absolute after:inset-0 hover:decoration-2"
     >
-      {translated?.name ?? resource.name}
+      {compact ? <span class="line-clamp-3">{name}</span> : name}
     </a>
   </Heading>
   {translated && (
-    <p class="meta mt-1">
+    <p class:list={["meta mt-1", territoryPreview && "line-clamp-2"]}>
       {text.originalName.split("{name}")[0]}
       <span lang={recordLanguage}>{resource.name}</span>
       {text.originalName.split("{name}")[1]}
     </p>
   )}
-  <p lang={cardLanguage} class:list={["mt-3", showFullSummary ? "" : compact ? "line-clamp-2" : "line-clamp-3"]}>
+  <p lang={cardLanguage} class:list={["mt-3", compact && !territoryPreview ? "line-clamp-2" : "line-clamp-3"]}>
     {translated?.offers ?? resource.whatItOffers}
   </p>
   {home &&
@@ -107,17 +107,19 @@ const place = resourcePlaceParts(placeOf(recordedIn, text.euName, language), res
       </p>
     ))}
   {compact ? (
-    <p class="meta mt-3 flex flex-wrap items-start gap-x-4 gap-y-1">
-      <span class="inline-flex items-start gap-1.5">
+    <p class:list={["meta mt-auto grid gap-x-4 gap-y-1 pt-3", !territoryPreview && "sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]"]}>
+      <span class="inline-flex min-w-0 items-start gap-1.5">
         <Icon name={ICON.territory} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
-        <span>
+        <span class="line-clamp-1">
           {place.label}
           {place.area && <span lang={recordLanguage}>{place.area}</span>}
         </span>
       </span>
       <span class="inline-flex min-w-0 items-start gap-1.5">
         <Icon name={ICON.operator} aria-hidden="true" class="mt-0.5 size-4 shrink-0" />
-        <span lang={recordLanguage}>{resource.operator}</span>
+        <span lang={recordLanguage} class="line-clamp-1">
+          {resource.operator}
+        </span>
       </span>
     </p>
   ) : (

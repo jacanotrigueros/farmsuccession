@@ -9,6 +9,7 @@ import { loadSnapshots } from "../../src/editions.ts";
 import { ancestorLayers, layerKey, leafLayers, snapshotLayer } from "../../src/layers.ts";
 import { loadTerritories } from "../../src/territories.ts";
 import { recordSlug, regionSlug, searchPath } from "../public/search-scope.js";
+import { isFirstEstablishmentAid } from "../src/lib/goals.ts";
 import { words } from "../src/lib/words.ts";
 
 const DIST = path.join(import.meta.dirname, "..", "dist");
@@ -205,4 +206,31 @@ test("Europe's page compares every country's ages with its farms and land, and t
   const body = /<tbody>([\s\S]*?)<\/tbody>/u.exec(block)?.[1] ?? "";
   assert.equal([...body.matchAll(/<tr\b/gu)].length, countries, "/eu/: one sortable row per country");
   assert.match(block, /<tfoot>[\s\S]*(UE-27|EU-27)/u, "/eu/: the EU-27 reference must not be sorted with the countries");
+});
+
+test("a country page shows every grant to set up in a territory before its disclosure, with its whole name", () => {
+  // Readers come to a country page for the grants to set up, and two grants of one territory usually differ
+  // only at the end of their names (young farmers or young livestock farmers, a regional or a provincial
+  // call). So none of them goes behind "other resources" and none of their names is cut short.
+  let checked = 0;
+  for (const { data, layer } of snapshots) {
+    if (layer.level !== "REGION") continue;
+    const aid = data.resources.filter(isFirstEstablishmentAid);
+    if (aid.length === 0) continue;
+    const cc = layer.country.toLowerCase();
+    const html = htmlAt(cc);
+    const start = html.indexOf(`href="/${cc}/${regionSlug(layer.country)}/${layer.region}/"`);
+    assert.ok(start >= 0, `${cc}/${layer.region}: no territory card on the country page`);
+    const next = html.indexOf('class="territory card', start);
+    const card = html.slice(start, next >= 0 ? next : html.length);
+    const disclosure = card.indexOf("<details");
+    const shown = disclosure >= 0 ? card.slice(0, disclosure) : card;
+    for (const resource of aid) {
+      const url = resourceUrl(resource.id, layer.country);
+      assert.ok(shown.includes(`href="${url}"`), `${cc}/${layer.region}: ${resource.id} is not shown before the disclosure`);
+    }
+    assert.doesNotMatch(shown, /line-clamp/u, `${cc}/${layer.region}: a grant's name is cut short`);
+    checked += aid.length;
+  }
+  assert.ok(checked > 0, "no territory grant checked");
 });
