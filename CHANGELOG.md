@@ -10,6 +10,21 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.2.1 — 2026-11-26
+
+Corrections to 2.2.0, found by reading it in production: nothing new a reader has to learn, so only the
+last digit moves.
+
+- The search keeps a result only when the words the reader typed are really in it. A word nobody wrote
+  no longer brings in records matched on an initial: "young farmers" lists the six records that say it
+  instead of 235, and "Niederlassungsprämie" finds Austria's grant eleventh instead of twentieth.
+- On a phone, Tab follows the header as it is seen: the site name, the search, then the place selector.
+  The page-index links are at least 44 px in every language.
+- A territory with no records of its own links to "what do you need to solve?" next to its search; since
+  2.2.0 put the applicable resources first, that block was far down the page.
+- Data: the Zaragoza land bank's search description no longer describes a working register; it names the
+  municipal rules (PDF) and says operation is unconfirmed.
+
 ## 2.2.0 — 2026-11-26
 
 Pages lead with what a reader can use where they are, and the search says what a record's call says.
