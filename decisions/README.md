@@ -95,3 +95,5 @@ on the way in, which is the only honest reason for a measurement to move.
 | [043](043-applicable-resources-first.md)                          | Show applicable resources before empty local coverage             |
 | [044](044-search-shows-periods-and-nearest-layer-first.md)        | Search shows documented periods and the nearest layer first       |
 | [045](045-require-evidence-for-each-search-hit.md)                | Require matching evidence for each search hit                     |
+| [046](046-rank-complete-matches-before-partial-matches.md)        | Rank complete written matches before partial matches              |
+| [047](047-show-the-active-status-note-only-without-calls.md)      | Show the active status note only without calls                    |

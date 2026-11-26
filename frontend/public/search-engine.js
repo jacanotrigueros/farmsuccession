@@ -22,6 +22,7 @@
 const NEAREST_FIRST = ["REGION", "HUB", "COUNTRY", "EU"];
 
 const wordsIn = (text) => text.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
+const foldedWords = (text) => wordsIn(text.normalize("NFD").replace(/\p{M}/gu, ""));
 
 /**
  * Pagefind's prefix fallback can match an untyped initial, such as "N." for "Niederlassungsprämie".
@@ -29,6 +30,7 @@ const wordsIn = (text) => text.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
  */
 async function documentedResults(term, results) {
   const typed = new Set(wordsIn(term));
+  const queryWords = new Set(foldedWords(term));
   const matched = [];
   // The engine must inspect every hit before counting results. Limit the fragment reads in flight.
   const batchSize = 20;
@@ -38,7 +40,9 @@ async function documentedResults(term, results) {
         const { raw_content: content, filters } = await hit.data();
         const indexed = content.includes("\u200B") ? content.split("\u200B") : content.split(/\s+/u);
         const hasMatch = hit.words.some((at) => wordsIn(indexed[at] ?? "").some((word) => word.length > 1 || typed.has(word)));
-        return { hit, filters, hasMatch };
+        const wordsInRecord = hasMatch && queryWords.size > 1 ? new Set(foldedWords(content)) : null;
+        const complete = wordsInRecord !== null && [...queryWords].every((word) => wordsInRecord.has(word));
+        return { hit, filters, hasMatch, complete };
       }),
     );
     matched.push(...batch.filter(({ hasMatch }) => hasMatch));
@@ -83,7 +87,7 @@ export async function createEngine({ bundles, languages, importModule = (url) =>
         const matched = await documentedResults(term, results);
         if (matched.length === 0) return { results: [], counts: {} };
         return {
-          results: matched.map(({ hit }) => hit).toSorted((a, b) => b.score - a.score),
+          results: matched.toSorted((a, b) => Number(b.complete) - Number(a.complete) || b.hit.score - a.hit.score).map(({ hit }) => hit),
           counts: matched.length === results.length ? counts() : countResults(matched),
         };
       });
