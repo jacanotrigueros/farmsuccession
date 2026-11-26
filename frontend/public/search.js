@@ -20,7 +20,8 @@ import { resultDescription, setResultLanguage } from "/result-description.js";
 import { resourcePlace } from "/resource-place.js";
 import { createEngine } from "/search-engine.js";
 import { effectiveFilters, europeanSearch, facetsOf, queryFromState, scopeFromPath, stateFromQuery } from "/search-scope.js";
-import { counted as countIn, numberIn } from "/locale.js";
+import { localToday, rankedPeriods } from "/apply.js";
+import { counted as countIn, dateIn, numberIn } from "/locale.js";
 
 /** One page of results. Twenty is what a reader can read to the end before deciding to look further. */
 const PAGE = 20;
@@ -95,6 +96,30 @@ if (form && state && resultsList && everything && template && askBlock && filter
     const statusIcon = document.querySelector(`template[data-status-icon-for="${result.meta.status}"]`);
     if (statusIcon) status.append(statusIcon.content.cloneNode(true));
     status.append(labelOf("status", result.meta.status));
+
+    // The index carries the call and its own source date. The shared rule answers for the reader's day.
+    const periods = JSON.parse(result.meta.periods ?? "[]");
+    const callList = row.querySelector("[data-result-periods]");
+    for (const { call, checked, key } of rankedPeriods(periods, localToday())) {
+      const item = document.createElement("li");
+      const name = document.createElement("strong");
+      const [before, after] = words.callCheckedOn.split("{date}");
+      const date = document.createElement("time");
+      const evidence = document.createElement("span");
+      evidence.className = "meta";
+      date.dateTime = checked;
+      date.textContent = dateIn(checked, document.documentElement.lang, "short");
+      evidence.append(before, date, after);
+      name.lang = result.meta.language ?? "";
+      name.textContent = call.name;
+      const answer = words.calls[key].replace("{date}", () => dateIn(call.closes, document.documentElement.lang, "short"));
+      item.append(name, ` · ${answer} · `, evidence);
+      callList.append(item);
+    }
+    if (periods.length) {
+      callList.hidden = false;
+      status.classList.add("tag-quiet");
+    }
 
     row.querySelector("[data-result-operator]").textContent = result.meta.operator ?? "";
     const place = resourcePlace(result.meta.territory ?? "", result.meta.area, words.area, words.separator);

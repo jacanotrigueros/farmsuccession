@@ -20,7 +20,7 @@ import type { Resource } from "../lib/corpus.ts";
 import { stateLabel } from "../lib/vocabulary.ts";
 import { dateIn } from "../lib/language.ts";
 import { words } from "../lib/words.ts";
-import { APPLY_RANK, APPLY_TONE, applyKey } from "../../public/apply.js";
+import { APPLY_TONE, applyKey, documentedPeriods, rankedPeriods } from "../../public/apply.js";
 
 type Props = { resource: Resource; language: string; locale?: string };
 const { resource, language, locale = language } = Astro.props;
@@ -34,8 +34,22 @@ const today = new Date().toISOString().slice(0, 10);
  * Every documented period answers for itself (decisions/029). The periods a reader can apply through come
  * first, then the upcoming ones, then the closed ones; ties keep the record's order (decisions/042).
  */
-const entries = (resource.calls?.length ? resource.calls : [undefined])
-  .map((call) => {
+const periods = rankedPeriods(documentedPeriods(resource), today);
+const entries = (
+  periods.length > 0
+    ? periods
+    : [
+        {
+          call: undefined,
+          key: applyKey(undefined, resource.status, today),
+          checked: resource.sources
+            .map(({ consultedOn }) => consultedOn)
+            .toSorted()
+            .at(-1),
+        },
+      ]
+)
+  .map(({ call, key, checked }) => {
     /** Every answer for this period, so the browser can refresh it without formatting dates. */
     const answers = {
       open: { text: text.applyOpen },
@@ -52,22 +66,8 @@ const entries = (resource.calls?.length ? resource.calls : [undefined])
         : { text: stateLabel(resource.status, language) },
     };
 
-    const key = applyKey(call, resource.status, today);
-    const answer = key ? answers[key as keyof typeof answers] : undefined;
-
-    /** The call's own source dates the answer; with no call, the most recent reading of the record. */
-    const checked = call
-      ? resource.sources.find((source) => source.url === call.sourceUrl)?.consultedOn
-      : resource.sources
-          .map((source) => source.consultedOn)
-          .toSorted()
-          .at(-1);
-    if (call && !checked) throw new Error(`${resource.id}: the application period "${call.name}" has no consulted source`);
-    return { call, key, answer, answers, checked };
+    return { call, key, answer: key ? answers[key] : undefined, answers, checked };
   })
-  .toSorted(
-    (a, b) => (a.key ? APPLY_RANK[a.key as keyof typeof APPLY_RANK] : 9) - (b.key ? APPLY_RANK[b.key as keyof typeof APPLY_RANK] : 9),
-  )
   .map((entry, index) => ({
     ...entry,
     titleId: index === 0 ? "apply-title" : `apply-title-${index + 1}`,

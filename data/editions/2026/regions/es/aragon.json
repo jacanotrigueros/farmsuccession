@@ -8,7 +8,7 @@
   "metaDescription": "Consulta las ayudas y préstamos para incorporarte al campo en Aragón, cómo solicitar tierras del Patrimonio Agrario y dónde encontrar formación.",
   "officialName": "Aragón",
   "published": "2026-11-25",
-  "summary": "Aragón combina ayudas al establecimiento de jóvenes —con un tramo específico cuando integran explotaciones que cesan—, préstamos garantizados, adjudicación permanente de tierras del patrimonio agrario, formación de incorporación y servicios de asesoramiento. Zaragoza publicó además las bases de un banco municipal de tierras para horticultura agroecológica; no se ha podido confirmar si sigue funcionando.",
+  "summary": "Aragón combina ayudas al establecimiento de jóvenes —con un tramo por integrar explotaciones que cesan, aplicable solo tras la aprobación de la modificación del PEPAC por la Comisión Europea (Orden AGA/92/2026)—, préstamos garantizados, adjudicación permanente de tierras del patrimonio agrario, formación de incorporación y servicios de asesoramiento. Zaragoza publicó además las bases de un banco municipal de tierras para horticultura agroecológica; no se ha podido confirmar si sigue funcionando.",
   "coverage": {
     "status": "PARTIAL",
     "note": "Pasada regional 1.9.0 completada sobre ayudas, tierra, formación, asesoramiento y relevo. El banco de tierras autonómico previsto legalmente sigue sin una ruta propia de servicio demostrada; se distingue del procedimiento operativo de adjudicación del patrimonio agrario. No se localizaron otros bancos locales operativos con evidencia suficiente.",
@@ -159,15 +159,15 @@
         {
           "url": "https://www.aragon.es/tramitador/-/tramite/subvencion-para-el-establecimiento-de-jovenes-agricultores-en-el-marco-pepac-2023-2027/convocatoria-2026",
           "title": "Convocatoria 2026 - Establecimiento de jóvenes agricultores - Gobierno de Aragón",
-          "consultedOn": "2026-09-14",
+          "consultedOn": "2026-11-25",
           "quotes": [
             "Fuera de plazo - Del 29/01/2026 al 09/04/2026",
             "El plazo de presentación terminó el 09 abril 2026",
             "Correo electrónico. agricultura@aragon.es"
           ],
           "verification": {
-            "checkedOn": "2026-11-24",
-            "method": "FETCH"
+            "checkedOn": "2026-11-25",
+            "method": "BROWSER"
           }
         },
         {
@@ -186,16 +186,16 @@
         {
           "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1432649890303",
           "title": "Orden AGA/92/2026, modificación de las bases de establecimiento de jóvenes",
-          "consultedOn": "2026-09-27",
+          "consultedOn": "2026-11-25",
           "quotes": [
             "Estos tramos adicionales de subvención no podrán aplicarse hasta que se haya aprobado la modificación del PEPAC 2023-2027 por Decisión de la Comisión Europea.",
             "Por integrar en la nueva explotación una o varias explotaciones que cesan en la actividad agraria: hasta 30.000€.",
             "Este pago mínimo podrá incrementarse por las características sociales y agronómicas de la explotación de instalación y por las características personales del beneficiario hasta un máximo de 85.000 euros",
-            "por las características personales del beneficiario hasta un máximo de 85.000 euros"
+            "Además, se añaden dos nuevos puntos a este apartado segundo:"
           ],
           "verification": {
-            "checkedOn": "2026-11-24",
-            "method": "FETCH"
+            "checkedOn": "2026-11-25",
+            "method": "BROWSER"
           }
         }
       ],
@@ -211,7 +211,7 @@
         },
         {
           "measure": "AID_PER_BENEFICIARY_MAX",
-          "label": "Ayuda máxima por establecimiento",
+          "label": "Ayuda máxima por establecimiento. El máximo incluye el posible incremento de hasta 30.000 euros por integrar explotaciones que cesan, aplicable solo tras la aprobación de la modificación del PEPAC por la Comisión Europea.",
           "value": 85000,
           "unit": "EUR",
           "asOf": "2026-01-28",
@@ -376,9 +376,9 @@
       },
       "operator": "Ayuntamiento de Zaragoza",
       "operatorType": "PUBLIC",
-      "whatItOffers": "Registro público de parcelas de regadío ofrecidas para alquiler, venta o cesión, con intermediación municipal entre propietarios y personas interesadas en desarrollar horticultura agroecológica profesional.",
+      "whatItOffers": "Las bases municipales describen un registro público de parcelas de regadío para alquiler, venta o cesión, con intermediación entre propietarios y personas interesadas en desarrollar horticultura agroecológica profesional.",
       "whoCanUseIt": "Personas físicas interesadas en cultivar parcelas de la huerta de Zaragoza y propietarios que quieran incorporar terrenos al registro, conforme a las bases del banco.",
-      "howToAccess": "Las bases publicadas por el Ayuntamiento exigen, para consultar el registro, firmar un compromiso de destinar la parcela arrendada al cultivo hortofrutícola ecológico y presentar la solicitud en el modelo normalizado. La página municipal que publicaba esos formularios y el contacto del banco ya no responde, así que la vía de acceso hay que confirmarla con la Agencia de Medio Ambiente y Sostenibilidad.",
+      "howToAccess": "El enlace principal abre las bases municipales (PDF). Para consultar el registro, las bases exigen firmar un compromiso de destinar la parcela arrendada al cultivo hortofrutícola ecológico y presentar la solicitud en el modelo normalizado. La página municipal que publicaba esos formularios y el contacto del banco ya no responde, así que la vía de acceso hay que confirmarla con la Agencia de Medio Ambiente y Sostenibilidad.",
       "accessUrl": "https://www.zaragoza.es/contenidos/medioambiente/huertas/BasesBancotierras.pdf",
       "assetTypes": ["PLOTS"],
       "languages": ["es"],
@@ -393,14 +393,14 @@
         {
           "url": "https://www.zaragoza.es/contenidos/medioambiente/huertas/BasesBancotierras.pdf",
           "title": "Bases reguladoras del Banco de Tierras Huertas Km 0 de Zaragoza",
-          "consultedOn": "2026-10-09",
+          "consultedOn": "2026-11-25",
           "quotes": [
             "El Banco de Tierras Huertas Km0 de Zaragoza es una base de datos promovida desde la Agencia de Medio Ambiente y Sostenibilidad del Ayuntamiento de Zaragoza",
             "Para la realización de una consulta de los datos del registro, el interesado deberá firmar un compromiso de que caso de formalizar un contrato de arrendamiento de alguna parcela inscrita, dicha parcela será usada exclusivamente para el cultivo hortofrutícola ecológico"
           ],
           "verification": {
-            "checkedOn": "2026-11-24",
-            "method": "FETCH"
+            "checkedOn": "2026-11-25",
+            "method": "BROWSER"
           }
         }
       ],
@@ -911,7 +911,7 @@
         {
           "url": "https://empleopastoreo.com/index.php/recursos/",
           "title": "Recursos - Empleo Pastoreo",
-          "consultedOn": "2026-11-24",
+          "consultedOn": "2026-11-25",
           "quotes": [
             "ofrece acompañamiento personalizado, asesoramiento técnico, formación y conexión con recursos y oportunidades",
             "para todas aquellas personas que quieran iniciarse o consolidarse en el ámbito agrario en nuestro territorio.",
@@ -919,13 +919,13 @@
             "info@empleopastoreo.com"
           ],
           "verification": {
-            "checkedOn": "2026-11-24",
-            "method": "FETCH"
+            "checkedOn": "2026-11-25",
+            "method": "BROWSER"
           }
         }
       ],
       "whoCanUseIt": "Personas que quieren iniciar o consolidar una actividad agraria.",
-      "howToAccess": "Contactar con La Estiva desde la página de recursos.",
+      "howToAccess": "Para pedir el asesoramiento, escribe a info@empleopastoreo.com.",
       "generatorId": "chatgpt-4",
       "contactPoints": [
         {
