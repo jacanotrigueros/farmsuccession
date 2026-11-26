@@ -6,17 +6,15 @@
  * Every grant to set up for the first time is shown at once, with its whole name: it is what most readers of a
  * country page came for, and the name is what tells two grants apart. Further resources expand in place.
  */
-import { Icon } from "astro-icon/components";
+import TerritoryDisclosure from "./TerritoryDisclosure.astro";
 import RecordLinks from "./RecordLinks.astro";
-import { href, localeOf, type Territory } from "../lib/corpus.ts";
+import { href, type Territory } from "../lib/corpus.ts";
 import { isFirstEstablishmentAid } from "../lib/goals.ts";
-import { ICON } from "../lib/icons.ts";
 import { words } from "../lib/words.ts";
 
 type Props = { child: Territory; language: string; withRecords: boolean; grouping?: string };
 const { child, language, withRecords, grouping } = Astro.props;
 const text = words(language);
-const number = new Intl.NumberFormat(localeOf(child));
 
 const resources = withRecords ? child.data.resources : [];
 const aid = resources.filter(isFirstEstablishmentAid);
@@ -26,7 +24,7 @@ const hasInheritedOnly = withRecords && resources.length === 0;
 
 <li class="territory card flex min-w-0 flex-col">
   <a href={href(child.layer)} class:list={["territory-link", hasInheritedOnly && "grow"]}>
-    <span class="font-bold text-ink">{child.data.officialName}</span>
+    <span class="font-bold text-brand-strong underline underline-offset-3">{child.data.officialName}</span>
     {hasInheritedOnly && (
       <span class="territory-coverage mt-auto pt-1 text-muted">
         {grouping ? text.inheritedFromGroup.replace("{where}", grouping) : text.inheritedResources}
@@ -34,18 +32,7 @@ const hasInheritedOnly = withRecords && resources.length === 0;
     )}
   </a>
   {aid.length > 0 && <RecordLinks place={child} language={language} resources={aid} featured />}
-  {rest.length > 0 && (
-    <details class="regional-resources mt-auto border-t border-line">
-      <summary class="flex min-h-(--spacing-target) cursor-pointer items-center justify-between gap-3 px-4 text-brand-strong">
-        {(aid.length > 0 ? text.moreRecords : text.showRecords)
-          .replace("{where}", child.data.officialName)
-          .replace("{n}", number.format(rest.length))}
-        {aid.length > 0 && <span class="sr-only"> · {child.data.officialName}</span>}
-        <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-5 shrink-0" />
-      </summary>
-      <RecordLinks place={child} language={language} resources={rest} />
-    </details>
-  )}
+  {rest.length > 0 && <TerritoryDisclosure place={child} language={language} resources={rest} />}
 </li>
 
 <style>
@@ -80,14 +67,5 @@ const hasInheritedOnly = withRecords && resources.length === 0;
   .territory-link:hover,
   .territory-link:focus-visible {
     background: var(--color-brand-tint);
-  }
-  .regional-resources > summary {
-    list-style: none;
-  }
-  .regional-resources > summary::-webkit-details-marker {
-    display: none;
-  }
-  .regional-resources[open] > summary :global(.group-chevron) {
-    transform: rotate(180deg);
   }
 </style>

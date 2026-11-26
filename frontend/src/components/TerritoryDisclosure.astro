@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon/components";
+import RecordLinks from "./RecordLinks.astro";
+import type { Resource, Territory } from "../lib/corpus.ts";
+import { ICON } from "../lib/icons.ts";
+import { counted, words } from "../lib/words.ts";
+
+type Props = { place: Territory; language: string; resources: Resource[] };
+const { place, language, resources } = Astro.props;
+const text = words(language);
+const count = counted(resources.length, text.record, language);
+---
+
+<details class="regional-resources mt-auto px-3 pb-2">
+  <summary class="inline-flex min-h-(--spacing-target) min-w-(--spacing-target) max-w-full cursor-pointer list-none items-center gap-2 rounded-md bg-page px-3 text-control text-brand-strong hover:bg-brand-tint">
+    <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron size-4 shrink-0" />
+    <span class="min-w-0">
+      <span class="show-records">{text.showTerritoryRecords.replace("{count}", count)}</span>
+      <span class="hide-records">{text.hideTerritoryRecords.replace("{count}", count)}</span>
+      <span class="sr-only"> · {place.data.officialName}</span>
+    </span>
+  </summary>
+  <RecordLinks place={place} language={language} resources={resources} />
+</details>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  details[open] > summary :global(.group-chevron) {
+    transform: rotate(180deg);
+  }
+  details:not([open]) > summary .hide-records,
+  details[open] > summary .show-records {
+    display: none;
+  }
+</style>
