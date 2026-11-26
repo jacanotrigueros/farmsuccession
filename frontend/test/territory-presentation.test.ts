@@ -345,3 +345,36 @@ test("documented access stays with the offer and official PDF links disclose the
     }
   }
 });
+
+test("the shared header follows its visible order at both breakpoints", () => {
+  for (const route of ["/", "at", "es/regiones/el-hierro", "es/buscar"]) {
+    const header = /<header\b[\s\S]*?<\/header>/u.exec(htmlAt(route))?.[0] ?? "";
+    const picker = header.indexOf('class="territory-picker relative"');
+    const searches = [...header.matchAll(/<a href="([^"]+)" class="btn btn-quiet ([^"]+)"/gu)];
+    assert.equal(searches.length, 2, `${route}: each layout needs a search link at its own visible position`);
+    const [mobile, desktop] = searches;
+    assert.ok(
+      mobile && desktop && mobile.index < picker && picker < desktop.index,
+      `${route}: Tab must follow the top-row search on mobile and the picker first on desktop`,
+    );
+    assert.match(mobile[2] ?? "", /\bsm:hidden\b/u, `${route}: the mobile link must leave desktop keyboard order`);
+    assert.match(desktop[2] ?? "", /^hidden\b.*\bsm:inline-flex\b/u, `${route}: the desktop link must leave mobile keyboard order`);
+    assert.equal(mobile[1], desktop[1], `${route}: both header layouts must search the same territory`);
+  }
+});
+
+test("each on-page index link keeps a full tap target even if its label is short", () => {
+  const html = htmlAt("at");
+  const index = /<nav\b[^>]*class="border-y border-line bg-page"[^>]*>([\s\S]*?)<\/nav>/u.exec(html)?.[1] ?? "";
+  const links = [...index.matchAll(/<a href="(#[^"]+)" class="([^"]+)"/gu)];
+  assert.ok(
+    links.some(([, href]) => href === "#territories"),
+    "Austria must exercise the short territory index link",
+  );
+  for (const [, href, classes] of links) {
+    assert.ok(
+      classes?.includes("min-h-(--spacing-target)") && classes.includes("min-w-(--spacing-target)"),
+      `${href}: text width alone can leave a section jump under the 44px tap target`,
+    );
+  }
+});
