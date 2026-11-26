@@ -10,6 +10,27 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.2.0 — 2026-11-26
+
+Pages lead with what a reader can use where they are, and the search says what a record's call says.
+Readers get new behaviour, so the middle digit moves.
+
+- A territory with no records of its own opens with the resources that apply there, nearest layer first
+  (El Hierro with Canarias), without an empty list, a zero count or a filter over nothing.
+- A search result for an aid shows its documented call, its state and the day its source was read, with
+  the same rule as the record; the programme's status steps back beside it.
+- A search narrowed to a territory and with no words lists that territory's records first, then its
+  grouping, its country and the European Union. A query with no real match says there are no results
+  instead of listing records matched on an initial the reader never typed.
+- Territory cards say where their resources come from; the selector names the European Union and the
+  home page links to its records; Escape closes the selector.
+- A record shows how to access it next to the official link, and says when that link is a PDF. Section
+  labels are 16 px.
+- Data: the Aragón young farmer call carries its latest reading (25 November); its maximum and the
+  region's summary say the 30,000 EUR increment applies only after the European Commission approves the
+  plan change; the Zaragoza land bank says its link is the municipal rules; La Estiva says how to ask for
+  advice.
+
 ## 2.1.0 — 2026-11-26
 
 A record answers whether a reader can apply right under its title, and the site's own search lists the

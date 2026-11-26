@@ -53,6 +53,63 @@ test("every regional and grouping page retains exactly its own and inherited res
   assert.ok(checked > 100, "the check must cover the territorial corpus, not only a selected region");
 });
 
+test("inherited-only pages put applicable resources before discovery controls and omit the empty local list", () => {
+  let checked = 0;
+  for (const { data, layer } of snapshots) {
+    if ((layer.level !== "REGION" && layer.level !== "HUB") || data.resources.length > 0) continue;
+    const slug = layer.level === "REGION" ? layer.region : layer.hub;
+    const route = `/${layer.country.toLowerCase()}/${regionSlug(layer.country)}/${slug}/`;
+    const html = htmlAt(route);
+    const nearestFirst = ancestorLayers(layer, catalogue)
+      .toReversed()
+      .flatMap((above) => byLayer.get(layerKey(above)) ?? [])
+      .filter(({ data }) => data.resources.length > 0);
+    assert.doesNotMatch(
+      html,
+      /id="own"|href="#own"|id="only"|data-filter\b|aria-label="[^"]*"[^>]*data-figure/u,
+      `${route}: an empty local list must not offer its jump, count or filter`,
+    );
+    const language = data.metadata.language;
+    assert.ok(
+      !html.includes(`aria-label="${words(language).statsLabel}"`),
+      `${route}: an inherited-only page needs no zero local statistic`,
+    );
+    if (nearestFirst.length > 0) {
+      const inherited = html.indexOf('id="inherited"');
+      assert.ok(inherited >= 0 && inherited < html.indexOf('id="needs"'), `${route}: the usable records precede topic shortcuts`);
+      const layerNames = [...html.matchAll(/<h3\b[^>]*data-layer[^>]*>\s*([^<]+)/gu)].map(([, name]) => name!.trim());
+      assert.deepEqual(
+        layerNames,
+        nearestFirst.map(({ layer, data }) => (layer.level === "EU" ? words(language).euName : data.officialName)),
+        `${route}: the closest contributing layer must be open first`,
+      );
+      assert.equal(
+        [...html.matchAll(/<details\b[^>]*data-record-group[^>]*\bopen(?:\s|>)/gu)].length,
+        nearestFirst.length,
+        `${route}: readers should not have to disclose groups to see what applies`,
+      );
+    }
+    checked++;
+  }
+  assert.ok(checked > 0, "the regression needs at least one inherited-only territory");
+});
+
+test("Europe-wide discovery and the EU layer have distinct entry points", () => {
+  const home = htmlAt("/");
+  const header = home.slice(0, home.indexOf("</header>"));
+  assert.match(
+    header,
+    /<a\b[^>]*href="\/eu\/"[^>]*>[\s\S]*?European Union\s*<\/span>/u,
+    "the selector must identify the EU layer by its institutional name",
+  );
+  assert.match(
+    home,
+    /<a\b(?=[^>]*href="\/eu\/#own")(?=[^>]*min-h-\(--spacing-target\))[^>]*>\s*See all European Union resources\s*<\/a>/u,
+    "the home page needs a visible, tappable shortcut to the EU layer's documented resources",
+  );
+  assert.match(htmlAt("eu"), /id="own"/u, "the shortcut must reach the EU resource list");
+});
+
 test("documentary groupings show their children and pin every local search to all and only those children", () => {
   const hubs = snapshots.filter(({ layer }) => layer.level === "HUB");
   assert.ok(hubs.length > 0, "no grouping pages to inspect");
@@ -116,6 +173,31 @@ test("country pages expose each regional resource inside its territory rather th
     for (const resource of local) {
       const url = resourceUrl(resource.id, iso);
       assert.equal(links(html).filter((value) => value === url).length, 1, `${cc}: ${resource.id} must have exactly one direct index link`);
+    }
+  }
+});
+
+test("territory names lead to the territory and only separate disclosures open more resources", () => {
+  for (const { data, layer } of snapshots) {
+    if (layer.level !== "REGION") continue;
+    const language = data.metadata.language;
+    const country = htmlAt(layer.country.toLowerCase());
+    const route = `/${layer.country.toLowerCase()}/${regionSlug(layer.country)}/${layer.region}/`;
+    const start = country.indexOf(`href="${route}"`);
+    assert.ok(start >= 0, `${route}: every card needs the same primary destination`);
+    const anchor = country.slice(start, country.indexOf("</a>", start));
+    assert.match(anchor, /class="territory-link(?: grow)?"/u, `${route}: the link must use the shared full-width territory target`);
+    assert.ok(anchor.includes(data.officialName), `${route}: the primary link names the territory`);
+    assert.doesNotMatch(anchor, /<summary\b/u, `${route}: the resource disclosure must be a separate keyboard target`);
+    if (data.resources.length === 0) {
+      assert.match(anchor, /territory-coverage/u, `${route}: the inherited coverage label must meet the functional text size`);
+      assert.ok(
+        anchor.includes(words(language).inheritedResources) ||
+          words(language)
+            .inheritedFromGroup.split("{where}")
+            .every((part) => anchor.includes(part)),
+        `${route}: the inherited coverage note must describe its scope`,
+      );
     }
   }
 });
@@ -227,10 +309,39 @@ test("a country page shows every grant to set up in a territory before its discl
     const shown = disclosure >= 0 ? card.slice(0, disclosure) : card;
     for (const resource of aid) {
       const url = resourceUrl(resource.id, layer.country);
-      assert.ok(shown.includes(`href="${url}"`), `${cc}/${layer.region}: ${resource.id} is not shown before the disclosure`);
+      const link = shown.indexOf(`href="${url}"`);
+      assert.ok(link >= 0, `${cc}/${layer.region}: ${resource.id} is not shown before the disclosure`);
+      assert.ok(
+        shown.slice(link, shown.indexOf("</a>", link)).includes(resource.name),
+        `${cc}/${layer.region}: show the complete grant name so similarly named grants can be distinguished`,
+      );
     }
     assert.doesNotMatch(shown, /line-clamp/u, `${cc}/${layer.region}: a grant's name is cut short`);
     checked += aid.length;
   }
   assert.ok(checked > 0, "no territory grant checked");
+});
+
+test("documented access stays with the offer and official PDF links disclose their format", () => {
+  for (const { data } of snapshots) {
+    for (const resource of data.resources) {
+      const url = resourceUrl(resource.id, "country" in data ? data.country : undefined);
+      const html = htmlAt(url);
+      const start = html.indexOf('data-pagefind-meta="summary"');
+      const end = html.indexOf("</header>", start);
+      const overview = html.slice(start, end);
+      if (resource.howToAccess) {
+        assert.match(overview, /id="access"/u, `${url}: readers need the documented next step beside the offer`);
+        assert.ok(overview.includes(resource.howToAccess), `${url}: the header must present the documented access instructions`);
+      }
+      const official = overview.indexOf(`href="${resource.accessUrl}"`);
+      assert.ok(official >= 0, `${url}: the header must lead to its cited official address`);
+      const label = overview.slice(official, overview.indexOf("</a>", official));
+      assert.equal(
+        label.includes(" (PDF)"),
+        new URL(resource.accessUrl).pathname.toLowerCase().endsWith(".pdf"),
+        `${url}: label a PDF destination from its URL without guessing the format of other documents`,
+      );
+    }
+  }
 });

@@ -52,6 +52,7 @@ test("the build produced pages at all, so an empty run cannot pass as a clean on
 test("a page ships JavaScript only for what it actually carries", () => {
   for (const { file, html } of pages) {
     const allowed = new Set<string>();
+    if (html.includes('class="territory-picker')) allowed.add("/territory-picker.js");
     if (html.includes("data-search")) allowed.add("/search.js");
     if (html.includes('class="apply')) allowed.add("/apply.js");
     if (html.includes("data-filter")) allowed.add("/filter.js");

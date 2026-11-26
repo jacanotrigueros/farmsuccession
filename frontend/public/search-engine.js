@@ -19,6 +19,25 @@
  * No DOM in here: the same functions run in the browser and in a test.
  */
 
+const NEAREST_FIRST = ["REGION", "HUB", "COUNTRY", "EU"];
+
+const wordsIn = (text) => text.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
+
+/**
+ * Pagefind's prefix fallback can match an untyped initial, such as "Z" for a long unknown word.
+ * Check the matched positions in the original fragment. A real match may use stemming or a
+ * typed initial. Once there is a match, keep the engine's scores, order and facet counts.
+ */
+async function hasDocumentedMatch(term, results) {
+  const typed = new Set(wordsIn(term));
+  for (const hit of results) {
+    const { raw_content: content } = await hit.data();
+    const indexed = content.includes("\u200B") ? content.split("\u200B") : content.split(/\s+/u);
+    if (hit.words.some((at) => wordsIn(indexed[at] ?? "").some((word) => word.length > 1 || typed.has(word)))) return true;
+  }
+  return false;
+}
+
 /**
  * @param {{ bundles: string, languages: string[], importModule?: (url: string) => Promise<any> }} options
  */
@@ -48,10 +67,14 @@ export async function createEngine({ bundles, languages, importModule = (url) =>
       // the bundles follow each other in the scope's order, the European layer's first — the same order as
       // the list the page carries for readers without JavaScript (lib/catalogue-order.ts).
       const options = term ? { filters: any } : { filters: any, sort: { order: "asc" } };
-      const pending = Promise.all(modules.map((pagefind) => pagefind.search(term || null, options))).then((all) => ({
-        results: term ? all.flatMap((one) => one.results).toSorted((a, b) => b.score - a.score) : all.flatMap((one) => one.results),
-        counts: sum(all.map((one) => one.filters)),
-      }));
+      const pending = Promise.all(modules.map((pagefind) => pagefind.search(term || null, options))).then(async (all) => {
+        const results = all.flatMap((one) => one.results);
+        if (term && !(await hasDocumentedMatch(term, results))) return { results: [], counts: {} };
+        return {
+          results: term ? results.toSorted((a, b) => b.score - a.score) : results,
+          counts: sum(all.map((one) => one.filters)),
+        };
+      });
       // A failed search is not remembered: asking again after a dropped connection has to try again.
       pending.catch(() => cache.delete(key));
       cache.set(key, pending);
@@ -67,8 +90,15 @@ export async function createEngine({ bundles, languages, importModule = (url) =>
    * That is one extra query per chosen facet, in parallel, and the cache usually answers them.
    */
   async function query(term, filters, chosen) {
+    const mainQuery =
+      !term && filters.territory?.length
+        ? Promise.all(NEAREST_FIRST.map((layer) => search(term, { ...filters, documentaryLayer: [layer] }))).then((layers) => ({
+            results: layers.flatMap(({ results }) => results),
+            counts: sum(layers.map(({ counts }) => counts)),
+          }))
+        : search(term, filters);
     const [main, ...own] = await Promise.all([
-      search(term, filters),
+      mainQuery,
       ...chosen.map((facet) => {
         const rest = { ...filters };
         delete rest[facet];

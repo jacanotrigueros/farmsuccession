@@ -13,7 +13,7 @@
  */
 
 import { localeOf } from "../../public/locale.js";
-export { numberIn } from "../../public/locale.js";
+export { dateIn, numberIn } from "../../public/locale.js";
 
 export type Language = "en" | "es" | "de" | "fr" | "it" | "pt" | "nl";
 
@@ -35,19 +35,6 @@ export function asLanguage(language: string): Language {
   }
   return primary;
 }
-
-/**
- * A stored date as a reader reads it. UTC, because an ISO date carries no time: parsed as local time, a
- * date can slip to the previous day west of Greenwich, which would quietly misreport the day a source was
- * read.
- */
-export const dateIn = (iso: string, language: string): string =>
-  new Date(`${iso}T00:00:00Z`).toLocaleDateString(localeOf(language), {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  });
 
 /**
  * A country as a reader of this page names it: "Germany" on an English page, "Alemania" on a Spanish one.

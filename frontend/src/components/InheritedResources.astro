@@ -1,0 +1,54 @@
+---
+import { Icon } from "astro-icon/components";
+import ResourceList from "./ResourceList.astro";
+import type { Resource, Territory } from "../lib/corpus.ts";
+import { ICON } from "../lib/icons.ts";
+import { counted, words } from "../lib/words.ts";
+
+type Props = {
+  title: string;
+  lead: string;
+  groups: readonly { name: string; items: readonly { resource: Resource; recordedIn: Territory }[] }[];
+  headingCount?: Record<string, string>;
+  recordCount?: Record<string, string>;
+  language: string;
+  locale: string;
+  country?: string;
+  first?: boolean;
+};
+const { title, lead, groups, headingCount, recordCount, language, locale, country, first = false } = Astro.props;
+const text = words(language);
+---
+
+<section class:list={["wrap pb-12", first && "pt-12"]} aria-labelledby="inherited">
+  <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...headingCount}>
+    {title}
+  </h2>
+  <p class="meta mt-2 max-w-5xl">{lead}</p>
+  {groups.map(({ name: from, items }) => (
+    <details data-record-group class="inherited-group mt-6 border-t border-line pt-4" open>
+      <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
+        <h3 data-layer class="flex flex-wrap items-baseline gap-x-2 text-xl font-bold">
+          {from}
+          <span class="meta font-normal">
+            {" · "}
+            <span {...recordCount}>{counted(items.length, text.record, locale)}</span>
+          </span>
+        </h3>
+        <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron ml-auto size-5 shrink-0 text-brand-strong" />
+      </summary>
+      <div class="mt-4">
+        <ResourceList items={items} language={language} level="h4" country={country} />
+      </div>
+    </details>
+  ))}
+</section>
+
+<style>
+  .inherited-group > summary::-webkit-details-marker {
+    display: none;
+  }
+  .inherited-group[open] > summary :global(.group-chevron) {
+    transform: rotate(180deg);
+  }
+</style>

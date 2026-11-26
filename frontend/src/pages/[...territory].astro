@@ -16,6 +16,7 @@ import { snippet } from "../lib/snippet.ts";
 import { codesInBrackets, TITLE_CODES } from "../lib/subdivision.ts";
 import AgeComparison from "../components/AgeComparison.astro";
 import CountryContext from "../components/CountryContext.astro";
+import InheritedResources from "../components/InheritedResources.astro";
 import Needs from "../components/Needs.astro";
 import PageHeader from "../components/PageHeader.astro";
 import CountryCards from "../components/CountryCards.astro";
@@ -154,6 +155,9 @@ const inheritedCount = inheritedGroups.reduce((total, { items }) => total + item
  * and keeps the shared header, cards and footer.
  */
 const isEurope = territory.layer.level === "EU";
+const inheritedFirst = !isCountry && !isEurope && own.length === 0;
+const showOwn = own.length > 0 || isEurope;
+const inheritedSection = inheritedCount > 0 ? [{ id: "inherited", label: isCountry ? text.euName : text.alsoAppliesNav }] : [];
 /** A region whose readers name it by codes ("safer 29") carries them after its name: "Bretagne (22, 29, 35, 56)". */
 const subdivisions = subdivisionsOf(territory);
 const codesText = subdivisions.length > 0 ? ` ${codesInBrackets(subdivisions)}` : "";
@@ -188,12 +192,11 @@ const territoriesTitle = showsInstall ? text.installTerritoriesTitle : text.terr
 
 /** The strip names the sections it leads to. Coverage closes the page and is not one of its answers. */
 const sections = [
+  ...(inheritedFirst ? inheritedSection : []),
   isEurope ? { id: "countries", label: text.euCountriesTitle } : { id: "needs", label: text.navNeeds },
   ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: territoriesTitle }] : []),
-  ...(isCountry && own.length === 0
-    ? []
-    : [{ id: "own", label: isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.navOwn }]),
-  ...(inheritedCount > 0 ? [{ id: "inherited", label: isCountry ? text.euName : text.alsoAppliesNav }] : []),
+  ...(showOwn ? [{ id: "own", label: isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.navOwn }] : []),
+  ...(!inheritedFirst ? inheritedSection : []),
   ...(context ? [{ id: "country-context", label: text.countryContext.title }] : []),
   ...(territory.data.news.some((item) => !item.resourceIds?.length) ? [{ id: "news", label: text.newsTitle }] : []),
 ];
@@ -241,7 +244,7 @@ const kinds = [...new Set([...own, ...inheritedGroups.flatMap(({ items }) => ite
  */
 // Europe's records are of several kinds (frameworks, a portal, advice, a network), so a reader can narrow
 // them to the one they need rather than reading every card (founder, 17 Nov 2026).
-const narrows = kinds.length > 1 && !isCountry;
+const narrows = kinds.length > 1 && !isCountry && showOwn;
 
 /** The heading of the records this territory recorded, and the sentence under a country's own. */
 const alsoTitle = (inheritedCount === 1 ? inheritedForms[0] : inheritedForms[1])
@@ -260,9 +263,20 @@ const alsoTitle = (inheritedCount === 1 ? inheritedForms[0] : inheritedForms[1])
  * filter does not change, and they sit above the control that narrows the lists.
  */
 const saying = (template: string, word: string) => template.replace("{count}", `{n} ${word}`).replace("{where}", name);
-const howMany = (one: string, many = one) =>
+const howMany = (one: string, many = one): Record<string, string> =>
   narrows ? { "data-figure": "", "data-one": saying(one, text.record[0]), "data-many": saying(many, text.record[1]) } : {};
 const recordCount = howMany("{count}");
+const inheritedProps = {
+  title: alsoTitle,
+  lead: isCountry ? text.euAppliesLead : text.alsoAppliesLead,
+  groups: inheritedGroups,
+  headingCount: howMany(inheritedForms[0], inheritedForms[1]),
+  recordCount,
+  language,
+  locale,
+  country: country || undefined,
+  first: inheritedFirst,
+};
 
 /**
  * Searching from a territory searches its country, with this territory already chosen — never the European
@@ -380,7 +394,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         </p>
       </div>
     )}
-    {!isEurope && !isCountry && (
+    {!isEurope && !isCountry && !inheritedFirst && (
       <div class="mt-8 rounded-lg bg-page p-5">
         <ul class="grid gap-4 sm:grid-cols-2" aria-label={text.statsLabel}>
           {figures.map((figure) => (
@@ -400,6 +414,8 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
   {/* Two sections are both in sight as the reader scrolls; a strip pointing at them is only one more
       box to read (founder, 16 Nov 2026, on Europe's page). It earns its place from three on. */}
   {sections.length >= 3 && <PageIndex sections={sections} language={language} />}
+
+  {inheritedFirst && inheritedCount > 0 && <InheritedResources {...inheritedProps} />}
 
   {isEurope ? (
     <>
@@ -486,7 +502,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     </section>
   )}
 
-  {!(isCountry && own.length === 0) && (
+  {showOwn && (
     <section class="wrap py-12" aria-labelledby="own">
       <h2 id="own" class="flex scroll-mt-6 flex-wrap items-baseline gap-x-3 text-2xl font-bold">
         {isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.ownRecords.replace("{where}", name)}
@@ -540,31 +556,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     </section>
   )}
 
-  {inheritedCount > 0 && (
-    <section class="wrap pb-12" aria-labelledby="inherited">
-      <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...howMany(inheritedForms[0], inheritedForms[1])}>
-        {alsoTitle}
-      </h2>
-      <p class="meta mt-2 max-w-5xl">{isCountry ? text.euAppliesLead : text.alsoAppliesLead}</p>
-      {inheritedGroups.map(({ name: from, items }) => (
-        <details data-record-group class="inherited-group mt-6 border-t border-line pt-4" open>
-          <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
-            <h3 data-layer class="flex flex-wrap items-baseline gap-x-2 text-xl font-bold">
-              {from}
-              <span class="meta font-normal">
-                {" · "}
-                <span {...recordCount}>{counted(items.length, text.record, locale)}</span>
-              </span>
-            </h3>
-            <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron ml-auto size-5 shrink-0 text-brand-strong" />
-          </summary>
-          <div class="mt-4">
-            <ResourceList items={items} language={language} level="h4" country={country || undefined} />
-          </div>
-        </details>
-      ))}
-    </section>
-  )}
+  {!inheritedFirst && inheritedCount > 0 && <InheritedResources {...inheritedProps} />}
 
   {context && <CountryContext context={context} language={language} locale={locale} name={name} />}
 
@@ -575,6 +567,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
       <Icon name={ICON.sources} aria-hidden="true" class="size-5 shrink-0 text-brand" />
       {text.sourcesTitle}
     </h2>
+    {inheritedFirst && <p class="mt-2 max-w-5xl">{text.noneOwn.replace("{where}", name)}</p>}
     <p class="mt-2 max-w-5xl text-muted">{text.sourcesLead}</p>
     {territory.data.limitations.length > 0 && (
       <ul id="limits" class="mt-2 list-disc space-y-1 ps-6 text-muted" aria-label={text.notCoveredYet}>
@@ -623,12 +616,10 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
       border-top-width: 1px;
     }
   }
-  .regional-resources > summary::-webkit-details-marker,
-  .inherited-group > summary::-webkit-details-marker {
+  .regional-resources > summary::-webkit-details-marker {
     display: none;
   }
-  .regional-resources[open] > summary :global(.group-chevron),
-  .inherited-group[open] > summary :global(.group-chevron) {
+  .regional-resources[open] > summary :global(.group-chevron) {
     transform: rotate(180deg);
   }
 </style>
