@@ -6,7 +6,7 @@
     "region": "bourgogne-franche-comte"
   },
   "language": "fr",
-  "updatedOn": "2026-11-21",
+  "updatedOn": "2026-11-26",
   "context": [
     "La Région Bourgogne-Franche-Comté gère la DJA et a officiellement annoncé le 30 juin 2026 sa revalorisation de 45 000 à 65 000 euros, avec un plafond possible de 72 000 euros.",
     "La Région maintient un programme de formation à la reprise permettant aux candidats hors cadre familial de tester une exploitation pendant 3 à 12 mois avec accompagnement.",
@@ -106,11 +106,10 @@
       "name": "Terre de Liens Bourgogne-Franche-Comté",
       "url": "https://terredeliens.org/bourgogne-franche-comt%C3%A9/",
       "kind": "SUCCESSION_SERVICE",
-      "status": "ADMITTED",
-      "resourceId": "bourgogne-franche-comte-terre-de-liens",
-      "reason": "Page territoriale actuelle décrivant installation, transmission, accès au foncier et activité 2026, avec contact et parcours d'accès.",
+      "status": "NOT_PUBLISHABLE",
+      "reason": "Retirée le 26 novembre 2026 : ses conditions de réutilisation ne permettent clairement ni de la citer ni d’y renvoyer, et aucune autorisation n’est enregistrée. Ce projet ne publie pas sur le silence. La lecture est dans config/source-terms.json.",
       "foundBy": "bfc-associations",
-      "checkedOn": "2026-09-28"
+      "checkedOn": "2026-11-26"
     },
     {
       "id": "bfc-aita",
@@ -182,9 +181,9 @@
     },
     {
       "expectedId": "fr-associations-installation",
-      "status": "FOUND",
-      "leadId": "bfc-terre-de-liens",
-      "checkedOn": "2026-09-28"
+      "status": "NOT_FOUND",
+      "checkedOn": "2026-11-26",
+      "reason": "La piste bfc-terre-de-liens représentait cet instrument, mais elle est NOT_PUBLISHABLE depuis le 26 novembre 2026 : aucune autorisation de réutilisation n’est enregistrée pour sa source (config/source-terms.json). Aucune autre ressource publiable ne le représente dans cette passe."
     }
   ],
   "log": [
@@ -227,6 +226,11 @@
       "date": "2026-11-21",
       "by": "CHATGPT (gpt-6.1-sol)",
       "summary": "La page décrit le même programme de formation à la reprise déjà publié, et non un guide général des aides. Je l’ajoute comme source à la fiche existante et précise la durée non renouvelable, la définition du hors cadre familial et la possibilité de rémunération des stagiaires, sans créer de doublon."
+    },
+    {
+      "date": "2026-11-26",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Fiches retirées et pistes passées en NOT_PUBLISHABLE : aucune autorisation de réutilisation n’est enregistrée pour leurs sources (config/source-terms.json). Les fiches qui citaient aussi d’autres sources les gardent, sans la source retirée."
     }
   ]
 }

@@ -23,9 +23,9 @@ export type Reading = {
     extract: "PERMITTED" | "NOT_PERMITTED" | "UNKNOWN";
   };
   /**
-   * TERMS: a published notice was read, and the quote below is what it says. REQUEST_WITHDRAWAL: the operator asked not to appear, which the site's footer promises in six languages to honour. PERMISSION_GRANTED: the operator was asked and said yes, which is the opposite thing and must never be recorded as the same one. Only a reading of a notice carries a quote.
+   * TERMS: a published notice was read, and the quote below is what it says. REQUEST_WITHDRAWAL: the operator asked not to appear, which the site's footer promises in six languages to honour. PERMISSION_GRANTED: the operator was asked and said yes, which is the opposite thing and must never be recorded as the same one. Only a reading of a notice carries a quote. NO_PERMISSION: the terms reserve these uses to a permission, or say nothing about them, and no permission is on record; this project does not publish on silence, so the host stays out until a permission or a clear notice says otherwise.
    */
-  ground: "TERMS" | "REQUEST_WITHDRAWAL" | "PERMISSION_GRANTED";
+  ground: "TERMS" | "REQUEST_WITHDRAWAL" | "PERMISSION_GRANTED" | "NO_PERMISSION";
   /**
    * What the reading concluded, in plain language, including the conditions a permission carries. Never the name of a person: an operator who asked is an operator, not somebody identified here.
    */

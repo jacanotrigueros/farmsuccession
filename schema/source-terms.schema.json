@@ -17,7 +17,9 @@
       "description": "One entry per host. A host, not a page: terms govern a site, and an organisation this project cannot quote is not quotable one address at a time.",
       "type": "array",
       "uniqueItems": true,
-      "items": { "$ref": "#/$defs/reading" }
+      "items": {
+        "$ref": "#/$defs/reading"
+      }
     }
   },
   "$defs": {
@@ -52,8 +54,8 @@
           }
         },
         "ground": {
-          "description": "TERMS: a published notice was read, and the quote below is what it says. REQUEST_WITHDRAWAL: the operator asked not to appear, which the site's footer promises in six languages to honour. PERMISSION_GRANTED: the operator was asked and said yes, which is the opposite thing and must never be recorded as the same one. Only a reading of a notice carries a quote.",
-          "enum": ["TERMS", "REQUEST_WITHDRAWAL", "PERMISSION_GRANTED"]
+          "description": "TERMS: a published notice was read, and the quote below is what it says. REQUEST_WITHDRAWAL: the operator asked not to appear, which the site's footer promises in six languages to honour. PERMISSION_GRANTED: the operator was asked and said yes, which is the opposite thing and must never be recorded as the same one. Only a reading of a notice carries a quote. NO_PERMISSION: the terms reserve these uses to a permission, or say nothing about them, and no permission is on record; this project does not publish on silence, so the host stays out until a permission or a clear notice says otherwise.",
+          "enum": ["TERMS", "REQUEST_WITHDRAWAL", "PERMISSION_GRANTED", "NO_PERMISSION"]
         },
         "finding": {
           "description": "What the reading concluded, in plain language, including the conditions a permission carries. Never the name of a person: an operator who asked is an operator, not somebody identified here.",
@@ -88,7 +90,14 @@
       },
       "allOf": [
         {
-          "if": { "properties": { "ground": { "const": "REQUEST_WITHDRAWAL" } }, "required": ["ground"] },
+          "if": {
+            "properties": {
+              "ground": {
+                "const": "REQUEST_WITHDRAWAL"
+              }
+            },
+            "required": ["ground"]
+          },
           "then": {
             "description": "An operator who asked not to appear has not permitted the uses that would make it appear. Recording a withdrawal beside two permissions is a contradiction nobody would notice later, so the shape refuses it.",
             "type": "object",
@@ -96,20 +105,61 @@
               "uses": {
                 "type": "object",
                 "properties": {
-                  "quote": { "enum": ["NOT_PERMITTED"] },
-                  "link": { "enum": ["NOT_PERMITTED"] }
+                  "quote": {
+                    "enum": ["NOT_PERMITTED"]
+                  },
+                  "link": {
+                    "enum": ["NOT_PERMITTED"]
+                  }
                 }
               }
             }
           }
         },
         {
-          "if": { "properties": { "ground": { "const": "TERMS" } }, "required": ["ground"] },
+          "if": {
+            "properties": {
+              "ground": {
+                "const": "TERMS"
+              }
+            },
+            "required": ["ground"]
+          },
           "then": {
             "description": "A reading of a document names the document and quotes it. Without both, nobody can tell a prohibition from a precaution, and a precaution is how a useful route gets lost.",
             "type": "object",
             "required": ["termsUrl", "quote"],
-            "properties": { "termsUrl": true, "quote": true }
+            "properties": {
+              "termsUrl": true,
+              "quote": true
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ground": {
+                "const": "NO_PERMISSION"
+              }
+            },
+            "required": ["ground"]
+          },
+          "then": {
+            "description": "A host kept out for want of a permission has not had either use permitted; recording a permission beside it would be the contradiction this shape exists to refuse.",
+            "type": "object",
+            "properties": {
+              "uses": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "enum": ["NOT_PERMITTED", "UNKNOWN"]
+                  },
+                  "link": {
+                    "enum": ["NOT_PERMITTED", "UNKNOWN"]
+                  }
+                }
+              }
+            }
           }
         }
       ]

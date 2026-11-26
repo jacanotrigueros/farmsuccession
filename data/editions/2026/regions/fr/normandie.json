@@ -7,8 +7,8 @@
   "metaTitle": "Installation agricole en Normandie (14, 27, 50, 61, 76)",
   "metaDescription": "Repérez le parcours régional pour les candidats et les cédants, ainsi que les services de la Safer pour accéder au foncier ou transmettre une ferme.",
   "officialName": "Normandie",
-  "published": "2026-11-25",
-  "summary": "La Normandie dispose d’un service régional dédié à l’installation et à la transmission, financé par la Région et animé par six partenaires agricoles, avec prise de rendez-vous et agenda d’événements ; la Safer de Normandie accompagne le volet foncier de l’installation et de la transmission.",
+  "published": "2026-11-26",
+  "summary": "La Normandie dispose d’un service régional dédié à l’installation et à la transmission, financé par la Région et animé par six partenaires agricoles, avec prise de rendez-vous et agenda d’événements ; la Safer de Normandie accompagne le volet foncier de l’installation et de la transmission. Dans la Manche, l’espace test Biopousses permet de tester une installation en agriculture biologique avant de s’installer.",
   "coverage": {
     "status": "PARTIAL",
     "note": "Recherches sur le service régional installation-transmission, les aides de la Région et la Safer de Normandie. Les fiches d’aides de la Région n’ont pas été citées dans cette passe.",
@@ -24,6 +24,10 @@
       {
         "method": "OFFICIAL_PORTAL",
         "detail": "https://www.installer-transmettre-normandie.fr/"
+      },
+      {
+        "method": "KNOWN_SOURCE",
+        "detail": "https://www.biopousses.fr/sinstaller-en-agriculture/"
       }
     ]
   },
@@ -43,6 +47,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "claude-2",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5-5",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-26"
       }
     ]
   },
@@ -226,6 +237,82 @@
       ],
       "notes": "La Safer de Normandie intervient dans le Calvados (14), la Manche (50), l’Orne (61), l’Eure (27) et la Seine-Maritime (76). Elle résulte de la fusion, au 1er janvier 2017, des Safer de Basse-Normandie et de Haute-Normandie.",
       "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "normandie-biopousses-espace-test",
+      "name": "Biopousses, espace test agricole bio",
+      "metaTitle": "Biopousses : espace test agricole bio dans la Manche",
+      "metaDescription": "En Normandie, testez votre projet agricole bio un à trois ans sous contrat CAPE, sur deux sites équipés de la Manche : Tourneville-sur-Mer et Courcy.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Manche"
+      },
+      "operator": "Biopousses (association), avec la coopérative Rhizome et, à Courcy, le CFPPA de Coutances",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Biopousses permet de tester un projet agricole bio avant de s’installer, pendant un à trois ans sous contrat d’appui au projet d’entreprise (CAPE), avec l’hébergement juridique, fiscal et administratif de la couveuse, une couverture sociale contre les accidents du travail et les maladies professionnelles, un conseil technique rapproché et des formations complémentaires. Deux lieux test permanents sont équipés : Tourneville-sur-Mer, site historique de 2,1 ha en maraîchage bio prévu pour 3 ou 4 porteurs de projet, avec matériel et intrants, et l’Agro-Biopôle de Courcy, 20 ha mis à disposition par le Département de la Manche pour 6 porteurs de projet en multiproductions biologiques, accompagnés avec Rhizome et le CFPPA de Coutances. Sur un lieu test temporaire, Biopousses n’apporte ni infrastructure ni matériel : l’appui technique et la fonction couveuse sont assurés avec Rhizome, et la personne s’installe sur ce lieu à l’issue du test.",
+      "whoCanUseIt": "Porteurs de projet en agriculture biologique ayant suivi une formation agricole (idéalement un BPREA) ou disposant d’une solide première expérience de terrain, avec un projet d’installation agricole professionnel à moyen terme.",
+      "howToAccess": "Remplir le formulaire « Porteur de projet » de la page consacrée au test d’activité ; un entretien avec les animateurs de Biopousses et de Rhizome évalue ensuite l’opportunité du passage par la couveuse. Les nouveaux porteurs de projet arrivent de préférence à l’automne.",
+      "accessUrl": "https://www.biopousses.fr/sinstaller-en-agriculture/",
+      "languages": ["fr"],
+      "targetProfiles": ["NEW_ENTRANT"],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.biopousses.fr/sinstaller-en-agriculture/"
+        }
+      ],
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Biopousses — formulaire « Porteur de projet »",
+          "value": "https://www.biopousses.fr/sinstaller-en-agriculture/",
+          "sourceUrl": "https://www.biopousses.fr/sinstaller-en-agriculture/"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Biopousses (Lingreville)",
+          "value": "+33 (2) 14 15 83 11",
+          "sourceUrl": "https://www.biopousses.fr/sinstaller-en-agriculture/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.biopousses.fr/sinstaller-en-agriculture/",
+          "title": "Avant de s’installer en agriculture : le test d’activité — Biopousses",
+          "consultedOn": "2026-11-26",
+          "quotes": [
+            "permet à des porteurs de projet de réaliser un test d’activité en toute sécurité avant de s’installer en agriculture",
+            "couverture sociale (accidents du travail et maladies professionnelles)",
+            "Avoir déjà suivi une formation agricole (idéalement niveau BPREA*) ou avoir une solide première expérience de terrain en agriculture",
+            "Avoir un projet d’installation agricole professionnel à moyen terme",
+            "Un entretien entre le candidat et les animateurs de Biopousses/Rhizome permet d’évaluer l’opportunité de son passage par la couveuse.",
+            "ainsi le test agricole a une durée de 1 à 3 ans",
+            "L’arrivée de nouveaux porteurs de projet a lieu de préférence à l’automne.",
+            "Il fait 2,1 ha (1,3 ha de plein champ cultivable et 2300 m² de tunnels) et peut accueillir 3, voire 4, porteurs de projet",
+            "lieu test agricole de 20 ha mis à disposition par le Département de la Manche et pouvant accueillir 6 porteurs de projet en multi-productions biologiques",
+            "Aucune infrastructure ni matériel n’est mis à disposition par Biopousses mais l’appui technique et la fonction couveuse sont assurés en partenariat avec Rhizome",
+            "Tel +33 (2) 14 15 83 11"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-26",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.biopousses.fr/",
+          "title": "Espace test agricole biologique — Biopousses",
+          "consultedOn": "2026-11-26",
+          "quotes": ["L’espace test agricole Biopousses est une association loi 1901 créée en 2011"],
+          "verification": {
+            "checkedOn": "2026-11-26",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "notes": "Les places disponibles et les dates de candidature ne sont pas confirmées ici : demander le prochain accès par le formulaire « Porteur de projet ».",
+      "generatorId": "claude-2"
     }
   ],
   "news": [],
