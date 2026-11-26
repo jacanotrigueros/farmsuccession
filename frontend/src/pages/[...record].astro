@@ -18,6 +18,8 @@
 import { resourcePlaceParts } from "../../public/resource-place.js";
 import { countryFilters, searchUrl } from "../../public/search-scope.js";
 import { Icon } from "astro-icon/components";
+import { LANGUAGES } from "../lib/language.ts";
+import { territorySearchNames } from "../lib/search-names.ts";
 import ApplyNow from "../components/ApplyNow.astro";
 import { documentedPeriods } from "../../public/apply.js";
 import { catalogueOrderOf } from "../lib/catalogue-order.ts";
@@ -44,6 +46,7 @@ import {
   recordHref,
   records,
   territories,
+  countryTerritories,
   view,
   leafLayers,
   type RecordedResource,
@@ -405,22 +408,23 @@ const isEuropean = territory.layer.level === "EU";
 /**
  * A European record is written in English and applies in every country, so a reader searching in their own
  * language would find it only by luck. Its kind, who it is for and "European Union" are the site's own
- * translated vocabulary, never the record's text, and they are given to the search index in all seven
+ * translated vocabulary, never the record's text, and they are given to the search index in all published
  * languages as an attribute: the search can match them, nothing on the page shows them, and no search
  * engine reads them as text of the page (founder, 17 Nov 2026).
  */
-const SEARCH_LANGUAGES = ["en", "es", "de", "fr", "it", "pt", "nl"] as const;
+const publishedLanguages = new Set(["en", ...countryTerritories().map(languageOf)]);
+const searchLanguages = LANGUAGES.filter((language) => publishedLanguages.has(language));
 const searchTerms = isEuropean
   ? [
       ...new Set(
-        SEARCH_LANGUAGES.flatMap((other) => [
+        searchLanguages.flatMap((other) => [
           kindLabel(resource.kind, other),
           ...(resource.targetProfiles ?? []).filter((profile) => profile !== "GENERAL").map((profile) => profileLabel(profile, other)),
           words(other).euName,
         ]),
       ),
     ].join(" · ")
-  : "";
+  : territorySearchNames(territory.layer, territories).join(" · ");
 const trail = [
   { label: text.allCountries, href: "/" },
   ...view(territory)
@@ -434,7 +438,7 @@ const trail = [
 
 /** The country the record belongs to, and every region it reaches — the two things a search filters by. */
 const country = territory.layer.level === "EU" ? "" : territory.layer.country;
-const reaches = leafLayers(territory.layer, territories)
+const reaches = leafLayers(territory.layer)
   .map((leaf) => (leaf.level === "REGION" ? `${leaf.country}/${leaf.region}` : ""))
   .filter(Boolean);
 

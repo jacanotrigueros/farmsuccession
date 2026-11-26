@@ -7,6 +7,7 @@ import { decodeHTML } from "entities";
 
 import { reportEndpoint } from "../reporting.config.mjs";
 import { recordSlug, regionSlug, searchPath, SEARCH_SLUGS } from "../public/search-scope.js";
+import { publicJurisdictions } from "./public-corpus.ts";
 import { words } from "../src/lib/words.ts";
 
 /**
@@ -18,12 +19,7 @@ import { words } from "../src/lib/words.ts";
  * It reads `dist/`, so `npm run check` builds before it tests.
  */
 const DIST = path.join(import.meta.dirname, "..", "dist");
-/** Every jurisdiction of the catalogue, so a count follows the catalogue instead of a number written down once. */
-const catalogueJurisdictions = (
-  JSON.parse(readFileSync(path.join(path.join(import.meta.dirname, "..", ".."), "data", "territories.json"), "utf8")) as {
-    jurisdictions: Record<string, unknown>;
-  }
-).jurisdictions;
+const catalogueJurisdictions = Object.fromEntries(publicJurisdictions);
 const REPOSITORY = path.join(import.meta.dirname, "..", "..");
 
 function builtPages(dir = DIST): string[] {
@@ -356,10 +352,7 @@ test("a record says when each source was verified, and never that it awaits revi
  * segment of its own, and this is the check that it stays there.
  */
 test("a territory never shares a namespace with a page of the site", () => {
-  const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
-    jurisdictions: Record<string, { lang: string }>;
-  };
-  const countries = Object.entries(catalogue.jurisdictions).filter(([iso]) => iso !== "EU");
+  const countries = publicJurisdictions.filter(([iso]) => iso !== "EU");
   assert.ok(countries.length > 0, "no country in the catalogue: this check would pass without checking anything");
 
   for (const [iso, { lang }] of countries) {
@@ -431,10 +424,7 @@ test("the illustrated 404 gives clear recovery actions and localized country lin
   );
   assert.ok(!notFound.html.includes("/404/"), "the 404 page points at /404/, which this build does not produce");
 
-  const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
-    jurisdictions: Record<string, { lang: string }>;
-  };
-  const countries = Object.entries(catalogue.jurisdictions).filter(([iso]) => iso !== "EU");
+  const countries = publicJurisdictions.filter(([iso]) => iso !== "EU");
   for (const [iso, { lang }] of countries) {
     assert.match(
       notFound.html,

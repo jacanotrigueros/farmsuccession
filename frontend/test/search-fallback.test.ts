@@ -5,11 +5,12 @@ import { test } from "node:test";
 
 import { decodeHTML } from "entities";
 
-import { searchPath, SEARCH_SLUGS } from "../public/search-scope.js";
+import { publicCountryCodes } from "./public-corpus.ts";
+import { searchPath } from "../public/search-scope.js";
 import { words } from "../src/lib/words.ts";
 
 const DIST = path.join(import.meta.dirname, "..", "dist");
-for (const country of Object.keys(SEARCH_SLUGS)) {
+for (const country of ["EU", ...publicCountryCodes]) {
   const scope = country === "EU" ? undefined : country;
   const route = searchPath("/", scope);
   const html = readFileSync(path.join(DIST, route, "index.html"), "utf8");

@@ -5,23 +5,19 @@ import { test } from "node:test";
 
 import { reportEndpoint } from "../reporting.config.mjs";
 import { SEARCH_SLUGS } from "../public/search-scope.js";
+import { publicJurisdictions } from "./public-corpus.ts";
 import { words } from "../src/lib/words.ts";
 
 const DIST = path.join(import.meta.dirname, "..", "dist");
-const REPOSITORY = path.join(import.meta.dirname, "..", "..");
-const catalogue = JSON.parse(readFileSync(path.join(REPOSITORY, "data", "territories.json"), "utf8")) as {
-  jurisdictions: Record<string, { lang: string }>;
-};
-
 const reportPages = [
   { file: path.join(DIST, words("en").reportSlug, "index.html"), language: "en" },
-  ...Object.entries(catalogue.jurisdictions)
+  ...publicJurisdictions
     .filter(([iso]) => iso !== "EU")
     .map(([iso, { lang }]) => ({ file: path.join(DIST, iso.toLowerCase(), words(lang).reportSlug, "index.html"), language: lang })),
 ];
 
 test("every jurisdiction has one localized intake with all five reasons and no account", () => {
-  assert.equal(reportPages.length, Object.keys(catalogue.jurisdictions).length);
+  assert.equal(reportPages.length, publicJurisdictions.length);
   for (const { file, language } of reportPages) {
     const html = readFileSync(file, "utf8");
     const text = words(language);
@@ -85,7 +81,7 @@ test("the reporting enhancement has no background delivery, credential or browse
 test("a search that found nothing offers the reader the way to say so", () => {
   const searchPages = [
     { file: path.join(DIST, "search", "index.html"), language: "en", country: "" },
-    ...Object.entries(catalogue.jurisdictions)
+    ...publicJurisdictions
       .filter(([iso]) => iso !== "EU")
       .map(([iso, { lang }]) => {
         const slug = SEARCH_SLUGS[iso as keyof typeof SEARCH_SLUGS];
@@ -93,11 +89,7 @@ test("a search that found nothing offers the reader the way to say so", () => {
         return { file: path.join(DIST, iso.toLowerCase(), slug, "index.html"), language: lang, country: `${iso.toLowerCase()}/` };
       }),
   ];
-  assert.equal(
-    searchPages.length,
-    Object.keys(catalogue.jurisdictions).length,
-    "a search page is missing for a jurisdiction of the catalogue",
-  );
+  assert.equal(searchPages.length, publicJurisdictions.length, "a search page is missing for a published jurisdiction");
 
   for (const { file, language, country } of searchPages) {
     const html = readFileSync(file, "utf8");

@@ -5,7 +5,7 @@ import { test } from "node:test";
 
 import { decodeHTML } from "entities";
 
-import { loadSnapshots } from "../../src/editions.ts";
+import { published } from "./public-corpus.ts";
 import { ancestorLayers, layerKey, leafLayers, snapshotLayer } from "../../src/layers.ts";
 import { loadTerritories } from "../../src/territories.ts";
 import { recordSlug, regionSlug, searchPath } from "../public/search-scope.js";
@@ -13,16 +13,8 @@ import { isFirstEstablishmentAid } from "../src/lib/goals.ts";
 import { counted, words } from "../src/lib/words.ts";
 
 const DIST = path.join(import.meta.dirname, "..", "dist");
-const loaded = loadSnapshots({});
-assert.equal(loaded.problems.length, 0);
 const catalogue = loadTerritories();
-const edition = loaded.snapshots
-  .map(({ file }) => file.split("/")[0]!)
-  .toSorted()
-  .at(-1)!;
-const snapshots = loaded.snapshots
-  .filter(({ file }) => file.startsWith(`${edition}/`))
-  .map(({ data }) => ({ data, layer: snapshotLayer(data) }));
+const snapshots = published.map(({ data }) => ({ data, layer: snapshotLayer(data) }));
 const byLayer = new Map(snapshots.map((entry) => [layerKey(entry.layer), entry]));
 const htmlAt = (url: string) => decodeHTML(readFileSync(path.join(DIST, url, "index.html"), "utf8"));
 const resourceUrl = (id: string, country?: string) =>

@@ -32,6 +32,7 @@ export const SEARCH_SLUGS = {
   DE: "suchen",
   AT: "suchen",
   NL: "zoeken",
+  RO: "cauta",
 };
 
 /**
@@ -51,6 +52,7 @@ export const REGION_SLUGS = {
   DE: "regionen",
   AT: "regionen",
   NL: "provincies",
+  RO: "teritorii",
 };
 
 /** @param {string} country */
@@ -71,6 +73,7 @@ export const RECORD_SLUGS = {
   DE: "angebote",
   AT: "angebote",
   NL: "vermeldingen",
+  RO: "resurse",
 };
 
 /** @param {string} country */

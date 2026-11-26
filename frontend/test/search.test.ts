@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 
@@ -16,6 +16,7 @@ import {
   territorySearchUrl,
 } from "../public/search-scope.js";
 
+import { publicCountryCodes, published } from "./public-corpus.ts";
 import { words } from "../src/lib/words.ts";
 
 /**
@@ -32,31 +33,13 @@ import { words } from "../src/lib/words.ts";
  * in a browser, because that is the only place its WebAssembly runs.
  */
 const DIST = path.join(import.meta.dirname, "..", "dist");
-const REPOSITORY = path.join(import.meta.dirname, "..", "..");
-const EDITIONS = path.join(REPOSITORY, "data", "editions");
-
-type Snapshot = {
-  schemaId: string;
-  country?: string;
-  region?: string;
-  hub?: string;
-  metadata: { language: string };
-  resources: { id: string }[];
-};
-
-const edition = readdirSync(EDITIONS).toSorted().toReversed()[0];
-assert.ok(edition, "no edition to search");
-
-function snapshots(dir: string): Snapshot[] {
-  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) return snapshots(full);
-    return entry.name.endsWith(".json") ? [JSON.parse(readFileSync(full, "utf8")) as Snapshot] : [];
-  });
-}
-
-const all = snapshots(path.join(EDITIONS, edition));
-const countries = [...new Set(all.flatMap((snapshot) => (snapshot.country ? [snapshot.country] : [])))];
+const all = published.map(({ data }) => ({
+  ...data,
+  country: "country" in data ? data.country : undefined,
+  region: "region" in data ? data.region : undefined,
+  hub: "hub" in data ? data.hub : undefined,
+}));
+const countries = publicCountryCodes;
 const page = (route: string): string => readFileSync(path.join(DIST, route.slice(1), "index.html"), "utf8");
 
 test("every scope has a search page, at the word its own language uses", () => {
