@@ -5,7 +5,7 @@
   "country": "DE",
   "metaDescription": "Finden Sie nach Bundesland Beratung für die Hofnachfolge, Hofbörsen für die Hofsuche und Niederlassungsbeihilfen für junge Landwirtinnen und Landwirte.",
   "officialName": "Deutschland",
-  "published": "2026-11-25",
+  "published": "2026-11-26",
   "summary": "Finden Sie Beratung zur Hofübergabe, Hofbörsen und Angebote für den Einstieg in die Landwirtschaft. Die Übersicht nach Bundesland zeigt, wo Niederlassungsbeihilfen für Junglandwirtinnen und Junglandwirte dokumentiert sind.",
   "countryContext": {
     "consultedOn": "2026-11-19",
@@ -91,6 +91,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "claude-2",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5-5",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-26"
       }
     ]
   },
@@ -659,6 +666,81 @@
       ],
       "notes": "Das Portal ist kein einheitliches Antragsverfahren. Voraussetzungen, Antragsfristen und aktuelle Verfügbarkeit sind bei den jeweils verlinkten Angeboten zu prüfen.",
       "generatorId": "chatgpt-2"
+    },
+    {
+      "id": "de-hof-gesucht-gefunden",
+      "name": "Hof-gesucht-gefunden: Anzeigen zur außerfamiliären Hofnachfolge",
+      "metaTitle": "Hof-gesucht-gefunden: Hofbörse außerfamiliäre Hofnachfolge",
+      "metaDescription": "Hof übernehmen oder eine Nachfolge finden? Hofangebote und Hofgesuche in Deutschland frei ansehen. Ein eigenes Inserat kostet ab 97 €.",
+      "kind": "SUCCESSION_SERVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Hof-gesucht-gefunden",
+      "operatorType": "PRIVATE",
+      "whatItOffers": "Anzeigenplattform für die außerfamiliäre Hofnachfolge: Betriebe, Gärtnereien und Weingüter, die einen Nachfolger suchen (Hofangebote), und Menschen, die einen Betrieb übernehmen möchten (Hofgesuche), veröffentlichen Anzeigen wie in einer Zeitung. Es geht um Pacht, Kauf oder Leibrente, schrittweise Hofübernahme oder kurzfristige Betriebsübergabe, für alle Betriebsarten vom Ackerbau bis zum Wein. Anzeigen erscheinen mit Kontaktdaten oder als Chiffre-Anzeige und bleiben bis zu drei Jahre online. Die Kontaktaufnahme läuft direkt zwischen den Beteiligten.",
+      "whoCanUseIt": "Abgebende landwirtschaftlicher Betriebe, Gärtnereien und Weingüter, die außerhalb der Familie einen Nachfolger suchen, sowie Menschen, die einen solchen Betrieb übernehmen möchten.",
+      "howToAccess": "Wer einen Hof übernehmen möchte, wählt „Hofangebote“. Wer eine Nachfolge sucht, wählt „Hofgesuche“. Antworten Sie über die Kontaktdaten in der Anzeige. Bei einer Chiffre-Anzeige wird Ihre Nachricht über die dort genannte E-Mail-Adresse weitergeleitet. Eine eigene Anzeige können Sie unter „Inserieren“ online oder per Post aufgeben.",
+      "accessUrl": "https://hof-gesucht-gefunden.de/",
+      "languages": ["de"],
+      "assetTypes": ["WHOLE_HOLDINGS"],
+      "targetProfiles": ["TRANSFEROR", "SUCCESSOR", "NEW_ENTRANT"],
+      "contactPoints": [
+        {
+          "channel": "FORM",
+          "label": "Hof-gesucht-gefunden — Kontaktformular",
+          "value": "https://hof-gesucht-gefunden.de/kontakt.html",
+          "sourceUrl": "https://hof-gesucht-gefunden.de/kontakt.html"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hof-gesucht-gefunden.de/",
+          "title": "Hof-gesucht-gefunden — Startseite",
+          "consultedOn": "2026-11-26",
+          "quotes": [
+            "Pacht, Kauf oder Leibrente, schrittweise Hofübernahme, kurzfristige Betriebsübergabe",
+            "Angebote und Gesuche zur außerfamiliären Hofnachfolge für landwirtschaftliche Betriebe (egal ob Ackerbau, Tierhaltung, Biogas, Obst, Gemüse, Wein, etc.) können Sie hier finden und veröffentlichen.",
+            "Einfach, preiswert und persönlich. Anzeigen wie in einer Zeitung.",
+            "Selbstverständlich ist auch eine anonyme Veröffentlichung durch Chiffre-Anzeigen möglich."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-26",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://hof-gesucht-gefunden.de/inserate.html",
+          "title": "Inserieren — Hof-gesucht-gefunden",
+          "consultedOn": "2026-11-26",
+          "quotes": [
+            "entweder über dieses Online-Formular oder per Post durch ausfüllen dieses Formulars",
+            "Die Laufzeit beträgt bis zu 3 Jahre.",
+            "über 97 € (brutto) für eine normale Anzeige und bei Chiffre kommen nochmals 15 € hinzu.",
+            "Sie kontaktieren den Anbieter bzw. Suchenden anhand der in der Anzeige genannten Kontaktdaten.",
+            "Jeglicher weitere Kontakt läuft zwischen Ihnen und dem Kunden.",
+            "Bei Chiffre-Anzeigen bitte die im Anzeigentext genannten Email nutzen, diese wird dann dem Kunden automatisch direkt zugestellt.",
+            "Nachträgliche Textänderung sind möglich"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-26",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://hof-gesucht-gefunden.de/kontakt.html",
+          "title": "Kontakt — Hof-gesucht-gefunden",
+          "consultedOn": "2026-11-26",
+          "quotes": ["Fragen, Anregungen, Lob, Kritik, Erfahrungen,... gerne können Sie mir diese mitteilen."],
+          "verification": {
+            "checkedOn": "2026-11-26",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "notes": "Hofangebote und Hofgesuche sind frei einsehbar. Ein eigenes Inserat kostet 97 €, ein Chiffre-Inserat 15 € mehr. Die Laufzeit beträgt bis zu drei Jahre. Nachträgliche Textänderungen kosten extra. FarmSuccession veröffentlicht selbst keine Inserate und vermittelt keine Höfe.",
+      "generatorId": "claude-2"
     }
   ],
   "news": [],

@@ -149,3 +149,31 @@ test("a news item's own sources are walked, because it is published on the same 
   const missed = fromNews.filter((url) => !walked.has(url));
   assert.deepEqual(missed, [], "a news source is an address a reader can follow, and the check has to see it");
 });
+
+test("a host with no permission on record is kept out, and cannot be recorded as permitted", () => {
+  const dir = mkdtempSync(path.join(tmpdir(), "terms-"));
+  const silent = {
+    host: "silent.example",
+    uses: { quote: "UNKNOWN", link: "UNKNOWN", extract: "UNKNOWN" },
+    ground: "NO_PERMISSION",
+    finding: "No permission on record, for this test only.",
+    readOn: "2026-11-26",
+  } as const;
+  const file = path.join(dir, "source-terms.json");
+  writeFileSync(file, JSON.stringify({ purpose: register.purpose, sources: [silent] }));
+  const loaded = loadSourceTerms(file);
+  assert.ok(refuses(loaded, "https://www.silent.example/page"), "silence is not permission: a host nobody permitted reached a page");
+  const contradiction = path.join(dir, "contradiction.json");
+  writeFileSync(
+    contradiction,
+    JSON.stringify({
+      purpose: register.purpose,
+      sources: [{ ...silent, uses: { quote: "PERMITTED", link: "PERMITTED", extract: "UNKNOWN" } }],
+    }),
+  );
+  assert.throws(
+    () => loadSourceTerms(contradiction),
+    /source-terms register/u,
+    "a host kept out for want of a permission was recorded as permitting both uses, and the register accepted it",
+  );
+});
