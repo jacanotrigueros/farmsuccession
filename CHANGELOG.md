@@ -10,6 +10,20 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.3.1 — 2026-11-27
+
+A correction to what the directory may carry, and two records added under it: nothing new a reader has to
+learn, so only the last digit moves.
+
+- Twenty records rested on sources whose terms reserve quoting and linking to a permission, or say nothing
+  about them, and no permission is on record. They are withdrawn, and the publish gate now refuses those
+  hosts until a permission or a clear notice exists. Five records that also cited other sources keep those,
+  with their text narrowed to what the sources still say; region summaries and descriptions that pointed
+  at a withdrawn record no longer do. The directory now holds 645 records.
+- Two operators that permitted it are documented: Biopousses, an organic activity-test space in the Manche
+  (Normandie), and Hof-gesucht-gefunden, a national listing platform for farm succession outside the
+  family. Reading its listings is free; FarmSuccession copies none of them and brokers nothing.
+
 ## 2.3.0 — 2026-11-26
 
 A reader who asks "what can I apply for today?" can now ask the search directly, so the middle digit
