@@ -59,7 +59,7 @@ const here = places.filter((place) => current.startsWith(place.href)).toSorted((
 const searchHref = searchPath("/", countryOf(here?.href ?? "/"));
 ---
 
-<header class="border-b border-line bg-card">
+<header id="top" class="border-b border-line bg-card">
   <div class="wrap flex flex-wrap items-center gap-x-3 gap-y-2 py-3">
     <a href="/" class="mr-auto flex min-h-(--spacing-target) min-w-0 items-center gap-2 text-lg font-bold no-underline sm:text-xl">
       <img src="/logo-mark.svg" width="32" height="29" alt="" aria-hidden="true" class="shrink-0" />
