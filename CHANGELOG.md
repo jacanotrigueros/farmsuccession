@@ -10,6 +10,24 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.2.2 — 2026-11-26
+
+Corrections to 2.2.1, found by reading it in production and by the founder: nothing new a reader has to
+learn, so only the last digit moves.
+
+- A search of two or more words lists first the records that contain every word, then the partial
+  matches: "safer bretagne" opens with Safer Bretagne, with the Azores records after it. A one-word
+  search keeps its order, so "Niederlassungsprämie" still finds Austria's grant eleventh.
+- A record with a documented call no longer puts a note about the active badge above its title; the
+  dated answer under the title already says whether a period is open. A record without calls keeps it.
+- An email address written in a record's "how to access" text is a link that opens the mail program.
+- The footer says each thing once: one question and one link for an organisation that wants to be
+  removed, four links about the project and one back to the top, and the licence on a line of its own.
+  Countries and search, already in every header, leave it, as does the 2014-2016 history, which the
+  project page still links.
+- The project page's contact section names the removal request as the footer does, speaks to the
+  organisation, and gives the address once.
+
 ## 2.2.1 — 2026-11-26
 
 Corrections to 2.2.0, found by reading it in production: nothing new a reader has to learn, so only the
