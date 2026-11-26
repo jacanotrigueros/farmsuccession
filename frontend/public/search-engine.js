@@ -24,18 +24,26 @@ const NEAREST_FIRST = ["REGION", "HUB", "COUNTRY", "EU"];
 const wordsIn = (text) => text.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
 
 /**
- * Pagefind's prefix fallback can match an untyped initial, such as "Z" for a long unknown word.
- * Check the matched positions in the original fragment. A real match may use stemming or a
- * typed initial. Once there is a match, keep the engine's scores, order and facet counts.
+ * Pagefind's prefix fallback can match an untyped initial, such as "N." for "Niederlassungsprämie".
+ * Check each hit's matched positions in its original fragment. Keep stemmed words and typed initials.
  */
-async function hasDocumentedMatch(term, results) {
+async function documentedResults(term, results) {
   const typed = new Set(wordsIn(term));
-  for (const hit of results) {
-    const { raw_content: content } = await hit.data();
-    const indexed = content.includes("\u200B") ? content.split("\u200B") : content.split(/\s+/u);
-    if (hit.words.some((at) => wordsIn(indexed[at] ?? "").some((word) => word.length > 1 || typed.has(word)))) return true;
+  const matched = [];
+  // The engine must inspect every hit before counting results. Limit the fragment reads in flight.
+  const batchSize = 20;
+  for (let start = 0; start < results.length; start += batchSize) {
+    const batch = await Promise.all(
+      results.slice(start, start + batchSize).map(async (hit) => {
+        const { raw_content: content, filters } = await hit.data();
+        const indexed = content.includes("\u200B") ? content.split("\u200B") : content.split(/\s+/u);
+        const hasMatch = hit.words.some((at) => wordsIn(indexed[at] ?? "").some((word) => word.length > 1 || typed.has(word)));
+        return { hit, filters, hasMatch };
+      }),
+    );
+    matched.push(...batch.filter(({ hasMatch }) => hasMatch));
   }
-  return false;
+  return matched;
 }
 
 /**
@@ -69,10 +77,14 @@ export async function createEngine({ bundles, languages, importModule = (url) =>
       const options = term ? { filters: any } : { filters: any, sort: { order: "asc" } };
       const pending = Promise.all(modules.map((pagefind) => pagefind.search(term || null, options))).then(async (all) => {
         const results = all.flatMap((one) => one.results);
-        if (term && !(await hasDocumentedMatch(term, results))) return { results: [], counts: {} };
+        const counts = () => sum(all.map((one) => one.filters));
+        if (!term) return { results, counts: counts() };
+
+        const matched = await documentedResults(term, results);
+        if (matched.length === 0) return { results: [], counts: {} };
         return {
-          results: term ? results.toSorted((a, b) => b.score - a.score) : results,
-          counts: sum(all.map((one) => one.filters)),
+          results: matched.map(({ hit }) => hit).toSorted((a, b) => b.score - a.score),
+          counts: matched.length === results.length ? counts() : countResults(matched),
         };
       });
       // A failed search is not remembered: asking again after a dropped connection has to try again.
@@ -109,6 +121,18 @@ export async function createEngine({ bundles, languages, importModule = (url) =>
   }
 
   return { search, query, languages };
+}
+
+/** A discarded result must not inflate a facet. Each record contributes once per distinct value. */
+function countResults(results) {
+  const total = {};
+  for (const { filters } of results) {
+    for (const [facet, values] of Object.entries(filters)) {
+      total[facet] ??= {};
+      for (const value of new Set(values)) total[facet][value] = (total[facet][value] ?? 0) + 1;
+    }
+  }
+  return total;
 }
 
 function sum(all) {

@@ -365,6 +365,11 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
           >
             {text.browseAll.replace("{where}", name)}
           </a>
+          {inheritedFirst && (
+            <a href="#needs" class="inline-flex min-h-(--spacing-target) items-center font-bold underline">
+              {text.navNeeds}
+            </a>
+          )}
         </p>
       )}
     </div>

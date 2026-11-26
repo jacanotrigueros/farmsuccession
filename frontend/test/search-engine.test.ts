@@ -72,3 +72,49 @@ test("an unknown word with matches only on untyped initials has no results or fa
     "valid queries must keep Pagefind's matching and ranking",
   );
 });
+
+test("Niederlassungsprämie retains the Austrian grant and discards hits matching only an untyped initial", async () => {
+  const { results } = await engine.query("Niederlassungsprämie", {}, []);
+  const fragments = (await Promise.all(results.map((hit: Hit) => hit.data()))) as Fragment[];
+  const urls = fragments.map(({ raw_url }) => raw_url);
+  assert.ok(
+    urls.includes("/at/angebote/at-niederlassung-junglandwirte/"),
+    "a match through the grant's indexed search name must survive the check",
+  );
+  assert.ok(
+    !urls.includes("/it/risorse/puglia-banca-terra-quadro-normativo/"),
+    "a genuine hit elsewhere must not let a separate record matched only by 'n.' surface",
+  );
+});
+
+test("filtered results keep the engine's scores and order and count only the remaining matches", async () => {
+  const hit = (id: string, score: number, raw_content: string, country: string) => ({
+    id,
+    score,
+    words: [0],
+    data: async () => ({ raw_content, filters: { country: [country, country] } }),
+  });
+  const initial = hit("untyped", 10, "N.", "IT");
+  const ordinary = hit("word", 5, "Niederlassungsprämie.", "AT");
+  const stem = hit("stem", 5, "Niederlassung", "DE");
+  const mockEngine = await createEngine({
+    bundles: "/pagefind/",
+    languages: ["de"],
+    importModule: async () => ({
+      options() {},
+      init() {},
+      filters() {},
+      search: () => ({ results: [initial, ordinary, stem], filters: { country: { IT: 1, AT: 1, DE: 1 } } }),
+    }),
+  });
+  assert.deepEqual(
+    await mockEngine.query("Niederlassungsprämie", {}, []),
+    { results: [ordinary, stem], counts: { country: { AT: 1, DE: 1 } } },
+    "rejecting an incidental initial must preserve tied scores and omit that hit from the facet totals",
+  );
+  assert.deepEqual(
+    (await mockEngine.query("N. Niederlassungsprämie", {}, [])).results,
+    [initial, ordinary, stem],
+    "an initial explicitly typed as a word must remain eligible",
+  );
+});
