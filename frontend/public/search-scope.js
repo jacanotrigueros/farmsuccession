@@ -80,7 +80,7 @@ export const recordSlug = (country) => RECORD_SLUGS[country] ?? "resources";
  * The facets a reader can choose from, as the schema's own codes. Country is not one of them inside a
  * country: there the route already fixed it, and offering it would be offering to leave.
  */
-export const FACETS = ["kind", "status", "scope", "profile", "territory", "country"];
+export const FACETS = ["kind", "status", "openCalls", "scope", "profile", "territory", "country"];
 
 /** @param {string | null | undefined} scopeCountry */
 export const facetsOf = (scopeCountry) => FACETS.filter((facet) => !(scopeCountry && facet === "country"));
@@ -110,6 +110,7 @@ export function stateFromQuery(search, scopeCountry) {
   const selected = {};
   for (const facet of facetsOf(scopeCountry)) {
     let values = [...new Set(parameters.getAll(facet).filter(Boolean))];
+    if (facet === "openCalls") values = values.filter((value) => value === "OPEN");
     if (scopeCountry && facet === "territory") values = values.filter((value) => value.startsWith(`${scopeCountry}/`));
     if (values.length > 0) selected[facet] = values;
   }

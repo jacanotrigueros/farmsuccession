@@ -11,7 +11,11 @@ const text = words(Astro.props.language);
 {reportEndpoint && (
   <p data-report-privacy class="meta">
     {text.reportDeliveryPrivacy}{" "}
-    <a class="underline" href="https://formspree.io/legal/privacy-policy/" rel="noreferrer">
+    <a
+      class="inline-flex min-h-(--spacing-target) items-center underline"
+      href="https://formspree.io/legal/privacy-policy/"
+      rel="noreferrer"
+    >
       {text.reportProviderPrivacy}
     </a>
   </p>

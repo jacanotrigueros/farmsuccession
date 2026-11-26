@@ -8,7 +8,7 @@
  * call was checked never moves: it is printed beside the answer, because that is what the answer rests on.
  *
  * Only documented dates are used. Past a documented closing date the answer is no. Inside the documented
- * period of a call that was last seen as upcoming, the answer is "open according to the dates published",
+ * period of a call last seen as open or upcoming, the answer is "open according to the dates published",
  * which is a claim about the source and not about the counter at the other end. A call that should have
  * opened but publishes no closing date cannot be confirmed, and says so.
  *
@@ -20,7 +20,7 @@
 
 /** How certain each answer is, which is what the icon and the border say without words. */
 export const APPLY_TONE = {
-  open: "yes",
+  open: "unsure",
   openByDates: "yes",
   upcoming: "wait",
   closed: "no",
@@ -62,7 +62,10 @@ export function applyKey(call, status, today) {
     if (state === "CLOSED") return "closed";
     if (state === "NOT_PUBLISHED") return "noDates";
     if (closes && closes < today) return "deadlinePassed";
-    if (state === "OPEN") return "open";
+    if (state === "OPEN") {
+      if (opens && opens > today) return "upcoming";
+      return closes ? "openByDates" : "open";
+    }
     if (opens && opens <= today) return closes ? "openByDates" : "shouldBeOpen";
     return "upcoming";
   }
@@ -103,9 +106,32 @@ export function localToday(now = new Date()) {
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
 
+/** Re-evaluate a long-lived tab at local midnight and when it becomes visible again.
+ * @param {() => void} refresh
+ */
+export function onLocalDayChange(refresh) {
+  let day = localToday();
+  /** @type {ReturnType<typeof setTimeout> | undefined} */
+  let timer;
+  const update = () => {
+    clearTimeout(timer);
+    const now = new Date();
+    const next = localToday(now);
+    if (next !== day) {
+      day = next;
+      refresh();
+    }
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    timer = setTimeout(update, midnight.getTime() - now.getTime());
+  };
+  document.addEventListener("visibilitychange", update);
+  window.addEventListener("pageshow", update);
+  update();
+}
+
 // Every named period carries its own call and answers. Refresh each one independently; nothing is
 // hidden, and the open periods move first on the reader's day as they did on the build's (decisions/042).
-if (typeof document !== "undefined") {
+function refreshAnswers() {
   const today = localToday();
   /** @type {Map<Element, { block: HTMLElement, rank: number, position: number }[]>} */
   const groups = new Map();
@@ -129,4 +155,9 @@ if (typeof document !== "undefined") {
     const ordered = blocks.toSorted((a, b) => a.rank - b.rank || a.position - b.position);
     if (ordered.some((entry, index) => entry !== blocks[index])) parent.append(...ordered.map(({ block }) => block));
   }
+}
+
+if (typeof document !== "undefined" && document.querySelector("section.apply[data-apply-answers]")) {
+  refreshAnswers();
+  onLocalDayChange(refreshAnswers);
 }

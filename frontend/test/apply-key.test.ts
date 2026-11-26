@@ -27,7 +27,7 @@ test("two open procedures keep separate answers when one deadline passes", () =>
     { name: "Register a holding", state: "OPEN", closes: "2026-11-03" },
     { name: "Request access", state: "OPEN" },
   ];
-  assert.deepEqual(answers(calls, "2026-11-03"), ["open", "open"], "the documented closing day is still inside its period");
+  assert.deepEqual(answers(calls, "2026-11-03"), ["openByDates", "open"], "the documented closing day is still inside its period");
   assert.deepEqual(
     answers(calls, "2026-11-04"),
     ["deadlinePassed", "open"],
@@ -44,11 +44,11 @@ test("three simultaneous calls cross their own deadlines, in their recorded orde
     { name: "Small investment", state: "OPEN", opens: "2026-08-03", closes: "2026-11-03" },
   ];
   for (const [day, expected] of [
-    ["2026-11-03", ["open", "open", "open"]],
-    ["2026-11-04", ["open", "open", "deadlinePassed"]],
-    ["2026-11-10", ["open", "open", "deadlinePassed"]],
-    ["2026-11-11", ["open", "deadlinePassed", "deadlinePassed"]],
-    ["2026-11-17", ["open", "deadlinePassed", "deadlinePassed"]],
+    ["2026-11-03", ["openByDates", "openByDates", "openByDates"]],
+    ["2026-11-04", ["openByDates", "openByDates", "deadlinePassed"]],
+    ["2026-11-10", ["openByDates", "openByDates", "deadlinePassed"]],
+    ["2026-11-11", ["openByDates", "deadlinePassed", "deadlinePassed"]],
+    ["2026-11-17", ["openByDates", "deadlinePassed", "deadlinePassed"]],
     ["2026-11-18", ["deadlinePassed", "deadlinePassed", "deadlinePassed"]],
   ] as const) {
     assert.deepEqual(answers(calls, day), expected, `${day}: each call has its own closing date, not the first call's`);

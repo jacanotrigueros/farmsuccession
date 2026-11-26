@@ -20,7 +20,7 @@ import { resultDescription, setResultLanguage } from "/result-description.js";
 import { resourcePlace } from "/resource-place.js";
 import { createEngine } from "/search-engine.js";
 import { effectiveFilters, europeanSearch, facetsOf, queryFromState, scopeFromPath, stateFromQuery } from "/search-scope.js";
-import { localToday, rankedPeriods } from "/apply.js";
+import { localToday, onLocalDayChange, rankedPeriods } from "/apply.js";
 import { counted as countIn, dateIn, numberIn } from "/locale.js";
 
 /** One page of results. Twenty is what a reader can read to the end before deciding to look further. */
@@ -60,6 +60,8 @@ if (form && state && resultsList && everything && template && askBlock && filter
   const clearFilters = document.querySelector("[data-clear-filters]");
   const showResults = document.querySelector("[data-show-results]");
   const panel = document.querySelector("#narrow-panel");
+  const openCalls = form.querySelector('input[name="openCalls"]');
+  const removeOpenCalls = document.querySelector("[data-remove-open-calls]");
 
   const counted = (howMany, forms) => countIn(howMany, forms, document.documentElement.lang);
   const found = (howMany) => counted(howMany, words.result);
@@ -78,7 +80,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     return selected;
   }
 
-  function fill(result, term) {
+  function fill(result, term, today) {
     const row = template.content.firstElementChild.cloneNode(true);
     const link = row.querySelector("[data-result-link]");
     link.href = result.url;
@@ -100,13 +102,13 @@ if (form && state && resultsList && everything && template && askBlock && filter
     // The index carries the call and its own source date. The shared rule answers for the reader's day.
     const periods = JSON.parse(result.meta.periods ?? "[]");
     const callList = row.querySelector("[data-result-periods]");
-    for (const { call, checked, key } of rankedPeriods(periods, localToday())) {
+    for (const { call, checked, key } of rankedPeriods(periods, today)) {
       const item = document.createElement("li");
       const name = document.createElement("strong");
       const [before, after] = words.callCheckedOn.split("{date}");
       const date = document.createElement("time");
       const evidence = document.createElement("span");
-      evidence.className = "meta";
+      evidence.className = "text-control";
       date.dateTime = checked;
       date.textContent = dateIn(checked, document.documentElement.lang, "short");
       evidence.append(before, date, after);
@@ -155,6 +157,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
    */
   function recount(counts) {
     for (const box of form.querySelectorAll("input[type=checkbox][name]")) {
+      if (box === openCalls) continue;
       const label = box.closest("label");
       const beside = label?.querySelector("[data-count]");
       const howMany = counts[box.name]?.[box.value] ?? 0;
@@ -192,6 +195,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
   let latest = 0;
   let hits = [];
   let hitsTerm = "";
+  let hitsDay = localToday();
   let page = 1;
 
   const totalPages = () => Math.max(1, Math.ceil(hits.length / PAGE));
@@ -262,7 +266,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     const offset = (page - 1) * PAGE;
     const shown = await Promise.all(hits.slice(offset, offset + PAGE).map((hit) => hit.data()));
     if (mine !== latest) return;
-    resultsList.replaceChildren(...shown.map((hit) => fill(hit, hitsTerm)));
+    resultsList.replaceChildren(...shown.map((hit) => fill(hit, hitsTerm, hitsDay)));
     resultsList.setAttribute("aria-busy", "false");
     renderPagination();
     if (move && heading) {
@@ -274,6 +278,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
   async function run({ push = true } = {}) {
     const term = field.value.trim();
     const selected = chosen();
+    const today = localToday();
     const mine = (latest += 1);
     const wider = form.querySelector("[data-widen]");
     if (wider) wider.href = europeanSearch({ q: term, selected });
@@ -283,17 +288,19 @@ if (form && state && resultsList && everything && template && askBlock && filter
     }
     show(recovery, false);
     show(notFound, false);
+    show(removeOpenCalls, false);
     renderChips(selected);
 
     const filters = effectiveFilters(selected, scope.country, inherits);
     show(state, true);
     state.textContent = words.loading;
-    const { results, counts } = await engine.query(term, filters, Object.keys(selected));
+    const { results, counts } = await engine.query(term, filters, Object.keys(selected), today);
     if (mine !== latest) return; // A later keystroke already answered; this one is history.
 
     recount(counts);
     hits = results;
     hitsTerm = term;
+    hitsDay = today;
 
     const howMany = Object.values(selected).reduce((total, values) => total + values.length, 0);
     const narrowed = term !== "" || howMany > 0;
@@ -322,7 +329,8 @@ if (form && state && resultsList && everything && template && askBlock && filter
 
     state.toggleAttribute("data-empty", hits.length === 0);
     if (hits.length === 0) {
-      state.textContent = words.nothing;
+      state.textContent = openCalls.checked ? words.noOpenCalls : words.nothing;
+      show(removeOpenCalls, openCalls.checked);
       resultsList.replaceChildren();
       show(pagination, false);
       // The reader who found nothing is the only one who can say what is missing, and they are about to
@@ -348,6 +356,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     state.toggleAttribute("data-empty", true);
     show(recovery, true);
     show(notFound, false);
+    show(removeOpenCalls, false);
     show(pagination, false);
     resultsList.replaceChildren();
     resultsList.setAttribute("aria-busy", "false");
@@ -433,6 +442,12 @@ if (form && state && resultsList && everything && template && askBlock && filter
       for (const box of form.querySelectorAll("input[type=checkbox]")) box.checked = false;
       void safely();
     });
+    removeOpenCalls?.addEventListener("click", () => {
+      openCalls.checked = false;
+      field.focus();
+      void safely();
+    });
+    onLocalDayChange(safely);
     // On a phone the filters sit above the results: this closes them and takes the reader down to them.
     showResults?.addEventListener("click", () => {
       if (panel) panel.open = false;

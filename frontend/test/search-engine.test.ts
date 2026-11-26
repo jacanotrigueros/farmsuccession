@@ -151,3 +151,66 @@ test("complete written matches precede partial hits without changing scores or d
     "a single written word must keep the existing Pagefind order",
   );
 });
+
+test("the dated open filter uses the record answer and drops an elapsed window without rebuilding the index", async () => {
+  const candidates = [
+    { id: "dated", state: "OPEN", closes: "2026-11-27", country: "ES" },
+    { id: "opening", state: "UPCOMING", opens: "2026-11-27", closes: "2026-11-27", country: "FR" },
+    { id: "withdrawn", state: "CLOSED", closes: "2026-11-27", country: "ES" },
+    { id: "undated", state: "OPEN", country: "ES" },
+    { id: "missing", country: "ES" },
+  ];
+  const calls = new Map(
+    candidates.map(({ id, country, ...call }) => [id, call.state ? [{ call: { name: id, ...call }, checked: "2026-11-26" }] : []]),
+  );
+  const hits = candidates.map(({ id, country }) => ({
+    id,
+    score: 1,
+    words: [0],
+    data: async () => ({
+      raw_content: "grant",
+      meta: { periods: JSON.stringify(calls.get(id)) },
+      filters: { country: [country] },
+    }),
+  }));
+  const mockEngine = await createEngine({
+    bundles: "/pagefind/",
+    languages: ["es"],
+    importModule: async () => ({
+      options() {},
+      init() {},
+      filters() {},
+      search: (_term: string | null, options: { filters: Record<string, { any: string[] }> }) => {
+        assert.deepEqual(options.filters.datedCall?.any, ["YES"]);
+        assert.equal(options.filters.openCalls, undefined);
+        return { results: hits, filters: { country: { ES: 4, FR: 1 } } };
+      },
+    }),
+  });
+  for (const [day, ids, counts] of [
+    ["2026-11-26", ["dated"], { country: { ES: 1 } }],
+    ["2026-11-27", ["dated", "opening"], { country: { ES: 1, FR: 1 } }],
+    ["2026-11-28", [], {}],
+  ] as const) {
+    const found = await mockEngine.query("", { openCalls: ["OPEN"] }, ["openCalls"], day);
+    assert.deepEqual(
+      found.results.map((hit: { id: string }) => hit.id),
+      ids,
+      day,
+    );
+    assert.deepEqual(found.counts, counts);
+  }
+  const text = await mockEngine.query("grant", { openCalls: ["OPEN"] }, ["openCalls"], "2026-11-27");
+  assert.equal(text.results.length, 2, "the date filter composes with the text query");
+});
+
+test("the built index finds dated windows but excludes an active resource with a closed call", async () => {
+  const filters = { country: ["ES"], openCalls: ["OPEN"] };
+  const result = await engine.query("", filters, ["openCalls"], "2026-11-26");
+  const fragments = (await Promise.all(result.results.map((hit: Hit) => hit.data()))) as Fragment[];
+  assert.ok(fragments.length > 0, "the index must carry date candidates from published periods");
+  assert.ok(
+    fragments.every(({ meta }) => rankedPeriods(JSON.parse(meta.periods ?? "[]"), "2026-11-26").some(({ key }) => key === "openByDates")),
+  );
+  assert.ok(!fragments.some(({ raw_url }) => raw_url.endsWith("/aragon-establecimiento-jovenes-agricultores/")));
+});
