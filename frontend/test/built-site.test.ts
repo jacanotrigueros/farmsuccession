@@ -230,13 +230,29 @@ test("the complete, localized footer is shared by every built page", () => {
     // Europe's page (/eu/) is no country: its footer links are the site's own.
     const root = /^[a-z]{2}$/u.test(first) && first !== "eu" ? `/${first}/` : "/";
     const about = `${root}${words(language).aboutSlug}/`;
-    const history = `${root}${words(language).historySlug}/`;
-    for (const target of [about, history, `${about}#method`, `${about}#privacy`]) {
+    for (const target of [about, `${about}#method`, `${about}#privacy`]) {
       assert.ok(footer.includes(`href="${target}"`), `${file}: footer omits ${target}`);
     }
     checked++;
   }
   assert.ok(checked > 400, "too few built pages checked for footer consistency");
+});
+
+test("the 2014-2016 history stays reachable from each project page", () => {
+  // The footer no longer links it (founder, 26 Nov 2026: nobody asked for it in months), so the project
+  // page is the way in; without that link the history would be an orphan page.
+  let checked = 0;
+  for (const { file, html } of pages) {
+    const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
+    const text = words(language);
+    const first = file.split(path.sep)[0] ?? "";
+    const root = /^[a-z]{2}$/u.test(first) && first !== "eu" ? `/${first}/` : "/";
+    if (file !== path.join(...`${root}${text.aboutSlug}/index.html`.split("/").filter(Boolean))) continue;
+    const body = html.replace(/<footer\b[\s\S]*?<\/footer>/u, "");
+    assert.ok(body.includes(`href="${root}${text.historySlug}/"`), `${file}: the project page no longer leads to the history`);
+    checked++;
+  }
+  assert.ok(checked >= 7, `only ${checked} project pages checked`);
 });
 
 /**
@@ -1014,7 +1030,10 @@ test("every page links its scoped licence notice and every evidence block warns 
     const language = /<html\b[^>]*\blang="([^"]+)"/u.exec(html)?.[1] ?? "";
     const text = words(language);
     const footer = /<footer\b[\s\S]*?<\/footer>/u.exec(html)?.[0] ?? "";
-    assert.ok(footer.includes(text.licence), `${file}: missing scoped licence notice`);
+    const owner = text.licence.replace(/\s*:\s*CC BY 4\.0\.?$/u, "");
+    assert.ok(owner !== text.licence, `${language}: the licence sentence no longer ends with the licence name`);
+    const notice = /<a\b[^>]*#licence"[^>]*>([\s\S]*?)<\/a>/u.exec(footer)?.[1] ?? "";
+    assert.ok(notice.includes(owner) && notice.includes("CC BY 4.0"), `${file}: missing scoped licence notice`);
     const first = file.split(path.sep)[0] ?? "";
     // Europe's page (/eu/) is no country: its footer links are the site's own.
     const root = /^[a-z]{2}$/u.test(first) && first !== "eu" ? `/${first}/` : "/";

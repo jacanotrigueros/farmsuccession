@@ -89,6 +89,9 @@ const language = languageOf(territory);
 const locale = localeOf(territory);
 const text = words(language);
 const periods = documentedPeriods(resource);
+const accessParts = resource.howToAccess?.split(
+  /([a-z0-9_+-]+(?:\.[a-z0-9_+-]+)*@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}\b)/giu,
+);
 
 /** Every claim on this page cites one of the record's own sources, so each can be followed by number. */
 const sourceNumber = new Map(resource.sources.map((source, index) => [source.url, index + 1]));
@@ -495,8 +498,8 @@ const browseHere = searchUrl("/", {
             <StatusTag status={resource.status} language={language} quiet={(resource.calls?.length ?? 0) > 0} />
           </span>
         </p>
-        {/* The note explains what "active" does not promise; beside any other status it contradicts the badge. */}
-        {resource.status === "ACTIVE" && (
+        {/* A record without a documented call still needs to explain what the active badge means. */}
+        {resource.status === "ACTIVE" && periods.length === 0 && (
           <p class="meta mt-2 max-w-3xl" data-pagefind-ignore>
             {text.statusExplained}
           </p>
@@ -541,12 +544,25 @@ const browseHere = searchUrl("/", {
           </a>
         </p>
         {/* Without steps of its own the section only repeated the button at the top of the page. */}
-        {resource.howToAccess && (
+        {accessParts && (
           <section class="mt-5" aria-labelledby="access">
             <h2 id="access" class="scroll-mt-6 text-lg font-bold">
               {text.accessTitle}
             </h2>
-            <p class="mt-2 max-w-5xl">{resource.howToAccess}</p>
+            <p class="mt-2 max-w-5xl">
+              {accessParts.map((part, index) =>
+                index % 2 === 0 ? (
+                  part
+                ) : (
+                  <a
+                    href={`mailto:${part}`}
+                    class="inline-flex min-h-(--spacing-target) max-w-full items-center underline [overflow-wrap:anywhere]"
+                  >
+                    {part}
+                  </a>
+                ),
+              )}
+            </p>
           </section>
         )}
       </div>

@@ -228,9 +228,11 @@ const EN = {
     "When you send, Formspree processes your answers and technical data, including your IP address, in the United States to email the report to FarmSuccession. Spam verification (Google reCAPTCHA) and confirmation take place on Formspree. No account or email address is required. Do not include private documents.",
   reportProviderPrivacy: "Formspree privacy policy",
   reportRemovalTitle: "Request removal from the directory",
-  reportRemovalLead:
-    "If you or your organisation would rather not appear here, tell us which public page to review. You can also contact us directly by email.",
+  reportRemovalLead: "If your organisation would rather not appear in the inventory, tell us which public page to review.",
   reportRemovalAction: "Request removal",
+  reportRemovalFooter: "Request removal of my organisation",
+  writeToUs: "You can also write to us at",
+  backToTop: "Back to top",
   reportRemovalVerification:
     "Requests are reviewed manually. Before removing information, we confirm the request through an institutional contact published by the official source. Sending this form does not delete any record.",
   reportRemovalUrlLabel: "Public page to remove",
@@ -309,7 +311,7 @@ const EN = {
   sourceRights: "Quotes and source materials have their own rights. Check the original source’s terms before reusing them.",
   trust:
     "FarmSuccession gathers resources published by others. Each record links to its official source and says when it was read; the rights to each resource stay with whoever published it.",
-  optOut: "If your organisation does not want to appear in the inventory, request its removal:",
+  optOut: "Does your organisation not want to appear in the inventory?",
   notAService: "This directory does not replace the official services.",
   licence: "Original FarmSuccession content: CC BY 4.0.",
   offersTitle: "What it offers",
@@ -650,9 +652,11 @@ const ES = {
     "Al enviar, Formspree trata tus respuestas y datos técnicos, incluida tu dirección IP, en Estados Unidos para entregar el aviso a FarmSuccession por correo. La verificación antispam (Google reCAPTCHA) y la confirmación se realizan en Formspree. No necesitas cuenta ni indicar tu correo. No incluyas documentos privados.",
   reportProviderPrivacy: "Privacidad de Formspree",
   reportRemovalTitle: "Solicitar la retirada del directorio",
-  reportRemovalLead:
-    "Si tú o tu organización preferís no aparecer aquí, indica qué página pública debemos revisar. También puedes escribirnos directamente por correo.",
+  reportRemovalLead: "Si tu entidad prefiere no aparecer en el inventario, indica qué página pública debemos revisar.",
   reportRemovalAction: "Solicitar retirada",
+  reportRemovalFooter: "Solicitar la retirada de mi entidad",
+  writeToUs: "También puedes escribirnos a",
+  backToTop: "Volver arriba",
   reportRemovalVerification:
     "Las solicitudes se revisan manualmente. Antes de retirar información, confirmamos la petición mediante un contacto institucional publicado en la fuente oficial. Enviar este formulario no elimina ninguna ficha.",
   reportRemovalUrlLabel: "Página pública que quieres retirar",
@@ -734,7 +738,7 @@ const ES = {
     "Las citas y los materiales de las fuentes tienen sus propios derechos. Consulta las condiciones de la fuente original antes de reutilizarlos.",
   trust:
     "FarmSuccession reúne recursos publicados por terceros. Cada ficha enlaza su fuente oficial e indica cuándo se leyó; los derechos de cada recurso son de quien lo publicó.",
-  optOut: "Si tu entidad no quiere aparecer en el inventario, solicita su retirada:",
+  optOut: "¿Tu entidad no quiere aparecer en el inventario?",
   notAService: "Este directorio no sustituye a los servicios oficiales.",
   licence: "Contenido original de FarmSuccession: CC BY 4.0.",
   offersTitle: "Qué ofrece",
@@ -1078,9 +1082,11 @@ const DE = {
     "Beim Absenden verarbeitet Formspree Ihre Antworten und technische Daten, einschließlich Ihrer IP-Adresse, in den USA und leitet den Hinweis per E-Mail an FarmSuccession weiter. Die Spamprüfung (Google reCAPTCHA) und die Bestätigung erfolgen bei Formspree. Sie benötigen weder ein Konto noch eine eigene E-Mail-Adresse. Fügen Sie keine vertraulichen Dokumente bei.",
   reportProviderPrivacy: "Datenschutzerklärung von Formspree",
   reportRemovalTitle: "Entfernung aus dem Verzeichnis beantragen",
-  reportRemovalLead:
-    "Wenn Sie oder Ihre Organisation hier nicht erscheinen möchten, nennen Sie uns die zu prüfende öffentliche Seite. Sie können uns auch direkt per E-Mail kontaktieren.",
+  reportRemovalLead: "Wenn Ihre Organisation nicht im Verzeichnis erscheinen möchte, nennen Sie uns die zu prüfende öffentliche Seite.",
   reportRemovalAction: "Entfernung beantragen",
+  reportRemovalFooter: "Entfernung meiner Organisation beantragen",
+  writeToUs: "Sie können uns auch schreiben an",
+  backToTop: "Nach oben",
   reportRemovalVerification:
     "Anträge werden manuell geprüft. Vor einer Entfernung bestätigen wir den Antrag über einen institutionellen Kontakt aus der offiziellen Quelle. Das Absenden dieses Formulars löscht keinen Eintrag.",
   reportRemovalUrlLabel: "Zu entfernende öffentliche Seite",
@@ -1162,7 +1168,7 @@ const DE = {
   sourceRights: "Zitate und Quellmaterialien haben eigene Rechte. Prüfen Sie vor einer Nachnutzung die Bedingungen der Originalquelle.",
   trust:
     "FarmSuccession sammelt Angebote, die andere veröffentlicht haben. Jeder Eintrag verlinkt seine offizielle Quelle und nennt, wann sie gelesen wurde; die Rechte an jedem Angebot liegen bei denen, die es veröffentlicht haben.",
-  optOut: "Wenn Ihre Organisation nicht im Verzeichnis erscheinen möchte, beantragen Sie die Entfernung:",
+  optOut: "Ihre Organisation möchte nicht im Verzeichnis erscheinen?",
   notAService: "Dieses Verzeichnis ersetzt die amtlichen Stellen nicht.",
   licence: "Eigene FarmSuccession-Inhalte: CC BY 4.0.",
   offersTitle: "Was es bietet",
@@ -1514,9 +1520,11 @@ const FR = {
     "Lors de l’envoi, Formspree traite vos réponses et des données techniques, dont votre adresse IP, aux États-Unis pour transmettre le signalement à FarmSuccession par courriel. La vérification antispam (Google reCAPTCHA) et la confirmation ont lieu sur Formspree. Aucun compte ni adresse courriel ne vous est demandé. Ne joignez pas de documents privés.",
   reportProviderPrivacy: "Confidentialité de Formspree",
   reportRemovalTitle: "Demander un retrait du répertoire",
-  reportRemovalLead:
-    "Si vous ou votre organisation préférez ne pas figurer ici, indiquez la page publique à examiner. Vous pouvez aussi nous écrire directement par courriel.",
+  reportRemovalLead: "Si votre organisme préfère ne pas figurer dans l’annuaire, indiquez la page publique à examiner.",
   reportRemovalAction: "Demander un retrait",
+  reportRemovalFooter: "Demander le retrait de mon organisme",
+  writeToUs: "Vous pouvez aussi nous écrire à",
+  backToTop: "Retour en haut",
   reportRemovalVerification:
     "Les demandes sont examinées manuellement. Avant tout retrait, nous confirmons la demande auprès d’un contact institutionnel publié par la source officielle. L’envoi de ce formulaire ne supprime aucune fiche.",
   reportRemovalUrlLabel: "Page publique à retirer",
@@ -1600,7 +1608,7 @@ const FR = {
     "Les citations et les documents sources ont leurs propres droits. Consultez les conditions de la source originale avant de les réutiliser.",
   trust:
     "FarmSuccession rassemble des ressources publiées par d’autres. Chaque fiche renvoie à sa source officielle et indique quand elle a été lue\u202f; les droits sur chaque ressource restent à ceux qui l’ont publiée.",
-  optOut: "Si votre organisme ne souhaite pas figurer dans l’annuaire, demandez son retrait :",
+  optOut: "Votre organisme ne souhaite pas figurer dans l’annuaire ?",
   notAService: "Cet annuaire ne remplace pas les services officiels.",
   licence: "Contenus originaux de FarmSuccession : CC BY 4.0.",
   offersTitle: "Ce qu’elle offre",
@@ -1949,9 +1957,11 @@ const IT = {
     "Al momento dell’invio, Formspree tratta le risposte e i dati tecnici, compreso l’indirizzo IP, negli Stati Uniti per recapitare la segnalazione a FarmSuccession via email. La verifica antispam (Google reCAPTCHA) e la conferma avvengono su Formspree. Non servono un account o il tuo indirizzo email. Non includere documenti privati.",
   reportProviderPrivacy: "Informativa sulla privacy di Formspree",
   reportRemovalTitle: "Richiedi la rimozione dal repertorio",
-  reportRemovalLead:
-    "Se tu o la tua organizzazione preferite non comparire qui, indica la pagina pubblica da esaminare. Puoi anche scriverci direttamente via email.",
+  reportRemovalLead: "Se il tuo ente preferisce non comparire nell’elenco, indica la pagina pubblica da esaminare.",
   reportRemovalAction: "Richiedi la rimozione",
+  reportRemovalFooter: "Chiedere la rimozione del mio ente",
+  writeToUs: "Puoi anche scriverci a",
+  backToTop: "Torna su",
   reportRemovalVerification:
     "Le richieste sono esaminate manualmente. Prima di rimuovere informazioni, confermiamo la richiesta tramite un contatto istituzionale pubblicato dalla fonte ufficiale. L’invio del modulo non elimina alcuna scheda.",
   reportRemovalUrlLabel: "Pagina pubblica da rimuovere",
@@ -2034,7 +2044,7 @@ const IT = {
     "Citazioni e materiali delle fonti hanno i propri diritti. Verificare le condizioni della fonte originale prima di riutilizzarli.",
   trust:
     "FarmSuccession raccoglie risorse pubblicate da altri. Ogni scheda rimanda alla propria fonte ufficiale e indica quando è stata letta; i diritti su ogni risorsa restano a chi l’ha pubblicata.",
-  optOut: "Se il tuo ente non vuole comparire nell’elenco, chiedine la rimozione:",
+  optOut: "Il tuo ente non vuole comparire nell’elenco?",
   notAService: "Questo elenco non sostituisce i servizi ufficiali.",
   licence: "Contenuti originali di FarmSuccession: CC BY 4.0.",
   offersTitle: "Cosa offre",
@@ -2381,9 +2391,11 @@ const PT = {
     "Ao enviar, o Formspree trata as respostas e os dados técnicos, incluindo o endereço IP, nos Estados Unidos para entregar o aviso ao FarmSuccession por email. A verificação antisspam (Google reCAPTCHA) e a confirmação são feitas no Formspree. Não precisa de conta nem de indicar o seu email. Não inclua documentos privados.",
   reportProviderPrivacy: "Privacidade do Formspree",
   reportRemovalTitle: "Pedir a remoção do diretório",
-  reportRemovalLead:
-    "Se preferir que a sua informação ou a da sua organização não apareça aqui, indique a página pública a rever. Também pode escrever-nos diretamente por email.",
+  reportRemovalLead: "Se a sua entidade preferir não constar do diretório, indique a página pública a rever.",
   reportRemovalAction: "Pedir remoção",
+  reportRemovalFooter: "Pedir a remoção da minha entidade",
+  writeToUs: "Também pode escrever-nos para",
+  backToTop: "Voltar ao topo",
   reportRemovalVerification:
     "Os pedidos são analisados manualmente. Antes de remover informação, confirmamos o pedido através de um contacto institucional publicado na fonte oficial. Enviar este formulário não elimina nenhuma ficha.",
   reportRemovalUrlLabel: "Página pública a remover",
@@ -2465,7 +2477,7 @@ const PT = {
     "Citações e materiais das fontes têm os seus próprios direitos. Consulte as condições da fonte original antes de os reutilizar.",
   trust:
     "O FarmSuccession reúne recursos publicados por terceiros. Cada ficha remete para a sua fonte oficial e indica quando foi lida; os direitos de cada recurso pertencem a quem o publicou.",
-  optOut: "Se a sua entidade não quiser constar do diretório, peça a sua remoção:",
+  optOut: "A sua entidade não quer constar do diretório?",
   notAService: "Este diretório não substitui os serviços oficiais.",
   licence: "Conteúdo original do FarmSuccession: CC BY 4.0.",
   offersTitle: "O que oferece",
@@ -2817,9 +2829,11 @@ const NL = {
     "Bij het versturen verwerkt Formspree uw antwoorden en technische gegevens, waaronder uw IP-adres, in de Verenigde Staten om de melding per e-mail aan FarmSuccession te bezorgen. De spamcontrole (Google reCAPTCHA) en bevestiging vinden plaats bij Formspree. U hebt geen account nodig en hoeft geen e-mailadres op te geven. Voeg geen privédocumenten toe.",
   reportProviderPrivacy: "Privacybeleid van Formspree",
   reportRemovalTitle: "Verwijdering uit het overzicht aanvragen",
-  reportRemovalLead:
-    "Als u of uw organisatie hier liever niet vermeld wordt, geef dan aan welke openbare pagina we moeten bekijken. U kunt ons ook rechtstreeks e-mailen.",
+  reportRemovalLead: "Als uw organisatie liever niet in de gids staat, geef dan aan welke openbare pagina we moeten bekijken.",
   reportRemovalAction: "Verwijdering aanvragen",
+  reportRemovalFooter: "Verwijdering van mijn organisatie aanvragen",
+  writeToUs: "U kunt ons ook schrijven op",
+  backToTop: "Terug naar boven",
   reportRemovalVerification:
     "Verzoeken worden handmatig beoordeeld. Voordat we informatie verwijderen, bevestigen we het verzoek via een institutioneel contact dat in de officiële bron staat. Dit formulier versturen verwijdert geen vermelding.",
   reportRemovalUrlLabel: "Te verwijderen openbare pagina",
@@ -2900,7 +2914,7 @@ const NL = {
   sourceRights: "Citaten en bronmateriaal hebben hun eigen rechten. Controleer vóór hergebruik de voorwaarden van de oorspronkelijke bron.",
   trust:
     "FarmSuccession bundelt bronnen die anderen hebben gepubliceerd. Elke vermelding verwijst naar de officiële bron en vermeldt wanneer die is gelezen; de rechten op elke bron blijven bij wie die heeft gepubliceerd.",
-  optOut: "Wil uw organisatie niet in de gids staan? Vraag dan om verwijdering:",
+  optOut: "Wil uw organisatie niet in de gids staan?",
   notAService: "Deze gids vervangt de officiële diensten niet.",
   licence: "Eigen FarmSuccession-inhoud: CC BY 4.0.",
   offersTitle: "Wat het biedt",

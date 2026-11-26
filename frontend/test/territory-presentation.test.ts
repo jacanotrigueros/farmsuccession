@@ -342,7 +342,10 @@ test("documented access stays with the offer and official PDF links disclose the
       const overview = html.slice(start, end);
       if (resource.howToAccess) {
         assert.match(overview, /id="access"/u, `${url}: readers need the documented next step beside the offer`);
-        assert.ok(overview.includes(resource.howToAccess), `${url}: the header must present the documented access instructions`);
+        assert.ok(
+          overview.replace(/<[^>]*>/gu, "").includes(resource.howToAccess),
+          `${url}: the header must present the documented access instructions`,
+        );
       }
       const official = overview.indexOf(`href="${resource.accessUrl}"`);
       assert.ok(official >= 0, `${url}: the header must lead to its cited official address`);
@@ -386,5 +389,41 @@ test("each on-page index link keeps a full tap target even if its label is short
       classes?.includes("min-h-(--spacing-target)") && classes.includes("min-w-(--spacing-target)"),
       `${href}: text width alone can leave a section jump under the 44px tap target`,
     );
+  }
+});
+
+test("the access instructions link only the literal emails they already contain", () => {
+  let checked = 0;
+  for (const { data } of snapshots) {
+    for (const resource of data.resources) {
+      if (!resource.howToAccess) continue;
+      const url = resourceUrl(resource.id, "country" in data ? data.country : undefined);
+      const html = htmlAt(url);
+      const access = /<section\b[^>]*aria-labelledby="access"[^>]*>[\s\S]*?<\/section>/u.exec(html)?.[0] ?? "";
+      const expected = resource.howToAccess.match(/[\w.+-]+@[\w.-]+\.[a-z]{2,}/giu) ?? [];
+      const links = [...access.matchAll(/<a href="mailto:([^"]+)"[^>]*>([^<]+)<\/a>/gu)];
+      assert.deepEqual(
+        links.map(([, href, label]) => [href, label?.trim()]),
+        expected.map((email) => [email, email]),
+        `${url}: only addresses present verbatim in the access instructions may become links`,
+      );
+      checked += expected.length;
+    }
+  }
+  assert.ok(checked > 0, "the built records must exercise links inside access instructions");
+});
+
+test("the active-status note remains only where an active resource has no documented call", () => {
+  for (const { data } of snapshots) {
+    const note = words(data.metadata.language).statusExplained;
+    for (const resource of data.resources) {
+      const url = resourceUrl(resource.id, "country" in data ? data.country : undefined);
+      const html = htmlAt(url);
+      assert.equal(
+        html.includes(note),
+        resource.status === "ACTIVE" && !resource.calls?.length,
+        `${url}: keep the qualification when the active badge stands alone, and let dated call answers speak for themselves`,
+      );
+    }
   }
 });
