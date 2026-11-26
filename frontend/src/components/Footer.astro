@@ -5,9 +5,8 @@
  * A provider must be able to find the correction/removal route and the scope of the
  * project’s licence. Public accessibility does not itself establish reuse rights.
  *
- * It offers the countries as one link to the section of the home page that presents them with their
- * figures, rather than as a column of five: a reader who is already inside a country is not choosing one,
- * and the control at the top of every page is where changing it lives.
+ * Countries and search are not repeated here: the place selector and the search button are in the
+ * header of every page.
  *
  * The footer is the same on every page. Links resolve in the page's language and country
  * rather than disappearing on record, search or region pages.
@@ -15,7 +14,6 @@
 import SourceClaim from "./SourceClaim.astro";
 import { currentEdition, EUROPE_PAGE } from "../lib/corpus.ts";
 import { editionNamed, words } from "../lib/words.ts";
-import { searchPath } from "../../public/search-scope.js";
 import archived from "../../archives.json";
 
 type Props = { language: string; current?: string };
@@ -26,13 +24,15 @@ const earlier = archived.archives
   .toReversed();
 const { language, current = "/" } = Astro.props;
 const text = words(language);
+/** The licence, and the sentence before it without the licence name, which the badge shows instead. */
+const LICENCE = "CC BY 4.0";
+const licenceOwner = text.licence.replace(/\s*:\s*CC BY 4\.0\.?$/u, "");
 
 // Europe's page belongs to no country: its links are the site's own, like the home page's.
 const country = current === "/" || current.startsWith(EUROPE_PAGE) ? undefined : current.split("/")[1]?.toUpperCase();
 
 /** The pages about the project itself, in this page's own language, which is the one its reader can read. */
 const aboutPath = country ? `/${country.toLowerCase()}/${text.aboutSlug}/` : `/${text.aboutSlug}/`;
-const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` : `/${text.historySlug}/`;
 ---
 
 {/* No margin above it: every page ends in a band with a rule under it, and a gap between that rule and
@@ -64,35 +64,24 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
           </>
         )}
       </p>
+      {/* One route out of the inventory: the question and the form that handles it. The address is under
+          "Contact and corrections", so it is not repeated here (founder, 26 Nov 2026). */}
       <p class="meta mt-3">
+        {text.optOut}{" "}
         <a
           class="inline-flex min-h-(--spacing-target) items-center underline"
           rel="nofollow"
           href={`${country ? `/${country.toLowerCase()}` : ""}/${text.reportSlug}/?type=removal`}
         >
-          {text.reportRemovalAction}
-        </a>
-      </p>
-      <p class="meta mt-3">
-        {text.optOut}{" "}
-        <a class="inline-flex min-h-(--spacing-target) items-center underline" href="mailto:contact@farmsuccession.eu">
-          contact@farmsuccession.eu
+          {text.reportRemovalFooter}
         </a>
       </p>
     </div>
 
     <nav aria-label={text.siteNav} class="grid content-start">
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href="/#countries">
-        {text.countriesTitle}
-      </a>
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={searchPath("/", country)}>
-        {text.searchAction}
-      </a>
+      {/* Countries and search live in the header of every page, so the footer does not repeat them. */}
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={aboutPath}>
         {text.aboutTitle}
-      </a>
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={historyPath}>
-        {text.historyNav}
       </a>
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#method`}>
         {text.methodTitle}
@@ -103,15 +92,23 @@ const historyPath = country ? `/${country.toLowerCase()}/${text.historySlug}/` :
       <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`${aboutPath}#privacy`}>
         {text.privacyTitle}
       </a>
+      {/* The header is not fixed, and the place selector and search live there, so a long page offers the way back. */}
+      <a class="inline-flex min-h-(--spacing-target) items-center underline" href="#top">
+        {text.backToTop}
+      </a>
     </nav>
 
     {/* What the site is and whose the words are: two sentences a reader can check the whole inventory
       against, beside the pages rather than folded into one of them. */}
     <div class="grid content-start">
       <p class="meta">{text.notAService}</p>
-      <p class="meta mt-3">{text.licence}</p>
-      <a class="inline-flex min-h-(--spacing-target) items-center text-control text-muted underline" href={`${aboutPath}#licence`}>
-        {text.licenceTitle}
+      {/* Whose the words are, and the licence on a line of its own so a reader can spot it. */}
+      <a
+        class="mt-3 inline-flex min-h-(--spacing-target) flex-col items-start justify-center gap-1 text-muted"
+        href={`${aboutPath}#licence`}
+      >
+        <span class="meta underline">{licenceOwner}</span>
+        <span class="text-control font-bold tracking-wide text-ink">{LICENCE}</span>
       </a>
     </div>
   </div>

@@ -118,3 +118,36 @@ test("filtered results keep the engine's scores and order and count only the rem
     "an initial explicitly typed as a word must remain eligible",
   );
 });
+
+test("complete written matches precede partial hits without changing scores or dropping results", async () => {
+  const hit = (id: string, score: number, raw_content: string) => ({
+    id,
+    score,
+    words: [0],
+    data: async () => ({ raw_content, filters: {} }),
+  });
+  const partial = hit("partial", 10, "Bretagne");
+  const complete = hit("complete", 5, "SAFER, Brétagne");
+  const another = hit("another", 5, "Bretagne SAFER");
+  const prefix = hit("prefix", 4, "Bretagne SAFERs");
+  const mockEngine = await createEngine({
+    bundles: "/pagefind/",
+    languages: ["fr"],
+    importModule: async () => ({
+      options() {},
+      init() {},
+      filters() {},
+      search: () => ({ results: [partial, complete, another, prefix], filters: {} }),
+    }),
+  });
+  assert.deepEqual(
+    (await mockEngine.query("safer bretagne", {}, [])).results,
+    [complete, another, partial, prefix],
+    "all written words must come first; keep Pagefind's order, scores and partial hits within their groups",
+  );
+  assert.deepEqual(
+    (await mockEngine.query("bretagne", {}, [])).results,
+    [partial, complete, another, prefix],
+    "a single written word must keep the existing Pagefind order",
+  );
+});
