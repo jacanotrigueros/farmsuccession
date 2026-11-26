@@ -167,7 +167,7 @@ const EN = {
     "FarmSuccession is a documentary inventory of public resources for farm succession and access to farming. It helps people find land, funding, training, advice and transfer services; it is not a marketplace, an advisory service or an application portal.",
   methodTitle: "Method and coverage",
   methodLead:
-    "The directory is not exhaustive. Content remains in its original language; searching does not translate the words you enter. Each source shows the date its quotes were last found on the official page. A resource marked active does not necessarily have an open application period: each record says whether you can apply now.",
+    "The directory is not exhaustive. Content remains in its original language; searching does not translate the words you enter. Each source shows the date its quotes were last found on the official page. A resource marked active does not necessarily have an open application period: where a call is documented, the record says whether you can apply according to its published dates.",
   criteriaIntro:
     "A resource is included when it can be documented from a public source published by an administration or by the organisation providing it.",
   criteriaItems: [
@@ -593,7 +593,7 @@ const ES = {
     "FarmSuccession es un inventario documental de recursos públicos para el relevo generacional y el acceso a la actividad agraria. Ayuda a localizar tierras, ayudas, formación, asesoramiento y servicios de transmisión; no es un mercado, un servicio de consultoría ni un portal de solicitudes.",
   methodTitle: "Método y cobertura",
   methodLead:
-    "El directorio no es exhaustivo. Los contenidos conservan su idioma original; la búsqueda no traduce las palabras que escribes. Cada fuente indica la fecha en que sus citas se encontraron por última vez en la página oficial. Un recurso activo no implica que tenga abierto el plazo de solicitud: cada ficha indica si se puede solicitar ahora.",
+    "El directorio no es exhaustivo. Los contenidos conservan su idioma original; la búsqueda no traduce las palabras que escribes. Cada fuente indica la fecha en que sus citas se encontraron por última vez en la página oficial. Un recurso activo no implica que tenga abierto el plazo de solicitud: cuando hay una convocatoria documentada, la ficha indica si se puede solicitar según las fechas publicadas.",
   criteriaIntro:
     "Un recurso se incorpora cuando puede documentarse mediante una fuente pública publicada por una administración o por la entidad que lo ofrece.",
   criteriaItems: [
@@ -1024,7 +1024,7 @@ const DE = {
     "FarmSuccession ist ein dokumentarisches Verzeichnis öffentlicher Angebote zur Hofnachfolge und zum Einstieg in die Landwirtschaft. Es hilft dabei, Flächen, Förderungen, Bildung, Beratung und Übergabedienste zu finden; es ist weder Marktplatz noch Beratungsstelle oder Antragsportal.",
   methodTitle: "Methode und Abdeckung",
   methodLead:
-    "Das Verzeichnis ist nicht vollständig. Inhalte bleiben in ihrer Originalsprache; die Suche übersetzt die eingegebenen Wörter nicht. Jede Quelle nennt das Datum, an dem ihre Zitate zuletzt auf der offiziellen Seite gefunden wurden. Ein aktives Angebot bedeutet nicht, dass Anträge offen sind: Jeder Eintrag zeigt, ob Sie jetzt einen Antrag stellen können.",
+    "Das Verzeichnis ist nicht vollständig. Inhalte bleiben in ihrer Originalsprache; die Suche übersetzt die eingegebenen Wörter nicht. Jede Quelle nennt das Datum, an dem ihre Zitate zuletzt auf der offiziellen Seite gefunden wurden. Ein aktives Angebot bedeutet nicht, dass Anträge offen sind: Ist ein Aufruf dokumentiert, zeigt der Eintrag, ob nach den veröffentlichten Fristen ein Antrag möglich ist.",
   criteriaIntro:
     "Ein Angebot wird aufgenommen, wenn es durch eine öffentliche Quelle einer Verwaltung oder der anbietenden Organisation dokumentiert werden kann.",
   criteriaItems: [
@@ -1463,7 +1463,7 @@ const FR = {
     "FarmSuccession est un inventaire documentaire de ressources publiques consacrées à la transmission agricole et à l’accès au métier. Il aide à trouver des terres, des aides, des formations, des conseils et des services de transmission ; ce n’est ni une place de marché, ni un service de conseil, ni un portail de candidature.",
   methodTitle: "Méthode et couverture",
   methodLead:
-    "L’annuaire n’est pas exhaustif. Les contenus restent dans leur langue d’origine\u202f; la recherche ne traduit pas les mots que vous saisissez. Chaque source indique la date à laquelle ses citations ont été retrouvées pour la dernière fois sur la page officielle. Une ressource active n’a pas nécessairement de période de candidature ouverte\u00a0: chaque fiche indique si l’on peut candidater maintenant.",
+    "L’annuaire n’est pas exhaustif. Les contenus restent dans leur langue d’origine\u202f; la recherche ne traduit pas les mots que vous saisissez. Chaque source indique la date à laquelle ses citations ont été retrouvées pour la dernière fois sur la page officielle. Une ressource active n’a pas nécessairement de période de candidature ouverte\u00a0: lorsqu’un appel est documenté, la fiche indique si l’on peut candidater selon les dates publiées.",
   criteriaIntro:
     "Une ressource est incluse lorsqu’elle peut être documentée par une source publique publiée par une administration ou par l’organisme qui la propose.",
   criteriaItems: [
@@ -1904,7 +1904,7 @@ const IT = {
     "FarmSuccession è un inventario documentale di risorse pubbliche per il ricambio generazionale e l’accesso all’agricoltura. Aiuta a trovare terreni, sostegni, formazione, consulenza e servizi di trasferimento; non è un mercato, un servizio di consulenza né un portale per presentare domande.",
   methodTitle: "Metodo e copertura",
   methodLead:
-    "L’elenco non è esaustivo. I contenuti mantengono la lingua originale; la ricerca non traduce le parole che scrivi. Ogni fonte indica la data in cui le sue citazioni sono state ritrovate l’ultima volta sulla pagina ufficiale. Una risorsa attiva non implica un bando aperto: ogni scheda indica se è possibile presentare domanda adesso.",
+    "L’elenco non è esaustivo. I contenuti mantengono la lingua originale; la ricerca non traduce le parole che scrivi. Ogni fonte indica la data in cui le sue citazioni sono state ritrovate l’ultima volta sulla pagina ufficiale. Una risorsa attiva non implica un bando aperto: quando un bando è documentato, la scheda indica se è possibile presentare domanda secondo le date pubblicate.",
   criteriaIntro:
     "Una risorsa viene inclusa quando può essere documentata tramite una fonte pubblica pubblicata da un’amministrazione o dall’organizzazione che la offre.",
   criteriaItems: [
@@ -2340,7 +2340,7 @@ const PT = {
     "FarmSuccession é um inventário documental de recursos públicos para a sucessão agrícola e o acesso à atividade. Ajuda a encontrar terras, apoios, formação, aconselhamento e serviços de transmissão; não é um mercado, um serviço de consultoria nem um portal de candidaturas.",
   methodTitle: "Método e cobertura",
   methodLead:
-    "O diretório não é exaustivo. Os conteúdos mantêm o idioma original; a pesquisa não traduz as palavras que escreve. Cada fonte indica a data em que as suas citações foram encontradas pela última vez na página oficial. Um recurso ativo não implica candidaturas abertas: cada ficha indica se é possível candidatar-se agora.",
+    "O diretório não é exaustivo. Os conteúdos mantêm o idioma original; a pesquisa não traduz as palavras que escreve. Cada fonte indica a data em que as suas citações foram encontradas pela última vez na página oficial. Um recurso ativo não implica candidaturas abertas: quando há um concurso documentado, a ficha indica se é possível candidatar-se segundo as datas publicadas.",
   criteriaIntro:
     "Um recurso é incluído quando pode ser documentado através de uma fonte pública publicada por uma administração ou pela entidade que o disponibiliza.",
   criteriaItems: [
