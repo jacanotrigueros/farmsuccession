@@ -10,7 +10,7 @@ import { ancestorLayers, layerKey, leafLayers, snapshotLayer } from "../../src/l
 import { loadTerritories } from "../../src/territories.ts";
 import { recordSlug, regionSlug, searchPath } from "../public/search-scope.js";
 import { isFirstEstablishmentAid } from "../src/lib/goals.ts";
-import { words } from "../src/lib/words.ts";
+import { counted, words } from "../src/lib/words.ts";
 
 const DIST = path.join(import.meta.dirname, "..", "dist");
 const loaded = loadSnapshots({});
@@ -424,6 +424,36 @@ test("the active-status note remains only where an active resource has no docume
         resource.status === "ACTIVE" && !resource.calls?.length,
         `${url}: keep the qualification when the active badge stands alone, and let dated call answers speak for themselves`,
       );
+    }
+  }
+});
+
+test("territory cards expose a separate, counted native show and hide action in each country", () => {
+  for (const { data, layer } of snapshots) {
+    if (layer.level !== "COUNTRY") continue;
+    const html = htmlAt(layer.country.toLowerCase());
+    const text = words(data.metadata.language);
+    const headings = [...html.matchAll(/<details class="regional-resources[^>]*>\s*(<summary[^>]*>)([\s\S]*?)<\/summary>/gu)];
+    const places = snapshots.filter(
+      (entry) =>
+        (entry.layer.level === "REGION" || entry.layer.level === "HUB") &&
+        entry.layer.country === layer.country &&
+        entry.data.resources.some((resource) => !isFirstEstablishmentAid(resource)),
+    );
+    assert.equal(headings.length, places.length, layer.country);
+    for (const [, summary, body] of headings) {
+      assert.match(summary!, /min-h-\(--spacing-target\).*min-w-\(--spacing-target\).*text-control/u);
+      assert.doesNotMatch(summary!, /aria-expanded/u, "the browser must expose the native details state");
+      const name = decodeHTML(/class="sr-only"[^>]*> · ([^<]+)</u.exec(body!)?.[1] ?? "");
+      const place = places.find(({ data }) => data.officialName === name);
+      assert.ok(place, name);
+      const count = counted(
+        place.data.resources.filter((resource) => !isFirstEstablishmentAid(resource)).length,
+        text.record,
+        data.metadata.language,
+      );
+      assert.ok(decodeHTML(body!).includes(text.showTerritoryRecords.replace("{count}", count)));
+      assert.ok(decodeHTML(body!).includes(text.hideTerritoryRecords.replace("{count}", count)));
     }
   }
 });

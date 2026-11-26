@@ -10,6 +10,14 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.3.0 — 2026-11-26
+
+- Search can show only resources with an application period open according to
+  its documented dates. The browser checks those dates for the reader's day,
+  and each result says when its source was read.
+- Country pages distinguish opening a territory from showing its additional
+  records on the same page. Both actions work with the keyboard.
+
 ## 2.2.2 — 2026-11-26
 
 Corrections to 2.2.1, found by reading it in production and by the founder: nothing new a reader has to
