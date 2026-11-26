@@ -70,6 +70,16 @@ test("inherited-only pages put applicable resources before discovery controls an
       `${route}: an empty local list must not offer its jump, count or filter`,
     );
     const language = data.metadata.language;
+    const search = html.indexOf('role="search"');
+    const firstSection = html.indexOf('aria-labelledby="inherited"');
+    const nearby = html.slice(search, firstSection >= 0 ? firstSection : html.indexOf('id="needs"'));
+    assert.ok(search >= 0, `${route}: the shortcut belongs with the territorial search`);
+    const shortcut = /<a href="#needs" class="([^"]+)"[^>]*>\s*([^<]+)\s*<\/a>/u.exec(nearby);
+    assert.ok(
+      shortcut?.[1]?.includes("min-h-(--spacing-target)") && shortcut[2]?.trim() === words(language).navNeeds,
+      `${route}: readers need a visible, tappable shortcut to the topics beside the territorial search, before the long inherited list`,
+    );
+    assert.ok(html.includes('id="needs"'), `${route}: the shortcut must lead to the topic block`);
     assert.ok(
       !html.includes(`aria-label="${words(language).statsLabel}"`),
       `${route}: an inherited-only page needs no zero local statistic`,
