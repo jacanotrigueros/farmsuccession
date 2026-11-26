@@ -16,6 +16,8 @@ import {
   territorySearchUrl,
 } from "../public/search-scope.js";
 
+import { words } from "../src/lib/words.ts";
+
 /**
  * What searching may and may not do.
  *
@@ -207,4 +209,34 @@ test("explicitly widening to Europe retains the question and thematic filters wh
   });
   assert.deepEqual(selected.territory, ["ES/galicia"], "widening must not mutate the current search");
   assert.equal(europeanSearch(), "/search/");
+});
+
+test("a shareable open-calls filter is separate from resource status and respects national scope", () => {
+  const state = stateFromQuery("?q=tierra&openCalls=OPEN&openCalls=invalid&status=ACTIVE&territory=FR/bretagne", "ES");
+  assert.deepEqual(state, { q: "tierra", selected: { openCalls: ["OPEN"], status: ["ACTIVE"] } });
+  assert.equal(queryFromState(state, "ES"), "?q=tierra&status=ACTIVE&openCalls=OPEN");
+  assert.deepEqual(effectiveFilters(state.selected, "ES", ["EU"]), { status: ["ACTIVE"], openCalls: ["OPEN"], country: ["ES", "EU"] });
+});
+
+test("every search scope renders a translated open-calls control and a dedicated way to remove it", () => {
+  const scopes = [
+    { country: undefined, language: "en" },
+    ...all
+      .filter(({ schemaId }) => schemaId === "country-snapshot")
+      .map(({ country, metadata }) => ({ country, language: metadata.language })),
+  ];
+  for (const { country, language } of scopes) {
+    const html = page(searchPath("/", country));
+    const text = words(language);
+    const fieldset = [...html.matchAll(/<fieldset\b[^>]*>([\s\S]*?)<\/fieldset>/gu)].find(([, body]) =>
+      body?.includes('name="openCalls"'),
+    )?.[1];
+    assert.ok(fieldset, country);
+    assert.ok(fieldset.includes(text.openCallsFacet), country);
+    assert.ok(fieldset.includes(text.openCallsOnly), country);
+    assert.match(fieldset, /<label[^>]*min-h-\(--spacing-target\)[^>]*text-control/u);
+    assert.match(html, /<button\b[^>]*data-remove-open-calls[^>]*hidden/u);
+    assert.ok(html.includes(text.removeOpenCalls), country);
+    assert.ok(html.includes(text.noOpenCalls), country);
+  }
 });

@@ -19,6 +19,8 @@
  * No DOM in here: the same functions run in the browser and in a test.
  */
 
+import { localToday, rankedPeriods } from "./apply.js";
+
 const NEAREST_FIRST = ["REGION", "HUB", "COUNTRY", "EU"];
 
 const wordsIn = (text) => text.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
@@ -28,7 +30,7 @@ const foldedWords = (text) => wordsIn(text.normalize("NFD").replace(/\p{M}/gu, "
  * Pagefind's prefix fallback can match an untyped initial, such as "N." for "Niederlassungsprämie".
  * Check each hit's matched positions in its original fragment. Keep stemmed words and typed initials.
  */
-async function documentedResults(term, results) {
+async function documentedResults(term, results, openOn) {
   const typed = new Set(wordsIn(term));
   const queryWords = new Set(foldedWords(term));
   const matched = [];
@@ -37,9 +39,11 @@ async function documentedResults(term, results) {
   for (let start = 0; start < results.length; start += batchSize) {
     const batch = await Promise.all(
       results.slice(start, start + batchSize).map(async (hit) => {
-        const { raw_content: content, filters } = await hit.data();
+        const { raw_content: content, filters, meta } = await hit.data();
         const indexed = content.includes("\u200B") ? content.split("\u200B") : content.split(/\s+/u);
-        const hasMatch = hit.words.some((at) => wordsIn(indexed[at] ?? "").some((word) => word.length > 1 || typed.has(word)));
+        const matchesTerm = !term || hit.words.some((at) => wordsIn(indexed[at] ?? "").some((word) => word.length > 1 || typed.has(word)));
+        const matchesPeriod = !openOn || rankedPeriods(JSON.parse(meta?.periods ?? "[]"), openOn).some(({ key }) => key === "openByDates");
+        const hasMatch = matchesTerm && matchesPeriod;
         const wordsInRecord = hasMatch && queryWords.size > 1 ? new Set(foldedWords(content)) : null;
         const complete = wordsInRecord !== null && [...queryWords].every((word) => wordsInRecord.has(word));
         return { hit, filters, hasMatch, complete };
@@ -69,12 +73,16 @@ export async function createEngine({ bundles, languages, importModule = (url) =>
   const cache = new Map();
 
   /** One query across every bundle of the scope, merged by score the way Pagefind merges its own indexes. */
-  function search(term, filters = {}) {
-    const key = JSON.stringify([term, filters]);
+  function search(term, filters = {}, today = localToday()) {
+    const { openCalls, ...indexedFilters } = filters;
+    const openOn = openCalls?.includes("OPEN") ? today : undefined;
+    const key = JSON.stringify([term, filters, openOn]);
     if (!cache.has(key)) {
       if (cache.size > 128) cache.delete(cache.keys().next().value);
       // "any", not a bare list: a list asks for a record that carries every value at once.
-      const any = Object.fromEntries(Object.entries(filters).map(([facet, values]) => [facet, { any: values }]));
+      // The index only identifies candidates with a closing date. It never freezes an opening state.
+      if (openOn) indexedFilters.datedCall = ["YES"];
+      const any = Object.fromEntries(Object.entries(indexedFilters).map(([facet, values]) => [facet, { any: values }]));
       // With no words there is no relevance to rank by: every bundle lists its records in catalogue order and
       // the bundles follow each other in the scope's order, the European layer's first — the same order as
       // the list the page carries for readers without JavaScript (lib/catalogue-order.ts).
@@ -82,12 +90,14 @@ export async function createEngine({ bundles, languages, importModule = (url) =>
       const pending = Promise.all(modules.map((pagefind) => pagefind.search(term || null, options))).then(async (all) => {
         const results = all.flatMap((one) => one.results);
         const counts = () => sum(all.map((one) => one.filters));
-        if (!term) return { results, counts: counts() };
+        if (!term && !openOn) return { results, counts: counts() };
 
-        const matched = await documentedResults(term, results);
+        const matched = await documentedResults(term, results, openOn);
         if (matched.length === 0) return { results: [], counts: {} };
         return {
-          results: matched.toSorted((a, b) => Number(b.complete) - Number(a.complete) || b.hit.score - a.hit.score).map(({ hit }) => hit),
+          results: (term ? matched.toSorted((a, b) => Number(b.complete) - Number(a.complete) || b.hit.score - a.hit.score) : matched).map(
+            ({ hit }) => hit,
+          ),
           counts: matched.length === results.length ? counts() : countResults(matched),
         };
       });
@@ -105,21 +115,23 @@ export async function createEngine({ bundles, languages, importModule = (url) =>
    * from has to come from a query without that choice — otherwise every unchosen option in it reads zero.
    * That is one extra query per chosen facet, in parallel, and the cache usually answers them.
    */
-  async function query(term, filters, chosen) {
+  async function query(term, filters, chosen, today = localToday()) {
     const mainQuery =
       !term && filters.territory?.length
-        ? Promise.all(NEAREST_FIRST.map((layer) => search(term, { ...filters, documentaryLayer: [layer] }))).then((layers) => ({
+        ? Promise.all(NEAREST_FIRST.map((layer) => search(term, { ...filters, documentaryLayer: [layer] }, today))).then((layers) => ({
             results: layers.flatMap(({ results }) => results),
             counts: sum(layers.map(({ counts }) => counts)),
           }))
-        : search(term, filters);
+        : search(term, filters, today);
     const [main, ...own] = await Promise.all([
       mainQuery,
-      ...chosen.map((facet) => {
-        const rest = { ...filters };
-        delete rest[facet];
-        return search(term, rest).then((one) => [facet, one.counts[facet] ?? {}]);
-      }),
+      ...chosen
+        .filter((facet) => facet !== "openCalls")
+        .map((facet) => {
+          const rest = { ...filters };
+          delete rest[facet];
+          return search(term, rest, today).then((one) => [facet, one.counts[facet] ?? {}]);
+        }),
     ]);
     return { results: main.results, counts: { ...main.counts, ...Object.fromEntries(own) } };
   }

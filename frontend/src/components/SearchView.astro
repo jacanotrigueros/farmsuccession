@@ -87,10 +87,13 @@ const available = (listed.length === 1 ? text.available[0] : text.available[1])
 
 /** Everything the client would otherwise have to translate, in the language of this page. */
 const labels = {
-  titles: Object.fromEntries(facets.map((facet) => [facet.name, facet.legend])),
-  options: Object.fromEntries(
-    facets.map((facet) => [facet.name, Object.fromEntries(facet.options.map((option) => [option.value, option.label]))]),
-  ),
+  titles: { ...Object.fromEntries(facets.map((facet) => [facet.name, facet.legend])), openCalls: text.openCallsFacet },
+  options: {
+    ...Object.fromEntries(
+      facets.map((facet) => [facet.name, Object.fromEntries(facet.options.map((option) => [option.value, option.label]))]),
+    ),
+    openCalls: { OPEN: text.openCallsOnly },
+  },
 };
 const strings = {
   area: text.reachRow,
@@ -98,6 +101,7 @@ const strings = {
   result: text.result,
   loading: text.loading,
   nothing: text.nothingMatched,
+  noOpenCalls: text.noOpenCalls,
   failed: text.searchFailed,
   resultsFor: text.resultsFor,
   filtered: text.filteredResults,
@@ -110,7 +114,7 @@ const strings = {
   showResults: text.showResults,
   callCheckedOn: text.checkedOn,
   calls: {
-    open: callStateLabel("OPEN", language),
+    open: text.applyOpen,
     openByDates: text.applyOpenByDates,
     upcoming: callStateLabel("UPCOMING", language),
     closed: callStateLabel("CLOSED", language),
@@ -234,6 +238,13 @@ const strings = {
           <Icon name={ICON.chevronDown} aria-hidden="true" class="panel-chevron ms-auto size-5" />
         </summary>
         <div class="px-2 pb-2 lg:pe-3 lg:ps-0">
+          <fieldset class="border-b border-line px-2 py-2">
+            <legend class="font-bold">{text.openCallsFacet}</legend>
+            <label class:list={[option, "text-control"]}>
+              <input type="checkbox" name="openCalls" value="OPEN" class="size-5 shrink-0 accent-brand" />
+              <span>{text.openCallsOnly}</span>
+            </label>
+          </fieldset>
           {facets.map((facet) => (
             <details class="border-b border-line py-1" open={OPEN.has(facet.name)} data-group>
               <summary class="flex min-h-(--spacing-target) cursor-pointer items-center gap-2 rounded-md px-2 font-bold hover:bg-brand-tint">
@@ -285,7 +296,7 @@ const strings = {
       </h2>
       <div class="flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-3">
         <p
-          class="meta font-bold text-ink data-empty:w-full data-empty:rounded-lg data-empty:border data-empty:border-brand data-empty:bg-brand-tint data-empty:px-4 data-empty:py-3"
+          class="text-control font-bold text-ink data-empty:w-full data-empty:rounded-lg data-empty:border data-empty:border-brand data-empty:bg-brand-tint data-empty:px-4 data-empty:py-3"
           data-state
           hidden
           aria-live="polite"
@@ -295,6 +306,10 @@ const strings = {
           {text.resetSearch}
         </button>
       </div>
+
+      <button type="button" class="btn btn-quiet mt-3" data-remove-open-calls hidden>
+        {text.removeOpenCalls}
+      </button>
 
       <p class="mt-3" data-not-found hidden>
         <a

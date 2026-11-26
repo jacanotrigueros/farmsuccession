@@ -66,7 +66,11 @@ const entries = (
         : { text: stateLabel(resource.status, language) },
     };
 
-    return { call, key, answer: key ? answers[key] : undefined, answers, checked };
+    // An affirmative window calculated during the build would age in static HTML.
+    // The dates and the reading remain available before the browser answers for its day.
+    const datedOpening = key === "openByDates";
+    const answer = datedOpening ? { text: `${text.closesLabel} · ${on(call?.closes)}` } : key ? answers[key] : undefined;
+    return { call, key, answer, answers, checked, tone: datedOpening ? "unsure" : key && APPLY_TONE[key] };
   })
   .map((entry, index) => ({
     ...entry,
@@ -78,13 +82,13 @@ const entries = (
 {entries.some(({ key }) => key) && (
   <div class:list={["mt-6", entries.length > 1 && "grid gap-4 md:grid-cols-2"]}>
     {entries.map(
-      ({ call, key, answer, answers, checked, titleId, nameId }) =>
+      ({ call, key, answer, answers, checked, tone, titleId, nameId }) =>
         key &&
         answer && (
           <section
             aria-labelledby={call ? `${titleId} ${nameId}` : titleId}
             class="apply flex min-w-0 flex-col rounded-lg border border-line-strong bg-page p-5"
-            data-tone={APPLY_TONE[key as keyof typeof APPLY_TONE]}
+            data-tone={tone}
             data-apply-call={call ? JSON.stringify(call) : undefined}
             data-apply-status={resource.status}
             data-apply-answers={JSON.stringify(answers)}

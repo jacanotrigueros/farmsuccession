@@ -98,3 +98,4 @@ on the way in, which is the only honest reason for a measurement to move.
 | [046](046-rank-complete-matches-before-partial-matches.md)        | Rank complete written matches before partial matches              |
 | [047](047-show-the-active-status-note-only-without-calls.md)      | Show the active status note only without calls                    |
 | [048](048-distinguish-territory-links-from-record-disclosures.md) | Distinguish territory links from record disclosures               |
+| [049](049-filter-search-by-documented-open-calls.md)              | Filter search by documented open calls                            |

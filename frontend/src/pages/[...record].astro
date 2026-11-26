@@ -472,6 +472,7 @@ const browseHere = searchUrl("/", {
     {/* Its place in the catalogue, which an empty search is listed by (lib/catalogue-order.ts). */}
     <span hidden data-pagefind-filter={`documentaryLayer:${territory.layer.level}`}></span>
     {periods.length > 0 && <span hidden data-pagefind-meta="periods[data-periods]" data-periods={JSON.stringify(periods)}></span>}
+    {periods.some(({ call }) => call.closes) && <span hidden data-pagefind-filter="datedCall:YES"></span>}
     <span hidden data-pagefind-sort={`order:${catalogueOrderOf(territory, resource.id)}`}></span>
     <span hidden data-pagefind-filter={`kind:${resource.kind}`} data-pagefind-meta={`kind:${resource.kind}`}></span>
     <span hidden data-pagefind-filter={`status:${resource.status}`} data-pagefind-meta={`status:${resource.status}`}></span>
