@@ -133,6 +133,42 @@
       "properties": {
         "schemaId": {
           "const": "eu-snapshot"
+        },
+        "memberStates": {
+          "title": "MemberStates",
+          "description": "Eurostat's farm structure figures for every EU member state, so Europe's page compares all of them, linking only the countries this directory documents. Written by scripts/member-states.ts from the Eurostat API; each row keeps the query it came from.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["consultedOn", "countries"],
+          "properties": {
+            "consultedOn": {
+              "description": "Day the Eurostat API was read.",
+              "$ref": "#/$defs/isoDate"
+            },
+            "countries": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["country", "succession", "land"],
+                "properties": {
+                  "country": {
+                    "description": "ISO 3166-1 alpha-2, uppercase (Greece is GR, not Eurostat's EL).",
+                    "type": "string",
+                    "pattern": "^[A-Z]{2}$"
+                  },
+                  "succession": {
+                    "$ref": "#/$defs/countryContext/properties/succession"
+                  },
+                  "land": {
+                    "$ref": "#/$defs/countryContext/properties/land"
+                  }
+                }
+              },
+              "description": "One row per EU member state; scripts/member-states.ts writes all 27."
+            }
+          }
         }
       }
     },

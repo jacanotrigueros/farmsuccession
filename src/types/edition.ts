@@ -562,91 +562,77 @@ export interface NewsItem {
 }
 export interface EuIdentity {
   schemaId: "eu-snapshot";
-}
-export interface CountryIdentity {
-  schemaId: "country-snapshot";
-  /**
-   * ISO 3166-1 alpha-2, uppercase.
-   */
-  country: string;
-  /**
-   * Optional search title of the country page, in its language. The site's localised country title is used when this is absent.
-   */
-  metaTitle?: string;
-  /**
-   * Optional short search description of the country page, in its language. The public summary is used when this is absent.
-   */
-  metaDescription?: string;
-  countryContext?: CountryContext;
+  memberStates?: MemberStates;
 }
 /**
- * Dated national statistics with the original source observations. Economic observations are at current prices in million euros. Age counts are agricultural holdings grouped by age of the farm manager.
+ * Eurostat's farm structure figures for every EU member state, so Europe's page compares all of them, linking only the countries this directory documents. Written by scripts/member-states.ts from the Eurostat API; each row keeps the query it came from.
  */
-export interface CountryContext {
-  consultedOn: IsoDate;
+export interface MemberStates {
   /**
-   * Utilised agricultural area from the farm structure survey.
+   * Day the Eurostat API was read.
    */
-  land: {
-    /**
-     * Reference year of the reported observations.
-     */
-    year: number;
-    /**
-     * Published utilised agricultural area in hectares.
-     */
-    hectares: number;
-    sourceUrl: HttpsUrl;
-    /**
-     * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
-     */
-    flag?: "IMPUTED" | "PROVISIONAL";
-    /**
-     * The EU-27's utilised agricultural area for the same year, so the countries can be read against Europe's total.
-     */
-    europe?: {
-      /**
-       * Reference year of the reported observation.
-       */
-      year: number;
-      /**
-       * Published utilised agricultural area of the EU-27 in hectares.
-       */
-      hectares: number;
-      sourceUrl: HttpsUrl;
-      /**
-       * Eurostat's status flag on the observation, when it has one.
-       */
-      flag?: "IMPUTED" | "PROVISIONAL";
-    };
-  };
+  consultedOn: string;
   /**
-   * Gross value added and gross domestic product from annual national accounts at current prices.
+   * One row per EU member state; scripts/member-states.ts writes all 27.
+   *
+   * @minItems 1
    */
-  economy: {
-    /**
-     * Reference year of the reported observations.
-     */
-    year: number;
-    /**
-     * Gross value added of crop and animal production (NACE A01), in million euros. Forestry and fishing are left out: fishing is another project's subject.
-     */
-    sectorValueAdded: number;
-    /**
-     * Gross domestic product at market prices, in million euros.
-     */
-    gdp: number;
-    sectorSourceUrl: HttpsUrl;
-    gdpSourceUrl: HttpsUrl;
-    /**
-     * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
-     */
-    flag?: "IMPUTED" | "PROVISIONAL";
-  };
+  countries: [
+    {
+      /**
+       * ISO 3166-1 alpha-2, uppercase (Greece is GR, not Eurostat's EL).
+       */
+      country: string;
+      succession: Succession;
+      land: Land;
+    },
+    ...{
+      /**
+       * ISO 3166-1 alpha-2, uppercase (Greece is GR, not Eurostat's EL).
+       */
+      country: string;
+      succession: Succession;
+      land: Land;
+    }[]
+  ];
+}
+/**
+ * Reported holdings by age of the manager from the farm structure survey.
+ */
+export interface Succession {
   /**
-   * Reported holdings by age of the manager from the farm structure survey.
+   * Reference year of the reported observations.
    */
-  succession: {
+  year: number;
+  /**
+   * Total agricultural holdings covered by the age table, across all ages.
+   */
+  holdings: number;
+  /**
+   * Holdings with a manager under 25.
+   */
+  under25: number;
+  /**
+   * Holdings with a manager aged 25 to 34.
+   */
+  from25To34: number;
+  /**
+   * Holdings with a manager aged 35 to 39.
+   */
+  from35To39: number;
+  /**
+   * Holdings with a manager aged 65 or over.
+   */
+  atLeast65: number;
+  sourceUrl: HttpsUrl;
+  /**
+   * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+   */
+  flag?: "IMPUTED" | "PROVISIONAL";
+  /**
+   * The same age table for the EU-27 aggregate and year, so a country's shares can be read against Europe's.
+   */
+  europe?: {
     /**
      * Reference year of the reported observations.
      */
@@ -676,41 +662,90 @@ export interface CountryContext {
      * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
      */
     flag?: "IMPUTED" | "PROVISIONAL";
-    /**
-     * The same age table for the EU-27 aggregate and year, so a country's shares can be read against Europe's.
-     */
-    europe?: {
-      /**
-       * Reference year of the reported observations.
-       */
-      year: number;
-      /**
-       * Total agricultural holdings covered by the age table, across all ages.
-       */
-      holdings: number;
-      /**
-       * Holdings with a manager under 25.
-       */
-      under25: number;
-      /**
-       * Holdings with a manager aged 25 to 34.
-       */
-      from25To34: number;
-      /**
-       * Holdings with a manager aged 35 to 39.
-       */
-      from35To39: number;
-      /**
-       * Holdings with a manager aged 65 or over.
-       */
-      atLeast65: number;
-      sourceUrl: HttpsUrl;
-      /**
-       * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
-       */
-      flag?: "IMPUTED" | "PROVISIONAL";
-    };
   };
+}
+/**
+ * Utilised agricultural area from the farm structure survey.
+ */
+export interface Land {
+  /**
+   * Reference year of the reported observations.
+   */
+  year: number;
+  /**
+   * Published utilised agricultural area in hectares.
+   */
+  hectares: number;
+  sourceUrl: HttpsUrl;
+  /**
+   * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+   */
+  flag?: "IMPUTED" | "PROVISIONAL";
+  /**
+   * The EU-27's utilised agricultural area for the same year, so the countries can be read against Europe's total.
+   */
+  europe?: {
+    /**
+     * Reference year of the reported observation.
+     */
+    year: number;
+    /**
+     * Published utilised agricultural area of the EU-27 in hectares.
+     */
+    hectares: number;
+    sourceUrl: HttpsUrl;
+    /**
+     * Eurostat's status flag on the observation, when it has one.
+     */
+    flag?: "IMPUTED" | "PROVISIONAL";
+  };
+}
+export interface CountryIdentity {
+  schemaId: "country-snapshot";
+  /**
+   * ISO 3166-1 alpha-2, uppercase.
+   */
+  country: string;
+  /**
+   * Optional search title of the country page, in its language. The site's localised country title is used when this is absent.
+   */
+  metaTitle?: string;
+  /**
+   * Optional short search description of the country page, in its language. The public summary is used when this is absent.
+   */
+  metaDescription?: string;
+  countryContext?: CountryContext;
+}
+/**
+ * Dated national statistics with the original source observations. Economic observations are at current prices in million euros. Age counts are agricultural holdings grouped by age of the farm manager.
+ */
+export interface CountryContext {
+  consultedOn: IsoDate;
+  land: Land;
+  /**
+   * Gross value added and gross domestic product from annual national accounts at current prices.
+   */
+  economy: {
+    /**
+     * Reference year of the reported observations.
+     */
+    year: number;
+    /**
+     * Gross value added of crop and animal production (NACE A01), in million euros. Forestry and fishing are left out: fishing is another project's subject.
+     */
+    sectorValueAdded: number;
+    /**
+     * Gross domestic product at market prices, in million euros.
+     */
+    gdp: number;
+    sectorSourceUrl: HttpsUrl;
+    gdpSourceUrl: HttpsUrl;
+    /**
+     * Eurostat's status flag on the observation, when it has one: an estimate (imputed) or a provisional figure. Absent when the observation is final.
+     */
+    flag?: "IMPUTED" | "PROVISIONAL";
+  };
+  succession: Succession;
 }
 export interface HubIdentity {
   schemaId: "hub-snapshot";
