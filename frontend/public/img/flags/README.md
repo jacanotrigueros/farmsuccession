@@ -1,6 +1,6 @@
 # Flags
 
-Nine files, drawn beside a country's name at 24×18 pixels.
+Eleven files, drawn beside a country's name at 24×18 pixels.
 
 They are files rather than emoji because a flag emoji is a pair of regional indicator letters and
 Windows ships no glyph for the pair: every Windows reader saw `ES` where the page meant Spain.
@@ -19,3 +19,7 @@ by hand for this repository rather than copied, and should be compared with flag
 the colours flag-icons uses. It too should be compared with flag-icons before release.
 
 `ro.svg` uses three equal vertical bands: blue, yellow and red.
+
+`gr.svg` (nine blue and white stripes with the white cross in the canton) and `pl.svg` (white over red)
+were written by hand for this repository in the colours flag-icons uses; compare them with flag-icons
+before a later release.

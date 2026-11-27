@@ -33,6 +33,8 @@ export const SEARCH_SLUGS = {
   AT: "suchen",
   NL: "zoeken",
   RO: "cauta",
+  PL: "szukaj",
+  GR: "anazitisi",
 };
 
 /**
@@ -53,6 +55,8 @@ export const REGION_SLUGS = {
   AT: "regionen",
   NL: "provincies",
   RO: "teritorii",
+  PL: "obszary",
+  GR: "perioxes",
 };
 
 /** @param {string} country */
@@ -74,6 +78,8 @@ export const RECORD_SLUGS = {
   AT: "angebote",
   NL: "vermeldingen",
   RO: "resurse",
+  PL: "zasoby",
+  GR: "poroi",
 };
 
 /** @param {string} country */

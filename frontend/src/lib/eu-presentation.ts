@@ -57,6 +57,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Cadrul de politici al UE pentru acces mai ușor la agricultură: sprijin la instalare, piețe funciare mai transparente și echitabile, transmiterea fermelor mai devreme, siguranță la pensie, formare și servicii rurale. Propune un punct național unic de acces la finanțare, formare și consiliere pentru tinerii fermieri și urmărește dublarea ponderii tinerilor și noilor fermieri până în 2040.",
     },
+    pl: {
+      name: "Strategia UE na rzecz wymiany pokoleń w rolnictwie",
+      offers:
+        "Strategia UE ma ułatwić rozpoczęcie działalności rolniczej. Obejmuje wsparcie na start, większą przejrzystość i sprawiedliwsze zasady na rynku ziemi, wcześniejsze przekazywanie gospodarstw, zabezpieczenie emerytalne, szkolenia i usługi na obszarach wiejskich. Zakłada utworzenie w każdym kraju jednego punktu dostępu do finansowania, szkoleń i doradztwa dla młodych rolników. Jej celem jest podwojenie udziału młodych rolników i osób rozpoczynających działalność rolniczą do 2040 r.",
+    },
+    el: {
+      name: "Στρατηγική της ΕΕ για την ανανέωση των γενεών στη γεωργία",
+      offers:
+        "Το πλαίσιο πολιτικής της ΕΕ για να γίνει ευκολότερη η είσοδος στη γεωργία. Καλύπτει τη στήριξη της πρώτης εγκατάστασης, τη διαφάνεια και τη δικαιοσύνη στην αγορά αγροτικής γης, την έγκαιρη μεταβίβαση εκμεταλλεύσεων, την ασφάλεια στη συνταξιοδότηση, την κατάρτιση και τις υπηρεσίες στην ύπαιθρο. Προτείνει ένα ενιαίο σημείο πρόσβασης σε κάθε χώρα, όπου οι νέοι αγρότες θα βρίσκουν χρηματοδότηση, κατάρτιση και συμβουλευτική. Στόχος είναι να διπλασιαστεί έως το 2040 το ποσοστό των νέων και των νεοεισερχόμενων αγροτών.",
+    },
   },
   "eu-cap-young-farmers": {
     translates:
@@ -95,6 +105,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "Sprijinul PAC 2023–2027 pentru tinerii fermieri",
       offers:
         "Explică sprijinul pe care fiecare țară îl adaptează în planul său strategic PAC: plata complementară anuală pe hectar eligibil sau forfetară pentru tinerii fermieri instalați pentru prima dată, sprijinul pentru instalare și investiții și cooperarea pentru transmiterea fermelor.",
+    },
+    pl: {
+      name: "Wsparcie dla młodych rolników w ramach WPR 2023–2027",
+      offers:
+        "Wyjaśnia, jakie formy wsparcia poszczególne kraje dostosowują w swoich planach strategicznych WPR. Są to coroczne płatności uzupełniające dla młodych rolników rozpoczynających działalność po raz pierwszy, naliczane za kwalifikujący się hektar lub wypłacane ryczałtowo, a także wsparcie na rozpoczęcie działalności, inwestycje i współpracę przy przekazywaniu gospodarstw.",
+    },
+    el: {
+      name: "Στήριξη νέων αγροτών μέσω της ΚΑΠ 2023–2027",
+      offers:
+        "Εξηγεί πώς προσαρμόζει κάθε χώρα τη στήριξη στο Στρατηγικό Σχέδιο της ΚΑΠ: ετήσια συμπληρωματική ενίσχυση ανά επιλέξιμο εκτάριο ή κατ’ αποκοπή για νέους αγρότες που εγκαθίστανται για πρώτη φορά, στήριξη για εγκατάσταση και επενδύσεις, καθώς και συνεργασία για τη μεταβίβαση εκμεταλλεύσεων.",
     },
   },
   "eu-cap-strategic-plans": {
@@ -135,6 +155,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Portalul Comisiei către planul strategic PAC 2023–2027 al fiecărei țări din UE. Arată intervențiile și instrumentele folosite, cum a fost aprobat planul și rapoartele anuale de performanță.",
     },
+    pl: {
+      name: "Plany strategiczne WPR według krajów",
+      offers:
+        "Portal Komisji Europejskiej z planami strategicznymi WPR na lata 2023–2027 dla wszystkich państw UE. Pokazuje, jakie interwencje i instrumenty stosuje dany kraj, jak zatwierdzono jego plan, i udostępnia roczne sprawozdania z realizacji.",
+    },
+    el: {
+      name: "Στρατηγικά Σχέδια της ΚΑΠ ανά χώρα",
+      offers:
+        "Η πύλη της Ευρωπαϊκής Επιτροπής για το Στρατηγικό Σχέδιο της ΚΑΠ 2023–2027 κάθε χώρας της ΕΕ. Παρουσιάζει τις παρεμβάσεις και τα εργαλεία που χρησιμοποιούνται, τη διαδικασία έγκρισης του σχεδίου και τις ετήσιες εκθέσεις επιδόσεων.",
+    },
   },
   "eu-newbie-practice-abstracts": {
     translates:
@@ -173,6 +203,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "NEWBIE: exemple practice pentru intrarea în agricultură",
       offers:
         "Studii de caz scurte despre modele de afaceri și de intrare în agricultură folosite în țări europene. Poți explora soluții practice la obstacolele întâlnite la început.",
+    },
+    pl: {
+      name: "NEWBIE: praktyczne przykłady rozpoczęcia działalności rolniczej",
+      offers:
+        "Krótkie studia przypadków przedstawiają modele prowadzenia gospodarstw i sposoby wejścia do rolnictwa w krajach europejskich. Możesz poznać praktyczne rozwiązania trudności, które pojawiają się na początku.",
+    },
+    el: {
+      name: "NEWBIE: παραδείγματα για όσους ξεκινούν αγροτική δραστηριότητα",
+      offers:
+        "Σύντομες μελέτες περιπτώσεων από ευρωπαϊκές χώρες για επιχειρηματικά μοντέλα και τρόπους εισόδου στη γεωργία. Μπορείς να δεις πρακτικές λύσεις για τις δυσκολίες που συναντά κανείς στο ξεκίνημα.",
     },
   },
   "eu-newbie-toolkits": {
@@ -213,6 +253,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Ghiduri online, lecții și sfaturi pentru intrarea în agricultură și preluarea fermelor, bazate pe discuțiile rețelei și pe experiențe practice.",
     },
+    pl: {
+      name: "NEWBIE: poradniki o zakładaniu i przejmowaniu gospodarstw",
+      offers:
+        "Poradniki online, lekcje i wskazówki dotyczące rozpoczęcia działalności rolniczej i przejmowania gospodarstw, oparte na rozmowach w ramach sieci i na doświadczeniach z praktyki.",
+    },
+    el: {
+      name: "NEWBIE: πρακτικοί οδηγοί για πρώτη εγκατάσταση και ανάληψη εκμετάλλευσης",
+      offers:
+        "Διαδικτυακοί οδηγοί, μαθήματα και συμβουλές για όσους ξεκινούν αγροτική δραστηριότητα ή αναλαμβάνουν εκμετάλλευση. Βασίζονται στις συζητήσεις του δικτύου και στην πρακτική εμπειρία.",
+    },
   },
   "eu-fi-compass-young-farmer-business-plans": {
     translates:
@@ -251,6 +301,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "fi-compass: planuri de afaceri pentru tinerii fermieri",
       offers:
         "Ghid pentru tinerii și noii fermieri care pregătesc un plan de afaceri pentru un credit sau altă finanțare externă. Explică ce caută băncile, de ce resping unele cereri și cum să iei în calcul anii buni și slabi sau întârzierile la plăți.",
+    },
+    pl: {
+      name: "fi-compass: biznesplany dla młodych rolników",
+      offers:
+        "Poradnik dla młodych rolników i osób rozpoczynających działalność rolniczą, które przygotowują biznesplan na potrzeby kredytu lub innego finansowania zewnętrznego. Wyjaśnia, na co zwracają uwagę banki, dlaczego odrzucają niektóre wnioski i jak uwzględnić lepsze i gorsze lata oraz opóźnienia w płatnościach.",
+    },
+    el: {
+      name: "fi-compass: επιχειρηματικά σχέδια για νέους αγρότες",
+      offers:
+        "Οδηγός για νέους και νεοεισερχόμενους αγρότες που ετοιμάζουν επιχειρηματικό σχέδιο για δάνειο ή άλλη εξωτερική χρηματοδότηση. Εξηγεί τι εξετάζουν οι τράπεζες, γιατί απορρίπτουν ορισμένες αιτήσεις και πώς να υπολογίσεις τις καλές και τις δύσκολες χρονιές ή τυχόν καθυστερήσεις στις πληρωμές.",
     },
   },
   "eu-cap-network-generational-renewal": {
@@ -291,6 +351,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Pagină a Rețelei PAC a UE cu știri, evenimente, publicații și proiecte de bune practici care îi sprijină pe tinerii și noii fermieri să înființeze o exploatație.",
     },
+    pl: {
+      name: "Europejska Sieć WPR: wymiana pokoleń",
+      offers:
+        "Strona Europejskiej Sieci WPR z aktualnościami, wydarzeniami, publikacjami i przykładami dobrych praktyk z projektów, które pomagają młodym rolnikom i osobom wchodzącym do rolnictwa założyć gospodarstwo.",
+    },
+    el: {
+      name: "Ευρωπαϊκό Δίκτυο της ΚΑΠ: ανανέωση των γενεών",
+      offers:
+        "Σελίδα του Ευρωπαϊκού Δικτύου της ΚΑΠ με νέα, εκδηλώσεις, δημοσιεύσεις και παραδείγματα καλής πρακτικής από έργα που βοηθούν νέους και νεοεισερχόμενους αγρότες να ξεκινήσουν μια αγροτική εκμετάλλευση.",
+    },
   },
   "eu-observatory-on-farmland": {
     translates:
@@ -329,6 +399,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "Observatorul UE pentru terenurile agricole",
       offers:
         "Observator planificat pentru a îmbunătăți transparența piețelor funciare și a accesului la teren. În 2026 Comisia a lansat un apel pentru grupul de experți care îl pregătește, alături de un proiect-pilot.",
+    },
+    pl: {
+      name: "Unijne obserwatorium gruntów rolnych",
+      offers:
+        "Planowane obserwatorium ma zwiększyć przejrzystość rynku gruntów rolnych i zasad dostępu do ziemi. W 2026 r. Komisja ogłosiła nabór do grupy ekspertów przygotowującej obserwatorium oraz uruchomiła projekt pilotażowy.",
+    },
+    el: {
+      name: "Παρατηρητήριο της ΕΕ για τη γεωργική γη",
+      offers:
+        "Σχεδιαζόμενο παρατηρητήριο για μεγαλύτερη διαφάνεια στην αγορά γεωργικής γης και στην πρόσβαση σε αυτή. Το 2026 η Ευρωπαϊκή Επιτροπή δημοσίευσε πρόσκληση για την ομάδα εμπειρογνωμόνων που θα το προετοιμάσει, παράλληλα με ένα πιλοτικό έργο.",
     },
   },
 };

@@ -7,7 +7,7 @@
   "metaTitle": "Ayudas a jóvenes agricultores en La Rioja: recursos",
   "metaDescription": "Consulta la ayuda riojana al primer establecimiento de jóvenes agricultores y las modalidades de dedicación exclusiva y pluriactividad de 2026.",
   "officialName": "La Rioja",
-  "published": "2026-11-25",
+  "published": "2026-11-27",
   "summary": "La Rioja mantiene una ayuda anual al establecimiento de personas jóvenes agricultoras. La convocatoria 2026 cerró el 6 de marzo y elevó la prima base a 48.000 euros para establecimiento exclusivo y 24.000 euros para pluriactivo, con incrementos específicos, entre ellos el relevo generacional. No se ha verificado todavía un banco de tierras operativo ni un servicio independiente de cesión/cese.",
   "coverage": {
     "status": "PARTIAL",
@@ -139,20 +139,28 @@
         {
           "url": "https://web.larioja.org/bor-portada/boranuncio?n=anu-579045",
           "title": "Resolución 334/2026, de 4 de agosto - concesión de ayudas al establecimiento",
-          "consultedOn": "2026-09-28",
+          "consultedOn": "2026-11-27",
           "quotes": [
+            "las ayudas reguladas en la presente orden podrán ser cofinanciadas con el 45,00 % por el Feader",
             "convocatoria pública 2026 de las ayudas para el establecimiento de las personas jóvenes agricultoras",
             "Solicitudes de subvención presentadas dentro de las fechas 10 de febrero de 2026 y las 14 horas del 6 de marzo de 2026",
             "Conceder las subvenciones en conjunto a los 24 beneficiarios",
             "por un importe de 1.426.000 euros"
           ],
           "verification": {
-            "checkedOn": "2026-11-24",
-            "method": "BROWSER"
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "Feader",
+          "sourceUrl": "https://web.larioja.org/bor-portada/boranuncio?n=anu-579045"
+        }
+      ]
     }
   ],
   "news": [],

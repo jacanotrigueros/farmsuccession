@@ -1,16 +1,18 @@
 ---
 /**
- * Generational renewal in every country the site covers, side by side, on Europe's page.
+ * Generational renewal in every EU member state, side by side, on Europe's page.
  *
- * A table, because seven countries read best as rows a reader can scan at 320 px and a screen reader can
- * walk. Beside the two age shares sit the number of farms and the agricultural land they come from, so a
+ * All 27 come from the European file's `memberStates` table (Eurostat), so the comparison does not depend on
+ * which countries the directory documents yet; a country links to its page only when the site has one
+ * (founder, 27 Nov 2026). A table, because 27 countries read best as rows a reader can scan at 320 px and a
+ * screen reader can walk. Beside the two age shares sit the number of farms and the agricultural land they come from, so a
  * share is never read without its size (founder, 20 Nov 2026). The rows start sorted by the share aged 65 or
  * over; `/sort.js` lets a reader sort by any column and, without it, the table stays in that order. The EU-27
  * is the reference, so it sits in the footer and never moves.
  *
  * Every cell carries the number it shows in `data-value`, so sorting compares numbers, not formatted text.
  */
-import { countryTerritories, href } from "../lib/corpus.ts";
+import { countryTerritories, euTerritory, href } from "../lib/corpus.ts";
 import { countryNameIn } from "../lib/language.ts";
 import { words } from "../lib/words.ts";
 
@@ -22,7 +24,10 @@ const percent = new Intl.NumberFormat(locale, { style: "percent", minimumFractio
 // compare countries, and a locale's own compact suffixes ("M", "Mio.", "mln.") would each need a legend.
 const scaled = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const thousands = (n: number) => scaled.format(n / 1_000);
-const millions = (n: number) => scaled.format(n / 1_000_000);
+// Land in millions of hectares with three decimals for every country, so Malta (8,880 ha, 0.009) reads on the
+// same scale as Spain (23.459) and no small country rounds to a misleading 0.0 (founder, 27 Nov 2026).
+const fine = new Intl.NumberFormat(locale, { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+const millions = (n: number) => fine.format(n / 1_000_000);
 const whole = new Intl.NumberFormat(locale);
 
 type Ages = { holdings: number; under25: number; from25To34: number; from35To39: number; atLeast65: number };
@@ -34,19 +39,28 @@ const rows = countryTerritories().flatMap((territory) =>
     ? [{ territory, country: territory.layer.country, context: territory.data.countryContext }]
     : [],
 );
-const sorted = rows
-  .map(({ territory, country, context }) => ({
-    href: href(territory.layer),
+// Every country with a page is linked, whether or not its own file carries the statistics yet.
+const pages = new Map(
+  countryTerritories().flatMap(({ layer }) => (layer.level === "COUNTRY" ? [[layer.country, href(layer)] as const] : [])),
+);
+const europe = euTerritory()?.data;
+const memberStates = europe?.schemaId === "eu-snapshot" ? europe.memberStates : undefined;
+const figures = memberStates
+  ? memberStates.countries.map(({ country, succession, land }) => ({ country, succession, land }))
+  : rows.map(({ country, context }) => ({ country, succession: context.succession, land: context.land }));
+const sorted = figures
+  .map(({ country, succession, land }) => ({
+    href: pages.get(country),
     name: countryNameIn(country, language),
-    older: older(context.succession),
-    younger: younger(context.succession),
-    holdings: context.succession.holdings,
-    hectares: context.land.hectares,
+    older: older(succession),
+    younger: younger(succession),
+    holdings: succession.holdings,
+    hectares: land.hectares,
   }))
   .toSorted((a, b) => b.older - a.older);
 const europeAges = rows.find(({ context }) => context.succession.europe)?.context.succession.europe;
 const europeLand = rows.find(({ context }) => context.land.europe)?.context.land.europe;
-const first = rows[0]?.context;
+const first = figures[0];
 const year = first?.succession.year;
 const tableOf = (apiUrl: string) =>
   `https://ec.europa.eu/eurostat/databrowser/view/${new URL(apiUrl).pathname.split("/").pop()}/default/table?lang=${["fr", "de"].includes(language) ? language : "en"}`;
@@ -70,7 +84,7 @@ const columns = [
 ];
 ---
 
-{rows.length > 1 && year && first && (
+{sorted.length > 1 && year && first && (
   <section class="wrap pt-12" aria-labelledby="age-comparison">
     <h2 id="age-comparison" class="scroll-mt-6 text-2xl font-bold" tabindex="-1">
       {labels.comparisonTitle}
@@ -102,9 +116,13 @@ const columns = [
           {sorted.map((row) => (
             <tr class="border-b border-line">
               <th scope="row" class="py-1 px-1 sm:ps-0 sm:pe-4 font-normal" data-value={row.name}>
-                <a class="inline-flex min-h-(--spacing-target) items-center underline" href={row.href}>
-                  {row.name}
-                </a>
+                {row.href ? (
+                  <a class="inline-flex min-h-(--spacing-target) items-center underline" href={row.href}>
+                    {row.name}
+                  </a>
+                ) : (
+                  <span class="inline-flex min-h-(--spacing-target) items-center">{row.name}</span>
+                )}
               </th>
               {columns.map(({ value, shown, full }) => (
                 <td

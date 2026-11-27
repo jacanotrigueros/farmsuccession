@@ -150,12 +150,10 @@ test("documentary groupings show their children and pin every local search to al
     );
     const total = scopes.reduce((n, { data }) => n + data.resources.length, 0);
     const statsLabel = words(data.metadata.language).statsLabel;
-    const ownTotal = [layer, ...leafLayers(layer, catalogue)]
-      .flatMap((l) => byLayer.get(layerKey(l)) ?? [])
-      .reduce((n, { data: own }) => n + own.resources.length, 0);
+    const ownTotal = byLayer.get(layerKey(layer))?.data.resources.length ?? 0;
     if (ownTotal === 0) {
-      // Romania's development regions have no records of their own yet: the page leads with what applies there
-      // from the country and the EU, and a headline count of zero local records would mislead.
+      // A grouping with no records of its own (Romania's development regions) leads with what applies there from
+      // the country and the EU, its counties' records stay on their own pages, and no headline figures show.
       assert.ok(
         !html.includes(`aria-label="${statsLabel}"`),
         `${route}: a grouping with no records of its own must not show headline figures`,
@@ -293,14 +291,18 @@ test("country context gives each observation its year and source after the resou
   }
 });
 
-test("Europe's page compares every country's ages with its farms and land, and the EU-27 stays in the footer", () => {
+test("Europe's page compares all 27 member states, links only the countries with a page, and keeps the EU-27 in the footer", () => {
   const html = htmlAt("eu");
   const block = /<section\b[^>]*aria-labelledby="age-comparison"[^>]*>([\s\S]*?)<\/section>/u.exec(html)?.[1];
   assert.ok(block, "/eu/: no age comparison");
   assert.equal([...block.matchAll(/<th scope="col"/gu)].length, 5, "/eu/: country, two age shares, farms and land");
-  const countries = snapshots.filter(({ data }) => data.schemaId === "country-snapshot" && data.countryContext).length;
   const body = /<tbody>([\s\S]*?)<\/tbody>/u.exec(block)?.[1] ?? "";
-  assert.equal([...body.matchAll(/<tr\b/gu)].length, countries, "/eu/: one sortable row per country");
+  // The founder asked for every member state, so a reader can place a country the site does not document yet
+  // among the others; only a country with its own page is a link, so no row promises a page that is not there.
+  assert.equal([...body.matchAll(/<tr\b/gu)].length, 27, "/eu/: one sortable row per EU member state");
+  const countries = snapshots.flatMap(({ layer }) => (layer.level === "COUNTRY" ? [layer.country.toLowerCase()] : []));
+  const linked = [...body.matchAll(/<th scope="row"[^>]*>\s*<a [^>]*href="\/([a-z]{2})\/"/gu)].map((m) => m[1]);
+  assert.deepEqual(linked.toSorted(), countries.toSorted(), "/eu/: link exactly the countries that have a page");
   assert.match(block, /<tfoot>[\s\S]*(UE-27|EU-27)/u, "/eu/: the EU-27 reference must not be sorted with the countries");
 });
 

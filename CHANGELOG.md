@@ -10,6 +10,31 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.5.0 — 2026-11-27
+
+Greece and Poland join the directory, each in its own language, so the middle digit moves.
+
+- Greece has its own pages in Greek: the country and its 13 regions (περιφέρειες), Mount Athos left out. Its
+  records cover the young-farmer installation aid Π3-75.1 with each region's inclusion decision, the lease of
+  public agricultural land, the farmers' exemption from the land transfer tax, and the announced training and
+  farm advice.
+- Poland has its own pages in Polish: the country and its 16 voivodeships. Its records cover the ARiMR young-farmer
+  and small-farm aids, the sale and lease of state farmland by KOWR and the pre-emption right, the transfer of a
+  farm and its payments, the gift and inheritance tax exemption for farmland, the agricultural advisory centres,
+  and regional land tenders, advice and a qualification course.
+- Romania grows from two records to thirteen: AFIR's young-farmer installation aid (DR-30) and investment aid
+  (DR-12), now shown with AFIR's written agreement, the APIA payment for young farmers, the lease and concession
+  of state land and the information on land available from the State, the lease of communal pastures, the
+  transfer of a farm and its APIA payment, free qualification courses through the employment agencies, and
+  county services in Buzău, Călărași and Harghita.
+- Austria's Lower Austria gains its two agricultural training pages, and Bavaria the rural family counselling of
+  the Archdiocese of Munich and Freising, both with their owners' written agreement.
+- 36 regional and national aids now say which EU measure they apply, so the young-farmer and CAP plan pages list
+  them under each country, Spain's regional installation aids among them.
+- Europe's page compares farmers' ages, farms and land in all 27 member states, linking the countries this
+  directory documents.
+- The directory now holds 691 records.
+
 ## 2.4.1 — 2026-11-27
 
 A correction, so the last digit moves.
