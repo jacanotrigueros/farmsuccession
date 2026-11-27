@@ -35,6 +35,8 @@ export const SEARCH_SLUGS = {
   RO: "cauta",
   PL: "szukaj",
   GR: "anazitisi",
+  HU: "kereses",
+  HR: "trazi",
 };
 
 /**
@@ -57,6 +59,8 @@ export const REGION_SLUGS = {
   RO: "teritorii",
   PL: "obszary",
   GR: "perioxes",
+  HU: "teruletek",
+  HR: "podrucja",
 };
 
 /** @param {string} country */
@@ -80,6 +84,8 @@ export const RECORD_SLUGS = {
   RO: "resurse",
   PL: "zasoby",
   GR: "poroi",
+  HU: "forrasok",
+  HR: "resursi",
 };
 
 /** @param {string} country */

@@ -26,6 +26,8 @@ export const LANGUAGE_NAMES: Record<string, string> = {
   ro: "Romanian",
   el: "Greek",
   pl: "Polish",
+  hu: "Hungarian",
+  hr: "Croatian",
 };
 
 /**
@@ -74,6 +76,12 @@ const OWN_ONLY: Record<string, ReadonlySet<string>> = {
   ),
   el: words(
     "ο η το οι τα του της των τον την τη τους τις ένας μια ένα ενός μίας και ή κι αλλά όμως να θα αν εάν όταν που πως ότι ό,τι για με σε από προς ως μέχρι έως χωρίς κατά μετά πριν μέσα πάνω κάτω ανά μην μη δεν δε μου σου μας σας τους τις",
+  ),
+  hr: words(
+    "a ako ali bez bi bila bile bili bilo bio bismo biste će ćemo ćete da do ga gdje i ili im iz ja je jer joj ju kad kako kao kod koji koja koje kroz li me mi mu na nad nam nas ne nego ni o od on ona oni pa po pod prema pri sa sam se si smo ste su što te ti u uz za",
+  ),
+  hu: words(
+    "a az egy és vagy de hanem viszont hogy ha mert mivel bár habár pedig csak is sem se nem még már majd meg mint amíg amikor ahol ahogy amit amely amelyik aki ami akik amelyek amik ez azt ezt azok ezek ő ők én te mi ti között alatt fölött mellett nélkül után előtt szerint",
   ),
   nl: words("de en van in is op te die met of als er aan om tot dan door zo dit nu wat wie kan moet zal"),
 };

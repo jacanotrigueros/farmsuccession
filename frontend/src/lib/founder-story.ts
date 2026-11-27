@@ -254,4 +254,52 @@ export const founderStory = {
       "Η προσωπική και επαγγελματική αξία που έχει για μένα το έργο μού επιτρέπει να προσφέρω δωρεάν πρόσβαση στον κατάλογο. Η συντήρησή του εξαρτάται από τους διαθέσιμους πόρους.",
     ],
   },
+  hu: {
+    link: "Miért jött létre a FarmSuccession?",
+    personalTitle: "Ki áll a projekt mögött?",
+    title: "Miért fontos a gazdaságátvétel?",
+    originTitle: "Hogyan változott az ötlet?",
+    freeTitle: "Miért ingyenes a hozzáférés?",
+    personal: [
+      "José Antonio Cano Trigueros vagyok, szoftverfejlesztőként dolgozom. A technológiai munkám része egy olyan felület, amelyen a gazdák termékei eljutnak a fogyasztókhoz. A FarmSuccession a saját projektem, a munkáltatómtól függetlenül működik.",
+      "Szabadidőmben egy kis telken gyümölcsfákat gondozok, és igyekszem tenni a biológiai sokféleségért, például rovarbúvóhelyekkel. Nem vagyok hivatásos gazdálkodó. Így megismerem a vidéki élet néhány oldalát, de ez nagyon különbözik egy gazdaság működtetésétől.",
+    ],
+    paragraphs: [
+      "Szeretném, ha az új nemzedékeknek valódi esélyük lenne élelmiszert termelni és folytatni a gazdálkodást. Ehhez a termőföldhöz jutás mellett finanszírozásra, képzésre és szaktanácsadásra is szükség van. Ha egy gazdaságnak nincs utódja, foglalkoztat, hogy mi lesz a gazdasággal és az ott felhalmozott tudással.",
+      "Szeretném, ha a gazdálkodás életképes választás lenne, amely a környezet védelmére és a gazdálkodási gyakorlat javítására is lehetőséget ad. Ezért kezdtem el foglalkozni a gazdaságátadással, és innen kapta a nevét a projekt. Egy ilyen gyűjtemény segíthet megtalálni az elérhető támogatást és segítséget.",
+    ],
+    origin: [
+      "Az eredeti ötlet üzleti jellegű volt. Megvizsgáltam egy olyan platform vagy földbank lehetőségét, amely összekötné a gazdaságok tulajdonosait azokkal, akik szívesen átvennék a gazdaságukat. Találtam szakosodott közvetítőket, és olyan emberi, jogi és gazdasági nehézségeket is láttam, amelyeket a kapcsolat létrehozása önmagában nem old meg.",
+      "Hasznos információkat is találtam, elszórva a közigazgatási szervek, egyesületek és más európai szervezetek oldalain. Úgy döntöttem, rendszerezem a leírásokat és a hivatkozásokat, hogy könnyebb legyen megtalálni a szolgáltatókat. Így született meg a FarmSuccession, a forrásokat bemutató független gyűjtemény. Nem közvetít gazdaságátadásokat, nem dolgoz fel kérelmeket, és nem helyettesíti a hivatalos forrásokat vagy a szaktanácsadást.",
+    ],
+    free: [
+      "A gyűjtemény létrehozása és gondozása szakmailag is értékes számomra. Nyilvános portfólióként lehetőséget ad arra, hogy használjam és bemutassam a szoftverfejlesztői tudásomat, kísérletezzek, tanuljak és kezdeményezzek. A munkám során azt tapasztaltam, hogy a tanulási hajlandóságot és a kezdeményezőkészséget értékelik.",
+      "A hozzáférés ingyenes. A közzétételhez infrastruktúrára, fejlesztési és kutatási eszközökre, valamint saját, fizetetlen munkára van szükség. Fizetős eszközöket is használok, köztük mesterséges intelligenciát. Egyes előfizetések választhatók, vagy több projekthez is használom őket. A közzétett statikus webhely nélkülük is működhet. Az eszközök eredményei önmagukban nem számítanak bizonyítéknak, és nem helyettesítik a forrásokat, az emberi ellenőrzést vagy a szakember véleményét.",
+      "A projekt személyes és szakmai értéke lehetővé teszi számomra, hogy ingyenes hozzáférést biztosítsak a gyűjteményhez. A fenntartás a rendelkezésre álló erőforrásoktól függ.",
+    ],
+  },
+  hr: {
+    link: "Zašto postoji FarmSuccession",
+    personalTitle: "Tko stoji iza projekta",
+    title: "Zašto je važno preuzimanje gospodarstava",
+    originTitle: "Kako se ideja razvijala",
+    freeTitle: "Zašto je pristup besplatan",
+    personal: [
+      "Zovem se José Antonio Cano Trigueros i radim kao programer. Dio mojeg rada u tehnologiji odvija se u okruženju koje povezuje poljoprivrednike i njihove proizvode s potrošačima. FarmSuccession je moj osobni projekt, neovisan o mojem poslodavcu.",
+      "U slobodno vrijeme brinem se o voćkama na maloj parceli i nastojim poduprijeti bioraznolikost, primjerice postavljanjem skloništa za kukce. Nisam profesionalni poljoprivrednik. To mi je iskustvo približilo neke strane života na selu, ali se uvelike razlikuje od vođenja poljoprivrednog gospodarstva.",
+    ],
+    paragraphs: [
+      "Želim da nove generacije imaju stvarnu priliku proizvoditi hranu i nastaviti se baviti poljoprivredom. Na tom su putu važni pristup zemljištu, financiranje, osposobljavanje i savjetovanje. Kad gospodarstvo nema nasljednika, brine me njegova budućnost i što će biti sa znanjem koje se ondje godinama stjecalo.",
+      "Želim da poljoprivreda bude održiv odabir koji ljudima omogućuje i da štite okoliš i unapređuju način rada. To me potaknulo da proučim prijenos gospodarstava i dalo projektu ime. Imenik može ljudima pomoći da pronađu dostupnu podršku.",
+    ],
+    origin: [
+      "Početna ideja bila je komercijalna. Razmatrao sam platformu ili banku zemljišta koja bi povezivala vlasnike gospodarstava s osobama zainteresiranima za njihovo preuzimanje. Naišao sam na specijalizirane posrednike te na osobne, pravne i gospodarske poteškoće koje se ne mogu riješiti samim povezivanjem ljudi.",
+      "Pronašao sam i korisne informacije raspršene među javnim tijelima, udrugama i drugim europskim organizacijama. Odlučio sam prikupiti i urediti opise i poveznice kako bi ljudi lakše pronašli pružatelje usluga. Tako je nastao FarmSuccession, neovisni imenik dokumentiranih resursa. Ne posreduje pri prijenosu gospodarstava, ne obrađuje zahtjeve i ne zamjenjuje službene izvore ni stručno savjetovanje.",
+    ],
+    free: [
+      "Izrada i održavanje imenika imaju i profesionalnu vrijednost za mene. To je javni portfelj u kojem mogu primijeniti i pokazati svoje programerske vještine, isprobavati ideje, učiti i preuzimati inicijativu. Radno iskustvo pokazalo mi je da se spremnost na učenje i inicijativa cijene.",
+      "Pristup je besplatan, a objava podrazumijeva troškove infrastrukture i alata za razvoj i istraživanje te neplaćeni rad u slobodno vrijeme. Koristim i alate koji se plaćaju, uključujući umjetnu inteligenciju. Neke pretplate nisu nužne ili ih koristim za više projekata. Objavljeno statičko web-mjesto može raditi i bez njih. Rezultati koje daju alati sami po sebi nisu dokaz i ne zamjenjuju izvore, ljudsku provjeru ni mišljenje stručnjaka.",
+      "Osobna i profesionalna vrijednost projekta omogućuje mi da ponudim besplatan pristup imeniku. Održavanje ovisi o raspoloživim resursima.",
+    ],
+  },
 } as const satisfies Record<Language, FounderStory>;

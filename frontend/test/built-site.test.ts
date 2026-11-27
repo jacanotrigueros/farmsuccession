@@ -1019,8 +1019,8 @@ test("every record prioritises actionable feedback with its context and retains 
   assert.ok(checked > 100, `only ${checked} records asked the question; every record page should`);
   assert.equal(
     byLanguage.size,
-    10,
-    "the question was not checked in all ten languages: Greek and Polish records joined the eight on 27 Nov 2026",
+    12,
+    "the question was not checked in all twelve languages: Hungarian and Croatian records joined the ten after 2.5.0",
   );
 });
 

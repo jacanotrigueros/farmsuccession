@@ -1,6 +1,19 @@
 /** The same language rules for built text and for counts rewritten in the reader's browser. */
 /** @type {Record<string, string>} */
-const LOCALES = { en: "en", es: "es", de: "de", fr: "fr", it: "it", pt: "pt-PT", nl: "nl", ro: "ro-RO", el: "el-GR", pl: "pl-PL" };
+const LOCALES = {
+  en: "en",
+  es: "es",
+  de: "de",
+  fr: "fr",
+  it: "it",
+  pt: "pt-PT",
+  nl: "nl",
+  ro: "ro-RO",
+  el: "el-GR",
+  pl: "pl-PL",
+  hu: "hu-HU",
+  hr: "hr-HR",
+};
 
 /**
  * The locale to format in. A site language uses its own conventions; a tag of a site language and a
@@ -27,8 +40,9 @@ export const pluralIndex = (value, language) => (new Intl.PluralRules(localeOf(l
 export const numberIn = (value, language) => value.toLocaleString(localeOf(language), { maximumFractionDigits: 2 });
 
 /**
- * Two forms ([one, other]) for most languages; Polish gives three ([one, few, many]): 1 gospodarstwo,
- * 2 gospodarstwa, 5 gospodarstw. Polish fractions ("other") take the "few" form.
+ * Two forms ([one, other]) for most languages; Polish and Croatian give three ([one, few, many]):
+ * 1 gospodarstwo, 2 gospodarstwa, 5 gospodarstw; 1 gospodarstvo, 2 gospodarstva, 5 gospodarstava.
+ * Polish fractions ("other") take the "few" form. Hungarian repeats one form: 5 gazdaság.
  * @param {number} value @param {readonly string[]} forms @param {string} language
  */
 export const counted = (value, forms, language) => {
@@ -36,7 +50,10 @@ export const counted = (value, forms, language) => {
   const form = new Intl.PluralRules(locale).select(value);
   // Romanian puts “de” between the number and noun for counts such as 20 and 100.
   const separator = locale.startsWith("ro-") && form === "other" ? " de " : " ";
-  const index = form === "one" ? 0 : forms.length > 2 && form === "many" ? 2 : 1;
+  // Three-form tables: Polish puts 5+ in "many" and fractions in "other" (the "few" form); Croatian has no
+  // "many", so its "other" (5 and up) takes the third form.
+  const third = form === "many" || (form === "other" && locale.startsWith("hr-"));
+  const index = form === "one" ? 0 : forms.length > 2 && third ? 2 : 1;
   return `${numberIn(value, language)}${separator}${forms[index]}`;
 };
 
