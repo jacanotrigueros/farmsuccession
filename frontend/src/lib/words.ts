@@ -223,7 +223,7 @@ const EN = {
   reportRequiredMessage: "Please complete this field.",
   reportUrlMessage: "Enter a valid URL.",
   reportDeliveryPrivacy:
-    "When you send, Formspree processes your answers and technical data, including your IP address, in the United States to email the report to FarmSuccession. Spam verification (Google reCAPTCHA) and confirmation take place on Formspree. No account or email address is required. Do not include private documents.",
+    "When you send, Formspree processes your answers and technical data, including your IP address, in the United States to email the report to FarmSuccession. Formspree filters spam and confirms the submission. No account or email address is required. Do not include private documents.",
   reportProviderPrivacy: "Formspree privacy policy",
   reportRemovalTitle: "Request removal from the directory",
   reportRemovalLead: "If your organisation would rather not appear in the inventory, tell us which public page to review.",
@@ -649,7 +649,7 @@ const ES = {
   reportRequiredMessage: "Completa este campo.",
   reportUrlMessage: "Introduce una URL válida.",
   reportDeliveryPrivacy:
-    "Al enviar, Formspree trata tus respuestas y datos técnicos, incluida tu dirección IP, en Estados Unidos para entregar el aviso a FarmSuccession por correo. La verificación antispam (Google reCAPTCHA) y la confirmación se realizan en Formspree. No necesitas cuenta ni indicar tu correo. No incluyas documentos privados.",
+    "Al enviar, Formspree trata tus respuestas y datos técnicos, incluida tu dirección IP, en Estados Unidos para entregar el aviso a FarmSuccession por correo. Formspree filtra el spam y confirma el envío. No necesitas cuenta ni indicar tu correo. No incluyas documentos privados.",
   reportProviderPrivacy: "Privacidad de Formspree",
   reportRemovalTitle: "Solicitar la retirada del directorio",
   reportRemovalLead: "Si tu entidad prefiere no aparecer en el inventario, indica qué página pública debemos revisar.",
@@ -1081,7 +1081,7 @@ const DE = {
   reportRequiredMessage: "Bitte füllen Sie dieses Feld aus.",
   reportUrlMessage: "Geben Sie eine gültige URL ein.",
   reportDeliveryPrivacy:
-    "Beim Absenden verarbeitet Formspree Ihre Antworten und technische Daten, einschließlich Ihrer IP-Adresse, in den USA und leitet den Hinweis per E-Mail an FarmSuccession weiter. Die Spamprüfung (Google reCAPTCHA) und die Bestätigung erfolgen bei Formspree. Sie benötigen weder ein Konto noch eine eigene E-Mail-Adresse. Fügen Sie keine vertraulichen Dokumente bei.",
+    "Beim Absenden verarbeitet Formspree Ihre Antworten und technische Daten, einschließlich Ihrer IP-Adresse, in den USA und leitet den Hinweis per E-Mail an FarmSuccession weiter. Formspree filtert Spam und bestätigt den Versand. Sie benötigen weder ein Konto noch eine eigene E-Mail-Adresse. Fügen Sie keine vertraulichen Dokumente bei.",
   reportProviderPrivacy: "Datenschutzerklärung von Formspree",
   reportRemovalTitle: "Entfernung aus dem Verzeichnis beantragen",
   reportRemovalLead: "Wenn Ihre Organisation nicht im Verzeichnis erscheinen möchte, nennen Sie uns die zu prüfende öffentliche Seite.",
@@ -1521,7 +1521,7 @@ const FR = {
   reportRequiredMessage: "Veuillez remplir ce champ.",
   reportUrlMessage: "Saisissez une URL valide.",
   reportDeliveryPrivacy:
-    "Lors de l’envoi, Formspree traite vos réponses et des données techniques, dont votre adresse IP, aux États-Unis pour transmettre le signalement à FarmSuccession par courriel. La vérification antispam (Google reCAPTCHA) et la confirmation ont lieu sur Formspree. Aucun compte ni adresse courriel ne vous est demandé. Ne joignez pas de documents privés.",
+    "Lors de l’envoi, Formspree traite vos réponses et des données techniques, dont votre adresse IP, aux États-Unis pour transmettre le signalement à FarmSuccession par courriel. Formspree filtre le spam et confirme l’envoi. Aucun compte ni adresse courriel ne vous est demandé. Ne joignez pas de documents privés.",
   reportProviderPrivacy: "Confidentialité de Formspree",
   reportRemovalTitle: "Demander un retrait du répertoire",
   reportRemovalLead: "Si votre organisme préfère ne pas figurer dans l’annuaire, indiquez la page publique à examiner.",
@@ -1960,7 +1960,7 @@ const IT = {
   reportRequiredMessage: "Compila questo campo.",
   reportUrlMessage: "Inserisci un URL valido.",
   reportDeliveryPrivacy:
-    "Al momento dell’invio, Formspree tratta le risposte e i dati tecnici, compreso l’indirizzo IP, negli Stati Uniti per recapitare la segnalazione a FarmSuccession via email. La verifica antispam (Google reCAPTCHA) e la conferma avvengono su Formspree. Non servono un account o il tuo indirizzo email. Non includere documenti privati.",
+    "Al momento dell’invio, Formspree tratta le risposte e i dati tecnici, compreso l’indirizzo IP, negli Stati Uniti per recapitare la segnalazione a FarmSuccession via email. Formspree filtra lo spam e conferma l’invio. Non servono un account o il tuo indirizzo email. Non includere documenti privati.",
   reportProviderPrivacy: "Informativa sulla privacy di Formspree",
   reportRemovalTitle: "Richiedi la rimozione dal repertorio",
   reportRemovalLead: "Se il tuo ente preferisce non comparire nell’elenco, indica la pagina pubblica da esaminare.",
@@ -2396,7 +2396,7 @@ const PT = {
   reportRequiredMessage: "Preencha este campo.",
   reportUrlMessage: "Introduza um URL válido.",
   reportDeliveryPrivacy:
-    "Ao enviar, o Formspree trata as respostas e os dados técnicos, incluindo o endereço IP, nos Estados Unidos para entregar o aviso ao FarmSuccession por email. A verificação antisspam (Google reCAPTCHA) e a confirmação são feitas no Formspree. Não precisa de conta nem de indicar o seu email. Não inclua documentos privados.",
+    "Ao enviar, o Formspree trata as respostas e os dados técnicos, incluindo o endereço IP, nos Estados Unidos para entregar o aviso ao FarmSuccession por email. O Formspree filtra o spam e confirma o envio. Não precisa de conta nem de indicar o seu email. Não inclua documentos privados.",
   reportProviderPrivacy: "Privacidade do Formspree",
   reportRemovalTitle: "Pedir a remoção do diretório",
   reportRemovalLead: "Se a sua entidade preferir não constar do diretório, indique a página pública a rever.",
@@ -2836,7 +2836,7 @@ const NL = {
   reportRequiredMessage: "Vul dit veld in.",
   reportUrlMessage: "Vul een geldige URL in.",
   reportDeliveryPrivacy:
-    "Bij het versturen verwerkt Formspree uw antwoorden en technische gegevens, waaronder uw IP-adres, in de Verenigde Staten om de melding per e-mail aan FarmSuccession te bezorgen. De spamcontrole (Google reCAPTCHA) en bevestiging vinden plaats bij Formspree. U hebt geen account nodig en hoeft geen e-mailadres op te geven. Voeg geen privédocumenten toe.",
+    "Bij het versturen verwerkt Formspree uw antwoorden en technische gegevens, waaronder uw IP-adres, in de Verenigde Staten om de melding per e-mail aan FarmSuccession te bezorgen. Formspree filtert spam en bevestigt de verzending. U hebt geen account nodig en hoeft geen e-mailadres op te geven. Voeg geen privédocumenten toe.",
   reportProviderPrivacy: "Privacybeleid van Formspree",
   reportRemovalTitle: "Verwijdering uit het overzicht aanvragen",
   reportRemovalLead: "Als uw organisatie liever niet in de gids staat, geef dan aan welke openbare pagina we moeten bekijken.",

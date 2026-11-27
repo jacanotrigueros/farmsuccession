@@ -60,6 +60,12 @@ test("the shared native transport discloses processing and preserves the working
       assert.match(html, /name="_subject" value="[^"]+"/u);
       assert.ok(html.includes(`name="_language" value="${language === "pt" ? "pt-PT" : language}"`));
       assert.match(html, /name="_gotcha"[^>]*tabindex="-1"/u);
+      assert.match(html, /name="_gotcha"[^>]*aria-hidden="true"/u, "the honeypot must stay hidden from screen readers");
+      assert.doesNotMatch(
+        html,
+        /recaptcha|hcaptcha|turnstile|challenges\.cloudflare/iu,
+        "spam protection is the honeypot and the provider filter: no CAPTCHA script or promise reaches the page (decision 037, 27 Nov 2026)",
+      );
       assert.ok(html.includes(text.reportSend));
       assert.equal([...html.matchAll(/data-report-privacy/gu)].length, 1);
       assert.ok(html.includes(text.reportDeliveryPrivacy));

@@ -10,6 +10,30 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.3.3 — 2026-11-27
+
+Two protections a reader does not have to learn, so only the last digit moves.
+
+- The report form keeps spam out without a CAPTCHA. Readers are often older farming families on a phone with a
+  weak rural signal, and one lost report costs more than deleting spam by hand, so no image puzzle stands between
+  them and sending. A hidden field that only robots fill in, the form provider's own filter and the site's domain
+  restriction do the work. The note shown before sending no longer names Google reCAPTCHA, which is no longer
+  used.
+- Every site with no permission on record is now refused by the publishing gate, so no future record can cite one
+  by mistake. Nothing published changes.
+
+## 2.3.2 — 2026-11-27
+
+A second pass of the same correction: nothing new a reader has to learn, so only the last digit moves.
+
+- The Île-de-France young-farmer aid record is withdrawn: its only source reserves even linking to
+  prior permission, and none is on record. The Bourgogne-Franche-Comté DJA record keeps the Region's own
+  pages and loses a second site that reserves reproduction, with the call dates and contact that only it
+  showed. The directory now holds 644 records.
+- The Castilla-La Mancha records stay: the regional government's notice permits reuse when the source,
+  the meaning and the date of last publication are kept, and its official gazette publishes legal texts,
+  which Spanish copyright law excludes from protection.
+
 ## 2.3.1 — 2026-11-27
 
 A correction to what the directory may carry, and two records added under it: nothing new a reader has to
