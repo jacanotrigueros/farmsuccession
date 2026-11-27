@@ -3266,7 +3266,7 @@ const RO = {
   reportRequiredMessage: "Completează acest câmp.",
   reportUrlMessage: "Introdu o adresă web validă.",
   reportDeliveryPrivacy:
-    "La trimitere, Formspree prelucrează răspunsurile și datele tehnice, inclusiv adresa IP, în Statele Unite, pentru a trimite mesajul către FarmSuccession. Verificarea antispam (Google reCAPTCHA) și confirmarea au loc la Formspree. Nu sunt necesare un cont sau o adresă de e-mail. Nu trimite documente private.",
+    "La trimitere, Formspree prelucrează răspunsurile și datele tehnice, inclusiv adresa IP, în Statele Unite, pentru a trimite mesajul către FarmSuccession. Formspree filtrează spamul și confirmă trimiterea. Nu sunt necesare un cont sau o adresă de e-mail. Nu trimite documente private.",
   reportProviderPrivacy: "Politica de confidențialitate Formspree",
   reportRemovalTitle: "Cere retragerea din director",
   reportRemovalLead: "Dacă organizația ta nu dorește să apară în director, indică pagina publică pe care trebuie să o verificăm.",

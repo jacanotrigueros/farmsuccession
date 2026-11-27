@@ -150,6 +150,18 @@ test("documentary groupings show their children and pin every local search to al
     );
     const total = scopes.reduce((n, { data }) => n + data.resources.length, 0);
     const statsLabel = words(data.metadata.language).statsLabel;
+    const ownTotal = [layer, ...leafLayers(layer, catalogue)]
+      .flatMap((l) => byLayer.get(layerKey(l)) ?? [])
+      .reduce((n, { data: own }) => n + own.resources.length, 0);
+    if (ownTotal === 0) {
+      // Romania's development regions have no records of their own yet: the page leads with what applies there
+      // from the country and the EU, and a headline count of zero local records would mislead.
+      assert.ok(
+        !html.includes(`aria-label="${statsLabel}"`),
+        `${route}: a grouping with no records of its own must not show headline figures`,
+      );
+      continue;
+    }
     const stats = html.slice(html.indexOf(`aria-label="${statsLabel}"`));
     const displayed = /<span\b[^>]*tabular-nums[^>]*>(\d+)<\/span>/u.exec(stats)?.[1];
     assert.equal(Number(displayed), total, `${route}: headline total must match its complete search scope`);
