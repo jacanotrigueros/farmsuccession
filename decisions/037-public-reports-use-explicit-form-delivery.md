@@ -182,6 +182,16 @@ On 7 November the maintainer requested this stricter protection; it replaces the
 earlier suggestion to start with CAPTCHA disabled. Real CAPTCHA activation and
 challenge testing remain pending the provider account, just like inbox receipt.
 
+### Spam protection without a CAPTCHA — 27 November 2026
+
+The maintainer turned the provider-hosted reCAPTCHA off. The form serves few, valuable reports from older
+farming families, often on a phone with poor rural coverage: losing one real report costs more than deleting
+spam by hand, a visible challenge would show image puzzles to some of them, and reCAPTCHA sends data to Google.
+Spam is now kept out by the `_gotcha` honeypot on our own form, Formspree's Formshield filter and the project's
+domain restriction. The disclosure shown before sending no longer names Google reCAPTCHA. If more protection is
+ever needed, the option is Cloudflare Turnstile, which Formspree offers in the same setting, not reCAPTCHA. The
+earlier instructions to enable hosted reCAPTCHA below are superseded by this section.
+
 ### Activation state — 8 November 2026
 
 The form is on Formspree Free with hosted reCAPTCHA and Formshield on, and the project
