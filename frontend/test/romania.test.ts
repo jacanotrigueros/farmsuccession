@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 
 import { loadSnapshots } from "../../src/editions.ts";
+import { snapshotLayer } from "../../src/layers.ts";
 import { loadTerritories } from "../../src/territories.ts";
 import { fakeCountryEdition, fakeEdition, fakeResource } from "../../test/fixtures.ts";
 import { recordSlug, regionSlug, scopeFromPath, searchPath, stateFromQuery } from "../public/search-scope.js";
@@ -19,6 +21,17 @@ test("an edition needs its country file and a domestic resource before offering 
   assert.deepEqual(publicSnapshots([documented]), []);
   assert.deepEqual(publicSnapshots([country, documented]), [country, documented]);
   assert.deepEqual(publicSnapshots([country, { ...documented, data: { ...documented.data, edition: "2027" } }]), []);
+});
+
+test("a search scope does not request a Pagefind bundle for an empty language", async () => {
+  Object.assign(globalThis, { __REPOSITORY_ROOT__: fileURLToPath(new URL("../../", import.meta.url)) });
+  const { bundleLanguages } = await import("../src/lib/catalogue-order.ts");
+  const empty = fakeCountryEdition({ country: "RO", resources: [] });
+  const withResources = { ...empty, resources: [fakeResource()] };
+  const territory = (data: typeof empty) => ({ file: "2026/countries/ro.json", data, layer: snapshotLayer(data) });
+  const lang = () => "ro";
+  assert.deepEqual(bundleLanguages([territory(empty)], lang), []);
+  assert.deepEqual(bundleLanguages([territory(empty), territory(withResources)], lang), ["ro"]);
 });
 
 test("Romanian routes, search scope and counted labels work with the shared interface", () => {
