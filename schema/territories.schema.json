@@ -140,6 +140,11 @@
       "additionalProperties": false,
       "required": ["slug", "name", "members"],
       "properties": {
+        "nutsCode": {
+          "description": "The territory’s EU NUTS code, where the catalogue records one.",
+          "type": "string",
+          "pattern": "^[A-Z]{2}[A-Z0-9]{2}$"
+        },
         "slug": {
           "description": "Identifier of the hub, used in its URL and in the path of its edition file.",
           "$ref": "#/$defs/slug"
@@ -168,6 +173,11 @@
       "additionalProperties": false,
       "required": ["slug", "name", "inPhrase", "parentHub"],
       "properties": {
+        "nutsCode": {
+          "description": "The territory’s EU NUTS code, where the catalogue records one.",
+          "type": "string",
+          "pattern": "^[A-Z]{2}[A-Z0-9]{3}$"
+        },
         "slug": {
           "description": "Identifier of the region, used in its URL and in the path of its edition and brief files.",
           "$ref": "#/$defs/slug"
@@ -199,6 +209,13 @@
           "type": "string",
           "minLength": 2,
           "maxLength": 300
+        },
+        "searchNames": {
+          "description": "Names people use to search for this territory in other languages, keyed by ISO 639-1. The page remains in the jurisdiction’s language.",
+          "type": "object",
+          "propertyNames": { "pattern": "^[a-z]{2}$" },
+          "minProperties": 1,
+          "additionalProperties": { "type": "string", "minLength": 2, "maxLength": 300 }
         },
         "subdivisions": {
           "description": "The official subdivisions inside this region that readers name by a public code, each with its name and that code, as the jurisdiction's statistical office publishes them — France's départements and their numbers from Insee's Code officiel géographique. A reader types the code (\"safer 29\"); a record that leaves it out is missing how its reader names the territory.",

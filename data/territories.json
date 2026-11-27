@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "frozenOn": "2026-09-07",
+  "frozenOn": "2026-11-25",
   "principle": "Territory is a canonical dimension independent from yearly documentary editions. Hubs exist for reader navigation, SEO and aggregation. Regions are agronomic documentary leaves: the smallest stable territories to which research coverage and documentary records are assigned. A hub may contain one or several leaves. A hub of several leaves may carry its own optional documentary layer (data/editions/<year>/hubs/<iso>/<hub>.json) for instruments shown to apply to every one of its leaves, which inherit it; a hub of one leaf is that leaf and never carries records of its own.",
   "jurisdictions": {
     "EU": {
@@ -1832,6 +1832,403 @@
           "name": "Zuid-Holland",
           "inPhrase": "in Zuid-Holland",
           "parentHub": "zuid-holland"
+        }
+      ]
+    },
+    "RO": {
+      "name": "România",
+      "lang": "ro",
+      "locale": "ro-RO",
+      "hubLabel": "Regiuni de dezvoltare",
+      "leafLevel": "județ",
+      "leafLabel": "Județe și municipiul București",
+      "sources": [
+        {
+          "url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/183844",
+          "authority": "Guvernul României",
+          "purpose": "HG nr. 860/2016, art. 2: direcțiile pentru agricultură județene și a municipiului București."
+        },
+        {
+          "url": "https://legislatie.just.ro/Public/DetaliiDocument/53040",
+          "authority": "Parlamentul României",
+          "purpose": "Legea nr. 315/2004, art. 5–6 și anexa: cele opt regiuni de dezvoltare și componența lor."
+        },
+        {
+          "url": "https://legislatie.just.ro/Public/DetaliiDocument/159336",
+          "authority": "Guvernul României",
+          "purpose": "OUG nr. 41/2014, art. 4: arondarea județelor Călărași și Ialomița la CRFIR 8 București-Ilfov."
+        },
+        {
+          "url": "https://eur-lex.europa.eu/eli/reg_del/2023/674/oj/eng",
+          "authority": "Comisión Europea",
+          "purpose": "Regulamentul delegat (UE) 2023/674, anexa: codurile NUTS 2 și NUTS 3."
+        },
+        {
+          "url": "https://legislatie.just.ro/Public/DetaliiDocument/215925",
+          "authority": "Guvernul României",
+          "purpose": "OUG nr. 57/2019, Codul administrativ, art. 94: folosirea limbii minorităților naționale."
+        },
+        {
+          "url": "https://www.recensamantromania.ro/rezultate-rpl-2021/rezultate-definitive-caracteristici-etno-culturale-demografice/",
+          "authority": "Institutul Național de Statistică",
+          "purpose": "Recensământul 2021, tabelul 2.02.1: populația rezidentă după etnie la nivel de județ."
+        }
+      ],
+      "rationale": "Județul este nivelul la care direcțiile pentru agricultură asigură formare și consultanță, iar structurile teritoriale emit avize pentru vânzarea anumitor terenuri agricole. Bucureștiul este tratat separat, deoarece are o direcție pentru agricultură proprie. Regiunile de dezvoltare din Legea nr. 315/2004 grupează județele pentru navigare, iar arondarea CRFIR se indică în fișele serviciilor AFIR. Județele Călărași și Ialomița fac parte din regiunea de dezvoltare Sud-Muntenia. Pentru serviciile AFIR, cele două județe sunt arondate CRFIR 8 București-Ilfov.",
+      "hubs": [
+        {
+          "slug": "nord-est",
+          "name": "Nord-Est",
+          "members": ["bacau", "botosani", "iasi", "neamt", "suceava", "vaslui"],
+          "nutsCode": "RO21"
+        },
+        {
+          "slug": "sud-est",
+          "name": "Sud-Est",
+          "members": ["braila", "buzau", "constanta", "galati", "tulcea", "vrancea"],
+          "nutsCode": "RO22"
+        },
+        {
+          "slug": "sud-muntenia",
+          "name": "Sud-Muntenia",
+          "members": ["arges", "calarasi", "dambovita", "giurgiu", "ialomita", "prahova", "teleorman"],
+          "nutsCode": "RO31"
+        },
+        {
+          "slug": "sud-vest-oltenia",
+          "name": "Sud-Vest Oltenia",
+          "members": ["dolj", "gorj", "mehedinti", "olt", "valcea"],
+          "nutsCode": "RO41"
+        },
+        {
+          "slug": "vest",
+          "name": "Vest",
+          "members": ["arad", "caras-severin", "hunedoara", "timis"],
+          "nutsCode": "RO42"
+        },
+        {
+          "slug": "nord-vest",
+          "name": "Nord-Vest",
+          "members": ["bihor", "bistrita-nasaud", "cluj", "maramures", "satu-mare", "salaj"],
+          "nutsCode": "RO11"
+        },
+        {
+          "slug": "centru",
+          "name": "Centru",
+          "members": ["alba", "brasov", "covasna", "harghita", "mures", "sibiu"],
+          "nutsCode": "RO12"
+        },
+        {
+          "slug": "bucuresti-ilfov",
+          "name": "București-Ilfov",
+          "members": ["bucuresti", "ilfov"],
+          "nutsCode": "RO32"
+        }
+      ],
+      "regions": [
+        {
+          "slug": "bacau",
+          "name": "Bacău",
+          "inPhrase": "în județul Bacău",
+          "parentHub": "nord-est",
+          "nutsCode": "RO211"
+        },
+        {
+          "slug": "botosani",
+          "name": "Botoșani",
+          "inPhrase": "în județul Botoșani",
+          "parentHub": "nord-est",
+          "nutsCode": "RO212"
+        },
+        {
+          "slug": "iasi",
+          "name": "Iași",
+          "inPhrase": "în județul Iași",
+          "parentHub": "nord-est",
+          "nutsCode": "RO213"
+        },
+        {
+          "slug": "neamt",
+          "name": "Neamț",
+          "inPhrase": "în județul Neamț",
+          "parentHub": "nord-est",
+          "nutsCode": "RO214"
+        },
+        {
+          "slug": "suceava",
+          "name": "Suceava",
+          "inPhrase": "în județul Suceava",
+          "parentHub": "nord-est",
+          "nutsCode": "RO215"
+        },
+        {
+          "slug": "vaslui",
+          "name": "Vaslui",
+          "inPhrase": "în județul Vaslui",
+          "parentHub": "nord-est",
+          "nutsCode": "RO216"
+        },
+        {
+          "slug": "braila",
+          "name": "Brăila",
+          "inPhrase": "în județul Brăila",
+          "parentHub": "sud-est",
+          "nutsCode": "RO221"
+        },
+        {
+          "slug": "buzau",
+          "name": "Buzău",
+          "inPhrase": "în județul Buzău",
+          "parentHub": "sud-est",
+          "nutsCode": "RO222"
+        },
+        {
+          "slug": "constanta",
+          "name": "Constanța",
+          "inPhrase": "în județul Constanța",
+          "parentHub": "sud-est",
+          "nutsCode": "RO223"
+        },
+        {
+          "slug": "galati",
+          "name": "Galați",
+          "inPhrase": "în județul Galați",
+          "parentHub": "sud-est",
+          "nutsCode": "RO224"
+        },
+        {
+          "slug": "tulcea",
+          "name": "Tulcea",
+          "inPhrase": "în județul Tulcea",
+          "parentHub": "sud-est",
+          "nutsCode": "RO225"
+        },
+        {
+          "slug": "vrancea",
+          "name": "Vrancea",
+          "inPhrase": "în județul Vrancea",
+          "parentHub": "sud-est",
+          "nutsCode": "RO226"
+        },
+        {
+          "slug": "arges",
+          "name": "Argeș",
+          "inPhrase": "în județul Argeș",
+          "parentHub": "sud-muntenia",
+          "nutsCode": "RO311"
+        },
+        {
+          "slug": "calarasi",
+          "name": "Călărași",
+          "inPhrase": "în județul Călărași",
+          "parentHub": "sud-muntenia",
+          "nutsCode": "RO312"
+        },
+        {
+          "slug": "dambovita",
+          "name": "Dâmbovița",
+          "inPhrase": "în județul Dâmbovița",
+          "parentHub": "sud-muntenia",
+          "nutsCode": "RO313"
+        },
+        {
+          "slug": "giurgiu",
+          "name": "Giurgiu",
+          "inPhrase": "în județul Giurgiu",
+          "parentHub": "sud-muntenia",
+          "nutsCode": "RO314"
+        },
+        {
+          "slug": "ialomita",
+          "name": "Ialomița",
+          "inPhrase": "în județul Ialomița",
+          "parentHub": "sud-muntenia",
+          "nutsCode": "RO315"
+        },
+        {
+          "slug": "prahova",
+          "name": "Prahova",
+          "inPhrase": "în județul Prahova",
+          "parentHub": "sud-muntenia",
+          "nutsCode": "RO316"
+        },
+        {
+          "slug": "teleorman",
+          "name": "Teleorman",
+          "inPhrase": "în județul Teleorman",
+          "parentHub": "sud-muntenia",
+          "nutsCode": "RO317"
+        },
+        {
+          "slug": "dolj",
+          "name": "Dolj",
+          "inPhrase": "în județul Dolj",
+          "parentHub": "sud-vest-oltenia",
+          "nutsCode": "RO411"
+        },
+        {
+          "slug": "gorj",
+          "name": "Gorj",
+          "inPhrase": "în județul Gorj",
+          "parentHub": "sud-vest-oltenia",
+          "nutsCode": "RO412"
+        },
+        {
+          "slug": "mehedinti",
+          "name": "Mehedinți",
+          "inPhrase": "în județul Mehedinți",
+          "parentHub": "sud-vest-oltenia",
+          "nutsCode": "RO413"
+        },
+        {
+          "slug": "olt",
+          "name": "Olt",
+          "inPhrase": "în județul Olt",
+          "parentHub": "sud-vest-oltenia",
+          "nutsCode": "RO414"
+        },
+        {
+          "slug": "valcea",
+          "name": "Vâlcea",
+          "inPhrase": "în județul Vâlcea",
+          "parentHub": "sud-vest-oltenia",
+          "nutsCode": "RO415"
+        },
+        {
+          "slug": "arad",
+          "name": "Arad",
+          "inPhrase": "în județul Arad",
+          "parentHub": "vest",
+          "nutsCode": "RO421"
+        },
+        {
+          "slug": "caras-severin",
+          "name": "Caraș-Severin",
+          "inPhrase": "în județul Caraș-Severin",
+          "parentHub": "vest",
+          "nutsCode": "RO422"
+        },
+        {
+          "slug": "hunedoara",
+          "name": "Hunedoara",
+          "inPhrase": "în județul Hunedoara",
+          "parentHub": "vest",
+          "nutsCode": "RO423"
+        },
+        {
+          "slug": "timis",
+          "name": "Timiș",
+          "inPhrase": "în județul Timiș",
+          "parentHub": "vest",
+          "nutsCode": "RO424"
+        },
+        {
+          "slug": "bihor",
+          "name": "Bihor",
+          "inPhrase": "în județul Bihor",
+          "parentHub": "nord-vest",
+          "nutsCode": "RO111"
+        },
+        {
+          "slug": "bistrita-nasaud",
+          "name": "Bistrița-Năsăud",
+          "inPhrase": "în județul Bistrița-Năsăud",
+          "parentHub": "nord-vest",
+          "nutsCode": "RO112"
+        },
+        {
+          "slug": "cluj",
+          "name": "Cluj",
+          "inPhrase": "în județul Cluj",
+          "parentHub": "nord-vest",
+          "nutsCode": "RO113"
+        },
+        {
+          "slug": "maramures",
+          "name": "Maramureș",
+          "inPhrase": "în județul Maramureș",
+          "parentHub": "nord-vest",
+          "nutsCode": "RO114"
+        },
+        {
+          "slug": "satu-mare",
+          "name": "Satu Mare",
+          "inPhrase": "în județul Satu Mare",
+          "parentHub": "nord-vest",
+          "nutsCode": "RO115"
+        },
+        {
+          "slug": "salaj",
+          "name": "Sălaj",
+          "inPhrase": "în județul Sălaj",
+          "parentHub": "nord-vest",
+          "nutsCode": "RO116"
+        },
+        {
+          "slug": "alba",
+          "name": "Alba",
+          "inPhrase": "în județul Alba",
+          "parentHub": "centru",
+          "nutsCode": "RO121"
+        },
+        {
+          "slug": "brasov",
+          "name": "Brașov",
+          "inPhrase": "în județul Brașov",
+          "parentHub": "centru",
+          "nutsCode": "RO122"
+        },
+        {
+          "slug": "covasna",
+          "name": "Covasna",
+          "inPhrase": "în județul Covasna",
+          "parentHub": "centru",
+          "nutsCode": "RO123",
+          "searchNames": {
+            "hu": "Kovászna megye"
+          }
+        },
+        {
+          "slug": "harghita",
+          "name": "Harghita",
+          "inPhrase": "în județul Harghita",
+          "parentHub": "centru",
+          "nutsCode": "RO124",
+          "searchNames": {
+            "hu": "Hargita megye"
+          }
+        },
+        {
+          "slug": "mures",
+          "name": "Mureș",
+          "inPhrase": "în județul Mureș",
+          "parentHub": "centru",
+          "nutsCode": "RO125",
+          "searchNames": {
+            "hu": "Maros megye"
+          }
+        },
+        {
+          "slug": "sibiu",
+          "name": "Sibiu",
+          "inPhrase": "în județul Sibiu",
+          "parentHub": "centru",
+          "nutsCode": "RO126"
+        },
+        {
+          "slug": "bucuresti",
+          "name": "București",
+          "inPhrase": "în municipiul București",
+          "parentHub": "bucuresti-ilfov",
+          "nutsCode": "RO321",
+          "kind": "municipality"
+        },
+        {
+          "slug": "ilfov",
+          "name": "Ilfov",
+          "inPhrase": "în județul Ilfov",
+          "parentHub": "bucuresti-ilfov",
+          "nutsCode": "RO322"
         }
       ]
     }

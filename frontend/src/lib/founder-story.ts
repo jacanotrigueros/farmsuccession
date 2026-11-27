@@ -182,4 +182,28 @@ export const founderStory = {
       "Voorlopig stelt de persoonlijke en professionele waarde van het project mij in staat de gids gratis aan te bieden. Dat verklaart de huidige keuze; het is geen belofte van eeuwig gratis toegang of een garantie voor toekomstig onderhoud.",
     ],
   },
+  ro: {
+    link: "De ce există FarmSuccession",
+    personalTitle: "Cine se află în spatele proiectului",
+    title: "De ce contează preluarea fermelor",
+    originTitle: "Cum s-a schimbat ideea",
+    freeTitle: "De ce accesul este gratuit",
+    personal: [
+      "Sunt José Antonio Cano Trigueros și lucrez ca dezvoltator de software. Activitatea mea în tehnologie include un mediu care leagă produsele agricultorilor de consumatori. FarmSuccession este proiectul meu personal, independent de angajatorul meu.",
+      "În timpul liber îngrijesc pomi fructiferi pe o parcelă mică și încerc să sprijin biodiversitatea, de exemplu cu adăposturi pentru insecte. Nu sunt fermier profesionist. Experiența aceasta mă apropie de anumite aspecte ale vieții la țară, dar este foarte diferită de administrarea unei ferme.",
+    ],
+    paragraphs: [
+      "Îmi doresc ca noile generații să aibă șanse reale să producă hrană și să continue activitatea agricolă. Accesul la teren face parte din acest drum, alături de finanțare, formare și consiliere. Când o fermă nu are succesor, mă preocupă viitorul ei și cunoștințele acumulate acolo.",
+      "Îmi doresc ca agricultura să fie o alegere viabilă, care să permită și protejarea mediului și îmbunătățirea practicilor. Această preocupare m-a făcut să studiez transmiterea fermelor și a dat numele proiectului. Un director poate ajuta oamenii să găsească sprijinul disponibil.",
+    ],
+    origin: [
+      "Ideea inițială era comercială. Am analizat o platformă sau o bancă de terenuri care să îi pună în legătură pe proprietarii de ferme cu persoanele interesate să le preia. Am găsit intermediari specializați și dificultăți umane, juridice și economice pe care o simplă punere în contact nu le rezolvă.",
+      "Am găsit și informații utile răspândite între administrații, asociații și alte organizații europene. Am ales să organizez descrierile și linkurile pentru a-i face mai ușor de găsit pe cei care oferă serviciile. Așa a apărut FarmSuccession, un director documentar independent. Nu intermediază transferuri, nu procesează cereri și nu înlocuiește sursele oficiale sau consilierea specializată.",
+    ],
+    free: [
+      "Realizarea și întreținerea directorului au și valoare profesională pentru mine. Este un portofoliu public în care îmi pot aplica și arăta competențele de dezvoltare software, pot experimenta, învăța și lua inițiativa. Experiența profesională mi-a arătat că disponibilitatea de a învăța și inițiativa sunt apreciate.",
+      "Accesul este gratuit, iar publicarea presupune costuri de infrastructură, instrumente pentru dezvoltare și cercetare și timp personal neplătit. Folosesc și instrumente cu plată, inclusiv inteligență artificială. Unele abonamente sunt opționale sau folosite pentru mai multe proiecte. Site-ul static publicat poate funcționa fără ele. Rezultatele instrumentelor nu constituie singure dovezi și nu înlocuiesc sursele, verificarea umană sau opinia unui specialist.",
+      "Valoarea personală și profesională a proiectului îmi permite să ofer acces gratuit la director. Întreținerea depinde de resursele disponibile.",
+    ],
+  },
 } as const satisfies Record<Language, FounderStory>;

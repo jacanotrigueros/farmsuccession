@@ -11,8 +11,8 @@
  * regenerated breaks this file at type-check time, instead of printing a code at a reader.
  */
 import type { Call, ContactPoint, EditionSnapshot, Metric, NewsItem, Resource, Scope } from "../../../src/types/edition.ts";
-import { asLanguage, listIn, moneyIn, numberIn, type Language } from "./language.ts";
-import { pluralIndex } from "../../public/locale.js";
+import { asLanguage, listIn, moneyIn, type Language } from "./language.ts";
+import { counted } from "../../public/locale.js";
 
 /**
  * One translated vocabulary: a complete table per language, read by key. Missing a key in either language
@@ -27,7 +27,7 @@ const vocabulary =
 const countedVocabulary =
   <Key extends string>(tables: Record<Language, Record<Key, readonly [string, string]>>) =>
   (key: Key, howMany: number, language: string): string =>
-    tables[asLanguage(language)][key][pluralIndex(howMany, language)];
+    counted(howMany, tables[asLanguage(language)][key], language);
 
 /**
  * What each kind is, in one line: the label alone says "Rules 3", which tells nobody what a rule is doing
@@ -112,6 +112,17 @@ export const kindBlurb = vocabulary<Resource["kind"]>({
     OFFICIAL_PORTAL: "Officiële websites met informatie en uitleg over procedures.",
     OTHER: "Andere informatie en hulp rond bedrijfsopvolging in de landbouw.",
   },
+  ro: {
+    FINANCIAL_SUPPORT: "Granturi, prime și credite pentru instalare, investiții sau preluarea unei ferme.",
+    LAND_BANK: "Bănci și burse de terenuri care pun în legătură proprietarii cu cei care caută teren.",
+    SUCCESSION_SERVICE: "Servicii care îi pun în legătură pe cei care transmit o fermă cu cei care vor să o preia.",
+    TRAINING: "Cursuri și școli pentru calificările cerute de unele scheme de sprijin.",
+    ADVICE: "Consiliere pentru transmitere, instalare sau administrarea fermei.",
+    NETWORK: "Rețele și parteneriate care îi pun în legătură pe cei implicați în preluarea fermelor.",
+    POLICY: "Reguli și strategii publice privind reînnoirea generațiilor.",
+    OFFICIAL_PORTAL: "Portaluri oficiale cu informații și proceduri.",
+    OTHER: "Alte resurse privind preluarea și transmiterea fermelor.",
+  },
 });
 
 export const kindLabel = vocabulary<Resource["kind"]>({
@@ -192,6 +203,17 @@ export const kindLabel = vocabulary<Resource["kind"]>({
     NETWORK: "Netwerk",
     OTHER: "Overig",
   },
+  ro: {
+    LAND_BANK: "Bancă sau bursă de terenuri",
+    SUCCESSION_SERVICE: "Serviciu de preluare sau transmitere",
+    FINANCIAL_SUPPORT: "Sprijin financiar",
+    TRAINING: "Formare",
+    ADVICE: "Consiliere",
+    OFFICIAL_PORTAL: "Portal oficial",
+    POLICY: "Politici și reglementări",
+    NETWORK: "Rețea",
+    OTHER: "Altele",
+  },
 });
 
 /**
@@ -248,6 +270,13 @@ export const stateLabel = vocabulary<Resource["status"]>({
     DISCONTINUED: "Beëindigd",
     UNKNOWN: "Status niet bevestigd",
   },
+  ro: {
+    ACTIVE: "Resursă activă",
+    ANNOUNCED_NOT_OPERATING: "Anunțată, încă nefuncțională",
+    HISTORICAL: "Resursă istorică",
+    DISCONTINUED: "Resursă întreruptă",
+    UNKNOWN: "Stare neconfirmată",
+  },
 });
 
 /** How far a resource reaches. Said as an extent a reader can place themselves in, not as a tier name. */
@@ -301,6 +330,7 @@ export const reachLabel = vocabulary<Scope["level"]>({
     SUBREGIONAL: "Subregionaal",
     LOCAL: "Lokaal",
   },
+  ro: { EU: "Uniunea Europeană", NATIONAL: "Națională", REGIONAL: "Regională", SUBREGIONAL: "Subregională", LOCAL: "Locală" },
 });
 
 /** How far the research of a territory went, which the note under it then qualifies. */
@@ -340,6 +370,7 @@ export const coverageLabel = vocabulary<EditionSnapshot["coverage"]["status"]>({
     PARTIAL: "Nog niet alle bronnen gecontroleerd",
     SEARCHED: "Onderzoek afgerond en vastgelegd",
   },
+  ro: { NOT_STARTED: "Cercetare neîncepută", PARTIAL: "Cercetare parțială", SEARCHED: "Cercetare efectuată" },
 });
 
 /** What kind of body runs it, which is how a reader weighs a public register against a private listing. */
@@ -393,6 +424,13 @@ export const operatorTypeLabel = vocabulary<Resource["operatorType"]>({
     MIXED: "Overheid en private partijen samen",
     UNKNOWN: "De bronnen vermelden het niet",
   },
+  ro: {
+    PUBLIC: "Instituție publică",
+    NONPROFIT: "Organizație fără scop lucrativ",
+    PRIVATE: "Operator privat",
+    MIXED: "Organizație mixtă",
+    UNKNOWN: "Necunoscut",
+  },
 });
 
 export const costLabel = vocabulary<NonNullable<Resource["accessCostType"]>>({
@@ -438,6 +476,7 @@ export const costLabel = vocabulary<NonNullable<Resource["accessCostType"]>>({
     NOT_APPLICABLE: "Niet van toepassing",
     UNKNOWN: "Niet gedocumenteerd",
   },
+  ro: { FREE: "Gratuit", FEE_REQUIRED: "Cu plată", NOT_APPLICABLE: "Nu se aplică", UNKNOWN: "Nedocumentat" },
 });
 
 export const instrumentLabel = vocabulary<NonNullable<Resource["instrumentType"]>>({
@@ -490,6 +529,7 @@ export const instrumentLabel = vocabulary<NonNullable<Resource["instrumentType"]
     INTEREST_SUBSIDY: "Rentesubsidie",
     OTHER: "Overig",
   },
+  ro: { GRANT: "Grant", LOAN: "Credit", GUARANTEE: "Garanție", INTEREST_SUBSIDY: "Subvenționarea dobânzii", OTHER: "Alt sprijin" },
 });
 
 export const purposeLabel = vocabulary<NonNullable<Resource["purposes"]>[number]>({
@@ -549,6 +589,14 @@ export const purposeLabel = vocabulary<NonNullable<Resource["purposes"]>[number]
     RETIREMENT_SUCCESSION: "Pensioen en opvolging",
     OTHER: "Overig",
   },
+  ro: {
+    FIRST_ESTABLISHMENT: "Prima instalare",
+    INVESTMENT: "Investiții",
+    LAND_ACQUISITION: "Achiziția de teren",
+    TRANSFER: "Preluarea sau transmiterea fermei",
+    RETIREMENT_SUCCESSION: "Pensionare și succesiune",
+    OTHER: "Alt scop",
+  },
 });
 
 export const assetLabel = vocabulary<NonNullable<Resource["assetTypes"]>[number]>({
@@ -580,6 +628,7 @@ export const assetLabel = vocabulary<NonNullable<Resource["assetTypes"]>[number]
     PLOTS: "Percelen",
     WHOLE_HOLDINGS: "Hele bedrijven",
   },
+  ro: { PLOTS: "Parcele", WHOLE_HOLDINGS: "Exploatații întregi" },
 });
 
 export const sectorLabel = vocabulary<NonNullable<Resource["sectors"]>[number]>({
@@ -618,6 +667,7 @@ export const sectorLabel = vocabulary<NonNullable<Resource["sectors"]>[number]>(
     LIVESTOCK: "Veehouderij",
     FORESTRY: "Bosbouw",
   },
+  ro: { AGRICULTURE: "Agricultură", LIVESTOCK: "Creșterea animalelor", FORESTRY: "Silvicultură" },
 });
 
 export const formatLabel = vocabulary<NonNullable<Resource["trainingFormats"]>[number]>({
@@ -663,6 +713,7 @@ export const formatLabel = vocabulary<NonNullable<Resource["trainingFormats"]>[n
     HYBRID: "Hybride",
     OTHER: "Overig",
   },
+  ro: { IN_PERSON: "Cu prezență fizică", ONLINE: "Online", HYBRID: "Hibrid", OTHER: "Alt format" },
 });
 
 /** Who it is for, in the words somebody would use about themselves rather than about a beneficiary class. */
@@ -738,6 +789,15 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
     LAND_SEEKER: "Op zoek naar grond",
     GENERAL: "Iedereen",
   },
+  ro: {
+    YOUNG_FARMER: "tânăr fermier",
+    NEW_ENTRANT: "persoană care intră în agricultură",
+    SUCCESSOR: "persoană care preia o fermă",
+    TRANSFEROR: "persoană care transmite o fermă",
+    LANDOWNER: "proprietar de teren",
+    LAND_SEEKER: "persoană care caută teren",
+    GENERAL: "orice persoană",
+  },
 });
 
 /** What "anyone" becomes once the source has also named somebody: an addition, not the whole answer. */
@@ -749,6 +809,7 @@ const anyoneElse = vocabulary<"else">({
   it: { else: "chiunque altro" },
   pt: { else: "qualquer outra pessoa" },
   nl: { else: "alle anderen" },
+  ro: { else: "orice altă persoană" },
 });
 
 /**
@@ -814,6 +875,7 @@ export const callStateLabel = vocabulary<Call["state"]>({
     CLOSED: "Gesloten",
     NOT_PUBLISHED: "Niet gepubliceerd",
   },
+  ro: { UPCOMING: "Urmează să se deschidă", OPEN: "Deschisă", CLOSED: "Închisă", NOT_PUBLISHED: "Nepublicată" },
 });
 
 export const channelLabel = vocabulary<ContactPoint["channel"]>({
@@ -824,6 +886,7 @@ export const channelLabel = vocabulary<ContactPoint["channel"]>({
   it: { EMAIL: "Email", PHONE: "Telefono", FORM: "Modulo", OFFICE: "Ufficio" },
   pt: { EMAIL: "Email", PHONE: "Telefone", FORM: "Formulário", OFFICE: "Balcão" },
   nl: { EMAIL: "E-mail", PHONE: "Telefoon", FORM: "Formulier", OFFICE: "Loket" },
+  ro: { EMAIL: "E-mail", PHONE: "Telefon", FORM: "Formular", OFFICE: "Birou" },
 });
 
 /** What happened, as a thing that happened rather than as an event class. */
@@ -905,6 +968,17 @@ export const newsTypeLabel = vocabulary<NewsItem["type"]>({
     FIGURE: "Cijfer gepubliceerd",
     OTHER: "Gebeurd",
   },
+  ro: {
+    ANNOUNCEMENT: "Anunț",
+    LAUNCH: "Lansare",
+    CALL_OPENED: "S-a deschis o sesiune",
+    CALL_CLOSED: "S-a închis o sesiune",
+    LAW_OR_REGULATION: "Act publicat",
+    CHANGE: "Modificare",
+    DISCONTINUATION: "Încheiere",
+    FIGURE: "Cifră publicată",
+    OTHER: "Alt eveniment",
+  },
 });
 
 const UNITS = countedVocabulary<Metric["unit"]>({
@@ -978,11 +1052,21 @@ const UNITS = countedVocabulary<Metric["unit"]>({
     PEOPLE: ["persoon", "personen"],
     HOURS: ["uur", "uur"],
   },
+  ro: {
+    EUR: ["euro", "euro"],
+    HECTARES: ["hectar", "hectare"],
+    PARCELS: ["parcelă", "parcele"],
+    OFFERS: ["ofertă", "oferte"],
+    PROPERTIES: ["proprietate", "proprietăți"],
+    HOLDINGS: ["exploatație", "exploatații"],
+    PEOPLE: ["persoană", "persoane"],
+    HOURS: ["oră", "ore"],
+  },
 });
 
 /** A published figure with its unit, written the way the language writes both. */
 export const quantity = (value: number, unit: Metric["unit"], language: string): string =>
-  unit === "EUR" ? moneyIn(value, language) : `${numberIn(value, language)} ${UNITS(unit, value, language)}`;
+  unit === "EUR" ? moneyIn(value, language) : UNITS(unit, value, language);
 
 /**
  * The languages a resource is available in, named rather than coded. ISO 639-1 is an open list and this
@@ -991,6 +1075,8 @@ export const quantity = (value: number, unit: Metric["unit"], language: string):
  */
 const LANGUAGE_NAMES = {
   en: {
+    ro: "Romanian",
+    hu: "Hungarian",
     ca: "Catalan",
     de: "German",
     en: "English",
@@ -1003,6 +1089,8 @@ const LANGUAGE_NAMES = {
     pt: "Portuguese",
   },
   es: {
+    ro: "rumano",
+    hu: "húngaro",
     ca: "catalán",
     de: "alemán",
     en: "inglés",
@@ -1015,6 +1103,8 @@ const LANGUAGE_NAMES = {
     pt: "portugués",
   },
   de: {
+    ro: "Rumänisch",
+    hu: "Ungarisch",
     ca: "Katalanisch",
     de: "Deutsch",
     en: "Englisch",
@@ -1027,6 +1117,8 @@ const LANGUAGE_NAMES = {
     pt: "Portugiesisch",
   },
   fr: {
+    ro: "roumain",
+    hu: "hongrois",
     ca: "catalan",
     de: "allemand",
     en: "anglais",
@@ -1039,6 +1131,8 @@ const LANGUAGE_NAMES = {
     pt: "portugais",
   },
   it: {
+    ro: "rumeno",
+    hu: "ungherese",
     ca: "catalano",
     de: "tedesco",
     en: "inglese",
@@ -1051,6 +1145,8 @@ const LANGUAGE_NAMES = {
     pt: "portoghese",
   },
   pt: {
+    ro: "romeno",
+    hu: "húngaro",
     ca: "catalão",
     de: "alemão",
     en: "inglês",
@@ -1063,6 +1159,8 @@ const LANGUAGE_NAMES = {
     pt: "português",
   },
   nl: {
+    ro: "Roemeens",
+    hu: "Hongaars",
     ca: "Catalaans",
     de: "Duits",
     en: "Engels",
@@ -1073,6 +1171,20 @@ const LANGUAGE_NAMES = {
     it: "Italiaans",
     nl: "Nederlands",
     pt: "Portugees",
+  },
+  ro: {
+    ca: "catalană",
+    de: "germană",
+    en: "engleză",
+    es: "spaniolă",
+    eu: "bască",
+    fr: "franceză",
+    gl: "galiciană",
+    it: "italiană",
+    nl: "neerlandeză",
+    pt: "portugheză",
+    ro: "română",
+    hu: "maghiară",
   },
 } as const satisfies Record<Language, Record<string, string>>;
 

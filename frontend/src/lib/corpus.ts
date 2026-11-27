@@ -12,12 +12,12 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-import type { LoadedSnapshot } from "../../../src/editions.ts";
 import type { Layer } from "../../../src/layers.ts";
 import type { Call, ContactPoint, EditionSnapshot, Metric, NewsItem, Resource, Source } from "../../../src/types/edition.ts";
 import type { Territories } from "../../../src/types/territories.ts";
 import { recordSlug, regionSlug } from "../../public/search-scope.js";
 import { countryNameIn } from "./language.ts";
+import { publicSnapshots } from "./publication.ts";
 
 /**
  * The repository's modules are loaded from the repository, not bundled into the site.
@@ -33,13 +33,14 @@ const fromRepository = <T>(file: string): Promise<T> =>
 
 const { loadSnapshots } = await fromRepository<typeof import("../../../src/editions.ts")>("src/editions.ts");
 const { loadTerritories } = await fromRepository<typeof import("../../../src/territories.ts")>("src/territories.ts");
-const { ancestorLayers, layerKey, leafLayers, snapshotLayer } =
-  await fromRepository<typeof import("../../../src/layers.ts")>("src/layers.ts");
+const {
+  ancestorLayers,
+  layerKey,
+  leafLayers: catalogueLeaves,
+  snapshotLayer,
+} = await fromRepository<typeof import("../../../src/layers.ts")>("src/layers.ts");
 
 export type { Layer, Resource, EditionSnapshot, NewsItem, Source, Call, Metric, ContactPoint };
-
-/** Every region a layer reaches, which is where its records apply. */
-export { leafLayers };
 
 /** One territory of one edition: its file, its place in the tree, and what it publishes. */
 export type Territory = { file: string; layer: Layer; data: EditionSnapshot };
@@ -55,7 +56,7 @@ if (loaded.problems.length > 0) {
 
 export const territories: Territories = loadTerritories();
 
-const all: Territory[] = loaded.snapshots.map(({ file, data }: LoadedSnapshot) => ({ file, layer: snapshotLayer(data), data }));
+const all: Territory[] = publicSnapshots(loaded.snapshots).map(({ file, data }) => ({ file, layer: snapshotLayer(data), data }));
 
 /** The editions this repository holds, newest first, read from the paths rather than from a list. */
 export const editions: string[] = [...new Set(all.map(({ file }) => file.slice(0, 4)))].toSorted().toReversed();
@@ -77,6 +78,13 @@ export const regionTerritories = (edition = currentEdition): Territory[] => atLe
 
 export const regionsOf = (iso: string, edition = currentEdition): Territory[] =>
   regionTerritories(edition).filter(({ layer }) => layer.level === "REGION" && layer.country === iso);
+
+const publicCountries = new Set(countryTerritories().flatMap(({ layer }) => (layer.level === "COUNTRY" ? [layer.country] : [])));
+
+/** The search only offers leaves of countries present on the public site. */
+export function leafLayers(layer: Layer): Layer[] {
+  return catalogueLeaves(layer, territories).filter((leaf) => leaf.level === "REGION" && publicCountries.has(leaf.country));
+}
 
 /** The territory a path names, so a page can find its own data from its route. */
 export function territoryAt(

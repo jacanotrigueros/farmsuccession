@@ -38,7 +38,7 @@ function tally<Value extends string>(
 
 /** Every region a record reaches, which is where a reader can ask for it by territory. */
 const reachOf = (entry: Listed): string[] =>
-  leafLayers(entry.from.layer, territories).flatMap((leaf) => (leaf.level === "REGION" ? [`${leaf.country}/${leaf.region}`] : []));
+  leafLayers(entry.from.layer).flatMap((leaf) => (leaf.level === "REGION" ? [`${leaf.country}/${leaf.region}`] : []));
 
 const countryOf = (entry: Listed): string => (entry.from.layer.level === "EU" ? "EU" : entry.from.layer.country);
 
