@@ -146,6 +146,29 @@ export const kindBlurb = vocabulary<Resource["kind"]>({
     OFFICIAL_PORTAL: "Επίσημοι ιστότοποι με πληροφορίες και διαδικασίες.",
     OTHER: "Άλλες καταχωρίσεις για την ανάληψη και τη μεταβίβαση αγροτικών εκμεταλλεύσεων.",
   },
+  hu: {
+    FINANCIAL_SUPPORT: "Támogatások, indulási juttatások és hitelek gazdaságindításhoz, beruházáshoz vagy gazdaságátvételhez.",
+    LAND_BANK: "Földalapok és földbörzék, amelyek összekötik a tulajdonosokat a termőföldet keresőkkel.",
+    SUCCESSION_SERVICE: "Szolgáltatások, amelyek összekötik a gazdaságukat átadókat a leendő átvevőkkel.",
+    TRAINING: "Tanfolyamok és iskolák, ahol megszerezheted az egyes támogatásokhoz előírt végzettséget.",
+    ADVICE: "Szaktanácsadás gazdaságátadáshoz, gazdaságindításhoz vagy a gazdaság működtetéséhez.",
+    NETWORK: "Hálózatok és együttműködések, amelyek összekötik a gazdaságátvételben érintetteket.",
+    POLICY: "A generációváltással kapcsolatos szabályok és közpolitikai stratégiák.",
+    OFFICIAL_PORTAL: "Hivatalos portálok tájékoztatókkal és ügyintézési útmutatókkal.",
+    OTHER: "Egyéb források a gazdaságok átvételéhez és átadásához.",
+  },
+  hr: {
+    FINANCIAL_SUPPORT:
+      "Bespovratna sredstva, premije i krediti za pokretanje poljoprivredne djelatnosti, ulaganja ili preuzimanje gospodarstva.",
+    LAND_BANK: "Banke i burze zemljišta koje povezuju vlasnike s osobama koje traže zemljište.",
+    SUCCESSION_SERVICE: "Usluge koje povezuju osobe koje prenose gospodarstvo s onima koje ga žele preuzeti.",
+    TRAINING: "Tečajevi i škole za stjecanje kvalifikacija koje se traže za pojedine potpore.",
+    ADVICE: "Savjetovanje o prijenosu gospodarstva, pokretanju poljoprivredne djelatnosti ili upravljanju gospodarstvom.",
+    NETWORK: "Mreže i partnerstva koja povezuju osobe uključene u preuzimanje gospodarstava.",
+    POLICY: "Propisi i javne strategije za generacijsku obnovu.",
+    OFFICIAL_PORTAL: "Službeni portali s informacijama i opisima postupaka.",
+    OTHER: "Ostali resursi o preuzimanju i prijenosu gospodarstava.",
+  },
 });
 
 export const kindLabel = vocabulary<Resource["kind"]>({
@@ -259,6 +282,28 @@ export const kindLabel = vocabulary<Resource["kind"]>({
     NETWORK: "Δίκτυο",
     OTHER: "Άλλα",
   },
+  hu: {
+    LAND_BANK: "Földalap vagy földbörze",
+    SUCCESSION_SERVICE: "Gazdaságátadást vagy -átvételt segítő szolgáltatás",
+    FINANCIAL_SUPPORT: "Pénzügyi támogatás",
+    TRAINING: "Képzés",
+    ADVICE: "Szaktanácsadás",
+    OFFICIAL_PORTAL: "Hivatalos portál",
+    POLICY: "Szakpolitika és szabályozás",
+    NETWORK: "Hálózat",
+    OTHER: "Egyéb",
+  },
+  hr: {
+    LAND_BANK: "Banka ili burza zemljišta",
+    SUCCESSION_SERVICE: "Usluga za preuzimanje ili prijenos gospodarstva",
+    FINANCIAL_SUPPORT: "Financijska potpora",
+    TRAINING: "Osposobljavanje",
+    ADVICE: "Savjetovanje",
+    OFFICIAL_PORTAL: "Službeni portal",
+    POLICY: "Politike i propisi",
+    NETWORK: "Mreža",
+    OTHER: "Ostalo",
+  },
 });
 
 /**
@@ -336,6 +381,20 @@ export const stateLabel = vocabulary<Resource["status"]>({
     DISCONTINUED: "Έχει διακοπεί",
     UNKNOWN: "Ανεπιβεβαίωτη κατάσταση",
   },
+  hu: {
+    ACTIVE: "Aktív forrás",
+    ANNOUNCED_NOT_OPERATING: "Bejelentett, még nem elérhető",
+    HISTORICAL: "Korábbi forrás",
+    DISCONTINUED: "Megszűnt forrás",
+    UNKNOWN: "Az állapot nincs megerősítve",
+  },
+  hr: {
+    ACTIVE: "Aktivan resurs",
+    ANNOUNCED_NOT_OPERATING: "Najavljen, još nije dostupan",
+    HISTORICAL: "Povijesni resurs",
+    DISCONTINUED: "Ukinut resurs",
+    UNKNOWN: "Nepotvrđeno stanje",
+  },
 });
 
 /** How far a resource reaches. Said as an extent a reader can place themselves in, not as a tier name. */
@@ -392,6 +451,14 @@ export const reachLabel = vocabulary<Scope["level"]>({
   ro: { EU: "Uniunea Europeană", NATIONAL: "Națională", REGIONAL: "Regională", SUBREGIONAL: "Subregională", LOCAL: "Locală" },
   pl: { EU: "Unia Europejska", NATIONAL: "Krajowy", REGIONAL: "Regionalny", SUBREGIONAL: "Subregionalny", LOCAL: "Lokalny" },
   el: { EU: "Ευρωπαϊκή Ένωση", NATIONAL: "Εθνικό", REGIONAL: "Περιφερειακό", SUBREGIONAL: "Υποπεριφερειακό", LOCAL: "Τοπικό" },
+  hu: { EU: "Európai Unió", NATIONAL: "Országos", REGIONAL: "Regionális", SUBREGIONAL: "Térségi", LOCAL: "Helyi" },
+  hr: {
+    EU: "Europska unija",
+    NATIONAL: "Nacionalna razina",
+    REGIONAL: "Regionalna razina",
+    SUBREGIONAL: "Subregionalna razina",
+    LOCAL: "Lokalna razina",
+  },
 });
 
 /** How far the research of a territory went, which the note under it then qualifies. */
@@ -434,6 +501,8 @@ export const coverageLabel = vocabulary<EditionSnapshot["coverage"]["status"]>({
   ro: { NOT_STARTED: "Cercetare neîncepută", PARTIAL: "Cercetare parțială", SEARCHED: "Cercetare efectuată" },
   pl: { NOT_STARTED: "Nie rozpoczęto sprawdzania źródeł", PARTIAL: "Sprawdzono część źródeł", SEARCHED: "Sprawdzono źródła" },
   el: { NOT_STARTED: "Η έρευνα δεν έχει ξεκινήσει", PARTIAL: "Μερική έρευνα", SEARCHED: "Η έρευνα έχει γίνει" },
+  hu: { NOT_STARTED: "A forráskeresés még nem kezdődött el", PARTIAL: "Részben átnézve", SEARCHED: "Átnézve" },
+  hr: { NOT_STARTED: "Istraživanje nije započeto", PARTIAL: "Djelomično istraženo", SEARCHED: "Istraživanje provedeno" },
 });
 
 /** What kind of body runs it, which is how a reader weighs a public register against a private listing. */
@@ -508,6 +577,20 @@ export const operatorTypeLabel = vocabulary<Resource["operatorType"]>({
     MIXED: "Μικτός φορέας",
     UNKNOWN: "Άγνωστος",
   },
+  hu: {
+    PUBLIC: "Közintézmény",
+    NONPROFIT: "Nonprofit szervezet",
+    PRIVATE: "Magánszolgáltató",
+    MIXED: "Vegyes szervezet",
+    UNKNOWN: "Ismeretlen",
+  },
+  hr: {
+    PUBLIC: "Javna ustanova",
+    NONPROFIT: "Neprofitna organizacija",
+    PRIVATE: "Privatni pružatelj usluge",
+    MIXED: "Mješovita organizacija",
+    UNKNOWN: "Nepoznato",
+  },
 });
 
 export const costLabel = vocabulary<NonNullable<Resource["accessCostType"]>>({
@@ -556,6 +639,8 @@ export const costLabel = vocabulary<NonNullable<Resource["accessCostType"]>>({
   ro: { FREE: "Gratuit", FEE_REQUIRED: "Cu plată", NOT_APPLICABLE: "Nu se aplică", UNKNOWN: "Nedocumentat" },
   pl: { FREE: "Bezpłatny", FEE_REQUIRED: "Płatny", NOT_APPLICABLE: "Nie dotyczy", UNKNOWN: "Brak informacji" },
   el: { FREE: "Δωρεάν", FEE_REQUIRED: "Με χρέωση", NOT_APPLICABLE: "Δεν ισχύει", UNKNOWN: "Δεν έχει τεκμηριωθεί" },
+  hu: { FREE: "Ingyenes", FEE_REQUIRED: "Díjköteles", NOT_APPLICABLE: "Nem vonatkozik rá", UNKNOWN: "Nincs dokumentálva" },
+  hr: { FREE: "Besplatno", FEE_REQUIRED: "Uz naknadu", NOT_APPLICABLE: "Nije primjenjivo", UNKNOWN: "Nije dokumentirano" },
 });
 
 export const instrumentLabel = vocabulary<NonNullable<Resource["instrumentType"]>>({
@@ -617,6 +702,20 @@ export const instrumentLabel = vocabulary<NonNullable<Resource["instrumentType"]
     OTHER: "Inna forma wsparcia",
   },
   el: { GRANT: "Επιχορήγηση", LOAN: "Δάνειο", GUARANTEE: "Εγγύηση", INTEREST_SUBSIDY: "Επιδότηση επιτοκίου", OTHER: "Άλλη στήριξη" },
+  hu: {
+    GRANT: "Vissza nem térítendő támogatás",
+    LOAN: "Hitel",
+    GUARANTEE: "Garancia",
+    INTEREST_SUBSIDY: "Kamattámogatás",
+    OTHER: "Egyéb támogatás",
+  },
+  hr: {
+    GRANT: "Bespovratna sredstva",
+    LOAN: "Kredit",
+    GUARANTEE: "Jamstvo",
+    INTEREST_SUBSIDY: "Subvencioniranje kamate",
+    OTHER: "Druga potpora",
+  },
 });
 
 export const purposeLabel = vocabulary<NonNullable<Resource["purposes"]>[number]>({
@@ -700,6 +799,22 @@ export const purposeLabel = vocabulary<NonNullable<Resource["purposes"]>[number]
     RETIREMENT_SUCCESSION: "Συνταξιοδότηση και διαδοχή",
     OTHER: "Άλλος σκοπός",
   },
+  hu: {
+    FIRST_ESTABLISHMENT: "Első gazdaságindítás",
+    INVESTMENT: "Beruházás",
+    LAND_ACQUISITION: "Földszerzés",
+    TRANSFER: "Gazdaságátvétel vagy gazdaságátadás",
+    RETIREMENT_SUCCESSION: "Nyugdíjba vonulás és gazdaságátadás",
+    OTHER: "Egyéb cél",
+  },
+  hr: {
+    FIRST_ESTABLISHMENT: "Prvo pokretanje poljoprivredne djelatnosti",
+    INVESTMENT: "Ulaganja",
+    LAND_ACQUISITION: "Kupnja zemljišta",
+    TRANSFER: "Preuzimanje ili prijenos gospodarstva",
+    RETIREMENT_SUCCESSION: "Umirovljenje i prijenos gospodarstva",
+    OTHER: "Druga namjena",
+  },
 });
 
 export const assetLabel = vocabulary<NonNullable<Resource["assetTypes"]>[number]>({
@@ -734,6 +849,8 @@ export const assetLabel = vocabulary<NonNullable<Resource["assetTypes"]>[number]
   ro: { PLOTS: "Parcele", WHOLE_HOLDINGS: "Exploatații întregi" },
   pl: { PLOTS: "Działki rolne", WHOLE_HOLDINGS: "Całe gospodarstwa rolne" },
   el: { PLOTS: "Αγροτεμάχια", WHOLE_HOLDINGS: "Ολόκληρες αγροτικές εκμεταλλεύσεις" },
+  hu: { PLOTS: "Földrészletek", WHOLE_HOLDINGS: "Teljes gazdaságok" },
+  hr: { PLOTS: "Parcele", WHOLE_HOLDINGS: "Cijela gospodarstva" },
 });
 
 export const sectorLabel = vocabulary<NonNullable<Resource["sectors"]>[number]>({
@@ -775,6 +892,8 @@ export const sectorLabel = vocabulary<NonNullable<Resource["sectors"]>[number]>(
   ro: { AGRICULTURE: "Agricultură", LIVESTOCK: "Creșterea animalelor", FORESTRY: "Silvicultură" },
   pl: { AGRICULTURE: "Rolnictwo", LIVESTOCK: "Chów i hodowla zwierząt", FORESTRY: "Leśnictwo" },
   el: { AGRICULTURE: "Γεωργία", LIVESTOCK: "Κτηνοτροφία", FORESTRY: "Δασοπονία" },
+  hu: { AGRICULTURE: "Mezőgazdaság", LIVESTOCK: "Állattenyésztés", FORESTRY: "Erdőgazdálkodás" },
+  hr: { AGRICULTURE: "Poljoprivreda", LIVESTOCK: "Stočarstvo", FORESTRY: "Šumarstvo" },
 });
 
 export const formatLabel = vocabulary<NonNullable<Resource["trainingFormats"]>[number]>({
@@ -823,6 +942,8 @@ export const formatLabel = vocabulary<NonNullable<Resource["trainingFormats"]>[n
   ro: { IN_PERSON: "Cu prezență fizică", ONLINE: "Online", HYBRID: "Hibrid", OTHER: "Alt format" },
   pl: { IN_PERSON: "Stacjonarnie", ONLINE: "Online", HYBRID: "Hybrydowo", OTHER: "Inna forma" },
   el: { IN_PERSON: "Διά ζώσης", ONLINE: "Διαδικτυακή", HYBRID: "Μικτή", OTHER: "Άλλη μορφή" },
+  hu: { IN_PERSON: "Jelenléti", ONLINE: "Online", HYBRID: "Vegyes", OTHER: "Egyéb forma" },
+  hr: { IN_PERSON: "Uživo", ONLINE: "Na daljinu", HYBRID: "Kombinirano", OTHER: "Drugi način održavanja" },
 });
 
 /** Who it is for, in the words somebody would use about themselves rather than about a beneficiary class. */
@@ -925,6 +1046,24 @@ export const profileLabel = vocabulary<NonNullable<Resource["targetProfiles"]>[n
     LAND_SEEKER: "άτομο που αναζητά γη",
     GENERAL: "οποιοσδήποτε",
   },
+  hu: {
+    YOUNG_FARMER: "fiatal gazda",
+    NEW_ENTRANT: "kezdő gazdálkodó",
+    SUCCESSOR: "gazdaságátvevő",
+    TRANSFEROR: "gazdaságátadó",
+    LANDOWNER: "földtulajdonos",
+    LAND_SEEKER: "termőföldet kereső",
+    GENERAL: "bárki",
+  },
+  hr: {
+    YOUNG_FARMER: "mladi poljoprivrednik",
+    NEW_ENTRANT: "osoba koja se počinje baviti poljoprivredom",
+    SUCCESSOR: "osoba koja preuzima gospodarstvo",
+    TRANSFEROR: "osoba koja prenosi gospodarstvo",
+    LANDOWNER: "vlasnik zemljišta",
+    LAND_SEEKER: "osoba koja traži zemljište",
+    GENERAL: "svi zainteresirani",
+  },
 });
 
 /** What "anyone" becomes once the source has also named somebody: an addition, not the whole answer. */
@@ -939,6 +1078,8 @@ const anyoneElse = vocabulary<"else">({
   ro: { else: "orice altă persoană" },
   pl: { else: "każda inna osoba" },
   el: { else: "οποιοσδήποτε άλλος" },
+  hu: { else: "bárki más" },
+  hr: { else: "svi ostali zainteresirani" },
 });
 
 /**
@@ -1012,6 +1153,13 @@ export const callStateLabel = vocabulary<Call["state"]>({
     NOT_PUBLISHED: "Brak ogłoszenia o naborze",
   },
   el: { UPCOMING: "Θα ανοίξει σύντομα", OPEN: "Ανοιχτή", CLOSED: "Κλειστή", NOT_PUBLISHED: "Δεν έχει δημοσιευτεί" },
+  hu: { UPCOMING: "Hamarosan megnyílik", OPEN: "Nyitva", CLOSED: "Lezárult", NOT_PUBLISHED: "Még nem tették közzé" },
+  hr: {
+    UPCOMING: "Prijave se uskoro otvaraju",
+    OPEN: "Prijave su otvorene",
+    CLOSED: "Prijave su zatvorene",
+    NOT_PUBLISHED: "Nije objavljeno",
+  },
 });
 
 export const channelLabel = vocabulary<ContactPoint["channel"]>({
@@ -1025,6 +1173,8 @@ export const channelLabel = vocabulary<ContactPoint["channel"]>({
   ro: { EMAIL: "E-mail", PHONE: "Telefon", FORM: "Formular", OFFICE: "Birou" },
   pl: { EMAIL: "E-mail", PHONE: "Telefon", FORM: "Formularz", OFFICE: "Biuro" },
   el: { EMAIL: "Email", PHONE: "Τηλέφωνο", FORM: "Φόρμα", OFFICE: "Γραφείο" },
+  hu: { EMAIL: "E-mail", PHONE: "Telefon", FORM: "Űrlap", OFFICE: "Iroda" },
+  hr: { EMAIL: "E-pošta", PHONE: "Telefon", FORM: "Obrazac", OFFICE: "Ured" },
 });
 
 /** What happened, as a thing that happened rather than as an event class. */
@@ -1139,6 +1289,28 @@ export const newsTypeLabel = vocabulary<NewsItem["type"]>({
     FIGURE: "Δημοσίευση αριθμητικού στοιχείου",
     OTHER: "Άλλο γεγονός",
   },
+  hu: {
+    ANNOUNCEMENT: "Bejelentés",
+    LAUNCH: "Indulás",
+    CALL_OPENED: "Megnyílt a benyújtási időszak",
+    CALL_CLOSED: "Lezárult a benyújtási időszak",
+    LAW_OR_REGULATION: "Jogszabály közzététele",
+    CHANGE: "Módosítás",
+    DISCONTINUATION: "Megszűnés",
+    FIGURE: "Közzétett számadat",
+    OTHER: "Egyéb esemény",
+  },
+  hr: {
+    ANNOUNCEMENT: "Najava",
+    LAUNCH: "Pokretanje",
+    CALL_OPENED: "Otvorene prijave",
+    CALL_CLOSED: "Zatvorene prijave",
+    LAW_OR_REGULATION: "Objavljen akt",
+    CHANGE: "Izmjena",
+    DISCONTINUATION: "Prestanak",
+    FIGURE: "Objavljen brojčani podatak",
+    OTHER: "Drugi događaj",
+  },
 });
 
 const UNITS = countedVocabulary<Metric["unit"]>({
@@ -1242,6 +1414,26 @@ const UNITS = countedVocabulary<Metric["unit"]>({
     PEOPLE: ["άτομο", "άτομα"],
     HOURS: ["ώρα", "ώρες"],
   },
+  hu: {
+    EUR: ["euró", "euró"],
+    HECTARES: ["hektár", "hektár"],
+    PARCELS: ["földrészlet", "földrészlet"],
+    OFFERS: ["ajánlat", "ajánlat"],
+    PROPERTIES: ["ingatlan", "ingatlan"],
+    HOLDINGS: ["gazdaság", "gazdaság"],
+    PEOPLE: ["fő", "fő"],
+    HOURS: ["óra", "óra"],
+  },
+  hr: {
+    EUR: ["euro", "eura", "eura"],
+    HECTARES: ["hektar", "hektara", "hektara"],
+    PARCELS: ["parcela", "parcele", "parcela"],
+    OFFERS: ["ponuda", "ponude", "ponuda"],
+    PROPERTIES: ["nekretnina", "nekretnine", "nekretnina"],
+    HOLDINGS: ["gospodarstvo", "gospodarstva", "gospodarstava"],
+    PEOPLE: ["osoba", "osobe", "osoba"],
+    HOURS: ["sat", "sata", "sati"],
+  },
 });
 
 /** A published figure with its unit, written the way the language writes both. */
@@ -1269,6 +1461,7 @@ const LANGUAGE_NAMES = {
     pt: "Portuguese",
     el: "Greek",
     pl: "Polish",
+    hr: "Croatian",
   },
   es: {
     ro: "rumano",
@@ -1285,6 +1478,7 @@ const LANGUAGE_NAMES = {
     pt: "portugués",
     el: "griego",
     pl: "polaco",
+    hr: "croata",
   },
   de: {
     ro: "Rumänisch",
@@ -1301,6 +1495,7 @@ const LANGUAGE_NAMES = {
     pt: "Portugiesisch",
     el: "Griechisch",
     pl: "Polnisch",
+    hr: "Kroatisch",
   },
   fr: {
     ro: "roumain",
@@ -1317,6 +1512,7 @@ const LANGUAGE_NAMES = {
     pt: "portugais",
     el: "grec",
     pl: "polonais",
+    hr: "croate",
   },
   it: {
     ro: "rumeno",
@@ -1333,6 +1529,7 @@ const LANGUAGE_NAMES = {
     pt: "portoghese",
     el: "greco",
     pl: "polacco",
+    hr: "croato",
   },
   pt: {
     ro: "romeno",
@@ -1349,6 +1546,7 @@ const LANGUAGE_NAMES = {
     pt: "português",
     el: "grego",
     pl: "polaco",
+    hr: "croata",
   },
   nl: {
     ro: "Roemeens",
@@ -1365,6 +1563,7 @@ const LANGUAGE_NAMES = {
     pt: "Portugees",
     el: "Grieks",
     pl: "Pools",
+    hr: "Kroatisch",
   },
   ro: {
     ca: "catalană",
@@ -1381,6 +1580,7 @@ const LANGUAGE_NAMES = {
     hu: "maghiară",
     el: "greacă",
     pl: "poloneză",
+    hr: "croată",
   },
   pl: {
     ca: "kataloński",
@@ -1396,6 +1596,7 @@ const LANGUAGE_NAMES = {
     pl: "polski",
     hu: "węgierski",
     el: "grecki",
+    hr: "chorwacki",
   },
   el: {
     ca: "καταλανικά",
@@ -1412,6 +1613,41 @@ const LANGUAGE_NAMES = {
     hu: "ουγγρικά",
     el: "ελληνικά",
     pl: "πολωνικά",
+    hr: "κροατικά",
+  },
+  hu: {
+    ca: "katalán",
+    de: "német",
+    en: "angol",
+    es: "spanyol",
+    eu: "baszk",
+    fr: "francia",
+    gl: "galíciai",
+    it: "olasz",
+    nl: "holland",
+    pt: "portugál",
+    ro: "román",
+    hu: "magyar",
+    hr: "horvát",
+    el: "görög",
+    pl: "lengyel",
+  },
+  hr: {
+    ca: "katalonski",
+    de: "njemački",
+    en: "engleski",
+    es: "španjolski",
+    eu: "baskijski",
+    fr: "francuski",
+    gl: "galicijski",
+    it: "talijanski",
+    nl: "nizozemski",
+    pt: "portugalski",
+    hr: "hrvatski",
+    hu: "mađarski",
+    el: "grčki",
+    pl: "poljski",
+    ro: "rumunjski",
   },
 } as const satisfies Record<Language, Record<string, string>>;
 

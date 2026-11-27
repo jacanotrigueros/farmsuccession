@@ -67,6 +67,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Το πλαίσιο πολιτικής της ΕΕ για να γίνει ευκολότερη η είσοδος στη γεωργία. Καλύπτει τη στήριξη της πρώτης εγκατάστασης, τη διαφάνεια και τη δικαιοσύνη στην αγορά αγροτικής γης, την έγκαιρη μεταβίβαση εκμεταλλεύσεων, την ασφάλεια στη συνταξιοδότηση, την κατάρτιση και τις υπηρεσίες στην ύπαιθρο. Προτείνει ένα ενιαίο σημείο πρόσβασης σε κάθε χώρα, όπου οι νέοι αγρότες θα βρίσκουν χρηματοδότηση, κατάρτιση και συμβουλευτική. Στόχος είναι να διπλασιαστεί έως το 2040 το ποσοστό των νέων και των νεοεισερχόμενων αγροτών.",
     },
+    hu: {
+      name: "Az EU stratégiája a mezőgazdasági generációváltásért",
+      offers:
+        "Az uniós szakpolitikai keret megkönnyítené a mezőgazdaságban való elindulást. Ehhez indulási támogatást, átláthatóbb és méltányosabb földpiacot, korábbi gazdaságátadást, biztosabb nyugdíjas megélhetést, képzést és vidéki szolgáltatásokat irányoz elő. Országonként egy helyen tenné elérhetővé a fiatal gazdáknak szóló finanszírozást, képzést és szaktanácsadást. Célja, hogy 2040-re megduplázódjon a fiatal és új gazdálkodók aránya.",
+    },
+    hr: {
+      name: "Strategija EU-a za generacijsku obnovu u poljoprivredi",
+      offers:
+        "Okvir politika EU-a za lakši ulazak u poljoprivredu obuhvaća potpore za pokretanje djelatnosti, transparentnije i pravednije tržište zemljišta, raniji prijenos gospodarstava, sigurnost u mirovini, osposobljavanje i usluge u ruralnim područjima. Predlaže jedinstvenu nacionalnu kontaktnu točku preko koje bi mladi poljoprivrednici mogli pristupiti financiranju, osposobljavanju i savjetovanju. Cilj je do 2040. udvostručiti udio mladih i novih poljoprivrednika.",
+    },
   },
   "eu-cap-young-farmers": {
     translates:
@@ -115,6 +125,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "Στήριξη νέων αγροτών μέσω της ΚΑΠ 2023–2027",
       offers:
         "Εξηγεί πώς προσαρμόζει κάθε χώρα τη στήριξη στο Στρατηγικό Σχέδιο της ΚΑΠ: ετήσια συμπληρωματική ενίσχυση ανά επιλέξιμο εκτάριο ή κατ’ αποκοπή για νέους αγρότες που εγκαθίστανται για πρώτη φορά, στήριξη για εγκατάσταση και επενδύσεις, καθώς και συνεργασία για τη μεταβίβαση εκμεταλλεύσεων.",
+    },
+    hu: {
+      name: "A fiatal gazdák támogatása a 2023–2027-es KAP keretében",
+      offers:
+        "Bemutatja azokat a támogatásokat, amelyeket minden ország a saját KAP Stratégiai Tervében alakít ki. Ide tartozik az első alkalommal gazdaságot indító fiatal gazdák éves kiegészítő támogatása jogosult hektáronként vagy átalányösszegben, az indulási és beruházási támogatás, valamint a gazdaságátadást segítő együttműködés.",
+    },
+    hr: {
+      name: "Potpore mladim poljoprivrednicima u okviru ZPP-a 2023. – 2027.",
+      offers:
+        "Objašnjava potpore koje svaka zemlja prilagođava u svojem strateškom planu ZPP-a: godišnje dodatno plaćanje po prihvatljivom hektaru ili u paušalnom iznosu za mlade poljoprivrednike koji prvi put uspostavljaju gospodarstvo, potpore za pokretanje djelatnosti i ulaganja te suradnju pri prijenosu gospodarstava.",
     },
   },
   "eu-cap-strategic-plans": {
@@ -165,6 +185,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Η πύλη της Ευρωπαϊκής Επιτροπής για το Στρατηγικό Σχέδιο της ΚΑΠ 2023–2027 κάθε χώρας της ΕΕ. Παρουσιάζει τις παρεμβάσεις και τα εργαλεία που χρησιμοποιούνται, τη διαδικασία έγκρισης του σχεδίου και τις ετήσιες εκθέσεις επιδόσεων.",
     },
+    hu: {
+      name: "KAP stratégiai tervek országonként",
+      offers:
+        "Az Európai Bizottság portálján minden uniós ország 2023–2027-es KAP stratégiai terve megtalálható. Az oldalon megismerheted az egyes beavatkozásokat és eszközöket, a terv jóváhagyásának menetét és az éves teljesítményjelentéseket.",
+    },
+    hr: {
+      name: "Strateški planovi ZPP-a po zemljama",
+      offers:
+        "Portal Europske komisije s poveznicama na strateške planove ZPP-a za razdoblje 2023. – 2027. za svaku zemlju EU-a. Prikazuje intervencije i instrumente, način na koji je plan odobren te godišnja izvješća o uspješnosti.",
+    },
   },
   "eu-newbie-practice-abstracts": {
     translates:
@@ -213,6 +243,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "NEWBIE: παραδείγματα για όσους ξεκινούν αγροτική δραστηριότητα",
       offers:
         "Σύντομες μελέτες περιπτώσεων από ευρωπαϊκές χώρες για επιχειρηματικά μοντέλα και τρόπους εισόδου στη γεωργία. Μπορείς να δεις πρακτικές λύσεις για τις δυσκολίες που συναντά κανείς στο ξεκίνημα.",
+    },
+    hu: {
+      name: "NEWBIE: gyakorlati példák a gazdálkodás megkezdéséhez",
+      offers:
+        "Rövid esettanulmányok az európai országokban alkalmazott üzleti modellekről és a mezőgazdaságban való elindulás módjairól. Gyakorlati megoldásokat találsz a kezdeti akadályokra.",
+    },
+    hr: {
+      name: "NEWBIE: praktični primjeri ulaska u poljoprivredu",
+      offers:
+        "Kratki primjeri poslovnih modela i načina ulaska u poljoprivredu u europskim zemljama. Možeš pogledati praktična rješenja za prepreke koje se javljaju na početku.",
     },
   },
   "eu-newbie-toolkits": {
@@ -263,6 +303,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Διαδικτυακοί οδηγοί, μαθήματα και συμβουλές για όσους ξεκινούν αγροτική δραστηριότητα ή αναλαμβάνουν εκμετάλλευση. Βασίζονται στις συζητήσεις του δικτύου και στην πρακτική εμπειρία.",
     },
+    hu: {
+      name: "NEWBIE: gyakorlati útmutatók gazdaságindításhoz és gazdaságátvételhez",
+      offers:
+        "Online útmutatók, leckék és tanácsok a gazdálkodás megkezdéséhez és a gazdaságátvételhez, a hálózat szakmai egyeztetései és gyakorlati tapasztalatai alapján.",
+    },
+    hr: {
+      name: "NEWBIE: praktični vodiči za osnivanje i preuzimanje gospodarstva",
+      offers:
+        "Internetski vodiči, lekcije i savjeti za ulazak u poljoprivredu i preuzimanje gospodarstava, nastali na temelju razgovora u mreži i iskustava iz prakse.",
+    },
   },
   "eu-fi-compass-young-farmer-business-plans": {
     translates:
@@ -311,6 +361,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "fi-compass: επιχειρηματικά σχέδια για νέους αγρότες",
       offers:
         "Οδηγός για νέους και νεοεισερχόμενους αγρότες που ετοιμάζουν επιχειρηματικό σχέδιο για δάνειο ή άλλη εξωτερική χρηματοδότηση. Εξηγεί τι εξετάζουν οι τράπεζες, γιατί απορρίπτουν ορισμένες αιτήσεις και πώς να υπολογίσεις τις καλές και τις δύσκολες χρονιές ή τυχόν καθυστερήσεις στις πληρωμές.",
+    },
+    hu: {
+      name: "fi-compass: üzleti tervek fiatal gazdáknak",
+      offers:
+        "Útmutató azoknak a fiatal és új gazdálkodóknak, akik hitelhez vagy más külső finanszírozáshoz készítenek üzleti tervet. Elmagyarázza, mit néznek a bankok, miért utasítanak el egyes kérelmeket, és hogyan számolj a jobb és gyengébb évekkel vagy a kifizetések késésével.",
+    },
+    hr: {
+      name: "fi-compass: poslovni planovi za mlade poljoprivrednike",
+      offers:
+        "Vodič za mlade i nove poljoprivrednike koji pripremaju poslovni plan za kredit ili drugi oblik vanjskog financiranja. Objašnjava što banke traže, zašto odbijaju neke zahtjeve i kako u plan uračunati dobre i loše godine te kašnjenja plaćanja.",
     },
   },
   "eu-cap-network-generational-renewal": {
@@ -361,6 +421,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Σελίδα του Ευρωπαϊκού Δικτύου της ΚΑΠ με νέα, εκδηλώσεις, δημοσιεύσεις και παραδείγματα καλής πρακτικής από έργα που βοηθούν νέους και νεοεισερχόμενους αγρότες να ξεκινήσουν μια αγροτική εκμετάλλευση.",
     },
+    hu: {
+      name: "Az uniós KAP-hálózat: generációváltás",
+      offers:
+        "Az uniós KAP-hálózat oldala hírekkel, eseményekkel, kiadványokkal és bevált gyakorlatokat bemutató projektekkel, amelyek a fiatal és az új gazdálkodókat segítik a gazdaságindításban.",
+    },
+    hr: {
+      name: "Mreža ZPP-a EU-a: generacijska obnova",
+      offers:
+        "Stranica Mreže ZPP-a EU-a s novostima, događanjima, publikacijama i primjerima dobre prakse iz projekata koji mladim i novim poljoprivrednicima pomažu osnovati gospodarstvo.",
+    },
   },
   "eu-observatory-on-farmland": {
     translates:
@@ -409,6 +479,16 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "Παρατηρητήριο της ΕΕ για τη γεωργική γη",
       offers:
         "Σχεδιαζόμενο παρατηρητήριο για μεγαλύτερη διαφάνεια στην αγορά γεωργικής γης και στην πρόσβαση σε αυτή. Το 2026 η Ευρωπαϊκή Επιτροπή δημοσίευσε πρόσκληση για την ομάδα εμπειρογνωμόνων που θα το προετοιμάσει, παράλληλα με ένα πιλοτικό έργο.",
+    },
+    hu: {
+      name: "A mezőgazdasági földterületek uniós megfigyelőközpontja",
+      offers:
+        "Tervezett megfigyelőközpont a földpiac és a termőföldhöz jutás átláthatóságának javítására. A Bizottság 2026-ban felhívást tett közzé a központot előkészítő szakértői csoport létrehozására, és ezzel párhuzamosan kísérleti projektet indított.",
+    },
+    hr: {
+      name: "Opservatorij EU-a za poljoprivredno zemljište",
+      offers:
+        "Planirani opservatorij koji bi trebao povećati transparentnost tržišta zemljišta i pristupa zemljištu. Komisija je 2026. objavila poziv za stručnu skupinu koja priprema opservatorij, uz pilot-projekt.",
     },
   },
 };

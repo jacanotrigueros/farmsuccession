@@ -51,5 +51,5 @@ test("every footer renders the one shared source claim for its language, and the
     if (previous) assert.equal(rendered[0], previous, `${file}: the source claim must not change with page type or territory`);
     byLanguage.set(language!, rendered[0]!);
   }
-  assert.equal(byLanguage.size, 10, "the shared source claim was not checked in all ten languages");
+  assert.equal(byLanguage.size, 12, "the shared source claim was not checked in all twelve languages");
 });

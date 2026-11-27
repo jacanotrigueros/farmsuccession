@@ -10,6 +10,22 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.6.0 — 2026-11-27
+
+Hungary and Croatia join the directory, each in its own language, so the middle digit moves.
+
+- Hungary has its own pages in Hungarian: the country, its 19 counties (vármegyék) and Budapest. Its records cover
+  the CAP calls for young farmers, for farm successors and transferors and for small farms, the farm transfer
+  contract and its approval, the pre-emption order when farmland is sold, the sale and lease of State land from
+  the National Land Fund, and the mandatory CAP training; and, in Bács-Kiskun, Baranya and Borsod-Abaúj-Zemplén,
+  the county offices for the farmland certificate, land transactions and land auctions.
+- Croatia has its own pages in Croatian: the country, its 20 counties (županije) and the City of Zagreb. Its
+  records cover the young-farmer installation aid, the small-farm investment aid and the young-farmer income
+  support, payment entitlements from the national reserve, the lease and sale of State farmland, the change of
+  holder and transfer of a family farm, online training and farm advice; and county aids for young farmers and
+  new family farms in Osijek-Baranja, Split-Dalmatia and Šibenik-Knin.
+- The directory now holds 714 records.
+
 ## 2.5.0 — 2026-11-27
 
 Greece and Poland join the directory, each in its own language, so the middle digit moves.

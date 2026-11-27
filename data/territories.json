@@ -2643,6 +2643,568 @@
           "parentHub": "zachodniopomorskie"
         }
       ]
+    },
+    "HU": {
+      "name": "Magyarország",
+      "lang": "hu",
+      "locale": "hu-HU",
+      "hubLabel": "Vármegyék és Budapest",
+      "leafLevel": "vármegye",
+      "leafLabel": "Vármegyék és Budapest",
+      "sources": [
+        {
+          "url": "https://www.ksh.hu/evkonyvek/2024/teruleti-statisztikai-evkonyv-2024/pdf/terinfo_2024.pdf",
+          "authority": "Központi Statisztikai Hivatal",
+          "purpose": "A hivatalos területi beosztás és a vármegyei, illetve fővárosi szint igazolása."
+        },
+        {
+          "url": "https://docs.ted.europa.eu/eforms/1.15/reference/code-lists/nuts-hun-lvl3.html",
+          "authority": "Az Európai Unió Kiadóhivatala",
+          "purpose": "A 19 vármegye és Budapest NUTS 3 kódjának ellenőrzése."
+        },
+        {
+          "url": "https://kap.gov.hu/kozlemeny/2026-08-26/kap-nemzeti-iranyito-hatosag-922026.-szamu-kozlemenye-az-agrar",
+          "authority": "Közös Agrárpolitika Nemzeti Irányító Hatósága",
+          "purpose": "A vármegyei szint gyakorlati szerepe a KAP-kérelmek jogosultsági ellenőrzésében."
+        },
+        {
+          "url": "https://kormanyhivatalok.hu/kormanyhivatalok",
+          "authority": "Kormányhivatalok",
+          "purpose": "Budapest és a 19 vármegye önálló kormányhivatali belépőoldalainak ellenőrzése."
+        }
+      ],
+      "rationale": "A vármegye és a főváros az a szint, amelyen a kormányhivatalok agrárügyi és földhivatali főosztályai működnek, és ahol a KAP-kérelmek egy részét ellenőrzik. Mind a 19 vármegye és Budapest külön terület.",
+      "hubs": [
+        {
+          "slug": "bacs-kiskun",
+          "name": "Bács-Kiskun vármegye",
+          "members": ["bacs-kiskun"]
+        },
+        {
+          "slug": "baranya",
+          "name": "Baranya vármegye",
+          "members": ["baranya"]
+        },
+        {
+          "slug": "bekes",
+          "name": "Békés vármegye",
+          "members": ["bekes"]
+        },
+        {
+          "slug": "borsod-abauj-zemplen",
+          "name": "Borsod-Abaúj-Zemplén vármegye",
+          "members": ["borsod-abauj-zemplen"]
+        },
+        {
+          "slug": "budapest",
+          "name": "Budapest",
+          "members": ["budapest"]
+        },
+        {
+          "slug": "csongrad-csanad",
+          "name": "Csongrád-Csanád vármegye",
+          "members": ["csongrad-csanad"]
+        },
+        {
+          "slug": "fejer",
+          "name": "Fejér vármegye",
+          "members": ["fejer"]
+        },
+        {
+          "slug": "gyor-moson-sopron",
+          "name": "Győr-Moson-Sopron vármegye",
+          "members": ["gyor-moson-sopron"]
+        },
+        {
+          "slug": "hajdu-bihar",
+          "name": "Hajdú-Bihar vármegye",
+          "members": ["hajdu-bihar"]
+        },
+        {
+          "slug": "heves",
+          "name": "Heves vármegye",
+          "members": ["heves"]
+        },
+        {
+          "slug": "jasz-nagykun-szolnok",
+          "name": "Jász-Nagykun-Szolnok vármegye",
+          "members": ["jasz-nagykun-szolnok"]
+        },
+        {
+          "slug": "komarom-esztergom",
+          "name": "Komárom-Esztergom vármegye",
+          "members": ["komarom-esztergom"]
+        },
+        {
+          "slug": "nograd",
+          "name": "Nógrád vármegye",
+          "members": ["nograd"]
+        },
+        {
+          "slug": "pest",
+          "name": "Pest vármegye",
+          "members": ["pest"]
+        },
+        {
+          "slug": "somogy",
+          "name": "Somogy vármegye",
+          "members": ["somogy"]
+        },
+        {
+          "slug": "szabolcs-szatmar-bereg",
+          "name": "Szabolcs-Szatmár-Bereg vármegye",
+          "members": ["szabolcs-szatmar-bereg"]
+        },
+        {
+          "slug": "tolna",
+          "name": "Tolna vármegye",
+          "members": ["tolna"]
+        },
+        {
+          "slug": "vas",
+          "name": "Vas vármegye",
+          "members": ["vas"]
+        },
+        {
+          "slug": "veszprem",
+          "name": "Veszprém vármegye",
+          "members": ["veszprem"]
+        },
+        {
+          "slug": "zala",
+          "name": "Zala vármegye",
+          "members": ["zala"]
+        }
+      ],
+      "regions": [
+        {
+          "slug": "bacs-kiskun",
+          "name": "Bács-Kiskun vármegye",
+          "inPhrase": "Bács-Kiskun vármegyében",
+          "parentHub": "bacs-kiskun",
+          "nutsCode": "HU331"
+        },
+        {
+          "slug": "baranya",
+          "name": "Baranya vármegye",
+          "inPhrase": "Baranya vármegyében",
+          "parentHub": "baranya",
+          "nutsCode": "HU231"
+        },
+        {
+          "slug": "bekes",
+          "name": "Békés vármegye",
+          "inPhrase": "Békés vármegyében",
+          "parentHub": "bekes",
+          "nutsCode": "HU332"
+        },
+        {
+          "slug": "borsod-abauj-zemplen",
+          "name": "Borsod-Abaúj-Zemplén vármegye",
+          "inPhrase": "Borsod-Abaúj-Zemplén vármegyében",
+          "parentHub": "borsod-abauj-zemplen",
+          "nutsCode": "HU311"
+        },
+        {
+          "slug": "budapest",
+          "name": "Budapest",
+          "inPhrase": "Budapesten",
+          "parentHub": "budapest",
+          "nutsCode": "HU110"
+        },
+        {
+          "slug": "csongrad-csanad",
+          "name": "Csongrád-Csanád vármegye",
+          "inPhrase": "Csongrád-Csanád vármegyében",
+          "parentHub": "csongrad-csanad",
+          "nutsCode": "HU333"
+        },
+        {
+          "slug": "fejer",
+          "name": "Fejér vármegye",
+          "inPhrase": "Fejér vármegyében",
+          "parentHub": "fejer",
+          "nutsCode": "HU211"
+        },
+        {
+          "slug": "gyor-moson-sopron",
+          "name": "Győr-Moson-Sopron vármegye",
+          "inPhrase": "Győr-Moson-Sopron vármegyében",
+          "parentHub": "gyor-moson-sopron",
+          "nutsCode": "HU221"
+        },
+        {
+          "slug": "hajdu-bihar",
+          "name": "Hajdú-Bihar vármegye",
+          "inPhrase": "Hajdú-Bihar vármegyében",
+          "parentHub": "hajdu-bihar",
+          "nutsCode": "HU321"
+        },
+        {
+          "slug": "heves",
+          "name": "Heves vármegye",
+          "inPhrase": "Heves vármegyében",
+          "parentHub": "heves",
+          "nutsCode": "HU312"
+        },
+        {
+          "slug": "jasz-nagykun-szolnok",
+          "name": "Jász-Nagykun-Szolnok vármegye",
+          "inPhrase": "Jász-Nagykun-Szolnok vármegyében",
+          "parentHub": "jasz-nagykun-szolnok",
+          "nutsCode": "HU322"
+        },
+        {
+          "slug": "komarom-esztergom",
+          "name": "Komárom-Esztergom vármegye",
+          "inPhrase": "Komárom-Esztergom vármegyében",
+          "parentHub": "komarom-esztergom",
+          "nutsCode": "HU212"
+        },
+        {
+          "slug": "nograd",
+          "name": "Nógrád vármegye",
+          "inPhrase": "Nógrád vármegyében",
+          "parentHub": "nograd",
+          "nutsCode": "HU313"
+        },
+        {
+          "slug": "pest",
+          "name": "Pest vármegye",
+          "inPhrase": "Pest vármegyében",
+          "parentHub": "pest",
+          "nutsCode": "HU120"
+        },
+        {
+          "slug": "somogy",
+          "name": "Somogy vármegye",
+          "inPhrase": "Somogy vármegyében",
+          "parentHub": "somogy",
+          "nutsCode": "HU232"
+        },
+        {
+          "slug": "szabolcs-szatmar-bereg",
+          "name": "Szabolcs-Szatmár-Bereg vármegye",
+          "inPhrase": "Szabolcs-Szatmár-Bereg vármegyében",
+          "parentHub": "szabolcs-szatmar-bereg",
+          "nutsCode": "HU323"
+        },
+        {
+          "slug": "tolna",
+          "name": "Tolna vármegye",
+          "inPhrase": "Tolna vármegyében",
+          "parentHub": "tolna",
+          "nutsCode": "HU233"
+        },
+        {
+          "slug": "vas",
+          "name": "Vas vármegye",
+          "inPhrase": "Vas vármegyében",
+          "parentHub": "vas",
+          "nutsCode": "HU222"
+        },
+        {
+          "slug": "veszprem",
+          "name": "Veszprém vármegye",
+          "inPhrase": "Veszprém vármegyében",
+          "parentHub": "veszprem",
+          "nutsCode": "HU213"
+        },
+        {
+          "slug": "zala",
+          "name": "Zala vármegye",
+          "inPhrase": "Zala vármegyében",
+          "parentHub": "zala",
+          "nutsCode": "HU223"
+        }
+      ]
+    },
+    "HR": {
+      "name": "Hrvatska",
+      "lang": "hr",
+      "locale": "hr-HR",
+      "hubLabel": "Županije i Grad Zagreb",
+      "leafLevel": "županija",
+      "leafLabel": "Županije i Grad Zagreb",
+      "sources": [
+        {
+          "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/full/2019_12_125_2507.html",
+          "authority": "Državni zavod za statistiku",
+          "purpose": "Potvrđuje službeni sastav razine NUTS 3 te daje nazive i oznake svih 21 jedinice."
+        },
+        {
+          "url": "https://www.apprrr.hr/kontakt/",
+          "authority": "Agencija za plaćanja u poljoprivredi, ribarstvu i ruralnom razvoju",
+          "purpose": "Potvrđuje korisnost županijske razine za traženje podružnice Agencije za plaćanja."
+        },
+        {
+          "url": "https://poljoprivreda.gov.hr/istaknute-teme/poljoprivreda-173/poljoprivredno-zemljiste/evidencija-drzavnog-poljoprivrednog-zemljista-po-zupanijama-5890/5890",
+          "authority": "Ministarstvo poljoprivrede, šumarstva i ribarstva",
+          "purpose": "Potvrđuje da je županija praktična jedinica za pregled evidencije državnog poljoprivrednog zemljišta."
+        },
+        {
+          "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/full/2022_05_57_806.html",
+          "authority": "Hrvatski sabor",
+          "purpose": "Članak 31. stavak 7. Zakona smješta formalnu odluku o raspisivanju natječaja za zakup na razinu općine, grada ili Grada Zagreba, uz prethodnu suglasnost Ministarstva."
+        }
+      ],
+      "rationale": "Županija je razina na kojoj djeluju podružnice Agencije za plaćanja i na kojoj se vodi evidencija državnog poljoprivrednog zemljišta, a županije imaju i vlastite potpore poljoprivrednicima. Svaka od 20 županija i Grad Zagreb zaseban je teritorij.",
+      "hubs": [
+        {
+          "slug": "bjelovarsko-bilogorska",
+          "name": "Bjelovarsko-bilogorska županija",
+          "members": ["bjelovarsko-bilogorska"]
+        },
+        {
+          "slug": "brodsko-posavska",
+          "name": "Brodsko-posavska županija",
+          "members": ["brodsko-posavska"]
+        },
+        {
+          "slug": "dubrovacko-neretvanska",
+          "name": "Dubrovačko-neretvanska županija",
+          "members": ["dubrovacko-neretvanska"]
+        },
+        {
+          "slug": "grad-zagreb",
+          "name": "Grad Zagreb",
+          "members": ["grad-zagreb"]
+        },
+        {
+          "slug": "istarska",
+          "name": "Istarska županija",
+          "members": ["istarska"]
+        },
+        {
+          "slug": "karlovacka",
+          "name": "Karlovačka županija",
+          "members": ["karlovacka"]
+        },
+        {
+          "slug": "koprivnicko-krizevacka",
+          "name": "Koprivničko-križevačka županija",
+          "members": ["koprivnicko-krizevacka"]
+        },
+        {
+          "slug": "krapinsko-zagorska",
+          "name": "Krapinsko-zagorska županija",
+          "members": ["krapinsko-zagorska"]
+        },
+        {
+          "slug": "licko-senjska",
+          "name": "Ličko-senjska županija",
+          "members": ["licko-senjska"]
+        },
+        {
+          "slug": "medimurska",
+          "name": "Međimurska županija",
+          "members": ["medimurska"]
+        },
+        {
+          "slug": "osjecko-baranjska",
+          "name": "Osječko-baranjska županija",
+          "members": ["osjecko-baranjska"]
+        },
+        {
+          "slug": "pozesko-slavonska",
+          "name": "Požeško-slavonska županija",
+          "members": ["pozesko-slavonska"]
+        },
+        {
+          "slug": "primorsko-goranska",
+          "name": "Primorsko-goranska županija",
+          "members": ["primorsko-goranska"]
+        },
+        {
+          "slug": "sibensko-kninska",
+          "name": "Šibensko-kninska županija",
+          "members": ["sibensko-kninska"]
+        },
+        {
+          "slug": "sisacko-moslavacka",
+          "name": "Sisačko-moslavačka županija",
+          "members": ["sisacko-moslavacka"]
+        },
+        {
+          "slug": "splitsko-dalmatinska",
+          "name": "Splitsko-dalmatinska županija",
+          "members": ["splitsko-dalmatinska"]
+        },
+        {
+          "slug": "varazdinska",
+          "name": "Varaždinska županija",
+          "members": ["varazdinska"]
+        },
+        {
+          "slug": "viroviticko-podravska",
+          "name": "Virovitičko-podravska županija",
+          "members": ["viroviticko-podravska"]
+        },
+        {
+          "slug": "vukovarsko-srijemska",
+          "name": "Vukovarsko-srijemska županija",
+          "members": ["vukovarsko-srijemska"]
+        },
+        {
+          "slug": "zadarska",
+          "name": "Zadarska županija",
+          "members": ["zadarska"]
+        },
+        {
+          "slug": "zagrebacka",
+          "name": "Zagrebačka županija",
+          "members": ["zagrebacka"]
+        }
+      ],
+      "regions": [
+        {
+          "slug": "bjelovarsko-bilogorska",
+          "name": "Bjelovarsko-bilogorska županija",
+          "inPhrase": "u Bjelovarsko-bilogorskoj županiji",
+          "parentHub": "bjelovarsko-bilogorska",
+          "nutsCode": "HR021"
+        },
+        {
+          "slug": "brodsko-posavska",
+          "name": "Brodsko-posavska županija",
+          "inPhrase": "u Brodsko-posavskoj županiji",
+          "parentHub": "brodsko-posavska",
+          "nutsCode": "HR024"
+        },
+        {
+          "slug": "dubrovacko-neretvanska",
+          "name": "Dubrovačko-neretvanska županija",
+          "inPhrase": "u Dubrovačko-neretvanskoj županiji",
+          "parentHub": "dubrovacko-neretvanska",
+          "nutsCode": "HR037"
+        },
+        {
+          "slug": "grad-zagreb",
+          "name": "Grad Zagreb",
+          "inPhrase": "u Gradu Zagrebu",
+          "parentHub": "grad-zagreb",
+          "nutsCode": "HR050"
+        },
+        {
+          "slug": "istarska",
+          "name": "Istarska županija",
+          "inPhrase": "u Istarskoj županiji",
+          "parentHub": "istarska",
+          "nutsCode": "HR036"
+        },
+        {
+          "slug": "karlovacka",
+          "name": "Karlovačka županija",
+          "inPhrase": "u Karlovačkoj županiji",
+          "parentHub": "karlovacka",
+          "nutsCode": "HR027"
+        },
+        {
+          "slug": "koprivnicko-krizevacka",
+          "name": "Koprivničko-križevačka županija",
+          "inPhrase": "u Koprivničko-križevačkoj županiji",
+          "parentHub": "koprivnicko-krizevacka",
+          "nutsCode": "HR063"
+        },
+        {
+          "slug": "krapinsko-zagorska",
+          "name": "Krapinsko-zagorska županija",
+          "inPhrase": "u Krapinsko-zagorskoj županiji",
+          "parentHub": "krapinsko-zagorska",
+          "nutsCode": "HR064"
+        },
+        {
+          "slug": "licko-senjska",
+          "name": "Ličko-senjska županija",
+          "inPhrase": "u Ličko-senjskoj županiji",
+          "parentHub": "licko-senjska",
+          "nutsCode": "HR032"
+        },
+        {
+          "slug": "medimurska",
+          "name": "Međimurska županija",
+          "inPhrase": "u Međimurskoj županiji",
+          "parentHub": "medimurska",
+          "nutsCode": "HR061"
+        },
+        {
+          "slug": "osjecko-baranjska",
+          "name": "Osječko-baranjska županija",
+          "inPhrase": "u Osječko-baranjskoj županiji",
+          "parentHub": "osjecko-baranjska",
+          "nutsCode": "HR025"
+        },
+        {
+          "slug": "pozesko-slavonska",
+          "name": "Požeško-slavonska županija",
+          "inPhrase": "u Požeško-slavonskoj županiji",
+          "parentHub": "pozesko-slavonska",
+          "nutsCode": "HR023"
+        },
+        {
+          "slug": "primorsko-goranska",
+          "name": "Primorsko-goranska županija",
+          "inPhrase": "u Primorsko-goranskoj županiji",
+          "parentHub": "primorsko-goranska",
+          "nutsCode": "HR031"
+        },
+        {
+          "slug": "sibensko-kninska",
+          "name": "Šibensko-kninska županija",
+          "inPhrase": "u Šibensko-kninskoj županiji",
+          "parentHub": "sibensko-kninska",
+          "nutsCode": "HR034"
+        },
+        {
+          "slug": "sisacko-moslavacka",
+          "name": "Sisačko-moslavačka županija",
+          "inPhrase": "u Sisačko-moslavačkoj županiji",
+          "parentHub": "sisacko-moslavacka",
+          "nutsCode": "HR028"
+        },
+        {
+          "slug": "splitsko-dalmatinska",
+          "name": "Splitsko-dalmatinska županija",
+          "inPhrase": "u Splitsko-dalmatinskoj županiji",
+          "parentHub": "splitsko-dalmatinska",
+          "nutsCode": "HR035"
+        },
+        {
+          "slug": "varazdinska",
+          "name": "Varaždinska županija",
+          "inPhrase": "u Varaždinskoj županiji",
+          "parentHub": "varazdinska",
+          "nutsCode": "HR062"
+        },
+        {
+          "slug": "viroviticko-podravska",
+          "name": "Virovitičko-podravska županija",
+          "inPhrase": "u Virovitičko-podravskoj županiji",
+          "parentHub": "viroviticko-podravska",
+          "nutsCode": "HR022"
+        },
+        {
+          "slug": "vukovarsko-srijemska",
+          "name": "Vukovarsko-srijemska županija",
+          "inPhrase": "u Vukovarsko-srijemskoj županiji",
+          "parentHub": "vukovarsko-srijemska",
+          "nutsCode": "HR026"
+        },
+        {
+          "slug": "zadarska",
+          "name": "Zadarska županija",
+          "inPhrase": "u Zadarskoj županiji",
+          "parentHub": "zadarska",
+          "nutsCode": "HR033"
+        },
+        {
+          "slug": "zagrebacka",
+          "name": "Zagrebačka županija",
+          "inPhrase": "u Zagrebačkoj županiji",
+          "parentHub": "zagrebacka",
+          "nutsCode": "HR065"
+        }
+      ]
     }
   }
 }

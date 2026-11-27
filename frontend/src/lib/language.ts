@@ -15,7 +15,7 @@
 import { localeOf } from "../../public/locale.js";
 export { dateIn, numberIn } from "../../public/locale.js";
 
-export const LANGUAGES = ["en", "es", "de", "fr", "it", "pt", "nl", "ro", "el", "pl"] as const;
+export const LANGUAGES = ["en", "es", "de", "fr", "it", "pt", "nl", "ro", "el", "pl", "hu", "hr"] as const;
 export type Language = (typeof LANGUAGES)[number];
 
 const isLanguage = (value: string): value is Language => LANGUAGES.some((language) => language === value);

@@ -23,3 +23,8 @@ the colours flag-icons uses. It too should be compared with flag-icons before re
 `gr.svg` (nine blue and white stripes with the white cross in the canton) and `pl.svg` (white over red)
 were written by hand for this repository in the colours flag-icons uses; compare them with flag-icons
 before a later release.
+
+`hu.svg` (red, white and green bands) and `hr.svg` (red, white and blue bands with the red and white
+chequered field of the arms, simplified to 5×5 checks, because without it the flag reads as another
+country's) were written by hand for this repository in the colours flag-icons uses; compare them with
+flag-icons before a later release.
