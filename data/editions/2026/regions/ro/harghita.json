@@ -5,14 +5,19 @@
   "country": "RO",
   "region": "harghita",
   "officialName": "Harghita",
-  "published": "2026-11-26",
-  "metaTitle": "Harghita: instalare în agricultură, AFIR și APIA",
-  "metaDescription": "Caută resurse pentru instalarea tinerilor fermieri, preluarea unei ferme și accesul la teren în județul Harghita. Caută după județ, OJFIR sau APIA.",
-  "summary": "Resurse pentru instalare în agricultură, preluarea unei ferme și accesul la teren în județul Harghita.",
+  "published": "2026-11-27",
+  "metaTitle": "Harghita: consilieri agricoli și acces la pășuni",
+  "metaDescription": "Consilierii agricoli falugazdász din Harghita, închirierea pășunilor comunale și cursurile gratuite de agricultură care se aplică în județ.",
+  "summary": "În Harghita găsești rețeaua de consilieri agricoli din Ținutul Secuiesc, cu sediul la Miercurea Ciuc, pe lângă resursele naționale și europene care se aplică în județ.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Cadrul teritorial este pregătit. Cercetarea resurselor pentru acest teritoriu nu a început în această ediție.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Pentru Harghita este documentată rețeaua de consilieri agricoli din Ținutul Secuiesc. Hotărârile locale de închiriere a pajiștilor nu sunt preluate una câte una: regula comună este explicată în fișa națională.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Harghita consiliere agricolă falugazdász pajiști comunale cursuri agricultură"
+      }
+    ]
   },
   "metadata": {
     "language": "ro",
@@ -23,10 +28,91 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-26"
+      },
+      {
+        "id": "chatgpt-ro-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "harghita-retea-falugazdasz",
+      "name": "Rețeaua de consilieri agricoli din Ținutul Secuiesc (Székelyföldi Falugazdász-hálózat)",
+      "metaTitle": "Falugazdász Harghita: consilieri agricoli în maghiară",
+      "metaDescription": "Rețeaua Székelyföldi Falugazdász-hálózat, cu sediul la Miercurea Ciuc: consilieri pentru culturi, creșterea animalelor și proiecte de finanțare.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Székely Gazdaszervezetek Egyesülete",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Rețea de consilieri agricoli (falugazdász) pentru Ținutul Secuiesc. Directorul rețelei arată specializarea fiecărui consilier: culturi de câmp, protecția plantelor, creșterea oilor și a bovinelor, apicultură, consultanță pentru proiecte de finanțare și dezvoltare rurală.",
+      "howToAccess": "Alege din director consilierul potrivit domeniului tău sau scrie asociației la adresa publicată pe site. Sediul asociației este în Miercurea Ciuc (Csíkszereda).",
+      "accessUrl": "https://szekelygazda.ro/falugazdaszok/",
+      "languages": ["hu"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Székely Gazdaszervezetek Egyesülete",
+          "value": "office@szekelygazda.ro",
+          "sourceUrl": "https://szekelygazda.ro/rolunk/"
+        },
+        {
+          "channel": "OFFICE",
+          "label": "Székely Gazdaszervezetek Egyesülete",
+          "value": "Petőfi Sándor utca 36. szám, Csíkszereda",
+          "sourceUrl": "https://szekelygazda.ro/rolunk/"
+        }
+      ],
+      "notes": "Site-ul asociației este în limba maghiară. Directorul nu indică județul în care lucrează fiecare consilier; acoperirea în alte județe nu este documentată aici.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://szekelygazda.ro/falugazdaszok/"
+        },
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://szekelygazda.ro/falugazdaszok/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://szekelygazda.ro/falugazdaszok/",
+          "title": "Falugazdászok - Székely Gazdaszervezetek Egyesülete",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Székelyföldi Falugazdász-hálózat",
+            "növénytermesztés, növényvédelem",
+            "juhtenyésztés",
+            "szarvasmarha, tej",
+            "kertészet, méhészet",
+            "pályázati tanácsadó",
+            "vidékfejlesztés"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://szekelygazda.ro/rolunk/",
+          "title": "Rólunk - Székely Gazdaszervezetek Egyesülete",
+          "consultedOn": "2026-11-27",
+          "quotes": ["Petőfi Sándor utca 36. szám, Csíkszereda", "office@szekelygazda.ro"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-2"
+    }
+  ],
   "news": [],
-  "limitations": []
+  "limitations": ["Programele proprii ale consiliului județean și ale primăriilor din Harghita nu sunt încă documentate."]
 }

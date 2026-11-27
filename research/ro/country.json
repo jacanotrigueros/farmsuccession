@@ -19,18 +19,18 @@
       "name": "DR-30 — instalarea tinerilor fermieri",
       "url": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-30/",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "NOT_PUBLISHABLE",
+      "status": "ADMITTED",
       "checkedOn": "2026-11-27",
-      "reason": "Avizul legal al www.afir.ro rezervă reproducerea conținutului unui acord scris al AFIR și nu există o permisiune înregistrată; FarmSuccession nu publică fără acord (config/source-terms.json). Sesiunile DR-30 2023–2024 și DR-12 2026 erau epuizate sau închise la 27 noiembrie 2026."
+      "resourceId": "ro-afir-dr30-instalarea-tinerilor-fermieri"
     },
     {
       "id": "ro-afir-dr12",
       "name": "DR-12 — investiții pentru tinerii fermieri",
       "url": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-12/",
       "kind": "FINANCIAL_SUPPORT",
-      "status": "NOT_PUBLISHABLE",
+      "status": "ADMITTED",
       "checkedOn": "2026-11-27",
-      "reason": "Avizul legal al www.afir.ro rezervă reproducerea conținutului unui acord scris al AFIR și nu există o permisiune înregistrată; FarmSuccession nu publică fără acord (config/source-terms.json). Sesiunile DR-30 2023–2024 și DR-12 2026 erau epuizate sau închise la 27 noiembrie 2026."
+      "resourceId": "ro-afir-dr12-investitii-tineri-fermieri"
     },
     {
       "id": "ro-ads-legea-17",
@@ -58,6 +58,62 @@
       "status": "NOT_PUBLISHABLE",
       "checkedOn": "2026-11-27",
       "reason": "Condițiile site-ului (https://fgcr.ro/termeni-si-conditii) rezervă orice utilizare a conținutului fără acordul fondului; nu există o permisiune înregistrată. Lectura este în config/source-terms.json."
+    },
+    {
+      "id": "ro-pajisti-comunale-oug-34",
+      "name": "Închirierea pajiștilor comunale (OUG nr. 34/2013)",
+      "url": "https://legislatie.just.ro/Public/DetaliiDocument/305529",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "checkedOn": "2026-11-27",
+      "resourceId": "ro-inchiriere-pajisti-comunale",
+      "reason": "Cercetarea pe județe din 27.11.2026 a găsit în aproape fiecare județ hotărâri locale de închiriere a pajiștilor comunale; regula comună este națională (OUG nr. 34/2013 și normele ei), deci este documentată o singură dată la nivel național. Textele legale pot fi reutilizate (Portal Legislativ; Legea nr. 8/1996, art. 9)."
+    },
+    {
+      "id": "ro-anofm-cursuri-agricultura",
+      "name": "Cursuri gratuite de calificare în agricultură (ANOFM/AJOFM)",
+      "url": "https://www.anofm.ro/agentii-judetene/",
+      "kind": "TRAINING",
+      "status": "ADMITTED",
+      "checkedOn": "2026-11-27",
+      "resourceId": "ro-anofm-cursuri-gratuite-agricultura",
+      "reason": "Cercetarea pe județe din 27.11.2026 a găsit calificări agricole gratuite la mai multe AJOFM (Ialomița, Satu Mare, Vâlcea); serviciul este al agenției naționale, deci este documentat o singură dată la nivel național. Site-ul ANOFM nu rezervă reutilizarea conținutului."
+    },
+    {
+      "id": "lead-ro-ads-terenuri-stat-tineri-fermieri",
+      "name": "Concesionarea și arendarea terenurilor statului pentru tinerii fermieri",
+      "url": "https://serviciipublice.gov.ro/serviciu/serviciu-public-pentru-concesionare-terenuri-agricole-in-baza-legii-226-2016-pentru-tinerii-fermieri",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "checkedOn": "2026-11-27",
+      "resourceId": "ro-ads-terenuri-stat-tineri-fermieri"
+    },
+    {
+      "id": "lead-ro-ads-informatii-terenuri-disponibile",
+      "name": "Informații despre terenurile agricole disponibile la stat",
+      "url": "https://serviciipublice.gov.ro/serviciu/serviciu-public-pentru-informarea-fermierilor-cu-privire-la-disponibilitatea-terenurilor-administrate-de-agentia-domeniilor-statului",
+      "kind": "LAND_BANK",
+      "status": "ADMITTED",
+      "checkedOn": "2026-11-27",
+      "resourceId": "ro-ads-informatii-terenuri-disponibile"
+    },
+    {
+      "id": "lead-ro-apia-pd-03-tineri-fermieri",
+      "name": "Plata APIA pentru tinerii fermieri (PD-03)",
+      "url": "https://legislatie.just.ro/Public/DetaliiDocument/283519",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ADMITTED",
+      "checkedOn": "2026-11-27",
+      "resourceId": "ro-apia-pd-03-tineri-fermieri"
+    },
+    {
+      "id": "lead-ro-apia-transfer-exploatatie",
+      "name": "Transferul exploatației agricole și plata APIA",
+      "url": "https://legislatie.just.ro/Public/DetaliiDocument/279846",
+      "kind": "POLICY",
+      "status": "ADMITTED",
+      "checkedOn": "2026-11-27",
+      "resourceId": "ro-apia-transfer-exploatatie"
     }
   ],
   "log": [
@@ -75,6 +131,21 @@
       "date": "2026-11-27",
       "by": "CLAUDE (claude-opus-5-5)",
       "summary": "După revizuirea Sol: fișele AFIR (DR-30, DR-12) sunt retrase, deoarece avizul legal al www.afir.ro rezervă reproducerea unui acord scris; textele despre teren și cursurile DAJ sunt precizate."
+    },
+    {
+      "date": "2026-11-27",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "După cercetarea pe județe (GPT-6.2 Sol): închirierea pajiștilor comunale și cursurile gratuite AJOFM sunt documentate la nivel național; hotărârile locale de pajiști, liceele agricole și apelurile GAL nu sunt preluate ca fișe județene."
+    },
+    {
+      "date": "2026-11-27",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "Cercetare națională și județeană (GPT-6.2 Sol), citate verificate de Claude."
+    },
+    {
+      "date": "2026-11-27",
+      "by": "CLAUDE (claude-opus-5-5)",
+      "summary": "AFIR și-a dat acordul în scris pentru DR-30 și DR-12 (27.11.2026); fișele revin, cu citatele recitite pe www.afir.ro."
     }
   ]
 }

@@ -5,11 +5,11 @@
   "country": "AT",
   "region": "niederoesterreich",
   "officialName": "Niederösterreich",
-  "published": "2026-11-06",
-  "summary": "Die Übersicht für Niederösterreich enthält auch die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte sowie den Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs. Ein eigenes Angebot des Landes ist in dieser Fassung noch nicht dokumentiert.",
+  "published": "2026-11-27",
+  "summary": "Wer in Niederösterreich in die Landwirtschaft einsteigen möchte, findet hier zwei Übersichten des Landes: die Wege zum landwirtschaftlichen Facharbeiterabschluss und die landwirtschaftlichen Fachschulen. Dazu kommen die bundesweiten Förderungen für Junglandwirtinnen und Junglandwirte sowie der Zinsenzuschuss bei der Übernahme eines verschuldeten Betriebs.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "Gesucht wurden Informationen des Landes zum Einstieg in die Landwirtschaft, zu übernommenen Betriebsschulden und zur Hofübergabe in Niederösterreich. Die Internetseiten der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts wurden nicht ausgewertet. Ob ihre Inhalte hier wiedergegeben werden dürfen, ist noch zu klären.",
+    "note": "Für Niederösterreich sind die Landesinformationen zur Berufsausbildung in der Land- und Forstwirtschaft und zu den landwirtschaftlichen Fachschulen ausgewertet. Die Übersicht enthält außerdem die bundesweiten Angebote, die auch in Niederösterreich gelten.",
     "methods": [
       {
         "method": "WEB_SEARCH",
@@ -27,13 +27,141 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-06"
+      },
+      {
+        "id": "chatgpt-noe",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.13.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "niederoesterreich-berufsausbildung-land-forstwirtschaft",
+      "name": "Wege zum landwirtschaftlichen Facharbeiterabschluss in Niederösterreich",
+      "metaTitle": "Facharbeiter Landwirtschaft in Niederösterreich",
+      "metaDescription": "Facharbeiter werden in Niederösterreich: Das Land erklärt den Weg über die Lehre mit Facharbeiterprüfung oder über eine Fachschule mit Praxis.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Amt der NÖ Landesregierung – Abteilung Schulen",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Das Land erklärt zwei Wege zum landwirtschaftlichen Facharbeiterabschluss: eine Lehre mit anschließender Facharbeiterprüfung oder den Besuch einer Fachschule mit anschließender oder anrechenbarer Praxis.",
+      "whoCanUseIt": "Für Personen, die in Niederösterreich einen landwirtschaftlichen Facharbeiterabschluss anstreben und sich über Lehre oder Fachschule informieren möchten.",
+      "howToAccess": "Für Fragen zur Berufsausbildung an die auf der Landesseite genannte land- und forstwirtschaftliche Lehrlings- und Fachausbildungsstelle wenden.",
+      "accessUrl": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Berufsausbildung_in_der_Land-_und_Forstwirtschaft.html",
+      "targetProfiles": ["NEW_ENTRANT"],
+      "languages": ["de"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Land- und forstwirtschaftliche Lehrlings- und Fachausbildungsstelle",
+          "value": "lfa@lk-noe.at",
+          "sourceUrl": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Berufsausbildung_in_der_Land-_und_Forstwirtschaft.html"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Land- und forstwirtschaftliche Lehrlings- und Fachausbildungsstelle",
+          "value": "02742/259-6401",
+          "sourceUrl": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Berufsausbildung_in_der_Land-_und_Forstwirtschaft.html"
+        }
+      ],
+      "notes": "Der erfolgreiche Abschluss einer dreijährigen Fachschule ersetzt zusammen mit mindestens einem Jahr Praxis die Lehre und die Facharbeiterprüfung.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Berufsausbildung_in_der_Land-_und_Forstwirtschaft.html"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Berufsausbildung_in_der_Land-_und_Forstwirtschaft.html",
+          "title": "Berufsausbildung in der Land- und Forstwirtschaft - Land Niederösterreich",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "durch eine Lehre",
+            "Am Ende der Lehrzeit kann die Facharbeiterprüfung abgelegt werden.",
+            "dreijährigen Fachschule und eine mindestens einjährige Praxis",
+            "02742/259-6401",
+            "lfa@lk-noe.at"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-noe"
+    },
+    {
+      "id": "niederoesterreich-landwirtschaftliche-fachschulen",
+      "name": "Landwirtschaftliche Fachschulen in Niederösterreich",
+      "metaTitle": "Landwirtschaftliche Fachschulen in Niederösterreich",
+      "metaDescription": "Landwirtschaftliche Fachschulen in Niederösterreich: Fachrichtungen, Dauer, praktische Ausbildung und Kontakt zur Abteilung Schulen.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Amt der NÖ Landesregierung – Abteilung Schulen",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Das Land bietet einen Überblick über die landwirtschaftlichen Fachschulen in Niederösterreich. Die Ausbildung verbindet Theorie und Praxis.",
+      "whoCanUseIt": "Für Personen, die für den Einstieg in die Landwirtschaft eine Fachschule in Niederösterreich suchen und sich über die Ausbildung informieren möchten.",
+      "howToAccess": "Die Fachrichtungen in der Übersicht des Landes ansehen. Bei Fragen zur Schulwahl oder Anmeldung hilft der dort veröffentlichte Kontakt der Abteilung Schulen weiter.",
+      "accessUrl": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Landwirtschaftliche_Fachschulen.html",
+      "targetProfiles": ["NEW_ENTRANT"],
+      "languages": ["de"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "Amt der NÖ Landesregierung – Abteilung Schulen",
+          "value": "post.k4@noel.gv.at",
+          "sourceUrl": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Landwirtschaftliche_Fachschulen.html"
+        },
+        {
+          "channel": "PHONE",
+          "label": "Amt der NÖ Landesregierung – Abteilung Schulen",
+          "value": "02742/9005-13238",
+          "sourceUrl": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Landwirtschaftliche_Fachschulen.html"
+        }
+      ],
+      "notes": "Die Landesübersicht nennt 12 Fachschulen. Die Ausbildung dauert drei bis vier Jahre.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Landwirtschaftliche_Fachschulen.html"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.noe.gv.at/noe/Kindergaerten-Schulen/Landwirtschaftliche_Fachschulen.html",
+          "title": "Landwirtschaftliche Fachschulen - Land Niederösterreich",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "12 landwirtschaftliche Fachschulen stehen in Niederösterreich",
+            "Die Ausbildung an den Fachschulen dauert 3 bis 4 Jahre.",
+            "eine fundierte theoretische und praktische Ausbildung",
+            "post.k4@noel.gv.at",
+            "02742/9005-13238"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-noe"
+    }
+  ],
   "news": [],
   "limitations": [
     "Die Beratung zur Hofübergabe und die Kurse der Landwirtschaftskammer und des Ländlichen Fortbildungsinstituts in Niederösterreich sind in dieser Fassung noch nicht dokumentiert.",
+    "Die beiden Landesübersichten enthalten keine Angaben zur Meisterprüfung, zum zweiten Bildungsweg oder zu Fachschulangeboten speziell für Erwachsene.",
     "Eine Hof- oder Flächenbörse für Niederösterreich ist in dieser Fassung nicht dokumentiert."
-  ]
+  ],
+  "metaDescription": "Wege zum Facharbeiter in der Land- und Forstwirtschaft und landwirtschaftliche Fachschulen in Niederösterreich, dazu die Förderungen für Junglandwirte."
 }

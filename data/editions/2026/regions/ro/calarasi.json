@@ -5,14 +5,19 @@
   "country": "RO",
   "region": "calarasi",
   "officialName": "Călărași",
-  "published": "2026-11-26",
-  "metaTitle": "Călărași: instalare în agricultură, AFIR și APIA",
-  "metaDescription": "Caută resurse pentru instalarea tinerilor fermieri, preluarea unei ferme și accesul la teren în județul Călărași. Caută după județ, OJFIR sau APIA.",
+  "published": "2026-11-27",
+  "metaTitle": "Călărași: cursuri de calificare agricolă la DAJ",
+  "metaDescription": "Cursurile DAJ Călărași pentru tractorist și creșterea animalelor, plus resursele naționale pentru tinerii fermieri și accesul la teren.",
   "summary": "Resurse pentru instalare în agricultură, preluarea unei ferme și accesul la teren în județul Călărași.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Cadrul teritorial este pregătit. Cercetarea resurselor pentru acest teritoriu nu a început în această ediție.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Sunt documentate resursele județului găsite în cercetarea din 27 noiembrie 2026; lista nu este completă.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Cercetarea paginilor instituțiilor naționale și județene (ADS, APIA, DAJ)"
+      }
+    ]
   },
   "metadata": {
     "language": "ro",
@@ -23,10 +28,72 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-26"
+      },
+      {
+        "id": "chatgpt-ro-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "calarasi-daj-cursuri-calificare-agricola",
+      "name": "Cursuri de calificare agricolă la DAJ Călărași",
+      "metaTitle": "Cursuri de calificare agricolă în Călărași",
+      "metaDescription": "Cursuri pentru tractorist agricol și lucrător calificat în creșterea animalelor. Vezi studiile minime și fișa de înscriere.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direcția pentru Agricultură Județeană Călărași",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Cursuri de calificare de tractorist agricol și de lucrător calificat în creșterea animalelor.",
+      "whoCanUseIt": "Pentru înscriere se cere cel puțin absolvirea a 8 clase.",
+      "howToAccess": "Descarcă fișa de înscriere de pe pagina DAJ Călărași.",
+      "accessUrl": "https://dajcalarasi.ro/?page_id=379",
+      "languages": ["ro"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "DAJ Călărași",
+          "value": "dadr.cl@madr.ro",
+          "sourceUrl": "https://dajcalarasi.ro/?page_id=379"
+        }
+      ],
+      "notes": "Pagina oficială publică oferta și fișa de înscriere. Nu a fost confirmată o dată pentru grupa următoare.",
+      "implements": [
+        {
+          "resourceId": "ro-daj-cursuri-formare-profesionala",
+          "named": "cursuri de calificare autorizate",
+          "sourceUrl": "https://dajcalarasi.ro/?page_id=379"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://dajcalarasi.ro/?page_id=379",
+          "title": "Formare Profesională",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "cursuri de calificare autorizate",
+            "Lucrător calificat în creșterea animalelor",
+            "Tractorist agricol",
+            "minim învăţământ gimnazial – 8 clase",
+            "Descarcă fișa de înscriere",
+            "dadr.cl@madr.ro"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-1"
+    }
+  ],
   "news": [],
   "limitations": [
     "Județele Călărași și Ialomița fac parte din regiunea de dezvoltare Sud-Muntenia. Pentru serviciile AFIR, cele două județe sunt arondate CRFIR 8 București-Ilfov."

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "PL",
+  "region": "opolskie",
+  "officialName": "Opolskie",
+  "published": "2026-11-27",
+  "summary": "Zasoby dotyczące rozpoczęcia działalności rolniczej, przejęcia gospodarstwa i dostępu do ziemi w województwie opolskim.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Udokumentowano zasoby województwa znalezione w przeglądzie z 27 listopada 2026 r.; nie jest to pełny wykaz.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Przegląd stron instytucji krajowych i wojewódzkich (ARiMR, KOWR, ODR)"
+      }
+    ]
+  },
+  "metadata": {
+    "language": "pl",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "territory-preparation",
+        "tool": "OTHER",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-pl-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "pl-opolskie-kowr-opole-przetargi",
+      "name": "Przetargi na ziemię rolną – KOWR Opole",
+      "metaTitle": "Przetargi na ziemię rolną | KOWR Opole",
+      "metaDescription": "Zobacz harmonogramy przetargów na sprzedaż i dzierżawę ziemi rolnej oddziału KOWR w Opolu oraz kontakt w sprawie ofert.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Krajowy Ośrodek Wsparcia Rolnictwa – Oddział Terenowy w Opolu",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Oddział w Opolu publikuje harmonogramy przetargów na sprzedaż i dzierżawę nieruchomości rolnych.",
+      "howToAccess": "Wybierz harmonogram na stronie oddziału. Informacji o wskazanych w nim ofertach udziela oddział w Opolu.",
+      "accessUrl": "https://www.gov.pl/web/kowr/ot-opole2",
+      "languages": ["pl"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "KOWR OT Opole",
+          "value": "opole@kowr.gov.pl",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-opole"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-opole2"
+        }
+      ],
+      "implements": [
+        {
+          "resourceId": "pl-kowr-sprzedaz-dzierzawa-ziemi",
+          "named": "na sprzedaż lub dzierżawę nieruchomości rolnych",
+          "sourceUrl": "https://www.gov.pl/attachment/b95a0afc-f787-4821-b61f-7e3b7e3c6d85"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-opole2",
+          "title": "OT Opole",
+          "consultedOn": "2026-11-27",
+          "quotes": ["Przetargi ograniczone grudzień 2026", "Przetargi nieograniczone - grudzień 2026"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.gov.pl/attachment/b95a0afc-f787-4821-b61f-7e3b7e3c6d85",
+          "title": "Przetargi ograniczone grudzień 2026",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "na sprzedaż lub dzierżawę nieruchomości rolnych",
+            "Szczegółowe informacje na temat ofert umieszczonych w harmonogramie można uzyskać w",
+            "OT KOWR w Opolu"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-opole",
+          "title": "OT Opole",
+          "consultedOn": "2026-11-27",
+          "quotes": ["opole@kowr.gov.pl"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-pl-1"
+    }
+  ],
+  "news": [],
+  "limitations": [],
+  "metaTitle": "Ziemia rolna na Opolszczyźnie: przetargi KOWR",
+  "metaDescription": "Przetargi KOWR w Opolu na sprzedaż i dzierżawę ziemi rolnej oraz krajowe premie dla młodych rolników w województwie opolskim."
+}

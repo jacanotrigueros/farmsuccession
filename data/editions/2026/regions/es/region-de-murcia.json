@@ -7,7 +7,7 @@
   "metaTitle": "Ayudas, formación y bancos de tierras en Murcia",
   "metaDescription": "Consulta la ayuda a la primera instalación de jóvenes, la formación de los CIFEA y las vías municipales para buscar tierras en la Región de Murcia.",
   "officialName": "Región de Murcia",
-  "published": "2026-11-25",
+  "published": "2026-11-27",
   "summary": "La Región de Murcia mantiene ayudas a la creación de empresas agrarias por jóvenes, con una convocatoria 2026 ya cerrada, y dispone de formación agraria pública a través de los CIFEA. No se ha verificado un banco de tierras regional, pero siguen operativos bancos de tierras municipales en Murcia y Molina de Segura.",
   "coverage": {
     "status": "PARTIAL",
@@ -134,9 +134,26 @@
             "checkedOn": "2026-11-24",
             "method": "FETCH"
           }
+        },
+        {
+          "url": "https://www.borm.es/services/boletin/ano/2026/numero/260/pdf",
+          "title": "Boletín Oficial de la Región de Murcia, número 260 de 2026",
+          "consultedOn": "2026-11-27",
+          "quotes": ["de la Intervención 6961.1, Proyecto 53951"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "6961.1",
+          "sourceUrl": "https://www.borm.es/services/boletin/ano/2026/numero/260/pdf"
+        }
+      ]
     },
     {
       "id": "murcia-banco-tierras-huerta",

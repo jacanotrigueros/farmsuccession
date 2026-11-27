@@ -479,6 +479,25 @@ export function checkEdition(snapshots: readonly LoadedSnapshot[], territories: 
     }
   }
 
+  // Europe's comparison table and a country's own statistics come from the same Eurostat tables: when both
+  // exist they must agree, or the country page and Europe's page would show different numbers for one country.
+  const memberStates = ordered.find(({ data }) => data.schemaId === "eu-snapshot")?.data;
+  const europeRows = new Map(
+    memberStates?.schemaId === "eu-snapshot" ? (memberStates.memberStates?.countries ?? []).map((row) => [row.country, row] as const) : [],
+  );
+  for (const { file, data } of ordered) {
+    if (data.schemaId !== "country-snapshot" || !data.countryContext || europeRows.size === 0) continue;
+    const row = europeRows.get(data.country);
+    const { succession, land } = data.countryContext;
+    const differs =
+      !row ||
+      row.succession.year !== succession.year ||
+      (["holdings", "under25", "from25To34", "from35To39", "atLeast65"] as const).some((key) => row.succession[key] !== succession[key]) ||
+      row.land.year !== land.year ||
+      row.land.hectares !== land.hectares;
+    if (differs) errors.push({ file, message: `countryContext differs from ${data.country}'s row in the EU memberStates table` });
+  }
+
   /** The files this one inherits from: its ancestors in the tree, never a sibling or another country. */
   const inherited = (data: EditionSnapshot): LoadedSnapshot[] => {
     const ancestors = new Set(ancestorLayers(snapshotLayer(data), territories).map(layerKey));

@@ -47,7 +47,7 @@ import { GOALS, isFirstEstablishmentAid } from "../lib/goals.ts";
 import { flagOf, ICON } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
 import { kindLabel } from "../lib/vocabulary.ts";
-import { counted, editionNamed, words } from "../lib/words.ts";
+import { counted, editionNamed, type Forms, words } from "../lib/words.ts";
 import { queryFromState, searchPath, searchUrl } from "../../public/search-scope.js";
 
 export function getStaticPaths() {
@@ -208,7 +208,7 @@ const underneath = [...children, ...groupings].flatMap((under) => under.data.res
 const everythingHere = [...applicable, ...underneath];
 
 /** A count with its noun, in a phrase that names the place it is about. */
-const about = (forms: readonly [string, string], howMany: number): string => counted(howMany, forms, locale).replace("{where}", name);
+const about = (forms: Forms, howMany: number): string => counted(howMany, forms, locale).replace("{where}", name);
 
 /**
  * A country or grouping with children counts the complete search scope and its territories.

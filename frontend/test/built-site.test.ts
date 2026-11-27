@@ -717,7 +717,12 @@ test("a European record can be searched for in every language, through the site'
   const national = pages.filter(({ file, html }) => /^[a-z]{2}[\/]/u.test(file) && html.includes("data-pagefind-body"));
   assert.ok(national.length > 0, "no national record page was built");
   for (const { file, html } of national) {
-    assert.ok(!html.includes("data-terms="), `${file} is written in its readers' language and needs no translated terms`);
+    // A national or regional record may carry the territory's other official names (Hargita megye for
+    // Harghita), so a reader searching in a minority language finds it; never the European vocabulary.
+    const terms = /data-terms="([^"]*)"/u.exec(html)?.[1] ?? "";
+    for (const language of ["en", "es", "de", "fr", "it", "pt", "nl", "ro"]) {
+      assert.ok(!terms.includes(words(language).euName), `${file} is written in its readers' language and needs no translated terms`);
+    }
   }
 });
 
@@ -1012,7 +1017,11 @@ test("every record prioritises actionable feedback with its context and retains 
     }
   }
   assert.ok(checked > 100, `only ${checked} records asked the question; every record page should`);
-  assert.equal(byLanguage.size, 8, "the question was not checked in all eight languages: Romanian records joined the seven on 27 Nov 2026");
+  assert.equal(
+    byLanguage.size,
+    10,
+    "the question was not checked in all ten languages: Greek and Polish records joined the eight on 27 Nov 2026",
+  );
 });
 
 test("every page links its scoped licence notice and every evidence block warns about third-party rights", () => {

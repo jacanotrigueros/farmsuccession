@@ -7,10 +7,10 @@
   "published": "2026-11-27",
   "metaTitle": "Vânzare de teren agricol și cursuri DAJ în România",
   "metaDescription": "Cum vinzi un teren agricol extravilan potrivit Legii nr. 17/2014 și cum găsești cursuri de inițiere și calificare în agricultură la DAJ.",
-  "summary": "Aici găsești informații despre vânzarea terenurilor agricole extravilane și despre cursurile de formare ale direcțiilor pentru agricultură județene. Alege un județ pentru a vedea ce resurse naționale și europene se aplică acolo.",
+  "summary": "Aici găsești sprijinul AFIR pentru instalarea tinerilor fermieri (DR-30) și pentru investiții (DR-12), plata APIA pentru tinerii fermieri, accesul la terenurile statului și la pajiștile comunale, vânzarea terenurilor agricole extravilane și cursuri de calificare. Alege un județ pentru a vedea ce se aplică acolo.",
   "coverage": {
     "status": "PARTIAL",
-    "note": "În această ediție sunt documentate procedura de vânzare a terenurilor agricole extravilane și cursurile de formare ale direcțiilor pentru agricultură județene. Resursele proprii ale județelor nu sunt încă documentate.",
+    "note": "Sunt documentate resursele naționale pentru instalarea tinerilor fermieri, accesul la teren, transferul exploatației și formare, precum și câteva servicii județene. Majoritatea județelor nu au încă resurse proprii documentate.",
     "methods": [
       {
         "method": "OFFICIAL_PORTAL",
@@ -34,10 +34,144 @@
         "model": "claude-opus-5-5",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-ro-2",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-ro-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
   "resources": [
+    {
+      "id": "ro-afir-dr30-instalarea-tinerilor-fermieri",
+      "name": "DR-30 — Sprijin pentru instalarea tinerilor fermieri (AFIR)",
+      "metaTitle": "DR-30: 70.000 € pentru instalarea tinerilor fermieri",
+      "metaDescription": "Sprijin nerambursabil AFIR de 70.000 € pentru tinerii fermieri care se instalează ca șefi de exploatație. Vezi cine poate solicita și cum se plătește.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Agenția pentru Finanțarea Investițiilor Rurale (AFIR)",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Sprijin public nerambursabil de 70.000 de euro pentru instalarea tinerilor fermieri ca șefi sau manageri ai unei exploatații agricole, acordat ca sumă forfetară în două tranșe: 75% la semnarea contractului de finanțare și 25% în funcție de implementarea corectă a planului de afaceri. Pragul de dimensiune economică este de 12.000–100.000 € SO, de 8.000–100.000 € SO în zona montană și de la 2.300 SO pentru legume în spații protejate.",
+      "whoCanUseIt": "Persoane fizice înregistrate și autorizate conform OUG nr. 44/2008 (PFA, II și IF), asociați unici și administratori ai unui SRL sau asociați majoritari și administratori ai unui SRL, care se instalează ca tineri fermieri.",
+      "howToAccess": "Descărcați ghidul solicitantului și cererea de finanțare de pe pagina DR-30 a AFIR, completați cererea cu Adobe Acrobat Reader și încărcați-o online. Pentru întrebări, oficiile județene AFIR (OJFIR) și centrele regionale sunt listate în structurile teritoriale ale agenției.",
+      "accessUrl": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-30/",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "languages": ["ro"],
+      "targetProfiles": ["YOUNG_FARMER", "NEW_ENTRANT"],
+      "sources": [
+        {
+          "url": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-30/",
+          "title": "Detalii și Anexe DR 30 - Portalul AFIR",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Atragerea și susținerea tinerilor fermieri și a altor noi fermieri și facilitatea dezvoltării întreprinderilor în zonele rurale.",
+            "Persoane fizice înregistrate şi autorizate în conformitate cu OUG nr. 44/ 2008: PFA, II și IF",
+            "70.000 de euro pentru exploatațiile între 12.000 € SO și 100.000 € SO;",
+            "70.000 de euro pentru exploatațiile din zona montană între 8.000 € SO și 100.000 € SO.",
+            "75% din cuantumul sprijinului la semnarea Contractului de finanțare;",
+            "Ghidul Solicitantului pentru DR 30",
+            "70.000 de euro pentru legume în spații protejate între 2.300 SO și 100.000 SO",
+            "25% din cuantumul sprijinului se va acorda în funcție de implementarea corectă a Planului de Afaceri"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://www.afir.ro/despre-afir/afir/structuri-teritoriale/",
+          "title": "Structuri teritoriale - Portalul AFIR",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Oficiul Judeţean pentru Finanțarea Investițiilor Rurale (OJFIR) ALBA",
+            "Centrul Regional pentru Finanțarea Investițiilor Rurale 7 Centru ALBA IULIA"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-30/"
+        }
+      ],
+      "notes": "Pagina DR-30 nu indică în această lectură o sesiune deschisă cu date; calendarul sesiunilor se verifică la AFIR înainte de depunere.",
+      "generatorId": "claude-2"
+    },
+    {
+      "id": "ro-afir-dr12-investitii-tineri-fermieri",
+      "name": "DR-12 — Investiții în exploatațiile tinerilor fermieri (AFIR)",
+      "metaTitle": "DR-12: investiții pentru tinerii fermieri sub 45 de ani",
+      "metaDescription": "Sprijin AFIR pentru tinerii fermieri și fermierii instalați recent, de până la 45 de ani, care vor să consolideze și să modernizeze exploatația.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Agenția pentru Finanțarea Investițiilor Rurale (AFIR)",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Sprijin pentru investiții care consolidează exploatațiile tinerilor fermieri sau ale fermierilor instalați recent, cu vârsta de cel mult 45 de ani, pentru a le facilita accesul la capital și reînnoirea generațiilor în agricultură.",
+      "whoCanUseIt": "Tineri fermieri care au finalizat planul de afaceri din submăsura 6.1 a PNDR 2014-2020, inclusiv tranziția, sau fermieri instalați recent, cu vârsta de cel mult 45 de ani.",
+      "howToAccess": "Consultați pagina DR-12 a AFIR pentru ghidul solicitantului și anexe, apoi depuneți cererea de finanțare online; oficiile județene AFIR (OJFIR) răspund la întrebări.",
+      "accessUrl": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-12/",
+      "instrumentType": "GRANT",
+      "purposes": ["INVESTMENT"],
+      "languages": ["ro"],
+      "targetProfiles": ["YOUNG_FARMER"],
+      "sources": [
+        {
+          "url": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-12/",
+          "title": "Detalii și Anexe DR 12 - Portalul AFIR",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Încurajarea tinerilor fermieri sau a fermierilor recent instalați, cu vârsta de maximum 45 de ani, pentru facilitarea accesului la capital, consolidarea activităților exploatațiilor agricole, reînnoirea generațiilor în agricultură",
+            "Tinerii fermieri care au finalizat implementarea planului de afaceri în cadrul submăsurii 6.1 din PNDR 2014-2020, inclusiv tranziție"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "BROWSER"
+          }
+        },
+        {
+          "url": "https://www.afir.ro/despre-afir/afir/structuri-teritoriale/",
+          "title": "Structuri teritoriale - Portalul AFIR",
+          "consultedOn": "2026-11-27",
+          "quotes": ["Oficiul Judeţean pentru Finanțarea Investițiilor Rurale (OJFIR) ALBA"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "BROWSER"
+          }
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-12/"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-12/"
+        }
+      ],
+      "generatorId": "claude-2"
+    },
     {
       "id": "ro-ads-vanzare-teren-agricol-preemptiune",
       "name": "Vânzarea terenurilor agricole extravilane și dreptul de preempțiune",
@@ -120,12 +254,360 @@
       ],
       "generatorId": "claude-2",
       "notes": "Taxa depinde de curs. Unele cursuri sunt gratuite. Confirmă tariful și eventualul cost al certificatului la DAJ înainte de înscriere."
+    },
+    {
+      "id": "ro-inchiriere-pajisti-comunale",
+      "name": "Închirierea pajiștilor comunale pentru crescătorii de animale",
+      "metaTitle": "Închiriere pășune comunală și atribuire directă",
+      "metaDescription": "Află cine poate solicita o pășune comunală, cum se face atribuirea directă, când se aplică licitația și cât durează contractul.",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Primăriile și consiliile locale",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Pajiștile disponibile ale localităților pot fi închiriate prin atribuire directă crescătorilor de animale din comunitatea locală. Suprafața se stabilește proporțional cu efectivele de animale, iar contractul se încheie pe o perioadă între 7 și 10 ani. Pentru pajiștile scoase la licitație publică, autoritatea locală publică anunțul și documentația de atribuire.",
+      "whoCanUseIt": "Crescătorii de animale, persoane fizice sau juridice, cu animalele înscrise în RNE și/sau în SIIE. Pentru atribuirea directă, solicitantul trebuie să fie membru al colectivității locale sau să aibă sediul social pe teritoriul localității respective.",
+      "howToAccess": "Depune cererea la compartimentul funcțional al primăriei care administrează pajiștea, împreună cu documentele care atestă că deții animale. Pentru o licitație, solicită documentația de atribuire și urmărește anunțul publicat de autoritatea locală.",
+      "accessUrl": "https://legislatie.just.ro/Public/DetaliiDocument/305529",
+      "languages": ["ro"],
+      "notes": "Regula națională se aplică în fiecare localitate: ce pajiști sunt disponibile și când se depun cererile hotărăște consiliul local, prin hotărâri proprii.",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://legislatie.just.ro/Public/DetaliiDocument/305529"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://legislatie.just.ro/Public/DetaliiDocument/305529",
+          "title": "ORDONANȚĂ DE URGENȚĂ nr. 34 din 23 aprilie 2013 privind organizarea, administrarea și exploatarea pajiștilor permanente",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "închiriere prin atribuire directă",
+            "proporțional cu efectivele de animale",
+            "între 7 și 10 ani",
+            "RNE și/sau în SIIE",
+            "membri ai colectivității locale sau care au sediul social pe teritoriul localității respective"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/292551",
+          "title": "NORME METODOLOGICE din 11 decembrie 2013 pentru aplicarea prevederilor OUG nr. 34/2013",
+          "consultedOn": "2026-11-27",
+          "quotes": ["depun individual la compartimentul funcțional din cadrul primăriei", "documente care atestă că dețin animale"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://legislatie.just.ro/Public/DetaliiDocument/215925",
+          "title": "ORDONANȚĂ DE URGENȚĂ nr. 57 din 3 iulie 2019 privind Codul administrativ",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "se face pe bază de licitație publică",
+            "autoritatea contractantă are obligația să publice anunțul de licitație",
+            "dreptul de a solicita și de a obține documentația de atribuire"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-2"
+    },
+    {
+      "id": "ro-anofm-cursuri-gratuite-agricultura",
+      "name": "Cursuri gratuite de calificare în agricultură prin ANOFM și AJOFM",
+      "metaTitle": "Cursuri gratuite de agricultură prin AJOFM",
+      "metaDescription": "Verifică oferta AJOFM pentru cursuri gratuite de culturi de câmp, legumicultură sau creșterea animalelor și află cum te poți înscrie.",
+      "kind": "TRAINING",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Agenția Națională pentru Ocuparea Forței de Muncă și agențiile județene",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Agențiile pentru ocuparea forței de muncă organizează, gratuit, cursuri de calificare și recalificare pentru șomeri. Printre calificările publicate de agențiile județene în 2026 se numără lucrător calificat în culturi de câmp și legumicultură și lucrător calificat în creșterea animalelor.",
+      "whoCanUseIt": "Șomerii înregistrați la agenția județeană, indemnizați și neindemnizați.",
+      "howToAccess": "Contactează agenția județeană și întreabă de oferta de cursuri. Accesul la curs urmează activității de informare și consiliere profesională sau de mediere; înscrierea se face cu o cerere tip și actele cerute.",
+      "accessUrl": "https://www.anofm.ro/agentii-judetene/",
+      "languages": ["ro"],
+      "notes": "Oferta diferă de la un județ la altul: de exemplu, în 2026, culturi de câmp și legumicultură la AJOFM Ialomița și creșterea animalelor la AJOFM Vâlcea.",
+      "notPublished": [
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://www.anofm.ro/ialomita/cursuri-de-formare-profesionala-organizate-in-anul-2026/"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://www.anofm.ro/programe-de-formare-profesionala-pentru-persoanele-%20aflate-in-%20cautarea-unui-loc-de-munca/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.anofm.ro/programe-de-formare-profesionala-pentru-persoanele-%20aflate-in-%20cautarea-unui-loc-de-munca/",
+          "title": "Programe de formare profesională pentru persoanele aflate în căutarea unui loc de muncă",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "organizează, gratuit, cursuri de calificare/recalificare pentru şomeri",
+            "în urma activităţii de informare şi consiliere profesională sau de mediere",
+            "cerere tip"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.anofm.ro/agentii-judetene/",
+          "title": "Agenții județene",
+          "consultedOn": "2026-11-27",
+          "quotes": ["Agenții județene"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.anofm.ro/ialomita/cursuri-de-formare-profesionala-organizate-in-anul-2026/",
+          "title": "Cursuri de formare profesională organizate în anul 2026",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Lucrător calificat în culturi de câmp și legumicultură",
+            "persoanele înregistrate în evidențele AJOFM Ialomița (șomeri indemnizați și neindemnizați)"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.anofm.ro/valcea/wp-content/uploads/sites/41/2026/03/lista-cursuri-de-formare-profesionala-2026.pdf",
+          "title": "CURSURI GRATUITE — AJOFM Vâlcea 2026",
+          "consultedOn": "2026-11-27",
+          "quotes": ["organizeaza in anul 2026", "Lucrator calificat in cresterea animalelor"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-2"
+    },
+    {
+      "id": "ro-ads-terenuri-stat-tineri-fermieri",
+      "name": "Concesionarea și arendarea terenurilor statului pentru tinerii fermieri",
+      "metaTitle": "Terenuri de stat pentru tinerii fermieri",
+      "metaDescription": "Acces la terenuri agricole ale statului pentru tineri de până la 40 de ani. Vezi condițiile legale și unde se depune cererea.",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Autoritatea Națională pentru Administrarea Domeniilor Statului, Pescuit și Acvacultură",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Legea prevede concesionarea sau arendarea de terenuri agricole ale statului, în limita a 50 ha.",
+      "whoCanUseIt": "Tinerii de până la 40 de ani, absolvenți ai învățământului de profil.",
+      "howToAccess": "Depune o cerere de principiu la ghișeul indicat în Catalogul Național al Serviciilor Publice.",
+      "accessUrl": "https://serviciipublice.gov.ro/serviciu/serviciu-public-pentru-concesionare-terenuri-agricole-in-baza-legii-226-2016-pentru-tinerii-fermieri",
+      "targetProfiles": ["YOUNG_FARMER"],
+      "languages": ["ro"],
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Ghișeul indicat de CNSP",
+          "value": "Str. Stirbei Vodă, Nr.43, Sector 1, Bucuresti",
+          "sourceUrl": "https://serviciipublice.gov.ro/serviciu/serviciu-public-pentru-concesionare-terenuri-agricole-in-baza-legii-226-2016-pentru-tinerii-fermieri"
+        }
+      ],
+      "notes": "Fișa descrie cadrul legal și procedura. Nu a fost confirmată o ofertă de parcele deschisă la data verificării.",
+      "sources": [
+        {
+          "url": "https://legislatie.just.ro/Public/DetaliiDocument/28841",
+          "title": "LEGE nr. 268 din 28 mai 2001",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "concesionarea sau arendarea terenurilor cu destinație agricolă",
+            "suprafață maximă de 50 ha",
+            "tinerilor de până la 40 de ani, absolvenți ai învățământului de profil"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://serviciipublice.gov.ro/serviciu/serviciu-public-pentru-concesionare-terenuri-agricole-in-baza-legii-226-2016-pentru-tinerii-fermieri",
+          "title": "Serviciu public pentru concesionare terenuri agricole in baza Legii 226/2016 pentru tinerii fermieri",
+          "consultedOn": "2026-11-27",
+          "quotes": ["Se depune o cerere de principiu la ADS", "Str. Stirbei Vodă, Nr.43, Sector 1, Bucuresti"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-1"
+    },
+    {
+      "id": "ro-ads-informatii-terenuri-disponibile",
+      "name": "Informații despre terenurile agricole disponibile la stat",
+      "metaTitle": "Terenuri agricole disponibile la ADS",
+      "metaDescription": "Unde poți cere informații despre disponibilitatea terenurilor agricole ale statului și criteriile de arendare sau concesionare.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Autoritatea Națională pentru Administrarea Domeniilor Statului, Pescuit și Acvacultură",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Serviciu de informare despre disponibilitatea terenurilor și criteriile de atribuire pentru arendare sau concesionare.",
+      "whoCanUseIt": "Persoane fizice și juridice.",
+      "howToAccess": "Solicită informațiile la ghișeu.",
+      "accessUrl": "https://serviciipublice.gov.ro/serviciu/serviciu-public-pentru-informarea-fermierilor-cu-privire-la-disponibilitatea-terenurilor-administrate-de-agentia-domeniilor-statului",
+      "languages": ["ro"],
+      "contactPoints": [
+        {
+          "channel": "OFFICE",
+          "label": "Ghișeul indicat de CNSP",
+          "value": "Str. Stirbei Vodă, Nr.43, Sector 1, Bucuresti",
+          "sourceUrl": "https://serviciipublice.gov.ro/serviciu/serviciu-public-pentru-informarea-fermierilor-cu-privire-la-disponibilitatea-terenurilor-administrate-de-agentia-domeniilor-statului"
+        }
+      ],
+      "notes": "Serviciul oferă informații despre disponibilitate și criteriile de atribuire.",
+      "sources": [
+        {
+          "url": "https://serviciipublice.gov.ro/serviciu/serviciu-public-pentru-informarea-fermierilor-cu-privire-la-disponibilitatea-terenurilor-administrate-de-agentia-domeniilor-statului",
+          "title": "Serviciu public pentru informarea fermierilor cu privire la disponibilitatea terenurilor administrate de Agentia Domeniilor Statului",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "disponibilitatea terenurilor și criteriile de atribuire în vederea arendării, concesionării",
+            "Persoane fizice și juridice",
+            "Str. Stirbei Vodă, Nr.43, Sector 1, Bucuresti"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-1"
+    },
+    {
+      "id": "ro-apia-pd-03-tineri-fermieri",
+      "name": "Plata APIA pentru tinerii fermieri (PD-03)",
+      "metaTitle": "Subvenția APIA pentru tinerii fermieri (PD-03)",
+      "metaDescription": "Plata anuală PD-03 pentru tinerii fermieri instalați pentru prima dată. Vezi cine poate solicita sprijinul și termenul campaniei 2026.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Agenția de Plăți și Intervenție pentru Agricultură",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "O plată anuală pentru primele 50 de hectare eligibile determinate.",
+      "whoCanUseIt": "Tinerii fermieri eligibili pentru plata BISS, instalați pentru prima dată ca șefi ai exploatației.",
+      "howToAccess": "Solicită PD-03 în cadrul cererii de plată APIA.",
+      "accessUrl": "https://legislatie.just.ro/Public/DetaliiDocument/283519",
+      "instrumentType": "GRANT",
+      "purposes": ["FIRST_ESTABLISHMENT"],
+      "targetProfiles": ["YOUNG_FARMER"],
+      "languages": ["ro"],
+      "notes": "Depunerea cererilor pentru campania 2026 s-a încheiat la 5 iunie 2026.",
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://legislatie.just.ro/Public/DetaliiDocument/283519"
+        },
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://legislatie.just.ro/Public/DetaliiDocument/283519"
+        }
+      ],
+      "implements": [
+        {
+          "resourceId": "eu-cap-young-farmers",
+          "named": "intervenția PD-03",
+          "sourceUrl": "https://legislatie.just.ro/Public/DetaliiDocument/283519"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://legislatie.just.ro/Public/DetaliiDocument/283519",
+          "title": "ORDIN nr. 106 din 19 martie 2024",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "intervenția PD-03",
+            "o plată anuală",
+            "eligibili pentru plata BISS",
+            "instalați pentru prima dată ca șefi ai exploatației",
+            "primele 50 de hectare eligibile determinate"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-1"
+    },
+    {
+      "id": "ro-apia-transfer-exploatatie",
+      "name": "Transferul exploatației agricole și plata APIA",
+      "metaTitle": "Transferul exploatației agricole la APIA",
+      "metaDescription": "Cum notifici APIA dacă preiei integral o exploatație după depunerea cererii de plată. Termenul de notificare este de 15 zile.",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Agenția de Plăți și Intervenție pentru Agricultură",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Dacă o exploatație este transferată integral după depunerea unei cereri de plată, plata se poate acorda cesionarului, cu condiția ca acesta să notifice APIA în termen de 15 zile calendaristice de la efectuarea transferului.",
+      "whoCanUseIt": "Cesionarul care preia integral o exploatație după ce cedentul a depus cererea de plată la APIA.",
+      "howToAccess": "Cesionarul notifică APIA și solicită plata în termen de 15 zile calendaristice de la transfer.",
+      "accessUrl": "https://legislatie.just.ro/Public/DetaliiDocument/279846",
+      "targetProfiles": ["SUCCESSOR"],
+      "languages": ["ro"],
+      "notes": "Termenul se calculează de la efectuarea transferului.",
+      "notPublished": [
+        {
+          "question": "CONTACT_CHANNEL",
+          "sourceUrl": "https://legislatie.just.ro/Public/DetaliiDocument/279846"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://legislatie.just.ro/Public/DetaliiDocument/279846",
+          "title": "HOTĂRÂRE nr. 1.571 din 28 decembrie 2022",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "o exploatație este transferată integral",
+            "după depunerea unei cereri de plată",
+            "se acordă cesionarului",
+            "15 zile calendaristice",
+            "de la efectuarea transferului de exploatație",
+            "cesionarul notifică APIA"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-1"
     }
   ],
   "news": [],
   "limitations": [
-    "Sprijinul AFIR pentru instalarea tinerilor fermieri și pentru investiții în ferme nu este prezentat: avizul legal al www.afir.ro rezervă reproducerea conținutului unui acord scris, iar FarmSuccession nu publică fără acord.",
-    "Garanția FGCR pentru creditele de cumpărare a terenurilor agricole nu este prezentată: condițiile site-ului rezervă orice utilizare a conținutului fără acordul fondului.",
-    "Resursele județene (DAJ, APIA, oficiile AFIR) nu sunt încă documentate."
+    "Garanția FGCR pentru creditele de cumpărare a terenurilor agricole nu este prezentată: condițiile site-ului rezervă orice utilizare a conținutului fără acordul fondului."
   ]
 }

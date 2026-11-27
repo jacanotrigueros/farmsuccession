@@ -7,7 +7,7 @@
   "metaTitle": "Ayudas de incorporación y sucesión agraria en Madrid",
   "metaDescription": "Consulta las ayudas a jóvenes y nuevos agricultores, el apoyo para ceder una explotación y la formación que permite acreditar capacitación en Madrid.",
   "officialName": "Comunidad de Madrid",
-  "published": "2026-11-25",
+  "published": "2026-11-27",
   "summary": "La Comunidad de Madrid combina ayudas al establecimiento de jóvenes y nuevos agricultores, una ayuda específica para la sucesión de explotaciones, formación de incorporación reconocida para acreditar capacitación y servicios de organizaciones agrarias. En la ciudad de Madrid, Barrios Productores mantiene además una convocatoria permanente de parcelas municipales para emprendimiento agrícola urbano.",
   "coverage": {
     "status": "PARTIAL",
@@ -189,8 +189,15 @@
         {
           "url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2025/11/19/BOCM-20251119-36.PDF",
           "title": "BOCM de 19 de noviembre de 2025",
-          "consultedOn": "2026-11-24",
-          "quotes": ["La ayuda máxima será de 50.000 euros por beneficiario."]
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "las tasas de cofinanciación del cuadro financiero vigente del Plan Estratégico de la Política Agraria Común 2023-2027",
+            "La ayuda máxima será de 50.000 euros por beneficiario."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
         }
       ],
       "generatorId": "chatgpt-3",
@@ -201,6 +208,13 @@
           "value": 50000,
           "unit": "EUR",
           "asOf": "2025-11-19",
+          "sourceUrl": "https://www.bocm.es/boletin/CM_Orden_BOCM/2025/11/19/BOCM-20251119-36.PDF"
+        }
+      ],
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "Plan Estratégico de la Política Agraria Común 2023-2027",
           "sourceUrl": "https://www.bocm.es/boletin/CM_Orden_BOCM/2025/11/19/BOCM-20251119-36.PDF"
         }
       ]
@@ -266,8 +280,9 @@
         {
           "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2",
           "title": "Ayudas para la incorporación de jóvenes agricultores (2026) — Comunidad de Madrid",
-          "consultedOn": "2026-09-28",
+          "consultedOn": "2026-11-27",
           "quotes": [
+            "Criterios de selección de la Intervención 6961.1",
             "prima básica de 30.000 euros",
             "La cuantía máxima de la subvención es de 80.000 euros por persona beneficiaria.",
             "Fecha de inicio: 08/04/2026 Fecha de fin: 07/05/2026",
@@ -278,12 +293,19 @@
             "No requiere el pago de tasas"
           ],
           "verification": {
-            "checkedOn": "2026-11-24",
+            "checkedOn": "2026-11-27",
             "method": "FETCH"
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "6961.1",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-jovenes-agricultores-2"
+        }
+      ]
     },
     {
       "id": "madrid-incorporacion-nuevos-agricultores",
@@ -346,8 +368,9 @@
         {
           "url": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0",
           "title": "Ayudas para la incorporación de nuevos agricultores (2026) — Comunidad de Madrid",
-          "consultedOn": "2026-09-28",
+          "consultedOn": "2026-11-27",
           "quotes": [
+            "cofinanciadas por el Fondo Europeo Agrícola de Desarrollo Rural (FEADER)",
             "prima básica de 20.000 euros más un suplemento de 20.000 euros",
             "La cuantía máxima de la subvención es de 40.000 euros.",
             "Fecha de inicio: 02/04/2026 Fecha de fin: 04/05/2026",
@@ -358,12 +381,19 @@
             "No requiere el pago de tasas"
           ],
           "verification": {
-            "checkedOn": "2026-11-24",
+            "checkedOn": "2026-11-27",
             "method": "FETCH"
           }
         }
       ],
-      "generatorId": "chatgpt-1"
+      "generatorId": "chatgpt-1",
+      "implements": [
+        {
+          "resourceId": "es-medidas-pac-relevo-generacional",
+          "named": "FEADER",
+          "sourceUrl": "https://sede.comunidad.madrid/ayudas-becas-subvenciones/ayudas-nuevos-agricultores-0"
+        }
+      ]
     },
     {
       "id": "madrid-plan-dinamizacion-sector-primario",
