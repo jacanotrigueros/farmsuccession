@@ -10,6 +10,18 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.3.3 — 2026-11-27
+
+Two protections a reader does not have to learn, so only the last digit moves.
+
+- The report form keeps spam out without a CAPTCHA. Readers are often older farming families on a phone with a
+  weak rural signal, and one lost report costs more than deleting spam by hand, so no image puzzle stands between
+  them and sending. A hidden field that only robots fill in, the form provider's own filter and the site's domain
+  restriction do the work. The note shown before sending no longer names Google reCAPTCHA, which is no longer
+  used.
+- Every site with no permission on record is now refused by the publishing gate, so no future record can cite one
+  by mistake. Nothing published changes.
+
 ## 2.3.2 — 2026-11-27
 
 A second pass of the same correction: nothing new a reader has to learn, so only the last digit moves.
