@@ -68,8 +68,8 @@ test("the actual Pagefind fragments carry each record's language for live result
   }
   assert.equal(
     checked.size,
-    10,
-    "not every language bundle's delivered metadata was checked (ten since Greek and Polish records were published)",
+    12,
+    "not every language bundle's delivered metadata was checked (twelve since Hungarian and Croatian records were published)",
   );
 });
 

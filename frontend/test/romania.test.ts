@@ -44,7 +44,7 @@ test("Romanian routes, search scope and counted labels work with the shared inte
     selected: { territory: ["RO/cluj"] },
   });
   assert.equal(asLanguage("ro-RO"), "ro");
-  assert.throws(() => asLanguage("hu"), /no words/u);
+  assert.throws(() => asLanguage("sk"), /no words/u);
   assert.equal(dateIn("2026-11-26", "ro"), "26 noiembrie 2026");
   assert.deepEqual(
     [0, 1, 2, 20, 42].map((n) => counted(n, words("ro").record, "ro")),
