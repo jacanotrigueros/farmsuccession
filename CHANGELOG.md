@@ -10,6 +10,15 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.4.1 — 2026-11-27
+
+A correction, so the last digit moves.
+
+- The European record of CAP support for young farmers now shows Austria among the countries that apply it: the
+  installation aid 75-01 and the complementary income support for young farmers, both named in their own sources
+  as part of the Austrian CAP Strategic Plan. The consolidation aid for young farmers is nationally funded and is
+  not linked.
+
 ## 2.4.0 — 2026-11-27
 
 Romania joins the directory, in Romanian, so the middle digit moves.
