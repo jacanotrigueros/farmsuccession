@@ -10,6 +10,15 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.6.1 — 2026-11-27
+
+A correction, so the last digit moves.
+
+- Greece, Poland, Romania, Hungary and Croatia now show the land in figures like every other country: the age of
+  farm holders against the EU-27, the farmland, and the share of crop and animal production in GDP, from Eurostat
+  (Greece's 2024 national accounts are provisional and say so). The five pages had been published without it.
+- The validation now refuses a member state's page without these figures, so a new country cannot lose them again.
+
 ## 2.6.0 — 2026-11-27
 
 Hungary and Croatia join the directory, each in its own language, so the middle digit moves.
