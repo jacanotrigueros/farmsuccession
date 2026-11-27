@@ -286,7 +286,7 @@ test("country context gives each observation its year and source after the resou
         `${route}: no readable table for ${table}`,
       );
     }
-    if (succession.europe) assert.match(block, /UE-27|EU-27/u, `${route}: the age bars have no EU-27 reference`);
+    if (succession.europe) assert.match(block, /UE-27|EU-27|ΕΕ-27/u, `${route}: the age bars have no EU-27 reference`);
     assert.ok(block.includes(`<time datetime="${consultedOn}"`));
   }
 });

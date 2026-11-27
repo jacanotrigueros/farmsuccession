@@ -486,6 +486,13 @@ export function checkEdition(snapshots: readonly LoadedSnapshot[], territories: 
     memberStates?.schemaId === "eu-snapshot" ? (memberStates.memberStates?.countries ?? []).map((row) => [row.country, row] as const) : [],
   );
   for (const { file, data } of ordered) {
+    // A member state with a page shows its own figures ("the land in figures"): without them the country
+    // page silently loses the section every other country has, as Greece, Poland, Romania, Hungary and
+    // Croatia did until 27 Nov 2026.
+    if (data.schemaId === "country-snapshot" && !data.countryContext && europeRows.has(data.country)) {
+      errors.push({ file, message: `countryContext is missing although ${data.country} is in the EU memberStates table` });
+      continue;
+    }
     if (data.schemaId !== "country-snapshot" || !data.countryContext || europeRows.size === 0) continue;
     const row = europeRows.get(data.country);
     const { succession, land } = data.countryContext;
