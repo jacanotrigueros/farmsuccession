@@ -24,6 +24,8 @@ export const LANGUAGE_NAMES: Record<string, string> = {
   pt: "Portuguese",
   nl: "Dutch",
   ro: "Romanian",
+  el: "Greek",
+  pl: "Polish",
 };
 
 /**
@@ -66,6 +68,12 @@ function words(list: string): ReadonlySet<string> {
 const OWN_ONLY: Record<string, ReadonlySet<string>> = {
   ro: words(
     "a ar ale al au care cel cu de din doar după este fost fără la lor mai ne pe pentru prin să se și sunt ta te în între unui unde un unei o or ori orice sau serviciile toate va vor",
+  ),
+  pl: words(
+    "a aby albo ale ani aż bez bo bowiem bądź by być co czy dla do gdy gdyby gdzie i ich im iż jak jednak jeśli jeżeli już kiedy kto lub lecz ma mimo na nad nie niż o od oraz po pod podczas ponad przez przy się są tam ten to tu w we za z ze że żeby",
+  ),
+  el: words(
+    "ο η το οι τα του της των τον την τη τους τις ένας μια ένα ενός μίας και ή κι αλλά όμως να θα αν εάν όταν που πως ότι ό,τι για με σε από προς ως μέχρι έως χωρίς κατά μετά πριν μέσα πάνω κάτω ανά μην μη δεν δε μου σου μας σας τους τις",
   ),
   nl: words("de en van in is op te die met of als er aan om tot dan door zo dit nu wat wie kan moet zal"),
 };

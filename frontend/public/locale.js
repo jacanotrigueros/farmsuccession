@@ -1,6 +1,6 @@
 /** The same language rules for built text and for counts rewritten in the reader's browser. */
 /** @type {Record<string, string>} */
-const LOCALES = { en: "en", es: "es", de: "de", fr: "fr", it: "it", pt: "pt-PT", nl: "nl", ro: "ro-RO" };
+const LOCALES = { en: "en", es: "es", de: "de", fr: "fr", it: "it", pt: "pt-PT", nl: "nl", ro: "ro-RO", el: "el-GR", pl: "pl-PL" };
 
 /**
  * The locale to format in. A site language uses its own conventions; a tag of a site language and a
@@ -26,13 +26,18 @@ export const pluralIndex = (value, language) => (new Intl.PluralRules(localeOf(l
 /** @param {number} value @param {string} language */
 export const numberIn = (value, language) => value.toLocaleString(localeOf(language), { maximumFractionDigits: 2 });
 
-/** @param {number} value @param {readonly [string, string]} forms @param {string} language */
+/**
+ * Two forms ([one, other]) for most languages; Polish gives three ([one, few, many]): 1 gospodarstwo,
+ * 2 gospodarstwa, 5 gospodarstw. Polish fractions ("other") take the "few" form.
+ * @param {number} value @param {readonly string[]} forms @param {string} language
+ */
 export const counted = (value, forms, language) => {
   const locale = localeOf(language);
   const form = new Intl.PluralRules(locale).select(value);
   // Romanian puts “de” between the number and noun for counts such as 20 and 100.
   const separator = locale.startsWith("ro-") && form === "other" ? " de " : " ";
-  return `${numberIn(value, language)}${separator}${forms[form === "one" ? 0 : 1]}`;
+  const index = form === "one" ? 0 : forms.length > 2 && form === "many" ? 2 : 1;
+  return `${numberIn(value, language)}${separator}${forms[index]}`;
 };
 
 /** Format a source's calendar day without shifting it into the previous day in another time zone.

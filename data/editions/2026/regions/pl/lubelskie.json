@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaId": "regional-snapshot",
+  "edition": "2026",
+  "country": "PL",
+  "region": "lubelskie",
+  "officialName": "Lubelskie",
+  "published": "2026-11-27",
+  "summary": "Zasoby dotyczące rozpoczęcia działalności rolniczej, przejęcia gospodarstwa i dostępu do ziemi w województwie lubelskim.",
+  "coverage": {
+    "status": "PARTIAL",
+    "note": "Udokumentowano zasoby województwa znalezione w przeglądzie z 27 listopada 2026 r.; nie jest to pełny wykaz.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Przegląd stron instytucji krajowych i wojewódzkich (ARiMR, KOWR, ODR)"
+      }
+    ]
+  },
+  "metadata": {
+    "language": "pl",
+    "sourcePolicy": "PUBLIC_SOURCES_ONLY",
+    "generatedBy": [
+      {
+        "id": "territory-preparation",
+        "tool": "OTHER",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-pl-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "pl-lubelskie-kowr-lublin-przetargi",
+      "name": "Przetargi na ziemię rolną – KOWR Lublin",
+      "metaTitle": "Przetargi na ziemię rolną | KOWR Lublin",
+      "metaDescription": "Sprawdź harmonogramy sprzedaży i dzierżawy nieruchomości w województwie lubelskim i dane kontaktowe oddziału KOWR w Lublinie.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Krajowy Ośrodek Wsparcia Rolnictwa – Oddział Terenowy w Lublinie",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Oddział w Lublinie publikuje harmonogramy przetargów na sprzedaż lub dzierżawę nieruchomości z województwa lubelskiego.",
+      "howToAccess": "Otwórz harmonogram miesięczny udostępniony na stronie przetargów oddziału.",
+      "accessUrl": "https://www.gov.pl/web/kowr/ot-lublin2",
+      "languages": ["pl"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "KOWR OT Lublin",
+          "value": "lublin@kowr.gov.pl",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-lublin"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-lublin2"
+        }
+      ],
+      "implements": [
+        {
+          "resourceId": "pl-kowr-sprzedaz-dzierzawa-ziemi",
+          "named": "przetargów na sprzedaż lub dzierżawę nieruchomości",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-lublin2"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-lublin2",
+          "title": "OT Lublin",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "przetargów na sprzedaż lub dzierżawę nieruchomości",
+            "Harmonogramy obejmują nieruchomości z terenu woj. lubelskiego.",
+            "Harmonogram przetargów grudzień 2026r"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-lublin",
+          "title": "OT Lublin",
+          "consultedOn": "2026-11-27",
+          "quotes": ["lublin@kowr.gov.pl"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-pl-1"
+    }
+  ],
+  "news": [],
+  "limitations": [],
+  "metaTitle": "Ziemia rolna na Lubelszczyźnie: przetargi KOWR",
+  "metaDescription": "Przetargi KOWR w Lublinie na sprzedaż i dzierżawę ziemi rolnej oraz krajowe premie dla młodych rolników w województwie lubelskim."
+}

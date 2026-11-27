@@ -206,4 +206,52 @@ export const founderStory = {
       "Valoarea personală și profesională a proiectului îmi permite să ofer acces gratuit la director. Întreținerea depinde de resursele disponibile.",
     ],
   },
+  pl: {
+    link: "Dlaczego powstał FarmSuccession",
+    personalTitle: "Kto stoi za projektem",
+    title: "Dlaczego przejmowanie gospodarstw ma znaczenie",
+    originTitle: "Jak zmieniał się pomysł",
+    freeTitle: "Dlaczego dostęp jest bezpłatny",
+    personal: [
+      "Nazywam się José Antonio Cano Trigueros i pracuję jako programista. W ramach pracy w branży technologicznej mam do czynienia z rozwiązaniami, dzięki którym produkty rolników trafiają do konsumentów. FarmSuccession to mój osobisty projekt, niezależny od mojego pracodawcy.",
+      "W wolnym czasie dbam o drzewa owocowe na niewielkiej działce i staram się wspierać różnorodność biologiczną, na przykład zapewniając owadom schronienie. Nie jestem zawodowym rolnikiem. Dzięki temu poznaję niektóre strony życia na wsi, choć to zupełnie inne doświadczenie niż prowadzenie gospodarstwa.",
+    ],
+    paragraphs: [
+      "Chcę, żeby kolejne pokolenia miały realną szansę produkować żywność i kontynuować działalność rolniczą. Dostęp do ziemi jest częścią tej drogi, podobnie jak finansowanie, szkolenia i doradztwo. Gdy gospodarstwo nie ma następcy, martwi mnie jego przyszłość i los zgromadzonej w nim wiedzy.",
+      "Chcę, żeby rolnictwo było wyborem, z którego da się utrzymać i który pozwala zarazem chronić środowisko i ulepszać praktyki rolnicze. Z tego powodu zacząłem zgłębiać temat przekazywania gospodarstw, który dał projektowi nazwę. Katalog może pomóc ludziom znaleźć dostępne wsparcie.",
+    ],
+    origin: [
+      "Pierwotny pomysł miał charakter komercyjny. Rozważałem stworzenie platformy lub banku ziemi, które pomagałyby właścicielom gospodarstw nawiązać kontakt z osobami zainteresowanymi ich przejęciem. Znalazłem wyspecjalizowanych pośredników i zobaczyłem trudności w sprawach międzyludzkich, prawnych i finansowych, których samo nawiązanie kontaktu nie rozwiązuje.",
+      "Znalazłem też przydatne informacje rozproszone po urzędach, stowarzyszeniach i innych organizacjach europejskich. Postanowiłem uporządkować opisy i linki, żeby łatwiej było znaleźć podmioty oferujące te usługi. Tak powstał FarmSuccession, niezależny katalog informacji i źródeł. Nie pośredniczy w przekazywaniu gospodarstw, nie rozpatruje wniosków i nie zastępuje oficjalnych źródeł ani specjalistycznego doradztwa.",
+    ],
+    free: [
+      "Tworzenie i prowadzenie katalogu ma dla mnie również wartość zawodową. To publiczne portfolio, w którym mogę wykorzystywać i pokazywać swoje umiejętności programistyczne, eksperymentować, uczyć się i wychodzić z inicjatywą. Doświadczenie zawodowe pokazało mi, że chęć do nauki i inicjatywa są cenione.",
+      "Dostęp jest bezpłatny, a publikacja wiąże się z kosztami infrastruktury oraz narzędzi do tworzenia serwisu i wyszukiwania informacji. Poświęcam też na nią własny, nieopłacony czas. Korzystam również z płatnych narzędzi, w tym ze sztucznej inteligencji. Część abonamentów jest opcjonalna lub służy kilku projektom. Opublikowana statyczna strona może działać bez nich. Wyniki narzędzi same w sobie nie stanowią dowodów i nie zastępują źródeł, sprawdzenia przez człowieka ani opinii specjalisty.",
+      "Osobista i zawodowa wartość projektu pozwala mi udostępniać katalog bezpłatnie. Jego dalsze utrzymanie zależy od dostępnych środków.",
+    ],
+  },
+  el: {
+    link: "Γιατί υπάρχει το FarmSuccession",
+    personalTitle: "Ποιος είναι πίσω από το έργο",
+    title: "Γιατί έχει σημασία η διαδοχή στις αγροτικές εκμεταλλεύσεις",
+    originTitle: "Πώς άλλαξε η αρχική ιδέα",
+    freeTitle: "Γιατί η πρόσβαση είναι δωρεάν",
+    personal: [
+      "Είμαι ο José Antonio Cano Trigueros και εργάζομαι ως προγραμματιστής λογισμικού. Στο πλαίσιο της δουλειάς μου στην τεχνολογία, εργάζομαι και σε ένα περιβάλλον που συνδέει τα προϊόντα των αγροτών με τους καταναλωτές. Το FarmSuccession είναι προσωπικό μου έργο, ανεξάρτητο από τον εργοδότη μου.",
+      "Στον ελεύθερο χρόνο μου φροντίζω οπωροφόρα δέντρα σε ένα μικρό κτήμα και προσπαθώ να στηρίζω τη βιοποικιλότητα, για παράδειγμα με καταφύγια για έντομα. Δεν είμαι επαγγελματίας αγρότης. Η εμπειρία αυτή με φέρνει πιο κοντά σε ορισμένες πλευρές της ζωής στην ύπαιθρο, αλλά απέχει πολύ από τη διαχείριση μιας αγροτικής εκμετάλλευσης.",
+    ],
+    paragraphs: [
+      "Θέλω οι νεότερες γενιές να έχουν πραγματικές ευκαιρίες να παράγουν τρόφιμα και να συνεχίσουν την αγροτική δραστηριότητα. Η πρόσβαση στη γη είναι μέρος αυτής της διαδρομής, μαζί με τη χρηματοδότηση, την κατάρτιση και τη συμβουλευτική. Όταν μια αγροτική εκμετάλλευση δεν έχει διάδοχο, με απασχολεί το μέλλον της και η τύχη της γνώσης που έχει συσσωρευτεί εκεί.",
+      "Θέλω η γεωργία να είναι μια βιώσιμη επιλογή που να επιτρέπει και την προστασία του περιβάλλοντος και τη βελτίωση των καλλιεργητικών και άλλων αγροτικών πρακτικών. Αυτός ο προβληματισμός με οδήγησε να μελετήσω τη μεταβίβαση αγροτικών εκμεταλλεύσεων και έδωσε στο έργο το όνομά του. Ένας κατάλογος μπορεί να βοηθήσει τον κόσμο να βρει τη στήριξη που είναι διαθέσιμη.",
+    ],
+    origin: [
+      "Η αρχική ιδέα ήταν εμπορική. Εξέτασα τη δημιουργία μιας πλατφόρμας ή τράπεζας γης που θα έφερνε σε επαφή ιδιοκτήτες αγροτικών εκμεταλλεύσεων με όσους ενδιαφέρονταν να τις αναλάβουν. Βρήκα εξειδικευμένους διαμεσολαβητές, αλλά και δυσκολίες ανθρώπινες, νομικές και οικονομικές που δεν λύνονται απλώς φέρνοντας τις δύο πλευρές σε επαφή.",
+      "Βρήκα επίσης χρήσιμες πληροφορίες διάσπαρτες σε δημόσιες υπηρεσίες, συλλόγους και άλλους ευρωπαϊκούς φορείς. Επέλεξα να οργανώσω τις περιγραφές και τους συνδέσμους ώστε να βρίσκει κανείς πιο εύκολα τους φορείς που προσφέρουν τις υπηρεσίες. Έτσι προέκυψε το FarmSuccession, ένας ανεξάρτητος κατάλογος τεκμηριωμένων πληροφοριών. Δεν μεσολαβεί σε μεταβιβάσεις, δεν επεξεργάζεται αιτήσεις και δεν υποκαθιστά τις επίσημες πηγές ή τις συμβουλές ειδικών.",
+    ],
+    free: [
+      "Η δημιουργία και η συντήρηση του καταλόγου έχουν και επαγγελματική αξία για μένα. Είναι ένα δημόσιο δείγμα της δουλειάς μου, όπου μπορώ να εφαρμόζω και να δείχνω τις δεξιότητές μου στην ανάπτυξη λογισμικού, να πειραματίζομαι, να μαθαίνω και να παίρνω πρωτοβουλίες. Η επαγγελματική μου εμπειρία μού έχει δείξει ότι η διάθεση για μάθηση και η πρωτοβουλία εκτιμώνται.",
+      "Η πρόσβαση είναι δωρεάν. Η δημοσίευση έχει έξοδα υποδομής και εργαλείων ανάπτυξης και έρευνας και απαιτεί προσωπικό χρόνο για τον οποίο δεν αμείβομαι. Χρησιμοποιώ και εργαλεία επί πληρωμή, ανάμεσά τους εργαλεία τεχνητής νοημοσύνης. Κάποιες συνδρομές είναι προαιρετικές ή χρησιμοποιούνται σε περισσότερα έργα. Ο στατικός ιστότοπος, όπως έχει δημοσιευτεί, μπορεί να λειτουργεί χωρίς αυτές. Τα αποτελέσματα των εργαλείων δεν αποτελούν από μόνα τους τεκμήρια και δεν υποκαθιστούν τις πηγές, τον έλεγχο από άνθρωπο ή τη γνώμη ενός ειδικού.",
+      "Η προσωπική και επαγγελματική αξία που έχει για μένα το έργο μού επιτρέπει να προσφέρω δωρεάν πρόσβαση στον κατάλογο. Η συντήρησή του εξαρτάται από τους διαθέσιμους πόρους.",
+    ],
+  },
 } as const satisfies Record<Language, FounderStory>;
