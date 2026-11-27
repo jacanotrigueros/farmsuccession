@@ -10,6 +10,22 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.4.0 — 2026-11-27
+
+Romania joins the directory, in Romanian, so the middle digit moves.
+
+- Romania has its own pages in Romanian: the country, its eight development regions and its 41 counties plus
+  Bucharest, each showing what applies there from the country and the European Union. Hungarian names of the
+  counties where the minority passes the legal threshold (Covasna, Harghita, Mureș) find the same pages.
+- Two national records open the edition: the legal procedure for selling agricultural land outside built-up
+  areas under Law 17/2014, with the pre-emption right of young farmers and the State, and the initiation and
+  qualification courses of the county agriculture directorates. Both rest on the National Catalogue of Public
+  Services. The directory now holds 646 records.
+- The young-farmer and investment aid of the rural investment agency (AFIR) and the land-loan guarantee of the
+  rural credit guarantee fund are not shown: their sites reserve reuse of their content to written agreement,
+  and this directory publishes nothing without it.
+- Search loads only the language indexes that hold records for the page's scope.
+
 ## 2.3.3 — 2026-11-27
 
 Two protections a reader does not have to learn, so only the last digit moves.
