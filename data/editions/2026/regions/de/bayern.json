@@ -7,7 +7,7 @@
   "metaTitle": "Hofnachfolge in Bayern: Beratung und Seminare",
   "metaDescription": "In Bayern finden Übergebende und Nachfolgende Beratungsstellen zur Hofübergabe, Seminare und landwirtschaftliche Familienberatung mit Hinweisen zum Zugang.",
   "officialName": "Bayern",
-  "published": "2026-11-25",
+  "published": "2026-11-27",
   "summary": "In Bayern sind Beratung zur Generationenfolge, Seminare zur Hofübergabe und landwirtschaftliche Familienberatung mit konkreten Zugangswegen belegt. Dazu gehört die kostenfreie und vertrauliche Beratung in der Diözese Würzburg. Eine eigene Niederlassungsprämie des Landes oder eine bayerische Hofbörse wurde nicht nachgewiesen.",
   "coverage": {
     "status": "PARTIAL",
@@ -109,6 +109,13 @@
         "model": "gpt-6.1-sol",
         "promptVersion": "1.13.0",
         "processedAt": "2026-11-20"
+      },
+      {
+        "id": "claude-de-munich",
+        "tool": "CLAUDE",
+        "model": "claude-opus-5-5",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
@@ -635,6 +642,61 @@
         }
       ],
       "accessCostType": "FEE_REQUIRED"
+    },
+    {
+      "id": "bayern-erzdioezese-muenchen-baeuerliche-familienberatung",
+      "name": "Bäuerliche Familienberatung der Erzdiözese München und Freising",
+      "metaTitle": "Bäuerliche Familienberatung: Hilfe bei der Hofübergabe",
+      "metaDescription": "Kostenfreie, vertrauliche Beratung für Bauernfamilien in Oberbayern bei Hofübergabe und Generationenkonflikten: vor Ort, telefonisch oder online.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "SUBREGIONAL",
+        "area": "Erzdiözese München und Freising"
+      },
+      "operator": "Erzdiözese München und Freising",
+      "operatorType": "NONPROFIT",
+      "whatItOffers": "Ganzheitliche Beratung für Bäuerinnen und Bauern in schwierigen familiären, persönlichen oder wirtschaftlichen Situationen, unter anderem bei der Hofübergabe und bei Generationenkonflikten. Die Beratung findet vor Ort, telefonisch oder online statt; beraten werden Einzelpersonen, Paare und Familien in den landwirtschaftlichen Betrieben.",
+      "whoCanUseIt": "Bäuerinnen und Bauern sowie Paare und Familien in landwirtschaftlichen Betrieben.",
+      "howToAccess": "Melde dich telefonisch bei der Bäuerlichen Familienberatung in Feldkirchen-Westerham; Termine gibt es auch nach Vereinbarung.",
+      "accessUrl": "https://www.erzbistum-muenchen.de/ueber-das-erzbistum/erzbistum-von-a-bis-z/baeuerliche-familienberatung",
+      "accessCostType": "FREE",
+      "languages": ["de"],
+      "targetProfiles": ["SUCCESSOR", "TRANSFEROR"],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Bäuerliche Familienberatung",
+          "value": "0151 12204267",
+          "sourceUrl": "https://www.erzbistum-muenchen.de/ueber-das-erzbistum/erzbistum-von-a-bis-z/baeuerliche-familienberatung"
+        },
+        {
+          "channel": "OFFICE",
+          "label": "Bäuerliche Familienberatung",
+          "value": "Münchner Straße 1 83620 Feldkirchen-Westerham",
+          "sourceUrl": "https://www.erzbistum-muenchen.de/ueber-das-erzbistum/erzbistum-von-a-bis-z/baeuerliche-familienberatung"
+        }
+      ],
+      "notes": "Der Dienst ist kostenfrei, und jede Beratung unterliegt der Schweigepflicht.",
+      "sources": [
+        {
+          "url": "https://www.erzbistum-muenchen.de/ueber-das-erzbistum/erzbistum-von-a-bis-z/baeuerliche-familienberatung",
+          "title": "Bäuerliche Familienberatung - Erzbistum München und Freising",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "versteht sich als eine ganzheitliche Beratung für Bäuerinnen und Bauern",
+            "in schwierigen familiären, persönlichen oder wirtschaftlichen Lebens- und Arbeitssituationen zur Verfügung – vor Ort, telefonisch oder auch online",
+            "beraten Einzelpersonen, Paare und Familien in den landwirtschaftlichen Betrieben",
+            "Der Dienst ist kostenfrei, jede Beratung unterliegt der Schweigepflicht.",
+            "Generationenkonflikten",
+            "Hofübergabe",
+            "0151 12204267",
+            "und nach Vereinbarung",
+            "Münchner Straße 1 83620 Feldkirchen-Westerham"
+          ]
+        }
+      ],
+      "generatorId": "claude-de-munich"
     }
   ],
   "news": [],
