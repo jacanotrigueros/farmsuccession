@@ -8,9 +8,14 @@
   "published": "2026-11-27",
   "summary": "Izvori za pokretanje poljoprivredne djelatnosti, preuzimanje gospodarstva i pristup zemljištu u Zagrebačkoj županiji.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Teritorijalni okvir je pripremljen. Istraživanje izvora za ovo područje u ovom izdanju još nije počelo.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Ovdje su izvori županije pronađeni u pregledima od 27. studenoga 2026.; popis nije potpun.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Pregled stranica nacionalnih i županijskih institucija (APPRRR, Ministarstvo poljoprivrede, županije)"
+      }
+    ]
   },
   "metadata": {
     "language": "hr",
@@ -21,10 +26,70 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-hr-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "hr-zagrebacka-okrupnjavanje-posjeda-2026",
+      "name": "Potpora za okrupnjavanje posjeda u Zagrebačkoj županiji",
+      "metaTitle": "Okrupnjavanje posjeda | Zagrebačka županija",
+      "metaDescription": "Javni poziv Zagrebačke županije za 2026. uključuje mjeru okrupnjavanja posjeda. Rok za prijavu je završio.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "HISTORICAL",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Zagrebačka županija",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Javni poziv Zagrebačke županije za potpore u poljoprivredi uključuje mjeru okrupnjavanja posjeda.",
+      "whoCanUseIt": "Uvjeti za podnositelje navedeni su u dokumentima javnog poziva.",
+      "howToAccess": "Dokumenti i obrazac za mjeru okrupnjavanja posjeda dostupni su na stranici javnog poziva.",
+      "accessUrl": "https://www.zagrebacka-zupanija.hr/natjecaji/689/javni-poziv-za-dodjelu-potpora-male-vrijednosti-u-",
+      "instrumentType": "GRANT",
+      "purposes": ["LAND_ACQUISITION"],
+      "languages": ["hr"],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Zagrebačka županija — upiti za mjeru 2",
+          "value": "6009-427",
+          "sourceUrl": "https://www.zagrebacka-zupanija.hr/natjecaji/689/javni-poziv-za-dodjelu-potpora-male-vrijednosti-u-"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "AMOUNT_PER_BENEFICIARY",
+          "sourceUrl": "https://www.zagrebacka-zupanija.hr/natjecaji/689/javni-poziv-za-dodjelu-potpora-male-vrijednosti-u-"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.zagrebacka-zupanija.hr/natjecaji/689/javni-poziv-za-dodjelu-potpora-male-vrijednosti-u-",
+          "title": "Javni poziv za dodjelu potpora male vrijednosti u poljoprivredi, ruralnom razvoju i šumarstvu u Zagrebačkoj županiji u 2026. godini",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Javni poziv za dodjelu potpora male vrijednosti u poljoprivredi, ruralnom razvoju i šumarstvu u Zagrebačkoj županiji u 2026. godini",
+            "Prijavni obrazac Mjera 2. - Okrupnjavanje posjeda",
+            "Kontakt za upite u vezi s odredbama Javnog poziva: 6009-496 (mjera 1. i 6.), 6009-427 (mjere 2., 3., 4. i 11.)",
+            "06.02.2026. – 15.11.2026."
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-hr-sweep-1"
+    }
+  ],
   "news": [],
   "limitations": []
 }

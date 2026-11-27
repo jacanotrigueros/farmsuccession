@@ -8,9 +8,14 @@
   "published": "2026-11-27",
   "summary": "Zasoby dotyczące rozpoczęcia działalności rolniczej, przejęcia gospodarstwa i dostępu do ziemi w województwie lubuskim.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Ramy terytorialne są przygotowane. Badanie zasobów dla tego obszaru nie rozpoczęło się w tym wydaniu.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Udokumentowano zasoby województwa znalezione w przeglądach z 27 listopada 2026 r.; nie jest to pełny wykaz.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Przegląd stron instytucji krajowych i wojewódzkich (ARiMR, KOWR, ODR)"
+      }
+    ]
   },
   "metadata": {
     "language": "pl",
@@ -21,10 +26,83 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-pl-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "pl-lubuskie-kowr-gorzow-przetargi",
+      "name": "Przetargi KOWR na sprzedaż i dzierżawę ziemi – województwo lubuskie",
+      "metaTitle": "Przetargi KOWR na ziemię – lubuskie",
+      "metaDescription": "Sprawdź aktualne harmonogramy przetargów KOWR w Gorzowie Wielkopolskim dotyczące nieruchomości w województwie lubuskim.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Krajowy Ośrodek Wsparcia Rolnictwa, Oddział Terenowy w Gorzowie Wielkopolskim",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Oddział publikuje harmonogramy przetargów dotyczących sprzedaży i dzierżawy nieruchomości.",
+      "howToAccess": "Sprawdź aktualny harmonogram i warunki wskazane w konkretnym ogłoszeniu.",
+      "accessUrl": "https://www.gov.pl/web/kowr/ot-gorzow-wlkp---zielona-gora",
+      "languages": ["pl"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "KOWR OT Gorzów Wielkopolski",
+          "value": "gorzow@kowr.gov.pl",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-gorzow"
+        },
+        {
+          "channel": "PHONE",
+          "label": "KOWR OT Gorzów Wielkopolski",
+          "value": "(95) 714-61-00",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-gorzow"
+        }
+      ],
+      "notes": "Na stronie oddziału zamieszczono harmonogram przetargów na listopad 2026.",
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-gorzow-wlkp---zielona-gora"
+        },
+        {
+          "question": "LAND_HANDLED",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-gorzow-wlkp---zielona-gora"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-gorzow-wlkp---zielona-gora",
+          "title": "OT Gorzów Wlkp. - Zielona Góra",
+          "consultedOn": "2026-11-27",
+          "quotes": ["HARMONOGRAM przetargów OT Gorzów styczeń 2027"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-gorzow",
+          "title": "OT Gorzów Wlkp.",
+          "consultedOn": "2026-11-27",
+          "quotes": ["gorzow@kowr.gov.pl", "(95) 714-61-00"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-pl-sweep-1"
+    }
+  ],
   "news": [],
   "limitations": []
 }

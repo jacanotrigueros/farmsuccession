@@ -8,9 +8,14 @@
   "published": "2026-11-27",
   "summary": "Zasoby dotyczące rozpoczęcia działalności rolniczej, przejęcia gospodarstwa i dostępu do ziemi w województwie małopolskim.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Ramy terytorialne są przygotowane. Badanie zasobów dla tego obszaru nie rozpoczęło się w tym wydaniu.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Udokumentowano zasoby województwa znalezione w przeglądach z 27 listopada 2026 r.; nie jest to pełny wykaz.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Przegląd stron instytucji krajowych i wojewódzkich (ARiMR, KOWR, ODR)"
+      }
+    ]
   },
   "metadata": {
     "language": "pl",
@@ -21,10 +26,59 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-pl-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "pl-malopolskie-kowr-krakow-przetargi",
+      "name": "Przetargi KOWR na sprzedaż i dzierżawę ziemi – województwo małopolskie",
+      "metaTitle": "Przetargi KOWR na ziemię – małopolskie",
+      "metaDescription": "Sprawdź aktualne harmonogramy przetargów KOWR w Krakowie na sprzedaż i dzierżawę nieruchomości w Małopolsce.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Krajowy Ośrodek Wsparcia Rolnictwa, Oddział Terenowy w Krakowie",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "KOWR publikuje harmonogramy przetargów dotyczących nieruchomości w zarządzie oddziału krakowskiego.",
+      "howToAccess": "Sprawdź harmonogramy i warunki wskazane w poszczególnych ogłoszeniach.",
+      "accessUrl": "https://www.gov.pl/web/kowr/ot-krakow2",
+      "languages": ["pl"],
+      "notes": "Strona zawiera harmonogram przetargów na listopad 2026 oraz harmonogram na grudzień 2026.",
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-krakow2"
+        },
+        {
+          "question": "LAND_HANDLED",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-krakow2"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-krakow2",
+          "title": "OT Kraków",
+          "consultedOn": "2026-11-27",
+          "quotes": ["HARMONOGRAM listopad 2026", "HARMONOGRAM OT KRA i SZ TAR grudzień 2026 23.11.2026"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-pl-sweep-1"
+    }
+  ],
   "news": [],
   "limitations": []
 }

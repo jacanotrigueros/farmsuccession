@@ -8,9 +8,14 @@
   "published": "2026-11-27",
   "summary": "Zasoby dotyczące rozpoczęcia działalności rolniczej, przejęcia gospodarstwa i dostępu do ziemi w województwie kujawsko-pomorskim.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Ramy terytorialne są przygotowane. Badanie zasobów dla tego obszaru nie rozpoczęło się w tym wydaniu.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Udokumentowano zasoby województwa znalezione w przeglądach z 27 listopada 2026 r.; nie jest to pełny wykaz.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Przegląd stron instytucji krajowych i wojewódzkich (ARiMR, KOWR, ODR)"
+      }
+    ]
   },
   "metadata": {
     "language": "pl",
@@ -21,10 +26,62 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-pl-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "pl-kujawsko-pomorskie-kowr-bydgoszcz-przetargi",
+      "name": "Przetargi KOWR OT Bydgoszcz na sprzedaż i dzierżawę ziemi",
+      "metaTitle": "Przetargi KOWR na ziemię – kujawsko-pomorskie",
+      "metaDescription": "Sprawdź harmonogram przetargów KOWR w Bydgoszczy na sprzedaż i dzierżawę nieruchomości oraz zasady wpłaty wadium.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Krajowy Ośrodek Wsparcia Rolnictwa, Oddział Terenowy w Bydgoszczy",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Oddział publikuje informacje o przetargach na sprzedaż lub dzierżawę nieruchomości prowadzonych w Bydgoszczy.",
+      "howToAccess": "Sprawdź harmonogramy przetargów i warunki konkretnego ogłoszenia.",
+      "accessUrl": "https://www.gov.pl/web/kowr/ot-bydgoszcz3",
+      "languages": ["pl"],
+      "notes": "Na stronie udostępniono harmonogramy na listopad 2026. Wadium należy wpłacić zgodnie z warunkami danego ogłoszenia.",
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-bydgoszcz3"
+        },
+        {
+          "question": "LAND_HANDLED",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-bydgoszcz3"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-bydgoszcz3",
+          "title": "OT Bydgoszcz",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Tu znajdziesz informacje na temat przetargów na sprzedaż lub dzierżawę nieruchomości, odbywających się w Oddziale Terenowym Krajowego Ośrodka Wsparcia Rolnictwa w Bydgoszczy.",
+            "Harmonogram_Listopad_2026v1"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-pl-sweep-1"
+    }
+  ],
   "news": [],
   "limitations": []
 }

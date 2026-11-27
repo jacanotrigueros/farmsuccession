@@ -8,9 +8,14 @@
   "published": "2026-11-27",
   "summary": "Izvori za pokretanje poljoprivredne djelatnosti, preuzimanje gospodarstva i pristup zemljištu u Brodsko-posavskoj županiji.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Teritorijalni okvir je pripremljen. Istraživanje izvora za ovo područje u ovom izdanju još nije počelo.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Ovdje su izvori županije pronađeni u pregledima od 27. studenoga 2026.; popis nije potpun.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Pregled stranica nacionalnih i županijskih institucija (APPRRR, Ministarstvo poljoprivrede, županije)"
+      }
+    ]
   },
   "metadata": {
     "language": "hr",
@@ -21,10 +26,61 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-hr-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "hr-bpz-potpora-mehanizaciji-mladi-poljoprivrednici-2026",
+      "name": "Potpora za mehanizaciju mladih poljoprivrednika u Brodsko-posavskoj županiji",
+      "metaTitle": "Potpora mladim poljoprivrednicima | Brodsko-posavska",
+      "metaDescription": "Zatvoreni poziv Brodsko-posavske županije za sufinanciranje mehanizacije i opreme, s višim intenzitetom potpore za mlade poljoprivrednike.",
+      "kind": "FINANCIAL_SUPPORT",
+      "status": "HISTORICAL",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Brodsko-posavska županija",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Poziv je nudio sufinanciranje nove mehanizacije i opreme za primarnu poljoprivrednu proizvodnju, uz potporu do 70 posto prihvatljivih troškova i najviše 2.500 eura godišnje za mlade poljoprivrednike.",
+      "whoCanUseIt": "Prijaviti su se mogle fizičke i pravne osobe upisane u Upisnik poljoprivrednika ili Upisnik obiteljskih poljoprivrednih gospodarstava koje ispunjavaju uvjete poziva; mladi poljoprivrednik morao je, među ostalim, biti profesionalni poljoprivrednik, a fizička osoba ne starija od 40 godina.",
+      "howToAccess": "Poziv je zatvoren. Zahtjev se podnosio na propisanom obrascu poštom ili osobno u pisarnici Brodsko-posavske županije.",
+      "accessUrl": "https://www.bpz.hr/natje%C4%8Daji-21/javni-poziv-za-dodjelu-potpore-male-vrijednosti-za-nabavku-mehanizacije-i-opreme-za-primarnu-poljoprivrednu-proizvodnju-na-podru%C4%8Dju-brodsko-posavske-%C5%BEupanije-za-2026-godinu-202605040835",
+      "instrumentType": "GRANT",
+      "purposes": ["INVESTMENT"],
+      "targetProfiles": ["YOUNG_FARMER", "GENERAL"],
+      "languages": ["hr"],
+      "notes": "Poziv je bio otvoren najkasnije do 15. studenoga 2026.; stranica navodi status natječaja „Zatvoren” i da je odluka o dodjeli potpora objavljena 26. srpnja 2026.",
+      "sources": [
+        {
+          "url": "https://www.bpz.hr/natje%C4%8Daji-21/javni-poziv-za-dodjelu-potpore-male-vrijednosti-za-nabavku-mehanizacije-i-opreme-za-primarnu-poljoprivrednu-proizvodnju-na-podru%C4%8Dju-brodsko-posavske-%C5%BEupanije-za-2026-godinu-202605040835",
+          "title": "Javni poziv za dodjelu potpore male vrijednosti za nabavku mehanizacije i opreme za primarnu poljoprivrednu proizvodnju na području Brodsko-posavske županije za 2026. godinu",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Potpora se može ostvariti za nabavu nove mehanizacije i opreme za primarnu poljoprivrednu proizvodnju",
+            "nije stariji od 40 godina",
+            "do 70% ukupnih troškova po računu, a najviše 2.500,00 eura po korisniku godišnje za mlade poljoprivrednike",
+            "Status natječaja: Zatvoren",
+            "najkasnije do 15. studenoga 2026.",
+            "Dana 26. srpnja 2026. objavljena Odluka o dodjeli potpora",
+            "Prijava za dodjelu potpore s potrebnom dokumentacijom podnosi se poštom ili se osobno predaje u pisarnici Brodsko-posavske županije"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-hr-sweep-1"
+    }
+  ],
   "news": [],
   "limitations": []
 }

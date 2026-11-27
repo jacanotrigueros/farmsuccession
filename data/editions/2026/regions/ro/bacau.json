@@ -5,14 +5,19 @@
   "country": "RO",
   "region": "bacau",
   "officialName": "Bacău",
-  "published": "2026-11-26",
+  "published": "2026-11-27",
   "metaTitle": "Bacău: instalare în agricultură, AFIR și APIA",
   "metaDescription": "Caută resurse pentru instalarea tinerilor fermieri, preluarea unei ferme și accesul la teren în județul Bacău. Caută după județ, OJFIR sau APIA.",
   "summary": "Resurse pentru instalare în agricultură, preluarea unei ferme și accesul la teren în județul Bacău.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Cadrul teritorial este pregătit. Cercetarea resurselor pentru acest teritoriu nu a început în această ediție.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Sunt documentate resursele județului găsite în cercetările din 27 noiembrie 2026; lista nu este completă.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Cercetarea paginilor instituțiilor naționale și județene (ADS, APIA, DAJ)"
+      }
+    ]
   },
   "metadata": {
     "language": "ro",
@@ -23,10 +28,103 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-26"
+      },
+      {
+        "id": "chatgpt-ro-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "bacau-daj-consultanta-formare-agricola",
+      "name": "Consiliere și formare agricolă la DAJ Bacău",
+      "metaTitle": "Consiliere agricolă în județul Bacău",
+      "metaDescription": "Serviciile de consultanță agricolă și formare profesională ale Direcției pentru Agricultură Județene Bacău.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direcția pentru Agricultură Județeană Bacău",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Serviciul de la DAJ Bacău include consultanță agricolă și formare profesională pentru fermieri.",
+      "whoCanUseIt": "Fermierii din județul Bacău.",
+      "howToAccess": "Solicitați informații de la DAJ Bacău prin telefon, e-mail sau la sediul instituției.",
+      "accessUrl": "https://dajbacau.ro/contact-2/",
+      "languages": ["ro"],
+      "contactPoints": [
+        {
+          "channel": "PHONE",
+          "label": "Direcția pentru Agricultură Județeană Bacău",
+          "value": "0234576419",
+          "sourceUrl": "https://dajbacau.ro/contact-2/"
+        },
+        {
+          "channel": "EMAIL",
+          "label": "Direcția pentru Agricultură Județeană Bacău",
+          "value": "daj@dajbacau.ro",
+          "sourceUrl": "https://dajbacau.ro/contact-2/"
+        },
+        {
+          "channel": "OFFICE",
+          "label": "Direcția pentru Agricultură Județeană Bacău",
+          "value": "Str. George Bacovia, nr. 20, Mun. Bacău, Județul Bacău",
+          "sourceUrl": "https://dajbacau.ro/contact-2/"
+        }
+      ],
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://dajbacau.ro/despre-institutie/"
+        },
+        {
+          "question": "TRAINING_FORMAT",
+          "sourceUrl": "https://dajbacau.ro/despre-institutie/"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://dajbacau.ro/despre-institutie/",
+          "title": "Despre institutie",
+          "consultedOn": "2026-11-27",
+          "quotes": ["CONSULTANȚĂ AGRICOLA ȘI FORMAREA PROFESIONALĂ", "Direcția pentru Agricultură Județeană Bacău"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://dajbacau.ro/",
+          "title": "D.A.J. Bacau",
+          "consultedOn": "2026-11-27",
+          "quotes": ["informatii privind cursurile de formare profesionala organizate de DAJ Bacau"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://dajbacau.ro/contact-2/",
+          "title": "Contact",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Telefon: 0234576419",
+            "Adresa e-mail: daj@dajbacau.ro",
+            "Adresa: Str. George Bacovia, nr. 20, Mun. Bacău, Județul Bacău"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-sweep-1"
+    }
+  ],
   "news": [],
   "limitations": []
 }

@@ -72,6 +72,13 @@
         "model": "gpt-6.2-sol",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-hr-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
@@ -736,6 +743,45 @@
         }
       ],
       "generatorId": "chatgpt-hr-1"
+    },
+    {
+      "id": "hr-porez-na-nasljedstva-i-darove",
+      "name": "Porez na nasljedstva i darove",
+      "metaTitle": "Porez na nasljedstva i darove u Hrvatskoj",
+      "metaDescription": "Službene informacije o porezu na nasljedstva i darove, oporezivanju naslijeđenih nekretnina i oslobođenjima.",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Vlada Republike Hrvatske",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Portal gov.hr objašnjava kada se plaća porez na nasljedstva i darove te navodi da se naslijeđene ili darovane nekretnine oporezuju porezom na promet nekretnina.",
+      "whoCanUseIt": "Informacije su namijenjene fizičkim i pravnim osobama koje u Hrvatskoj naslijede, prime na dar ili steknu bez naknade imovinu.",
+      "howToAccess": "Informacije su javno dostupne na portalu gov.hr; za dodatna pitanja portal upućuje na telefonski pozivni centar Porezne uprave, rubriku „Pišite nam” ili lokalnu ispostavu Porezne uprave.",
+      "accessUrl": "https://gov.hr/hr/porez-na-nasljedstva-i-darove/1462",
+      "languages": ["hr"],
+      "notes": "Stranica razlikuje porez na nasljedstva i darove od poreza na promet nekretnina te navodi oslobođenja za određene bliske srodnike.",
+      "sources": [
+        {
+          "url": "https://gov.hr/hr/porez-na-nasljedstva-i-darove/1462",
+          "title": "Porez na nasljedstva i darove",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Fizičke i pravne osobe koje na području Republike Hrvatske naslijede, prime na dar ili steknu po drugoj osnovi bez naknade imovinu plaćaju porez na nasljedstva i darove.",
+            "Porez na nasljedstva i darove plaća se po stopi od 4 posto.",
+            "Ako ste nasljeđivanjem ili darovanjem stekli nekretninu, ona se oporezuje porezom na promet nekretnina.",
+            "bračni drug, potomci i preci koji čine uspravnu liniju",
+            "pozivom na brojeve telefona Pozivnog centra",
+            "osobnim dolaskom u lokalnu ispostavu Porezne uprave"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-hr-sweep-1"
     }
   ],
   "news": [],
