@@ -1,9 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
+import { LANGUAGES } from "../src/lib/language.ts";
 import { words } from "../src/lib/words.ts";
 
-for (const language of ["en", "es", "de", "fr", "it", "pt", "nl"]) {
+for (const language of LANGUAGES) {
   test(`${language}: the unfiltered search counts records, not current availability`, () => {
     assert.doesNotMatch(
       words(language).available.join(" "),

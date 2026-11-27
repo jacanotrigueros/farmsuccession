@@ -52,6 +52,11 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Beleidskader van de EU om de landbouw toegankelijker te maken: steun bij de start, eerlijkere en transparantere grondmarkten, eerdere bedrijfsopvolging en pensioenzekerheid, opleiding en voorzieningen op het platteland. Het stelt een ‘Starter Pack’ voor jonge boeren voor als één nationaal loket voor financiering, opleiding en advies, en wil het aandeel jonge en nieuwe boeren tegen 2040 verdubbelen.",
     },
+    ro: {
+      name: "Strategia UE pentru reînnoirea generațiilor în agricultură",
+      offers:
+        "Cadrul de politici al UE pentru acces mai ușor la agricultură: sprijin la instalare, piețe funciare mai transparente și echitabile, transmiterea fermelor mai devreme, siguranță la pensie, formare și servicii rurale. Propune un punct național unic de acces la finanțare, formare și consiliere pentru tinerii fermieri și urmărește dublarea ponderii tinerilor și noilor fermieri până în 2040.",
+    },
   },
   "eu-cap-young-farmers": {
     translates:
@@ -85,6 +90,11 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "GLB-steun 2023-2027 voor jonge boeren",
       offers:
         "Legt de GLB-steun 2023-2027 voor jonge boeren uit die elk land in zijn strategisch GLB-plan invult: de aanvullende inkomenssteun voor jonge landbouwers (CISYF), een jaarlijkse betaling per subsidiabele hectare of een vast bedrag voor wie zich voor het eerst heeft gevestigd, plus vestigingssteun, investeringssteun en samenwerking bij bedrijfsopvolging.",
+    },
+    ro: {
+      name: "Sprijinul PAC 2023–2027 pentru tinerii fermieri",
+      offers:
+        "Explică sprijinul pe care fiecare țară îl adaptează în planul său strategic PAC: plata complementară anuală pe hectar eligibil sau forfetară pentru tinerii fermieri instalați pentru prima dată, sprijinul pentru instalare și investiții și cooperarea pentru transmiterea fermelor.",
     },
   },
   "eu-cap-strategic-plans": {
@@ -120,6 +130,11 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Toegangspagina van de Commissie tot het strategisch GLB-plan 2023-2027 van elk EU-land: de interventies en GLB-instrumenten die elk land gebruikt, hoe het plan is goedgekeurd en de jaarlijkse prestatieverslagen.",
     },
+    ro: {
+      name: "Planurile strategice PAC pe țări",
+      offers:
+        "Portalul Comisiei către planul strategic PAC 2023–2027 al fiecărei țări din UE. Arată intervențiile și instrumentele folosite, cum a fost aprobat planul și rapoartele anuale de performanță.",
+    },
   },
   "eu-newbie-practice-abstracts": {
     translates:
@@ -153,6 +168,11 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "NEWBIE-zoeker voor praktijkvoorbeelden",
       offers:
         "Korte praktijkvoorbeelden van bedrijfs- en instapmodellen die nieuwe boeren in Europese landen gebruiken. Met de zoeker kunt u praktische oplossingen voor drempels bij de start verkennen.",
+    },
+    ro: {
+      name: "NEWBIE: exemple practice pentru intrarea în agricultură",
+      offers:
+        "Studii de caz scurte despre modele de afaceri și de intrare în agricultură folosite în țări europene. Poți explora soluții practice la obstacolele întâlnite la început.",
     },
   },
   "eu-newbie-toolkits": {
@@ -188,6 +208,11 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Online toolkits met praktische handleidingen, lessen en tips om in de landbouw te starten en voor bedrijfsopvolging, gebaseerd op discussies in netwerken en praktijkervaringen.",
     },
+    ro: {
+      name: "NEWBIE: ghiduri practice pentru instalare și preluare",
+      offers:
+        "Ghiduri online, lecții și sfaturi pentru intrarea în agricultură și preluarea fermelor, bazate pe discuțiile rețelei și pe experiențe practice.",
+    },
   },
   "eu-fi-compass-young-farmer-business-plans": {
     translates:
@@ -221,6 +246,11 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "Bedrijfsplannen en leningaanvragen van jonge boeren in de EU",
       offers:
         "Hulpmiddelen voor jonge en nieuwe boeren die een bedrijfsplan opstellen om een banklening of andere externe financiering aan te vragen: waar banken op letten, de meest voorkomende redenen voor afwijzing en hoe je een financierbaar plan maakt, bijvoorbeeld door rekening te houden met goede en slechte jaren en mogelijke vertraging van steun of betalingen.",
+    },
+    ro: {
+      name: "fi-compass: planuri de afaceri pentru tinerii fermieri",
+      offers:
+        "Ghid pentru tinerii și noii fermieri care pregătesc un plan de afaceri pentru un credit sau altă finanțare externă. Explică ce caută băncile, de ce resping unele cereri și cum să iei în calcul anii buni și slabi sau întârzierile la plăți.",
     },
   },
   "eu-cap-network-generational-renewal": {
@@ -256,6 +286,11 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       offers:
         "Themapagina van het EU-GLB-netwerk over generatievernieuwing: nieuws, komende evenementen, publicaties en voorbeeldprojecten uit de hele EU die jonge boeren en nieuwkomers helpen een landbouwbedrijf op te zetten.",
     },
+    ro: {
+      name: "Rețeaua PAC a UE: reînnoirea generațiilor",
+      offers:
+        "Pagină a Rețelei PAC a UE cu știri, evenimente, publicații și proiecte de bune practici care îi sprijină pe tinerii și noii fermieri să înființeze o exploatație.",
+    },
   },
   "eu-observatory-on-farmland": {
     translates:
@@ -289,6 +324,11 @@ export const EU_PRESENTATION: Readonly<Record<string, Presentation>> = {
       name: "Europees Observatorium voor landbouwgrond",
       offers:
         "Gepland EU-observatorium om de grondmarkt en de toegang tot landbouwgrond transparanter te maken. In 2026 opende de Commissie een oproep voor een deskundigengroep over landbouwgrond die het voorbereidt, naast een proefproject.",
+    },
+    ro: {
+      name: "Observatorul UE pentru terenurile agricole",
+      offers:
+        "Observator planificat pentru a îmbunătăți transparența piețelor funciare și a accesului la teren. În 2026 Comisia a lansat un apel pentru grupul de experți care îl pregătește, alături de un proiect-pilot.",
     },
   },
 };

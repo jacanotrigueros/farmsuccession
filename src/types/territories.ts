@@ -86,6 +86,10 @@ export interface TerritorySource {
  */
 export interface Hub {
   /**
+   * The territory’s EU NUTS code, where the catalogue records one.
+   */
+  nutsCode?: string;
+  /**
    * Identifier of the hub, used in its URL and in the path of its edition file.
    */
   slug: string;
@@ -104,6 +108,10 @@ export interface Hub {
  * A documentary leaf: the smallest stable territory research coverage and records are assigned to.
  */
 export interface Region {
+  /**
+   * The territory’s EU NUTS code, where the catalogue records one.
+   */
+  nutsCode?: string;
   /**
    * Identifier of the region, used in its URL and in the path of its edition and brief files.
    */
@@ -128,6 +136,12 @@ export interface Region {
    * Longer name for page titles where the short name is ambiguous.
    */
   seoName?: string;
+  /**
+   * Names people use to search for this territory in other languages, keyed by ISO 639-1. The page remains in the jurisdiction’s language.
+   */
+  searchNames?: {
+    [k: string]: string;
+  };
   /**
    * The official subdivisions inside this region that readers name by a public code, each with its name and that code, as the jurisdiction's statistical office publishes them — France's départements and their numbers from Insee's Code officiel géographique. A reader types the code ("safer 29"); a record that leaves it out is missing how its reader names the territory.
    *

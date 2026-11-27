@@ -5,7 +5,7 @@ import { test } from "node:test";
 
 import { decodeHTML } from "entities";
 
-import { loadSnapshots } from "../../src/editions.ts";
+import { published } from "./public-corpus.ts";
 import { ancestorLayers, layerKey, leafLayers, snapshotLayer } from "../../src/layers.ts";
 import { loadTerritories } from "../../src/territories.ts";
 import { recordSlug, regionSlug, searchPath } from "../public/search-scope.js";
@@ -13,16 +13,8 @@ import { isFirstEstablishmentAid } from "../src/lib/goals.ts";
 import { counted, words } from "../src/lib/words.ts";
 
 const DIST = path.join(import.meta.dirname, "..", "dist");
-const loaded = loadSnapshots({});
-assert.equal(loaded.problems.length, 0);
 const catalogue = loadTerritories();
-const edition = loaded.snapshots
-  .map(({ file }) => file.split("/")[0]!)
-  .toSorted()
-  .at(-1)!;
-const snapshots = loaded.snapshots
-  .filter(({ file }) => file.startsWith(`${edition}/`))
-  .map(({ data }) => ({ data, layer: snapshotLayer(data) }));
+const snapshots = published.map(({ data }) => ({ data, layer: snapshotLayer(data) }));
 const byLayer = new Map(snapshots.map((entry) => [layerKey(entry.layer), entry]));
 const htmlAt = (url: string) => decodeHTML(readFileSync(path.join(DIST, url, "index.html"), "utf8"));
 const resourceUrl = (id: string, country?: string) =>
@@ -158,6 +150,18 @@ test("documentary groupings show their children and pin every local search to al
     );
     const total = scopes.reduce((n, { data }) => n + data.resources.length, 0);
     const statsLabel = words(data.metadata.language).statsLabel;
+    const ownTotal = [layer, ...leafLayers(layer, catalogue)]
+      .flatMap((l) => byLayer.get(layerKey(l)) ?? [])
+      .reduce((n, { data: own }) => n + own.resources.length, 0);
+    if (ownTotal === 0) {
+      // Romania's development regions have no records of their own yet: the page leads with what applies there
+      // from the country and the EU, and a headline count of zero local records would mislead.
+      assert.ok(
+        !html.includes(`aria-label="${statsLabel}"`),
+        `${route}: a grouping with no records of its own must not show headline figures`,
+      );
+      continue;
+    }
     const stats = html.slice(html.indexOf(`aria-label="${statsLabel}"`));
     const displayed = /<span\b[^>]*tabular-nums[^>]*>(\d+)<\/span>/u.exec(stats)?.[1];
     assert.equal(Number(displayed), total, `${route}: headline total must match its complete search scope`);

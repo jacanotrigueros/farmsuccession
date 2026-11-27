@@ -23,6 +23,7 @@ export const LANGUAGE_NAMES: Record<string, string> = {
   it: "Italian",
   pt: "Portuguese",
   nl: "Dutch",
+  ro: "Romanian",
 };
 
 /**
@@ -63,6 +64,9 @@ function words(list: string): ReadonlySet<string> {
  * sign of Dutch inside another language's text, so the other languages' measurement is unchanged.
  */
 const OWN_ONLY: Record<string, ReadonlySet<string>> = {
+  ro: words(
+    "a ar ale al au care cel cu de din doar după este fost fără la lor mai ne pe pentru prin să se și sunt ta te în între unui unde un unei o or ori orice sau serviciile toate va vor",
+  ),
   nl: words("de en van in is op te die met of als er aan om tot dan door zo dit nu wat wie kan moet zal"),
 };
 

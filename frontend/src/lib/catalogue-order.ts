@@ -37,5 +37,5 @@ export function catalogueOrderOf(territory: Territory, id: string): number {
 
 /** The search bundles a scope loads, in the order its territories come: the European layer's language first. */
 export function bundleLanguages(territories: readonly Territory[], languageOf: (territory: Territory) => string): string[] {
-  return [...new Set(territories.map(languageOf))];
+  return [...new Set(territories.filter(({ data }) => data.resources.length > 0).map(languageOf))];
 }

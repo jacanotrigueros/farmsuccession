@@ -39,12 +39,11 @@ keep the placeholder that stood in for its contents.
 with its three groupings of several regions and its 28 regional territories; Germany,
 with its 16 Länder; France, with its 18 régions; Italy, with its 19 regions and two
 autonomous provinces; Portugal, with its 9; Austria, with its 9 Länder; and the
-Netherlands, with its 12 provinces, each territory with one research brief.
-The catalogue carries the EU layer and those seven countries, and nothing else. The two halves of that have to agree: a file whose
-country the catalogue does not define is an error rather than a file waiting for its
-country, and a country the catalogue defines with no file of its own is the same
-mistake the other way round. `test/territories.test.ts` compares the two instead of
-naming the countries, so neither can be edited without the other.
+Netherlands, with its 12 provinces. They also hold Romania's prepared national layer,
+eight development-region hubs and 42 local leaves. Every territory has one research brief.
+The catalogue and the edition files must name the same countries, including those prepared
+for research. The site builds a country's directory only when that edition has a national
+file and at least one resource recorded at its national, hub or regional layer.
 
 ## The site
 
@@ -151,8 +150,8 @@ Three data schemas are settled: `territories.schema.json` (the catalogue),
 `config/` and carries no version, because nothing publishes it.
 
 `data/territories.json` is the catalogue, keyed by ISO code plus `EU`. It
-carries the EU layer and seven countries: a country is added with its data, never ahead
-of it. `src/layers.ts` is the one implementation of the territorial tree —
+carries the EU layer and the countries with edition files. Prepared files with empty
+resource lists can be used by the research engine without publishing empty routes. `src/layers.ts` is the one implementation of the territorial tree —
 anything that needs to know what a page shows asks it, so a reader and a
 validator cannot disagree. `src/territories.ts` loads the catalogue and also
 enforces the rules the schema cannot express: a region belongs to exactly one

@@ -135,3 +135,35 @@ test("the catalogue and the corpus name the same countries", () => {
   assert.throws(() => jurisdiction(territories, "ZZ"), /not a jurisdiction/);
   assert.throws(() => region(territories, "ES", "canarias"), /not a region of ES/, "a hub slug is not a region");
 });
+
+test("Romania has exactly the agreed development regions, counties and municipality", () => {
+  const catalogue = loadTerritories();
+  const romania = jurisdiction(catalogue, "RO");
+  assert.equal(romania.lang, "ro");
+  assert.equal(romania.locale, "ro-RO");
+  assert.equal(romania.leafLabel, "Județe și municipiul București");
+  assert.equal(romania.hubLabel, "Regiuni de dezvoltare");
+  assert.deepEqual(Object.fromEntries(romania.hubs.map(({ slug, members }) => [slug, members])), {
+    "nord-est": ["bacau", "botosani", "iasi", "neamt", "suceava", "vaslui"],
+    "sud-est": ["braila", "buzau", "constanta", "galati", "tulcea", "vrancea"],
+    "sud-muntenia": ["arges", "calarasi", "dambovita", "giurgiu", "ialomita", "prahova", "teleorman"],
+    "sud-vest-oltenia": ["dolj", "gorj", "mehedinti", "olt", "valcea"],
+    vest: ["arad", "caras-severin", "hunedoara", "timis"],
+    "nord-vest": ["bihor", "bistrita-nasaud", "cluj", "maramures", "satu-mare", "salaj"],
+    centru: ["alba", "brasov", "covasna", "harghita", "mures", "sibiu"],
+    "bucuresti-ilfov": ["bucuresti", "ilfov"],
+  });
+  assert.equal(new Set(romania.hubs.map(({ nutsCode }) => nutsCode)).size, 8);
+  assert.equal(new Set(romania.regions.map(({ nutsCode }) => nutsCode)).size, 42);
+  for (const leaf of romania.regions) {
+    assert.match(leaf.nutsCode ?? "", /^RO\d{3}$/u);
+    assert.equal(leaf.inPhrase, `în ${leaf.slug === "bucuresti" ? "municipiul" : "județul"} ${leaf.name}`);
+  }
+  assert.equal(region(catalogue, "RO", "bucuresti").nutsCode, "RO321");
+  assert.equal(region(catalogue, "RO", "cluj").nutsCode, "RO113");
+  assert.match(romania.rationale, /Călărași și Ialomița.*Sud-Muntenia.*CRFIR 8 București-Ilfov/u);
+  assert.deepEqual(
+    romania.regions.filter(({ searchNames }) => searchNames?.hu).map(({ slug }) => slug),
+    ["covasna", "harghita", "mures"],
+  );
+});
