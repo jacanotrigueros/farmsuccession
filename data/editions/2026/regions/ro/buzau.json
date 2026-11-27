@@ -5,14 +5,19 @@
   "country": "RO",
   "region": "buzau",
   "officialName": "Buzău",
-  "published": "2026-11-26",
-  "metaTitle": "Buzău: instalare în agricultură, AFIR și APIA",
-  "metaDescription": "Caută resurse pentru instalarea tinerilor fermieri, preluarea unei ferme și accesul la teren în județul Buzău. Caută după județ, OJFIR sau APIA.",
+  "published": "2026-11-27",
+  "metaTitle": "Buzău: ajutor la cererile APIA și resurse agricole",
+  "metaDescription": "Asistența DAJ Buzău pentru cererile APIA, inclusiv în zona montană, și resursele naționale pentru tinerii fermieri și accesul la teren.",
   "summary": "Resurse pentru instalare în agricultură, preluarea unei ferme și accesul la teren în județul Buzău.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Cadrul teritorial este pregătit. Cercetarea resurselor pentru acest teritoriu nu a început în această ediție.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Sunt documentate resursele județului găsite în cercetarea din 27 noiembrie 2026; lista nu este completă.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Cercetarea paginilor instituțiilor naționale și județene (ADS, APIA, DAJ)"
+      }
+    ]
   },
   "metadata": {
     "language": "ro",
@@ -23,10 +28,78 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-26"
+      },
+      {
+        "id": "chatgpt-ro-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.2-sol",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "buzau-daj-consultanta-cereri-apia",
+      "name": "Asistență DAJ Buzău pentru cererile de plată APIA",
+      "metaTitle": "Ajutor pentru cererile APIA la DAJ Buzău",
+      "metaDescription": "Asistență oferită fermierilor de DAJ Buzău pentru completarea cererilor APIA, inclusiv în zona montană.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Direcția pentru Agricultură Județeană Buzău",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Asistență tehnică pentru completarea cererilor unice de plată APIA.",
+      "whoCanUseIt": "Fermierii din județul Buzău, inclusiv cei din zona montană.",
+      "howToAccess": "Contactează DAJ Buzău la adresa instituțională de e-mail.",
+      "accessUrl": "https://www.dadrbuzau.ro/?page_id=5121",
+      "languages": ["ro"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "DAJ Buzău",
+          "value": "dadr.bz@madr.ro",
+          "sourceUrl": "https://www.dadrbuzau.ro/?page_id=35"
+        }
+      ],
+      "notes": "Asistența pentru completarea cererilor include zona montană.",
+      "notPublished": [
+        {
+          "question": "ACCESS_COST",
+          "sourceUrl": "https://www.dadrbuzau.ro/?page_id=5121"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.dadrbuzau.ro/?page_id=5121",
+          "title": "Compartimentul asistenta tehnica zonala si RICA.##",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "acordă sprijin fermierilor",
+            "completarea corectă a cererilor unice de plată",
+            "obținerii subvențiilor de la APIA, inclusiv pentru zona montană"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        },
+        {
+          "url": "https://www.dadrbuzau.ro/?page_id=35",
+          "title": "Contact",
+          "consultedOn": "2026-11-27",
+          "quotes": ["dadr.bz@madr.ro"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-1"
+    }
+  ],
   "news": [],
   "limitations": []
 }
