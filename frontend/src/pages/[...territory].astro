@@ -342,24 +342,32 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     lead={territory.data.summary}
     flag={territory.layer.level === "COUNTRY" ? flagOf(country) : territory.layer.level === "EU" ? flagOf("EU") : undefined}
   >
-    {showsInstall && (
-      <a href="#territories" class="btn btn-primary mt-4">
-        {text.installShortcut}
-      </a>
-    )}
-    {showsNationalInstall && (
-      <a href="#own" class="btn btn-primary mt-4">
-        {text.installNationalShortcut}
-      </a>
-    )}
     {
-      // Choosing a territory is one of the directory's main ways in; when the header leads to national aid
-      // instead, a reader on a phone would otherwise scroll past the figures and topics to reach the list
-      // (Sol's review of production 2.6.1, 28 Nov 2026).
-      isCountry && !showsInstall && children.length > 0 && (
-        <a href="#territories" class="btn btn-quiet mt-4">
-          {text.chooseTerritory}
-        </a>
+      // The header's actions share one row that wraps, with a fixed gap: two buttons side by side read as one
+      // when they touch (founder, 28 Nov 2026, on /gr/ and /at/).
+      (showsInstall || showsNationalInstall || (isCountry && children.length > 0)) && (
+        <div class="header-actions mt-4 flex flex-wrap items-center gap-3">
+          {showsInstall && (
+            <a href="#territories" class="btn btn-primary">
+              {text.installShortcut}
+            </a>
+          )}
+          {showsNationalInstall && (
+            <a href="#own" class="btn btn-primary">
+              {text.installNationalShortcut}
+            </a>
+          )}
+          {
+            // Choosing a territory is one of the directory's main ways in; when the header leads to national aid
+            // instead, a reader on a phone would otherwise scroll past the figures and topics to reach the list
+            // (Sol's review of production 2.6.1, 28 Nov 2026).
+            isCountry && !showsInstall && children.length > 0 && (
+              <a href="#territories" class="btn btn-quiet">
+                {text.chooseTerritory}
+              </a>
+            )
+          }
+        </div>
       )
     }
     <div class="mt-8">

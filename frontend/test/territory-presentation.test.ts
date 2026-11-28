@@ -463,3 +463,18 @@ test("territory cards expose a separate, counted native show and hide action in 
     }
   }
 });
+
+test("header actions share one wrapping row with a gap, so two buttons never touch", () => {
+  let pairs = 0;
+  for (const { layer } of snapshots) {
+    if (layer.level !== "COUNTRY") continue;
+    const html = htmlAt(layer.country.toLowerCase());
+    const row = /<div class="header-actions[^"]*\bgap-3\b[^"]*"[^>]*>([\s\S]*?)<\/div>/u.exec(html)?.[1];
+    const buttons = (html.match(/<a href="#(?:territories|own)" class="btn /gu) ?? []).length;
+    if (buttons === 0) continue;
+    assert.ok(row, `${layer.country}: header buttons must sit inside the shared actions row`);
+    assert.equal((row.match(/class="btn /gu) ?? []).length, buttons, `${layer.country}: every header button belongs to that row`);
+    if (buttons > 1) pairs += 1;
+  }
+  assert.ok(pairs > 0, "at least one country shows two header actions; the founder saw them touch on /gr/ and /at/");
+});
