@@ -30,11 +30,21 @@ export function localeOf(language) {
 }
 
 /**
- * The word tables use two noun forms here. French zero and decimals below two use the first;
- * French and Romance "many" categories use the same second form as "other" for these nouns and units.
- * @param {number} value @param {string} language @returns {0 | 1}
+ * Which of a word table's forms a count takes: [one, other] for most languages, [one, few, many] for Polish
+ * and Croatian. Polish puts 5+ in "many" and fractions in "other" (the "few" form); Croatian has no "many",
+ * so its "other" (5 and up) takes the third form. French zero and decimals below two use the first form.
+ * The built pages and the script that rewrites a count after a filter both ask here, so a narrowed list
+ * never says «15 zasoby» where the page said «15 zasobów».
+ * @param {number} value @param {string} language @param {number} [forms] how many forms the table has
+ * @returns {number}
  */
-export const pluralIndex = (value, language) => (new Intl.PluralRules(localeOf(language)).select(value) === "one" ? 0 : 1);
+export const formIndex = (value, language, forms = 2) => {
+  const locale = localeOf(language);
+  const form = new Intl.PluralRules(locale).select(value);
+  if (form === "one") return 0;
+  const third = form === "many" || (form === "other" && locale.startsWith("hr-"));
+  return forms > 2 && third ? 2 : 1;
+};
 
 /** @param {number} value @param {string} language */
 export const numberIn = (value, language) => value.toLocaleString(localeOf(language), { maximumFractionDigits: 2 });
@@ -50,11 +60,7 @@ export const counted = (value, forms, language) => {
   const form = new Intl.PluralRules(locale).select(value);
   // Romanian puts “de” between the number and noun for counts such as 20 and 100.
   const separator = locale.startsWith("ro-") && form === "other" ? " de " : " ";
-  // Three-form tables: Polish puts 5+ in "many" and fractions in "other" (the "few" form); Croatian has no
-  // "many", so its "other" (5 and up) takes the third form.
-  const third = form === "many" || (form === "other" && locale.startsWith("hr-"));
-  const index = form === "one" ? 0 : forms.length > 2 && third ? 2 : 1;
-  return `${numberIn(value, language)}${separator}${forms[index]}`;
+  return `${numberIn(value, language)}${separator}${forms[formIndex(value, language, forms.length)]}`;
 };
 
 /** Format a source's calendar day without shifting it into the previous day in another time zone.

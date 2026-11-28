@@ -7,7 +7,7 @@ import path from "node:path";
 import { localeOf } from "../public/locale.js";
 import { dateIn, moneyIn, numberIn } from "../src/lib/language.ts";
 import { quantity, stateLabel } from "../src/lib/vocabulary.ts";
-import { counted, words } from "../src/lib/words.ts";
+import { counted, formIndex, words } from "../src/lib/words.ts";
 
 const forms = {
   en: ["0 resources", "1 resource", "2 resources"],
@@ -148,5 +148,34 @@ test("every locale in the catalogue is its own language written for one country,
     assert.equal(locale!.split("-")[0], lang, `${iso}: a locale formats the jurisdiction's own language, never another one`);
     assert.equal(locale!.split("-")[1], iso, `${iso}: a locale names the jurisdiction's own country`);
     assert.equal(localeOf(locale!), locale, `${iso}: the site can format in ${locale}`);
+  }
+});
+
+test("Polish and Croatian counts take the right of three forms, in built pages and after a filter", () => {
+  assert.deepEqual(
+    [1, 2, 5, 15, 22].map((count) => counted(count, words("pl").record, "pl")),
+    ["1 zasób", "2 zasoby", "5 zasobów", "15 zasobów", "22 zasoby"],
+    "Polish 5-21 take the genitive plural (Sol, review of 2.7.0: «15 zasoby»)",
+  );
+  assert.deepEqual(
+    [1, 2, 5, 21].map((count) => formIndex(count, "hr", 3)),
+    [0, 1, 2, 0],
+    "Croatian has no «many» category: its «other» (5 and up) takes the third form, 21 the first",
+  );
+  const filter = readFileSync(path.join(import.meta.dirname, "../public/filter.js"), "utf8");
+  assert.match(filter, /formIndex\(howMany, lang, 3\)/u, "the count a filter rewrites must use the same three-form rule as the built page");
+});
+
+test("Polish and Croatian put a territory's nominative name after a colon, never inside a phrase that asks for another case", () => {
+  for (const [language, wrong] of [
+    ["pl", /(obszar|obszaru|regionu) \{where\}/u],
+    ["hr", /područje \{where\}/u],
+  ] as const) {
+    const said = JSON.stringify(words(language));
+    assert.doesNotMatch(
+      said,
+      wrong,
+      `${language}: «dla obszaru Polska» and «za područje Hrvatska» read as broken grammar (Sol, reviews of 2.6.1 and 2.7.0)`,
+    );
   }
 });

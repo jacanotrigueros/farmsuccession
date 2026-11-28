@@ -926,6 +926,10 @@
           "description": "The link shown to readers: the operator's own stable page for the resource, and one of its cited sources.",
           "$ref": "#/$defs/httpsUrl"
         },
+        "accessFormat": {
+          "description": "Set only when accessUrl downloads a PDF although its address does not end in .pdf (a file service with a query string), so the link can say so. An address ending in .pdf needs nothing.",
+          "const": "PDF"
+        },
         "contactPoints": {
           "description": "Public institutional channels that let a reader act without reopening every source. Omit rather than guess one.",
           "type": "array",
