@@ -222,7 +222,13 @@ if (form && state && resultsList && everything && template && askBlock && filter
     const to = Math.min(page * PAGE, hits.length);
     if (progress) progress.textContent = total > 1 ? words.pageOf.replace("{page}", page).replace("{total}", total) : "";
     state.textContent =
-      total > 1 ? words.range.replace("{from}", from).replace("{to}", to).replace("{count}", found(hits.length)) : found(hits.length);
+      total > 1
+        ? words.range
+            .replace("{from}", from)
+            .replace("{to}", to)
+            .replace("{count}", found(hits.length))
+            .replace("{total}", numberIn(hits.length, document.documentElement.lang))
+        : found(hits.length);
 
     if (!pages) return;
     pages.replaceChildren();

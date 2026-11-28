@@ -179,3 +179,19 @@ test("Polish and Croatian put a territory's nominative name after a colon, never
     );
   }
 });
+
+test("the result range never puts a counted noun after a preposition that changes its case", () => {
+  const range = (language: string) =>
+    words(language)
+      .shownRange.replace("{from}", "1")
+      .replace("{to}", "20")
+      .replace("{total}", "26")
+      .replace("{count}", counted(26, words(language).result, language));
+  assert.equal(
+    range("de"),
+    "Treffer 1–20 von 26",
+    "German «von 26 Treffer» needs the dative; name the noun before the range instead (Sol, review of 2.7.1)",
+  );
+  assert.equal(range("pl"), "1–20 z 26 wyników", "Polish «z» takes the genitive plural for every total above one page");
+  assert.equal(range("hr"), "Rezultati 1–20 od 26", "Croatian «od» takes the genitive: «od 21 rezultat» would be wrong");
+});
