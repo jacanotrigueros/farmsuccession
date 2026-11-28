@@ -10,6 +10,19 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.7.5 — 2026-11-28
+
+Corrections from the review of 2.7.4 in production, so the last digit moves.
+
+- A link to a section a reader had folded opens it and leaves the keyboard on its heading.
+- A search started from a grouping such as Canarias or București-Ilfov says it is searching that grouping.
+- The wider layers on a territory fold as one section, each still folding inside it, and sources fold on every
+  page and record.
+- Canarias and Illes Balears list their islands and País Vasco its historical territories, instead of
+  borrowing the national «by autonomous community».
+- The strip of links under a title never shares the background of the section under it, and the home page
+  ends on the soft green above the white footer.
+
 ## 2.7.4 — 2026-11-28
 
 A correction to the reading of 2.7.3, so the last digit moves.
