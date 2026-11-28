@@ -6,7 +6,9 @@
  * first thing in the first section. The links wrap onto a second line rather than scrolling sideways,
  * because a link that is off the edge of a phone is a link nobody uses.
  *
- * Links remain short anchors to the page's sections, not a competing set of calls to action.
+ * Links remain short anchors to the page's sections, not a competing set of calls to action. The strip carries
+ * no visible «On this page» label: it was the one item in a row of links that was not a link (founder, 28 Nov
+ * 2026); the nav keeps it as its accessible name.
  */
 import { words } from "../lib/words.ts";
 
@@ -17,7 +19,6 @@ const text = words(language);
 
 <nav aria-label={text.onThisPage} class="border-y border-line bg-page" data-pagefind-ignore>
   <div class="wrap flex flex-wrap items-center gap-x-5 py-2">
-    <span class="text-control font-bold text-muted">{text.onThisPage}</span>
     {sections.map(({ id, label }) => (
       <a
         href={`#${id}`}

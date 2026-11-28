@@ -212,3 +212,11 @@
 .kind-bar {
   border-top: 4px solid var(--kind, var(--color-line));
 }
+
+/* Every section folds from its heading the same way (Fold.astro); the chevron turns when it is open. */
+.record-fold > summary::-webkit-details-marker {
+  display: none;
+}
+.record-fold[open] > summary .group-chevron {
+  transform: rotate(180deg);
+}

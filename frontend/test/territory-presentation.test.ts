@@ -592,8 +592,8 @@ test("country, territory and EU pages fold every list of resources from its head
     const html = htmlAt(route);
     assert.doesNotMatch(
       html,
-      /<nav\b[^>]*class="border-y border-line bg-page"/u,
-      `${route}: the «On this page» strip is gone (founder, 28 Nov 2026)`,
+      /<nav\b[^>]*class="border-y border-line bg-page"[^>]*>\s*<div[^>]*>\s*<span/u,
+      `${route}: the strip shows links only, without a visible «On this page» label (founder, 28 Nov 2026)`,
     );
     for (const id of ["own", "inherited"]) {
       const at = html.indexOf(`aria-labelledby="${id}"`);
@@ -623,5 +623,17 @@ test("a country's EU list says what and how many once, not again in a second hea
       1,
       `${layer.country}: one heading over the EU list (founder: «Unión Europea · 8 recursos» repeated it)`,
     );
+  }
+});
+
+test("every section of a page sits on the same background, separated by the same rule", () => {
+  for (const route of ["es", "gr", "at", "eu"]) {
+    const html = htmlAt(route);
+    for (const [, classes] of html.matchAll(
+      /<section\b[^>]*class="([^"]*)"[^>]*aria-labelledby="(?:territories|needs|own|inherited|countries|country-context|age-comparison|news)"/gu,
+    )) {
+      assert.doesNotMatch(classes!, /\bbg-/u, `${route}: a section on its own background breaks the page's rhythm (founder, 28 Nov 2026)`);
+      assert.match(classes!, /\bborder-t\b/u, `${route}: every section opens with the same rule`);
+    }
   }
 });

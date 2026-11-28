@@ -12,6 +12,7 @@
  *
  * Every cell carries the number it shows in `data-value`, so sorting compares numbers, not formatted text.
  */
+import Fold from "./Fold.astro";
 import { countryTerritories, euTerritory, href } from "../lib/corpus.ts";
 import { countryNameIn } from "../lib/language.ts";
 import { words } from "../lib/words.ts";
@@ -85,90 +86,92 @@ const columns = [
 ---
 
 {sorted.length > 1 && year && first && (
-  <section class="wrap pt-12" aria-labelledby="age-comparison">
-    <h2 id="age-comparison" class="scroll-mt-6 text-2xl font-bold" tabindex="-1">
-      {labels.comparisonTitle}
-    </h2>
-    <p id="age-comparison-lead" class="mt-2 max-w-5xl text-muted">
-      {labels.comparisonLead.replace("{year}", String(year))}
-    </p>
-    <div class="mt-6 max-w-4xl overflow-x-auto">
-      <table class="w-full border-collapse text-left" data-sortable aria-describedby="age-comparison-lead">
-        <thead>
-          <tr class="border-b-2 border-line-strong align-bottom">
-            <th scope="col" class="py-2 px-1 sm:ps-0 sm:pe-4" data-sort="text">
-              {labels.countryColumn}
-            </th>
-            {columns.map(({ label, unit, sort }) => (
-              <th scope="col" class="py-2 px-1 sm:ps-0 sm:pe-4 text-right sm:last:pe-0" data-sort="number" aria-sort={sort}>
-                {label}
-                {unit && (
-                  <>
-                    <br />
-                    <span class="font-normal text-muted">{unit}</span>
-                  </>
-                )}
+  <section class="wrap border-t border-line py-12" aria-labelledby="age-comparison">
+    <Fold>
+      <h2 slot="heading" id="age-comparison" class="scroll-mt-6 text-2xl font-bold" tabindex="-1">
+        {labels.comparisonTitle}
+      </h2>
+      <p id="age-comparison-lead" class="mt-2 max-w-5xl text-muted">
+        {labels.comparisonLead.replace("{year}", String(year))}
+      </p>
+      <div class="mt-6 max-w-4xl overflow-x-auto">
+        <table class="w-full border-collapse text-left" data-sortable aria-describedby="age-comparison-lead">
+          <thead>
+            <tr class="border-b-2 border-line-strong align-bottom">
+              <th scope="col" class="py-2 px-1 sm:ps-0 sm:pe-4" data-sort="text">
+                {labels.countryColumn}
               </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((row) => (
-            <tr class="border-b border-line">
-              <th scope="row" class="py-1 px-1 sm:ps-0 sm:pe-4 font-normal" data-value={row.name}>
-                {row.href ? (
-                  <a class="inline-flex min-h-(--spacing-target) items-center underline" href={row.href}>
-                    {row.name}
-                  </a>
-                ) : (
-                  <span class="inline-flex min-h-(--spacing-target) items-center">{row.name}</span>
-                )}
-              </th>
-              {columns.map(({ value, shown, full }) => (
-                <td
-                  class="py-1 px-1 sm:ps-0 sm:pe-4 text-right tabular-nums sm:last:pe-0"
-                  data-value={value(row)}
-                  title={full ? whole.format(value(row)) : undefined}
-                >
-                  {shown(value(row))}
-                </td>
+              {columns.map(({ label, unit, sort }) => (
+                <th scope="col" class="py-2 px-1 sm:ps-0 sm:pe-4 text-right sm:last:pe-0" data-sort="number" aria-sort={sort}>
+                  {label}
+                  {unit && (
+                    <>
+                      <br />
+                      <span class="font-normal text-muted">{unit}</span>
+                    </>
+                  )}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-        {europeAges && (
-          <tfoot>
-            <tr class="font-bold">
-              <th scope="row" class="py-3 px-1 sm:ps-0 sm:pe-4">
-                {labels.europe}
-              </th>
-              <td class="py-3 px-1 sm:ps-0 sm:pe-4 text-right tabular-nums">{percent.format(older(europeAges))}</td>
-              <td class="py-3 px-1 sm:ps-0 sm:pe-4 text-right tabular-nums">{percent.format(younger(europeAges))}</td>
-              <td class="py-3 px-1 sm:ps-0 sm:pe-4 text-right tabular-nums">{thousands(europeAges.holdings)}</td>
-              <td class="py-3 text-right tabular-nums">
-                {europeLand && (
-                  <>
-                    {millions(europeLand.hectares)}
-                    {europeLand.flag === "IMPUTED" && <span class="block font-normal text-muted">{labels.imputed}</span>}
-                  </>
-                )}
-              </td>
-            </tr>
-          </tfoot>
-        )}
-      </table>
-    </div>
-    <p class="mt-3 text-muted">
-      {labels.comparisonSource.replace("{year}", String(year))}{" "}
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(first.succession.sourceUrl)}>
-        {labels.successionSource}
-      </a>
-      {" · "}
-      <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(first.land.sourceUrl)}>
-        {labels.landSource}
-      </a>
-    </p>
-    <script is:inline type="module" src="/sort.js" defer></script>
+          </thead>
+          <tbody>
+            {sorted.map((row) => (
+              <tr class="border-b border-line">
+                <th scope="row" class="py-1 px-1 sm:ps-0 sm:pe-4 font-normal" data-value={row.name}>
+                  {row.href ? (
+                    <a class="inline-flex min-h-(--spacing-target) items-center underline" href={row.href}>
+                      {row.name}
+                    </a>
+                  ) : (
+                    <span class="inline-flex min-h-(--spacing-target) items-center">{row.name}</span>
+                  )}
+                </th>
+                {columns.map(({ value, shown, full }) => (
+                  <td
+                    class="py-1 px-1 sm:ps-0 sm:pe-4 text-right tabular-nums sm:last:pe-0"
+                    data-value={value(row)}
+                    title={full ? whole.format(value(row)) : undefined}
+                  >
+                    {shown(value(row))}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+          {europeAges && (
+            <tfoot>
+              <tr class="font-bold">
+                <th scope="row" class="py-3 px-1 sm:ps-0 sm:pe-4">
+                  {labels.europe}
+                </th>
+                <td class="py-3 px-1 sm:ps-0 sm:pe-4 text-right tabular-nums">{percent.format(older(europeAges))}</td>
+                <td class="py-3 px-1 sm:ps-0 sm:pe-4 text-right tabular-nums">{percent.format(younger(europeAges))}</td>
+                <td class="py-3 px-1 sm:ps-0 sm:pe-4 text-right tabular-nums">{thousands(europeAges.holdings)}</td>
+                <td class="py-3 text-right tabular-nums">
+                  {europeLand && (
+                    <>
+                      {millions(europeLand.hectares)}
+                      {europeLand.flag === "IMPUTED" && <span class="block font-normal text-muted">{labels.imputed}</span>}
+                    </>
+                  )}
+                </td>
+              </tr>
+            </tfoot>
+          )}
+        </table>
+      </div>
+      <p class="mt-3 text-muted">
+        {labels.comparisonSource.replace("{year}", String(year))}{" "}
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(first.succession.sourceUrl)}>
+          {labels.successionSource}
+        </a>
+        {" · "}
+        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={tableOf(first.land.sourceUrl)}>
+          {labels.landSource}
+        </a>
+      </p>
+      <script is:inline type="module" src="/sort.js" defer></script>
+    </Fold>
   </section>
 )}
 
