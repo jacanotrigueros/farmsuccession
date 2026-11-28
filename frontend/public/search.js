@@ -281,6 +281,18 @@ if (form && state && resultsList && everything && template && askBlock && filter
     }
   }
 
+  /**
+   * The heading says where the search is narrowed to: one territory chosen reads «Search resources in El
+   * Hierro», not the country's name over a list that holds one island (Sol's review of coherence).
+   */
+  const pageTitle = document.getElementById("search-title");
+  const headingAsBuilt = pageTitle?.textContent.trim() ?? "";
+  function nameScope(selected) {
+    if (!pageTitle) return;
+    const places = selected.territory ?? [];
+    pageTitle.textContent = places.length === 1 ? words.scoped.replace("{where}", labelOf("territory", places[0])) : headingAsBuilt;
+  }
+
   async function run({ push = true } = {}) {
     const term = field.value.trim();
     const selected = chosen();
@@ -296,6 +308,7 @@ if (form && state && resultsList && everything && template && askBlock && filter
     show(notFound, false);
     show(removeOpenCalls, false);
     renderChips(selected);
+    nameScope(selected);
 
     const filters = effectiveFilters(selected, scope.country, inherits);
     show(state, true);

@@ -17,8 +17,8 @@ import { flagOf, ICON } from "../lib/icons.ts";
 import { words } from "../lib/words.ts";
 import { searchPath } from "../../public/search-scope.js";
 
-type Props = { current?: string; language: string };
-const { current = "/", language } = Astro.props;
+type Props = { current?: string; language: string; search?: string };
+const { current = "/", language, search } = Astro.props;
 const text = words(language);
 
 const europe = euTerritory();
@@ -56,7 +56,9 @@ const places: { href: string; label: string; own?: string; ownLanguage?: string;
  * (founder, 16 Nov 2026).
  */
 const here = places.filter((place) => current.startsWith(place.href)).toSorted((a, b) => b.href.length - a.href.length)[0];
-const searchHref = searchPath("/", countryOf(here?.href ?? "/"));
+// A territory's page passes its own scope, so «Search» keeps the territory the reader is in instead of
+// widening to the whole country (Sol's review of coherence, 28 Nov 2026).
+const searchHref = search ?? searchPath("/", countryOf(here?.href ?? "/"));
 ---
 
 <header id="top" class="border-b border-line bg-card">

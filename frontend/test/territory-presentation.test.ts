@@ -463,3 +463,120 @@ test("territory cards expose a separate, counted native show and hide action in 
     }
   }
 });
+
+test("header actions share one wrapping row with a gap, so two buttons never touch", () => {
+  let pairs = 0;
+  for (const { layer } of snapshots) {
+    if (layer.level !== "COUNTRY") continue;
+    const html = htmlAt(layer.country.toLowerCase());
+    const row = /<div class="header-actions[^"]*\bgap-3\b[^"]*"[^>]*>([\s\S]*?)<\/div>/u.exec(html)?.[1];
+    const buttons = (html.match(/<a href="#(?:territories|own)" class="btn /gu) ?? []).length;
+    if (buttons === 0) continue;
+    assert.ok(row, `${layer.country}: header buttons must sit inside the shared actions row`);
+    assert.equal((row.match(/class="btn /gu) ?? []).length, buttons, `${layer.country}: every header button belongs to that row`);
+    if (buttons > 1) pairs += 1;
+  }
+  assert.ok(pairs > 0, "at least one country shows two header actions; the founder saw them touch on /gr/ and /at/");
+});
+
+const sectionOrder = (html: string): string[] =>
+  [...html.matchAll(/<(?:section|div)\b[^>]*aria-labelledby="(territories|needs|own|inherited|countries)"/gu)].map((match) => match[1]!);
+
+test("every kind of page shows its sections in one order, the same in every country", () => {
+  const expected: Record<string, string[]> = {
+    COUNTRY: ["territories", "needs", "own", "inherited"],
+    REGION: ["territories", "own", "inherited", "needs"],
+    HUB: ["territories", "own", "inherited", "needs"],
+    EU: ["own", "countries"],
+  };
+  let checked = 0;
+  for (const { layer } of snapshots) {
+    const route =
+      layer.level === "EU"
+        ? "eu"
+        : layer.level === "COUNTRY"
+          ? layer.country.toLowerCase()
+          : `/${layer.country.toLowerCase()}/${regionSlug(layer.country)}/${layer.level === "REGION" ? layer.region : layer.hub}/`;
+    const seen = sectionOrder(htmlAt(route));
+    const order = expected[layer.level]!.filter((id) => seen.includes(id));
+    assert.deepEqual(seen, order, `${route}: sections out of the shared order (founder, 28 Nov 2026: the order is the key)`);
+    checked++;
+  }
+  assert.ok(checked > 100, "the order is checked on every published page, not on a sample");
+});
+
+test("a country header offers the same quiet actions in the same order, and the search is its one primary", () => {
+  for (const { layer } of snapshots) {
+    if (layer.level !== "COUNTRY") continue;
+    const html = htmlAt(layer.country.toLowerCase());
+    const header = html.slice(0, html.indexOf('id="here"'));
+    assert.doesNotMatch(
+      header,
+      /<a href="#(?:territories|own)" class="btn btn-primary/u,
+      `${layer.country}: the header's links are secondary; the search is primary`,
+    );
+    const order = [...header.matchAll(/<a href="#(territories|own)" class="btn btn-quiet/gu)].map((match) => match[1]);
+    assert.deepEqual(
+      order,
+      order.toSorted((a, b) => (a === "territories" ? -1 : b === "territories" ? 1 : 0)),
+      `${layer.country}: choosing a territory comes first`,
+    );
+  }
+});
+
+test("a sentence that counts records never repeats the noun the count brings", () => {
+  for (const language of ["en", "es", "de", "fr", "it", "pt", "nl", "ro", "el", "pl", "hu", "hr"]) {
+    const text = words(language);
+    for (const template of [...text.alsoApplies, ...text.euAppliesIn]) {
+      for (const noun of text.record) {
+        const said = template.replace("{count}", `2 ${noun}`);
+        assert.doesNotMatch(
+          said,
+          new RegExp(`${noun} ${noun}\\b`, "u"),
+          `${language}: «${said}» (Sol's review of coherence: «24 vermeldingen vermeldingen»)`,
+        );
+      }
+    }
+  }
+});
+
+test("a record reads title, availability, what it offers, how to access, then the official button", () => {
+  let withSteps = 0;
+  for (const { data } of snapshots) {
+    const note = words(data.metadata.language).statusExplained;
+    for (const resource of data.resources) {
+      const url = resourceUrl(resource.id, "country" in data ? data.country : undefined);
+      const html = htmlAt(url);
+      const title = html.indexOf("<h1");
+      const offers = html.indexOf('data-pagefind-meta="summary"');
+      const button = html.indexOf(`href="${resource.accessUrl}" rel="noopener" class="btn btn-primary`);
+      assert.ok(title >= 0 && offers > title && button > offers, `${url}: title, then what it offers, then the official button`);
+      const steps = html.indexOf('id="access"');
+      if (steps >= 0) {
+        assert.ok(
+          steps > offers && steps < button,
+          `${url}: the steps come before the way out to the official site (Sol's review of 72 records)`,
+        );
+        withSteps++;
+      }
+      const explained = html.indexOf(note);
+      if (explained >= 0) assert.ok(explained > title, `${url}: the note on «active» sits under the title, not between the tags and it`);
+    }
+  }
+  assert.ok(withSteps > 500, `only ${withSteps} records with access steps were checked`);
+});
+
+test("several calls share one availability heading and each card leads with its call's name", () => {
+  let checked = 0;
+  for (const { data } of snapshots) {
+    for (const resource of data.resources) {
+      if ((resource.calls?.length ?? 0) < 2) continue;
+      const html = htmlAt(resourceUrl(resource.id, "country" in data ? data.country : undefined));
+      const headings = (html.match(/<h2 id="apply-title[^"]*"/gu) ?? []).length;
+      if (!html.includes('id="apply-call-2"')) continue;
+      assert.equal(headings, 1, `${resource.id}: one heading for all its calls, not one per card (Sol: the Italian land bank asked twice)`);
+      checked++;
+    }
+  }
+  assert.ok(checked > 0, "at least one record shows several calls");
+});
