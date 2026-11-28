@@ -10,6 +10,21 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.7.3 — 2026-11-28
+
+Every page of a kind now reads in the same order, in every country, so the last digit moves.
+
+- A country page reads territories, what you need, national resources, the EU's, then the figures; a territory
+  reads its own resources, those of wider layers from the nearest, then what you need; the European page shows
+  the EU's resources before the countries and the age comparison.
+- On a country page the search is the one primary action; choosing a territory and, where there is one, the
+  national first-establishment aid follow as quiet links in that order, with space between them.
+- From a territory, the search in the header keeps the territory, and the search page says which one.
+- A record says how to access before the button to the official site, explains what «active» means under its
+  title, and gives several calls or lots one heading with each named before its state.
+- The same name for the territory selector in every country, the topics block as a question in every language,
+  and a Dutch heading that repeated its noun corrected.
+
 ## 2.7.2 — 2026-11-28
 
 Corrections, so the last digit moves.
