@@ -10,6 +10,17 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.7.2 — 2026-11-28
+
+Corrections, so the last digit moves.
+
+- The Hungarian young-farmer aid now leads to the official notice that the call closed on 10 March 2026, not to
+  a page that also shows a later interval.
+- The Brodsko-posavska aid stays closed without presenting 15 November, the latest possible date, as the day
+  it closed.
+- Poland no longer states a number of voivodeships with records that had become out of date.
+- The search range reads correctly in German, Polish and Croatian («Treffer 1–20 von 26»).
+
 ## 2.7.1 — 2026-11-28
 
 Corrections, so the last digit moves.
