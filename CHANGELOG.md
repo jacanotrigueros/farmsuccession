@@ -14,10 +14,12 @@ after the version was closed and is not a part of it.
 
 A correction to the reading of 2.7.3, so the last digit moves.
 
-- Every list of resources folds from its own heading the same way: a country's national resources, the EU
-  framework on Europe's page and a territory's own list now fold like the EU list already did.
+- Every section of a country, territory or Europe page folds from its own heading, the same way the EU list
+  already did.
 - A country's EU list says what it holds and how many once, without a second heading repeating it.
-- Country, territory and Europe pages no longer open on an «On this page» strip; records keep theirs.
+- The strip of links under a page's title keeps its links without the «On this page» label.
+- Sections alternate background, counted from the last one so every page ends on the soft green above the white
+  footer; a record reads white body, then sources on the same green, and every band uses that one green.
 
 ## 2.7.3 — 2026-11-28
 
