@@ -10,6 +10,15 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.7.4 — 2026-11-28
+
+A correction to the reading of 2.7.3, so the last digit moves.
+
+- Every list of resources folds from its own heading the same way: a country's national resources, the EU
+  framework on Europe's page and a territory's own list now fold like the EU list already did.
+- A country's EU list says what it holds and how many once, without a second heading repeating it.
+- Country, territory and Europe pages no longer open on an «On this page» strip; records keep theirs.
+
 ## 2.7.3 — 2026-11-28
 
 Every page of a kind now reads in the same order, in every country, so the last digit moves.
