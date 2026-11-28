@@ -14,9 +14,8 @@ type Props = {
   language: string;
   locale: string;
   country?: string;
-  first?: boolean;
 };
-const { title, lead, groups, headingCount, recordCount, language, locale, country, first = false } = Astro.props;
+const { title, lead, groups, headingCount, recordCount, language, locale, country } = Astro.props;
 const text = words(language);
 ---
 
@@ -37,10 +36,15 @@ const text = words(language);
       </div>
     </details>
   ) : (
-    <>
-      <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...headingCount}>
-        {title}
-      </h2>
+    // Several layers: the band folds from its own heading like every other section, and each layer still
+    // folds inside it (Sol, 28 Nov 2026).
+    <details class="record-fold" open>
+      <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
+        <h2 id="inherited" class="scroll-mt-6 text-2xl font-bold" {...headingCount}>
+          {title}
+        </h2>
+        <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron ml-auto size-6 shrink-0 text-brand-strong" />
+      </summary>
       <p class="meta mt-2 max-w-5xl">{lead}</p>
       {groups.map(({ name: from, items }) => (
         <details data-record-group class="record-fold mt-6 border-t border-line pt-4" open>
@@ -59,6 +63,6 @@ const text = words(language);
           </div>
         </details>
       ))}
-    </>
+    </details>
   )}
 </section>

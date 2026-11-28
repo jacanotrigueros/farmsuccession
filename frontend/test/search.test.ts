@@ -223,3 +223,11 @@ test("every search scope renders a translated open-calls control and a dedicated
     assert.ok(html.includes(text.noOpenCalls), country);
   }
 });
+
+test("a choice that is exactly a grouping's regions is named after the grouping (Sol, 28 Nov 2026)", async () => {
+  const { scopeName } = await import("../public/search-scope.js");
+  const hubs = [{ name: "Canarias", regions: ["ES/tenerife", "ES/la-palma"] }];
+  assert.equal(scopeName(["ES/la-palma", "ES/tenerife"], hubs), "Canarias");
+  assert.equal(scopeName(["ES/la-palma"], hubs), undefined, "one territory names itself");
+  assert.equal(scopeName(["ES/la-palma", "ES/madrid"], hubs), undefined, "a mixed choice names no grouping");
+});
