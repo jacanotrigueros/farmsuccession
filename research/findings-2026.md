@@ -265,7 +265,7 @@ Publishes 7 records:
 
 What this file does not cover:
 
-- Karty regionalne obejmują na razie wybrane usługi w pięciu województwach; pozostałe województwa nie mają jeszcze własnych kart.
+- Karty regionalne obejmują na razie wybrane usługi i nie każde województwo ma jeszcze własne karty.
 - Przy premiach dla młodych rolników i wsparciu małych gospodarstw podano daty ostatnich potwierdzonych naborów; sprawdź w ARiMR, czy trwa nowy nabór.
 
 ### Portugal — country

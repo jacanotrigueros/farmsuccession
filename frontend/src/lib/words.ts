@@ -1292,7 +1292,7 @@ const DE = {
   pageLabel: "Seite {n}",
   pageOf: "Seite {page} von {total}",
   showResults: "{count} anzeigen",
-  shownRange: "{from}–{to} von {count}",
+  shownRange: "Treffer {from}–{to} von {total}",
   widenToEurope: "Suche auf Europa ausweiten",
 } as const satisfies Words;
 
@@ -4354,7 +4354,7 @@ const PL = {
   pageLabel: "Strona {n}",
   pageOf: "Strona {page} z {total}",
   showResults: "Pokaż {count}",
-  shownRange: "{from}–{to} z {count}",
+  shownRange: "{from}–{to} z {total} wyników",
   widenToEurope: "Rozszerz wyszukiwanie na całą Europę",
 } as const satisfies Words;
 
