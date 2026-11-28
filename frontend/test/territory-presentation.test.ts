@@ -539,3 +539,44 @@ test("a sentence that counts records never repeats the noun the count brings", (
     }
   }
 });
+
+test("a record reads title, availability, what it offers, how to access, then the official button", () => {
+  let withSteps = 0;
+  for (const { data } of snapshots) {
+    const note = words(data.metadata.language).statusExplained;
+    for (const resource of data.resources) {
+      const url = resourceUrl(resource.id, "country" in data ? data.country : undefined);
+      const html = htmlAt(url);
+      const title = html.indexOf("<h1");
+      const offers = html.indexOf('data-pagefind-meta="summary"');
+      const button = html.indexOf(`href="${resource.accessUrl}" rel="noopener" class="btn btn-primary`);
+      assert.ok(title >= 0 && offers > title && button > offers, `${url}: title, then what it offers, then the official button`);
+      const steps = html.indexOf('id="access"');
+      if (steps >= 0) {
+        assert.ok(
+          steps > offers && steps < button,
+          `${url}: the steps come before the way out to the official site (Sol's review of 72 records)`,
+        );
+        withSteps++;
+      }
+      const explained = html.indexOf(note);
+      if (explained >= 0) assert.ok(explained > title, `${url}: the note on «active» sits under the title, not between the tags and it`);
+    }
+  }
+  assert.ok(withSteps > 500, `only ${withSteps} records with access steps were checked`);
+});
+
+test("several calls share one availability heading and each card leads with its call's name", () => {
+  let checked = 0;
+  for (const { data } of snapshots) {
+    for (const resource of data.resources) {
+      if ((resource.calls?.length ?? 0) < 2) continue;
+      const html = htmlAt(resourceUrl(resource.id, "country" in data ? data.country : undefined));
+      const headings = (html.match(/<h2 id="apply-title[^"]*"/gu) ?? []).length;
+      if (!html.includes('id="apply-call-2"')) continue;
+      assert.equal(headings, 1, `${resource.id}: one heading for all its calls, not one per card (Sol: the Italian land bank asked twice)`);
+      checked++;
+    }
+  }
+  assert.ok(checked > 0, "at least one record shows several calls");
+});
