@@ -8,9 +8,14 @@
   "published": "2026-11-27",
   "summary": "Zasoby dotyczące rozpoczęcia działalności rolniczej, przejęcia gospodarstwa i dostępu do ziemi w województwie świętokrzyskim.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Ramy terytorialne są przygotowane. Badanie zasobów dla tego obszaru nie rozpoczęło się w tym wydaniu.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Udokumentowano zasoby województwa znalezione w przeglądach z 27 listopada 2026 r.; nie jest to pełny wykaz.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Przegląd stron instytucji krajowych i wojewódzkich (ARiMR, KOWR, ODR)"
+      }
+    ]
   },
   "metadata": {
     "language": "pl",
@@ -21,10 +26,69 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-pl-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "pl-swietokrzyskie-kowr-kielce-przetargi",
+      "name": "Przetargi KOWR na sprzedaż i dzierżawę ziemi – województwo świętokrzyskie",
+      "metaTitle": "Przetargi KOWR na ziemię rolną – woj. świętokrzyskie",
+      "metaDescription": "Sprawdź harmonogramy KOWR w Kielcach na sprzedaż i dzierżawę nieruchomości w województwie świętokrzyskim.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Krajowy Ośrodek Wsparcia Rolnictwa, Oddział Terenowy w Kielcach",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Oddział publikuje harmonogramy przetargów na sprzedaż i dzierżawę nieruchomości w regionie.",
+      "howToAccess": "Sprawdź harmonogramy i warunki konkretnego ogłoszenia przetargowego.",
+      "accessUrl": "https://www.gov.pl/web/kowr/ot-kielce3",
+      "languages": ["pl"],
+      "contactPoints": [
+        {
+          "channel": "EMAIL",
+          "label": "KOWR OT Kielce",
+          "value": "kielce@kowr.gov.pl",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-kielce3"
+        }
+      ],
+      "notes": "Na stronie opublikowano harmonogram przetargów na 2026 r. dla OT Kielce i Sekcji Zamiejscowej w Opatowie, ze stanem na 3 listopada 2026.",
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-kielce3"
+        },
+        {
+          "question": "LAND_HANDLED",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-kielce3"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-kielce3",
+          "title": "OT Kielce",
+          "consultedOn": "2026-11-27",
+          "quotes": ["Harmonogram przetargów 2026 OT Kielce i SZ Opatów stan na 03.11.2026", "kielce@kowr.gov.pl"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-pl-sweep-1"
+    }
+  ],
   "news": [],
-  "limitations": []
+  "limitations": [],
+  "metaTitle": "Ziemia rolna w Świętokrzyskiem: przetargi KOWR",
+  "metaDescription": "Przetargi KOWR w Kielcach na sprzedaż i dzierżawę ziemi rolnej oraz krajowe premie dla młodych rolników w województwie świętokrzyskim."
 }

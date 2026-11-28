@@ -88,6 +88,13 @@
         "model": "gpt-6.2-sol",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-ro-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
@@ -106,7 +113,7 @@
       "operatorType": "PUBLIC",
       "whatItOffers": "Sprijin public nerambursabil de 70.000 de euro pentru instalarea tinerilor fermieri ca șefi sau manageri ai unei exploatații agricole, acordat ca sumă forfetară în două tranșe: 75% la semnarea contractului de finanțare și 25% în funcție de implementarea corectă a planului de afaceri. Pragul de dimensiune economică este de 12.000–100.000 € SO, de 8.000–100.000 € SO în zona montană și de la 2.300 SO pentru legume în spații protejate.",
       "whoCanUseIt": "Persoane fizice înregistrate și autorizate conform OUG nr. 44/2008 (PFA, II și IF), asociați unici și administratori ai unui SRL sau asociați majoritari și administratori ai unui SRL, care se instalează ca tineri fermieri.",
-      "howToAccess": "Descărcați ghidul solicitantului și cererea de finanțare de pe pagina DR-30 a AFIR, completați cererea cu Adobe Acrobat Reader și încărcați-o online. Pentru întrebări, oficiile județene AFIR (OJFIR) și centrele regionale sunt listate în structurile teritoriale ale agenției.",
+      "howToAccess": "Verificați mai întâi la AFIR dacă este deschisă o sesiune de depunere: pagina DR-30 nu indica una cu date la ultima consultare. Apoi descărcați ghidul solicitantului și cererea de finanțare de pe pagina DR-30, completați cererea cu Adobe Acrobat Reader și încărcați-o online. Pentru întrebări, oficiile județene AFIR (OJFIR) și centrele regionale sunt listate în structurile teritoriale ale agenției.",
       "accessUrl": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-30/",
       "instrumentType": "GRANT",
       "purposes": ["FIRST_ESTABLISHMENT"],
@@ -152,8 +159,14 @@
           "sourceUrl": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-30/"
         }
       ],
-      "notes": "Pagina DR-30 nu indică în această lectură o sesiune deschisă cu date; calendarul sesiunilor se verifică la AFIR înainte de depunere.",
-      "generatorId": "claude-2"
+      "generatorId": "claude-2",
+      "calls": [
+        {
+          "name": "Sesiune DR-30",
+          "state": "NOT_PUBLISHED",
+          "sourceUrl": "https://www.afir.ro/domenii-de-interventie/detalii-si-anexe-dr-30/"
+        }
+      ]
     },
     {
       "id": "ro-afir-dr12-investitii-tineri-fermieri",
@@ -644,6 +657,44 @@
         }
       ],
       "generatorId": "chatgpt-ro-1"
+    },
+    {
+      "id": "ro-anzm-consultanta-zona-montana",
+      "name": "Consiliere și asistență tehnică prin Agenția Națională a Zonei Montane",
+      "metaTitle": "Consiliere gratuită pentru fermierii din zona montană",
+      "metaDescription": "Află cum poți solicita consiliere și asistență tehnică de la Agenția Națională a Zonei Montane.",
+      "kind": "ADVICE",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Agenția Națională a Zonei Montane",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Agenția Națională a Zonei Montane oferă informare, consiliere, consultanță și asistență tehnică.",
+      "whoCanUseIt": "Persoane fizice și juridice.",
+      "howToAccess": "Cererea de consultanță se poate face în scris, telefonic sau prin e-mail.",
+      "accessUrl": "https://serviciipublice.gov.ro/serviciu/activitati-de-informare-consiliere-consultanta-si-asistenta-tehnica",
+      "languages": ["ro"],
+      "notes": "Serviciul este gratuit. Pagina nu prezintă o convocare cu termen de înscriere.",
+      "sources": [
+        {
+          "url": "https://serviciipublice.gov.ro/serviciu/activitati-de-informare-consiliere-consultanta-si-asistenta-tehnica",
+          "title": "Activitati de informare, consiliere, consultanta si asistenta tehnica",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Activități de informare, consiliere, consultanță și asistență tehnică",
+            "Persoane fizice și juridice",
+            "cererea de consultanță se poate face: în scris, telefonic sau prin e-mail",
+            "Acest serviciu este gratuit.",
+            "Str. Runc, nr. 23, Vatra Dornei, judetul Suceava"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-ro-sweep-1"
     }
   ],
   "news": [],

@@ -344,6 +344,16 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
         {text.installNationalShortcut}
       </a>
     )}
+    {
+      // Choosing a territory is one of the directory's main ways in; when the header leads to national aid
+      // instead, a reader on a phone would otherwise scroll past the figures and topics to reach the list
+      // (Sol's review of production 2.6.1, 28 Nov 2026).
+      isCountry && !showsInstall && children.length > 0 && (
+        <a href="#territories" class="btn btn-quiet mt-4">
+          {text.chooseTerritory}
+        </a>
+      )
+    }
     <div class="mt-8">
       <SearchBox
         action={searchPath("/", country || undefined)}
