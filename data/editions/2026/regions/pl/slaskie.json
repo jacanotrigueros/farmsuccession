@@ -8,9 +8,14 @@
   "published": "2026-11-27",
   "summary": "Zasoby dotyczące rozpoczęcia działalności rolniczej, przejęcia gospodarstwa i dostępu do ziemi w województwie śląskim.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Ramy terytorialne są przygotowane. Badanie zasobów dla tego obszaru nie rozpoczęło się w tym wydaniu.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Udokumentowano zasoby województwa znalezione w przeglądach z 27 listopada 2026 r.; nie jest to pełny wykaz.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Przegląd stron instytucji krajowych i wojewódzkich (ARiMR, KOWR, ODR)"
+      }
+    ]
   },
   "metadata": {
     "language": "pl",
@@ -21,10 +26,60 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-pl-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "pl-slaskie-kowr-czestochowa-przetargi",
+      "name": "Przetargi KOWR na sprzedaż i dzierżawę ziemi – województwo śląskie",
+      "metaTitle": "Przetargi KOWR na ziemię rolną – woj. śląskie",
+      "metaDescription": "Sprawdź harmonogram przetargów KOWR w Częstochowie na nieruchomości w województwie śląskim.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Krajowy Ośrodek Wsparcia Rolnictwa, Oddział Terenowy w Częstochowie",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Oddział publikuje harmonogramy przetargów dotyczących nieruchomości w regionie.",
+      "howToAccess": "Sprawdź harmonogram oraz warunki konkretnego przetargu.",
+      "accessUrl": "https://www.gov.pl/web/kowr/ot-czestochowa3",
+      "languages": ["pl"],
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-czestochowa3"
+        },
+        {
+          "question": "LAND_HANDLED",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-czestochowa3"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-czestochowa3",
+          "title": "OT Częstochowa",
+          "consultedOn": "2026-11-27",
+          "quotes": ["Harmonogram przetargów na miesiąc LISTOPAD ( aktualizacja 10.11.2026r.)"],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-pl-sweep-1"
+    }
+  ],
   "news": [],
-  "limitations": []
+  "limitations": [],
+  "metaTitle": "Ziemia rolna na Śląsku: przetargi KOWR",
+  "metaDescription": "Przetargi KOWR w Częstochowie na sprzedaż i dzierżawę ziemi rolnej oraz krajowe premie dla młodych rolników w województwie śląskim."
 }

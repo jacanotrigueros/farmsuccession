@@ -72,6 +72,13 @@
         "model": "gpt-6.2-sol",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-hr-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
@@ -80,7 +87,7 @@
       "id": "hr-75-01-uspostava-mladih-poljoprivrednika",
       "name": "75.01. Uspostava mladih poljoprivrednika",
       "metaTitle": "75.01. Potpora za mlade poljoprivrednike",
-      "metaDescription": "Potpora za prvu uspostavu poljoprivrednog gospodarstva. Provjerite uvjete, prijavu putem AGRONET-a i rok posljednjeg natječaja.",
+      "metaDescription": "Potpora za prvu uspostavu poljoprivrednog gospodarstva. Provjerite uvjete, prijavu putem AGRONET-a i drugi natječaj, zatvoren 30. travnja 2025.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -104,7 +111,6 @@
           "sourceUrl": "https://www.apprrr.hr/kontakt/"
         }
       ],
-      "notes": "Drugi natječaj zatvoren je 30. travnja 2025. u 12:00.",
       "implements": [
         {
           "resourceId": "eu-cap-young-farmers",
@@ -159,13 +165,21 @@
           }
         }
       ],
-      "generatorId": "chatgpt-hr-1"
+      "generatorId": "chatgpt-hr-1",
+      "calls": [
+        {
+          "name": "Drugi natječaj",
+          "state": "CLOSED",
+          "closes": "2025-04-30",
+          "sourceUrl": "https://www.apprrr.hr/objavljen-drugi-natjecaj-za-provedbu-intervencije-75-01-uspostava-mladih-poljoprivrednika/"
+        }
+      ]
     },
     {
       "id": "hr-73-12-potpora-malim-poljoprivrednicima",
       "name": "73.12. Ulaganja – Potpora malim poljoprivrednicima",
       "metaTitle": "73.12. Potpora malim poljoprivrednicima",
-      "metaDescription": "Potpora za ulaganja malih gospodarstava. Saznajte tko se može prijaviti, kako se predaje zahtjev i kada je zatvoren posljednji natječaj.",
+      "metaDescription": "Potpora za ulaganja malih gospodarstava. Saznajte tko se može prijaviti, kako se predaje zahtjev i da je prvi natječaj zatvoren 31. srpnja 2024.",
       "kind": "FINANCIAL_SUPPORT",
       "status": "ACTIVE",
       "scope": {
@@ -188,7 +202,6 @@
           "sourceUrl": "https://www.apprrr.hr/kontakt/"
         }
       ],
-      "notes": "Prvi natječaj zatvoren je 31. srpnja 2024. u 12:00.",
       "implements": [
         {
           "resourceId": "eu-cap-strategic-plans",
@@ -246,7 +259,15 @@
           }
         }
       ],
-      "generatorId": "chatgpt-hr-1"
+      "generatorId": "chatgpt-hr-1",
+      "calls": [
+        {
+          "name": "Prvi natječaj",
+          "state": "CLOSED",
+          "closes": "2024-07-31",
+          "sourceUrl": "https://www.apprrr.hr/objavljen-prvi-natjecaj-za-za-provedbu-intervencije-73-12-potpora-malim-poljoprivrednicima/"
+        }
+      ]
     },
     {
       "id": "hr-30-01-dodatna-potpora-dohotku-mladi",
@@ -736,6 +757,45 @@
         }
       ],
       "generatorId": "chatgpt-hr-1"
+    },
+    {
+      "id": "hr-porez-na-nasljedstva-i-darove",
+      "name": "Porez na nasljedstva i darove",
+      "metaTitle": "Porez na nasljedstva i darove u Hrvatskoj",
+      "metaDescription": "Službene informacije o porezu na nasljedstva i darove, oporezivanju naslijeđenih nekretnina i oslobođenjima.",
+      "kind": "POLICY",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "NATIONAL"
+      },
+      "operator": "Vlada Republike Hrvatske",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Portal gov.hr objašnjava kada se plaća porez na nasljedstva i darove te navodi da se naslijeđene ili darovane nekretnine oporezuju porezom na promet nekretnina.",
+      "whoCanUseIt": "Informacije su namijenjene fizičkim i pravnim osobama koje u Hrvatskoj naslijede, prime na dar ili steknu bez naknade imovinu.",
+      "howToAccess": "Informacije su javno dostupne na portalu gov.hr; za dodatna pitanja portal upućuje na telefonski pozivni centar Porezne uprave, rubriku „Pišite nam” ili lokalnu ispostavu Porezne uprave.",
+      "accessUrl": "https://gov.hr/hr/porez-na-nasljedstva-i-darove/1462",
+      "languages": ["hr"],
+      "notes": "Stranica razlikuje porez na nasljedstva i darove od poreza na promet nekretnina te navodi oslobođenja za određene bliske srodnike.",
+      "sources": [
+        {
+          "url": "https://gov.hr/hr/porez-na-nasljedstva-i-darove/1462",
+          "title": "Porez na nasljedstva i darove",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "Fizičke i pravne osobe koje na području Republike Hrvatske naslijede, prime na dar ili steknu po drugoj osnovi bez naknade imovinu plaćaju porez na nasljedstva i darove.",
+            "Porez na nasljedstva i darove plaća se po stopi od 4 posto.",
+            "Ako ste nasljeđivanjem ili darovanjem stekli nekretninu, ona se oporezuje porezom na promet nekretnina.",
+            "bračni drug, potomci i preci koji čine uspravnu liniju",
+            "pozivom na brojeve telefona Pozivnog centra",
+            "osobnim dolaskom u lokalnu ispostavu Porezne uprave"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-hr-sweep-1"
     }
   ],
   "news": [],

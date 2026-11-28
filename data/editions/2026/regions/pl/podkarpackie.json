@@ -8,9 +8,14 @@
   "published": "2026-11-27",
   "summary": "Zasoby dotyczące rozpoczęcia działalności rolniczej, przejęcia gospodarstwa i dostępu do ziemi w województwie podkarpackim.",
   "coverage": {
-    "status": "NOT_STARTED",
-    "note": "Ramy terytorialne są przygotowane. Badanie zasobów dla tego obszaru nie rozpoczęło się w tym wydaniu.",
-    "methods": []
+    "status": "PARTIAL",
+    "note": "Udokumentowano zasoby województwa znalezione w przeglądach z 27 listopada 2026 r.; nie jest to pełny wykaz.",
+    "methods": [
+      {
+        "method": "WEB_SEARCH",
+        "detail": "Przegląd stron instytucji krajowych i wojewódzkich (ARiMR, KOWR, ODR)"
+      }
+    ]
   },
   "metadata": {
     "language": "pl",
@@ -21,10 +26,65 @@
         "tool": "OTHER",
         "promptVersion": "1.14.0",
         "processedAt": "2026-11-27"
+      },
+      {
+        "id": "chatgpt-pl-sweep-1",
+        "tool": "CHATGPT",
+        "model": "gpt-6.1-terra+gpt-6-luna",
+        "promptVersion": "1.14.0",
+        "processedAt": "2026-11-27"
       }
     ]
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "pl-podkarpackie-kowr-rzeszow-przetargi",
+      "name": "Przetargi KOWR na sprzedaż i dzierżawę ziemi – województwo podkarpackie",
+      "metaTitle": "Przetargi KOWR na ziemię rolną – woj. podkarpackie",
+      "metaDescription": "Sprawdź przetargi KOWR w Rzeszowie na sprzedaż i dzierżawę nieruchomości oraz skontaktuj się z oddziałem lub sekcją zamiejscową.",
+      "kind": "LAND_BANK",
+      "status": "ACTIVE",
+      "scope": {
+        "level": "REGIONAL"
+      },
+      "operator": "Krajowy Ośrodek Wsparcia Rolnictwa, Oddział Terenowy w Rzeszowie",
+      "operatorType": "PUBLIC",
+      "whatItOffers": "Oddział udostępnia informacje o przetargach na sprzedaż lub dzierżawę nieruchomości prowadzonych w Rzeszowie.",
+      "howToAccess": "Sprawdź harmonogram i ogłoszenie przetargowe, w którym wskazano numer konta i kwotę wadium.",
+      "accessUrl": "https://www.gov.pl/web/kowr/ot-rzeszow2",
+      "languages": ["pl"],
+      "notes": "Harmonogramy obejmują przetargi oddziału i sekcji zamiejscowych na terenie województwa podkarpackiego.",
+      "notPublished": [
+        {
+          "question": "WHO_CAN_USE",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-rzeszow2"
+        },
+        {
+          "question": "LAND_HANDLED",
+          "sourceUrl": "https://www.gov.pl/web/kowr/ot-rzeszow2"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.pl/web/kowr/ot-rzeszow2",
+          "title": "OT Rzeszów",
+          "consultedOn": "2026-11-27",
+          "quotes": [
+            "W załączeniu znajdziesz informacje na temat przetargów na sprzedaż lub dzierżawę nieruchomości, odbywających się w Oddziale Terenowym Krajowego Ośrodka Wsparcia Rolnictwa w Rzeszowie",
+            "Numer konta i kwota wadium znajdują się w ogłoszeniu przetargowym.",
+            "Harmonogram przetargów grudzień 2026v2"
+          ],
+          "verification": {
+            "checkedOn": "2026-11-27",
+            "method": "FETCH"
+          }
+        }
+      ],
+      "generatorId": "chatgpt-pl-sweep-1"
+    }
+  ],
   "news": [],
-  "limitations": []
+  "limitations": [],
+  "metaTitle": "Ziemia rolna na Podkarpaciu: przetargi KOWR",
+  "metaDescription": "Przetargi KOWR w Rzeszowie na sprzedaż i dzierżawę ziemi rolnej oraz krajowe premie dla młodych rolników w województwie podkarpackim."
 }
