@@ -793,7 +793,7 @@ test("a record is never listed without saying which layer it comes from", () => 
         group = own ? heading.text : "";
         if (group) grouped += 1;
       }
-      if (heading.level === "h3" && heading.attributes.includes("data-layer")) {
+      if ((heading.level === "h3" || heading.level === "h2") && heading.attributes.includes("data-layer")) {
         group = heading.text;
         grouped += 1;
       } else if (heading.attributes.includes("data-record")) {
@@ -1058,13 +1058,16 @@ test("search fallback and primary controls are sized for the full content area",
 });
 
 test("on-page navigation wraps onto more lines instead of scrolling sideways, and is not pill buttons", () => {
-  const html = pages.find(({ file }) => file === path.join("es", "index.html"))?.html ?? "";
-  assert.ok(html, "Spanish country page was not built");
+  // Country and territory pages dropped the strip (founder, 28 Nov 2026); records keep it.
+  const html =
+    pages.find(({ file, html }) => file.startsWith(path.join("es", "recursos")) && html.includes(`aria-label="${words("es").onThisPage}"`))
+      ?.html ?? "";
+  assert.ok(html, "no Spanish record page with on-page navigation was built");
   const nav =
     [...html.matchAll(/<nav\b[^>]*data-pagefind-ignore[^>]*>[\s\S]*?<\/nav>/gu)]
       .map(([markup]) => markup)
       .find((markup) => markup.includes(`aria-label="${words("es").onThisPage}"`)) ?? "";
-  assert.ok(nav, "the Spanish country page has no on-page navigation");
+  assert.ok(nav, "the Spanish record page has no on-page navigation");
   // A sideways strip hides every link past the edge of a phone, with nothing to say they are there;
   // the audience is older readers with little digital practice, so every link must stay visible.
   assert.match(nav, /\bflex-wrap\b/u, "section navigation must wrap so every link is visible on a phone");

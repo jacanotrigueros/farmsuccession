@@ -11,6 +11,7 @@
  * question, no figure on the page credits a territory with another layer's instruments, and a reader who
  * wants to know which page to watch for a change can see it without opening the record.
  */
+import Fold from "../components/Fold.astro";
 import { Icon } from "astro-icon/components";
 import { snippet } from "../lib/snippet.ts";
 import { codesInBrackets, TITLE_CODES } from "../lib/subdivision.ts";
@@ -19,11 +20,11 @@ import CountryContext from "../components/CountryContext.astro";
 import InheritedResources from "../components/InheritedResources.astro";
 import Needs from "../components/Needs.astro";
 import PageHeader from "../components/PageHeader.astro";
+import PageIndex from "../components/PageIndex.astro";
 import CountryCards from "../components/CountryCards.astro";
 import RecordLinks from "../components/RecordLinks.astro";
 import TerritoryCard from "../components/TerritoryCard.astro";
 import TerritoryDisclosure from "../components/TerritoryDisclosure.astro";
-import PageIndex from "../components/PageIndex.astro";
 import ResourceList from "../components/ResourceList.astro";
 import StandaloneNews from "../components/StandaloneNews.astro";
 import SearchBox from "../components/SearchBox.astro";
@@ -441,8 +442,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     )}
   </PageHeader>
 
-  {/* Two sections are both in sight as the reader scrolls; a strip pointing at them is only one more
-      box to read (founder, 16 Nov 2026, on Europe's page). It earns its place from three on. */}
+  {/* A strip pointing at the sections earns its place from three on (founder, 16 Nov 2026). */}
   {sections.length >= 3 && <PageIndex sections={sections} language={language} />}
 
   {/*
@@ -453,147 +453,171 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     territory reads own → wider layers → needs, and Europe reads its resources → countries → comparison.
   */}
   {(children.length > 0 || groupings.length > 0) && (
-    <section class:list={["wrap pt-12", "pb-12"]} aria-labelledby="territories">
-      <h2 id="territories" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
-        <Icon name={ICON.territory} aria-hidden="true" class="size-6 shrink-0 text-brand" />
-        {territoriesTitle}
-      </h2>
-      <p class="mt-2 max-w-5xl text-muted">{showsInstall ? text.installTerritoriesLead : text.territoriesLead}</p>
-      <div class="mt-6 grid gap-4">
-        {ungrouped.length > 0 && (
-          <ul class="territory-list grid grid-cols-1 gap-2 md:grid-cols-2">
-            {ungrouped.map((child) => (
-              <TerritoryCard child={child} language={language} withRecords={isCountry} />
-            ))}
-          </ul>
-        )}
-        {groups.map(({ hub, members }) => {
-          const aid = hub.data.resources.filter(isFirstEstablishmentAid);
-          const rest = hub.data.resources.filter((resource) => !isFirstEstablishmentAid(resource));
-          const groupName = hub.data.officialName;
-          return (
-            <section class="card min-w-0 p-4">
-              <h3 class="text-lg font-bold">
-                <a class="inline-flex min-h-(--spacing-target) items-center underline" href={href(hub.layer)}>
-                  {groupName}
-                </a>
-              </h3>
-              {aid.length > 0 && (
-                <>
-                  <p class="meta mb-2">{text.sharedAcross.replace("{where}", groupName)}</p>
-                  <RecordLinks place={hub} language={language} resources={aid} featured />
-                </>
-              )}
-              {rest.length > 0 && <TerritoryDisclosure place={hub} language={language} resources={rest} />}
-              <ul class="territory-list mt-3 grid grid-cols-1 gap-2 md:grid-cols-2">
-                {members.map((child) => (
-                  <TerritoryCard child={child} language={language} withRecords={isCountry} grouping={groupName} />
-                ))}
-              </ul>
-            </section>
-          );
-        })}
-      </div>
+    <section class="band wrap border-t border-line py-12" aria-labelledby="territories">
+      <Fold>
+        <h2 slot="heading" id="territories" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
+          <Icon name={ICON.territory} aria-hidden="true" class="size-6 shrink-0 text-brand" />
+          {territoriesTitle}
+        </h2>
+        <p class="mt-2 max-w-5xl text-muted">{showsInstall ? text.installTerritoriesLead : text.territoriesLead}</p>
+        <div class="mt-6 grid gap-4">
+          {ungrouped.length > 0 && (
+            <ul class="territory-list grid grid-cols-1 gap-2 md:grid-cols-2">
+              {ungrouped.map((child) => (
+                <TerritoryCard child={child} language={language} withRecords={isCountry} />
+              ))}
+            </ul>
+          )}
+          {groups.map(({ hub, members }) => {
+            const aid = hub.data.resources.filter(isFirstEstablishmentAid);
+            const rest = hub.data.resources.filter((resource) => !isFirstEstablishmentAid(resource));
+            const groupName = hub.data.officialName;
+            return (
+              <section class="card min-w-0 p-4">
+                <h3 class="text-lg font-bold">
+                  <a class="inline-flex min-h-(--spacing-target) items-center underline" href={href(hub.layer)}>
+                    {groupName}
+                  </a>
+                </h3>
+                {aid.length > 0 && (
+                  <>
+                    <p class="meta mb-2">{text.sharedAcross.replace("{where}", groupName)}</p>
+                    <RecordLinks place={hub} language={language} resources={aid} featured />
+                  </>
+                )}
+                {rest.length > 0 && <TerritoryDisclosure place={hub} language={language} resources={rest} />}
+                <ul class="territory-list mt-3 grid grid-cols-1 gap-2 md:grid-cols-2">
+                  {members.map((child) => (
+                    <TerritoryCard child={child} language={language} withRecords={isCountry} grouping={groupName} />
+                  ))}
+                </ul>
+              </section>
+            );
+          })}
+        </div>
+      </Fold>
     </section>
   )}
 
   {isCountry && (
-    <section class="border-y border-line bg-card" aria-labelledby="needs">
+    <section class="band border-t border-line" aria-labelledby="needs">
       <div class="wrap py-12">
-        <Needs
-          compact
-          showLead={!isCountry}
-          resources={everythingHere}
-          language={language}
-          hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
-          hrefForKind={(kind) => searchHere([kind])}
-          kinds={false}
-        />
+        <Fold>
+          <h2 slot="heading" id="needs" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
+            <Icon name={ICON.found} aria-hidden="true" class="size-6 shrink-0 text-brand" />
+            {text.whatDoYouNeed}
+          </h2>
+          <Needs
+            heading={false}
+            compact
+            showLead={!isCountry}
+            resources={everythingHere}
+            language={language}
+            hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
+            hrefForKind={(kind) => searchHere([kind])}
+            kinds={false}
+          />
+        </Fold>
       </div>
     </section>
   )}
 
   {showOwn && (
-    <section class="wrap py-12" aria-labelledby="own">
-      <h2 id="own" class="flex scroll-mt-6 flex-wrap items-baseline gap-x-3 text-2xl font-bold">
-        {isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.ownRecords.replace("{where}", name)}
-        {own.length > 0 && !isCountry && (
-          <span class="meta font-normal" {...recordCount}>
-            {counted(own.length, text.record, locale)}
-          </span>
-        )}
-      </h2>
-      {isCountry && own.length > 0 && <p class="mt-2 max-w-5xl text-muted">{text.wholeCountryLead}</p>}
-      {/*
+    <section class="band wrap border-t border-line py-12" aria-labelledby="own">
+      {/* Every list of resources folds from its own heading, the same way on every page (founder, 28 Nov 2026). */}
+      <details class="record-fold" open>
+        <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
+          <h2 id="own" class="flex scroll-mt-6 flex-wrap items-baseline gap-x-3 text-2xl font-bold">
+            {isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.ownRecords.replace("{where}", name)}
+            {own.length > 0 && (
+              <span class="meta font-normal" {...recordCount}>
+                {counted(own.length, text.record, locale)}
+              </span>
+            )}
+          </h2>
+          <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron ml-auto size-6 shrink-0 text-brand-strong" />
+        </summary>
+        {isCountry && own.length > 0 && <p class="mt-2 max-w-5xl text-muted">{text.wholeCountryLead}</p>}
+        {/*
         Narrowing where the records are. Everything here is already on the page a reader is looking at,
         and until now the only way to see one kind of it was to leave for the search and come back. The
         control offers the kinds this page actually holds, and carries no counts: the figures are at the
         top of the page, and a number on a control is one more thing to read before it can be used.
       */}
-      {narrows && (
-        <div hidden data-filter class="mt-6 flex flex-wrap items-center gap-3">
-          <label for="only" class="font-bold">
-            {text.filterByKind}
-          </label>
-          <select
-            id="only"
-            name="only"
-            class="min-h-(--spacing-target) max-w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-          >
-            <option value="">{text.allKinds}</option>
-            {kinds.map(({ kind, label }) => (
-              <option value={kind}>{label}</option>
-            ))}
-          </select>
-        </div>
-      )}
-      {own.length > 0 ? (
-        <div class="mt-6">
-          <ResourceList items={own} language={language} />
-        </div>
-      ) : (
-        <p class="mt-3">{text.noneOwn.replace("{where}", name)}</p>
-      )}
-      {/*
+        {narrows && (
+          <div hidden data-filter class="mt-6 flex flex-wrap items-center gap-3">
+            <label for="only" class="font-bold">
+              {text.filterByKind}
+            </label>
+            <select
+              id="only"
+              name="only"
+              class="min-h-(--spacing-target) max-w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
+            >
+              <option value="">{text.allKinds}</option>
+              {kinds.map(({ kind, label }) => (
+                <option value={kind}>{label}</option>
+              ))}
+            </select>
+          </div>
+        )}
+        {own.length > 0 ? (
+          <div class="mt-6">
+            <ResourceList items={own} language={language} />
+          </div>
+        ) : (
+          <p class="mt-3">{text.noneOwn.replace("{where}", name)}</p>
+        )}
+        {/*
         What is left when the choice empties this list. It can only ever be read next to records of
         another scope further down the page — the control offers no kind this page does not hold — so it
         says where those are rather than leaving a heading above nothing.
       */}
-      {narrows && own.length > 0 && inheritedCount > 0 && (
-        <p hidden data-none class="mt-6">
-          {text.noneOfThisKind}
-        </p>
-      )}
+        {narrows && own.length > 0 && inheritedCount > 0 && (
+          <p hidden data-none class="mt-6">
+            {text.noneOfThisKind}
+          </p>
+        )}
+      </details>
     </section>
   )}
 
   {inheritedCount > 0 && <InheritedResources {...inheritedProps} />}
 
   {!isCountry && !isEurope && (
-    <section class="border-y border-line bg-card" aria-labelledby="needs">
+    <section class="band border-t border-line" aria-labelledby="needs">
       <div class="wrap py-12">
-        <Needs
-          compact
-          showLead={!isCountry}
-          resources={everythingHere}
-          language={language}
-          hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
-          hrefForKind={(kind) => searchHere([kind])}
-          kinds={false}
-        />
+        <Fold>
+          <h2 slot="heading" id="needs" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
+            <Icon name={ICON.found} aria-hidden="true" class="size-6 shrink-0 text-brand" />
+            {text.whatDoYouNeed}
+          </h2>
+          <Needs
+            heading={false}
+            compact
+            showLead={!isCountry}
+            resources={everythingHere}
+            language={language}
+            hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
+            hrefForKind={(kind) => searchHere([kind])}
+            kinds={false}
+          />
+        </Fold>
       </div>
     </section>
   )}
 
   {isEurope && (
     <>
-      <section class="border-y border-line bg-brand-tint" aria-labelledby="countries">
+      <section class="band border-t border-line" aria-labelledby="countries">
         <div class="wrap py-12">
-          <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
-            {text.euCountriesTitle}
-          </h2>
-          <p class="mt-2">{text.euCountriesLead}</p>
-          <CountryCards language={language} />
+          <Fold>
+            <h2 slot="heading" id="countries" class="scroll-mt-6 text-2xl font-bold">
+              {text.euCountriesTitle}
+            </h2>
+            <p class="mt-2">{text.euCountriesLead}</p>
+            <CountryCards language={language} />
+          </Fold>
         </div>
       </section>
       <AgeComparison language={language} locale={locale} />
@@ -604,7 +628,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
   <StandaloneNews items={territory.data.news} language={language} locale={locale} />
 
-  <section class="wrap border-t border-line py-8" aria-labelledby="coverage">
+  <section class="band wrap border-t border-line py-8" aria-labelledby="coverage">
     <h2 id="coverage" class="flex scroll-mt-6 items-center gap-2 text-lg font-bold">
       <Icon name={ICON.sources} aria-hidden="true" class="size-5 shrink-0 text-brand" />
       {text.sourcesTitle}
