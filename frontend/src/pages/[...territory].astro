@@ -23,7 +23,6 @@ import CountryCards from "../components/CountryCards.astro";
 import RecordLinks from "../components/RecordLinks.astro";
 import TerritoryCard from "../components/TerritoryCard.astro";
 import TerritoryDisclosure from "../components/TerritoryDisclosure.astro";
-import PageIndex from "../components/PageIndex.astro";
 import ResourceList from "../components/ResourceList.astro";
 import StandaloneNews from "../components/StandaloneNews.astro";
 import SearchBox from "../components/SearchBox.astro";
@@ -441,10 +440,6 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     )}
   </PageHeader>
 
-  {/* Two sections are both in sight as the reader scrolls; a strip pointing at them is only one more
-      box to read (founder, 16 Nov 2026, on Europe's page). It earns its place from three on. */}
-  {sections.length >= 3 && <PageIndex sections={sections} language={language} />}
-
   {/*
     One sequence for every page, the same in every country (founder, 28 Nov 2026: the order is the key):
     territories, what you need (a country), own resources, those of wider layers nearest first, what you need
@@ -515,55 +510,61 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
   {showOwn && (
     <section class="wrap py-12" aria-labelledby="own">
-      <h2 id="own" class="flex scroll-mt-6 flex-wrap items-baseline gap-x-3 text-2xl font-bold">
-        {isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.ownRecords.replace("{where}", name)}
-        {own.length > 0 && !isCountry && (
-          <span class="meta font-normal" {...recordCount}>
-            {counted(own.length, text.record, locale)}
-          </span>
-        )}
-      </h2>
-      {isCountry && own.length > 0 && <p class="mt-2 max-w-5xl text-muted">{text.wholeCountryLead}</p>}
-      {/*
+      {/* Every list of resources folds from its own heading, the same way on every page (founder, 28 Nov 2026). */}
+      <details class="record-fold" open>
+        <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
+          <h2 id="own" class="flex scroll-mt-6 flex-wrap items-baseline gap-x-3 text-2xl font-bold">
+            {isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.ownRecords.replace("{where}", name)}
+            {own.length > 0 && (
+              <span class="meta font-normal" {...recordCount}>
+                {counted(own.length, text.record, locale)}
+              </span>
+            )}
+          </h2>
+          <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron ml-auto size-6 shrink-0 text-brand-strong" />
+        </summary>
+        {isCountry && own.length > 0 && <p class="mt-2 max-w-5xl text-muted">{text.wholeCountryLead}</p>}
+        {/*
         Narrowing where the records are. Everything here is already on the page a reader is looking at,
         and until now the only way to see one kind of it was to leave for the search and come back. The
         control offers the kinds this page actually holds, and carries no counts: the figures are at the
         top of the page, and a number on a control is one more thing to read before it can be used.
       */}
-      {narrows && (
-        <div hidden data-filter class="mt-6 flex flex-wrap items-center gap-3">
-          <label for="only" class="font-bold">
-            {text.filterByKind}
-          </label>
-          <select
-            id="only"
-            name="only"
-            class="min-h-(--spacing-target) max-w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
-          >
-            <option value="">{text.allKinds}</option>
-            {kinds.map(({ kind, label }) => (
-              <option value={kind}>{label}</option>
-            ))}
-          </select>
-        </div>
-      )}
-      {own.length > 0 ? (
-        <div class="mt-6">
-          <ResourceList items={own} language={language} />
-        </div>
-      ) : (
-        <p class="mt-3">{text.noneOwn.replace("{where}", name)}</p>
-      )}
-      {/*
+        {narrows && (
+          <div hidden data-filter class="mt-6 flex flex-wrap items-center gap-3">
+            <label for="only" class="font-bold">
+              {text.filterByKind}
+            </label>
+            <select
+              id="only"
+              name="only"
+              class="min-h-(--spacing-target) max-w-full rounded-lg border-2 border-line-strong bg-card px-3 py-2 focus:border-brand"
+            >
+              <option value="">{text.allKinds}</option>
+              {kinds.map(({ kind, label }) => (
+                <option value={kind}>{label}</option>
+              ))}
+            </select>
+          </div>
+        )}
+        {own.length > 0 ? (
+          <div class="mt-6">
+            <ResourceList items={own} language={language} />
+          </div>
+        ) : (
+          <p class="mt-3">{text.noneOwn.replace("{where}", name)}</p>
+        )}
+        {/*
         What is left when the choice empties this list. It can only ever be read next to records of
         another scope further down the page — the control offers no kind this page does not hold — so it
         says where those are rather than leaving a heading above nothing.
       */}
-      {narrows && own.length > 0 && inheritedCount > 0 && (
-        <p hidden data-none class="mt-6">
-          {text.noneOfThisKind}
-        </p>
-      )}
+        {narrows && own.length > 0 && inheritedCount > 0 && (
+          <p hidden data-none class="mt-6">
+            {text.noneOfThisKind}
+          </p>
+        )}
+      </details>
     </section>
   )}
 
@@ -639,6 +640,12 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 </SiteLayout>
 
 <style>
+  .record-fold > summary::-webkit-details-marker {
+    display: none;
+  }
+  .record-fold[open] > summary :global(.group-chevron) {
+    transform: rotate(180deg);
+  }
   /*
     Territory cards in the same row share its height, which the grid gives them by stretching each
     item to its row. Rows are sized one by one: a shared 1fr height would give every row the height
