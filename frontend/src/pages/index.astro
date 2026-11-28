@@ -26,7 +26,7 @@ import {
 } from "../lib/corpus.ts";
 import { GOALS } from "../lib/goals.ts";
 import { ICON } from "../lib/icons.ts";
-import { numberIn, pluralIndex } from "../../public/locale.js";
+import { formIndex, numberIn } from "../../public/locale.js";
 import { words } from "../lib/words.ts";
 import { searchUrl } from "../../public/search-scope.js";
 
@@ -51,7 +51,7 @@ const everything = [europe, ...countryTerritories(), ...hubTerritories(), ...reg
 const figure = (icon: string, value: number, forms: readonly string[]) => ({
   icon,
   value: numberIn(value, language),
-  label: forms[pluralIndex(value, language)],
+  label: forms[formIndex(value, language, forms.length)],
 });
 const figures = [
   figure(ICON.resources, stats.records, text.statRecords),

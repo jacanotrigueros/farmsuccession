@@ -34,6 +34,18 @@ export const goalOf = (kind: Resource["kind"]): GoalId => {
   return goal;
 };
 
+/**
+ * Kinds a reader applies to (a grant, a course, a plot on offer): only there can an active record lack an open
+ * application period. Advice, law, tax information, networks and portals have no call, so the note that an
+ * active badge is not an open call would only confuse.
+ */
+const APPLIED_FOR: ReadonlySet<Resource["kind"]> = new Set(["FINANCIAL_SUPPORT", "TRAINING", "LAND_BANK"]);
+export const isAppliedFor = (resource: Resource): boolean => APPLIED_FOR.has(resource.kind);
+
+/** Whether the access link downloads a PDF: its address says so, or the record does for a file service. */
+export const isPdf = (resource: Resource): boolean =>
+  resource.accessFormat === "PDF" || new URL(resource.accessUrl).pathname.toLowerCase().endsWith(".pdf");
+
 /** Only a documented first-establishment grant gets the prominent territory link. */
 export const isFirstEstablishmentAid = (resource: Resource): boolean =>
   resource.kind === "FINANCIAL_SUPPORT" &&

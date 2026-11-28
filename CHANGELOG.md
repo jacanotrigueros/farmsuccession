@@ -10,6 +10,20 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.7.1 — 2026-11-28
+
+Corrections, so the last digit moves.
+
+- Polish and Croatian count in three forms: «15 zasobów», not «15 zasoby», also after a filter narrows a list.
+  Sentences that named a territory in the wrong grammatical case now give its name after a colon.
+- The closed calls of the Brodsko-posavska and Zagrebačka aids show their dates under the title; the Serres land
+  auctions give their day and hours in the offer; the Hungarian young-farmer aid quotes the closure notice of
+  the official portal. Romania's and Bacău's search titles name what their pages hold.
+- The note that an active record need not have an open call now appears only where somebody applies for
+  something, not on tax or legal information. Links that download a PDF say so even when their address does
+  not end in .pdf.
+- A country's search, with nothing typed, opens on that country's records; the European ones follow.
+
 ## 2.7.0 — 2026-11-28
 
 A second search over the five newest countries adds records, so the middle digit moves.
