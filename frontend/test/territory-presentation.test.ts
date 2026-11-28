@@ -79,7 +79,7 @@ test("inherited-only pages put applicable resources before discovery controls an
     if (nearestFirst.length > 0) {
       const inherited = html.indexOf('id="inherited"');
       assert.ok(inherited >= 0 && inherited < html.indexOf('id="needs"'), `${route}: the usable records precede topic shortcuts`);
-      const layerNames = [...html.matchAll(/<h3\b[^>]*data-layer[^>]*>\s*([^<]+)/gu)].map(([, name]) => name!.trim());
+      const layerNames = [...html.matchAll(/<h[23]\b[^>]*data-layer[^>]*>\s*([^<]+)/gu)].map(([, name]) => name!.trim());
       assert.deepEqual(
         layerNames,
         nearestFirst.map(({ layer, data }) => (layer.level === "EU" ? words(language).euName : data.officialName)),
@@ -383,13 +383,12 @@ test("the shared header follows its visible order at both breakpoints", () => {
 });
 
 test("each on-page index link keeps a full tap target even if its label is short", () => {
-  const html = htmlAt("at");
+  // Only records carry the strip now (founder, 28 Nov 2026); an Austrian record exercises its short links.
+  const austria = snapshots.find(({ data }) => "country" in data && data.country === "AT" && !("region" in data))!;
+  const html = htmlAt(resourceUrl(austria.data.resources[0]!.id, "AT"));
   const index = /<nav\b[^>]*class="border-y border-line bg-page"[^>]*>([\s\S]*?)<\/nav>/u.exec(html)?.[1] ?? "";
   const links = [...index.matchAll(/<a href="(#[^"]+)" class="([^"]+)"/gu)];
-  assert.ok(
-    links.some(([, href]) => href === "#territories"),
-    "Austria must exercise the short territory index link",
-  );
+  assert.ok(links.length > 0, "an Austrian record must exercise the index links");
   for (const [, href, classes] of links) {
     assert.ok(
       classes?.includes("min-h-(--spacing-target)") && classes.includes("min-w-(--spacing-target)"),
@@ -579,4 +578,50 @@ test("several calls share one availability heading and each card leads with its 
     }
   }
   assert.ok(checked > 0, "at least one record shows several calls");
+});
+
+test("country, territory and EU pages fold every list of resources from its heading and carry no index strip", () => {
+  let checked = 0;
+  for (const { layer } of snapshots) {
+    const route =
+      layer.level === "EU"
+        ? "eu"
+        : layer.level === "COUNTRY"
+          ? layer.country.toLowerCase()
+          : `/${layer.country.toLowerCase()}/${regionSlug(layer.country)}/${layer.level === "REGION" ? layer.region : layer.hub}/`;
+    const html = htmlAt(route);
+    assert.doesNotMatch(
+      html,
+      /<nav\b[^>]*class="border-y border-line bg-page"/u,
+      `${route}: the «On this page» strip is gone (founder, 28 Nov 2026)`,
+    );
+    for (const id of ["own", "inherited"]) {
+      const at = html.indexOf(`aria-labelledby="${id}"`);
+      if (at < 0) continue;
+      const section = html.slice(at, html.indexOf("</section>", at));
+      assert.match(
+        section,
+        /<details\b[^>]*class="record-fold[^"]*"[^>]*\bopen/u,
+        `${route}: #${id} folds from its heading like every other list`,
+      );
+      assert.match(section, /<summary\b[\s\S]*?<h[23]\b/u, `${route}: #${id}'s heading is the fold's own control`);
+    }
+    checked++;
+  }
+  assert.ok(checked > 100, "every published page is checked");
+});
+
+test("a country's EU list says what and how many once, not again in a second heading", () => {
+  for (const { layer } of snapshots) {
+    if (layer.level !== "COUNTRY") continue;
+    const html = htmlAt(layer.country.toLowerCase());
+    const at = html.indexOf('aria-labelledby="inherited"');
+    if (at < 0) continue;
+    const section = html.slice(at, html.indexOf("</section>", at));
+    assert.equal(
+      (section.match(/<h2\b/gu) ?? []).length + (section.match(/<h3\b[^>]*data-layer/gu) ?? []).length,
+      1,
+      `${layer.country}: one heading over the EU list (founder: «Unión Europea · 8 recursos» repeated it)`,
+    );
+  }
 });

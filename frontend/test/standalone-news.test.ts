@@ -61,7 +61,7 @@ test("standalone news remains news and reaches its own territory with its full e
     }
     const ids = [...html.matchAll(/\bid="([^"]+)"/gu)].map((match) => match[1]);
     assert.equal(new Set(ids).size, ids.length, `${route}: news evidence must not reuse another article's source anchors`);
-    assert.ok(html.includes('href="#news"'), `${route}: the in-page index must lead to the standalone news it now publishes`);
+    assert.ok(html.includes('id="news"'), `${route}: the standalone news it publishes has a section of its own`);
   }
   assert.ok(checked > 0, "no standalone news checked: this regression would prove nothing");
 });
