@@ -1292,7 +1292,7 @@ const DE = {
   pageLabel: "Seite {n}",
   pageOf: "Seite {page} von {total}",
   showResults: "{count} anzeigen",
-  shownRange: "{from}–{to} von {count}",
+  shownRange: "Treffer {from}–{to} von {total}",
   widenToEurope: "Suche auf Europa ausweiten",
 } as const satisfies Words;
 
@@ -4354,7 +4354,7 @@ const PL = {
   pageLabel: "Strona {n}",
   pageOf: "Strona {page} z {total}",
   showResults: "Pokaż {count}",
-  shownRange: "{from}–{to} z {count}",
+  shownRange: "{from}–{to} z {total} wyników",
   widenToEurope: "Rozszerz wyszukiwanie na całą Europę",
 } as const satisfies Words;
 
@@ -5219,7 +5219,7 @@ const HR = {
   pageLabel: "Stranica {n}",
   pageOf: "Stranica {page} od {total}",
   showResults: "Prikaži {count}",
-  shownRange: "{from}–{to} od {count}",
+  shownRange: "Rezultati {from}–{to} od {total}",
   widenToEurope: "Proširi pretragu na Europu",
 } as const satisfies Words;
 
