@@ -503,12 +503,6 @@ const browseHere = searchUrl("/", {
             <StatusTag status={resource.status} language={language} quiet={(resource.calls?.length ?? 0) > 0} />
           </span>
         </p>
-        {/* A record one applies to, without a documented call, still needs to explain what the active badge means. */}
-        {resource.status === "ACTIVE" && periods.length === 0 && isAppliedFor(resource) && (
-          <p class="meta mt-2 max-w-3xl" data-pagefind-ignore>
-            {text.statusExplained}
-          </p>
-        )}
         <h1 class="page-title mt-4 text-3xl sm:text-4xl" data-pagefind-meta="title">
           {resource.name}
         </h1>
@@ -526,6 +520,13 @@ const browseHere = searchUrl("/", {
             <span>{resource.operator}</span>
           </span>
         </p>
+        {/* A record one applies to, without a documented call, still needs to explain what the active badge
+            means: under the title, where the availability would otherwise be (Sol's review of 72 records). */}
+        {resource.status === "ACTIVE" && periods.length === 0 && isAppliedFor(resource) && (
+          <p class="meta mt-4 max-w-3xl" data-pagefind-ignore>
+            {text.statusExplained}
+          </p>
+        )}
         {/* Whether a reader can apply is the question they arrive with, so it is answered under the title,
             before what the resource offers (decisions/042). */}
         <ApplyNow resource={resource} language={language} locale={locale} />
@@ -536,21 +537,9 @@ const browseHere = searchUrl("/", {
           {resource.whatItOffers}
         </p>
         <span hidden data-pagefind-meta={`area:${resource.scope.area ?? ""}`}></span>
-        <p class="mt-8 flex flex-wrap gap-3" data-pagefind-ignore>
-          <a href={resource.accessUrl} rel="noopener" class="btn btn-primary">
-            <Icon name={ICON.external} aria-hidden="true" class="size-5 shrink-0" />
-            {text.officialPage}
-            {isPdf(resource) && " (PDF)"}
-            <span class="sr-only"> ({text.externalSite})</span>
-          </a>
-          <a href="#evidence" class="btn btn-quiet">
-            <Icon name={ICON.evidence} aria-hidden="true" class="size-5 shrink-0" />
-            {counted(resource.sources.length, text.source, locale)} · {counted(quotes, text.quote, locale)}
-          </a>
-        </p>
         {/* Without steps of its own the section only repeated the button at the top of the page. */}
         {accessParts && (
-          <section class="mt-5" aria-labelledby="access">
+          <section class="mt-8" aria-labelledby="access">
             <h2 id="access" class="scroll-mt-6 text-lg font-bold">
               {text.accessTitle}
             </h2>
@@ -570,6 +559,19 @@ const browseHere = searchUrl("/", {
             </p>
           </section>
         )}
+        {/* The way out to the official site follows the steps that say what to check there first. */}
+        <p class:list={["flex flex-wrap gap-3", accessParts ? "mt-5" : "mt-8"]} data-pagefind-ignore>
+          <a href={resource.accessUrl} rel="noopener" class="btn btn-primary">
+            <Icon name={ICON.external} aria-hidden="true" class="size-5 shrink-0" />
+            {text.officialPage}
+            {isPdf(resource) && " (PDF)"}
+            <span class="sr-only"> ({text.externalSite})</span>
+          </a>
+          <a href="#evidence" class="btn btn-quiet">
+            <Icon name={ICON.evidence} aria-hidden="true" class="size-5 shrink-0" />
+            {counted(resource.sources.length, text.source, locale)} · {counted(quotes, text.quote, locale)}
+          </a>
+        </p>
       </div>
     </header>
 

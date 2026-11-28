@@ -189,15 +189,18 @@ const metaDescription = isEurope
     : (territory.data.metaDescription ?? snippet(territory.data.summary, codesText ? `${name}${codesText} · ` : ""));
 /** A country inherits only from the European layer, so its heading can name it instead of "other scopes". */
 const inheritedForms = isCountry ? text.euAppliesIn : text.alsoApplies;
-const territoriesTitle = showsInstall ? text.installTerritoriesTitle : text.territoriesTitle;
+// One name for the selector in every country, whatever its aid looks like (Sol's review of coherence).
+const territoriesTitle = text.installTerritoriesTitle;
 
 /** The strip names the sections it leads to. Coverage closes the page and is not one of its answers. */
+/** The strip names the sections in the order the page shows them (see the sequence in the body). */
 const sections = [
-  ...(inheritedFirst ? inheritedSection : []),
-  isEurope ? { id: "countries", label: text.euCountriesTitle } : { id: "needs", label: text.navNeeds },
   ...(children.length > 0 || groupings.length > 0 ? [{ id: "territories", label: territoriesTitle }] : []),
+  ...(isCountry ? [{ id: "needs", label: text.navNeeds }] : []),
   ...(showOwn ? [{ id: "own", label: isCountry ? text.wholeCountryTitle : isEurope ? text.euFrameworkTitle : text.navOwn }] : []),
-  ...(!inheritedFirst ? inheritedSection : []),
+  ...inheritedSection,
+  ...(!isCountry && !isEurope ? [{ id: "needs", label: text.navNeeds }] : []),
+  ...(isEurope ? [{ id: "countries", label: text.euCountriesTitle }] : []),
   ...(context ? [{ id: "country-context", label: text.countryContext.title }] : []),
   ...(territory.data.news.some((item) => !item.resourceIds?.length) ? [{ id: "news", label: text.newsTitle }] : []),
 ];
@@ -320,6 +323,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
   description={metaDescription}
   language={language}
   current={pageOf(territory.layer)}
+  search={!isCountry && !isEurope ? searchPath("/", country || undefined) + pinnedQuery : undefined}
   noindex={!indexed}
 >
   <PageHeader
@@ -342,24 +346,26 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     lead={territory.data.summary}
     flag={territory.layer.level === "COUNTRY" ? flagOf(country) : territory.layer.level === "EU" ? flagOf("EU") : undefined}
   >
-    {showsInstall && (
-      <a href="#territories" class="btn btn-primary mt-4">
-        {text.installShortcut}
-      </a>
-    )}
-    {showsNationalInstall && (
-      <a href="#own" class="btn btn-primary mt-4">
-        {text.installNationalShortcut}
-      </a>
-    )}
     {
-      // Choosing a territory is one of the directory's main ways in; when the header leads to national aid
-      // instead, a reader on a phone would otherwise scroll past the figures and topics to reach the list
-      // (Sol's review of production 2.6.1, 28 Nov 2026).
-      isCountry && !showsInstall && children.length > 0 && (
-        <a href="#territories" class="btn btn-quiet mt-4">
-          {text.chooseTerritory}
-        </a>
+      // The header's actions share one row that wraps, with a fixed gap: two buttons side by side read as one
+      // when they touch (founder, 28 Nov 2026, on /gr/ and /at/).
+      // Every country shows the same actions in the same order: choosing a territory, then its national
+      // first-establishment aid where it has one. The search below is the page's one primary action; a green
+      // button here led to the territories in six countries and to national aid in six others (Sol's review of
+      // coherence, 28 Nov 2026).
+      isCountry && (children.length > 0 || showsNationalInstall) && (
+        <div class="header-actions mt-4 flex flex-wrap items-center gap-3">
+          {children.length > 0 && (
+            <a href="#territories" class="btn btn-quiet">
+              {text.chooseTerritory}
+            </a>
+          )}
+          {showsNationalInstall && (
+            <a href="#own" class="btn btn-quiet">
+              {text.installNationalShortcut}
+            </a>
+          )}
+        </div>
       )
     }
     <div class="mt-8">
@@ -384,7 +390,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
           >
             {text.browseAll.replace("{where}", name)}
           </a>
-          {inheritedFirst && (
+          {!isCountry && (
             <a href="#needs" class="inline-flex min-h-(--spacing-target) items-center font-bold underline">
               {text.navNeeds}
             </a>
@@ -439,39 +445,15 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
       box to read (founder, 16 Nov 2026, on Europe's page). It earns its place from three on. */}
   {sections.length >= 3 && <PageIndex sections={sections} language={language} />}
 
-  {inheritedFirst && inheritedCount > 0 && <InheritedResources {...inheritedProps} />}
-
-  {isEurope ? (
-    <>
-      <section class="border-y border-line bg-brand-tint" aria-labelledby="countries">
-        <div class="wrap py-12">
-          <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
-            {text.euCountriesTitle}
-          </h2>
-          <p class="mt-2">{text.euCountriesLead}</p>
-          <CountryCards language={language} />
-        </div>
-      </section>
-      <AgeComparison language={language} locale={locale} />
-    </>
-  ) : (
-    <section class="border-y border-line bg-card" aria-labelledby="needs">
-      <div class="wrap py-12">
-        <Needs
-          compact
-          showLead={!isCountry}
-          resources={everythingHere}
-          language={language}
-          hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
-          hrefForKind={(kind) => searchHere([kind])}
-          kinds={false}
-        />
-      </div>
-    </section>
-  )}
-
+  {/*
+    One sequence for every page, the same in every country (founder, 28 Nov 2026: the order is the key):
+    territories, what you need (a country), own resources, those of wider layers nearest first, what you need
+    (a territory), then Europe's countries and age comparison. A section with nothing to show is left out and
+    the others keep their place, so a country reads territories → needs → national → EU → figures, a
+    territory reads own → wider layers → needs, and Europe reads its resources → countries → comparison.
+  */}
   {(children.length > 0 || groupings.length > 0) && (
-    <section class:list={["wrap pt-12", isCountry && own.length === 0 && "pb-12"]} aria-labelledby="territories">
+    <section class:list={["wrap pt-12", "pb-12"]} aria-labelledby="territories">
       <h2 id="territories" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
         <Icon name={ICON.territory} aria-hidden="true" class="size-6 shrink-0 text-brand" />
         {territoriesTitle}
@@ -511,6 +493,22 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
             </section>
           );
         })}
+      </div>
+    </section>
+  )}
+
+  {isCountry && (
+    <section class="border-y border-line bg-card" aria-labelledby="needs">
+      <div class="wrap py-12">
+        <Needs
+          compact
+          showLead={!isCountry}
+          resources={everythingHere}
+          language={language}
+          hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
+          hrefForKind={(kind) => searchHere([kind])}
+          kinds={false}
+        />
       </div>
     </section>
   )}
@@ -569,7 +567,38 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     </section>
   )}
 
-  {!inheritedFirst && inheritedCount > 0 && <InheritedResources {...inheritedProps} />}
+  {inheritedCount > 0 && <InheritedResources {...inheritedProps} />}
+
+  {!isCountry && !isEurope && (
+    <section class="border-y border-line bg-card" aria-labelledby="needs">
+      <div class="wrap py-12">
+        <Needs
+          compact
+          showLead={!isCountry}
+          resources={everythingHere}
+          language={language}
+          hrefFor={(goal) => searchHere(GOALS.find(({ id }) => id === goal)?.kinds ?? [])}
+          hrefForKind={(kind) => searchHere([kind])}
+          kinds={false}
+        />
+      </div>
+    </section>
+  )}
+
+  {isEurope && (
+    <>
+      <section class="border-y border-line bg-brand-tint" aria-labelledby="countries">
+        <div class="wrap py-12">
+          <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
+            {text.euCountriesTitle}
+          </h2>
+          <p class="mt-2">{text.euCountriesLead}</p>
+          <CountryCards language={language} />
+        </div>
+      </section>
+      <AgeComparison language={language} locale={locale} />
+    </>
+  )}
 
   {context && <CountryContext context={context} language={language} locale={locale} name={name} />}
 
