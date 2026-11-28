@@ -10,6 +10,23 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.7.0 — 2026-11-28
+
+A second search over the five newest countries adds records, so the middle digit moves.
+
+- 17 records from a second, independent search of Greece, Poland, Romania, Hungary and Croatia: the KOWR land
+  tenders of nine Polish voivodeships that had no record of their own, land auctions in Serres and the public
+  agricultural vocational schools in Greece, mountain-area advice and the agriculture directorate of Bacău in
+  Romania, the tax exemption on a farm transfer in Hungary, and in Croatia the inheritance and gift tax and
+  county aids in Brodsko-posavska and Zagrebačka. Eleven territory pages get their own title and description.
+- The young-farmer aids of Greece, Poland, Croatia and Hungary, and five more aids in Croatia and Poland, show
+  their closed calls, with dates, under the
+  title and on the search card, instead of in a note further down. Romania's DR-30 says first to check whether
+  a session is open, and that no session with dates is published.
+- Country pages whose header leads to national aid also offer a direct way to choose a territory, so a reader
+  on a phone no longer scrolls past the figures and topics to reach the list.
+- The directory now holds 731 records.
+
 ## 2.6.1 — 2026-11-27
 
 A correction, so the last digit moves.
