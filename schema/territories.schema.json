@@ -155,6 +155,12 @@
           "minLength": 2,
           "maxLength": 300
         },
+        "membersTitle": {
+          "description": "The heading a hub's own page gives the list of its members, in the jurisdiction's language, where the national heading would name the wrong level (Canarias lists islands, not autonomous communities).",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
         "members": {
           "description": "Slugs of the regions in this hub. A single-member hub repeats that region's slug as its own.",
           "type": "array",

@@ -180,3 +180,14 @@ export function europeanSearch({ q = "", selected = {} } = {}) {
   const thematic = Object.fromEntries(Object.entries(selected).filter(([facet]) => facet !== "country" && facet !== "territory"));
   return searchUrl("/", { q, selected: thematic });
 }
+
+/**
+ * The grouping a choice of territories amounts to, when it is exactly the regions of one (Canarias and its
+ * seven islands): a search started from a grouping names it rather than the country (Sol, 28 Nov 2026).
+ * @param {string[]} places @param {{ name: string, regions: string[] }[]} [hubs] @returns {string | undefined}
+ */
+export function scopeName(places, hubs = []) {
+  if (places.length < 2) return undefined;
+  const chosen = new Set(places);
+  return hubs.find(({ regions }) => regions.length === chosen.size && regions.every((region) => chosen.has(region)))?.name;
+}

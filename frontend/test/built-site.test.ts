@@ -54,6 +54,7 @@ test("a page ships JavaScript only for what it actually carries", () => {
     if (html.includes("data-filter")) allowed.add("/filter.js");
     if (html.includes("data-report")) allowed.add("/report.js");
     if (html.includes("data-sortable")) allowed.add("/sort.js");
+    if (html.includes('class="record-fold')) allowed.add("/fold.js");
 
     for (const [, src] of html.matchAll(/<script[^>]*\ssrc="([^"]+)"/giu)) {
       assert.ok(

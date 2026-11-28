@@ -17,7 +17,7 @@ const { sections, language } = Astro.props;
 const text = words(language);
 ---
 
-<nav aria-label={text.onThisPage} class="border-y border-line bg-page" data-pagefind-ignore>
+<nav aria-label={text.onThisPage} class="page-index border-y border-line bg-page" data-pagefind-ignore>
   <div class="wrap flex flex-wrap items-center gap-x-5 py-2">
     {sections.map(({ id, label }) => (
       <a

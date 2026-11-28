@@ -238,3 +238,11 @@ main > section.band:nth-last-of-type(even) {
   box-shadow: 0 0 0 100vmax var(--color-card);
   clip-path: inset(0 -100vmax);
 }
+
+/*
+  The strip of links under a page's title never takes the same background as the band right under it, or
+  the two read as one block (Sol, 28 Nov 2026): over a tinted first band it is white.
+*/
+main > nav.page-index:has(+ section.band:nth-last-of-type(odd)) {
+  background: var(--color-card);
+}
