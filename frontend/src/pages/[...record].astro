@@ -577,7 +577,7 @@ const browseHere = searchUrl("/", {
 
     <PageIndex sections={sections} language={language} />
 
-    <div class:list={["wrap grid gap-10 py-12", hasReadingSteps && "lg:grid-cols-[minmax(0,1fr)_20rem]"]}>
+    <div class:list={["band-card wrap grid gap-10 py-12", hasReadingSteps && "lg:grid-cols-[minmax(0,1fr)_20rem]"]}>
       {hasReadingSteps && (
         <div class="grid content-start gap-10">
           {resource.whoCanUseIt && (
@@ -816,7 +816,7 @@ const browseHere = searchUrl("/", {
       page, so the two can never count differently.
     */}
     {isEuropean && (
-      <section class="border-t border-line bg-brand-tint" aria-labelledby="countries" data-pagefind-ignore>
+      <section class="border-t border-line" aria-labelledby="countries" data-pagefind-ignore>
         <div class="wrap py-12">
           <h2 id="countries" class="scroll-mt-6 text-2xl font-bold">
             {text.euCountriesTitle}
@@ -827,7 +827,7 @@ const browseHere = searchUrl("/", {
       </section>
     )}
 
-    <section class="border-t border-line bg-card" aria-labelledby="evidence">
+    <section class="border-t border-line" aria-labelledby="evidence">
       <div class="wrap py-12">
         <h2 id="evidence" class="flex scroll-mt-6 items-center gap-2 text-2xl font-bold">
           <Icon name={ICON.evidence} aria-hidden="true" class="size-7 shrink-0 text-brand" />

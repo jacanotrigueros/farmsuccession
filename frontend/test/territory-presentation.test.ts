@@ -643,3 +643,9 @@ test("the sections of a page alternate background in one regular rhythm", () => 
     }
   }
 });
+
+test("a record alternates like every other page: white body, tinted sources above the white footer", () => {
+  const html = htmlAt(resourceUrl("at-niederlassung-junglandwirte", "AT"));
+  assert.match(html, /<div class="band-card wrap grid/u, "the body with «who can use it» sits on white (founder, 28 Nov 2026)");
+  assert.match(html, /<section class="border-t border-line"[^>]*aria-labelledby="evidence"/u, "the sources sit on the page tint");
+});
