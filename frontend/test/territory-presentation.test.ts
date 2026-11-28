@@ -478,3 +478,64 @@ test("header actions share one wrapping row with a gap, so two buttons never tou
   }
   assert.ok(pairs > 0, "at least one country shows two header actions; the founder saw them touch on /gr/ and /at/");
 });
+
+const sectionOrder = (html: string): string[] =>
+  [...html.matchAll(/<(?:section|div)\b[^>]*aria-labelledby="(territories|needs|own|inherited|countries)"/gu)].map((match) => match[1]!);
+
+test("every kind of page shows its sections in one order, the same in every country", () => {
+  const expected: Record<string, string[]> = {
+    COUNTRY: ["territories", "needs", "own", "inherited"],
+    REGION: ["territories", "own", "inherited", "needs"],
+    HUB: ["territories", "own", "inherited", "needs"],
+    EU: ["own", "countries"],
+  };
+  let checked = 0;
+  for (const { layer } of snapshots) {
+    const route =
+      layer.level === "EU"
+        ? "eu"
+        : layer.level === "COUNTRY"
+          ? layer.country.toLowerCase()
+          : `/${layer.country.toLowerCase()}/${regionSlug(layer.country)}/${layer.level === "REGION" ? layer.region : layer.hub}/`;
+    const seen = sectionOrder(htmlAt(route));
+    const order = expected[layer.level]!.filter((id) => seen.includes(id));
+    assert.deepEqual(seen, order, `${route}: sections out of the shared order (founder, 28 Nov 2026: the order is the key)`);
+    checked++;
+  }
+  assert.ok(checked > 100, "the order is checked on every published page, not on a sample");
+});
+
+test("a country header offers the same quiet actions in the same order, and the search is its one primary", () => {
+  for (const { layer } of snapshots) {
+    if (layer.level !== "COUNTRY") continue;
+    const html = htmlAt(layer.country.toLowerCase());
+    const header = html.slice(0, html.indexOf('id="here"'));
+    assert.doesNotMatch(
+      header,
+      /<a href="#(?:territories|own)" class="btn btn-primary/u,
+      `${layer.country}: the header's links are secondary; the search is primary`,
+    );
+    const order = [...header.matchAll(/<a href="#(territories|own)" class="btn btn-quiet/gu)].map((match) => match[1]);
+    assert.deepEqual(
+      order,
+      order.toSorted((a, b) => (a === "territories" ? -1 : b === "territories" ? 1 : 0)),
+      `${layer.country}: choosing a territory comes first`,
+    );
+  }
+});
+
+test("a sentence that counts records never repeats the noun the count brings", () => {
+  for (const language of ["en", "es", "de", "fr", "it", "pt", "nl", "ro", "el", "pl", "hu", "hr"]) {
+    const text = words(language);
+    for (const template of [...text.alsoApplies, ...text.euAppliesIn]) {
+      for (const noun of text.record) {
+        const said = template.replace("{count}", `2 ${noun}`);
+        assert.doesNotMatch(
+          said,
+          new RegExp(`${noun} ${noun}\\b`, "u"),
+          `${language}: «${said}» (Sol's review of coherence: «24 vermeldingen vermeldingen»)`,
+        );
+      }
+    }
+  }
+});

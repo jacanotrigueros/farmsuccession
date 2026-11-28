@@ -20,6 +20,8 @@ type Props = {
   language: string;
   /** The page a reader is on, so the header can say so without a page having to tell it twice. */
   current?: string;
+  /** Where the header's search leads when the page narrows it further than its country (a territory). */
+  search?: string;
   /**
    * A page that is true and useful but that a search engine should not carry a copy of: a region whose
    * list is its country's list, a search page, which is not a document of its own. It stays reachable and
@@ -38,7 +40,7 @@ type Props = {
   documentKind?: "about" | "history";
 };
 
-const { title, description, language, current, noindex = false, canonical: hasAddress = true, documentKind } = Astro.props;
+const { title, description, language, current, search, noindex = false, canonical: hasAddress = true, documentKind } = Astro.props;
 const here = new URL(Astro.url.pathname, Astro.site).href;
 const socialCard = new URL("/social-card.png", Astro.site).href;
 const europe = documentKind ? euTerritory() : undefined;
@@ -144,7 +146,7 @@ const webPage =
     >
       {words(language).skip}
     </a>
-    <Header current={current} language={language} />
+    <Header current={current} language={language} search={search} />
     <main id="content" class="flex-1">
       <slot />
     </main>
