@@ -1,0 +1,20 @@
+---
+/**
+ * One section that folds from its own heading, open by default: the same control on every section of every
+ * page (founder, 28 Nov 2026). The heading goes in the "heading" slot and stays the section's real heading;
+ * the chevron says it folds. A native <details>, so it works without JavaScript and from the keyboard.
+ */
+import { Icon } from "astro-icon/components";
+import { ICON } from "../lib/icons.ts";
+
+type Props = { class?: string; group?: boolean };
+const { class: extra, group = false } = Astro.props;
+---
+
+<details class:list={["record-fold", extra]} open data-record-group={group ? "" : undefined}>
+  <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
+    <slot name="heading" />
+    <Icon name={ICON.chevronDown} aria-hidden="true" class="group-chevron ml-auto size-6 shrink-0 text-brand-strong" />
+  </summary>
+  <slot />
+</details>

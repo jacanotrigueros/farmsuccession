@@ -15,9 +15,11 @@ type Props = {
   showLead?: boolean;
   /** The row of record kinds that answer no situation; a territory page leaves it to its search. */
   kinds?: boolean;
+  /** False when the page draws the heading itself, as the fold over the section. */
+  heading?: boolean;
   hrefForKind: (kind: Resource["kind"]) => string;
 };
-const { resources, language, hrefFor, hrefForKind, compact = false, showLead = true, kinds = true } = Astro.props;
+const { resources, language, hrefFor, hrefForKind, compact = false, showLead = true, kinds = true, heading = true } = Astro.props;
 const text = words(language);
 
 const goals = GOALS.filter((goal) => goal.id !== "context").map((goal) => ({
@@ -50,10 +52,12 @@ const others = [
   .toSorted((a, b) => last(a.kind) - last(b.kind) || b.count - a.count);
 ---
 
-<h2 id="needs" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
-  <Icon name={ICON.found} aria-hidden="true" class="size-6 shrink-0 text-brand" />
-  {text.whatDoYouNeed}
-</h2>
+{heading && (
+  <h2 id="needs" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
+    <Icon name={ICON.found} aria-hidden="true" class="size-6 shrink-0 text-brand" />
+    {text.whatDoYouNeed}
+  </h2>
+)}
 {showLead && <p class="mt-2 text-muted">{text.needsLead}</p>}
 
 <ul class="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
