@@ -5219,7 +5219,7 @@ const HR = {
   pageLabel: "Stranica {n}",
   pageOf: "Stranica {page} od {total}",
   showResults: "Prikaži {count}",
-  shownRange: "{from}–{to} od {count}",
+  shownRange: "Rezultati {from}–{to} od {total}",
   widenToEurope: "Proširi pretragu na Europu",
 } as const satisfies Words;
 

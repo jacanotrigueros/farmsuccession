@@ -193,4 +193,5 @@ test("the result range never puts a counted noun after a preposition that change
     "German «von 26 Treffer» needs the dative; name the noun before the range instead (Sol, review of 2.7.1)",
   );
   assert.equal(range("pl"), "1–20 z 26 wyników", "Polish «z» takes the genitive plural for every total above one page");
+  assert.equal(range("hr"), "Rezultati 1–20 od 26", "Croatian «od» takes the genitive: «od 21 rezultat» would be wrong");
 });
