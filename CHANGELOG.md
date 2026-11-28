@@ -10,6 +10,17 @@ built from this data reached readers at farmsuccession.eu on 14 October 2026,
 and what it serves is this edition; the workflow that publishes it was written
 after the version was closed and is not a part of it.
 
+## 2.7.4 — 2026-11-28
+
+A correction to the reading of 2.7.3, so the last digit moves.
+
+- Every section of a country, territory or Europe page folds from its own heading, the same way the EU list
+  already did.
+- A country's EU list says what it holds and how many once, without a second heading repeating it.
+- The strip of links under a page's title keeps its links without the «On this page» label.
+- Sections alternate background, counted from the last one so every page ends on the soft green above the white
+  footer; a record reads white body, then sources on the same green, and every band uses that one green.
+
 ## 2.7.3 — 2026-11-28
 
 Every page of a kind now reads in the same order, in every country, so the last digit moves.
