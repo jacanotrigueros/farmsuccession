@@ -20,9 +20,8 @@ A second search over the five newest countries adds records, so the middle digit
   Romania, the tax exemption on a farm transfer in Hungary, and in Croatia the inheritance and gift tax and
   county aids in Brodsko-posavska and Zagrebačka. Eleven territory pages get their own title and description.
 - The young-farmer aids of Greece, Poland, Croatia and Hungary, and five more aids in Croatia and Poland, show
-  their closed calls, with dates, under the
-  title and on the search card, instead of in a note further down. Romania's DR-30 says first to check whether
-  a session is open, and that no session with dates is published.
+  their closed calls, with dates, under the title and on the search card, instead of in a note further down.
+  Romania's DR-30 says first to check whether a session is open, and that no session with dates is published.
 - Country pages whose header leads to national aid also offer a direct way to choose a territory, so a reader
   on a phone no longer scrolls past the figures and topics to reach the list.
 - The directory now holds 731 records.
