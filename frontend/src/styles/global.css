@@ -220,3 +220,14 @@
 .record-fold[open] > summary .group-chevron {
   transform: rotate(180deg);
 }
+
+/*
+  The sections of a country, territory or European page alternate background, page tint then white, so each
+  reads apart (founder, 28 Nov 2026). The rhythm follows the order of the sections shown, so a page without
+  one of them still alternates. The white runs the full width while the content keeps the page's column.
+*/
+main > section.band:nth-of-type(even) {
+  background: var(--color-card);
+  box-shadow: 0 0 0 100vmax var(--color-card);
+  clip-path: inset(0 -100vmax);
+}

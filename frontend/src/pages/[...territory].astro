@@ -453,7 +453,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
     territory reads own → wider layers → needs, and Europe reads its resources → countries → comparison.
   */}
   {(children.length > 0 || groupings.length > 0) && (
-    <section class="wrap border-t border-line py-12" aria-labelledby="territories">
+    <section class="band wrap border-t border-line py-12" aria-labelledby="territories">
       <Fold>
         <h2 slot="heading" id="territories" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
           <Icon name={ICON.territory} aria-hidden="true" class="size-6 shrink-0 text-brand" />
@@ -500,7 +500,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
   )}
 
   {isCountry && (
-    <section class="border-t border-line" aria-labelledby="needs">
+    <section class="band border-t border-line" aria-labelledby="needs">
       <div class="wrap py-12">
         <Fold>
           <h2 slot="heading" id="needs" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
@@ -523,7 +523,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
   )}
 
   {showOwn && (
-    <section class="wrap border-t border-line py-12" aria-labelledby="own">
+    <section class="band wrap border-t border-line py-12" aria-labelledby="own">
       {/* Every list of resources folds from its own heading, the same way on every page (founder, 28 Nov 2026). */}
       <details class="record-fold" open>
         <summary class="flex min-h-(--spacing-target) cursor-pointer list-none items-center gap-3">
@@ -585,7 +585,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
   {inheritedCount > 0 && <InheritedResources {...inheritedProps} />}
 
   {!isCountry && !isEurope && (
-    <section class="border-t border-line" aria-labelledby="needs">
+    <section class="band border-t border-line" aria-labelledby="needs">
       <div class="wrap py-12">
         <Fold>
           <h2 slot="heading" id="needs" class="flex scroll-mt-6 items-center gap-3 text-2xl font-bold">
@@ -609,7 +609,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
   {isEurope && (
     <>
-      <section class="border-t border-line" aria-labelledby="countries">
+      <section class="band border-t border-line" aria-labelledby="countries">
         <div class="wrap py-12">
           <Fold>
             <h2 slot="heading" id="countries" class="scroll-mt-6 text-2xl font-bold">
@@ -628,7 +628,7 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
 
   <StandaloneNews items={territory.data.news} language={language} locale={locale} />
 
-  <section class="wrap border-t border-line py-8" aria-labelledby="coverage">
+  <section class="band wrap border-t border-line py-8" aria-labelledby="coverage">
     <h2 id="coverage" class="flex scroll-mt-6 items-center gap-2 text-lg font-bold">
       <Icon name={ICON.sources} aria-hidden="true" class="size-5 shrink-0 text-brand" />
       {text.sourcesTitle}

@@ -626,14 +626,20 @@ test("a country's EU list says what and how many once, not again in a second hea
   }
 });
 
-test("every section of a page sits on the same background, separated by the same rule", () => {
+test("the sections of a page alternate background in one regular rhythm", () => {
+  const css = readFileSync(path.join(DIST, "..", "src", "styles", "global.css"), "utf8");
+  assert.match(
+    css,
+    /main > section\.band:nth-of-type\(even\)\s*\{[^}]*background: var\(--color-card\)/u,
+    "even sections get the white band",
+  );
   for (const route of ["es", "gr", "at", "eu"]) {
     const html = htmlAt(route);
     for (const [, classes] of html.matchAll(
-      /<section\b[^>]*class="([^"]*)"[^>]*aria-labelledby="(?:territories|needs|own|inherited|countries|country-context|age-comparison|news)"/gu,
+      /<section\b[^>]*class="([^"]*)"[^>]*aria-labelledby="(?:territories|needs|own|inherited|countries|country-context|age-comparison|news|coverage)"/gu,
     )) {
-      assert.doesNotMatch(classes!, /\bbg-/u, `${route}: a section on its own background breaks the page's rhythm (founder, 28 Nov 2026)`);
-      assert.match(classes!, /\bborder-t\b/u, `${route}: every section opens with the same rule`);
+      assert.match(classes!, /\bband\b/u, `${route}: every section takes part in the alternation (founder, 28 Nov 2026)`);
+      assert.doesNotMatch(classes!, /\bbg-/u, `${route}: a section's own background would break the alternation`);
     }
   }
 });
