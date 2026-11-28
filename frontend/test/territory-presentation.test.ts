@@ -630,8 +630,8 @@ test("the sections of a page alternate background in one regular rhythm", () => 
   const css = readFileSync(path.join(DIST, "..", "src", "styles", "global.css"), "utf8");
   assert.match(
     css,
-    /main > section\.band:nth-of-type\(even\)\s*\{[^}]*background: var\(--color-card\)/u,
-    "even sections get the white band",
+    /main > section\.band:nth-last-of-type\(even\)\s*\{[^}]*background: var\(--color-card\)/u,
+    "counted from the last section, every other one is white, so a page ends on the tint above the white footer (founder, 28 Nov 2026)",
   );
   for (const route of ["es", "gr", "at", "eu"]) {
     const html = htmlAt(route);
