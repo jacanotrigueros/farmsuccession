@@ -9,7 +9,7 @@ import { published } from "./public-corpus.ts";
 import { ancestorLayers, layerKey, leafLayers, snapshotLayer } from "../../src/layers.ts";
 import { loadTerritories } from "../../src/territories.ts";
 import { recordSlug, regionSlug, searchPath } from "../public/search-scope.js";
-import { isFirstEstablishmentAid } from "../src/lib/goals.ts";
+import { isAppliedFor, isFirstEstablishmentAid } from "../src/lib/goals.ts";
 import { counted, words } from "../src/lib/words.ts";
 
 const DIST = path.join(import.meta.dirname, "..", "dist");
@@ -358,8 +358,8 @@ test("documented access stays with the offer and official PDF links disclose the
       const label = overview.slice(official, overview.indexOf("</a>", official));
       assert.equal(
         label.includes(" (PDF)"),
-        new URL(resource.accessUrl).pathname.toLowerCase().endsWith(".pdf"),
-        `${url}: label a PDF destination from its URL without guessing the format of other documents`,
+        resource.accessFormat === "PDF" || new URL(resource.accessUrl).pathname.toLowerCase().endsWith(".pdf"),
+        `${url}: label a PDF destination from its URL or its declared format, without guessing the format of other documents`,
       );
     }
   }
@@ -419,7 +419,7 @@ test("the access instructions link only the literal emails they already contain"
   assert.ok(checked > 0, "the built records must exercise links inside access instructions");
 });
 
-test("the active-status note remains only where an active resource has no documented call", () => {
+test("the active-status note remains only where an active resource one applies to has no documented call", () => {
   for (const { data } of snapshots) {
     const note = words(data.metadata.language).statusExplained;
     for (const resource of data.resources) {
@@ -427,8 +427,8 @@ test("the active-status note remains only where an active resource has no docume
       const html = htmlAt(url);
       assert.equal(
         html.includes(note),
-        resource.status === "ACTIVE" && !resource.calls?.length,
-        `${url}: keep the qualification when the active badge stands alone, and let dated call answers speak for themselves`,
+        resource.status === "ACTIVE" && !resource.calls?.length && isAppliedFor(resource),
+        `${url}: keep the qualification when the active badge of something one applies to stands alone; dated calls speak for themselves, and tax or legal information has no call (Sol, review of 2.7.0)`,
       );
     }
   }

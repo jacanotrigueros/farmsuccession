@@ -47,7 +47,7 @@ import { GOALS, isFirstEstablishmentAid } from "../lib/goals.ts";
 import { flagOf, ICON } from "../lib/icons.ts";
 import { dateIn } from "../lib/language.ts";
 import { kindLabel } from "../lib/vocabulary.ts";
-import { counted, editionNamed, type Forms, words } from "../lib/words.ts";
+import { counted, editionNamed, formIndex, type Forms, words } from "../lib/words.ts";
 import { queryFromState, searchPath, searchUrl } from "../../public/search-scope.js";
 
 export function getStaticPaths() {
@@ -248,7 +248,7 @@ const kinds = [...new Set([...own, ...inheritedGroups.flatMap(({ items }) => ite
 const narrows = kinds.length > 1 && !isCountry && showOwn;
 
 /** The heading of the records this territory recorded, and the sentence under a country's own. */
-const alsoTitle = (inheritedCount === 1 ? inheritedForms[0] : inheritedForms[1])
+const alsoTitle = (inheritedForms[formIndex(inheritedCount, locale, inheritedForms.length)] ?? inheritedForms[1])
   .replace("{count}", counted(inheritedCount, text.record, locale))
   .replace("{where}", name);
 
@@ -264,14 +264,22 @@ const alsoTitle = (inheritedCount === 1 ? inheritedForms[0] : inheritedForms[1])
  * filter does not change, and they sit above the control that narrows the lists.
  */
 const saying = (template: string, word: string) => template.replace("{count}", `{n} ${word}`).replace("{where}", name);
-const howMany = (one: string, many = one): Record<string, string> =>
-  narrows ? { "data-figure": "", "data-one": saying(one, text.record[0]), "data-many": saying(many, text.record[1]) } : {};
+// Polish and Croatian count in three forms (1 zasób, 2 zasoby, 5 zasobów); the figure carries all three.
+const howMany = (one: string, few = one, many = few): Record<string, string> =>
+  narrows
+    ? {
+        "data-figure": "",
+        "data-one": saying(one, text.record[0]),
+        "data-few": saying(few, text.record[1]),
+        "data-many": saying(many, text.record[2] ?? text.record[1]),
+      }
+    : {};
 const recordCount = howMany("{count}");
 const inheritedProps = {
   title: alsoTitle,
   lead: isCountry ? text.euAppliesLead : text.alsoAppliesLead,
   groups: inheritedGroups,
-  headingCount: howMany(inheritedForms[0], inheritedForms[1]),
+  headingCount: howMany(inheritedForms[0], inheritedForms[1], inheritedForms[2] ?? inheritedForms[1]),
   recordCount,
   language,
   locale,

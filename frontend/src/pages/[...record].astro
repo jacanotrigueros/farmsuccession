@@ -55,7 +55,7 @@ import {
   type Resource,
   type Territory,
 } from "../lib/corpus.ts";
-import { goalOf } from "../lib/goals.ts";
+import { goalOf, isAppliedFor, isPdf } from "../lib/goals.ts";
 import { namesPlace, shortTitleTail } from "../lib/place-name.ts";
 import { snippet } from "../lib/snippet.ts";
 import { codesInBrackets, recordSubdivisions, titleWithCodes } from "../lib/subdivision.ts";
@@ -503,8 +503,8 @@ const browseHere = searchUrl("/", {
             <StatusTag status={resource.status} language={language} quiet={(resource.calls?.length ?? 0) > 0} />
           </span>
         </p>
-        {/* A record without a documented call still needs to explain what the active badge means. */}
-        {resource.status === "ACTIVE" && periods.length === 0 && (
+        {/* A record one applies to, without a documented call, still needs to explain what the active badge means. */}
+        {resource.status === "ACTIVE" && periods.length === 0 && isAppliedFor(resource) && (
           <p class="meta mt-2 max-w-3xl" data-pagefind-ignore>
             {text.statusExplained}
           </p>
@@ -540,7 +540,7 @@ const browseHere = searchUrl("/", {
           <a href={resource.accessUrl} rel="noopener" class="btn btn-primary">
             <Icon name={ICON.external} aria-hidden="true" class="size-5 shrink-0" />
             {text.officialPage}
-            {new URL(resource.accessUrl).pathname.toLowerCase().endsWith(".pdf") && " (PDF)"}
+            {isPdf(resource) && " (PDF)"}
             <span class="sr-only"> ({text.externalSite})</span>
           </a>
           <a href="#evidence" class="btn btn-quiet">

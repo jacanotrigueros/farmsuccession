@@ -7,6 +7,9 @@
  * does, because the query cannot name it. A `country` in the query string is ignored here, and a territory
  * belonging to somewhere else is dropped: `search-scope.js` holds that rule, and this page and the
  * reader's browser both read it from there.
+ *
+ * Nearest first, as a territory filter already lists: the country, its groupings and regions, then the
+ * European layer. An empty Polish search used to open on EU records in English.
  */
 import SearchView from "../../components/SearchView.astro";
 import SiteLayout from "../../layouts/SiteLayout.astro";
@@ -30,10 +33,10 @@ const iso = territory.layer.level === "EU" ? "" : territory.layer.country;
 
 const europe = euTerritory();
 const inside = [
-  ...(europe ? [europe] : []),
   territory,
   ...hubTerritories().filter(({ layer }) => layer.level === "HUB" && layer.country === iso),
   ...regionsOf(iso),
+  ...(europe ? [europe] : []),
 ];
 const listed: Listed[] = inside.flatMap((from) =>
   from.data.resources.map((resource) => ({ resource, from, inherited: from !== territory })),

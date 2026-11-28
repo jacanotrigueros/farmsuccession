@@ -199,6 +199,10 @@ export interface Resource {
    */
   accessUrl: string;
   /**
+   * Set only when accessUrl downloads a PDF although its address does not end in .pdf (a file service with a query string), so the link can say so. An address ending in .pdf needs nothing.
+   */
+  accessFormat?: "PDF";
+  /**
    * Public institutional channels that let a reader act without reopening every source. Omit rather than guess one.
    */
   contactPoints?: ContactPoint[];
