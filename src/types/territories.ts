@@ -98,6 +98,10 @@ export interface Hub {
    */
   name: string;
   /**
+   * The heading a hub's own page gives the list of its members, in the jurisdiction's language, where the national heading would name the wrong level (Canarias lists islands, not autonomous communities).
+   */
+  membersTitle?: string;
+  /**
    * Slugs of the regions in this hub. A single-member hub repeats that region's slug as its own.
    *
    * @minItems 1

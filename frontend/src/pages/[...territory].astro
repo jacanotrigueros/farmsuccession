@@ -41,6 +41,7 @@ import {
   localeOf,
   pageOf,
   regionsOf,
+  territories,
   type Territory,
   view,
 } from "../lib/corpus.ts";
@@ -190,8 +191,10 @@ const metaDescription = isEurope
     : (territory.data.metaDescription ?? snippet(territory.data.summary, codesText ? `${name}${codesText} · ` : ""));
 /** A country inherits only from the European layer, so its heading can name it instead of "other scopes". */
 const inheritedForms = isCountry ? text.euAppliesIn : text.alsoApplies;
-// One name for the selector in every country, whatever its aid looks like (Sol's review of coherence).
-const territoriesTitle = text.installTerritoriesTitle;
+// One name for the selector in every country, whatever its aid looks like (Sol's review of coherence). A
+// grouping whose members are not the country's hubs names them as the catalogue does (Canarias: islands).
+const hubEntry = hubSlug === undefined ? undefined : territories.jurisdictions[country]?.hubs.find(({ slug }) => slug === hubSlug);
+const territoriesTitle = hubEntry?.membersTitle ?? text.installTerritoriesTitle;
 
 /** The strip names the sections it leads to. Coverage closes the page and is not one of its answers. */
 /** The strip names the sections in the order the page shows them (see the sequence in the body). */
@@ -288,7 +291,6 @@ const inheritedProps = {
   language,
   locale,
   country: country || undefined,
-  first: inheritedFirst,
 };
 
 /**
@@ -629,37 +631,43 @@ const reportQuery = new URLSearchParams({ type: "missing", territory: name, from
   <StandaloneNews items={territory.data.news} language={language} locale={locale} />
 
   <section class="band wrap border-t border-line py-8" aria-labelledby="coverage">
-    <h2 id="coverage" class="flex scroll-mt-6 items-center gap-2 text-lg font-bold">
-      <Icon name={ICON.sources} aria-hidden="true" class="size-5 shrink-0 text-brand" />
-      {text.sourcesTitle}
-    </h2>
-    {inheritedFirst && <p class="mt-2 max-w-5xl">{text.noneOwn.replace("{where}", name)}</p>}
-    <p class="mt-2 max-w-5xl text-muted">{text.sourcesLead}</p>
-    {territory.data.limitations.length > 0 && (
-      <ul id="limits" class="mt-2 list-disc space-y-1 ps-6 text-muted" aria-label={text.notCoveredYet}>
-        {territory.data.limitations.map((limitation) => (
-          <li>{limitation}</li>
-        ))}
-      </ul>
-    )}
-    <div class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
-      <a class="btn btn-quiet" rel="nofollow" href={`${reportPath}?${reportQuery}`}>
-        {text.reportOpenForm}
-      </a>
-      {isCountry && (
-        <a class="inline-flex min-h-(--spacing-target) items-center underline" href={`/${country.toLowerCase()}/${text.aboutSlug}/#method`}>
-          {text.methodTitle}
-        </a>
+    <Fold>
+      <h2 slot="heading" id="coverage" class="flex scroll-mt-6 items-center gap-2 text-lg font-bold">
+        <Icon name={ICON.sources} aria-hidden="true" class="size-5 shrink-0 text-brand" />
+        {text.sourcesTitle}
+      </h2>
+      {inheritedFirst && <p class="mt-2 max-w-5xl">{text.noneOwn.replace("{where}", name)}</p>}
+      <p class="mt-2 max-w-5xl text-muted">{text.sourcesLead}</p>
+      {territory.data.limitations.length > 0 && (
+        <ul id="limits" class="mt-2 list-disc space-y-1 ps-6 text-muted" aria-label={text.notCoveredYet}>
+          {territory.data.limitations.map((limitation) => (
+            <li>{limitation}</li>
+          ))}
+        </ul>
       )}
-    </div>
-    {!isCountry && (
-      <p class="meta mt-6">
-        {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
-        <time datetime={territory.data.published}>{dateIn(territory.data.published, locale)}</time>
-      </p>
-    )}
+      <div class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+        <a class="btn btn-quiet" rel="nofollow" href={`${reportPath}?${reportQuery}`}>
+          {text.reportOpenForm}
+        </a>
+        {isCountry && (
+          <a
+            class="inline-flex min-h-(--spacing-target) items-center underline"
+            href={`/${country.toLowerCase()}/${text.aboutSlug}/#method`}
+          >
+            {text.methodTitle}
+          </a>
+        )}
+      </div>
+      {!isCountry && (
+        <p class="meta mt-6">
+          {editionNamed(currentEdition, language)} · {text.publishedOn}{" "}
+          <time datetime={territory.data.published}>{dateIn(territory.data.published, locale)}</time>
+        </p>
+      )}
+    </Fold>
   </section>
   {narrows && <script is:inline type="module" src="/filter.js" defer />}
+  <script is:inline type="module" src="/fold.js" defer></script>
 </SiteLayout>
 
 <style>

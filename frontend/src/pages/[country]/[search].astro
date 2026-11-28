@@ -13,7 +13,7 @@
  */
 import SearchView from "../../components/SearchView.astro";
 import SiteLayout from "../../layouts/SiteLayout.astro";
-import { countryTerritories, euTerritory, hubTerritories, languageOf, regionsOf, type Territory } from "../../lib/corpus.ts";
+import { countryTerritories, euTerritory, hubTerritories, languageOf, regionsOf, view, type Territory } from "../../lib/corpus.ts";
 import { facetsFor, type Listed } from "../../lib/facets.ts";
 import { bundleLanguages } from "../../lib/catalogue-order.ts";
 import { words } from "../../lib/words.ts";
@@ -43,6 +43,22 @@ const listed: Listed[] = inside.flatMap((from) =>
 );
 
 const languages = bundleLanguages(inside, languageOf);
+
+/**
+ * The groupings of this country and the regions each holds, so a search started from Canarias says it is
+ * searching Canarias rather than the whole country while it filters by the seven islands (Sol, 28 Nov 2026).
+ */
+const hubs = hubTerritories()
+  .filter(({ layer }) => layer.level === "HUB" && layer.country === iso)
+  .map((hub) => ({
+    name: hub.data.officialName,
+    regions: regionsOf(iso)
+      .filter((region) =>
+        view(region).layers.some(({ layer }) => layer.level === "HUB" && hub.layer.level === "HUB" && layer.hub === hub.layer.hub),
+      )
+      .flatMap(({ layer }) => (layer.level === "REGION" ? [`${iso}/${layer.region}`] : [])),
+  }))
+  .filter(({ regions }) => regions.length > 1);
 const name = territory.data.officialName;
 const title = text.searchHere.replace("{where}", name);
 ---
@@ -67,5 +83,6 @@ const title = text.searchHere.replace("{where}", name);
     facets={facetsFor(listed, language, iso)}
     languages={languages}
     inherits={["EU"]}
+    hubs={hubs}
   />
 </SiteLayout>

@@ -386,7 +386,7 @@ test("each on-page index link keeps a full tap target even if its label is short
   // Only records carry the strip now (founder, 28 Nov 2026); an Austrian record exercises its short links.
   const austria = snapshots.find(({ data }) => "country" in data && data.country === "AT" && !("region" in data))!;
   const html = htmlAt(resourceUrl(austria.data.resources[0]!.id, "AT"));
-  const index = /<nav\b[^>]*class="border-y border-line bg-page"[^>]*>([\s\S]*?)<\/nav>/u.exec(html)?.[1] ?? "";
+  const index = /<nav\b[^>]*class="page-index border-y border-line bg-page"[^>]*>([\s\S]*?)<\/nav>/u.exec(html)?.[1] ?? "";
   const links = [...index.matchAll(/<a href="(#[^"]+)" class="([^"]+)"/gu)];
   assert.ok(links.length > 0, "an Austrian record must exercise the index links");
   for (const [, href, classes] of links) {
@@ -592,7 +592,7 @@ test("country, territory and EU pages fold every list of resources from its head
     const html = htmlAt(route);
     assert.doesNotMatch(
       html,
-      /<nav\b[^>]*class="border-y border-line bg-page"[^>]*>\s*<div[^>]*>\s*<span/u,
+      /<nav\b[^>]*class="page-index border-y border-line bg-page"[^>]*>\s*<div[^>]*>\s*<span/u,
       `${route}: the strip shows links only, without a visible «On this page» label (founder, 28 Nov 2026)`,
     );
     for (const id of ["own", "inherited"]) {
@@ -648,4 +648,64 @@ test("a record alternates like every other page: white body, tinted sources abov
   const html = htmlAt(resourceUrl("at-niederlassung-junglandwirte", "AT"));
   assert.match(html, /<div class="band-card wrap grid/u, "the body with «who can use it» sits on white (founder, 28 Nov 2026)");
   assert.match(html, /<section class="border-t border-line"[^>]*aria-labelledby="evidence"/u, "the sources sit on the page tint");
+});
+
+test("a grouping names its own members: Canarias lists islands, not autonomous communities", () => {
+  const html = htmlAt("es/regiones/canarias");
+  assert.match(
+    html,
+    /id="territories"[^>]*>[\s\S]{0,400}Ayudas y recursos por isla/u,
+    "Canarias's selector says islands (Sol, 28 Nov 2026)",
+  );
+  assert.doesNotMatch(html, /Ayudas y recursos por comunidad autónoma/u, "a grouping never borrows the country's level name");
+  assert.match(htmlAt("es"), /Ayudas y recursos por comunidad autónoma/u, "Spain itself still lists autonomous communities");
+});
+
+test("every band folds from its heading: other scopes as a whole, and the sources", () => {
+  for (const route of ["es/regiones/canarias", "es", "eu"]) {
+    const html = htmlAt(route);
+    assert.match(
+      html,
+      /<details class="record-fold"[^>]*open[^>]*>\s*<summary[^>]*>\s*<h2[^>]*id="coverage"/u,
+      `${route}: sources and dates fold (Sol, 28 Nov 2026)`,
+    );
+  }
+  assert.match(
+    htmlAt("es/regiones/canarias"),
+    /<details class="record-fold"[^>]*open[^>]*>\s*<summary[^>]*>\s*<h2 id="inherited"/u,
+    "several wider layers fold as one band, each still folding inside it",
+  );
+  assert.match(
+    htmlAt(resourceUrl("at-niederlassung-junglandwirte", "AT")),
+    /<details class="record-fold"[^>]*open[^>]*>\s*<summary[^>]*>\s*<h2[^>]*id="evidence"/u,
+    "a record's sources fold too",
+  );
+});
+
+test("a page with folds ships the script that opens the one a link leads to", () => {
+  for (const route of ["es/regiones/canarias", "es", "eu", resourceUrl("at-niederlassung-junglandwirte", "AT")]) {
+    assert.match(htmlAt(route), /<script[^>]*src="\/fold\.js"/u, `${route}: a jump to a folded section opens it (Sol, 28 Nov 2026)`);
+  }
+});
+
+test("the strip and the first band never share a background, and the home page ends on the tint", () => {
+  const css = readFileSync(path.join(DIST, "..", "src", "styles", "global.css"), "utf8");
+  assert.match(css, /main > nav\.page-index:has\(\+ section\.band:nth-last-of-type\(odd\)\)\s*\{[^}]*background: var\(--color-card\)/u);
+  const home = htmlAt("");
+  // The home page keeps its own bands, white hero then tinted countries, and its last band takes the same soft
+  // green so it ends on the tint above the white footer (Sol, 28 Nov 2026).
+  assert.match(home, /<section class="border-b border-line"[^>]*aria-labelledby="countries"/u);
+  assert.doesNotMatch(
+    home,
+    /<section class="[^"]*bg-card[^"]*"[^>]*aria-labelledby="needs"/u,
+    "and so ends on the tint above the white footer",
+  );
+});
+
+test("a national search knows its groupings, so one started from Canarias names it", () => {
+  const raw = readFileSync(path.join(DIST, "es", "buscar", "index.html"), "utf8");
+  const strings = JSON.parse(decodeHTML(/data-strings="([^"]*)"/u.exec(raw)![1]!)) as { hubs: { name: string; regions: string[] }[] };
+  const canarias = strings.hubs.find(({ name }) => name === "Canarias");
+  assert.ok(canarias, "Spain's search carries Canarias as a grouping");
+  assert.equal(canarias.regions.length, 7, "with its seven islands");
 });

@@ -10,7 +10,8 @@
  * Then the page proper, in two columns: what a reader does with it on the left — the application periods,
  * how to get it, who it is for, the published figures, what happened to it this year — and the structured
  * facts beside it, as a panel rather than a section, because they are what the record is rather than
- * something to read in order. The evidence closes the page, full width, never folded away.
+ * something to read in order. The evidence closes the page, full width, folding from its heading like every
+ * other section (Sol, 28 Nov 2026); it is open until a reader closes it.
  *
  * A record has exactly one page, under the country that recorded it. Every territory that inherits the
  * record links here rather than carrying a copy of the evidence at an address of its own.
@@ -31,6 +32,7 @@ import FactList from "../components/FactList.astro";
 import KindTag from "../components/KindTag.astro";
 import StatusTag from "../components/StatusTag.astro";
 import SourceRef from "../components/SourceRef.astro";
+import Fold from "../components/Fold.astro";
 import PageIndex from "../components/PageIndex.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import {
@@ -829,13 +831,15 @@ const browseHere = searchUrl("/", {
 
     <section class="border-t border-line" aria-labelledby="evidence">
       <div class="wrap py-12">
-        <h2 id="evidence" class="flex scroll-mt-6 items-center gap-2 text-2xl font-bold">
-          <Icon name={ICON.evidence} aria-hidden="true" class="size-7 shrink-0 text-brand" />
-          {text.evidenceTitle}
-        </h2>
-        <div class="mt-2">
-          <Evidence sources={resource.sources} language={language} locale={locale} />
-        </div>
+        <Fold>
+          <h2 slot="heading" id="evidence" class="flex scroll-mt-6 items-center gap-2 text-2xl font-bold">
+            <Icon name={ICON.evidence} aria-hidden="true" class="size-7 shrink-0 text-brand" />
+            {text.evidenceTitle}
+          </h2>
+          <div class="mt-2">
+            <Evidence sources={resource.sources} language={language} locale={locale} />
+          </div>
+        </Fold>
       </div>
     </section>
 
@@ -865,4 +869,5 @@ const browseHere = searchUrl("/", {
       </p>
     </section>
   </div>
+  <script is:inline type="module" src="/fold.js" defer></script>
 </SiteLayout>

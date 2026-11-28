@@ -19,7 +19,7 @@ import { resultDescription, setResultLanguage } from "/result-description.js";
  */
 import { resourcePlace } from "/resource-place.js";
 import { createEngine } from "/search-engine.js";
-import { effectiveFilters, europeanSearch, facetsOf, queryFromState, scopeFromPath, stateFromQuery } from "/search-scope.js";
+import { effectiveFilters, europeanSearch, facetsOf, queryFromState, scopeFromPath, scopeName, stateFromQuery } from "/search-scope.js";
 import { localToday, onLocalDayChange, rankedPeriods } from "/apply.js";
 import { counted as countIn, dateIn, numberIn } from "/locale.js";
 
@@ -290,7 +290,13 @@ if (form && state && resultsList && everything && template && askBlock && filter
   function nameScope(selected) {
     if (!pageTitle) return;
     const places = selected.territory ?? [];
-    pageTitle.textContent = places.length === 1 ? words.scoped.replace("{where}", labelOf("territory", places[0])) : headingAsBuilt;
+    const hub = scopeName(places, words.hubs);
+    pageTitle.textContent =
+      places.length === 1
+        ? words.scoped.replace("{where}", labelOf("territory", places[0]))
+        : hub
+          ? words.scoped.replace("{where}", hub)
+          : headingAsBuilt;
   }
 
   async function run({ push = true } = {}) {

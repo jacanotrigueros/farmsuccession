@@ -45,8 +45,10 @@ type Props = {
   facets: Facet[];
   languages: string[];
   inherits: string[];
+  /** A country's groupings and the regions each holds, so choosing all of one names it. */
+  hubs?: { name: string; regions: string[] }[];
 };
-const { language, crumbs, title, place, country, listed, facets, languages, inherits } = Astro.props;
+const { language, crumbs, title, place, country, listed, facets, languages, inherits, hubs = [] } = Astro.props;
 const text = words(language);
 
 /**
@@ -108,6 +110,7 @@ const strings = {
   pageOf: text.pageOf,
   range: text.shownRange,
   scoped: text.searchHere,
+  hubs,
   pageLabel: text.pageLabel,
   previous: text.previousPage,
   next: text.nextPage,
