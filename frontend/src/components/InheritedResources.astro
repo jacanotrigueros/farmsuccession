@@ -20,7 +20,7 @@ const { title, lead, groups, headingCount, recordCount, language, locale, countr
 const text = words(language);
 ---
 
-<section class:list={["wrap pb-12", first && "pt-12"]} aria-labelledby="inherited">
+<section class="band wrap border-t border-line py-12" aria-labelledby="inherited">
   {groups.length === 1 ? (
     // One layer (Europe's, on a country page): the section heading already says what and how many, so it is
     // the fold itself. A second heading «European Union · 8 resources» under it only repeated it (founder,
@@ -62,12 +62,3 @@ const text = words(language);
     </>
   )}
 </section>
-
-<style>
-  .record-fold > summary::-webkit-details-marker {
-    display: none;
-  }
-  .record-fold[open] > summary :global(.group-chevron) {
-    transform: rotate(180deg);
-  }
-</style>

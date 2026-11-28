@@ -592,8 +592,8 @@ test("country, territory and EU pages fold every list of resources from its head
     const html = htmlAt(route);
     assert.doesNotMatch(
       html,
-      /<nav\b[^>]*class="border-y border-line bg-page"/u,
-      `${route}: the «On this page» strip is gone (founder, 28 Nov 2026)`,
+      /<nav\b[^>]*class="border-y border-line bg-page"[^>]*>\s*<div[^>]*>\s*<span/u,
+      `${route}: the strip shows links only, without a visible «On this page» label (founder, 28 Nov 2026)`,
     );
     for (const id of ["own", "inherited"]) {
       const at = html.indexOf(`aria-labelledby="${id}"`);
@@ -624,4 +624,28 @@ test("a country's EU list says what and how many once, not again in a second hea
       `${layer.country}: one heading over the EU list (founder: «Unión Europea · 8 recursos» repeated it)`,
     );
   }
+});
+
+test("the sections of a page alternate background in one regular rhythm", () => {
+  const css = readFileSync(path.join(DIST, "..", "src", "styles", "global.css"), "utf8");
+  assert.match(
+    css,
+    /main > section\.band:nth-last-of-type\(even\)\s*\{[^}]*background: var\(--color-card\)/u,
+    "counted from the last section, every other one is white, so a page ends on the tint above the white footer (founder, 28 Nov 2026)",
+  );
+  for (const route of ["es", "gr", "at", "eu"]) {
+    const html = htmlAt(route);
+    for (const [, classes] of html.matchAll(
+      /<section\b[^>]*class="([^"]*)"[^>]*aria-labelledby="(?:territories|needs|own|inherited|countries|country-context|age-comparison|news|coverage)"/gu,
+    )) {
+      assert.match(classes!, /\bband\b/u, `${route}: every section takes part in the alternation (founder, 28 Nov 2026)`);
+      assert.doesNotMatch(classes!, /\bbg-/u, `${route}: a section's own background would break the alternation`);
+    }
+  }
+});
+
+test("a record alternates like every other page: white body, tinted sources above the white footer", () => {
+  const html = htmlAt(resourceUrl("at-niederlassung-junglandwirte", "AT"));
+  assert.match(html, /<div class="band-card wrap grid/u, "the body with «who can use it» sits on white (founder, 28 Nov 2026)");
+  assert.match(html, /<section class="border-t border-line"[^>]*aria-labelledby="evidence"/u, "the sources sit on the page tint");
 });

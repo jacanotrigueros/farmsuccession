@@ -212,3 +212,29 @@
 .kind-bar {
   border-top: 4px solid var(--kind, var(--color-line));
 }
+
+/* Every section folds from its heading the same way (Fold.astro); the chevron turns when it is open. */
+.record-fold > summary::-webkit-details-marker {
+  display: none;
+}
+.record-fold[open] > summary .group-chevron {
+  transform: rotate(180deg);
+}
+
+/*
+  The sections of a country, territory or European page alternate background, page tint then white, so each
+  reads apart (founder, 28 Nov 2026). It counts from the last section, so every page ends on the tint above the
+  white footer, whichever sections it shows. The white runs the full width; the content keeps the column.
+*/
+main > section.band:nth-last-of-type(even) {
+  background: var(--color-card);
+  box-shadow: 0 0 0 100vmax var(--color-card);
+  clip-path: inset(0 -100vmax);
+}
+
+/* A white band across the full width while its content keeps the column (a record's body). */
+.band-card {
+  background: var(--color-card);
+  box-shadow: 0 0 0 100vmax var(--color-card);
+  clip-path: inset(0 -100vmax);
+}
